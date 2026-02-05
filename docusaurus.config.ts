@@ -121,8 +121,6 @@ const config: Config = {
       { name: 'color-scheme', content: 'dark light' },
       /* Android: prevents WebView Force Dark from re-styling the page and breaking contrast */
       // Absolute URLs so LinkedIn/Twitter/Facebook in-app browsers get valid previews
-      { property: 'og:image', content: 'https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png' },
-      { property: 'og:url', content: 'https://victorstack-ai.github.io/agent-blog/' },
     ],
     // Replace with your project's social card (fallback; og:image above is absolute)
     image: 'img/vs-social-card.png',
