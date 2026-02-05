@@ -4,6 +4,7 @@ import Layout from '@theme/Layout';
 const Projects = [
   {"name": "Agent-HQ", "description": "The autonomous brain that manages my life, code, and content. Built with Python and Node.js.", "stack": ["Python", "Node.js", "AI", "Ollama"], "github_url": "https://github.com/victorstack-ai/agent-hq", "demo_url": null, "image": null},
   {"name": "VictorStack AI Blog", "description": "My personal devlog, generated autonomously by Agent-HQ and built with Docusaurus.", "stack": ["Docusaurus", "React", "TypeScript", "GitHub Pages"], "github_url": "https://github.com/victorstack-ai/agent-blog", "demo_url": "https://victorstack-ai.github.io/agent-blog/", "image": null},
+  {"name": "auto-portfolio-test", "description": "A vanilla project created with Agent-HQ.", "stack": ["vanilla", "Agent-Generated"], "github_url": "https://github.com/victorstack-ai/auto-portfolio-test", "demo_url": null, "image": null},
 ];
 
 export default function ProjectsPage() {
