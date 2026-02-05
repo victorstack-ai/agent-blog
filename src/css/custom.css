@@ -10,14 +10,45 @@
   --ifm-color-primary-darker: #1d4ed8;
   --ifm-color-primary-light: #60a5fa;
   --ifm-background-color: #0f172a;
+  /* Default inline code to dark so in-app browser first paint is consistent */
+  --ifm-code-background: #1e293b;
+  --ifm-code-color: #e2e8f0;
+  /* Body text: light so in-app browser (phone) always shows readable letters on dark */
+  --ifm-font-color-base: #e2e8f0;
+  --ifm-font-color-secondary: #94a3b8;
+}
+/* Explicit canvas for in-app WebViews so they never use default white background */
+html,
+body {
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
 }
 [data-theme='dark'] {
   color-scheme: dark;
   --ifm-background-color: #0b1120;
   --ifm-navbar-background-color: #0f172a;
+  --ifm-font-color-base: #e2e8f0;
+  --ifm-font-color-secondary: #94a3b8;
+  /* Inline code: avoid light box in in-app browsers (e.g. ai_agents backticks) */
+  --ifm-code-background: #1e293b;
+  --ifm-code-color: #e2e8f0;
+}
+[data-theme='dark'] code {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border: 1px solid #334155;
 }
 [data-theme='light'] {
   color-scheme: light;
+  --ifm-font-color-base: #1e293b;
+  --ifm-font-color-secondary: #64748b;
+  --ifm-code-background: #f1f5f9;
+  --ifm-code-color: #0f172a;
+}
+[data-theme='light'] code {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  border: none;
 }
 .navbar { border-bottom: 1px solid #1e293b; }
 .footer { border-top: 1px solid #1e293b; }
