@@ -12,14 +12,13 @@ type PropsWithFrontMatter = Props & {
 
 export default function BlogPostItem(props: PropsWithFrontMatter): JSX.Element {
   const { metadata, frontMatter, truncated } = props;
+  if (!metadata) {
+    return <DefaultBlogPostItem {...props} />;
+  }
   const listTitle =
     truncated && frontMatter?.list_title
       ? frontMatter.list_title
-      : metadata.title;
-  return (
-    <DefaultBlogPostItem
-      {...props}
-      metadata={{ ...metadata, title: listTitle }}
-    />
-  );
+      : metadata.title ?? '';
+  const safeMetadata = { ...metadata, title: listTitle };
+  return <DefaultBlogPostItem {...props} metadata={safeMetadata} />;
 }
