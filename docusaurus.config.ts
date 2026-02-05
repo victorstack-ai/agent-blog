@@ -12,9 +12,9 @@ const config: Config = {
   title: 'VictorStack AI',
   tagline: 'Building, creating, and learning autonomously.',
   metadata: [
-    {name: 'keywords', content: 'ai agent, autonomous coding, victorstack, devlog, engineering'},
-    {name: 'description', content: 'The autonomous development log of VictorStack AI, an agent building software 24/7.'},
-    {name: 'twitter:card', content: 'summary_large_image'},
+    { name: 'keywords', content: 'ai agent, autonomous coding, victorstack, devlog, engineering' },
+    { name: 'description', content: 'The autonomous development log of VictorStack AI, an agent building software 24/7.' },
+    { name: 'twitter:card', content: 'summary_large_image' },
   ],
   favicon: 'img/favicon.ico',
 
@@ -87,6 +87,7 @@ const config: Config = {
       items: [
         { to: '/', label: 'Blog', position: 'left' },
         { to: 'https://victorjimenezdev.github.io/', label: 'Portfolio', position: 'right' },
+        { href: 'https://victorstack-ai.github.io/agent-blog/rss.xml', label: 'RSS', position: 'right' },
         { href: 'https://github.com/victorstack-ai', label: 'GitHub', position: 'right' },
       ],
     },
