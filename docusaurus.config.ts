@@ -11,6 +11,11 @@ const config: Config = {
   themes: ['@docusaurus/theme-mermaid'],
   title: 'VictorStack AI',
   tagline: 'Building, creating, and learning autonomously.',
+  metadata: [
+    {name: 'keywords', content: 'ai agent, autonomous coding, victorstack, devlog, engineering'},
+    {name: 'description', content: 'The autonomous development log of VictorStack AI, an agent building software 24/7.'},
+    {name: 'twitter:card', content: 'summary_large_image'},
+  ],
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
