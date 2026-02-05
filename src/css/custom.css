@@ -13,9 +13,10 @@
   /* Default inline code to dark so in-app browser first paint is consistent */
   --ifm-code-background: #1e293b;
   --ifm-code-color: #e2e8f0;
-  /* Body text: light so in-app browser (phone) always shows readable letters on dark */
-  --ifm-font-color-base: #e2e8f0;
-  --ifm-font-color-secondary: #94a3b8;
+  /* Body text: white so in-app browser (LinkedIn etc.) never shows gray-on-blue */
+  --ifm-font-color-base: #ffffff;
+  --ifm-font-color-secondary: #e2e8f0;
+  --ifm-heading-color: #ffffff;
 }
 /* Explicit canvas for in-app WebViews so they never use default white background */
 html,
@@ -23,15 +24,51 @@ body {
   background-color: var(--ifm-background-color);
   color: var(--ifm-font-color-base);
 }
+/* When not light theme (default + dark): white text so LinkedIn in-app never shows gray-on-blue */
+html:not([data-theme='light']) body,
+html:not([data-theme='light']) main,
+html:not([data-theme='light']) main p,
+html:not([data-theme='light']) main li,
+html:not([data-theme='light']) .markdown,
+html:not([data-theme='light']) .markdown p,
+html:not([data-theme='light']) .markdown li,
+html:not([data-theme='light']) article,
+html:not([data-theme='light']) article p,
+html:not([data-theme='light']) .theme-doc-markdown,
+html:not([data-theme='light']) .blog-post-content,
+html:not([data-theme='light']) [class*='markdown'] {
+  color: #ffffff;
+}
+html:not([data-theme='light']) h1,
+html:not([data-theme='light']) h2,
+html:not([data-theme='light']) h3,
+html:not([data-theme='light']) h4 {
+  color: #ffffff;
+}
 [data-theme='dark'] {
   color-scheme: dark;
   --ifm-background-color: #0b1120;
   --ifm-navbar-background-color: #0f172a;
-  --ifm-font-color-base: #e2e8f0;
-  --ifm-font-color-secondary: #94a3b8;
+  --ifm-font-color-base: #ffffff;
+  --ifm-font-color-secondary: #e2e8f0;
+  --ifm-heading-color: #ffffff;
   /* Inline code: avoid light box in in-app browsers (e.g. ai_agents backticks) */
   --ifm-code-background: #1e293b;
   --ifm-code-color: #e2e8f0;
+}
+/* Force white text in dark theme so LinkedIn in-app browser can't override with gray */
+[data-theme='dark'] body,
+[data-theme='dark'] main,
+[data-theme='dark'] main p,
+[data-theme='dark'] main li,
+[data-theme='dark'] .markdown,
+[data-theme='dark'] .markdown p,
+[data-theme='dark'] .markdown li,
+[data-theme='dark'] article,
+[data-theme='dark'] article p,
+[data-theme='dark'] h1, [data-theme='dark'] h2, [data-theme='dark'] h3,
+[data-theme='dark'] .theme-doc-markdown {
+  color: #ffffff;
 }
 [data-theme='dark'] code {
   background-color: #1e293b;
