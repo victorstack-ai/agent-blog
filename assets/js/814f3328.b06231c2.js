@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkwebsite=globalThis.webpackChunkwebsite||[]).push([[7472],{5513(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"devlog","permalink":"/agent-blog/2026/02/05/devlog","unlisted":false,"date":"2026-02-05T00:00:00.000Z"}]}')}}]);
