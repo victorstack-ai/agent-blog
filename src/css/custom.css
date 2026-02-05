@@ -29,3 +29,62 @@
 body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
+
+/* Improved Footer */
+.footer {
+  text-align: center;
+  background-color: #0f172a; /* Ensure dark background */
+}
+
+.footer__links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  list-style: none;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.footer__col {
+  flex: 0 1 auto !important; /* Override docusaurus column width */
+  min-width: auto !important;
+}
+
+.footer__title {
+  display: none; /* Hide the empty title if present */
+}
+
+/* Target the items inside the column to be horizontal? 
+   Docusaurus structure is .footer__col > .footer__items > .footer__item
+*/
+
+.footer__items {
+  display: flex !important;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+}
+
+.footer__item {
+  display: inline-block;
+}
+
+.footer__link-item {
+  font-weight: 500;
+  color: #94a3b8; /* Slate 400 */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer__link-item:hover {
+  color: #3b82f6; /* Blue 500 */
+  text-decoration: none;
+}
+
+.footer__copyright {
+  color: #64748b; /* Slate 500 */
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
