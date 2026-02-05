@@ -9,6 +9,7 @@ authors:
 tags: [drupal, ai, ai-automators, unstructured, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'Reusable integration and QA notes from Droptica’s BetterRegulation AI document processing case study.'
+date: 2026-02-05T09:00:00
 ---
 
 Droptica’s case study on BetterRegulation is a clean example of “AI as an editorial assistant” done with pragmatic engineering. The stack is Drupal 11 + AI Automators for orchestration, Unstructured.io for PDF extraction, and GPT-4o-mini for analysis, with RabbitMQ handling background summaries. The practical value is in their engineering decisions more than the headline metrics. citeturn0search0turn0search1

@@ -59,6 +59,9 @@ const config: Config = {
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
+          postsPerPage: 20,
+          blogSidebarCount: 'ALL',
+          sortPosts: 'descending',
         },
         theme: {
           customCss: './src/css/custom.css',

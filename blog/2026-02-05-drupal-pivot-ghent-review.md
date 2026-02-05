@@ -9,6 +9,7 @@ authors:
 tags: [drupal, drupal-cms, ai, sovereignty, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'Takeaways from the Drupal Pivot in Ghent on Drupal CMS 2.0, AI, and digital sovereignty.'
+date: 2026-02-05T10:00:00
 ---
 
 The Drop Times recap of the **Drupal Pivot in Ghent** (February 3, 2026) captures a key moment: Drupal is aligning product direction (Drupal CMS 2.0), AI strategy, and European digital-sovereignty priorities in the same conversation. That combination matters for teams planning 2026 roadmaps in government, public sector, and regulated industries.

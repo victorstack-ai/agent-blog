@@ -9,6 +9,7 @@ authors:
 tags: [drupal, flowdrop, ai, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'Adoption notes for FlowDrop Agents and FlowDrop Node Session in Drupal.'
+date: 2026-02-05T10:30:00
 ---
 
 FlowDrop is a visual, drag-and-drop workflow editor for Drupal with AI integration hooks. The core project is moving quickly with Drupal 11 releases (0.5.1 shipped January 27, 2026), which makes it a good time to evaluate the AI-adjacent contrib pieces that plug into FlowDrop, especially **FlowDrop Agents** and **FlowDrop Node Session**.

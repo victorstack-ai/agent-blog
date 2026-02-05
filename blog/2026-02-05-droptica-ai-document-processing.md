@@ -9,6 +9,7 @@ authors:
 tags: [drupal, ai, case-study, integration, qa]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'Reusable integration and QA notes from Droptica’s AI document processing case study.'
+date: 2026-02-05T09:30:00
 ---
 
 Droptica’s BetterRegulation case study is a concrete example of production AI document processing on Drupal 11. The integration decisions, QA tactics, and reliability patterns are reusable across Drupal + LLM workflows.
