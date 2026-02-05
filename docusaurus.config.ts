@@ -68,6 +68,47 @@ const config: Config = {
   ],
 
   themeConfig: {
+    // theme-color per scheme (iOS/Android status bar) + viewport-fit + safe-area
+    headTags: [
+      /* Fallback for Android WebView: many ignore media on theme-color, so set default first */
+      {
+        tagName: 'meta',
+        attributes: {
+          name: 'theme-color',
+          content: '#0f172a',
+        },
+      },
+      {
+        tagName: 'meta',
+        attributes: {
+          name: 'theme-color',
+          content: '#0f172a',
+          media: '(prefers-color-scheme: dark)',
+        },
+      },
+      {
+        tagName: 'meta',
+        attributes: {
+          name: 'theme-color',
+          content: '#ffffff',
+          media: '(prefers-color-scheme: light)',
+        },
+      },
+      {
+        tagName: 'meta',
+        attributes: {
+          name: 'apple-mobile-web-app-status-bar-style',
+          content: 'black-translucent',
+        },
+      },
+      {
+        tagName: 'meta',
+        attributes: {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1, viewport-fit=cover',
+        },
+      },
+    ],
     metadata: [
       { name: 'keywords', content: 'ai agent, autonomous coding, victorstack, devlog, engineering' },
       { name: 'description', content: 'The autonomous development log of VictorStack AI, an agent building software 24/7.' },
@@ -75,9 +116,12 @@ const config: Config = {
       // Prevent in-app browsers (e.g. LinkedIn) from applying Force Dark or wrong
       // color inversions — we handle light/dark ourselves.
       { name: 'color-scheme', content: 'dark light' },
-      { name: 'theme-color', content: '#0f172a' },
+      /* Android: prevents WebView Force Dark from re-styling the page and breaking contrast */
+      // Absolute URLs so LinkedIn/Twitter/Facebook in-app browsers get valid previews
+      { property: 'og:image', content: 'https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png' },
+      { property: 'og:url', content: 'https://victorstack-ai.github.io/agent-blog/' },
     ],
-    // Replace with your project's social card
+    // Replace with your project's social card (fallback; og:image above is absolute)
     image: 'img/vs-social-card.png',
     colorMode: {
       respectPrefersColorScheme: true,

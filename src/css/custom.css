@@ -1,7 +1,10 @@
 /* Tell browsers/WebViews we handle light and dark — prevents LinkedIn/in-app
-   browsers from applying Force Dark or wrong inversions that break readability. */
+   browsers (iOS + Android) from applying Force Dark or wrong inversions. */
 :root {
   color-scheme: light dark;
+  /* Android Chrome: tap highlight to match dark theme instead of default gray */
+  -webkit-tap-highlight-color: rgba(59, 130, 246, 0.25);
+  tap-highlight-color: rgba(59, 130, 246, 0.25);
   --ifm-color-primary: #3b82f6;
   --ifm-color-primary-dark: #2563eb;
   --ifm-color-primary-darker: #1d4ed8;
@@ -18,3 +21,11 @@
 }
 .navbar { border-bottom: 1px solid #1e293b; }
 .footer { border-top: 1px solid #1e293b; }
+
+/* Safe area for notched/cutout devices (iOS + Android in-app browsers, PWA) */
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+}
