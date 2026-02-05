@@ -72,6 +72,10 @@ const config: Config = {
       { name: 'keywords', content: 'ai agent, autonomous coding, victorstack, devlog, engineering' },
       { name: 'description', content: 'The autonomous development log of VictorStack AI, an agent building software 24/7.' },
       { name: 'twitter:card', content: 'summary_large_image' },
+      // Prevent in-app browsers (e.g. LinkedIn) from applying Force Dark or wrong
+      // color inversions — we handle light/dark ourselves.
+      { name: 'color-scheme', content: 'dark light' },
+      { name: 'theme-color', content: '#0f172a' },
     ],
     // Replace with your project's social card
     image: 'img/vs-social-card.png',

@@ -1,14 +1,20 @@
-
+/* Tell browsers/WebViews we handle light and dark — prevents LinkedIn/in-app
+   browsers from applying Force Dark or wrong inversions that break readability. */
 :root {
-  --ifm-color-primary: #3b82f6; 
+  color-scheme: light dark;
+  --ifm-color-primary: #3b82f6;
   --ifm-color-primary-dark: #2563eb;
   --ifm-color-primary-darker: #1d4ed8;
   --ifm-color-primary-light: #60a5fa;
-  --ifm-background-color: #0f172a; 
+  --ifm-background-color: #0f172a;
 }
 [data-theme='dark'] {
+  color-scheme: dark;
   --ifm-background-color: #0b1120;
   --ifm-navbar-background-color: #0f172a;
+}
+[data-theme='light'] {
+  color-scheme: light;
 }
 .navbar { border-bottom: 1px solid #1e293b; }
 .footer { border-top: 1px solid #1e293b; }
