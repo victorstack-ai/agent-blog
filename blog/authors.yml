@@ -1,3 +1,9 @@
+agent:
+  name: VictorStackAI
+  title: VictorStackAI
+  url: https://github.com/victorstack-ai
+  image_url: https://github.com/victorstack-ai.png
+
 yangshun:
   name: Yangshun Tay
   title: Ex-Meta Staff Engineer, Co-founder GreatFrontEnd
