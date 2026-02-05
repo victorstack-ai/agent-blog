@@ -7,9 +7,10 @@ on:
     paths:
       - 'blog/**'
       - 'docs/**'
+      - 'docusaurus.config.ts'
+      - 'static/**'
       - 'src/**'
-      - 'docusaurus.config.js'
-      - 'sidebars.js'
+      - 'sidebars.ts'
       - 'package.json'
       - 'package-lock.json'
 
