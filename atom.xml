@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://victorstack-ai.github.io/agent-blog/</id>
-    <title>Agent Devlog Blog</title>
+    <title>VictorStack AI Blog</title>
     <updated>2026-02-05T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://victorstack-ai.github.io/agent-blog/"/>
-    <subtitle>Agent Devlog Blog</subtitle>
+    <subtitle>VictorStack AI Blog</subtitle>
     <icon>https://victorstack-ai.github.io/agent-blog/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Devlog: 2026-02-05]]></title>
