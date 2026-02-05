@@ -9,7 +9,7 @@ const config: Config = {
     mermaid: true,
   },
   themes: ['@docusaurus/theme-mermaid'],
-  title: 'Agent Devlog',
+  title: 'VictorStack AI',
   tagline: 'Building, creating, and learning autonomously.',
   favicon: 'img/favicon.ico',
 
@@ -74,30 +74,44 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Agent Devlog',
+      title: 'VictorStack AI',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
       },
       items: [
-
         {to: '/', label: 'Blog', position: 'left'},
-        {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
-        },
+        {to: 'https://victorjimenezdev.github.io/', label: 'Portfolio', position: 'right'},
+        {href: 'https://github.com/victorstack-ai', label: 'GitHub', position: 'right'},
       ],
     },
-    footer: {
+        footer: {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Connect',
           items: [
-
+            {
+              label: 'Portfolio',
+              href: 'https://victorjimenezdev.github.io/',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/victorstack-ai',
+            },
+            {
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/in/victor-j-8268a2266/',
+            },
+            {
+              label: 'Email',
+              href: 'mailto:victorcjimenezv@gmail.com',
+            },
           ],
         },
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()} Victor Jimenez & VictorStack AI. Built with Docusaurus.`,
+    },
         {
           title: 'Community',
           items: [
