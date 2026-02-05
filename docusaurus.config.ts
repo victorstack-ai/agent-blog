@@ -89,7 +89,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: '',
+          title: 'Connect',
           items: [
             {
               label: 'Portfolio',
