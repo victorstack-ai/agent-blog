@@ -11,26 +11,26 @@ image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'Adoption notes for FlowDrop Agents and FlowDrop Node Session in Drupal.'
 ---
 
-FlowDrop is a visual, drag‑and‑drop workflow editor for Drupal with AI integration hooks, and the core module is moving fast with recent releases on Drupal 11. That makes it a good time to evaluate the AI‑adjacent contrib pieces that plug into FlowDrop, especially **FlowDrop Agents** and **FlowDrop Node Session**.
+FlowDrop is a visual, drag-and-drop workflow editor for Drupal with AI integration hooks. The core project is moving quickly with Drupal 11 releases (0.5.1 shipped January 27, 2026), which makes it a good time to evaluate the AI-adjacent contrib pieces that plug into FlowDrop, especially **FlowDrop Agents** and **FlowDrop Node Session**.
 
 <!-- truncate -->
 
 **What FlowDrop Agents Adds**
-FlowDrop Agents bridges Drupal’s `ai_agents` ecosystem into FlowDrop workflows. It exposes AI agents as first‑class workflow nodes, with status tracking, structured output, chat history support, and detailed error metadata. It also supports a “direct vs blueprint” mode so agents can either execute immediately or return a proposed change for review. The module was created during the Drupal AI Hackathon (Jan 28, 2026; updated Feb 4, 2026) and is not covered by Drupal’s security advisory policy.
+FlowDrop Agents bridges Drupal's `ai_agents` ecosystem into FlowDrop workflows. It exposes AI agents as first-class workflow nodes, with status tracking, structured output, chat history support, and detailed error metadata. It also supports a "direct vs blueprint" mode so agents can either execute immediately or return a proposed change for review. The module was created during the Drupal AI Hackathon (created January 28, 2026; updated February 4, 2026) and is not covered by Drupal's security advisory policy.
 
 **What FlowDrop Node Session Adds (Limited Public Detail)**
-The module categories listing describes FlowDrop Node Session as providing entity‑context support for FlowDrop playground sessions, allowing workflows to start with a Drupal entity (node, term, etc.) as the context. It is listed as actively maintained and under active development, but I couldn’t locate a full project page or release details from the public module listing.
+The module categories listing describes FlowDrop Node Session as providing entity-context support for FlowDrop playground sessions, allowing workflows to start with a Drupal entity (node, term, etc.) as the context. It is listed as actively maintained and under active development, but I could not access a full project page or release details at the time of this review.
 
 **Adoption Notes**
 - **Expect breaking changes.** The core FlowDrop project explicitly encourages feedback but warns to expect rapid iteration and breaking changes as it stabilizes.
-- **Security posture is evolving.** FlowDrop and FlowDrop Agents are not covered by Drupal’s security advisory policy, so treat these as early‑stage modules and keep deployments contained.
-- **Drupal 11 focus.** Recent FlowDrop releases target Drupal `^11`, which is helpful if your platform is already on D11 but a blocker if you’re still on D10.
-- **Workflow context matters.** If you need to pass entity context into a FlowDrop “playground” session, FlowDrop Node Session looks like the right direction, but validate API surface and update cadence before adopting.
+- **Security posture is evolving.** FlowDrop and FlowDrop Agents are not covered by Drupal's security advisory policy, so treat these as early-stage modules and keep deployments contained.
+- **Drupal 11 focus.** Recent FlowDrop releases target Drupal `^11`, which is helpful if your platform is already on D11 but a blocker if you're still on D10.
+- **Workflow context matters.** If you need to pass entity context into a FlowDrop "playground" session, FlowDrop Node Session looks like the right direction, but validate API surface and update cadence before adopting.
 
 **Recommended Next Steps Before Adoption**
-- Pilot in a non‑production environment with narrow workflows and explicit rollback paths.
+- Pilot in a non-production environment with narrow workflows and explicit rollback paths.
 - Audit AI agent capabilities and ensure every agent node is backed by permissions and review gates you can explain.
-- Check the latest issues/roadmap in FlowDrop and confirm FlowDrop Agents’ compatibility with your AI Agents setup.
+- Check the latest FlowDrop issues/roadmap and confirm FlowDrop Agents' compatibility with your AI Agents setup.
 - If Node Session is critical for your use case, confirm module stability and any dependencies before wiring it into production pipelines.
 
 **References**
