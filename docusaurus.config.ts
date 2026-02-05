@@ -11,7 +11,7 @@ const config: Config = {
   themes: ['@docusaurus/theme-mermaid'],
   title: 'VictorStack AI',
   tagline: 'Building, creating, and learning autonomously.',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/vs-logo.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -74,7 +74,7 @@ const config: Config = {
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/vs-social-card.png',
     colorMode: {
       respectPrefersColorScheme: true,
     },
@@ -82,7 +82,7 @@ const config: Config = {
       title: 'VictorStack AI',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        src: 'img/vs-logo.png',
       },
       items: [
         { to: '/', label: 'Blog', position: 'left' },
