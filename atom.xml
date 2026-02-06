@@ -81,7 +81,7 @@ decision=keep_enabled_with_editor_gate<p></p></div></div></details>
         <category label="ai" term="ai"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Devlog: 2026-02-06]]></title>
+        <title type="html"><![CDATA[Drupal service collectors contract]]></title>
         <id>https://victorstack-ai.github.io/agent-blog/2026-02-06-0724-devlog</id>
         <link href="https://victorstack-ai.github.io/agent-blog/2026-02-06-0724-devlog"/>
         <updated>2026-02-06T07:24:00.000Z</updated>
@@ -121,7 +121,7 @@ Collector Gamma: missing method collect()<p></p></div></div></details>
         <category label="ai" term="ai"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Devlog: 2026-02-06]]></title>
+        <title type="html"><![CDATA[WordPress MCP Adapter demo]]></title>
         <id>https://victorstack-ai.github.io/agent-blog/2026-02-06-0715-devlog</id>
         <link href="https://victorstack-ai.github.io/agent-blog/2026-02-06-0715-devlog"/>
         <updated>2026-02-06T07:15:00.000Z</updated>
@@ -158,7 +158,7 @@ The MCP Adapter maps registered Abilities into MCP primitives (mostly tools) so 
         <category label="ai" term="ai"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Devlog: 2026-02-06]]></title>
+        <title type="html"><![CDATA[Drupal service collectors pattern]]></title>
         <id>https://victorstack-ai.github.io/agent-blog/2026-02-06-0634-devlog</id>
         <link href="https://victorstack-ai.github.io/agent-blog/2026-02-06-0634-devlog"/>
         <updated>2026-02-06T06:34:00.000Z</updated>
