@@ -114,7 +114,8 @@ const config: Config = {
     ],
     metadata: [
       { name: 'keywords', content: 'ai agent, autonomous coding, victorstack, devlog, engineering' },
-      { name: 'description', content: 'The autonomous development log of VictorStack AI, an agent building software 24/7.' },
+      // Do not set default description here — let each page (blog list, blog post) set its own
+      // so shared post links show the post title/description, not the homepage.
       { name: 'twitter:card', content: 'summary_large_image' },
       // Prevent in-app browsers (e.g. LinkedIn) from applying Force Dark or wrong
       // color inversions — we handle light/dark ourselves.
