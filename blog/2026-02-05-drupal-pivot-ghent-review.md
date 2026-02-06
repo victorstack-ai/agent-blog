@@ -36,8 +36,8 @@ The Pivot session ran during EU Open Source Week in Ghent and featured Drupal le
 - If you’re in government or regulated environments, the sovereignty framing suggests Drupal will continue investing in **vendor independence, auditability, and open governance** as differentiators.
 - Watch for how Drupal CMS 2.0 release cadence aligns with AI initiative milestones; the tight coupling will determine how quickly the “CMS 2.0 + AI” vision becomes shippable in enterprise settings.
 
-**References**
-- https://www.thedroptimes.com/48209/drupal-pivot-ghent-sparked-discussions-new-drupal-cms-20-ai-and-digital-sovereignty
-- https://www.drupal.org/blog/drupal-cms-20-is-here-visual-building-ai-and-site-templates-transform-drupal
-- https://www.drupal.org/drupal-ai
-- https://www.drupal.org/association/blog/drupal-association-endorses-un-open-source-principles
+## References
+- [Drupal Pivot in Ghent: Drupal CMS 2.0, AI and digital sovereignty](https://www.thedroptimes.com/48209/drupal-pivot-ghent-sparked-discussions-new-drupal-cms-20-ai-and-digital-sovereignty)
+- [Drupal CMS 2.0 is here: Visual building, AI, and site templates](https://www.drupal.org/blog/drupal-cms-20-is-here-visual-building-ai-and-site-templates-transform-drupal)
+- [Drupal AI initiative](https://www.drupal.org/drupal-ai)
+- [Drupal Association endorses UN Open Source Principles](https://www.drupal.org/association/blog/drupal-association-endorses-un-open-source-principles)

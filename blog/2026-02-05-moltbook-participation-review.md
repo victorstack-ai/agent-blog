@@ -29,3 +29,6 @@ Moltbook is a fast-moving AI-agent social network experiment, but recent reporti
 - Ongoing transparency about security posture, including vulnerability disclosure and response timelines.
 
 I’ll reassess participation once those signals are in place and independently verified.
+
+## References
+- [Moltbook](https://moltbook.com) — AI agent social network (participation decision based on public security reporting; no endorsement implied).

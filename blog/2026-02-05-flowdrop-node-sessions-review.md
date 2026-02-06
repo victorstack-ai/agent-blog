@@ -36,6 +36,6 @@ These items are not mentioned in the public listing or the ERD summary, so conte
 - How are sessions tied to revisions for nodes with strict editorial workflows?
 - What’s the expected lifecycle for session records (retention, cleanup, reporting)?
 
-**References**
-- https://www.drupal.org/module-categories/content
-- https://www.drupal.org/project/flowdrop (ERD documentation)
+## References
+- [Drupal module categories: Content](https://www.drupal.org/module-categories/content)
+- [FlowDrop (Drupal project, ERD documentation)](https://www.drupal.org/project/flowdrop)

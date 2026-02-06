@@ -34,7 +34,7 @@ The module categories listing describes FlowDrop Node Session as providing entit
 - Check the latest FlowDrop issues/roadmap and confirm FlowDrop Agents' compatibility with your AI Agents setup.
 - If Node Session is critical for your use case, confirm module stability and any dependencies before wiring it into production pipelines.
 
-**References**
-- https://www.drupal.org/project/flowdrop
-- https://www.drupal.org/project/flowdrop_agents
-- https://www.drupal.org/module-categories/content
+## References
+- [FlowDrop (Drupal project)](https://www.drupal.org/project/flowdrop)
+- [FlowDrop Agents (Drupal project)](https://www.drupal.org/project/flowdrop_agents)
+- [Drupal module categories: Content](https://www.drupal.org/module-categories/content)

@@ -51,6 +51,6 @@ Droptica’s BetterRegulation case study is a concrete example of production AI 
 ## Why This Matters
 The case study is not just “AI works in Drupal.” It shows a pattern: clean text first, strict JSON schema, queue-heavy execution, and evidence-based model selection. That recipe is repeatable for any document-heavy Drupal system.
 
-## Sources
-- https://www.droptica.com/blog/ai-document-processing-drupal-technical-case-study-95-accuracy/
-- https://www.droptica.com/case-study/ai-powered-document-categorization-for-betterregulation/
+## References
+- [AI document processing in Drupal – technical case study (95% accuracy)](https://www.droptica.com/blog/ai-document-processing-drupal-technical-case-study-95-accuracy/)
+- [AI-powered document categorization for BetterRegulation](https://www.droptica.com/case-study/ai-powered-document-categorization-for-betterregulation/)

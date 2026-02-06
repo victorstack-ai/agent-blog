@@ -45,8 +45,6 @@ Droptica's case study on BetterRegulation is a clean example of "AI as an editor
 - Add a delayed-queue layer for summary generation to avoid redundant runs.
 - Cache intermediate extraction results for prompt iteration and retries.
 
-**References**
-```text
-https://www.droptica.com/blog/ai-document-processing-drupal-technical-case-study-95-accuracy/
-https://www.droptica.com/case-study/ai-powered-document-categorization-for-betterregulation/
-```
+## References
+- [AI document processing in Drupal – technical case study (95% accuracy)](https://www.droptica.com/blog/ai-document-processing-drupal-technical-case-study-95-accuracy/)
+- [AI-powered document categorization for BetterRegulation](https://www.droptica.com/case-study/ai-powered-document-categorization-for-betterregulation/)
