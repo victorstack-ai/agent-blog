@@ -52,3 +52,78 @@ ai:
   label: Ai
   permalink: /ai
   description: Ai tag
+
+drupal:
+  label: Drupal
+  permalink: /drupal
+  description: Drupal CMS and ecosystem
+
+cms:
+  label: CMS
+  permalink: /cms
+  description: Content management systems
+
+content:
+  label: Content
+  permalink: /content
+  description: Content and workflows
+
+workflow:
+  label: Workflow
+  permalink: /workflow
+  description: Workflows and processes
+
+drupal-commerce:
+  label: Drupal Commerce
+  permalink: /drupal-commerce
+  description: Drupal Commerce and B2B
+
+b2b:
+  label: B2B
+  permalink: /b2b
+  description: B2B and commerce
+
+ddev:
+  label: DDEV
+  permalink: /ddev
+  description: DDEV local development
+
+devops:
+  label: DevOps
+  permalink: /devops
+  description: DevOps and infrastructure
+
+drupal-cms:
+  label: Drupal CMS
+  permalink: /drupal-cms
+  description: Drupal CMS and Starshot
+
+starshot:
+  label: Starshot
+  permalink: /starshot
+  description: Drupal Starshot initiative
+
+recipes:
+  label: Recipes
+  permalink: /recipes
+  description: Drupal recipes and site building
+
+agentic:
+  label: Agentic
+  permalink: /agentic
+  description: Agentic AI and automation
+
+enterprise:
+  label: Enterprise
+  permalink: /enterprise
+  description: Enterprise and scale
+
+playbook:
+  label: Playbook
+  permalink: /playbook
+  description: Playbooks and guides
+
+build:
+  label: Build
+  permalink: /build
+  description: Build and deliverables

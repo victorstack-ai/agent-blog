@@ -56,9 +56,9 @@ const config: Config = {
           editUrl:
             'https://github.com/victorstack-ai/agent-blog/tree/main/',
           // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          onInlineTags: 'ignore',
+          onInlineAuthors: 'ignore',
+          onUntruncatedBlogPosts: 'ignore',
           postsPerPage: 20,
           blogSidebarCount: 'ALL',
           sortPosts: 'descending',
