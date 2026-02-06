@@ -273,7 +273,7 @@ Example notes I’d keep for a spike:<p></p><ul>
 <li class="">Action: throttled IPs; added monitor to allowlist</li>
 </ul></div></div></details>
 <p><strong>The Code</strong>
-No separate repo for this topic—this is a process pattern, not a code artifact.</p>
+<a href="https://github.com/victorstack-ai/pantheon-traffic-forensics" target="_blank" rel="noopener noreferrer" class="">View Code</a></p>
 <p><strong>What I Learned</strong></p>
 <ul>
 <li class="">These “top traffic patterns” metrics are most useful as a triage trigger, not a reporting dashboard. Use them to decide “block or accept,” then move on.</li>
@@ -434,6 +434,8 @@ AI is no longer a prototyping novelty. It is reshaping how tokens are created, h
 <li class="">Decide if the issue should include a short audio or video summary.</li>
 <li class="">Validate the action timeline with an internal team pilot.</li>
 </ul>
+<p><strong>The Code</strong>
+<a href="https://github.com/victorstack-ai/ui-suite-monthly-33-demo" target="_blank" rel="noopener noreferrer" class="">View Code</a></p>
 <p><strong>References</strong></p>
 <ul>
 <li class=""><a href="https://uisuite.net/" target="_blank" rel="noopener noreferrer" class="">https://uisuite.net</a></li>
@@ -474,6 +476,8 @@ In <code>module-a/composer.json</code>, declare the dependency normally:</p>
 <li class="">If symlinks aren’t supported (some CI environments), set <code>symlink: false</code> or omit the option.</li>
 <li class="">If you forget to remove the path repository before releasing the site, you can accidentally pin to a local path in <code>composer.lock</code>.</li>
 </ul>
+<p><strong>The Code</strong>
+<a href="https://github.com/victorstack-ai/drupal-composer-path-repo-example" target="_blank" rel="noopener noreferrer" class="">View Code</a></p>
 <p><strong>Pragmatic Takeaway</strong>
 Path repositories are a clean way to keep Drupal module dependencies modular while still enabling fast local iteration. It’s worth baking into your development docs so teams don’t reach for ad-hoc copy-paste or vendor tweaks.</p>]]></content:encoded>
             <category>drupal</category>
@@ -786,7 +790,7 @@ I captured a lightweight decision tree:</p>
 <li class="">Send via MailManager using <code>$langcode</code>.</li>
 </ol>
 <p><strong>The Code</strong>
-No separate repo for this topic—these are implementation notes and a blueprint.</p>
+<a href="https://github.com/victorstack-ai/drupal-multilingual-html-email-example" target="_blank" rel="noopener noreferrer" class="">View Code</a></p>
 <p><strong>What I Learned</strong></p>
 <ul>
 <li class="">Mail Composer is a composition layer, not an HTML renderer, so pairing matters.</li>
