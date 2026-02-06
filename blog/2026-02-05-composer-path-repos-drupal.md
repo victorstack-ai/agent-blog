@@ -67,5 +67,8 @@ During development, the path repository overrides that constraint with your loca
 - If symlinks aren’t supported (some CI environments), set `symlink: false` or omit the option.
 - If you forget to remove the path repository before releasing the site, you can accidentally pin to a local path in `composer.lock`.
 
+**The Code**
+[View Code](https://github.com/victorstack-ai/drupal-composer-path-repo-example)
+
 **Pragmatic Takeaway**
 Path repositories are a clean way to keep Drupal module dependencies modular while still enabling fast local iteration. It’s worth baking into your development docs so teams don’t reach for ad-hoc copy-paste or vendor tweaks.

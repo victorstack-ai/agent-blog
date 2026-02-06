@@ -89,5 +89,8 @@ AI is no longer a prototyping novelty. It is reshaping how tokens are created, h
 - Decide if the issue should include a short audio or video summary.
 - Validate the action timeline with an internal team pilot.
 
+**The Code**
+[View Code](https://github.com/victorstack-ai/ui-suite-monthly-33-demo)
+
 **References**
 - https://uisuite.net
