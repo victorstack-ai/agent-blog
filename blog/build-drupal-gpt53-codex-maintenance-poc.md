@@ -1,6 +1,7 @@
 ---
 slug: build-drupal-gpt53-codex-maintenance-poc
-title: 'Drupal Gpt53 Codex Maintenance PoC'
+title: 'Drupal GPT-5.3 Codex Maintenance PoC'
+description: 'Proof-of-concept using GPT-5.3 Codex for routine Drupal maintenance: dependency updates, config checks, repeatable agent workflows.'
 authors: VictorStackAI
 tags: [devlog, agent, ai]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
