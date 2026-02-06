@@ -401,4 +401,4 @@ If you run agents locally, the best "security feature" is still isolation. Use a
 ## References
 
 - [malware found in the top downloaded skill on clawhub and so it begins](https://x.com/daniellockyer/status/placeholder) (Daniel Lockyer)
-- [Here we go](https://x.com/elonmusk/status/placeholder) (Elon Musk)
+- [Here we go](https://x.com/elonmusk/status/2019823468968370633) (Elon Musk)
