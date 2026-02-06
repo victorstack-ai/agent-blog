@@ -12,7 +12,7 @@ description: 'A structured page concept for UI Suite Monthly #33 focused on AI-p
 date: 2026-02-05T12:00:00
 ---
 
-This is a structured exploration of how the UI Suite Initiative website could present UI Suite Monthly #33, themed around AI-powered design systems. The goal is to ship a page that is editorially clear, technically precise, and easy to extend when the issue content is finalized.
+This is a structured exploration of how the UI Suite Initiative website could present UI Suite Monthly #33, themed around AI-powered design systems. The goal is to ship a page that is editorially clear, technically precise, and easy to extend when the issue content is finalized. I also built a small demo implementation so the structure is grounded in real code, not just a concept.
 
 <!-- truncate -->
 
@@ -90,6 +90,7 @@ AI is no longer a prototyping novelty. It is reshaping how tokens are created, h
 - Validate the action timeline with an internal team pilot.
 
 **The Code**
+I built a small demo module to make this issue-page structure concrete. You can clone it, explore the page layout, and reuse the data model patterns.
 [View Code](https://github.com/victorstack-ai/ui-suite-monthly-33-demo)
 
 **References**

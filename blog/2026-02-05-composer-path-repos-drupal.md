@@ -12,10 +12,15 @@ description: 'Using Composer path repositories to develop Drupal modules with lo
 date: 2026-02-05T11:00:00
 ---
 
-I explored how Composer path repositories can simplify local Drupal module development when one module depends on another. The goal is to iterate across modules without publishing interim versions or wiring up a private Composer repo.
+**The Hook**
+When one Drupal module depends on another, I want to iterate across both without publishing interim versions or wiring up a private Composer repo. Path repositories give me that speed while keeping dependency boundaries honest.
 
 <!-- truncate -->
 
+**Why I Built It**
+I explored how Composer path repositories can simplify local Drupal module development when one module depends on another. The goal is to iterate across modules without publishing interim versions or wiring up a private Composer repo, while still mimicking production resolution.
+
+**The Solution**
 **Why Path Repositories Work Well for Drupal**
 Drupal modules are Composer packages. If `module-a` requires `module-b`, you can point the consuming site to a local checkout of `module-b` during development, while keeping production on a tagged release. This keeps module boundaries clean and mirrors how dependency resolution will behave in production.
 
@@ -68,7 +73,7 @@ During development, the path repository overrides that constraint with your loca
 - If you forget to remove the path repository before releasing the site, you can accidentally pin to a local path in `composer.lock`.
 
 **The Code**
-[View Code](https://github.com/victorstack-ai/drupal-composer-path-repo-example)
+I built a small Drupal module dependency demo that shows the path repository setup end to end. You can clone it, run through the Composer workflow, and browse the key files here: [View Code](https://github.com/victorstack-ai/drupal-composer-path-repo-example)
 
-**Pragmatic Takeaway**
-Path repositories are a clean way to keep Drupal module dependencies modular while still enabling fast local iteration. It’s worth baking into your development docs so teams don’t reach for ad-hoc copy-paste or vendor tweaks.
+**What I Learned**
+Path repositories are a clean way to keep Drupal module dependencies modular while still enabling fast local iteration. They mirror production resolution closely, but only if you keep package metadata consistent and avoid dev constraints leaking into module releases.
