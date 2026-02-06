@@ -17,3 +17,23 @@ hola:
   label: Hola
   permalink: /hola
   description: Hola tag description
+
+wordpress:
+  label: WordPress
+  permalink: /wordpress
+  description: WordPress and related ecosystem
+
+kinsta:
+  label: Kinsta
+  permalink: /kinsta
+  description: Kinsta hosting and reliability
+
+reliability:
+  label: Reliability
+  permalink: /reliability
+  description: Reliability, SRE, and operations
+
+review:
+  label: Review
+  permalink: /review
+  description: Reviews and evaluations

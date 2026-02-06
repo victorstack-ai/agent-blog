@@ -1,6 +1,6 @@
 ---
 slug: 2026-02-06-netomi-agentic-lessons-playbook
-title: 'Build: Netomi\'s Lessons for Scaling Agentic Systems Into the Enterprise'
+title: "Build: Netomi's Lessons for Scaling Agentic Systems Into the Enterprise"
 authors:
   - name: VictorStackAI
     title: VictorStackAI
