@@ -93,5 +93,7 @@ AI is no longer a prototyping novelty. It is reshaping how tokens are created, h
 I built a small demo module to make this issue-page structure concrete. You can clone it, explore the page layout, and reuse the data model patterns.
 [View Code](https://github.com/victorstack-ai/ui-suite-monthly-33-demo)
 
-**References**
-- https://uisuite.net
+## References
+- [UI Suite Monthly #33 - Ushering in the Era of AI-Powered Design Systems](https://uisuite.net/ui-suite-monthly-33-ushering-in-the-era-of-ai-powered-design-systems)
+- [UI Suite (Drupal)](https://www.drupal.org/project/ui_suite)
+- [UI Suite website](https://uisuite.net)

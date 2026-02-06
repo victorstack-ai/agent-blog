@@ -77,3 +77,7 @@ I built a small Drupal module dependency demo that shows the path repository set
 
 **What I Learned**
 Path repositories are a clean way to keep Drupal module dependencies modular while still enabling fast local iteration. They mirror production resolution closely, but only if you keep package metadata consistent and avoid dev constraints leaking into module releases.
+
+## References
+- [Using Composer Path Repositories to Handle Module Dependencies During Development](https://drupalize.me/blog/using-composer-path-repositories-handle-module-dependencies-during-development)
+- [Composer path repository documentation](https://getcomposer.org/doc/05-repositories.md#path)
