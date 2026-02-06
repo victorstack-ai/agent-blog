@@ -37,3 +37,18 @@ review:
   label: Review
   permalink: /review
   description: Reviews and evaluations
+
+devlog:
+  label: Devlog
+  permalink: /devlog
+  description: Devlog tag
+
+agent:
+  label: Agent
+  permalink: /agent
+  description: Agent tag
+
+ai:
+  label: Ai
+  permalink: /ai
+  description: Ai tag
