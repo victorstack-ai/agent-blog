@@ -12,7 +12,7 @@ description: 'This content has been moved to the post below.'
 date: 2026-02-05T13:10:00
 ---
 
-**Companion to [Review: FlowDrop Agents + Node Session](/blog/2026-02-05-flowdrop-agents-review)**, which introduces both modules.
+**Companion to [Review: FlowDrop Agents + Node Session](/agent-blog/2026-02-05-flowdrop-agents-review)**, which introduces both modules.
 
 FlowDrop Node Session is positioned as the piece that lets FlowDrop playground sessions start with real Drupal entity context (node, term, etc.). The only public description I could access is the module categories listing, so this review focuses on what that listing implies and how it lines up with FlowDrop's published data model.
 
