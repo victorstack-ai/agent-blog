@@ -39,6 +39,48 @@ const config: Config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          // WordPress MCP Adapter → 2026-02-06-0715-devlog
+          { from: '/2026-02-05-0645-devlog', to: '/2026-02-06-0715-devlog/' },
+          { from: '/2026-02-05-0806-devlog', to: '/2026-02-06-0715-devlog/' },
+          { from: '/2026-02-05-1220-devlog', to: '/2026-02-06-0715-devlog/' },
+          { from: '/2026-02-05-1314-devlog', to: '/2026-02-06-0715-devlog/' },
+          { from: '/2026-02-05-1643-devlog', to: '/2026-02-06-0715-devlog/' },
+          { from: '/2026-02-05-1819-devlog', to: '/2026-02-06-0715-devlog/' },
+          // AGENTS.md → 2026-02-07-0859-devlog
+          { from: '/2026-02-07-0718-devlog', to: '/2026-02-07-0859-devlog/' },
+          // Drupal Service Collectors → 2026-02-07-1016-devlog
+          { from: '/2026-02-05-1728-devlog', to: '/2026-02-07-1016-devlog/' },
+          { from: '/2026-02-05-2354-devlog', to: '/2026-02-07-1016-devlog/' },
+          { from: '/2026-02-06-0634-devlog', to: '/2026-02-07-1016-devlog/' },
+          { from: '/2026-02-06-0724-devlog', to: '/2026-02-07-1016-devlog/' },
+          // Composer path repos → 2026-02-05-composer-path-repos-drupal
+          { from: '/2026-02-05-1338-devlog', to: '/2026-02-05-composer-path-repos-drupal/' },
+          // Droptica → build-drupal-droptica-ai-doc-processing-case-study
+          { from: '/2026-02-05-droptica-ai-document-processing-review', to: '/build-drupal-droptica-ai-doc-processing-case-study/' },
+          { from: '/2026-02-05-droptica-ai-document-processing', to: '/build-drupal-droptica-ai-doc-processing-case-study/' },
+          // FlowDrop Node Sessions → flowdrop-agents-review
+          { from: '/2026-02-05-flowdrop-node-sessions-review', to: '/2026-02-05-flowdrop-agents-review/' },
+          // DDEV → 2026-02-06-ddev-podman-rootless-review
+          { from: '/2026-02-06-1030-devlog', to: '/2026-02-06-ddev-podman-rootless-review/' },
+          // GPT-5.3 Codex harness → 2026-02-07-1036-devlog
+          { from: '/gpt-5-3-codex-agent-harness', to: '/2026-02-07-1036-devlog/' },
+          // Opus/Codex overview → 2026-02-07-1118-devlog
+          { from: '/2026-02-06-1646-devlog', to: '/2026-02-07-1118-devlog/' },
+          { from: '/2026-02-07-1206-devlog', to: '/2026-02-07-1118-devlog/' },
+          // Drupal Pivot → 2026-02-07-1447-devlog
+          { from: '/2026-02-05-drupal-pivot-ghent-review', to: '/2026-02-07-1447-devlog/' },
+          // AI adoption → 2026-02-06-0817-devlog
+          { from: '/2026-02-06-0731-devlog', to: '/2026-02-06-0817-devlog/' },
+        ],
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
