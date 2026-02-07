@@ -53,6 +53,11 @@ ai:
   permalink: /ai
   description: Ai tag
 
+llm:
+  label: LLM
+  permalink: /llm
+  description: LLM and model releases
+
 drupal:
   label: Drupal
   permalink: /drupal
