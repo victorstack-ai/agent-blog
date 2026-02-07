@@ -76,6 +76,15 @@ const config: Config = {
           { from: '/2026-02-05-drupal-pivot-ghent-review', to: '/2026-02-07-1447-devlog/' },
           // AI adoption → 2026-02-06-0817-devlog
           { from: '/2026-02-06-0731-devlog', to: '/2026-02-06-0817-devlog/' },
+          // EU Sovereignty (merged into 2026-02-07-1447-devlog)
+          { from: '/2026-02-07-1534-devlog', to: '/2026-02-07-1447-devlog/' },
+          // Drupal MCP tools (merged into build-drupal-mcp-toolkit)
+          { from: '/build-drupal-mcp-audit-server', to: '/build-drupal-mcp-toolkit/' },
+          { from: '/build-drupal-mcp-config-export', to: '/build-drupal-mcp-toolkit/' },
+          { from: '/build-drupal-mcp-node-info', to: '/build-drupal-mcp-toolkit/' },
+          { from: '/build-drupal-mcp-site-audit', to: '/build-drupal-mcp-toolkit/' },
+          // AI tools review (stub → dayone tools)
+          { from: '/build-drupal-cms-2-ai-tools-review', to: '/2026-02-06-ai-in-drupal-cms-2-0-dayone-tools/' },
         ],
       },
     ],
