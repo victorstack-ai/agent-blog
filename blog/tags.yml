@@ -142,3 +142,13 @@ backend:
   label: Backend
   permalink: /backend
   description: Backend tag
+
+playwright:
+  label: Playwright
+  permalink: /playwright
+  description: Playwright tag
+
+python:
+  label: Python
+  permalink: /python
+  description: Python tag
