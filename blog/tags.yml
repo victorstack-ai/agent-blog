@@ -207,3 +207,23 @@ cloudflare:
   label: Cloudflare
   permalink: /cloudflare
   description: Cloudflare tag
+
+cli:
+  label: Cli
+  permalink: /cli
+  description: Cli tag
+
+ops:
+  label: Ops
+  permalink: /ops
+  description: Ops tag
+
+pantheon:
+  label: Pantheon
+  permalink: /pantheon
+  description: Pantheon tag
+
+automation:
+  label: Automation
+  permalink: /automation
+  description: Automation tag
