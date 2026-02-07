@@ -127,3 +127,18 @@ build:
   label: Build
   permalink: /build
   description: Build and deliverables
+
+php:
+  label: Php
+  permalink: /php
+  description: Php tag
+
+symfony:
+  label: Symfony
+  permalink: /symfony
+  description: Symfony tag
+
+backend:
+  label: Backend
+  permalink: /backend
+  description: Backend tag
