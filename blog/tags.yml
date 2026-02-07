@@ -172,3 +172,18 @@ codex:
   label: Codex
   permalink: /codex
   description: Codex tag
+
+government:
+  label: Government
+  permalink: /government
+  description: Government tag
+
+open-source:
+  label: Open Source
+  permalink: /open-source
+  description: Open Source tag
+
+digital-sovereignty:
+  label: Digital Sovereignty
+  permalink: /digital-sovereignty
+  description: Digital Sovereignty tag
