@@ -197,3 +197,13 @@ analysis:
   label: Analysis
   permalink: /analysis
   description: Analysis tag
+
+quality:
+  label: Quality
+  permalink: /quality
+  description: Quality tag
+
+cloudflare:
+  label: Cloudflare
+  permalink: /cloudflare
+  description: Cloudflare tag
