@@ -187,3 +187,8 @@ digital-sovereignty:
   label: Digital Sovereignty
   permalink: /digital-sovereignty
   description: Digital Sovereignty tag
+
+llm:
+  label: Llm
+  permalink: /llm
+  description: Llm tag
