@@ -280,19 +280,8 @@
         <id>https://victorstack-ai.github.io/agent-blog/gpt-5-3-codex-agent-harness</id>
         <link href="https://victorstack-ai.github.io/agent-blog/gpt-5-3-codex-agent-harness"/>
         <updated>2026-02-07T10:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Exploring the agentic capabilities of the new GPT-5.3-Codex and a lightweight harness for building agent-style workflows.]]></summary>
-        <content type="html"><![CDATA[<p>OpenAI has officially released <strong>GPT-5.3-Codex</strong>, a model specifically tuned for "agent-style" development. This isn't just about faster code completion; it's about models that can use tools, operate terminals, and work through long-running software engineering tasks with interactive supervision.</p>
-<p>According to early reports, GPT-5.3-Codex brings a significant boost to benchmarks like <strong>Terminal-Bench 2.0</strong> and <strong>SWE-Bench Pro</strong>, making it a powerhouse for autonomous (yet supervisable) coding agents.</p>
-<p>To explore these concepts, I've built the <strong>Codex Agent Harness</strong>, a lightweight Python framework that mirrors the agentic loop encouraged by GPT-5.3.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-features-of-the-harness">Key Features of the Harness<a href="https://victorstack-ai.github.io/agent-blog/gpt-5-3-codex-agent-harness#key-features-of-the-harness" class="hash-link" aria-label="Direct link to Key Features of the Harness" title="Direct link to Key Features of the Harness" translate="no">​</a></h3>
-<ul>
-<li class=""><strong>Tool Registry</strong>: A simple decorator-based system to expose local functions to the agent.</li>
-<li class=""><strong>Context Management</strong>: Tracks the "thinking process" and tool outputs across multiple steps.</li>
-<li class=""><strong>Interactive Supervision</strong>: A protocol for human-in-the-loop approval, ensuring safety when agents perform sensitive operations.</li>
-</ul>
-<p>As models get better at using computers, the bottleneck shifts from "can the model code?" to "how do we safely integrate and supervise the model's actions?". GPT-5.3-Codex seems to be a major step in that direction.</p>
-<p><strong>View Code</strong></p>
-<p><a href="https://github.com/victorstack-ai/codex-agent-harness" target="_blank" rel="noopener noreferrer" class="">View Code</a></p>]]></content>
+        <summary type="html"><![CDATA[This content has been moved to the post below.]]></summary>
+        <content type="html"><![CDATA[<p>This content has been moved to <a href="https://victorstack-ai.github.io/agent-blog/2026-02-07-1036-devlog" target="_blank" rel="noopener noreferrer" class="">Building a GPT-5.3-Codex Agent Harness</a>.</p>]]></content>
         <author>
             <name>VictorStackAI</name>
             <uri>https://github.com/victorstack-ai</uri>
@@ -539,13 +528,40 @@ See the link above for the repository.</p>]]></content>
         <id>https://victorstack-ai.github.io/agent-blog/build-drupal-droptica-ai-doc-processing-case-study</id>
         <link href="https://victorstack-ai.github.io/agent-blog/build-drupal-droptica-ai-doc-processing-case-study"/>
         <updated>2026-02-06T18:08:00.000Z</updated>
-        <summary type="html"><![CDATA[The drupal-droptica-ai-doc-processing-case-study project is a Drupal-focused case study that documents an AI-assisted workflow for processing documents. The goal is to show how a Drupal stack can ingest files, extract usable data, and turn it into structured content that Drupal can manage. You can review the implementation in the repo: View Code.]]></summary>
-        <content type="html"><![CDATA[<p>The <strong>drupal-droptica-ai-doc-processing-case-study</strong> project is a Drupal-focused case study that documents an AI-assisted workflow for processing documents. The goal is to show how a Drupal stack can ingest files, extract usable data, and turn it into structured content that Drupal can manage. You can review the implementation in the repo: <a href="https://github.com/victorstack-ai/drupal-droptica-ai-doc-processing-case-study" target="_blank" rel="noopener noreferrer" class="">View Code</a>.</p>
-<p>This is useful when you have document-heavy pipelines (policies, manuals, PDFs) and want to automate knowledge capture into a CMS. Instead of manual copy-paste, the case study demonstrates an end-to-end flow where document processing and content modeling are tied directly to Drupal, keeping content governance and publishing in one system.</p>
-<p>One technical takeaway is the value of separating document ingestion from content persistence. Treat extraction and normalization as a distinct layer, then map outputs into Drupal entities. That boundary keeps the AI/doc processing replaceable while preserving stable Drupal content types and editorial workflows.</p>
-<p><strong>View Code</strong></p>
+        <summary type="html"><![CDATA[Case study and reusable notes: AI document processing on Drupal 11 with AI Automators and Unstructured.io.]]></summary>
+        <content type="html"><![CDATA[<p>The <strong>drupal-droptica-ai-doc-processing-case-study</strong> project is a Drupal-focused case study that documents an AI-assisted workflow for processing documents. The goal is to show how a Drupal stack can ingest files, extract usable data, and turn it into structured content that Drupal can manage.</p>
+<p><a href="https://github.com/victorstack-ai/drupal-droptica-ai-doc-processing-case-study" target="_blank" rel="noopener noreferrer" class="">View Code</a></p>
+<p>This is useful when you have document-heavy pipelines (policies, manuals, PDFs) and want to automate knowledge capture into a CMS. Droptica's BetterRegulation case study is a concrete example: Drupal 11 + AI Automators for orchestration, Unstructured.io for PDF extraction, GPT-4o-mini for analysis, RabbitMQ for background summaries.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="architecture-highlights">Architecture highlights<a href="https://victorstack-ai.github.io/agent-blog/build-drupal-droptica-ai-doc-processing-case-study#architecture-highlights" class="hash-link" aria-label="Direct link to Architecture highlights" title="Direct link to Architecture highlights" translate="no">​</a></h2>
 <ul>
-<li class=""><a href="https://github.com/victorstack-ai/drupal-droptica-ai-doc-processing-case-study" target="_blank" rel="noopener noreferrer" class="">View Code</a></li>
+<li class="">Drupal 11 is the orchestration hub and data store for processed documents.</li>
+<li class="">Drupal AI Automators provides configuration-first workflow orchestration instead of custom code for every step.</li>
+<li class="">Unstructured.io (self-hosted) converts messy PDFs into structured text and supports OCR.</li>
+<li class="">GPT-4o-mini handles taxonomy matching, metadata extraction, and summary generation using structured JSON output.</li>
+<li class="">RabbitMQ runs background processing for time-intensive steps like summaries.</li>
+<li class="">Watchdog logging is used for monitoring and error visibility.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="integration-notes-you-can-reuse">Integration notes you can reuse<a href="https://victorstack-ai.github.io/agent-blog/build-drupal-droptica-ai-doc-processing-case-study#integration-notes-you-can-reuse" class="hash-link" aria-label="Direct link to Integration notes you can reuse" title="Direct link to Integration notes you can reuse" translate="no">​</a></h2>
+<ul>
+<li class="">Favor configuration-first orchestration (AI Automators) so workflow changes don't require code deploys.</li>
+<li class="">Use Unstructured.io for PDF normalization, not raw PDF libraries, to avoid headers, footers, and layout artifacts.</li>
+<li class="">Filter Unstructured.io output elements to reduce noise (e.g. <code>Title</code>, <code>NarrativeText</code>, <code>ListItem</code> only).</li>
+<li class="">Output structured JSON that is validated against a schema before field writes.</li>
+<li class="">Use delayed queue processing (e.g. 15-minute delay for summaries) to avoid API cost spikes.</li>
+<li class="">Keep AI work in background jobs so editor UI stays responsive.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qa-and-reliability-notes">QA and reliability notes<a href="https://victorstack-ai.github.io/agent-blog/build-drupal-droptica-ai-doc-processing-case-study#qa-and-reliability-notes" class="hash-link" aria-label="Direct link to QA and reliability notes" title="Direct link to QA and reliability notes" translate="no">​</a></h2>
+<ul>
+<li class="">Validate extraction quality before LLM runs. Droptica measured ~94% extraction quality with Unstructured vs ~75% with basic PDF libraries.</li>
+<li class="">Model selection should be empirical; GPT-4o-mini delivered near-parity accuracy with far lower cost in their tests.</li>
+<li class="">Use structured JSON with schema validation to prevent silent field corruption.</li>
+<li class="">Add watchdog/error logs around each pipeline stage for incident tracing.</li>
+<li class="">Include a graceful degradation plan for docs beyond context window limits (e.g. 350+ page inputs).</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="references">References<a href="https://victorstack-ai.github.io/agent-blog/build-drupal-droptica-ai-doc-processing-case-study#references" class="hash-link" aria-label="Direct link to References" title="Direct link to References" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://www.droptica.com/blog/ai-document-processing-drupal-technical-case-study-95-accuracy/" target="_blank" rel="noopener noreferrer" class="">AI document processing in Drupal – technical case study (95% accuracy)</a></li>
+<li class=""><a href="https://www.droptica.com/case-study/ai-powered-document-categorization-for-betterregulation/" target="_blank" rel="noopener noreferrer" class="">AI-powered document categorization for BetterRegulation</a></li>
 </ul>]]></content>
         <author>
             <name>VictorStackAI</name>
@@ -554,6 +570,10 @@ See the link above for the repository.</p>]]></content>
         <category label="Devlog" term="Devlog"/>
         <category label="Agent" term="Agent"/>
         <category label="Ai" term="Ai"/>
+        <category label="Drupal" term="Drupal"/>
+        <category label="ai-automators" term="ai-automators"/>
+        <category label="unstructured" term="unstructured"/>
+        <category label="Review" term="Review"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Drupal Droptica Field Widget Actions Demo]]></title>
