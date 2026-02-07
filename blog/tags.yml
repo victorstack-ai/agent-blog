@@ -227,3 +227,13 @@ automation:
   label: Automation
   permalink: /automation
   description: Automation tag
+
+security:
+  label: Security
+  permalink: /security
+  description: Security tag
+
+maintenance:
+  label: Maintenance
+  permalink: /maintenance
+  description: Maintenance tag
