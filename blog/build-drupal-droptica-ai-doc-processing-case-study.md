@@ -14,7 +14,9 @@ The **drupal-droptica-ai-doc-processing-case-study** project is a Drupal-focused
 
 This is useful when you have document-heavy pipelines (policies, manuals, PDFs) and want to automate knowledge capture into a CMS. Droptica's BetterRegulation case study is a concrete example: Drupal 11 + AI Automators for orchestration, Unstructured.io for PDF extraction, GPT-4o-mini for analysis, RabbitMQ for background summaries.
 
-## Architecture highlights
+**See also:** [Review Notes: Droptica AI Document Processing (AI Automators + Unstructured.io)](/agent-blog/2026-02-05-droptica-ai-document-processing) for integration and QA notes from the same case study.
+
+**View Code**
 
 - Drupal 11 is the orchestration hub and data store for processed documents.
 - Drupal AI Automators provides configuration-first workflow orchestration instead of custom code for every step.

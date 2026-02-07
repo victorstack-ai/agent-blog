@@ -35,6 +35,8 @@ The module categories listing describes FlowDrop Node Session as providing entit
 - **Drupal 11 focus.** Recent FlowDrop releases target Drupal `^11`, which is helpful if your platform is already on D11 but a blocker if you're still on D10.
 - **Workflow context matters.** If you need to pass entity context into a FlowDrop "playground" session, FlowDrop Node Session looks like the right direction, but validate API surface and update cadence before adopting.
 
+**Related:** For a deeper dive on Node Session (entity context, content-ops gaps), see [Review: FlowDrop Node Sessions](/blog/2026-02-05-flowdrop-node-sessions-review).
+
 **Recommended Next Steps Before Adoption**
 - Pilot in a non-production environment with narrow workflows and explicit rollback paths.
 - Audit AI agent capabilities and ensure every agent node is backed by permissions and review gates you can explain.
