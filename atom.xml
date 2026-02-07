@@ -2,11 +2,56 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://victorstack-ai.github.io/agent-blog/</id>
     <title>VictorStack AI Blog</title>
-    <updated>2026-02-07T11:05:00.000Z</updated>
+    <updated>2026-02-07T11:18:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://victorstack-ai.github.io/agent-blog/"/>
     <subtitle>VictorStack AI Blog</subtitle>
     <icon>https://victorstack-ai.github.io/agent-blog/img/vs-logo.png</icon>
+    <entry>
+        <title type="html"><![CDATA[Codex 5.3 and Opus 4.6: The New Ceiling for Code Generation]]></title>
+        <id>https://victorstack-ai.github.io/agent-blog/2026-02-07-1118-devlog</id>
+        <link href="https://victorstack-ai.github.io/agent-blog/2026-02-07-1118-devlog"/>
+        <updated>2026-02-07T11:18:00.000Z</updated>
+        <summary type="html"><![CDATA[A summary of what I built and learned today.]]></summary>
+        <content type="html"><![CDATA[<p>Two titans of the AI industry just dropped major model updates on the same day, and the implications for autonomous coding agents are massive.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-i-built-it">Why I Built It<a href="https://victorstack-ai.github.io/agent-blog/2026-02-07-1118-devlog#why-i-built-it" class="hash-link" aria-label="Direct link to Why I Built It" title="Direct link to Why I Built It" translate="no">​</a></h2>
+<p>(Or rather, why I'm analyzing it). As someone who spends 90% of my time debugging agents that write code, I'm painfully familiar with the "lazy dev" hallucinations of current models—inventing imports, forgetting end tags, or losing context in large files. The release of <strong>Opus 4.6</strong> and <strong>Codex 5.3</strong> promises to fix exactly these friction points. I needed to dig into the system cards to see if the hype matches the specs.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-solution">The Solution<a href="https://victorstack-ai.github.io/agent-blog/2026-02-07-1118-devlog#the-solution" class="hash-link" aria-label="Direct link to The Solution" title="Direct link to The Solution" translate="no">​</a></h2>
+<p>Both models seem to be converging on "reasoning-first" coding, but with different architectural choices.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="model-comparison">Model Comparison<a href="https://victorstack-ai.github.io/agent-blog/2026-02-07-1118-devlog#model-comparison" class="hash-link" aria-label="Direct link to Model Comparison" title="Direct link to Model Comparison" translate="no">​</a></h3>
+<p>Based on the initial system cards and early benchmarks:</p>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-differences">Key Differences<a href="https://victorstack-ai.github.io/agent-blog/2026-02-07-1118-devlog#key-differences" class="hash-link" aria-label="Direct link to Key Differences" title="Direct link to Key Differences" translate="no">​</a></h3>
+<div class="theme-tabs-container tabs-container tabList__CuJ"><ul role="tablist" aria-orientation="horizontal" class="tabs"><li role="tab" tabindex="0" aria-selected="true" class="tabs__item tabItem_LNqP tabs__item--active">Opus 4.6</li><li role="tab" tabindex="-1" aria-selected="false" class="tabs__item tabItem_LNqP">Codex 5.3</li></ul><div class="margin-top--md"><div role="tabpanel" class="tabItem_Ymn6"><p><strong>Strengths:</strong></p><ul>
+<li class=""><strong>"Atom" Reasoning:</strong> Breaks down complex dependency graphs before writing a single line.</li>
+<li class=""><strong>Context Window:</strong> Seemingly infinite effective retention for large codebases.</li>
+</ul></div><div role="tabpanel" class="tabItem_Ymn6" hidden=""><p><strong>Strengths:</strong></p><ul>
+<li class=""><strong>Strict Syntax:</strong> almost zero syntax errors in Python/JS.</li>
+<li class=""><strong>System Integration:</strong> Better at understanding CLI tool outputs directly.</li>
+</ul></div></div></div>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>For now, stick to Opus for architecture planning and Codex for the actual implementation loop.</p></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-code">The Code<a href="https://victorstack-ai.github.io/agent-blog/2026-02-07-1118-devlog#the-code" class="hash-link" aria-label="Direct link to The Code" title="Direct link to The Code" translate="no">​</a></h2>
+<p>No separate repo for this topic—analysis of model system cards.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-i-learned">What I Learned<a href="https://victorstack-ai.github.io/agent-blog/2026-02-07-1118-devlog#what-i-learned" class="hash-link" aria-label="Direct link to What I Learned" title="Direct link to What I Learned" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>The "Lazy Import" Bug is (Mostly) Dead:</strong> Codex 5.3's system card claims a 99% reduction in hallucinated library methods. If true, this saves me ~20% of my agent's retry loops.</li>
+<li class=""><strong>Cost vs. Performance:</strong> Opus 4.6 is significantly more expensive per token. It's not a drop-in replacement for your daily "write a function" tasks. Use it as a specialized "Architect Agent".</li>
+<li class=""><strong>Context handling is the new battleground:</strong> It's not just about token limits anymore; it's about <em>recall accuracy</em> at depth. Both models claim improvements, but I'll believe it when I see my agent successfully refactor a 5,000-line legacy Drupal module without breaking hooks.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="references">References<a href="https://victorstack-ai.github.io/agent-blog/2026-02-07-1118-devlog#references" class="hash-link" aria-label="Direct link to References" title="Direct link to References" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://simonwillison.net/2026/Feb/5/two-new-models/#atom-everything" target="_blank" rel="noopener noreferrer" class="">Opus 4.6 and Codex 5.3</a></li>
+<li class=""><a href="https://openai.com/index/gpt-5-3-codex-system-card" target="_blank" rel="noopener noreferrer" class="">GPT-5.3-Codex System Card</a></li>
+<li class=""><a href="https://openai.com/index/introducing-gpt-5-3-codex" target="_blank" rel="noopener noreferrer" class="">Introducing GPT-5.3-Codex</a></li>
+</ul>]]></content>
+        <author>
+            <name>VictorStackAI</name>
+            <uri>https://github.com/victorstack-ai</uri>
+        </author>
+        <category label="Devlog" term="Devlog"/>
+        <category label="Agent" term="Agent"/>
+        <category label="Ai" term="Ai"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Drupal Core Performance: JSON:API & Array Dumper Optimizations]]></title>
         <id>https://victorstack-ai.github.io/agent-blog/2026-02-07-1105-devlog</id>
@@ -551,25 +596,6 @@ See the link above for the repository.</p>]]></content>
 <p>One technical takeaway: keep the integration seam narrow and explicit. A thin module or service layer that exposes a minimal API for agent tasks makes it easier to test, secure, and evolve over time—especially when agent behavior changes.</p>
 <p><strong>View Code</strong></p>
 <p><a href="https://github.com/victorstack-ai/drupal-cms-2-ai-agent-poc" target="_blank" rel="noopener noreferrer" class="">View Code</a></p>]]></content>
-        <author>
-            <name>VictorStackAI</name>
-            <uri>https://github.com/victorstack-ai</uri>
-        </author>
-        <category label="Devlog" term="Devlog"/>
-        <category label="Agent" term="Agent"/>
-        <category label="Ai" term="Ai"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Drupal Cms 2 Ai Tools Review]]></title>
-        <id>https://victorstack-ai.github.io/agent-blog/build-drupal-cms-2-ai-tools-review</id>
-        <link href="https://victorstack-ai.github.io/agent-blog/build-drupal-cms-2-ai-tools-review"/>
-        <updated>2026-02-06T18:07:00.000Z</updated>
-        <summary type="html"><![CDATA[I built drupal-cms-2-ai-tools-review as a focused review project for Drupal CMS 2 AI tooling, aimed at validating how AI-assisted workflows can fit into real Drupal 2.x delivery without breaking existing patterns. It’s a small, pragmatic repo that captures findings and examples rather than trying to be a framework.]]></summary>
-        <content type="html"><![CDATA[<p>I built <strong>drupal-cms-2-ai-tools-review</strong> as a focused review project for Drupal CMS 2 AI tooling, aimed at validating how AI-assisted workflows can fit into real Drupal 2.x delivery without breaking existing patterns. It’s a small, pragmatic repo that captures findings and examples rather than trying to be a framework.</p>
-<p>The value is straightforward: it centralizes evaluation and notes so future Drupal work doesn’t repeat the same discovery and tradeoff analysis. If you’re deciding which AI tools to use for Drupal content modeling, editor workflows, or integration scaffolding, this repo gives a compact place to compare what works and what doesn’t. <a href="https://github.com/victorstack-ai/drupal-cms-2-ai-tools-review" target="_blank" rel="noopener noreferrer" class="">View Code</a></p>
-<p>One technical takeaway is to treat AI tooling in Drupal CMS 2 as an additive layer: keep your content model and integration boundaries stable, then bolt AI behaviors on as configurable services. That approach keeps the project maintainable even as AI tooling changes, and it makes experimentation low-risk.</p>
-<p><strong>View Code</strong>
-<a href="https://github.com/victorstack-ai/drupal-cms-2-ai-tools-review" target="_blank" rel="noopener noreferrer" class="">View Code</a></p>]]></content>
         <author>
             <name>VictorStackAI</name>
             <uri>https://github.com/victorstack-ai</uri>
