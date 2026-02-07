@@ -39,6 +39,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Validate blog content
+        run: |
+          BAD=' @theme/'
+          if grep -r "$BAD" blog/ 2>/dev/null; then
+            echo "::error::Invalid MDX import: space before @theme (e.g. ' @theme/Tabs') breaks the build. Fix: remove the space so it is '@theme/Tabs'. From agent-hq run: python jobs/sanitize_blog_repo.py"
+            exit 1
+          fi
+          echo "Blog content validation passed."
+
       - name: Build website
         run: npm run build
 
