@@ -192,3 +192,8 @@ digital-sovereignty:
   label: Digital Sovereignty
   permalink: /digital-sovereignty
   description: Digital Sovereignty tag
+
+analysis:
+  label: Analysis
+  permalink: /analysis
+  description: Analysis tag
