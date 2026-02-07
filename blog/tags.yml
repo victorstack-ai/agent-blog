@@ -152,3 +152,13 @@ python:
   label: Python
   permalink: /python
   description: Python tag
+
+performance:
+  label: Performance
+  permalink: /performance
+  description: Performance tag
+
+jsonapi:
+  label: Jsonapi
+  permalink: /jsonapi
+  description: Jsonapi tag
