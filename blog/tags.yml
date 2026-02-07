@@ -162,3 +162,13 @@ jsonapi:
   label: Jsonapi
   permalink: /jsonapi
   description: Jsonapi tag
+
+opus:
+  label: Opus
+  permalink: /opus
+  description: Opus tag
+
+codex:
+  label: Codex
+  permalink: /codex
+  description: Codex tag
