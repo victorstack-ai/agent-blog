@@ -532,7 +532,8 @@ See the link above for the repository.</p>]]></content>
         <content type="html"><![CDATA[<p>The <strong>drupal-droptica-ai-doc-processing-case-study</strong> project is a Drupal-focused case study that documents an AI-assisted workflow for processing documents. The goal is to show how a Drupal stack can ingest files, extract usable data, and turn it into structured content that Drupal can manage.</p>
 <p><a href="https://github.com/victorstack-ai/drupal-droptica-ai-doc-processing-case-study" target="_blank" rel="noopener noreferrer" class="">View Code</a></p>
 <p>This is useful when you have document-heavy pipelines (policies, manuals, PDFs) and want to automate knowledge capture into a CMS. Droptica's BetterRegulation case study is a concrete example: Drupal 11 + AI Automators for orchestration, Unstructured.io for PDF extraction, GPT-4o-mini for analysis, RabbitMQ for background summaries.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="architecture-highlights">Architecture highlights<a href="https://victorstack-ai.github.io/agent-blog/build-drupal-droptica-ai-doc-processing-case-study#architecture-highlights" class="hash-link" aria-label="Direct link to Architecture highlights" title="Direct link to Architecture highlights" translate="no">​</a></h2>
+<p><strong>See also:</strong> <a class="" href="https://victorstack-ai.github.io/agent-blog/2026-02-05-droptica-ai-document-processing">Review Notes: Droptica AI Document Processing (AI Automators + Unstructured.io)</a> for integration and QA notes from the same case study.</p>
+<p><strong>View Code</strong></p>
 <ul>
 <li class="">Drupal 11 is the orchestration hub and data store for processed documents.</li>
 <li class="">Drupal AI Automators provides configuration-first workflow orchestration instead of custom code for every step.</li>
