@@ -15,11 +15,11 @@ Major WordPress releases have a habit of breaking things quietly. A plugin that 
 
 ## What It Does
 
-The tool is a Python CLI that points at a WordPress root directory and produces a structured readiness report. It checks PHP version compatibility against the requirements WordPress 7.0 is expected to ship with, identifies whether the active theme is a Classic or Block theme (Block themes being the forward-looking standard), and flags outdated plugin patterns that are likely to break. The output is a "Release Squad" report you can hand to a site owner or ops team as a go/no-go checklist.
+The tool is a Python CLI that points at a WordPress root directory and produces a structured readiness report. Its most critical check is for the **PHP version**. With WordPress 7.0 dropping support for PHP versions older than 7.4, millions of legacy sites are at risk of being blocked from upgrading. This tool detects if the running environment is below PHP 7.4 and flags it as a **CRITICAL BLOCKER**. It also identifies whether the active theme is a Classic or Block theme and scans for outdated plugin patterns.
 
 ## Why It's Useful
 
-Most agencies managing dozens of WordPress sites rely on manual spot-checks or wait until something breaks post-upgrade. This scanner automates the tedious audit work into a single command: `python -m wp_7_readiness.checker /path/to/wordpress/root`. It is especially handy in CI pipelines where you can gate a staging deployment on a clean readiness report.
+The upcoming PHP sunset is a major hurdle. Sites on PHP 7.2 or 7.3 won't just break; the upgrade process itself will be blocked. This scanner provides an immediate, unambiguous answer: "Can I upgrade?" By running `python -m wp_7_readiness.checker /path/to/wordpress/root`, agencies can identify sites that need server-level intervention before worrying about theme or plugin compatibility. It turns a vague "check compatibility" task into a binary pass/fail for the most critical requirement.
 
 ## Technical Takeaway
 
