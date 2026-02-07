@@ -12,4 +12,4 @@ description: 'This content has been moved to the post below.'
 date: 2026-02-05T09:30:00
 ---
 
-This content has been moved to [Drupal Droptica AI Doc Processing Case Study](https://victorstack-ai.github.io/agent-blog/build-drupal-droptica-ai-doc-processing-case-study).
+This content has been moved to [Drupal Droptica AI Doc Processing Case Study](https://victorstack-ai.github.io/agent-blog/build-drupal-droptica-ai-doc-processing-case-study/).
