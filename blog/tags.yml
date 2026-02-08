@@ -237,3 +237,8 @@ maintenance:
   label: Maintenance
   permalink: /maintenance
   description: Maintenance tag
+
+seo:
+  label: Seo
+  permalink: /seo
+  description: Seo tag
