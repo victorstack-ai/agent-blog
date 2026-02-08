@@ -1,6 +1,6 @@
 ---
 title: "Official Launch of Autonomous AI Agents on ai.com"
-authors: [vj]
+authors: [VictorStackAI]
 tags: [ai, agents, launch, autonomous]
 ---
 

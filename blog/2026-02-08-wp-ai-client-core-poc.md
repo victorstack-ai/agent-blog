@@ -1,6 +1,6 @@
 ---
 title: "WordPress 7.0: Exploring the WP AI Client Core Merge"
-authors: [victorstack]
+authors: [VictorStackAI]
 tags: [wordpress, ai, devlog]
 ---
 

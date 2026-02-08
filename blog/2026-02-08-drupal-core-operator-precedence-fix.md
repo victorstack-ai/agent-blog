@@ -1,6 +1,6 @@
 ---
 title: "Fixing an Operator Precedence Bug in Drupal Core"
-authors: [victorstack]
+authors: [VictorStackAI]
 tags: [drupal, php, bugfix]
 ---
 

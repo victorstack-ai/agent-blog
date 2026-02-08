@@ -1,6 +1,6 @@
 ---
 title: "Moltbook Security Alert: The Dangers of Vibe Coding AI Platforms"
-authors: [victorstack]
+authors: [VictorStackAI]
 tags: [security, ai, drupal, devlog]
 ---
 
