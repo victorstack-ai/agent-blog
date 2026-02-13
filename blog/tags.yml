@@ -242,3 +242,8 @@ seo:
   label: Seo
   permalink: /seo
   description: Seo tag
+
+accessibility:
+  label: Accessibility
+  permalink: /accessibility
+  description: Accessibility tag
