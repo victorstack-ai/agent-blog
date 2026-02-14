@@ -247,3 +247,13 @@ accessibility:
   label: Accessibility
   permalink: /accessibility
   description: Accessibility tag
+
+commerce:
+  label: Commerce
+  permalink: /commerce
+  description: Commerce tag
+
+upgrades:
+  label: Upgrades
+  permalink: /upgrades
+  description: Upgrades tag
