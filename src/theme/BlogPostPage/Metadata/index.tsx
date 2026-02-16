@@ -1,11 +1,13 @@
 /**
  * Swizzled: ensure blog post pages get per-post OG/Twitter card meta (absolute URLs)
  * so shared links show the post title, description, and image — not the homepage.
+ * Also injects JSON-LD structured data (BlogPosting + Person + Organization).
  */
 import React, {type ReactNode} from 'react';
 import {PageMetadata} from '@docusaurus/theme-common';
 import {useBlogPost} from '@docusaurus/plugin-content-blog/client';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Head from '@docusaurus/Head';
 
 export default function BlogPostPageMetadata(): ReactNode {
   const {assets, metadata} = useBlogPost();
@@ -28,6 +30,55 @@ export default function BlogPostPageMetadata(): ReactNode {
 
   const pageTitle = frontMatter.title_meta ?? title;
   const pageDescription = description ?? undefined;
+
+  // JSON-LD structured data for AI search engines
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: pageTitle,
+    ...(pageDescription && {description: pageDescription}),
+    url: absolutePostUrl,
+    datePublished: date,
+    ...(frontMatter.last_update && {dateModified: frontMatter.last_update}),
+    ...(absoluteImage && {
+      image: {
+        '@type': 'ImageObject',
+        url: absoluteImage,
+      },
+    }),
+    ...(keywords && {keywords: Array.isArray(keywords) ? keywords.join(', ') : keywords}),
+    author: authors.length > 0
+      ? authors.map((author) => ({
+          '@type': 'Person',
+          name: author.name ?? 'VictorStackAI',
+          ...(author.url && {url: author.url}),
+          ...(author.imageURL && {
+            image: author.imageURL,
+          }),
+        }))
+      : [{
+          '@type': 'Person',
+          name: 'VictorStackAI',
+          url: 'https://github.com/victorstack-ai',
+        }],
+    publisher: {
+      '@type': 'Organization',
+      name: 'VictorStack AI',
+      url: `${siteUrl}${baseUrl}`,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}${baseUrl}img/vs-logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': absolutePostUrl,
+    },
+    inLanguage: 'en',
+    ...(tags.length > 0 && {
+      articleSection: tags.map((tag) => tag.label).join(', '),
+    }),
+  };
 
   return (
     <>
@@ -68,6 +119,9 @@ export default function BlogPostPageMetadata(): ReactNode {
           />
         )}
       </PageMetadata>
+      <Head>
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      </Head>
     </>
   );
 }
