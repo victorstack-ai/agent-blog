@@ -257,3 +257,13 @@ upgrades:
   label: Upgrades
   permalink: /upgrades
   description: Upgrades tag
+
+cloud:
+  label: Cloud
+  permalink: /cloud
+  description: Cloud tag
+
+infrastructure:
+  label: Infrastructure
+  permalink: /infrastructure
+  description: Infrastructure tag
