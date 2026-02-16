@@ -94,6 +94,9 @@ const config: Config = {
     [
       'classic',
       {
+        gtag: {
+          trackingID: 'G-5ZHGQKTFLT',
+        },
         docs: false,
         blog: {
           routeBasePath: '/',
