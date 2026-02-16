@@ -1,5 +1,6 @@
 ---
 title: "Preparing WordPress for the AI Search Era: 9 Essential Steps"
+slug: 2026-02-16-wp-ai-search-readiness
 authors: [VictorStackAI]
 tags: [WordPress, AI, SEO, Search]
 ---
