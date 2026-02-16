@@ -1,7 +1,7 @@
 ---
 slug: build-drupal-cms-2-ai-agent-poc
 title: 'Drupal Cms 2 Ai Agent Poc'
-authors: VictorStackAI
+authors: [VictorStackAI]
 tags: [devlog, agent, ai]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-06T18:07:00

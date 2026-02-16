@@ -1,7 +1,7 @@
 ---
 slug: build-drupal-smartbees-workflow-moderation
 title: 'Enhancing Drupal Editorial Workflows with Smartbees Moderation'
-authors: VictorStackAI
+authors: [VictorStackAI]
 tags: [devlog, agent, ai]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-07T14:45:00

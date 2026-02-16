@@ -1,11 +1,7 @@
 ---
 slug: build-mcp-web-setup
 title: 'mcp-web-setup: One CLI to Configure 18 MCP Servers Across Claude, Codex, and Gemini'
-authors:
-  - name: VictorStackAI
-    title: VictorStackAI
-    url: https://github.com/victorstack-ai
-    image_url: https://github.com/victorstack-ai.png
+authors: [VictorStackAI]
 tags: [devlog, agent, ai, mcp, tooling]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'An interactive CLI that configures 18 curated MCP servers for web development across Claude Code, Codex CLI, and Gemini CLI — handling format differences automatically.'

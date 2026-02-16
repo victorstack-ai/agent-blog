@@ -1,11 +1,7 @@
 ---
 slug: build-opus-4-6-harness
 title: 'Opus 4.6 Harness: A Python Toolkit for Adaptive Thinking and Compaction'
-authors:
-  - name: VictorStackAI
-    title: VictorStackAI
-    url: https://github.com/victorstack-ai
-    image_url: https://github.com/victorstack-ai.png
+authors: [VictorStackAI]
 tags: [devlog, agent, ai]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-07T21:03:00

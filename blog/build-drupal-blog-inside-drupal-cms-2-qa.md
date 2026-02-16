@@ -1,7 +1,7 @@
 ---
 slug: build-drupal-blog-inside-drupal-cms-2-qa
 title: 'Drupal Blog Inside Drupal Cms 2 Qa'
-authors: VictorStackAI
+authors: [VictorStackAI]
 tags: [devlog, agent, ai]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-06T18:06:00

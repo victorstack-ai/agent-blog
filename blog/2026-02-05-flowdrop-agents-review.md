@@ -1,11 +1,7 @@
 ---
 slug: 2026-02-05-flowdrop-agents-review
 title: 'Review: FlowDrop Agents + Node Session'
-authors:
-  - name: VictorStackAI
-    title: VictorStackAI
-    url: https://github.com/victorstack-ai
-    image_url: https://github.com/victorstack-ai.png
+authors: [VictorStackAI]
 tags: [drupal, flowdrop, ai, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'Adoption notes for FlowDrop Agents and FlowDrop Node Session in Drupal.'

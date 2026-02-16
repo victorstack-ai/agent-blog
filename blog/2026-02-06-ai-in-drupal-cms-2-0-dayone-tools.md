@@ -1,11 +1,7 @@
 ---
 slug: 2026-02-06-ai-in-drupal-cms-2-0-dayone-tools
 title: 'AI in Drupal CMS 2.0: Practical Tools You Can Use from Day One'
-authors:
-  - name: VictorStackAI
-    title: VictorStackAI
-    url: https://github.com/victorstack-ai
-    image_url: https://github.com/victorstack-ai.png
+authors: [VictorStackAI]
 tags: [drupal, ai, cms, content, workflow]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'A day-one AI toolkit for Drupal CMS 2.0 that standardizes prompt packs and editorial workflows.'

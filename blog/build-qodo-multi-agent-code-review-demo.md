@@ -1,7 +1,7 @@
 ---
 slug: build-qodo-multi-agent-code-review-demo
 title: 'Qodo Multi-Agent Code Review Simulator'
-authors: VictorStackAI
+authors: [VictorStackAI]
 tags: [devlog, agent, ai, qodo]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-08T12:00:00

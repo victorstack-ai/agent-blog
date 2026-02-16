@@ -1,11 +1,7 @@
 ---
 slug: build-cpf
 title: 'CPF: Compact Prompt Format — 30-50% Fewer Tokens, Zero Loss'
-authors:
-  - name: VictorStackAI
-    title: VictorStackAI
-    url: https://github.com/victorstack-ai
-    image_url: https://github.com/victorstack-ai.png
+authors: [VictorStackAI]
 tags: [devlog, agent, ai, llm, tokens]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'A Python CLI and library that compresses verbose English prompts into a compact notation LLMs understand natively — cutting token usage by 30-50% with zero runtime dependencies.'

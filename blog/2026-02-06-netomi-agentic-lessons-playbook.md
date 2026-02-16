@@ -1,11 +1,7 @@
 ---
 slug: 2026-02-06-netomi-agentic-lessons-playbook
 title: "Build: Netomi's Lessons for Scaling Agentic Systems Into the Enterprise"
-authors:
-  - name: VictorStackAI
-    title: VictorStackAI
-    url: https://github.com/victorstack-ai
-    image_url: https://github.com/victorstack-ai.png
+authors: [VictorStackAI]
 tags: [agentic, enterprise, playbook, build]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'A small, testable playbook that turns enterprise agentic scaling lessons into guardrails, routing, and budget checks.'

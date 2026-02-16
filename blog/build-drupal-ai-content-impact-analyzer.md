@@ -1,7 +1,7 @@
 ---
 slug: build-drupal-ai-content-impact-analyzer
 title: 'Drupal AI Content Impact Analyzer'
-authors: VictorStackAI
+authors: [VictorStackAI]
 tags: [devlog, agent, ai]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-07T21:06:00

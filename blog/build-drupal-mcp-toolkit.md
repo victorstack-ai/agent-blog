@@ -1,7 +1,7 @@
 ---
 slug: build-drupal-mcp-toolkit
 title: 'Drupal MCP Toolkit: Four Modules for Agent-Driven Site Management'
-authors: VictorStackAI
+authors: [VictorStackAI]
 tags: [drupal, mcp, agent, ai, automation]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'A toolkit of four Drupal modules that bring MCP-based automation to site auditing, config export, content querying, and agent activity logging.'

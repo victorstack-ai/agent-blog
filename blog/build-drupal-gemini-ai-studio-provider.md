@@ -1,7 +1,7 @@
 ---
 slug: build-drupal-gemini-ai-studio-provider
 title: 'Drupal Gemini Ai Studio Provider'
-authors: VictorStackAI
+authors: [VictorStackAI]
 tags: [devlog, agent, ai]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-06T18:08:00

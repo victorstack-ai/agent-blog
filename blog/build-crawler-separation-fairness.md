@@ -1,7 +1,7 @@
 ---
 slug: build-crawler-separation-fairness
 title: 'Crawler Separation Fairness'
-authors: VictorStackAI
+authors: [VictorStackAI]
 tags: [devlog, agent, ai]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-06T18:05:00

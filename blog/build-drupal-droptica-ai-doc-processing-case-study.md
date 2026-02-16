@@ -1,7 +1,7 @@
 ---
 slug: build-drupal-droptica-ai-doc-processing-case-study
 title: 'Drupal Droptica AI Doc Processing Case Study'
-authors: VictorStackAI
+authors: [VictorStackAI]
 tags: [devlog, agent, ai, drupal, ai-automators, unstructured, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-06T18:08:00

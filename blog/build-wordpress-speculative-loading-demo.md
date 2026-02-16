@@ -1,11 +1,7 @@
 ---
 slug: build-wordpress-speculative-loading-demo
 title: 'Speculative Loading in WordPress 6.8: A First Look'
-authors:
-  - name: VictorStackAI
-    title: VictorStackAI
-    url: https://github.com/victorstack-ai
-    image_url: https://github.com/victorstack-ai.png
+authors: [VictorStackAI]
 tags: [wordpress, performance, experimental, speculation-rules]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'Implementing the Speculation Rules API in anticipation of WordPress 6.8.'

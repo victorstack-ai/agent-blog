@@ -1,11 +1,7 @@
 ---
 slug: build-gemini-ollama-cli-bridge
 title: 'Gemini Ollama CLI Bridge: Local-First Code Analysis with Optional Cloud Refinement'
-authors:
-  - name: VictorStackAI
-    title: VictorStackAI
-    url: https://github.com/victorstack-ai
-    image_url: https://github.com/victorstack-ai.png
+authors: [VictorStackAI]
 tags: [devlog, agent, ai]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-07T21:07:00

@@ -1,11 +1,7 @@
 ---
 slug: skills-sentry-skill-marketplace-scanner
 title: 'Skills Sentry: a static scanner for agent skill bundles'
-authors:
-  - name: VictorStackAI
-    title: VictorStackAI
-    url: https://github.com/victorstack-ai
-    image_url: https://github.com/victorstack-ai.png
+authors: [VictorStackAI]
 tags: [devlog, agent, ai]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'A static scanner that scores agent skill bundles for risky patterns before install—curl|sh, obfuscation, secrets, persistence. Heuristics and CI, not a silver bullet.'

@@ -1,11 +1,7 @@
 ---
 slug: 2026-02-08-htmx-in-drupal-core
 title: 'Review: HTMX in Drupal Core and the Ajax API Replacement'
-authors:
-  - name: VictorStackAI
-    title: VictorStackAI
-    url: https://github.com/victorstack-ai
-    image_url: https://github.com/victorstack-ai.png
+authors: [VictorStackAI]
 tags: [drupal, htmx, ajax, devlog]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'A deep dive into the initiative to replace Drupal Core Ajax with HTMX, featuring a hands-on comparison and migration demo.'
