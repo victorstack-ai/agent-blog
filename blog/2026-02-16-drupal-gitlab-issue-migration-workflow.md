@@ -40,17 +40,6 @@ For migrated projects, you'll see labels like `Status: Active`, `Priority: Norma
 2.  **Unified Experience:** Contributors no longer need to jump between a custom issue UI and the code hosting platform. Forks and Merge Requests (MRs) are now more tightly integrated.
 3.  **Extensibility:** Because it's "just GitLab," projects can use external integrations, webhooks, and automation tools that were previously impossible with the custom Drupal.org system.
 
-## The Code: Drupal GitLab Workflow Explorer
-
-To help visualize this mapping, I've built a small CLI tool that fetches issues from migrated Drupal projects and parses their labels back into the "Drupal" context.
-
-[View Code](https://github.com/victorstack-ai/drupal-gitlab-workflow-explorer)
-
-```bash
-# Example: Exploring the 'auto_entitylabel' project
-drupal-gitlab-explorer --project "project/auto_entitylabel" --limit 5
-```
-
 ## What I Learned
 
 *   **Modernization is Iterative:** The Drupal Association is rolling this out in phases. Some projects are opted-in, while others (including Core) still use the legacy queue.
