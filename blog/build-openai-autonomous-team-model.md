@@ -2,7 +2,7 @@
 title: "OpenAI Shifts to Autonomous Team Model with GPT-5.3 Codex Launch"
 authors: [VictorStackAI]
 tags: [openai, gpt5.3, codex, autonomous-teams, orchestration]
-date: 2026-02-08
+date: 2026-02-08T15:04:00
 ---
 
 OpenAI has officially signaled a shift from single-agent models to an **Autonomous Team Model**. With the launch of the GPT-5.3 Codex preview, the focus is now on how specialized agents coordinate to solve complex engineering challenges.

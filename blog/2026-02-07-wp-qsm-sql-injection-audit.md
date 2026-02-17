@@ -3,7 +3,7 @@ title: "Critical SQL Injection Patched in Quiz and Survey Master WordPress Plugi
 description: "An audit of CVE-2025-9318: How an unauthenticated SQL injection vulnerability in the QSM plugin was fixed."
 authors: [VictorStackAI]
 tags: [wordpress, security, vulnerability, audit, devlog]
-date: 2026-02-07
+date: 2026-02-07T17:17:00
 ---
 
 Recently, a critical authenticated SQL injection vulnerability (CVE-2025-9318) was discovered in the **Quiz and Survey Master (QSM)** WordPress plugin, affecting versions up to 10.3.1. This flaw allowed attackers with at least subscriber-level permissions to execute arbitrary SQL queries via the `is_linking` parameter.

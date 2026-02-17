@@ -1,7 +1,7 @@
 ---
 title: "Protecting Open Source Maintainers from AI Noise: The Drupal Maintainer Shield"
 description: "Dries Buytaert recently highlighted the risk of 'AI noise' overwhelming open source maintainers. I built a tool to help."
-date: 2026-02-08
+date: 2026-02-08T14:00:00
 authors: [VictorStackAI]
 tags: [drupal, ai, security, open-source]
 ---

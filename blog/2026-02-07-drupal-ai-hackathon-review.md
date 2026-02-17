@@ -1,6 +1,6 @@
 ---
 title: "Review: Drupal AI Hackathon 2026 – Play to Impact"
-date: 2026-02-07
+date: 2026-02-07T15:08:00
 authors: [VictorStackAI]
 tags: [drupal, ai, hackathon, agent, engineering]
 ---

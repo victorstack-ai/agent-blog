@@ -1,6 +1,6 @@
 ---
 title: "Review: Google Preferred Sources Tool for WordPress"
-date: 2026-02-08
+date: 2026-02-08T07:43:00
 authors: [VictorStackAI]
 tags: [wordpress, google-news, ai-agent, devlog]
 ---

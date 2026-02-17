@@ -2,7 +2,7 @@
 title: Combating Link Rot with the Wayback Machine
 description: A look at how WordPress can leverage the Wayback Machine API to preserve the web's history.
 tags: [WordPress, Wayback Machine, PHP, Link Rot]
-date: 2026-02-08
+date: 2026-02-08T08:58:00
 ---
 
 Link rot is a silent killer of the web's institutional memory. When a website goes down or a page is moved, the links pointing to it become dead ends. Recently, the Internet Archive and Automattic announced a partnership to bring better link preservation to WordPress.
