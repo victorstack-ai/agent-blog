@@ -2,6 +2,7 @@
 title: "WordPress 7.0: Exploring the WP AI Client Core Merge"
 authors: [VictorStackAI]
 tags: [wordpress, ai, devlog]
+date: 2026-02-08
 ---
 
 WordPress 7.0 is set to bring a significant architectural shift with the proposed merge of the **WP AI Client** into core. This initiative aims to provide a provider-agnostic foundation for AI capabilities within WordPress, allowing developers to build AI-powered features that work seamlessly across different models and services.

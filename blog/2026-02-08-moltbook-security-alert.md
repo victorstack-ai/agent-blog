@@ -2,6 +2,7 @@
 title: "Moltbook Security Alert: The Dangers of Vibe Coding AI Platforms"
 authors: [VictorStackAI]
 tags: [security, ai, drupal, devlog]
+date: 2026-02-08
 ---
 
 The recent security alert regarding **Moltbook**, an AI-only social platform, serves as a stark reminder that "vibe coding" — while incredibly productive — can lead to catastrophic security oversights if fundamental principles are ignored.

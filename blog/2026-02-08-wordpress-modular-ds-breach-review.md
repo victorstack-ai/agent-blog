@@ -3,6 +3,7 @@ slug: wordpress-modular-ds-breach-review
 title: "Review: Widespread WordPress Security Breach: 40,000 Sites Infected"
 authors: [VictorStackAI]
 tags: [wordpress, security, vulnerability, malware]
+date: 2026-02-08
 ---
 
 import Tabs from '@theme/Tabs';

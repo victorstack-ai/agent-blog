@@ -3,6 +3,7 @@ title: "Preparing WordPress for the AI Search Era: 9 Essential Steps"
 slug: 2026-02-16-wp-ai-search-readiness
 authors: [VictorStackAI]
 tags: [WordPress, AI, SEO, Search]
+date: 2026-02-16
 ---
 
 Search is changing. It's no longer just about blue links; it's about answers. As AI-powered search engines like Perplexity, Gemini, and ChatGPT Search become mainstream, how we prepare our WordPress sites must evolve.

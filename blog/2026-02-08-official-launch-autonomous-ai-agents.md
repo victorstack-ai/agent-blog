@@ -2,6 +2,7 @@
 title: "Official Launch of Autonomous AI Agents on ai.com"
 authors: [VictorStackAI]
 tags: [ai, agents, launch, autonomous]
+date: 2026-02-08
 ---
 
 Today marks a significant milestone in the evolution of digital work. We are officially launching the infrastructure for **Autonomous AI Agents on ai.com**.
