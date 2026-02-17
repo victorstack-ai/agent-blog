@@ -19,14 +19,15 @@ export default function BlogPostPageMetadata(): ReactNode {
   const image = assets?.image ?? frontMatter.image;
 
   // Absolute URL for this post (LinkedIn/Twitter need this for correct preview)
-  const absolutePostUrl = `${siteUrl}${baseUrl}${permalink.replace(/^\//, '')}`;
-  // Absolute image URL: use as-is if already full URL, else resolve with baseUrl
+  // permalink already includes baseUrl (e.g. /agent-blog/slug/), so don't add it again
+  const absolutePostUrl = `${siteUrl}${permalink}`;
+  // Absolute image URL: use as-is if already full URL, else resolve with baseUrl.
+  // Falls back to default social card so LinkedIn always gets an og:image.
+  const resolvedImage = image ?? 'img/vs-social-card.png';
   const absoluteImage =
-    typeof image === 'string' && (image.startsWith('http://') || image.startsWith('https://'))
-      ? image
-      : image
-        ? `${siteUrl}${baseUrl}${typeof image === 'string' ? image.replace(/^\//, '') : ''}`
-        : undefined;
+    typeof resolvedImage === 'string' && (resolvedImage.startsWith('http://') || resolvedImage.startsWith('https://'))
+      ? resolvedImage
+      : `${siteUrl}${baseUrl}${typeof resolvedImage === 'string' ? resolvedImage.replace(/^\//, '') : ''}`;
 
   const pageTitle = frontMatter.title_meta ?? title;
   const pageDescription = description ?? undefined;
