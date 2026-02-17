@@ -40,6 +40,5 @@ Treat this as a deprecated implementation pattern:
 
 ## Related posts
 
-- [WordPress Modular DS Breach Review](/wordpress-modular-ds-breach-review/)
 - [WordPress AI Search Readiness](/2026-02-16-wp-ai-search-readiness/)
 - [WordPress 7 Release Readiness Build Notes](/build-wp-7-release-readiness/)
