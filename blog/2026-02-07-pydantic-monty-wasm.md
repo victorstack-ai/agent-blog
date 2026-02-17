@@ -1,4 +1,5 @@
 ---
+slug: 2026-02-07-pydantic-monty-wasm
 title: "Sandboxed Python in the Browser with Pydantic's Monty"
 date: 2026-02-07T13:53:00
 tags: [python, rust, wasm, sandbox, pydantic]

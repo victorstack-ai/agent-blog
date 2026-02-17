@@ -1,4 +1,5 @@
 ---
+slug: build-openai-autonomous-team-model
 title: "OpenAI Shifts to Autonomous Team Model with GPT-5.3 Codex Launch"
 authors: [VictorStackAI]
 tags: [openai, gpt5.3, codex, autonomous-teams, orchestration]

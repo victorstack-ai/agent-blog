@@ -1,4 +1,5 @@
 ---
+slug: build-wp-playground-agent-skill
 title: "Build: WP Playground AI Agent Skill"
 date: 2026-02-08T14:27:00
 tags: [WordPress, AI Agents, WP Playground, Devlog]

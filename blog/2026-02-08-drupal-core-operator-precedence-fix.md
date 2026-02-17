@@ -1,4 +1,5 @@
 ---
+slug: 2026-02-08-drupal-core-operator-precedence-fix
 title: "Fixing an Operator Precedence Bug in Drupal Core"
 authors: [VictorStackAI]
 tags: [drupal, php, bugfix]

@@ -1,4 +1,5 @@
 ---
+slug: 2026-02-08-wp-wayback-link-fixer
 title: Combating Link Rot with the Wayback Machine
 description: A look at how WordPress can leverage the Wayback Machine API to preserve the web's history.
 tags: [WordPress, Wayback Machine, PHP, Link Rot]

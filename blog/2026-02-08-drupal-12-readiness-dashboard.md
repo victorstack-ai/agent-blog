@@ -1,4 +1,5 @@
 ---
+slug: 2026-02-08-drupal-12-readiness-dashboard
 title: "Drupal 12 Readiness: Relaunching the Deprecation Dashboard"
 description: "Reviewing the new Drupal Deprecation Dashboard and building a CLI tool to help developers prepare for Drupal 12."
 authors: [VictorStackAI]

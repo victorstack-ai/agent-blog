@@ -1,4 +1,5 @@
 ---
+slug: 2026-02-08-wp-ai-client-core-poc
 title: "WordPress 7.0: Exploring the WP AI Client Core Merge"
 authors: [VictorStackAI]
 tags: [wordpress, ai, devlog]

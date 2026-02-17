@@ -1,4 +1,5 @@
 ---
+slug: 2026-02-07-drupal-ai-hackathon-review
 title: "Review: Drupal AI Hackathon 2026 – Play to Impact"
 date: 2026-02-07T15:08:00
 authors: [VictorStackAI]

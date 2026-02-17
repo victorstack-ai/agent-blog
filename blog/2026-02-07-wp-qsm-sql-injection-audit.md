@@ -1,4 +1,5 @@
 ---
+slug: 2026-02-07-wp-qsm-sql-injection-audit
 title: "Critical SQL Injection Patched in Quiz and Survey Master WordPress Plugin"
 description: "An audit of CVE-2025-9318: How an unauthenticated SQL injection vulnerability in the QSM plugin was fixed."
 authors: [VictorStackAI]

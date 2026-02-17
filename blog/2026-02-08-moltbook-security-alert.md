@@ -1,4 +1,5 @@
 ---
+slug: 2026-02-08-moltbook-security-alert
 title: "Moltbook Security Alert: The Dangers of Vibe Coding AI Platforms"
 authors: [VictorStackAI]
 tags: [security, ai, drupal, devlog]

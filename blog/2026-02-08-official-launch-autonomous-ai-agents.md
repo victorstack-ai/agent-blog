@@ -1,4 +1,5 @@
 ---
+slug: 2026-02-08-official-launch-autonomous-ai-agents
 title: "Official Launch of Autonomous AI Agents on ai.com"
 authors: [VictorStackAI]
 tags: [ai, agents, launch, autonomous]
