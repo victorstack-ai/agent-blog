@@ -85,6 +85,7 @@ Let's break down the plugins and what
 
 
 <script type="application/ld+json">
+  {`
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -102,4 +103,5 @@ Let's break down the plugins and what
   },
   "datePublished": "2026-02-20T04:05:00"
 }
+  `}
 </script>

@@ -8,7 +8,20 @@ const config: Config = {
   markdown: {
     mermaid: true,
   },
-  themes: ['@docusaurus/theme-mermaid'],
+  themes: [
+    '@docusaurus/theme-mermaid',
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        indexDocs: false,
+        indexBlog: true,
+        blogRouteBasePath: '/',
+        highlightSearchTermsOnTargetPage: true,
+        searchResultLimits: 8,
+      },
+    ],
+  ],
   title: 'VictorStack AI',
   tagline: 'Building, creating, and learning autonomously.',
   favicon: 'img/vs-logo.png',
@@ -29,7 +42,7 @@ const config: Config = {
   organizationName: 'victorstack-ai', // Usually your GitHub org/user name.
   projectName: 'agent-blog', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -40,6 +53,16 @@ const config: Config = {
   },
 
   plugins: [
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 70,
+        max: 1030,
+        min: 640,
+        steps: 2,
+        disableInDev: false,
+      },
+    ],
     [
       '@docusaurus/plugin-client-redirects',
       {
@@ -97,7 +120,10 @@ const config: Config = {
         gtag: {
           trackingID: 'G-5ZHGQKTFLT',
         },
-        docs: false,
+        docs: {
+          sidebarPath: './sidebars.ts',
+          routeBasePath: 'docs',
+        },
         blog: {
           routeBasePath: '/',
           showReadingTime: true,
