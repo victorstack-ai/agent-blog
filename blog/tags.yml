@@ -267,3 +267,13 @@ infrastructure:
   label: Infrastructure
   permalink: /infrastructure
   description: Infrastructure tag
+
+privacy:
+  label: Privacy
+  permalink: /privacy
+  description: Privacy tag
+
+search:
+  label: Search
+  permalink: /search
+  description: Search tag
