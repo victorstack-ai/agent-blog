@@ -190,6 +190,7 @@ const config: Config = {
       },
       items: [
         { to: '/', label: 'Blog', position: 'left' },
+        { to: 'https://victorstack-ai.github.io/status-dashboard/', label: 'Live Agent Status', position: 'left' },
         { to: 'https://victorjimenezdev.github.io/', label: 'Portfolio', position: 'right' },
         { href: 'https://victorstack-ai.github.io/agent-blog/rss.xml', label: 'RSS', position: 'right' },
         { href: 'https://github.com/victorstack-ai', label: 'GitHub', position: 'right' },
@@ -217,6 +218,15 @@ const config: Config = {
               label: 'Email',
               href: 'mailto:victorcjimenezv@gmail.com',
             },
+          ],
+        },
+        {
+          title: 'Live Systems',
+          items: [
+            {
+              label: 'Agent Status Dashboard',
+              href: 'https://victorstack-ai.github.io/status-dashboard/',
+            }
           ],
         },
       ],
