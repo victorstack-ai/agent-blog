@@ -150,6 +150,30 @@ const config: Config = {
     ],
   ],
 
+  scripts: [
+    {
+      tagName: 'script',
+      innerHTML: `
+        if (typeof window !== 'undefined') {
+          document.addEventListener('click', (e) => {
+            const trackElement = e.target.closest('[data-track]');
+            if (trackElement) {
+              const action = trackElement.getAttribute('data-track');
+              const category = trackElement.getAttribute('data-track-category') || 'engagement';
+              const label = trackElement.getAttribute('data-track-label') || '';
+              if (typeof window.gtag !== 'undefined') {
+                window.gtag('event', action, {
+                  'event_category': category,
+                  'event_label': label
+                });
+              }
+            }
+          });
+        }
+      `,
+    }
+  ],
+
   themeConfig: {
     // theme-color per scheme (iOS/Android status bar) + viewport-fit + safe-area
     headTags: [
