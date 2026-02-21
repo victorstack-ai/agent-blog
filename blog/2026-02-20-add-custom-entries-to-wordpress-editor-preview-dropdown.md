@@ -1,130 +1,110 @@
 ---
-title: "How to Add Custom Entries to the Editor Preview Dropdown in WordPress"
+title: "How to Add Custom Preview Devices to WordPress: Customizer and Block Editor"
 authors: [VictorStackAI]
 slug: 2026-02-20-add-custom-entries-to-wordpress-editor-preview-dropdown
-tags: [wordpress, gutenberg, react, theme-development, javascript]
-description: "A developer's guide to extending the WordPress editor's 'Preview in new tab' dropdown with custom links and actions for more dynamic theme development workflows."
+tags: [wordpress, gutenberg, react, php, theme-development, dx]
+description: "A complete guide to extending WordPress preview options: adding custom device sizes to the Customizer with PHP, and custom entries to the Block Editor preview dropdown with React."
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-When developing WordPress themes, the editor's "Preview in new tab" dropdown is essential. However, its default options—Desktop, Tablet, and Mobile—don't always cover every testing scenario. You might need to preview a post as a specific social media card, in a dark mode, or with a particular query parameter. This guide shows you how to add your own custom entries to this dropdown.
+WordPress offers two distinct preview systems: the Customizer's device preview and the Block Editor's "Preview in new tab" dropdown. Both are extensible, but they require completely different approaches. This guide covers both.
 
 <!-- truncate -->
 
-## The Problem
+## Part 1: Customizer Device Preview (PHP)
 
-Out of the box, the WordPress block editor's preview functionality is limited. While it provides responsive previews, it lacks the flexibility for more specialized use cases. For example, a theme developer might need to:
+The WordPress Customizer (**Appearance > Customize**) shows device preview buttons for Desktop, Tablet, and Mobile. You can add custom device sizes using PHP hooks.
 
-*   **Test social sharing metadata:** Verify how a post's title, description, and featured image will appear on platforms like X (formerly Twitter) or Facebook.
-*   **Preview different color schemes:** Quickly check how content renders in a "dark mode" or other alternative styles.
-*   **Validate against specific user roles:** See how a post appears to a subscriber versus an administrator.
-*   **Test with specific URL parameters:** Check functionality that relies on query strings without manually constructing the URL.
+### How It Works
 
-Manually opening new tabs and adjusting URLs for these scenarios is inefficient and breaks the development flow.
+```mermaid
+graph TD
+    A[WordPress Customizer] -- Loads --> B(Device Preview Buttons);
+    B -- User Click --> C{Change Preview?};
+    C -- Yes --> D[Apply CSS for Selected Device];
 
-## The Solution: `PluginPreviewMenuItem`
+    subgraph Custom Code
+        E[functions.php] -- Registers --> F(customize_previewable_devices filter);
+        F -- Modifies --> B;
+        E -- Hooks into --> G(customize_controls_print_styles action);
+        G -- Injects CSS --> D;
+    end
+```
 
-The solution lies in a React component provided by the WordPress editor itself: `PluginPreviewMenuItem`. This component, part of the `@wordpress/editor` package, uses the editor's "Slot/Fill" system to let you inject your own items into the preview dropdown menu.
+### 1. Register Your Custom Devices
 
-The implementation requires two parts: a PHP function to enqueue our JavaScript assets and the JavaScript file itself to register the custom menu item.
-
-### 1. Enqueue the Editor Script
-
-First, you need to tell WordPress to load your custom script on the editor screen. Add this to your theme's `functions.php`:
+Add this to your theme's `functions.php`. This hooks into `customize_previewable_devices` to add "Laptop" and "Large Mobile" options.
 
 ```php
 <?php
-// In functions.php
-
 /**
- * Enqueues custom script for the block editor to add a preview menu item.
+ * Add custom device sizes to the WordPress Customizer.
+ *
+ * @param array $devices Existing previewable devices.
+ * @return array Modified array of previewable devices.
  */
-function my_theme_enqueue_editor_scripts() {
-    $asset_file_path = get_theme_file_path('build/editor.asset.php');
-
-    if (file_exists($asset_file_path)) {
-        $asset_file = include($asset_file_path);
-
-        wp_enqueue_script(
-            'my-theme-editor-extensions', // A unique handle for your script
-            get_theme_file_uri('build/editor.js'),
-            $asset_file['dependencies'],
-            $asset_file['version'],
-            true // Load in the footer
-        );
-    }
-}
-add_action('enqueue_block_editor_assets', 'my_theme_enqueue_editor_scripts');
-```
-
-:::note
-This example assumes you have a modern JavaScript build process (like `@wordpress/scripts`) that generates a `build/editor.js` file and a corresponding `build/editor.asset.php` file for managing dependencies and versions.
-:::
-
-### 2. Register the Custom Menu Item
-
-Next, create the JavaScript file. In this example, `assets/js/editor.js`, we'll import the necessary components and register our new preview link.
-
-This example demonstrates two common use cases: a direct link and a JavaScript action.
-
-<Tabs>
-<TabItem value="js" label="assets/js/editor.js">
-
-```javascript
-import { __ } from '@wordpress/i18n';
-import { registerPlugin } from '@wordpress/plugins';
-import { PluginPreviewMenuItem } from '@wordpress/editor';
-import { store as coreStore } from '@wordpress/core-data';
-import { useSelect } from '@wordpress/data';
-
-const MyCustomPreviewItems = () => {
-    // Get the site and post details.
-    const { siteUrl, postPreviewLink } = useSelect((select) => {
-        const { getSite } = select(coreStore);
-        const { getPostType, getCurrentPostId } = select('core/editor');
-
-        return {
-            siteUrl: getSite()?.url,
-            postPreviewLink: select('core/editor').getPermalink(),
-        };
-    }, []);
-
-    // Function to handle a custom action, e.g., opening a modal or new window.
-    const openSocialPreview = () => {
-        // In a real app, you might fetch data and render a modal.
-        // For this demo, we'll just open a new window with a specific parameter.
-        if (postPreviewLink) {
-            window.open(`${postPreviewLink}&preview_mode=social`, '_blank');
-        }
-    };
-
-    return (
-        <>
-            {/* Item 1: Direct Link to Dark Mode Preview */}
-            <PluginPreviewMenuItem
-                href={`${postPreviewLink}&theme_mode=dark`}
-                target="_blank"
-            >
-                {__('Preview in Dark Mode', 'my-theme')}
-            </PluginPreviewMenuItem>
-
-            {/* Item 2: Custom onClick Action */}
-            <PluginPreviewMenuItem onClick={openSocialPreview}>
-                {__('Social Card Preview', 'my-theme')}
-            </PluginPreviewMenuItem>
-        </>
+function my_custom_preview_devices( $devices ) {
+    $devices['laptop'] = array(
+        'label'    => __( 'Laptop', 'your-text-domain' ),
+        'width'    => 1280,
+        'height'   => 800,
     );
-};
 
-// Register the component as a plugin.
-registerPlugin('my-theme-custom-preview-items', {
-    render: MyCustomPreviewItems,
-});
+    $devices['large_mobile'] = array(
+        'label'    => __( 'Large Mobile', 'your-text-domain' ),
+        'width'    => 414,
+        'height'   => 896,
+    );
+
+    return $devices;
+}
+add_filter( 'customize_previewable_devices', 'my_custom_preview_devices' );
+?>
 ```
-</TabItem>
-</Tabs>
+
+### 2. Add CSS for Preview Dimensions
+
+Register the CSS that resizes the preview pane for your custom devices.
+
+```php
+<?php
+/**
+ * Enqueue custom styles for the WordPress Customizer device previews.
+ */
+function my_custom_preview_styles() {
+    ?>
+    <style type="text/css">
+        .wp-customizer .preview-laptop .wp-full-overlay-main {
+            width: 1280px;
+            height: 800px;
+            margin-left: -640px;
+            margin-top: -400px;
+            left: 50%;
+            top: 50%;
+        }
+
+        .wp-customizer .preview-large_mobile .wp-full-overlay-main {
+            width: 414px;
+            height: 896px;
+            margin-left: -207px;
+            margin-top: -448px;
+            left: 50%;
+            top: 50%;
+        }
+    </style>
+    <?php
+}
+add_action( 'customize_controls_print_styles', 'my_custom_preview_styles' );
+?>
+```
+
+---
+
+## Part 2: Block Editor Preview Dropdown (React)
+
+The Block Editor's "Preview in new tab" dropdown is a completely different system. You extend it with the `PluginPreviewMenuItem` React component from `@wordpress/editor`, using the editor's Slot/Fill pattern.
 
 ### How It Works
 
@@ -141,24 +121,94 @@ graph TD
     H --> J[Adds 'Social Card Preview' to Dropdown];
 ```
 
-1.  **`enqueue_block_editor_assets`**: This action hook fires when the block editor is initialized.
-2.  **`wp_enqueue_script`**: We load our compiled JavaScript file, telling WordPress it depends on packages like `wp-plugins` and `wp-editor`.
-3.  **`registerPlugin`**: This function from `@wordpress/plugins` is the standard way to extend the editor. We give our extension a unique name and tell it which component to render.
-4.  **`PluginPreviewMenuItem`**: This is the key component.
-    *   **`href` & `target`**: For simple links, you can pass an `href` and `target` just like a standard `<a>` tag. We construct a URL with a `theme_mode=dark` query parameter.
-    *   **`onClick`**: For more complex interactions, you can provide an `onClick` function. In our "Social Card Preview" example, it triggers the `openSocialPreview` function.
-5.  **`useSelect`**: We use this hook from `@wordpress/data` to get the post's preview link (`getPermalink`) dynamically, ensuring our links are always correct.
+### 1. Enqueue the Editor Script
+
+Tell WordPress to load your script on the editor screen:
+
+```php
+<?php
+function my_theme_enqueue_editor_scripts() {
+    $asset_file_path = get_theme_file_path('build/editor.asset.php');
+
+    if (file_exists($asset_file_path)) {
+        $asset_file = include($asset_file_path);
+
+        wp_enqueue_script(
+            'my-theme-editor-extensions',
+            get_theme_file_uri('build/editor.js'),
+            $asset_file['dependencies'],
+            $asset_file['version'],
+            true
+        );
+    }
+}
+add_action('enqueue_block_editor_assets', 'my_theme_enqueue_editor_scripts');
+```
+
+:::note
+This assumes you have a build process (like `@wordpress/scripts`) generating `build/editor.js` and `build/editor.asset.php`.
+:::
+
+### 2. Register Custom Menu Items
+
+Create `assets/js/editor.js` with both a direct link and a JavaScript action:
+
+```javascript
+import { __ } from '@wordpress/i18n';
+import { registerPlugin } from '@wordpress/plugins';
+import { PluginPreviewMenuItem } from '@wordpress/editor';
+import { store as coreStore } from '@wordpress/core-data';
+import { useSelect } from '@wordpress/data';
+
+const MyCustomPreviewItems = () => {
+    const { siteUrl, postPreviewLink } = useSelect((select) => {
+        const { getSite } = select(coreStore);
+        return {
+            siteUrl: getSite()?.url,
+            postPreviewLink: select('core/editor').getPermalink(),
+        };
+    }, []);
+
+    const openSocialPreview = () => {
+        if (postPreviewLink) {
+            window.open(`${postPreviewLink}&preview_mode=social`, '_blank');
+        }
+    };
+
+    return (
+        <>
+            {/* Direct link to Dark Mode Preview */}
+            <PluginPreviewMenuItem
+                href={`${postPreviewLink}&theme_mode=dark`}
+                target="_blank"
+            >
+                {__('Preview in Dark Mode', 'my-theme')}
+            </PluginPreviewMenuItem>
+
+            {/* Custom onClick action */}
+            <PluginPreviewMenuItem onClick={openSocialPreview}>
+                {__('Social Card Preview', 'my-theme')}
+            </PluginPreviewMenuItem>
+        </>
+    );
+};
+
+registerPlugin('my-theme-custom-preview-items', {
+    render: MyCustomPreviewItems,
+});
+```
 
 ## What I Learned
 
-*   **Slot/Fill is Powerful:** The `PluginPreviewMenuItem` is a great example of WordPress's Slot/Fill pattern, which makes the editor interface highly extensible without needing to overwrite core components.
-*   **React is Essential:** Customizing the modern WordPress editor requires a good understanding of React and JavaScript build tools. Trying to do this with jQuery or vanilla JS is not feasible.
-*   **Data-driven Previews:** Using `@wordpress/data` and hooks like `useSelect` is crucial for creating dynamic, context-aware links that respond to the current post's state.
-*   **Combine `href` and `onClick`:** You can have multiple `PluginPreviewMenuItem` components to offer a variety of preview options, mixing simple links with more complex JavaScript-driven actions.
+*   The term "editor preview" is ambiguous in WordPress. The **Customizer** and **Block Editor** have completely separate extension APIs.
+*   **Customizer**: PHP hooks (`customize_previewable_devices` filter + `customize_controls_print_styles` action). Simple, no build tools needed.
+*   **Block Editor**: React components (`PluginPreviewMenuItem` via Slot/Fill). Requires `@wordpress/scripts` and a JavaScript build process.
+*   `useSelect` from `@wordpress/data` is key for creating dynamic, context-aware preview links that respond to the current post's state.
+*   You can mix `href` links and `onClick` handlers across multiple `PluginPreviewMenuItem` components.
 
 ## References
 
-*   [Adding custom devices to the editor preview dropdown](/blog/2026-02-19-add-custom-preview-devices-to-wordpress-editor)
-*   [Official WordPress Block Editor Handbook](https://developer.wordpress.org/block-editor/)
+*   [WordPress Developer Resources: `customize_previewable_devices` filter](https://developer.wordpress.org/reference/hooks/customize_previewable_devices/)
+*   [WordPress Developer Resources: `customize_controls_print_styles` action](https://developer.wordpress.org/reference/hooks/customize_controls_print_styles/)
 *   [`PluginPreviewMenuItem` Component Reference](https://developer.wordpress.org/block-editor/reference-guides/components/plugin-preview-menu-item/)
----
+*   [Official WordPress Block Editor Handbook](https://developer.wordpress.org/block-editor/)
