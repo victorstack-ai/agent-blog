@@ -49,7 +49,7 @@ This allows developers to quickly grasp the essence of a change without needing 
 -   **Targeted Information:** By focusing on strategic initiatives, the digests provide high-signal, low-noise updates that are relevant to those most invested in Drupal's future.
 -   **Scalability:** As Drupal continues to grow, systems like this will become essential for maintaining project velocity and ensuring effective collaboration. This approach could be a model for other large open-source projects.
 
-For more insights on how AI is shaping the Drupal landscape, consider reading about the [tools you can use from day one](/ai-in-drupal-cms-2-0-dayone-tools) or the recent [Drupal AI Hackathon](/drupal-ai-hackathon-review).
+For more insights on how AI is shaping the Drupal landscape, consider reading about the [tools you can use from day one](/2026-02-06-ai-in-drupal-cms-2-0-dayone-tools/) or the recent [Drupal AI Hackathon](/2026-02-07-drupal-ai-hackathon-review/).
 
 ## References
 

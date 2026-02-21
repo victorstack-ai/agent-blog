@@ -90,12 +90,13 @@ const config: Config = {
           { from: '/2026-02-05-flowdrop-node-sessions-review', to: '/2026-02-05-flowdrop-agents-review/' },
           // DDEV
           { from: '/2026-02-06-1030-devlog', to: '/2026-02-06-ddev-podman-rootless-review/' },
-          // GPT-5.3 Codex harness → gpt-5-3-codex-agent-harness
-          { from: '/2026-02-07-1036-devlog', to: '/gpt-5-3-codex-agent-harness/' },
-          // Opus/Codex overview → codex-5-3-opus-4-6-code-generation
-          { from: '/2026-02-06-1646-devlog', to: '/codex-5-3-opus-4-6-code-generation/' },
-          { from: '/2026-02-07-1206-devlog', to: '/codex-5-3-opus-4-6-code-generation/' },
-          { from: '/2026-02-07-1118-devlog', to: '/codex-5-3-opus-4-6-code-generation/' },
+          // Old Codex/Opus slugs → kept system-cards post
+          { from: '/2026-02-07-1036-devlog', to: '/opus-4-6-codex-5-3-system-cards/' },
+          { from: '/gpt-5-3-codex-agent-harness', to: '/opus-4-6-codex-5-3-system-cards/' },
+          { from: '/2026-02-06-1646-devlog', to: '/opus-4-6-codex-5-3-system-cards/' },
+          { from: '/2026-02-07-1206-devlog', to: '/opus-4-6-codex-5-3-system-cards/' },
+          { from: '/2026-02-07-1118-devlog', to: '/opus-4-6-codex-5-3-system-cards/' },
+          { from: '/codex-5-3-opus-4-6-code-generation', to: '/opus-4-6-codex-5-3-system-cards/' },
           // Drupal Pivot / EU Sovereignty → drupal-european-digital-sovereignty
           { from: '/2026-02-05-drupal-pivot-ghent-review', to: '/drupal-european-digital-sovereignty/' },
           { from: '/2026-02-07-1534-devlog', to: '/drupal-european-digital-sovereignty/' },
@@ -108,13 +109,15 @@ const config: Config = {
           // AI tools review
           { from: '/build-drupal-cms-2-ai-tools-review', to: '/2026-02-06-ai-in-drupal-cms-2-0-dayone-tools/' },
           // Old timestamp slugs → new descriptive slugs
-          { from: '/2026-02-04-devlog', to: '/devlog-pipeline-reading-queue/' },
+          { from: '/2026-02-04-devlog', to: '/' },
+          { from: '/devlog-pipeline-reading-queue', to: '/' },
           { from: '/2026-02-05-0414-devlog', to: '/drupal-canvas-full-html-rollout-guide/' },
           { from: '/2026-02-05-0415-devlog', to: '/wp-6-9-1-rc1-compatibility-checklist/' },
           { from: '/2026-02-05-0418-devlog', to: '/drupal-multilingual-html-email-stack/' },
           { from: '/2026-02-05-0659-devlog', to: '/drupal-migration-mapping-validator/' },
           { from: '/2026-02-05-1249-devlog', to: '/pantheon-traffic-forensics-workflow/' },
-          { from: '/2026-02-07-1020-devlog', to: '/uk-council-website-audit-playwright/' },
+          { from: '/2026-02-07-1020-devlog', to: '/' },
+          { from: '/uk-council-website-audit-playwright', to: '/' },
           { from: '/2026-02-07-1105-devlog', to: '/drupal-core-jsonapi-array-dumper-optimization/' },
           { from: '/2026-02-07-1720-devlog', to: '/opus-4-6-codex-5-3-system-cards/' },
           { from: '/2026-02-07-1831-devlog', to: '/ai-quality-war-wordpress-cloudflare/' },
@@ -125,6 +128,10 @@ const config: Config = {
           { from: '/2026-02-17-1139-devlog', to: '/pantheon-deploy-gate-safety/' },
           { from: '/2026-02-18-0021-devlog', to: '/drupal-ai-openai-planner-fallback/' },
           { from: '/2026-02-21-drupal-ai-governance-hype', to: '/drupal-ai-openai-planner-fallback/' },
+          // Deleted posts → blog index
+          { from: '/2026-02-08-official-launch-autonomous-ai-agents', to: '/' },
+          { from: '/build-status-dashboard', to: '/' },
+          { from: '/2026-02-18-moltbook-operant-ai-agent-security-review', to: '/2026-02-19-unprotected-ai-agents-report/' },
         ],
       },
     ],
