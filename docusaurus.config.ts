@@ -74,8 +74,6 @@ const config: Config = {
           { from: '/2026-02-05-1314-devlog', to: '/2026-02-06-0715-devlog/' },
           { from: '/2026-02-05-1643-devlog', to: '/2026-02-06-0715-devlog/' },
           { from: '/2026-02-05-1819-devlog', to: '/2026-02-06-0715-devlog/' },
-          // AGENTS.md → 2026-02-07-0859-devlog
-          { from: '/2026-02-07-0718-devlog', to: '/2026-02-07-0859-devlog/' },
           // Drupal Service Collectors → 2026-02-07-1016-devlog
           { from: '/2026-02-05-1728-devlog', to: '/2026-02-07-1016-devlog/' },
           { from: '/2026-02-05-2354-devlog', to: '/2026-02-07-1016-devlog/' },
