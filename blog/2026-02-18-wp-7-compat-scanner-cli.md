@@ -73,7 +73,6 @@ CI behavior is controlled with `--fail-on`:
 | `python3 scanner.py /path --fail-on low` | exits `1` for any finding |
 
 Related posts:
-- [WordPress 7.0 Release Readiness: Beta 1 Set for February 19](/build-wp-7-release-readiness/)
 - [WordPress Dataform Settings Page Demo](/build-wp-dataform-settings-page-demo/)
 - [WordPress Google Preferred Source Tool](/wp-google-preferred-source-tool/)
 

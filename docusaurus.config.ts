@@ -67,45 +67,63 @@ const config: Config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
-          // WordPress MCP Adapter → 2026-02-06-0715-devlog
-          { from: '/2026-02-05-0645-devlog', to: '/2026-02-06-0715-devlog/' },
-          { from: '/2026-02-05-0806-devlog', to: '/2026-02-06-0715-devlog/' },
-          { from: '/2026-02-05-1220-devlog', to: '/2026-02-06-0715-devlog/' },
-          { from: '/2026-02-05-1314-devlog', to: '/2026-02-06-0715-devlog/' },
-          { from: '/2026-02-05-1643-devlog', to: '/2026-02-06-0715-devlog/' },
-          { from: '/2026-02-05-1819-devlog', to: '/2026-02-06-0715-devlog/' },
-          // Drupal Service Collectors → 2026-02-07-1016-devlog
-          { from: '/2026-02-05-1728-devlog', to: '/2026-02-07-1016-devlog/' },
-          { from: '/2026-02-05-2354-devlog', to: '/2026-02-07-1016-devlog/' },
-          { from: '/2026-02-06-0634-devlog', to: '/2026-02-07-1016-devlog/' },
-          { from: '/2026-02-06-0724-devlog', to: '/2026-02-07-1016-devlog/' },
-          // Composer path repos → 2026-02-05-composer-path-repos-drupal
+          // WordPress MCP Adapter → wordpress-mcp-adapter-demo
+          { from: '/2026-02-05-0645-devlog', to: '/wordpress-mcp-adapter-demo/' },
+          { from: '/2026-02-05-0806-devlog', to: '/wordpress-mcp-adapter-demo/' },
+          { from: '/2026-02-05-1220-devlog', to: '/wordpress-mcp-adapter-demo/' },
+          { from: '/2026-02-05-1314-devlog', to: '/wordpress-mcp-adapter-demo/' },
+          { from: '/2026-02-05-1643-devlog', to: '/wordpress-mcp-adapter-demo/' },
+          { from: '/2026-02-05-1819-devlog', to: '/wordpress-mcp-adapter-demo/' },
+          { from: '/2026-02-06-0715-devlog', to: '/wordpress-mcp-adapter-demo/' },
+          // Drupal Service Collectors → drupal-service-collectors-pattern
+          { from: '/2026-02-05-1728-devlog', to: '/drupal-service-collectors-pattern/' },
+          { from: '/2026-02-05-2354-devlog', to: '/drupal-service-collectors-pattern/' },
+          { from: '/2026-02-06-0634-devlog', to: '/drupal-service-collectors-pattern/' },
+          { from: '/2026-02-06-0724-devlog', to: '/drupal-service-collectors-pattern/' },
+          { from: '/2026-02-07-1016-devlog', to: '/drupal-service-collectors-pattern/' },
+          // Composer path repos
           { from: '/2026-02-05-1338-devlog', to: '/2026-02-05-composer-path-repos-drupal/' },
-          // Droptica → build-drupal-droptica-ai-doc-processing-case-study
+          // Droptica
           { from: '/2026-02-05-droptica-ai-document-processing-review', to: '/build-drupal-droptica-ai-doc-processing-case-study/' },
           { from: '/2026-02-05-droptica-ai-document-processing', to: '/build-drupal-droptica-ai-doc-processing-case-study/' },
-          // FlowDrop Node Sessions → flowdrop-agents-review
+          // FlowDrop
           { from: '/2026-02-05-flowdrop-node-sessions-review', to: '/2026-02-05-flowdrop-agents-review/' },
-          // DDEV → 2026-02-06-ddev-podman-rootless-review
+          // DDEV
           { from: '/2026-02-06-1030-devlog', to: '/2026-02-06-ddev-podman-rootless-review/' },
-          // GPT-5.3 Codex harness → 2026-02-07-1036-devlog
-          { from: '/gpt-5-3-codex-agent-harness', to: '/2026-02-07-1036-devlog/' },
-          // Opus/Codex overview → 2026-02-07-1118-devlog
-          { from: '/2026-02-06-1646-devlog', to: '/2026-02-07-1118-devlog/' },
-          { from: '/2026-02-07-1206-devlog', to: '/2026-02-07-1118-devlog/' },
-          // Drupal Pivot → 2026-02-07-1447-devlog
-          { from: '/2026-02-05-drupal-pivot-ghent-review', to: '/2026-02-07-1447-devlog/' },
-          // AI adoption → 2026-02-06-0817-devlog
-          { from: '/2026-02-06-0731-devlog', to: '/2026-02-06-0817-devlog/' },
-          // EU Sovereignty (merged into 2026-02-07-1447-devlog)
-          { from: '/2026-02-07-1534-devlog', to: '/2026-02-07-1447-devlog/' },
-          // Drupal MCP tools (merged into build-drupal-mcp-toolkit)
+          // GPT-5.3 Codex harness → gpt-5-3-codex-agent-harness
+          { from: '/2026-02-07-1036-devlog', to: '/gpt-5-3-codex-agent-harness/' },
+          // Opus/Codex overview → codex-5-3-opus-4-6-code-generation
+          { from: '/2026-02-06-1646-devlog', to: '/codex-5-3-opus-4-6-code-generation/' },
+          { from: '/2026-02-07-1206-devlog', to: '/codex-5-3-opus-4-6-code-generation/' },
+          { from: '/2026-02-07-1118-devlog', to: '/codex-5-3-opus-4-6-code-generation/' },
+          // Drupal Pivot / EU Sovereignty → drupal-european-digital-sovereignty
+          { from: '/2026-02-05-drupal-pivot-ghent-review', to: '/drupal-european-digital-sovereignty/' },
+          { from: '/2026-02-07-1534-devlog', to: '/drupal-european-digital-sovereignty/' },
+          { from: '/2026-02-07-1447-devlog', to: '/drupal-european-digital-sovereignty/' },
+          // Drupal MCP tools
           { from: '/build-drupal-mcp-audit-server', to: '/build-drupal-mcp-toolkit/' },
           { from: '/build-drupal-mcp-config-export', to: '/build-drupal-mcp-toolkit/' },
           { from: '/build-drupal-mcp-node-info', to: '/build-drupal-mcp-toolkit/' },
           { from: '/build-drupal-mcp-site-audit', to: '/build-drupal-mcp-toolkit/' },
-          // AI tools review (stub → dayone tools)
+          // AI tools review
           { from: '/build-drupal-cms-2-ai-tools-review', to: '/2026-02-06-ai-in-drupal-cms-2-0-dayone-tools/' },
+          // Old timestamp slugs → new descriptive slugs
+          { from: '/2026-02-04-devlog', to: '/devlog-pipeline-reading-queue/' },
+          { from: '/2026-02-05-0414-devlog', to: '/drupal-canvas-full-html-rollout-guide/' },
+          { from: '/2026-02-05-0415-devlog', to: '/wp-6-9-1-rc1-compatibility-checklist/' },
+          { from: '/2026-02-05-0418-devlog', to: '/drupal-multilingual-html-email-stack/' },
+          { from: '/2026-02-05-0659-devlog', to: '/drupal-migration-mapping-validator/' },
+          { from: '/2026-02-05-1249-devlog', to: '/pantheon-traffic-forensics-workflow/' },
+          { from: '/2026-02-07-1020-devlog', to: '/uk-council-website-audit-playwright/' },
+          { from: '/2026-02-07-1105-devlog', to: '/drupal-core-jsonapi-array-dumper-optimization/' },
+          { from: '/2026-02-07-1720-devlog', to: '/opus-4-6-codex-5-3-system-cards/' },
+          { from: '/2026-02-07-1831-devlog', to: '/ai-quality-war-wordpress-cloudflare/' },
+          { from: '/2026-02-13-1943-devlog', to: '/drupal-sa11y-local-accessibility/' },
+          { from: '/2026-02-14-0545-devlog', to: '/drupal-commerce-3-3-upgrade-wsod/' },
+          { from: '/2026-02-16-1937-devlog', to: '/pathauto-d10-d11-delete-action-upgrade/' },
+          { from: '/2026-02-17-0849-devlog', to: '/security-advisories-nl-audit/' },
+          { from: '/2026-02-17-1139-devlog', to: '/pantheon-deploy-gate-safety/' },
+          { from: '/2026-02-18-0021-devlog', to: '/drupal-ai-openai-planner-fallback/' },
         ],
       },
     ],

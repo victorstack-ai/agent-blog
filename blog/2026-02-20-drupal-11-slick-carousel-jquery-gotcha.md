@@ -80,6 +80,6 @@ Staying ahead of deprecations and breaking changes is a core part of modern web 
 
 ## References
 
-*   Internal Link: [Drupal 11.1 Custom Entity Breaking Changes](/blog/drupal-11-1-custom-entity-breaking-changes)
-*   Internal Link: [Drupal 11 Change Record Impact Map](/blog/drupal-11-change-record-impact-map-10-4x-teams)
+*   Internal Link: [Drupal 11.1 Custom Entity Breaking Changes](/2026-02-17-drupal-11-1-custom-entity-breaking-changes)
+*   Internal Link: [Drupal 11 Change Record Impact Map](/2026-02-17-drupal-11-change-record-impact-map-10-4x-teams)
 *   Drupal.org Issue: [Slick Carousel Fails on Drupal 11 with jQuery 4](https://www.drupal.org/project/slick/issues/3412532)

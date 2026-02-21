@@ -79,7 +79,7 @@ Before writing custom code, use maintained WordPress plugins:
 | `llms.txt` generation | Website LLMs.txt | Higher active installs and frequent updates |
 | Avoid for production baseline | Older low-velocity llms plugins | Higher breakage risk during WordPress minor updates |
 
-Related reads: [Preparing WordPress for the AI Search Era](/2026-02-16-wp-ai-search-readiness/), [WordPress 7.0 release readiness](/build-wp-7-release-readiness/), and [WordPress 7.0 iframed editor impact](/2026-02-17-wordpress-7-iframed-editor/).
+Related reads: [WordPress 7.0 iframed editor impact](/2026-02-17-wordpress-7-iframed-editor/).
 
 ## What I Learned
 

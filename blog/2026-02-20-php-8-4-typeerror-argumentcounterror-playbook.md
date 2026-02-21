@@ -133,5 +133,4 @@ graph TD
 
 *   [PHP 8.4: Tighter Type and Error Handling](https://php.watch/versions/8.4)
 *   [PHP RFC: Stricter implicit boolean coercions](https://wiki.php.net/rfc/deprecate_implicit_bool_coercion)
-*   [Drupal 12 Readiness Dashboard](/blog/drupal-12-readiness-dashboard)
-*   [WordPress 7.0 Compatibility Scanner](/blog/wp-7-compat-scanner-cli)
+*   [Drupal 12 Readiness Dashboard](/2026-02-08-drupal-12-readiness-dashboard)

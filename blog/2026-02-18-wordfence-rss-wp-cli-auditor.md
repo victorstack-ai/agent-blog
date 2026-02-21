@@ -56,7 +56,6 @@ if ($type === 'max_inclusive' && isset($constraint['max'])) {
 ```
 
 Related reading:
-- [WordPress AI Search Readiness](/2026-02-16-wp-ai-search-readiness/)
 - [WP Malware Sentinel Scanner](/2026-02-08-wp-malware-sentinel-scanner/)
 - [WP QSM SQL Injection Audit](/2026-02-07-wp-qsm-sql-injection-audit/)
 

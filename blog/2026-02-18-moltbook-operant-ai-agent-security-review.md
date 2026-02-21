@@ -65,6 +65,5 @@ Before/after operational baseline:
 - Associated Press reporting on Moltbook exposure: https://apnews.com/article/moltbook-ai-security-breach
 - Operant AI perspective on AI agent vulnerabilities: https://www.operant.ai/post/ai-agent-security-vulnerabilities-critical-risks-and-how-to-protect-your-business
 - Dark Reading analysis of AI-agent security flaws in enterprise contexts: https://www.darkreading.com/application-security/critical-rce-vulnerability-found-servicenow-ai-agent
-- Related post: [Moltbook Security Alert](/2026-02-08-moltbook-security-alert/)
 - Related post: [WordPress QSM SQL Injection Audit](/2026-02-07-wp-qsm-sql-injection-audit/)
 - Related post: [WordPress AI Search Optimization Playbook](/2026-02-17-wordpress-ai-search-optimization-playbook/)

@@ -38,7 +38,3 @@ Treat this as a deprecated implementation pattern:
   - Add capability checks and explicit forbidden responses.
   - Re-test with a subscriber account to confirm denial.
 
-## Related posts
-
-- [WordPress AI Search Readiness](/2026-02-16-wp-ai-search-readiness/)
-- [WordPress 7 Release Readiness Build Notes](/build-wp-7-release-readiness/)
