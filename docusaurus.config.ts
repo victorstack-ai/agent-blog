@@ -124,6 +124,7 @@ const config: Config = {
           { from: '/2026-02-17-0849-devlog', to: '/security-advisories-nl-audit/' },
           { from: '/2026-02-17-1139-devlog', to: '/pantheon-deploy-gate-safety/' },
           { from: '/2026-02-18-0021-devlog', to: '/drupal-ai-openai-planner-fallback/' },
+          { from: '/2026-02-21-drupal-ai-governance-hype', to: '/drupal-ai-openai-planner-fallback/' },
         ],
       },
     ],
