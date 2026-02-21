@@ -132,6 +132,8 @@ const config: Config = {
           { from: '/2026-02-08-official-launch-autonomous-ai-agents', to: '/' },
           { from: '/build-status-dashboard', to: '/' },
           { from: '/2026-02-18-moltbook-operant-ai-agent-security-review', to: '/2026-02-19-unprotected-ai-agents-report/' },
+          // Duplicate WP 7.0 Beta slug with date prefix → correct slug without date
+          { from: '/2026-02-21-wordpress-7-0-beta-1-review', to: '/wordpress-7-0-beta-1-review/' },
         ],
       },
     ],
