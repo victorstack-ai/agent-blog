@@ -282,3 +282,18 @@ governance:
   label: Governance
   permalink: /governance
   description: Governance tag
+
+chrome-extension:
+  label: Chrome Extension
+  permalink: /chrome-extension
+  description: Chrome Extension tag
+
+jira:
+  label: Jira
+  permalink: /jira
+  description: Jira tag
+
+javascript:
+  label: Javascript
+  permalink: /javascript
+  description: Javascript tag
