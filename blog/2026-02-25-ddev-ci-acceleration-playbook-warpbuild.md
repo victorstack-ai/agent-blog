@@ -8,7 +8,7 @@ description: "This playbook shows how to accelerate Drupal CI with DDEV on WarpB
 date: 2026-02-25T20:30:00
 ---
 
-Use WarpBuild runners for the compute-heavy parts of your DDEV Drupal pipeline, keep cache keys deterministic, and gate rollout by p95 runtime and failure-rate SLOs. This gives you faster CI without turning your pipeline into a probabilistic black box. I verified this playbook against DDEV `v1.25.1` (released February 23, 2026) and current WarpBuild runner/cache docs.
+Use WarpBuild runners for the compute-heavy parts of your DDEV Drupal pipeline, keep cache keys deterministic, and gate rollout by p95 runtime and failure-rate SLOs. This gives you faster CI without turning your pipeline into a probabilistic black box. I verified this playbook against DDEV `v1.25.1` (released February 23, 2026) and WarpBuild docs as of February 25, 2026.
 
 <!-- truncate -->
 
@@ -95,6 +95,7 @@ Related reading: [DDEV v1.25 modular share architecture](/ddev-v1-25-modular-sha
 
 - https://github.com/ddev/ddev/releases/tag/v1.25.1
 - https://docs.ddev.com/
-- https://docs.warpbuild.com/ci/runners/github-hosted-runners
-- https://docs.warpbuild.com/ci/cache/github-actions-cache
+- https://www.warpbuild.com/docs/ci/quick-start
+- https://www.warpbuild.com/docs/ci/features
+- https://www.warpbuild.com/docs/ci/preinstalled-software
 - https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows
