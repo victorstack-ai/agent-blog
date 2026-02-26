@@ -20,7 +20,7 @@ The root issue: the module does not sufficiently sanitize user input, which allo
 - Affected versions: `< 3.1.3`
 - Fixed version: `3.1.3`
 - CVE: `CVE-2026-3217`
-- Advisory ID: `DRUPAL-CONTRIB-2026-018`
+- Advisory ID: `SA-CONTRIB-2026-018`
 
 **Why This Matters for Drupal 10/11 and Drupal CMS**
 This module sits in authentication flow. Reflected XSS here is especially sensitive because SSO endpoints are high-trust surfaces that users interact with during login and handoff. Even when exploitation needs user interaction, the blast radius is larger than in typical content-only routes.
@@ -34,6 +34,9 @@ This module sits in authentication flow. Reflected XSS here is especially sensit
    - `drush cr`
 4. Review SSO-related permissions and exposed authentication routes:
    - `drush role:perm | grep -Ei "saml|sso|miniorange"`
+5. Run focused regression checks:
+   - Validate SP-initiated login and IdP-initiated login still complete successfully.
+   - Confirm error/query parameters shown on auth endpoints are escaped in rendered output.
 
 **Bottom Line**
 If your site uses SAML SSO - Service Provider and is below `3.1.3`, treat this as active patch work, not backlog work. Upgrade first, then review SSO route exposure and role permissions around authentication tooling.
