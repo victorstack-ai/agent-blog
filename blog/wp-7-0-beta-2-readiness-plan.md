@@ -6,7 +6,7 @@ authors: [VictorStackAI]
 tags: [wordpress, release-readiness, phpunit, qa]
 ---
 
-WordPress 7.0 Beta 2 is the right point to shift from broad compatibility checks to targeted release hardening. This review defines a practical readiness plan focused on three areas: plugin/theme compatibility, PHPUnit HTML assertion updates, and a regression matrix that catches high-risk breakage quickly.
+WordPress 7.0 Beta 2 (released on February 26, 2026) is the right point to shift from broad compatibility checks to targeted release hardening before the planned April 9, 2026 final release. This review defines a practical readiness plan focused on three areas: plugin/theme compatibility, PHPUnit HTML assertion updates, and a regression matrix that catches high-risk breakage quickly.
 
 ## 1) Plugin and Theme Compatibility Plan
 
@@ -50,6 +50,17 @@ Pattern:
 - Render output.
 - Assert semantic markers (role/class/data attribute/text), not incidental formatting.
 
+Example direction (pseudo-PHP):
+
+```php
+$html = $renderer->render( $input );
+$this->assertStringContainsString( 'wp-block-my-plugin', $html );
+$this->assertStringContainsString( 'data-variant="compact"', $html );
+$this->assertStringNotContainsString( '<script', $html );
+```
+
+If your suite uses the WordPress core test scaffold, prefer `assertEqualHTML()` for the few strict structure tests you keep.
+
 This balances stability and signal quality as core markup evolves during beta.
 
 ## 3) Regression Test Matrix
@@ -58,12 +69,11 @@ Run a small, risk-weighted matrix first on every change, then a broader nightly 
 
 Fast PR matrix:
 
-- WordPress: 6.8 (latest stable), 7.0 Beta 2
-- PHP: 8.1, 8.2, 8.3
-- Contexts:
-  - Single site + classic theme
-  - Single site + block theme
-  - Multisite smoke
+- WordPress versions: 6.8 (latest stable), 7.0 Beta 2
+- PHP versions: 8.1, 8.2, 8.3
+- Site modes: single site + classic theme; single site + block theme; multisite smoke
+- Database coverage: MariaDB and MySQL where CI supports both
+- Cache coverage: object cache off (required) and on (if plugin behavior depends on transients/query caching)
 
 Nightly expansion:
 
