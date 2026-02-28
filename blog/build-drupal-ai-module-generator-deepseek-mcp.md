@@ -13,6 +13,10 @@ It’s useful because it standardizes the starting point for modules and makes t
 
 The key technical takeaway is that pairing MCP with a targeted generator creates a clear contract between intent and output. You define the module intent, and the generator enforces a predictable Drupal skeleton that downstream tools can build on. That makes subsequent automation—tests, linting, and CI checks—much easier to wire in.
 
+## Project Hygiene
+
+The repository now includes an **MIT LICENSE**.
+
 **References**
 
 [View Code](https://github.com/victorstack-ai/drupal-ai-module-generator-deepseek-mcp)

@@ -14,6 +14,10 @@ I find this useful because maintenance work is constant, easy to overlook, and e
 
 The key technical takeaway is that even a narrow, well-scoped agent can create leverage by standardizing maintenance logic and making it auditable. If the workflows are deterministic and the outputs are easy to review, teams can integrate this approach into CI without adding unpredictable risk.
 
+## Project Hygiene
+
+The repository now includes an **MIT LICENSE**.
+
 **View Code**
 
 [View Code](https://github.com/victorstack-ai/drupal-gpt53-codex-maintenance-poc)

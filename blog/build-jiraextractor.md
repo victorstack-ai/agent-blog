@@ -165,6 +165,10 @@ def create_icon(size, output_path):
 
 This whole project is a testament to solving your own problems. Instead of accepting the bad options presented, a few hours of scripting resulted in a tool that perfectly fits the need, with no compromises on privacy or cost.
 
+## Project Hygiene
+
+The repository now includes an **MIT LICENSE**.
+
 ## References
 
 -   **[View Code on GitHub](https://github.com/victorjimenezdev/jiraextractor)**

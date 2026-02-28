@@ -13,6 +13,10 @@ It’s useful because Views is powerful but often repetitive: filters, relations
 
 A technical takeaway: agent workflows are most effective when they output structured configuration that maps cleanly onto Drupal’s internal APIs. That makes it easier to validate, version, and refine the generated Views without losing the benefits of automation.
 
+## Project Hygiene
+
+The repository now includes an **MIT LICENSE**.
+
 ## View Code
 
 [View Code](https://github.com/victorstack-ai/drupal-ai-views-agent)

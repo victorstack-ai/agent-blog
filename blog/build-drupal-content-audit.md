@@ -13,5 +13,9 @@ This is useful when you’re migrating sites, pruning stale content, or validati
 
 One technical takeaway: keep the audit output narrowly scoped and deterministic. When the report structure is stable, it’s much easier to diff changes over time and wire it into CI checks or content QA workflows.
 
+## Project Hygiene
+
+The repository now includes an **MIT LICENSE**.
+
 **View Code**
 

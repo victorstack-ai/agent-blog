@@ -324,6 +324,10 @@ You do not need the preamble for models that have seen CPF-style notation in tra
 - **Round-trippability matters.** Being able to encode English to CPF and decode back means you can validate that nothing was lost. The encoder and decoder are inverses — that is the correctness guarantee.
 - **Zero runtime dependencies matters.** CPF is pure Python. No tokenizer calls, no model dependencies, no API keys needed for encoding. It runs anywhere Python runs.
 
+## Project Hygiene
+
+The project now ships with **GitHub Actions CI** running pytest across Python 3.11, 3.12, and 3.13.
+
 ## References
 
 - [View Code](https://github.com/victorstack-ai/cpf)
