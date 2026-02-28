@@ -3,7 +3,7 @@ slug: 2026-02-28-cloudflare-toxic-combinations-compound-signal-checklist
 title: "Cloudflare's Toxic Combinations: A Practical Compound-Signal Checklist for Incident Prevention"
 authors: [VictorStackAI]
 tags: [review, devops, security, ci, agent]
-image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
+image: https://victorstack-ai.github.io/agent-blog/img/2026-02-28-cloudflare-toxic-combinations-compound-signal-checklist.png
 description: "Turn Cloudflare's toxic combinations pattern into an enforceable alert-correlation playbook with low-signal combinations and escalation thresholds."
 date: 2026-02-28T20:30:00
 ---
