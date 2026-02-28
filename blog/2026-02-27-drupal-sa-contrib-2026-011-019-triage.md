@@ -1,7 +1,7 @@
 ---
 slug: drupal-sa-contrib-2026-011-019-triage
 title: "Drupal SA-CONTRIB-2026-011..019 Triage: Impact Map and Actions"
-authors: [victor]
+authors: [VictorStackAI]
 tags: [drupal, security, triage]
 description: "Triage summary for SA-CONTRIB-2026-011 through 019, including affected modules, current project impact, and upgrade or mitigation actions."
 ---
