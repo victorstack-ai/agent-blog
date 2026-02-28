@@ -9,154 +9,174 @@ tags:
   - ai
 image: 'https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png'
 description: >-
-  February 2026 dev signals: passkey misuse, coding-agent reality,
-  Drupal/WordPress shipping velocity, and security moving from code bugs to
-  identity and secrets.
-date: 2026-02-28T10:09:00.000Z
+  Security reality checks, coding-agent maturity, Drupal/WordPress movement, and
+  platform changes that actually matter.
+date: 2026-02-28T11:10:00.000Z
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-February 2026 felt like a cleanup month: fewer magic demos, more operational lessons. The useful signal was consistent across ecosystems: recovery paths, guardrails, and boring reliability beat clever abstractions. ~~“AI everywhere”~~ is not a strategy; shipping systems that survive failure is.
-
+February 2026 was the month where marketing claims collided with production reality. The useful signal: identity boundaries, cacheability, test robustness, and operational guardrails. The noise: “AI everywhere” announcements without threat models or maintenance plans.
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## Passkeys are authentication, not data recovery
+## Passkeys are for auth, not for encrypting user data
 
-Tim Cappalli’s warning is dead-on: teams keep using passkeys to encrypt user data, then discover users lose passkeys and data becomes unrecoverable. That is not “zero trust,” that is self-inflicted data loss with better branding.
+Tim Cappalli said the quiet part out loud: teams are misusing passkeys as irreversible data-encryption anchors, then acting surprised when recovery is impossible.
 
 > "please stop promoting and using passkeys to encrypt user data. I’m begging you."
 >
 > — Tim Cappalli, [Please, please, please stop using passkeys for encrypting user data](https://blog.timcappalli.me/p/passkeys-prf-warning/)
 
-| Mechanism | Primary use | Recovery model | Use for user data at rest |
-|---|---|---|---|
-| Passkey/WebAuthn credential | Authentication | Weak for consumer churn | No |
-| Server-managed KMS key | Encryption | Strong with policy controls | Yes |
-| User passphrase (optional) | Extra client-side protection | User-dependent, explicit tradeoff | Only with explicit recovery UX |
-
-:::warning[Stop binding irreversible encryption to fragile user credentials]
-Use passkeys for login, then encrypt data with server-managed keys in KMS/HSM and audited rotation. If client-side encryption is mandatory, ship explicit key backup/export UX and a forced acknowledgment of irrecoverability. Silent failure modes here become support tickets first and legal risk later.
+:::warning[Data-loss pattern to remove now]
+If a user loses the passkey device and encrypted data depends on that secret, recovery is dead. Replace passkey-derived data keys with server-managed KEKs in KMS/HSM plus account recovery controls. Keep passkeys for authentication and phishing resistance only.
 :::
 
-## Coding agents got better, but the workflow matters more than the model
+```diff title="docs/passkey-migration.diff"
+- data_key = HKDF(passkey_prf_output)
+- ciphertext = AES_GCM(data_key, user_blob)
++ data_key = random(256)
++ wrapped_key = KMS_WRAP(kek_id, data_key)
++ ciphertext = AES_GCM(data_key, user_blob)
++ store(kek_id, wrapped_key, ciphertext)
+```
 
-Max Woolf’s “skeptic tries agent coding” and Karpathy’s December inflection point can both be true: quality jumped, and teams still fail when process is sloppy. Copilot CLI, coding agents, and Claude Max-for-OSS are not substitutes for review discipline, scoped tasks, and security checks.
+## Coding agents crossed the threshold, but quality gates are now the bottleneck
+
+Max Woolf’s field report and Karpathy’s “December shift” take point to the same thing: agents now produce plausible velocity on non-trivial projects. ~~Agents eliminate engineering judgment~~. They shift engineering judgment into review, test design, and security controls.
 
 > "coding agents basically didn’t work before December and basically work since"
 >
-> — Andrej Karpathy, [X post](https://twitter.com/karpathy/status/2026731645169185220)
+> — Andrej Karpathy, [quoted source](https://twitter.com/karpathy/status/2026731645169185220)
 
 <Tabs>
   <TabItem value="copilot-cli" label="Copilot CLI" default>
-  Good for intent-to-PR loops with explicit commands and review checkpoints. Best when tasks are bounded and the repo has clean tests.
+GitHub’s “idea to PR” flow is strong for tight iteration and handoff into PR review, especially with self-review and security scanning integrated into the coding-agent updates.
   </TabItem>
-  <TabItem value="coding-agent" label="Copilot Coding Agent">
-  Useful for longer task persistence: model picker, self-review, security scanning, and CLI handoff reduce context thrash. Still requires human ownership of acceptance criteria.
+  <TabItem value="claude-max" label="Claude Max for OSS">
+Anthropic’s six-month Claude Max offer for large OSS maintainers is financially meaningful, but only for repos already at scale (5k+ stars or 1M+ monthly npm downloads). Good subsidy, narrow funnel.
   </TabItem>
-  <TabItem value="claude-max-oss" label="Claude Max for OSS">
-  Cost relief for maintainers is real, but eligibility gates (5k stars or 1M+ npm downloads) mean this is infrastructure for large projects, not a universal fix.
+  <TabItem value="practical-rule" label="Practical Rule">
+Use agents for throughput. Keep merges blocked on tests, static analysis, and secret scanning. If guardrails are optional, incident response becomes guaranteed.
   </TabItem>
 </Tabs>
 
-:::info[The practical pattern]
-Agent productivity correlates with repository hygiene and test quality more than prompt cleverness. Simon Willison’s “hoard things you know how to do” applies here: reusable scripts, repeatable QA, and known-safe rollout patterns compound faster than model-switching.
+## Drupal AI work stopped being “future talk” and became implementation detail
+
+The Drupal stream had concrete movement: search infrastructure (SearXNG module), data extraction interfaces (Views Code Data), GraphQL cacheability fixes, AI tooltip summarization prototypes, and ecosystem-level tracking (Drupal Digests).
+
+| Signal | Why it matters in production | Immediate action |
+|---|---|---|
+| SearXNG module for Drupal AI assistants | Current web retrieval without surveillance defaults | Use private metasearch backend instead of direct tracked APIs |
+| GraphQL 5.0.0-beta2 cacheability fix + preview support | Prevents stale/wrong headless responses | Re-test cache tags/contexts before rollout |
+| Views Code Data module | Structured output without render pipeline overhead | Use for APIs/export jobs; do not expose raw endpoints without auth |
+| Drupal Digests by Dries | Faster visibility into core/contrib momentum | Treat as change radar, not a substitute for release notes |
+| Performance case: missing cache tag causing 4.2s loads | Same old story: cache metadata wins | Add cacheability reviews to code review checklist |
+
+:::danger[Security policy gap in contrib]
+Views Code Data is not covered by Drupal Security Advisory Policy. Assume self-owned patching and threat-modeling responsibilities before adoption.
 :::
 
-## Security moved from “find bugs” to “contain blast radius”
+## Platform releases: useful pieces, mixed packaging
 
-GitGuardian’s Claude Code security take and Datadog’s “toxic combinations” frame the same shift: minor misconfigs now chain faster in agent-assisted environments. Identity, secret sprawl, and permission boundaries are the center of risk.
+Vercel shipped durable queues beta and broader dashboard/role updates; Chat SDK added Telegram; Cloudflare published better routing/PQ observability; Docker brought `vllm-metal` to Apple Silicon; GitHub pushed coding-agent capabilities. This is real progress when integrated with operations, not as isolated feature toggles.
 
-```yaml title=".github/workflows/ci-security.yml" showLineNumbers
-name: ci-security
-on:
-  pull_request:
-  push:
-    branches: [main]
+```bash title="scripts/weekly-platform-audit.sh" showLineNumbers
+#!/usr/bin/env bash
+set -euo pipefail
 
-jobs:
-  verify:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      # highlight-next-line
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - run: npm ci
-      - run: npm test
-      # highlight-start
-      - name: Secret scan (required)
-        run: ggshield secret scan repo .
-      # highlight-end
-      - name: Policy check
-        run: ./scripts/check-permissions.sh
+# highlight-next-line
+echo "1) Verify queue retry/backoff + DLQ behavior in staging"
+echo "2) Verify role changes: Pro Developer role cannot read sensitive env vars"
+echo "3) Check Chat adapters for upload and mention edge cases"
+echo "4) Review Cloudflare Radar signals: PQ, KT, ASPA deltas"
+echo "5) Validate AI coding agent security scan output is blocking CI"
+echo "6) Re-run secret scanning on generated code before merge"
+echo "7) Track dashboard nav changes that affect runbooks"
+echo "8) Confirm local inference perf baselines on Apple Silicon"
+echo "9) Record regressions in changelog with owner + ETA"
 ```
-
-:::danger[Agent + broad token + silent retries = incident chain]
-Block long-lived tokens in CI, enforce least-privilege scopes, and require secret scanning on every PR. Add policy checks for outbound network calls in automation jobs; “it passed tests” means nothing if credentials leaked during generation or review.
-:::
-
-## Drupal and WordPress shipped practical improvements, not headline bait
-
-The strongest CMS updates were concrete: Drupal GraphQL 5.0.0-beta2 fixed cacheability and node preview support; new contrib indexing improved discoverability; Views Code Data enabled structured output without rendering markup; WordPress 6.9 introduced `assertEqualHTML()` to stop brittle HTML-order test failures; WordPress 7.0 Beta 2 opened testing runway.
-
-```diff title="tests/test-render.php"
-- $this->assertSame( $expected_html, $actual_html );
-+ $this->assertEqualHTML( $expected_html, $actual_html );
-```
-
-:::caution[Check security coverage before adopting contrib modules]
-Some new Drupal developer modules explicitly state they are not covered by the Drupal Security Advisory Policy. Treat those as internal dependencies: pin versions, audit code, and isolate blast radius before production use.
-:::
 
 <details>
-<summary>February CMS changelog highlights</summary>
+<summary>Full changelog sweep (condensed)</summary>
 
-- Drupal GraphQL `5.0.0-beta2`: cacheability metadata fix, node preview URLs, entity reference revisions, Drupal 10.4/11 compatibility.
-- New Drupal contrib code search: indexes Drupal 10+ projects, branch requirements, install counts, security coverage, API support.
-- Views Code Data module: executes Views displays as arrays/JSON/JSONL/delimited text without HTML rendering.
-- Dries’ Drupal Digests: AI summaries across core/CMS/canvas/AI initiative activity.
-- WordPress 6.9: `assertEqualHTML()` in `WP_UnitTestCase`.
-- WordPress 7.0 Beta 2: testing phase active; non-production only.
-- Wordfence weekly report (Feb 16–22, 2026): fresh disclosure cycle reinforces patch cadence discipline.
-
+- Vercel Queues public beta, plus Workflow positioning.
+- Vercel Pro `Developer` role expanded beyond Enterprise.
+- Vercel dashboard redesign became default (Feb 26, 2026).
+- Chat SDK Telegram adapter support added.
+- Cloudflare Radar added PQ/KT/ASPA transparency tools.
+- Cloudflare published ASPA routing security explainer.
+- Docker Model Runner added `vllm-metal` on macOS Apple Silicon.
+- GitHub Copilot coding agent: model picker, self-review, security scanning, custom agents, CLI handoff.
+- “A better streams API for JavaScript” renewed pressure on current stream ergonomics.
 </details>
 
-## Platform plumbing is catching up to real workloads
+## WordPress + security: better tests arrived; vulnerability cadence did not slow down
 
-Vercel Queues public beta, Workflow orchestration, Telegram support in Chat SDK, role granularity for Pro teams, and dashboard default rollout are all “less shiny, more useful.” Docker Model Runner bringing `vllm-metal` to Apple Silicon is similarly practical: local inference got easier on actual developer hardware.
+`assertEqualHTML()` in WordPress 6.9 is a concrete win because semantic HTML comparison kills brittle test noise. At the same time, weekly vulnerability reports keep proving that plugin security hygiene is still the cost center.
 
-| Platform update | Why it matters operationally | Immediate action |
-|---|---|---|
-| Vercel Queues (beta) | Durable async processing with retries across deploys/crashes | Move expensive post-response jobs off request path |
-| Chat SDK Telegram adapter | Single bot codebase across Slack/Discord/GitHub/Teams/Telegram | Standardize bot interaction layer |
-| Pro-team Developer role | Safer deploy delegation without full config visibility | Split deploy vs owner privileges now |
-| Dashboard redesign default | Navigation changes affect support/playbooks | Update internal runbooks/screenshots |
-| Docker Model Runner + `vllm-metal` | Better local LLM throughput on Apple Silicon | Re-test local eval loops, reduce cloud burn |
+```php title="tests/Feature/MarkupTest.php" showLineNumbers
+<?php
+
+class MarkupTest extends WP_UnitTestCase {
+    public function test_card_markup_semantics() {
+        $expected = '<div class="card"><a href="/docs">Docs</a></div>';
+        $actual   = render_docs_card();
+
+        // highlight-start
+        // Semantic compare: ignores non-meaningful formatting differences.
+        $this->assertEqualHTML($expected, $actual);
+        // highlight-end
+    }
+
+    public function test_card_has_safe_url() {
+        $html = render_docs_card();
+        $this->assertStringNotContainsString('javascript:', $html);
+    }
+}
+```
+
+:::caution[Beta means beta]
+WordPress 7.0 Beta 2 is for test environments only. Regression-test plugins/themes now, especially output filters, blocks, and custom REST handlers. Production rollout before RC is self-inflicted downtime.
+:::
+
+## Community and ecosystem signals that actually matter
+
+DrupalCon updates (Hallway Track emphasis, Rotterdam CFP deadlines, gala logistics), LocalGov Drupal theme refresh work, and “move beyond the Drupal bubble” commentary all point to the same governance concern: adoption depends on integrator experience, not just core roadmap slides.
+
+AI in community ops got a sober framing too: Vercel’s “keep community human while scaling with agents” is the right model. Agents route and summarize; humans handle trust, edge cases, and relationship work.
 
 ## The Bigger Picture
 
 ```mermaid
-timeline
-    title 2026 Dev Reality Check
-    Dec 2025 : Coding agents cross reliability threshold
-    Jan 2026 : Agent workflows start replacing ad-hoc scripts
-    Feb 2026 : Passkey misuse warning gains traction
-             : Security focus shifts to identity and secrets
-             : Drupal/WordPress ship practical developer features
-             : Platform vendors prioritize durable async and access controls
-    Next      : Teams that win are the ones with recovery, policy, and observability
+mindmap
+  root((Feb 2026 Dev Reality))
+    Identity
+      Passkeys for auth only
+      Recoverability over clever crypto UX
+    Agentic Coding
+      Output quality improved
+      Review and security gates became critical path
+    CMS Platforms
+      Drupal AI infra hardening
+      WordPress semantic test improvements
+      Weekly vulnerability pressure persists
+    Infra and Runtime
+      Durable queues and orchestration
+      Routing/PQ transparency
+      Local LLM inference on Apple Silicon
+    Community
+      Hallway-track knowledge transfer
+      Human support remains non-automatable
 ```
 
 ## Bottom Line
 
-The consistent signal this month: reliability architecture is now a product feature, not back-office hygiene.
+Shipping faster in 2026 is easy; shipping safely is still hard. Teams that separated authentication from encryption, enforced CI security gates on generated code, and treated cacheability/testing as first-class concerns got real gains. Everyone else got better demos.
 
 :::tip[Single highest-ROI move this week]
-Audit every place where credentials, passkeys, or agent tokens can create irreversible failure. Replace implicit assumptions with explicit recovery flows, mandatory secret scanning, and permission boundaries before adding another model or tool.
+Add a mandatory pre-merge policy: `tests + static analysis + secret scan + cacheability check` for all AI-assisted changes. This prevents most expensive failures before they become incident tickets.
 :::
