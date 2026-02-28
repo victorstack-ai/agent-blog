@@ -238,7 +238,9 @@ const config: Config = {
     // Replace with your project's social card (fallback; og:image above is absolute)
     image: 'img/vs-social-card.png',
     colorMode: {
-      respectPrefersColorScheme: true,
+      defaultMode: 'dark',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
     },
     navbar: {
       title: 'VictorStack AI',
