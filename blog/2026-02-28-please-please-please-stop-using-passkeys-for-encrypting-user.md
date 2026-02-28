@@ -9,162 +9,200 @@ tags:
   - ai
 image: 'https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png'
 description: >-
-  Passkeys misuse, coding agents becoming practical, Drupal AI hardening, and
-  security/infrastructure shifts that actually matter.
-date: 2026-02-28T17:04:00.000Z
+  Identity risks, agent coding reality, Drupal’s AI tooling wave, and
+  infra/security updates that impact production teams now.
+date: 2026-02-28T18:05:00.000Z
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TOCInline from '@theme/TOCInline';
+import IdealImage from '@theme/IdealImage';
 
-February was a clean split between signal and noise: **AI coding** got materially better, while security and platform work got less forgiving of sloppy decisions. The useful updates were about reliability, observability, and operational control, not marketing claims. The useless updates were still loud.
+February 2026 had a clear pattern: teams shipping faster with agents, then rediscovering the old rules about recovery, observability, and security the hard way. The signal was not “AI replaces engineering”; the signal was that disciplined engineering now compounds faster. The hype layer is loud, but the operational lessons are concrete.
 
 <!-- truncate -->
 
-import TOCInline from '@theme/TOCInline';
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## Passkeys Are Not a Data Encryption Strategy
-Tim Cappalli said the quiet part out loud: teams are abusing passkeys as if they were durable encryption roots. They are not. Users lose passkeys constantly, device sync breaks, and recovery stories are weaker than teams admit.
+<IdealImage img={require('@site/static/img/vs-social-card.png')} alt="Developer learning log for February 2026" />
 
-> "please stop promoting and using passkeys to encrypt user data."
+## Passkeys and Data Encryption: Stop Doing This
+Using **passkeys** as the only key material for user data encryption is a data-loss design, not a security design. People lose devices, rotate authenticators, and delete credentials. When that key is gone, ciphertext is gone too.
+
+> "please stop promoting and using passkeys to encrypt user data"
 >
 > — Tim Cappalli, [Please, please, please stop using passkeys for encrypting user data](https://blog.timcappalli.me/p/passkeys-prf-warning/)
 
-:::warning[Irreversible Data Loss Pattern]
-If passkey material is the only key-encryption path for user data, account recovery becomes fake. Real fix: use passkeys for authentication, then wrap data keys under a recoverable KMS/HSM policy with audited recovery controls.
+:::warning[Recovery Is Part of Security]
+If encrypted user data depends on a single passkey-derived key, the system has no operational recovery path. Ship a recoverable envelope model: passkey for auth, server/HSM-managed KEK for data unwrap, and explicit account recovery controls. Add irreversible-loss copy in UX before any destructive key migration.
 :::
 
-```yaml title="security/key-hierarchy.yaml" showLineNumbers
-version: 1
-model: envelope-encryption
-auth:
-  primary: passkey
-  fallback: oauth-recovery + risk-check
-keys:
-  dek:
-    source: random-256-bit
-    rotate_days: 90
-  kek:
-    provider: cloud-kms
-    alias: app/user-data
-    # highlight-next-line
-    recovery: enabled_with_mfa_and_audit
+```yaml title="security/recovery-policy.yaml" showLineNumbers
+identity:
+  passkeys_for_authentication: true
+  passkeys_for_data_encryption: false
+
+crypto:
+  # highlight-next-line
+  key_encryption_key_source: hsm_managed
+  envelope_encryption: true
+  per_user_data_keys: true
+  key_rotation_days: 90
+
 recovery:
-  contacts_required: 2
-  delay_hours: 24
-  notify_channels: [email, push]
+  # highlight-start
+  require_recoverable_kek: true
+  dual_control_for_recovery: true
+  tested_restore_drill_days: 30
+  # highlight-end
+  user_visible_recovery_status: true
 ```
 
-## Agent Coding Crossed the "Useful" Threshold
-Max Woolf’s detailed field report matches what many teams saw post-December: longer-horizon tasks are now feasible if specs are explicit and review remains strict. Karpathy’s take points the same direction, and GitHub/Anthropic both pushed operational improvements (model picker, self-review, security scanning, CLI handoff, OSS access to larger plans).
+## Agent Coding: Better Than 2025, Still Not Self-Managing
+The Max Woolf deep dive, Karpathy’s December inflection comment, and Simon’s “hoard things you know how to do” all point to the same thing: model quality jumped, but output quality still depends on operator taste and process constraints.
 
 > "coding agents basically didn’t work before December and basically work since"
 >
 > — Andrej Karpathy, [X post](https://twitter.com/karpathy/status/2026731645169185220)
 
-| Tooling update | What changed | Why it matters |
-|---|---|---|
-| GitHub Copilot coding agent | Model picker, self-review, built-in scanning, custom agents | Better control loop before human review |
-| GitHub Copilot CLI flow | Idea-to-PR workflow got clearer | Faster path from intent to reviewable diff |
-| Claude Max for OSS | Free six months for large maintainers | More serious experimentation budget |
-| Skeptic long-form trials | Public, detailed failures and wins | Better priors than vendor demos |
+~~Prompt harder~~ Define acceptance criteria, rollback, and security boundaries before the first agent run.
 
 <Tabs>
-  <TabItem value="copilot" label="Copilot Agent" default>
-Security scan + self-review in the loop is practical for orgs that already gate merges. Good fit for teams with strict PR discipline.
+  <TabItem value="copilot" label="GitHub Copilot Stack" default>
+    Best for orgs already in GitHub flow: CLI-to-PR path, self-review, security scanning, model picker, custom agents.
   </TabItem>
-  <TabItem value="claude" label="Claude Max OSS">
-Strong option for maintainers who qualify. Cost barrier drops, but review burden does not.
+  <TabItem value="claude-oss" label="Claude Max OSS">
+    Free 6-month high-tier access is useful for qualified maintainers; treat it as temporary compute subsidy, not core platform strategy.
   </TabItem>
-  <TabItem value="pattern" label="Operator Pattern">
-Best results still come from scoped tasks, explicit constraints, and short verification cycles. ~~Prompt harder~~ Specify better.
+  <TabItem value="operator-pattern" label="Operator Pattern">
+    Strongest pattern: narrow task specs, short execution windows, mandatory human checkpoint before merge.
   </TabItem>
 </Tabs>
 
-:::caution[Agent Throughput Can Hide Regression Risk]
-When velocity spikes, unreviewed edge cases and secret handling mistakes spike too. Enforce diff limits, mandatory tests, and secret scanning on every generated PR.
-:::
-
-## Drupal AI Work Is Finally Infrastructure-Shaped
-The strongest Drupal updates were not “AI magic.” They were boring, good infrastructure: privacy-first retrieval (SearXNG module), structured execution surfaces (Views Code Data), search/indexing for contrib code, and cacheability fixes in GraphQL 5.0.0-beta2. Dries’ Drupal Digests and Dan Frost’s maintenance-first stance both point to the same reality: controlled AI depends on architecture quality.
-
-```diff
-- $build['#cache']['max-age'] = 0;
-+ $build['#cache']['contexts'][] = 'route';
-+ $build['#cache']['tags'][] = 'node:' . $node->id();
-+ $build['#cache']['max-age'] = Cache::PERMANENT;
+```diff title="docs/pr-checklist.md"
+ ## Agent-generated changes
+ - [ ] Builds locally
+ - [ ] Tests pass
++- [ ] Human reviewer validated threat model deltas
++- [ ] Rollback command tested in staging
++- [ ] Secrets scan clean
++- [ ] Cache and performance impact measured
 ```
 
-The cache-tag incident that caused 4.2-second page loads is exactly the kind of failure AI-assisted tooling can detect quickly when observability exists.
+:::caution[“Agent Finished” Is Not “Task Finished”]
+For coding-agent work, PR-ready means tests, rollback, and security review are complete. “It wrote code” is only the midpoint.
+:::
+
+## Drupal + AI: Real Tooling, Real Maintenance Burden
+Drupal updates this month were practical: privacy-first search (SearXNG module), GraphQL beta fixes, machine-readable Views output, AI digests, and concrete performance debugging wins (cache-tag miss causing 4.2s product pages). The ecosystem is moving from demos to maintainable pipelines.
+
+| Item | Why it matters | Direct action |
+|---|---|---|
+| SearXNG module for Drupal assistants | Web retrieval without user tracking | Default to private search providers for AI assistant features |
+| GraphQL 5.0.0-beta2 | Cacheability + preview support | Re-test preview and cache headers before upgrading |
+| Views Code Data module | Structured data execution without markup | Use for APIs and pipelines, not theme rendering |
+| Drupal contrib code search index | Faster deprecation/security discovery | Add to upgrade triage workflow |
+| Drupal Digests | Better visibility into core/contrib churn | Use as weekly input, not authoritative truth |
+| Cache-tag case study | Shows how one metadata miss tanks perf | Add cache metadata assertions to CI |
+| Dan Frost / AI-ready architecture | Reinforces controlled AI + observability | Treat AI features like production integrations, not add-ons |
+| “Beyond the bubble” argument | Positioning problem is product problem | Sell outcomes, not CMS identity labels |
+
+```php title="modules/custom/product_block/src/Plugin/Block/ProductBlock.php" showLineNumbers
+<?php
+
+namespace Drupal\product_block\Plugin\Block;
+
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\Block\BlockBase;
+
+final class ProductBlock extends BlockBase {
+  public function build(): array {
+    $build = [
+      '#theme' => 'product_block',
+      '#product' => $this->loadProduct(),
+    ];
+
+    // highlight-start
+    $build['#cache']['tags'] = Cache::mergeTags(
+      $build['#cache']['tags'] ?? [],
+      ['node:' . $this->getProductNid(), 'config:product_block.settings']
+    );
+    // highlight-end
+
+    return $build;
+  }
+}
+```
 
 <details>
-<summary>Drupal items worth tracking closely</summary>
+<summary>Full Drupal learning log (deduped)</summary>
 
-- SearXNG module for privacy-first web retrieval in Drupal assistants.
-- GraphQL for Drupal 5.0.0-beta2: cacheability metadata fix + node preview support.
-- New contrib code search index for Drupal 10+ projects and API querying.
-- Views Code Data module for structured non-markup outputs.
-- Document summarizer tooltip prototype built with AI-assisted coding.
-- Dan Frost interview theme: guardrails + observability over AI theater.
-- “Move beyond the bubble” argument: positioning Drupal as sovereign AI-ready platform.
-- Community ops still matter: DrupalCon Gala and LocalGov demo theme work keep ecosystem glue alive.
+- Mike Herchel: DrupalCon Gala ticket push (community operations signal).
+- SearXNG module: privacy-first retrieval for Drupal assistants.
+- Dan Frost interview covered architecture, controlled AI, SEO mode shifts (duplicate item merged).
+- New contrib code search for Drupal 10+ compatible projects.
+- GraphQL for Drupal `5.0.0-beta2` with cacheability and node preview support.
+- Views Code Data module for structured outputs (`array`, `JSON`, `JSONL`, delimited text).
+- mark.ie: new LocalGov Drupal demo theme.
+- Dries Buytaert: Drupal Digests for AI-generated activity summaries.
+- Automated tool found missing cache tag behind 4.2-second page loads.
+- AI-assisted Drupal document summarizer tooltip prototype.
+- “Move beyond the bubble” positioning argument for Drupal in AI era.
 
 </details>
 
-:::info[Maintenance-First AI Is the Only Sustainable Track]
-If content models, cache metadata, and module boundaries are weak, AI features become a support burden. Stabilize the platform first, then add assistant behavior.
+## Platform and Security: Useful Releases, Zero Room for Complacency
+Vercel Queues beta, Telegram adapter support in Chat SDK, Cloudflare’s Turnstile redesign and Radar transparency upgrades, and ASPA visibility all improve production ergonomics. The security posts are the bigger signal: agent-era risk is increasingly identity/secrets misuse and toxic signal combinations.
+
+:::danger[Identity + Secrets Are the Blast Radius]
+Code scanning alone misses the dominant failure mode: exposed tokens, over-broad credentials, and chained minor anomalies. Enforce short-lived credentials, workload identity, and mandatory secret scanning on push and deploy. Add alert correlation for low-severity anomalies that co-occur.
 :::
 
-## Platform and Internet Security: Real Work, Not Slogans
-Vercel Queues in public beta, Telegram adapter support in Chat SDK, Cloudflare’s Turnstile/Challenge redesign at 7.6B challenges daily, and Radar visibility into PQ/ASPA/KT trends all point to one thing: reliability + trust layers are where production systems win or fail.
+```bash title="scripts/security-gates.sh" showLineNumbers
+#!/usr/bin/env bash
+set -euo pipefail
 
-```mermaid
-flowchart TD
-  A[User/Event] --> B[Vercel Queue]
-  B --> C[Worker/Function]
-  C --> D{Success?}
-  D -->|No| E[Retry with backoff]
-  D -->|Yes| F[Persist state]
-  F --> G[Chat surface: Slack/Discord/Telegram]
+# highlight-next-line
+gitleaks detect --source . --redact
+npm run lint
+npm test
+
+# Correlate "small" alerts before deploy approval
+jq -s '
+  group_by(.principal)[] |
+  select(length >= 3) |
+  {principal: .[0].principal, events: length}
+' logs/security-signals/*.json
+
+echo "release gate passed"
 ```
-
-| Signal | Operational move |
-|---|---|
-| Toxic combinations in security telemetry | Correlate “minor” anomalies before incident threshold |
-| Turnstile redesign at massive scale | Treat UX + accessibility as anti-abuse control plane |
-| PQ/ASPA tracking visibility | Add migration dashboards now, not after mandate deadlines |
-| Streams API criticism | Audit runtime stream abstractions before lock-in |
-
-:::danger[Identity and Secrets Are the New Blast Radius]
-Claude Code security discussion got one thing right: code flaws are only half the story. Broken identity boundaries and leaked secrets are faster paths to compromise in agent-heavy pipelines.
-:::
 
 ## The Bigger Picture
 ```mermaid
 mindmap
-  root((Feb 2026 Dev Reality))
-    AI Coding
-      Better long-horizon coherence
-      Needs strict review gates
-      CLI-to-PR workflows maturing
-    Security
-      Passkeys != data encryption roots
-      Toxic signal correlation
-      Identity and secrets first
+  root((Feb 2026 Dev Signals))
+    Identity
+      Passkeys for auth only
+      Recoverable encryption required
+      Secrets beat vuln count
+    Agent Coding
+      December capability jump
+      Human gate still mandatory
+      CLI to PR workflows maturing
     Drupal
-      Controlled AI via architecture
-      Cacheability and observability
-      Privacy-first retrieval
-    Platform Infra
-      Durable queues
-      Multi-channel adapters
-      Internet routing and PQ visibility
+      AI retrieval with privacy
+      Structured outputs and GraphQL fixes
+      Observability and cache discipline
+    Platform
+      Queues and bot adapters
+      Accessibility-focused challenge UX
+      PQ and routing transparency
 ```
 
 ## Bottom Line
-The pattern is simple: teams shipping durable software are choosing explicit recovery paths, strict review loops, and measurable runtime behavior. Everyone else is shipping demos and calling it strategy.
+Shipping speed increased. Failure speed increased too. Teams that separate authentication from encryption, treat agents as force multipliers with hard guardrails, and keep cache/security observability tight are pulling ahead.
 
-:::tip[One Action to Take Monday]
-Run an audit for any feature where passkeys are used beyond authentication. If passkeys are in your data-encryption recovery chain, redesign that path immediately with KMS-backed recoverability and audited break-glass controls.
+:::tip[One move that pays immediately]
+Publish a single “AI change acceptance” policy this week: recovery-safe crypto rules, mandatory rollback proof, secrets scan gates, and cache metadata checks. One page, enforced in CI, no exceptions.
 :::
