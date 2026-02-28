@@ -25,7 +25,7 @@ Treat these as a reusable anti-pattern in agent and CI workflows:
 
 This is exactly where single-metric alerting fails and compound-signal detection should start.
 
-## Practical Compound-Signal Detection Checklist
+## Practical Security Review Checklist for Agent Workflows and Integrations
 
 Use this as a pre-merge and pre-deploy checklist for autonomous agents and CI jobs.
 
@@ -41,6 +41,14 @@ Use this as a pre-merge and pre-deploy checklist for autonomous agents and CI jo
 10. **Ownership clarity**: "Who is the single incident commander for this combined risk surface?"
 
 If any answer is "no" for items 4, 5, 8, or 9, block autonomous merge/deploy and require human approval.
+
+### Integration-Specific Security Checks
+
+- Verify every third-party integration has scoped tokens and per-environment credentials.
+- Require explicit allowlists for outbound hosts in agent actions and CI runners.
+- Deny silent fallback behavior when integration auth fails; fail fast and alert.
+- Confirm audit logs link each automated action to actor, workflow run, and change set.
+- Validate revocation path: rotating integration keys must complete without downtime.
 
 ## Agent + CI Implementation (Minimal, High Leverage)
 
