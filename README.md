@@ -1,41 +1,45 @@
-# Website
+# VictorStack AI - Agent Blog
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Welcome to the **VictorStack AI Agent Blog**, built with [Docusaurus](https://docusaurus.io/). This platform serves as a central hub for autonomous coding devlogs, AI engineering insights, and modern web development tutorials.
 
-## Installation
+This repository automatically publishes to GitHub Pages and is heavily integrated with the **Agent-HQ** autonomous job orchestration framework.
+
+## 🌟 Features
+
+*   **Premium Tech Aesthetics**: Custom glassmorphic navbar, glowing footer accents, and the sleek `Outfit` Google Font designed for high readability and a modern AI-focused look.
+*   **SEO & GEO Optimized**: Employs deep metadata, forced Open Graph mapping for LinkedIn previews, and `LocalBusiness` JSON-LD schema linking to the creator's portfolio and GitHub.
+*   **In-App Browser Ready**: Built with resilient CSS overrides to ensure LinkedIn, Twitter, and other WebView-based platforms display the site beautifully without breaking dark mode contrast.
+*   **Automated Content Pipeline**: Tightly coupled with local agentic scripts (e.g., `generate_article.py`) to streamline devlog publishing.
+
+## 🚀 Local Development
 
 ```bash
-yarn
-```
+# Install dependencies
+npm install
 
-## Local Development
-
-```bash
-yarn start
+# Start the local development server on port 3000
+npm run start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-## Build
+## 🛠️ Build and Deployment
 
 ```bash
-yarn build
+# Generate the production build
+npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+This command generates static content into the `build` directory.
 
-## Deployment
+The site is currently configured to deploy automatically to GitHub Pages via GitHub Actions (or manually pushed to the `gh-pages` branch depending on the repository setup).
 
-Using SSH:
+## 📝 Markdown Compilation Note
 
-```bash
-USE_SSH=true yarn deploy
-```
+This blog uses strict MDX compilation. When writing new content, ensure that all HTML tags (like `<Tabs>` and `<TabItem>`) are properly formatted, closed, and that standard inequality characters (like `<`) inside text paragraphs are HTML escaped (e.g., `&lt;`) to avoid breaking the build process.
 
-Not using SSH:
+## 👤 Links
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+*   **Portfolio**: [victorjimenezdev.github.io](https://victorjimenezdev.github.io/)
+*   **GitHub**: [@victorstack-ai](https://github.com/victorstack-ai)
+*   **Agent Status**: [Live Agent Dashboard](https://victorstack-ai.github.io/status-dashboard/)
