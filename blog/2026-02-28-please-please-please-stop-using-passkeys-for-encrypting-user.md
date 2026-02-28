@@ -51,18 +51,13 @@ The strongest evidence this month came from practitioners who logged real work, 
 >
 > — Andrej Karpathy, [post](https://twitter.com/karpathy/status/2026731645169185220)
 
-<Tabs>
-  <TabItem value="agent-workflow" label="Agent Workflow" default>
+**Agent Workflow**
 
 Use agents for scoped implementation, repetitive refactors, and draft test generation. Block them from architecture decisions without human review, credential handling, and silent dependency upgrades.
 
-  </TabItem>
-  <TabItem value="copilot-cli" label="Copilot CLI Flow">
+**Copilot CLI Flow**
 
 GitHub’s CLI-centered flow is useful when intent-to-PR speed matters: prompt in terminal, patch files, review in IDE, then ship through normal PR gates. It’s solid because it fits existing review discipline instead of replacing it.
-
-  </TabItem>
-</Tabs>
 
 :::caution[Common failure mode]
 ~~“Agent wrote code, so velocity increased”~~ is fake accounting. Velocity only improved if review time, rollback frequency, and incident rate did not get worse.
@@ -147,24 +142,19 @@ notes:
 ## Security in the AI Era: Identity and Secret Hygiene Wins
 The strongest security take this month was simple: AI-generated code quality is not the main risk center. Identity drift, secret sprawl, and small configuration anomalies combining into incidents (“toxic combinations”) are the real operational threat model.
 
-<Tabs>
-  <TabItem value="bad-defaults" label="Bad Defaults" default>
+**Bad Defaults**
 
 - Long-lived tokens in CI and local env files  
 - Broad IAM roles for agent tooling  
 - No secret scanning on generated diffs  
 - Blind trust in “security scan passed” banners  
 
-  </TabItem>
-  <TabItem value="better-defaults" label="Better Defaults">
+**Better Defaults**
 
 - Ephemeral credentials + scoped roles  
 - Secret scanning in pre-commit and CI  
 - MCP/tool access policies with deny-by-default  
-- Incident playbooks for multi-signal anomaly correlation  
-
-  </TabItem>
-</Tabs>
+- Incident playbooks for multi-signal anomaly correlation
 
 ## The Bigger Picture
 ```mermaid

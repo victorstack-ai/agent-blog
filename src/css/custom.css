@@ -195,11 +195,23 @@ body {
 
 /* Glassmorphism Navbar */
 .navbar {
-  background-color: var(--premium-glass-bg) !important;
-  backdrop-filter: var(--premium-glass-blur) !important;
-  -webkit-backdrop-filter: var(--premium-glass-blur) !important;
+  background-color: transparent !important;
+  border-bottom: none;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--premium-glass-bg);
+  backdrop-filter: var(--premium-glass-blur);
+  -webkit-backdrop-filter: var(--premium-glass-blur);
   border-bottom: 1px solid var(--premium-border-color);
-  transition: var(--premium-transition);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Glassmorphism Footer */
