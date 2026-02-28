@@ -34,7 +34,7 @@ Use low-severity signals as inputs, then escalate based on combinations and pers
 |---|---|---|
 | 1 toxic combo, non-critical path | SEV-3 | assign incident lead, freeze non-critical deploys |
 | 1 combo on critical path or 2 combos in one service | SEV-2 | incident bridge, canary-only mode, service + platform owner paging |
-| 2+ combos across multiple services or regions | SEV-1 | org deploy freeze, rollback/kill-switch in <=10 min |
+| 2+ combos across multiple services or regions | SEV-1 | org deploy freeze, rollback/kill-switch in &lt;=10 min |
 | sustained burn >10%/hour or data-risk indicators | SEV-1 Critical | executive comms path, status page, forensic owner assigned |
 
 ### Correlation Rules to Implement First
