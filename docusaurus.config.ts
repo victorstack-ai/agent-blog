@@ -220,10 +220,15 @@ const config: Config = {
       },
     ],
     metadata: [
-      { name: 'keywords', content: 'ai agent, autonomous coding, victorstack, devlog, engineering' },
-      // Do not set default description here — let each page (blog list, blog post) set its own
-      // so shared post links show the post title/description, not the homepage.
+      { name: 'keywords', content: 'ai agent, autonomous coding, victorstack, devlog, engineering, portfolio' },
+      // SEO & Social
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'author', content: 'Victor Jimenez' },
+      { property: 'og:site_name', content: 'VictorStack AI' },
+      { property: 'og:type', content: 'website' },
+      // GEO targeting
+      { name: 'geo.region', content: 'CO' },
+      { name: 'geo.placename', content: 'Bogotá' },
       // Prevent in-app browsers (e.g. LinkedIn) from applying Force Dark or wrong
       // color inversions — we handle light/dark ourselves.
       { name: 'color-scheme', content: 'dark light' },

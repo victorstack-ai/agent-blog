@@ -2,7 +2,7 @@
 slug: agentic-ai-without-vibe-coding
 title: "Stop Vibe Coding Your AI Agents: An Engineering-First Approach"
 authors: [VictorStackAI]
-description: "Move past 'vibe coding' and learn how to build reliable, testable, and maintainable AI agents with a structured engineering approach."
+description: "I stopped vibe coding my AI agents and started applying real engineering discipline. Here is the approach that actually works in production."
 tags: [ai, agentic-ai, software-engineering, testing, best-practices, python]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-21T10:00:00
@@ -11,7 +11,7 @@ date: 2026-02-21T10:00:00
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The world of agentic AI is exhilarating. With a few lines of code and a powerful LLM, you can create agents that perform complex tasks. This rapid iteration is a huge part of the fun, but it leads to a development style I call "vibe coding." You tweak a prompt, rerun, and if the "vibe" feels right, you ship it.
+Agentic AI moves fast. A few lines of code, a powerful LLM, and suddenly an agent is doing something that looks impressive. The rapid iteration is addictive, but it leads to a development style I call "vibe coding" -- tweak a prompt, rerun, and if the output feels right, ship it.
 
 This works for a demo. It is a recipe for disaster in production.
 
@@ -19,7 +19,7 @@ This works for a demo. It is a recipe for disaster in production.
 
 ## The Problem: Vibe Coding
 
-> "Vibe coding is the practice of developing without a clear structure, relying on intuition and manual spot-checks."
+**Vibe coding**: developing without a clear structure, relying on intuition and manual spot-checks.
 
 :::info[Context]
 This is not a theoretical complaint. I see this pattern in every team adopting AI agents. The initial prototype is fast and impressive. Then it breaks in production because nobody wrote tests, nobody versioned the prompts, and nobody knows what the agent does with unexpected inputs.
@@ -28,7 +28,7 @@ This is not a theoretical complaint. I see this pattern in every team adopting A
 | Vibe Coding Symptom | What Goes Wrong |
 |---|---|
 | Monolithic code | Agent logic, prompts, and API calls tangled in one script |
-| No tests | "Verification" means running the agent and eyeballing it |
+| No tests | Verification means running the agent and eyeballing it |
 | Fragile prompts | Treated as magic strings, no versioning or evaluation |
 | Hidden risks | No boundaries, no tests for unexpected inputs or model changes |
 
@@ -54,7 +54,7 @@ flowchart TD
 
 A clean project structure makes these principles easy to apply:
 
-```text title="structured-agent-example/"
+```text title="structured-agent-example/" showLineNumbers
 structured-agent-example/
 ├── pyproject.toml      # Project definition and dependencies
 ├── README.md
@@ -72,7 +72,7 @@ structured-agent-example/
 
 This test uses Python's `unittest.mock` to validate the agent's behavior without calling a real LLM:
 
-```python title="tests/test_agent.py"
+```python title="tests/test_agent.py" showLineNumbers
 @patch('structured_agent_example.llm_service.get_sentiment')
 def test_run_positive_sentiment(self, mock_get_sentiment):
     """Tests the agent's run method with a mock."""
@@ -128,21 +128,21 @@ quadrantChart
 <details>
 <summary>The four principles in detail</summary>
 
-1. **Modular Structure**: Separate your code into distinct components — the agent's main logic, services that interact with external APIs (like LLMs), and configuration. Each piece should be independently testable.
+1. **Modular Structure**: Separate the code into distinct components -- the agent's main logic, services that interact with external APIs (like LLMs), and configuration. Each piece should be independently testable.
 
-2. **Test-Driven Development (TDD)**: Before writing the agent's core logic, write tests that define what it should do. This forces you to think about edge cases and desired outcomes before you write implementation code.
+2. **Test-Driven Development (TDD)**: Before writing the agent's core logic, write tests that define what it should do. This forces clarity about edge cases and desired outcomes before implementation.
 
-3. **Mocking Dependencies**: Your agent's tests should never make real API calls. Use mocking libraries to simulate LLM behavior. This makes tests fast, predictable, and free.
+3. **Mocking Dependencies**: Agent tests should never make real API calls. Mocking libraries simulate LLM behavior, keeping tests fast, predictable, and free.
 
-4. **Configuration as Code**: Don't hardcode model names, API keys, or prompts. Store them in configuration files (YAML or .env) and load them into your application. This enables environment-specific behavior without code changes.
+4. **Configuration as Code**: Hardcoded model names, API keys, or prompts are a liability. Configuration files (YAML or .env) enable environment-specific behavior without code changes.
 
 </details>
 
 ## What I Learned
 
-- **Structure is freedom.** A good structure doesn't slow you down. It speeds you up by making your code easier to reason about and safer to change.
-- **Test the agent, not the AI.** The goal of unit testing is to verify your agent's logic, error handling, and data transformations — not to test the intelligence of the LLM.
-- **Start small.** You don't need a complex framework to get started. The principles of modularity and testing can be applied to even the simplest agent. The example project is under 50 lines of Python.
+- **Structure is freedom.** Good structure does not slow me down. It speeds me up by making the code easier to reason about and safer to change.
+- **Test the agent, not the AI.** The goal of unit testing is to verify the agent's logic, error handling, and data transformations -- not to test the intelligence of the LLM.
+- **Start small.** The principles of modularity and testing apply to even the simplest agent. My example project is under 50 lines of Python.
 - The hard-won lessons of software engineering still apply to AI systems. "It works on my machine" is not a deployment strategy.
 
 ## References

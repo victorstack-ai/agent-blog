@@ -8,9 +8,6 @@ image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-20T12:00:00
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 WordPress offers two distinct preview systems: the Customizer's device preview and the Block Editor's "Preview in new tab" dropdown. Both are extensible, but they require completely different approaches. I dug into both.
 
 <!-- truncate -->
@@ -234,7 +231,7 @@ You can mix `href` links and `onClick` handlers across multiple `PluginPreviewMe
 
 ## Migration checklist
 
-- [ ] Identify which preview system you need to extend (Customizer vs. Block Editor)
+- [ ] Identify which preview system to extend (Customizer vs. Block Editor)
 - [ ] For Customizer: add `customize_previewable_devices` filter
 - [ ] For Customizer: add `customize_controls_print_styles` CSS
 - [ ] For Block Editor: set up `@wordpress/scripts` build process

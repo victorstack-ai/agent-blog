@@ -53,7 +53,7 @@ Here's what you actually get when you use these tools:
 |---|---|
 | "AI-powered extraction" | An LLM prompt you could write in 2 minutes |
 | "Smart navigation" | Playwright's `page.click()` with extra steps |
-| "Structured output" | JSON parsing of an LLM response (wow, so hard) |
+| "Structured output" | JSON parsing of an LLM response |
 | "Scalable crawling" | A queue system any junior dev could write |
 | "Browser agent" | A while loop that reads a page and calls GPT |
 
@@ -61,16 +61,20 @@ And here's what you lose:
 
 - **Debuggability**: When Crawl4AI breaks on a site, good luck figuring out why. It's their Playwright config, their LLM prompt, their retry logic. You're filing GitHub issues instead of fixing a 3-line bug.
 - **Cost transparency**: You're paying for their API *plus* your own LLM API. Double the cost for the privilege of not understanding your own pipeline.
-- **Flexibility**: Want to change the extraction prompt? Want to use a different model for different pages? Want to add custom auth? Good luck — you're locked into their abstraction.
+- **Flexibility**: Want to change the extraction prompt? Want to use a different model for different pages? Want to add custom auth? Good luck -- you're locked into their abstraction.
+
+:::caution[Double-Paying for the Same Thing]
+You pay for the LLM subscription. Then you pay Crawl4AI/Moltbot to call that same LLM for you. That is two bills for one API call. At least understand what you are paying for before writing the check.
+:::
 
 ## Build Your Own in 30 Lines
 
 Here's how to replicate Crawl4AI's "smart extraction" with tools you already have:
 
 <Tabs>
-<TabItem value="extract" label="Smart Extraction (Crawl4AI Replacement)">
+<TabItem value="extract" label="Smart Extraction (Crawl4AI Replacement)" default>
 
-```python
+```python title="crawl4ai_replacement.py" showLineNumbers
 from playwright.sync_api import sync_playwright
 import anthropic  # or openai, or google.generativeai
 
@@ -80,6 +84,7 @@ def extract_structured_data(url: str, schema: str) -> dict:
         browser = p.chromium.launch()
         page = browser.new_page()
         page.goto(url, wait_until="networkidle")
+        # highlight-next-line
         html = page.content()
         browser.close()
 
@@ -108,7 +113,7 @@ result = extract_structured_data(
 </TabItem>
 <TabItem value="agent" label="Browser Agent (Moltbot Replacement)">
 
-```python
+```python title="moltbot_replacement.py" showLineNumbers
 from playwright.sync_api import sync_playwright
 import anthropic
 
@@ -120,6 +125,7 @@ def browser_agent(task: str, start_url: str, max_steps: int = 10):
         page = browser.new_page()
         page.goto(start_url)
 
+        # highlight-next-line
         for step in range(max_steps):
             # Get page state
             title = page.title()
@@ -164,7 +170,7 @@ That's it. That's what you're paying for. A Playwright instance and an LLM call 
 
 Yes, Crawl4AI is open source. Great. It's also 15,000+ lines of Python wrapping... Playwright and LLM calls. You could read through all of that, understand their abstractions, learn their config format, deal with their bugs. Or you could write 30 lines that do exactly what you need, that you understand completely, and that you can modify in seconds.
 
-The open-source argument works when the tool does something genuinely complex — like a database engine or a compiler. It doesn't work when the tool is a thin wrapper around two APIs you already have.
+> The open-source argument works when the tool does something genuinely complex -- like a database engine or a compiler. It doesn't work when the tool is a thin wrapper around two APIs you already have.
 
 ## The Pattern
 
@@ -177,6 +183,10 @@ This is a pattern I keep seeing in the "AI tools" space:
 5. Charge money
 
 It's the SaaS equivalent of `left-pad`. The entire product is something you could write during your lunch break. But because it has "AI" in the name and a slick landing page, developers throw money at it instead of spending 20 minutes understanding what's actually happening.
+
+:::tip[The LLM Subscription IS the Tool]
+Claude, GPT, Gemini -- these are the actual engines. Everything else is just plumbing. Own your plumbing. Before paying for any AI tool, ask yourself: "Could I do this with Playwright + my existing LLM in under an hour?" If yes, do that instead.
+:::
 
 ## When These Tools *Might* Make Sense
 
@@ -192,14 +202,26 @@ But if you're a developer? If you already write Python? If you already pay for a
 
 - **Most "AI-powered" tools are just API wrappers.** Before paying for any AI tool, ask yourself: "Could I do this with Playwright + my existing LLM in under an hour?" If yes, do that instead.
 - **Black boxes are technical debt.** Every dependency you don't understand is a debugging nightmare waiting to happen. 30 lines you wrote yourself beats 15,000 lines someone else wrote.
-- **The LLM subscription IS the tool.** Claude, GPT, Gemini — these are the actual engines. Everything else is just plumbing. Own your plumbing.
+- **The LLM subscription IS the tool.** Claude, GPT, Gemini -- these are the actual engines. Everything else is just plumbing. Own your plumbing.
 - **Marketing creates demand for solutions to problems you don't have.** Before installing that next "AI agent framework," ask: what problem does this actually solve that I can't solve with a function call?
+
+<details>
+<summary>Quick dependency check: do you already have what you need?</summary>
+
+```bash title="check-your-stack.sh"
+# If all three return something, you don't need Crawl4AI
+python3 -c "import playwright; print('Playwright: installed')"
+python3 -c "import anthropic; print('Anthropic SDK: installed')"
+python3 -c "import bs4; print('BeautifulSoup: installed')"
+```
+
+</details>
 
 ## References
 
-- [Crawl4AI GitHub](https://github.com/unclecode/crawl4ai) — Look at the source. It's Playwright + LLM calls. That's it.
-- [Playwright Documentation](https://playwright.dev/python/) — Everything you need to automate a browser
-- [Anthropic Claude API](https://docs.anthropic.com/) — The actual brain. You already pay for this.
+- [Crawl4AI GitHub](https://github.com/unclecode/crawl4ai) -- Look at the source. It's Playwright + LLM calls. That's it.
+- [Playwright Documentation](https://playwright.dev/python/) -- Everything you need to automate a browser
+- [Anthropic Claude API](https://docs.anthropic.com/) -- The actual brain. You already pay for this.
 
 <script type="application/ld+json">
   {`

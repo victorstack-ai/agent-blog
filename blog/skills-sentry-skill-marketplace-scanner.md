@@ -1,26 +1,27 @@
 ---
 slug: skills-sentry-skill-marketplace-scanner
-title: 'Skills Sentry: a static scanner for agent skill bundles'
+title: 'Skills Sentry: A Static Scanner for Agent Skill Bundles'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai]
+tags: [devlog, agent, ai, security]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'A static scanner that scores agent skill bundles for risky patterns before install—curl|sh, obfuscation, secrets, persistence. Heuristics and CI, not a silver bullet.'
+description: 'A static scanner that scores agent skill bundles for risky patterns before install — curl|sh, obfuscation, secrets, persistence. Heuristics and CI, not a silver bullet.'
 date: 2026-02-06T12:00:00
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## The Hook
+If you install "skills" from a public marketplace, you are installing trust. I built a static scanner that scores a skill bundle before it touches my machine.
 
-If you install "skills" from a public marketplace, you are installing trust, so I built a static scanner that scores a skill bundle before it touches my machine.
+<!-- truncate -->
 
 ## Why I Built It
 
 Two quotes were enough to justify a guardrail.
 
-Daniel Lockyer: "malware found in the top downloaded skill on clawhub and so it begins."  
-Elon Musk: "Here we go."
+> Daniel Lockyer: "malware found in the top downloaded skill on clawhub and so it begins."
+>
+> Elon Musk: "Here we go."
 
 That is the whole pattern: popularity becomes distribution, and distribution becomes the exploit.
 
@@ -48,49 +49,89 @@ Then it outputs:
 
 ```mermaid
 flowchart TD
-  A[Skill bundle folder or zip] --> B[Unpack and enumerate files]
-  B --> C[Text scan for risky patterns]
-  B --> D[Config scan for network and permissions]
-  C --> E[Findings]
-  D --> E[Findings]
-  E --> F[Risk scoring]
-  F --> G[Report: console + JSON]
+    A[Skill bundle folder or zip] --> B[Unpack and enumerate files]
+    B --> C[Text scan: regex rules per file]
+    B --> D[Config scan: network and permissions]
+    C --> E[Findings by severity]
+    D --> E
+    E --> F[Risk scoring\nlow=5, medium=15, high=30 per finding]
+    F --> G[Report: console + JSON]
+    G --> H{CI Gate}
+    H -->|Score > threshold| I[Exit 1: Block]
+    H -->|Score <= threshold| J[Exit 0: Pass]
 ```
 
-:::warning
+:::warning[Heuristic Scanner, Not Malware Detection]
 This is a heuristic scanner. It will miss novel obfuscation and it will generate false positives.
 Use it to block obvious footguns, not to declare something safe.
 :::
+
+## Tech Stack
+
+| Component | Technology | Why |
+|---|---|---|
+| Language | Python 3.11+ | Zero dependencies, runs anywhere |
+| Detection | Regex pattern matching | Fast, auditable, no ML overhead |
+| Scoring | Weighted severity (`low=5, medium=15, high=30`) | Simple, predictable, tuneable |
+| Output | Console + JSON | Human readable + CI parseable |
+| Input | Folder or ZIP | Handles both local and distributed bundles |
 
 ## The Code
 
 [View Code](https://github.com/victorstack-ai/skills-sentry)
 
-*(Repo: skills-sentry — CLI, sample fixtures, and optional GitHub Action for PR scanning.)*
+*(Repo: skills-sentry -- CLI, sample fixtures, and optional GitHub Action for PR scanning.)*
 
 ### CLI usage
 
 <Tabs>
-  <TabItem value="quick" label="Quick">
-```bash
+  <TabItem value="quick" label="Quick Scan" default>
+
+```bash title="quick-scan.sh"
 python skills_sentry.py scan ./some-skill-bundle --json out/report.json
 ```
+
   </TabItem>
-  <TabItem value="zip" label="Zip bundle">
-```bash
+  <TabItem value="zip" label="Zip Bundle">
+
+```bash title="zip-scan.sh"
 python skills_sentry.py scan ./skill.zip --json out/report.json
 ```
+
   </TabItem>
-  <TabItem value="ci" label="CI gate">
-```bash
+  <TabItem value="ci" label="CI Gate">
+
+```bash title="ci-gate.sh"
+# highlight-next-line
 python skills_sentry.py scan ./bundle --fail-on high --max-score 60
 ```
+
   </TabItem>
 </Tabs>
 
+### Detection Rules
+
+The scanner ships with 10 built-in rules covering the most common supply-chain attack patterns:
+
+| Rule ID | Severity | What It Detects |
+|---|---|---|
+| `REMOTE_SHELL_PIPE` | High | `curl/wget` piped to `sh/bash/zsh` |
+| `POWERSHELL_IWR_EXEC` | High | PowerShell download-and-exec |
+| `BASE64_DECODE_EXEC` | High | Base64 decode + execution |
+| `EVAL_USAGE` | Medium | `eval()` or `Function()` calls |
+| `CHMOD_EXEC` | Medium | `chmod +x` during install |
+| `CRON_PERSISTENCE` | High | Cron, launchctl, schtasks persistence |
+| `SSH_KEY_TOUCH` | High | Access to `.ssh/`, `id_rsa`, `known_hosts` |
+| `ENV_SECRETS` | High | `.env`, `dotenv`, `process.env`, `os.environ` |
+| `WALLET_KEYWORDS` | High | Crypto wallet, seed phrase, mnemonic |
+| `OBFUSCATED_BLOB` | Medium | Large base64-encoded blobs (400+ chars) |
+
 ### skills_sentry.py
 
-```python
+<details>
+<summary>Full scanner source code</summary>
+
+```python title="skills_sentry.py" showLineNumbers
 #!/usr/bin/env python3
 from __future__ import annotations
 
@@ -220,6 +261,7 @@ def read_lines(p: Path) -> List[str]:
         return []
 
 
+# highlight-next-line
 def scan_text_file(p: Path, root: Path) -> List[Finding]:
     rel = str(p.relative_to(root))
     lines = read_lines(p)
@@ -338,12 +380,14 @@ if __name__ == "__main__":
     raise SystemExit(main())
 ```
 
+</details>
+
 ### Example output
 
 <details>
 <summary>Sample console report</summary>
 
-```
+```text
 Risk score: 75/100
 High: 2  Medium: 1  Low: 0
 
@@ -352,13 +396,15 @@ Top findings:
 - [HIGH] ENV_SECRETS in src/agent.js:44  process.env.OPENAI_API_KEY
 - [MEDIUM] CHMOD_EXEC in setup.sh:7  chmod +x ./bin/run
 ```
+
 </details>
 
 ### CI example
 
 <Tabs>
-  <TabItem value="gha" label="GitHub Actions">
-```yaml
+  <TabItem value="gha" label="GitHub Actions" default>
+
+```yaml title=".github/workflows/skill-scan.yml" showLineNumbers
 name: Skill bundle scan
 on:
   pull_request:
@@ -370,20 +416,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Skills Sentry
-        run: |
-          python skills_sentry.py scan . --fail-on high --max-score 60 --json out/report.json
+        # highlight-next-line
+        run: python skills_sentry.py scan . --fail-on high --max-score 60 --json out/report.json
 ```
+
   </TabItem>
   <TabItem value="local" label="Pre-commit">
-```bash
+
+```bash title="pre-commit-scan.sh"
 # Run before you install or publish a skill bundle
 python skills_sentry.py scan ./bundle --fail-on medium --max-score 40
 ```
+
   </TabItem>
 </Tabs>
 
-:::tip
-If you run agents locally, the best "security feature" is still isolation. Use a separate OS user, a container, or a VM for anything that can execute tools.
+:::tip[Isolation Is the Best Security Feature]
+If you run agents locally, the best "security feature" is still isolation. Use a separate OS user, a container, or a VM for anything that can execute tools. Skills Sentry catches the obvious stuff -- isolation handles everything else.
 :::
 
 ## What I Learned

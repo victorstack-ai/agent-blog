@@ -34,7 +34,7 @@ CPF is built on three layers: **operators** replace English grammar, **block sig
 
 Every CPF document starts with a version header, optional metadata, and then blocks:
 
-```
+```text
 CPF|v1
 M|<doc-id>|<title>|<source>|<timestamp>
 ---
@@ -67,7 +67,7 @@ The parser matches multi-character operators first (`?!`, `->`, `!!`, `::`, `@>`
 
 **Before and after:**
 
-```
+```text showLineNumbers
 English (~120 tokens):
 - Before coding a custom solution, always check if a maintained module or plugin exists.
 - If a maintained module/plugin exists: recommend it. Link to it. Do NOT reinvent the wheel.
@@ -104,7 +104,7 @@ The `:id` suffix names the block so the LLM (and humans) can reference it. For e
 
 **Priority block example:**
 
-```
+```text
 @P:default-priorities
 #1 stab+sec
 #2 perf+cch correctness
@@ -115,7 +115,7 @@ The `:id` suffix names the block so the LLM (and humans) can reference it. For e
 
 Compare to the English version:
 
-```
+```text
 Default priorities (in order):
 1. Stability and security come first.
 2. Performance and cache correctness are second priority.
@@ -126,7 +126,7 @@ Default priorities (in order):
 
 **Zone block example:**
 
-```
+```text
 @Z:workspace-boundaries
 `/Documents/work` — Read-only library. may read+learn from code here, but never modify.
 `/Documents/things` — Forbidden. Never read, write,|run anything in folder.
@@ -210,7 +210,7 @@ merged_enc, merged_dec = merge_abbreviations(ENCODE_MAP, DECODE_MAP, custom_enc,
 
 `@C` blocks define reusable constants — like variables you can reference elsewhere:
 
-```
+```text
 @C:paths
 $projects::/Users/victor/Projects
 ```
@@ -221,7 +221,7 @@ $projects::/Users/victor/Projects
 
 Here is a shortened excerpt from a real persona file (`persona.cpf`) that encodes an entire agent style profile — personality, priorities, decision rules, engineering standards, and communication templates:
 
-```
+```text showLineNumbers
 CPF|v1
 M|persona-vs|Victorstack Style Profile|persona.md|2026-02-16T15:06:25Z
 ---
@@ -277,7 +277,7 @@ cpf stats persona.cpf --original persona.md    # show token reduction %
   </TabItem>
   <TabItem value="python" label="Python API">
 
-```python
+```python showLineNumbers
 from cpf.encoder import encode, encode_file
 from cpf.decoder import decode
 from cpf.validator import is_valid
@@ -301,7 +301,7 @@ The encoder reads English, applies operator substitutions, abbreviation compress
 
 When sending CPF-encoded instructions to an LLM, prepend a short legend so it can decode the notation:
 
-```
+```text
 <<CPF-LEGEND
 ?=if ?!=unless ->=then ;=else +=and |=or !!=never *=must ::=def @>=see
 mod=module plg=plugin mnt=maintained abd=abandoned cfg=config sec=security ...

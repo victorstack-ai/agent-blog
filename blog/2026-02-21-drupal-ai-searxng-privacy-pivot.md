@@ -8,38 +8,129 @@ description: "The Drupal AI initiative is promoting SearXNG as a privacy-first s
 date: 2026-02-21T07:42:00
 ---
 
-The Drupal AI initiative has decided the next frontier for AI assistants is... self-hosting a meta-search engine. They're championing SearXNG as a "privacy-first" way for AI agents to search the web, which is a fantastically complicated way to solve a problem most of us don't have.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-### The Pitch vs. The Reality
+The Drupal AI initiative has decided the next frontier for AI assistants is... self-hosting a meta-search engine. They are championing SearXNG as a "privacy-first" way for AI agents to search the web. This is a fantastically complicated way to solve a problem most of us do not have.
 
-The problem, as framed by the initiative, is that having an AI assistant call out to a commercial search API is a privacy leak. Fair enough. When your Drupal site's agent queries Google for information, a little piece of your operational data is handed over.
+I have opinions. Strong ones.
 
-The proposed solution is SearXNG. It's an open-source meta-search engine that you host yourself. When your agent needs to search, it queries your local SearXNG instance. SearXNG then queries Google, Bing, DuckDuckGo, and others on your behalf, aggregates the results, and returns them. Your server's IP is exposed, but the user's data isn't directly tied to the search. Privacy achieved, right?
+<!-- truncate -->
 
-Not so fast. What this actually means is you've just signed up to be the full-time administrator of a search engine.
+## The Pitch vs The Reality
 
-### The Glorious New Problems You've Created
+> "SearXNG provides privacy-first web search for Drupal AI assistants."
+>
+> — Drupal AI Initiative, [SearXNG Blog Post](https://www.drupal.org/about/starshot/initiatives/ai/blog/searxng-privacy-first-web-search-for-drupal-ai-assistants)
 
-Let's be brutally honest about what adding this component to your stack entails.
+The problem, as framed by the initiative: having an AI assistant call out to a commercial search API is a privacy leak. When your Drupal site's agent queries Google, a piece of your operational data is handed over. Fair enough.
 
-1.  **Operational Overhead:** You now have another service to deploy, monitor, secure, and update. It's not a simple PHP library; it's a Python application with its own dependencies and failure modes. Who's on call when it breaks at 3 AM?
-2.  **Performance:** You've replaced a highly optimized, globally distributed API endpoint with a single server (or a cluster, if you truly hate yourself) that has to make multiple outbound requests, parse the results, and aggregate them. It will be slower. There is no universe where this is faster than a direct API call.
-3.  **Getting Blocked:** What do you think Google, Bing, and friends do when they see a single IP address firing off thousands of automated queries with a non-browser user-agent? They block it. You will spend a non-trivial amount of time managing proxy pools, rotating user-agents, and solving CAPTCHAs, all to scrape results you could have just gotten through a legitimate API.
+The proposed solution: host SearXNG yourself. Your agent queries your local SearXNG instance. SearXNG queries Google, Bing, DuckDuckGo on your behalf, aggregates results, and returns them. Your server's IP is exposed, but the user's data is not directly tied to the search.
 
-This is a classic case of architectural overreach. It's a solution that looks great on a whiteboard but is a nightmare in production. It mistakes adding a complex moving part for adding value.
+Privacy achieved, right?
 
-### The Code
+:::caution[Reality Check]
+What this actually means is you have just signed up to be the full-time administrator of a search engine. Congratulations.
+:::
 
-No separate repo—this is an analysis of a proposed architecture, not a build. We have enough moving parts to deal with already.
+## The Glorious New Problems You Have Created
 
-### What I Learned
+<Tabs>
+  <TabItem value="ops" label="Operational Overhead">
 
-This whole exercise is a perfect reminder of a few core truths.
+You now have another service to deploy, monitor, secure, and update. It is not a simple PHP library. It is a Python application with its own dependencies and failure modes.
 
-*   Self-hosting a complex service like a meta-search engine is a valid choice only if digital sovereignty is your absolute top priority and you have the operations team and budget of a small nation to back it up. For everyone else, it's a high-cost, low-reward distraction.
-*   "Privacy" is not a feature you bolt on with a single component. If your stack is otherwise leaky, adding a "private" search tool is pure performance art for the benefit of no one.
-*   Before adding any new service to your architecture, ask the painful question: "What is the total, long-term cost of owning this thing?" The maintenance cost is never zero, and it's often the thing that kills you.
-*   For 99% of applications, the "privacy" gained by this Rube Goldberg machine is negligible compared to the massive operational burden. Just use a commercial search API and get on with solving problems that actually affect your users.
+Who is on call when it breaks at 3 AM?
+
+  </TabItem>
+  <TabItem value="perf" label="Performance">
+
+You have replaced a highly optimized, globally distributed API endpoint with a single server that has to make multiple outbound requests, parse results, and aggregate them.
+
+It will be slower. There is no universe where this is faster than a direct API call.
+
+  </TabItem>
+  <TabItem value="blocking" label="Getting Blocked">
+
+What do you think Google, Bing, and friends do when they see a single IP address firing off thousands of automated queries with a non-browser user-agent?
+
+They block it. You will spend time managing proxy pools, rotating user-agents, and solving CAPTCHAs — all to scrape results you could have gotten through a legitimate API.
+
+  </TabItem>
+</Tabs>
+
+## The Real Trade-off
+
+| Claim | Reality |
+|---|---|
+| "Privacy-first search" | Your server IP is still exposed to search engines |
+| "No data leakage" | Your queries still hit commercial search engines via SearXNG |
+| "Self-hosted control" | You now operate a Python service with its own failure modes |
+| "Better than API calls" | Slower, less reliable, higher maintenance |
+| "Production ready" | Requires proxy management, rate-limit handling, CAPTCHA solving |
+
+```mermaid
+mindmap
+  root((SearXNG in Drupal AI))
+    What You Gain
+      No direct user-to-search-engine link
+      Inspectable query logs
+      Engine configuration control
+    What You Lose
+      Performance
+      Reliability
+      Simplicity
+      Sleep
+    What You Still Have
+      Server IP exposed to search engines
+      Queries hitting commercial engines
+      Rate limiting risk
+      Maintenance burden
+    Who Actually Needs This
+      Government/military
+      Healthcare with strict compliance
+      Organizations with sovereignty mandates
+      Not most Drupal sites
+```
+
+:::info[Context]
+Self-hosting a complex service like a meta-search engine is a valid choice only if digital sovereignty is your absolute top priority and you have the operations team and budget of a small nation to back it up. For everyone else, it is a high-cost, low-reward distraction.
+:::
+
+## The Honest Assessment
+
+This is a classic case of architectural overreach. It is a solution that looks great on a whiteboard but is a nightmare in production. It mistakes adding a complex moving part for adding value.
+
+| Who Should Consider This | Who Should Not |
+|---|---|
+| Government agencies with data sovereignty mandates | Standard Drupal agency sites |
+| Healthcare orgs with strict compliance requirements | Content-focused publishers |
+| Organizations where "where did this query go" is auditable | E-commerce sites |
+| Teams with dedicated DevOps for ancillary services | Teams of 1-5 developers |
+
+<details>
+<summary>The painful question to ask before adding any service</summary>
+
+"What is the total, long-term cost of owning this thing?"
+
+- Initial setup time
+- Ongoing maintenance hours per month
+- On-call burden when it breaks
+- Security patching cadence
+- Monitoring and alerting setup
+- Documentation for team onboarding
+- Cost of debugging when search results degrade
+
+The maintenance cost is never zero, and it is often the thing that kills you.
+
+</details>
+
+## What I Learned
+
+- Self-hosting a meta-search engine is valid only if digital sovereignty is your absolute top priority and you have the ops team to back it up. For everyone else, it is a distraction.
+- "Privacy" is not a feature you bolt on with a single component. If your stack is otherwise leaky, adding a "private" search tool is pure performance art.
+- Before adding any new service to your architecture, ask the painful question: "What is the total, long-term cost of owning this thing?"
+- For 99% of applications, the "privacy" gained by this Rube Goldberg machine is negligible compared to the massive operational burden. Just use a commercial search API and get on with solving problems that actually affect your users.
 
 ## References
 

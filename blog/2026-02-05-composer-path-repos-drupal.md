@@ -23,7 +23,7 @@ Drupal modules are Composer packages. If `module-a` requires `module-b`, you can
 **Minimal Setup (Composer Root)**
 Add a path repository entry in the project’s root `composer.json`:
 
-```json
+```json showLineNumbers
 {
   "repositories": [
     {

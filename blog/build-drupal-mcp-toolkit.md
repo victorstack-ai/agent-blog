@@ -8,7 +8,10 @@ description: 'A toolkit of four Drupal modules that bring MCP-based automation t
 date: 2026-02-06T18:09:00
 ---
 
-As AI agents become part of the Drupal workflow, we need infrastructure that makes automation traceable, predictable, and composable. I built four small Drupal modules that together form an **MCP Toolkit** for agent-driven site management.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+As AI agents become part of the Drupal workflow, you need infrastructure that makes automation traceable, predictable, and composable. I built four small Drupal modules that together form an **MCP Toolkit** for agent-driven site management.
 
 <!-- truncate -->
 
@@ -21,15 +24,39 @@ When agents modify configuration, create content, or run audits on a Drupal site
 3. **Audit checks** that agents can invoke programmatically.
 4. **Configuration snapshots** for diffing and CI validation.
 
-Each of these is a small, focused concern — so I built each as a separate module with a narrow, well-defined surface.
+Each of these is a small, focused concern -- so I built each as a separate module with a narrow, well-defined surface.
+
+## Architecture
+
+```mermaid
+flowchart TD
+    A[MCP Client / AI Agent] --> B[MCP Transport Layer]
+    B --> C[MCP Audit Server\nstructured event logging]
+    B --> D[MCP Config Export\nconfig snapshots for CI]
+    B --> E[MCP Node Info\nread-only content metadata]
+    B --> F[MCP Site Audit\nhealth check capabilities]
+    C --> G[Storage / Alerting]
+    D --> H[CI Pipeline / Diff Tools]
+    E --> I[Agent Queries / Backend Jobs]
+    F --> J[Cross-Environment Audit Reports]
+```
 
 ## The Toolkit
+
+| Module | Purpose | Key Capability |
+|---|---|---|
+| MCP Audit Server | Agent activity logging | Structured events, decoupled from Drupal logs |
+| MCP Config Export | Configuration snapshots | MCP-friendly format for automation and diffing |
+| MCP Node Info | Content metadata access | Read-only node IDs, titles, types, statuses |
+| MCP Site Audit | Site health checks | Composable audit capabilities across environments |
 
 ### 1. MCP Audit Server
 
 A lightweight server that sits between an MCP client and Drupal, capturing structured events: what tools ran, what endpoints were touched, and when. This gives you a decoupled audit trail that doesn't pollute Drupal's application logs.
 
-**Key takeaway**: Treat audit trails as a first-class integration boundary. Emit structured events from the MCP layer, then fan out to storage or alerting without touching Drupal internals.
+:::tip[Treat Audit Trails as a First-Class Integration Boundary]
+Emit structured events from the MCP layer, then fan out to storage or alerting without touching Drupal internals. This keeps your audit data clean and queryable independent of Drupal's watchdog.
+:::
 
 [View Code](https://github.com/victorstack-ai/drupal-mcp-audit-server)
 
@@ -37,7 +64,7 @@ A lightweight server that sits between an MCP client and Drupal, capturing struc
 
 Exports site configuration in an MCP-friendly format that agents and CI pipelines can consume directly. Instead of hand-checking YAML, you get a focused export target for automation, diffing, and validation.
 
-**Key takeaway**: Treating configuration as a first-class output makes automation more reliable. When the config surface is explicit and repeatable, you can diff, validate, and react to changes with confidence — especially valuable in multi-env setups.
+> Treating configuration as a first-class output makes automation more reliable. When the config surface is explicit and repeatable, you can diff, validate, and react to changes with confidence -- especially valuable in multi-env setups.
 
 [View Code](https://github.com/victorstack-ai/drupal-mcp-config-export)
 
@@ -45,7 +72,9 @@ Exports site configuration in an MCP-friendly format that agents and CI pipeline
 
 Exposes node metadata (IDs, titles, types, statuses, timestamps) through an MCP-style interface. Agents and backend jobs can query Drupal content in structured form without pulling full rendered pages.
 
-**Key takeaway**: A thin, read-only capability surface pays off. Focused output stays predictable, cache-friendly, and easy to extend later without breaking clients.
+:::caution[Keep the Read Surface Thin]
+A thin, read-only capability surface stays predictable, cache-friendly, and easy to extend later without breaking clients. Resist the urge to expose full entity data through this endpoint.
+:::
 
 [View Code](https://github.com/victorstack-ai/drupal-mcp-node-info)
 
@@ -53,9 +82,62 @@ Exposes node metadata (IDs, titles, types, statuses, timestamps) through an MCP-
 
 Packages site health checks behind a predictable MCP endpoint. Configuration, content, and operational issues become reusable, composable audit capabilities that agents can invoke across environments.
 
-**Key takeaway**: Treat audit checks as first-class, versioned capabilities rather than one-off scripts. That makes it straightforward to add new checks and keep results consistent across projects.
-
 [View Code](https://github.com/victorstack-ai/drupal-mcp-site-audit)
+
+<Tabs>
+  <TabItem value="audit" label="Audit Server" default>
+
+```php title="mcp_audit_server/src/AuditLogger.php"
+// Structured event capture
+// highlight-next-line
+$this->log('tool_executed', [
+    'tool' => $toolName,
+    'endpoint' => $endpoint,
+    'timestamp' => time(),
+    'result' => $result->toArray(),
+]);
+```
+
+  </TabItem>
+  <TabItem value="config" label="Config Export">
+
+```bash title="drush-config-export.sh"
+# Export config in MCP-friendly format
+drush mcp:config-export --format=json > config-snapshot.json
+```
+
+  </TabItem>
+  <TabItem value="nodeinfo" label="Node Info">
+
+```json title="mcp-node-info-response.json" showLineNumbers
+{
+  "nodes": [
+    {
+      "nid": 42,
+      "title": "Security Policy",
+      "type": "page",
+      "status": 1,
+      "changed": "2026-02-06T18:09:00Z"
+    }
+  ]
+}
+```
+
+  </TabItem>
+</Tabs>
+
+<details>
+<summary>Tech stack for all four modules</summary>
+
+| Component | Technology | Why |
+|---|---|---|
+| CMS | Drupal 10/11 | Service container, hooks architecture |
+| Protocol | MCP | Standardized tool discovery and transport |
+| Audit storage | Decoupled from Drupal logs | Clean, queryable event data |
+| Config format | JSON export | Machine-readable for CI pipelines |
+| Content access | Read-only MCP endpoint | Cache-friendly, predictable surface |
+
+</details>
 
 ## What I Learned
 
