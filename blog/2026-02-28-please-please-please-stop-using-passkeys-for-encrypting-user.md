@@ -9,194 +9,162 @@ tags:
   - ai
 image: 'https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png'
 description: >-
-  Security reality checks, coding-agent signal vs hype, and practical
-  Drupal/WordPress/platform updates from February 2026.
-date: 2026-02-28T16:22:00.000Z
+  Passkeys misuse, coding agents becoming practical, Drupal AI hardening, and
+  security/infrastructure shifts that actually matter.
+date: 2026-02-28T17:04:00.000Z
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import TOCInline from '@theme/TOCInline';
 
-February 2026 was a cleanup month for developer reality: fewer fairy tales, more operational consequences. The strongest pattern across AI, Drupal, WordPress, and platform infra is simple: teams shipping with guardrails are winning; teams shipping vibes are creating incident reports for future selves. Marketing kept shouting, but the useful signal was still there for anyone reading changelogs instead of taglines.
+February was a clean split between signal and noise: **AI coding** got materially better, while security and platform work got less forgiving of sloppy decisions. The useful updates were about reliability, observability, and operational control, not marketing claims. The useless updates were still loud.
 
 <!-- truncate -->
 
+import TOCInline from '@theme/TOCInline';
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## Passkeys Are Not Your Data-Encryption Recovery Plan
+## Passkeys Are Not a Data Encryption Strategy
+Tim Cappalli said the quiet part out loud: teams are abusing passkeys as if they were durable encryption roots. They are not. Users lose passkeys constantly, device sync breaks, and recovery stories are weaker than teams admit.
 
-Tim Cappalli’s warning is correct, and teams ignoring it are gambling with irreversible data loss.
-
-> "Please stop promoting and using passkeys to encrypt user data."
+> "please stop promoting and using passkeys to encrypt user data."
 >
 > — Tim Cappalli, [Please, please, please stop using passkeys for encrypting user data](https://blog.timcappalli.me/p/passkeys-prf-warning/)
 
-Using passkeys directly to lock user content sounds elegant until a user loses the credential and support can do nothing. ~~Passkeys solve account security, therefore they solve data recovery~~ is the misconception. They solve authentication well; recovery semantics are a different system.
-
-:::warning[Irreversible Loss Is a Product Bug]
-If passkey loss means permanent ciphertext, the product must communicate that *before* encryption and provide an explicit backup path (`recovery key`, `trusted contact`, or enterprise escrow). If that path does not exist, do not ship passkey-bound encryption for user-owned data.
+:::warning[Irreversible Data Loss Pattern]
+If passkey material is the only key-encryption path for user data, account recovery becomes fake. Real fix: use passkeys for authentication, then wrap data keys under a recoverable KMS/HSM policy with audited recovery controls.
 :::
 
-```diff
-- Derive data key directly from passkey PRF output
-- Store only ciphertext
-+ Generate random DEK per user dataset
-+ Wrap DEK with recoverable KEK strategy (hardware-backed + policy escrow)
-+ Add explicit recovery flow and key-rotation endpoint
+```yaml title="security/key-hierarchy.yaml" showLineNumbers
+version: 1
+model: envelope-encryption
+auth:
+  primary: passkey
+  fallback: oauth-recovery + risk-check
+keys:
+  dek:
+    source: random-256-bit
+    rotate_days: 90
+  kek:
+    provider: cloud-kms
+    alias: app/user-data
+    # highlight-next-line
+    recovery: enabled_with_mfa_and_audit
+recovery:
+  contacts_required: 2
+  delay_hours: 24
+  notify_channels: [email, push]
 ```
 
-## Coding Agents: December Was the Inflection, 2026 Is the Integration Phase
-
-Max Woolf’s long-form experiment and Karpathy’s observation point to the same thing: baseline capability changed fast, but reliability still depends on workflow design.
+## Agent Coding Crossed the "Useful" Threshold
+Max Woolf’s detailed field report matches what many teams saw post-December: longer-horizon tasks are now feasible if specs are explicit and review remains strict. Karpathy’s take points the same direction, and GitHub/Anthropic both pushed operational improvements (model picker, self-review, security scanning, CLI handoff, OSS access to larger plans).
 
 > "coding agents basically didn’t work before December and basically work since"
 >
-> — Andrej Karpathy, [quoted source](https://twitter.com/karpathy/status/2026731645169185220)
+> — Andrej Karpathy, [X post](https://twitter.com/karpathy/status/2026731645169185220)
+
+| Tooling update | What changed | Why it matters |
+|---|---|---|
+| GitHub Copilot coding agent | Model picker, self-review, built-in scanning, custom agents | Better control loop before human review |
+| GitHub Copilot CLI flow | Idea-to-PR workflow got clearer | Faster path from intent to reviewable diff |
+| Claude Max for OSS | Free six months for large maintainers | More serious experimentation budget |
+| Skeptic long-form trials | Public, detailed failures and wins | Better priors than vendor demos |
 
 <Tabs>
-  <TabItem value="copilot-cli" label="Copilot CLI" default>
-  Strong for intent-to-PR flow when terminal-native review discipline is already in place. GitHub’s latest updates (model picker, self-review, security scanning, custom agents, CLI handoff) reduce context switching, but they do not replace code ownership.
+  <TabItem value="copilot" label="Copilot Agent" default>
+Security scan + self-review in the loop is practical for orgs that already gate merges. Good fit for teams with strict PR discipline.
   </TabItem>
-  <TabItem value="claude-max-oss" label="Claude Max for OSS">
-  Free six-month access for large maintainers (5k+ stars or 1M+ npm downloads) is useful, but this is a capacity grant, not an architecture strategy. Teams still need policy around secrets, review, and merge controls.
+  <TabItem value="claude" label="Claude Max OSS">
+Strong option for maintainers who qualify. Cost barrier drops, but review burden does not.
   </TabItem>
-  <TabItem value="skeptic-trials" label="Skeptic Trials">
-  Skeptical test-driving with increasing project complexity remains the best calibration method. Keep logs, keep diffs small, and measure regressions directly instead of debating “agent IQ.”
+  <TabItem value="pattern" label="Operator Pattern">
+Best results still come from scoped tasks, explicit constraints, and short verification cycles. ~~Prompt harder~~ Specify better.
   </TabItem>
 </Tabs>
 
-| Signal | What Actually Matters | Action |
-|---|---|---|
-| Agent can finish tasks end-to-end | Quality degrades without review constraints | Require self-review + CI gates before merge |
-| Longer context windows | Hidden drift across files still happens | Enforce small PR slices and explicit acceptance checks |
-| Faster prototype loops | Security debt accumulates faster too | Add secret scanning and auth threat-model checks |
-
-:::danger[Claude Code Security Discourse Misses the Bigger Risk]
-The GitGuardian take is right: the bigger blast radius is identity and secrets handling, not just insecure generated code. Put `secret detection`, `token scope minimization`, and `rotation playbooks` in the same sprint as agent rollout.
+:::caution[Agent Throughput Can Hide Regression Risk]
+When velocity spikes, unreviewed edge cases and secret handling mistakes spike too. Enforce diff limits, mandatory tests, and secret scanning on every generated PR.
 :::
 
-## Drupal: AI-Ready Architecture Is About Governance, Not Plugin Count
+## Drupal AI Work Is Finally Infrastructure-Shaped
+The strongest Drupal updates were not “AI magic.” They were boring, good infrastructure: privacy-first retrieval (SearXNG module), structured execution surfaces (Views Code Data), search/indexing for contrib code, and cacheability fixes in GraphQL 5.0.0-beta2. Dries’ Drupal Digests and Dan Frost’s maintenance-first stance both point to the same reality: controlled AI depends on architecture quality.
 
-The Drupal signal this month was unusually practical: search tooling, GraphQL fixes, structured Views output, digest-style tracking, and production performance debugging all converged on one idea: **controlled AI** beats “AI everywhere.”
+```diff
+- $build['#cache']['max-age'] = 0;
++ $build['#cache']['contexts'][] = 'route';
++ $build['#cache']['tags'][] = 'node:' . $node->id();
++ $build['#cache']['max-age'] = Cache::PERMANENT;
+```
 
-- `GraphQL 5.0.0-beta2` added cacheability and preview-related fixes for Drupal 10.4/11 compatibility.
-- New contrib code search indexes Drupal 10+ projects with branch/security metadata.
-- `Views Code Data` enables programmatic structured outputs (JSON/JSONL/etc.), useful for AI pipelines but outside Drupal SA coverage.
-- SearXNG module gives privacy-first web retrieval for Drupal assistants.
-- Dan Frost’s framing on guardrails/observability is the right center of gravity.
-
-:::info[Why This Matters for Real Teams]
-AI readiness in Drupal is mostly a content architecture and operations problem: stable schemas, cache metadata discipline, retrieval boundaries, and observability. Teams skipping those and adding chat UI first are rebuilding fundamentals later at higher cost.
-:::
+The cache-tag incident that caused 4.2-second page loads is exactly the kind of failure AI-assisted tooling can detect quickly when observability exists.
 
 <details>
-<summary>Drupal ecosystem updates tracked (February 2026)</summary>
+<summary>Drupal items worth tracking closely</summary>
 
-- DrupalCon Gala announcement (Mike Herchel, Feb 27, 2026).
-- SearXNG module for privacy-first AI assistant retrieval.
-- Dan Frost interview coverage on AI-ready architecture and controlled AI (duplicate source consolidated).
-- New Drupal contrib code search for Drupal 10+ compatible projects.
-- GraphQL for Drupal 5.0.0-beta2 release notes.
-- Views Code Data module launch.
-- Dries Buytaert’s Drupal Digests launch.
-- Automated cache-tag diagnostic case resolving 4.2s page loads.
-- AI-assisted Drupal tooltip summarizer prototype write-up.
-- “Move beyond the bubble” positioning argument for AI-era Drupal messaging.
+- SearXNG module for privacy-first web retrieval in Drupal assistants.
+- GraphQL for Drupal 5.0.0-beta2: cacheability metadata fix + node preview support.
+- New contrib code search index for Drupal 10+ projects and API querying.
+- Views Code Data module for structured non-markup outputs.
+- Document summarizer tooltip prototype built with AI-assisted coding.
+- Dan Frost interview theme: guardrails + observability over AI theater.
+- “Move beyond the bubble” argument: positioning Drupal as sovereign AI-ready platform.
+- Community ops still matter: DrupalCon Gala and LocalGov demo theme work keep ecosystem glue alive.
 
 </details>
 
-## Platform Infra: Queues, Routing Crypto, and Stream APIs Are Getting Serious
-
-Vercel Queues public beta, Cloudflare Radar additions (PQC/KT/ASPA visibility), and renewed criticism of JavaScript Streams API all point to the same operational trend: async and transport layers are now product-critical, not background plumbing.
-
-```yaml title="ops/queue-policy.yaml" showLineNumbers
-service: event-pipeline
-retry:
-  maxAttempts: 8
-  backoff: exponential
-  minDelayMs: 500
-  maxDelayMs: 120000
-dlq:
-  enabled: true
-  alertChannel: pagerduty
-security:
-  messageSigning: required
-  piiInPayload: forbidden
-routing:
-  aspaMonitoring: enabled
-  pqcTelemetry: enabled
-```
-
-:::caution[Durability Without Idempotency Still Duplicates Work]
-Queue retries protect completion, not correctness. Every consumer needs idempotency keys and side-effect guards, or “reliable retries” just become reliable duplication.
+:::info[Maintenance-First AI Is the Only Sustainable Track]
+If content models, cache metadata, and module boundaries are weak, AI features become a support burden. Stabilize the platform first, then add assistant behavior.
 :::
 
-## WordPress: Better HTML Testing and 7.0 Beta Reality
+## Platform and Internet Security: Real Work, Not Slogans
+Vercel Queues in public beta, Telegram adapter support in Chat SDK, Cloudflare’s Turnstile/Challenge redesign at 7.6B challenges daily, and Radar visibility into PQ/ASPA/KT trends all point to one thing: reliability + trust layers are where production systems win or fail.
 
-WordPress 6.9’s `assertEqualHTML()` is the kind of low-drama improvement that saves real engineering hours. It reduces false negatives from trivial formatting differences while keeping semantic differences visible. WordPress 7.0 Beta 2 (announced in February 2026) is for test environments only, and that warning should be treated literally.
-
-```php title="tests/HtmlOutputTest.php" showLineNumbers
-<?php
-
-use WP_UnitTestCase;
-
-class HtmlOutputTest extends WP_UnitTestCase {
-    public function test_card_markup_is_semantically_equal() {
-        $actual = render_card_component();
-        $expected = '<div class="card" data-kind="promo"><p>Hi</p></div>';
-
-        // highlight-next-line
-        $this->assertEqualHTML($expected, $actual);
-    }
-
-    public function test_card_rejects_missing_required_attr() {
-        $actual = '<div class="card"><p>Hi</p></div>';
-        $expected = '<div class="card" data-kind="promo"><p>Hi</p></div>';
-
-        // highlight-start
-        $this->assertNotEquals($expected, $actual);
-        $this->assertStringNotContainsString('data-kind="promo"', $actual);
-        // highlight-end
-    }
-}
+```mermaid
+flowchart TD
+  A[User/Event] --> B[Vercel Queue]
+  B --> C[Worker/Function]
+  C --> D{Success?}
+  D -->|No| E[Retry with backoff]
+  D -->|Yes| F[Persist state]
+  F --> G[Chat surface: Slack/Discord/Telegram]
 ```
 
-## Community and Product Surface: Human Support Still Matters
+| Signal | Operational move |
+|---|---|
+| Toxic combinations in security telemetry | Correlate “minor” anomalies before incident threshold |
+| Turnstile redesign at massive scale | Treat UX + accessibility as anti-abuse control plane |
+| PQ/ASPA tracking visibility | Add migration dashboards now, not after mandate deadlines |
+| Streams API criticism | Audit runtime stream abstractions before lock-in |
 
-Vercel’s note on keeping community human while scaling with agents is one of the few honest takes in this cycle. Routing and triage can be automated; trust-building cannot. Same for Chat SDK’s Telegram adapter: useful integration, but operational quality comes from message design, escalation logic, and moderation boundaries, not adapter count.
+:::danger[Identity and Secrets Are the New Blast Radius]
+Claude Code security discussion got one thing right: code flaws are only half the story. Broken identity boundaries and leaked secrets are faster paths to compromise in agent-heavy pipelines.
+:::
 
 ## The Bigger Picture
-
 ```mermaid
 mindmap
   root((Feb 2026 Dev Reality))
+    AI Coding
+      Better long-horizon coherence
+      Needs strict review gates
+      CLI-to-PR workflows maturing
     Security
-      Passkey misuse -> data loss risk
-      Secrets and identity > codegen bugs
-      Toxic combinations in incident chains
-    Agentic Coding
-      December capability jump acknowledged
-      Workflow design decides reliability
-      CLI-to-PR handoff becoming standard
-    CMS Engineering
-      Drupal controlled AI + observability
-      WordPress semantic HTML testing
-      Structured data outputs for assistants
-    Platform Ops
-      Durable queues with retries
-      Idempotency required
-      Routing crypto telemetry (ASPA/PQC)
-    Developer Experience
-      Better tooling signal
-      Less hype tolerance
-      Human support remains differentiator
+      Passkeys != data encryption roots
+      Toxic signal correlation
+      Identity and secrets first
+    Drupal
+      Controlled AI via architecture
+      Cacheability and observability
+      Privacy-first retrieval
+    Platform Infra
+      Durable queues
+      Multi-channel adapters
+      Internet routing and PQ visibility
 ```
 
 ## Bottom Line
+The pattern is simple: teams shipping durable software are choosing explicit recovery paths, strict review loops, and measurable runtime behavior. Everyone else is shipping demos and calling it strategy.
 
-The February pattern is blunt: secure defaults, observable systems, and constrained automation are compounding advantages; hype-driven rollout is compounding risk.
-
-:::tip[Single Most Useful Action This Week]
-Run an “irreversible loss audit” across auth, encryption, queues, and agent workflows: identify every path where a lost credential, duplicate event, or leaked token causes non-recoverable damage, then add one concrete recovery or containment control per path before shipping another feature.
+:::tip[One Action to Take Monday]
+Run an audit for any feature where passkeys are used beyond authentication. If passkeys are in your data-encryption recovery chain, redesign that path immediately with KMS-backed recoverability and audited break-glass controls.
 :::
