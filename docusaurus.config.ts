@@ -141,7 +141,7 @@ const config: Config = {
       'classic',
       {
         gtag: {
-          trackingID: 'G-B0GQS2GS37',
+          trackingID: 'G-5ZHGQKTFLT',
         },
         docs: {
           sidebarPath: './sidebars.ts',
