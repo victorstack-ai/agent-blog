@@ -73,7 +73,7 @@ CI behavior is controlled with `--fail-on`:
 | `python3 scanner.py /path --fail-on low` | exits `1` for any finding |
 
 Related posts:
-- [WordPress Dataform Settings Page Demo](/build-wp-dataform-settings-page-demo/)
+
 - [WordPress Google Preferred Source Tool](/wp-google-preferred-source-tool/)
 
 ## What I Learned

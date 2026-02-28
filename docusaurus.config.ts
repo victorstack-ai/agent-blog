@@ -83,9 +83,6 @@ const config: Config = {
           { from: '/2026-02-07-1016-devlog', to: '/drupal-service-collectors-pattern/' },
           // Composer path repos
           { from: '/2026-02-05-1338-devlog', to: '/2026-02-05-composer-path-repos-drupal/' },
-          // Droptica
-          { from: '/2026-02-05-droptica-ai-document-processing-review', to: '/build-drupal-droptica-ai-doc-processing-case-study/' },
-          { from: '/2026-02-05-droptica-ai-document-processing', to: '/build-drupal-droptica-ai-doc-processing-case-study/' },
           // FlowDrop
           { from: '/2026-02-05-flowdrop-node-sessions-review', to: '/2026-02-05-flowdrop-agents-review/' },
           // DDEV
