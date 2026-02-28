@@ -7,45 +7,85 @@ tags: [drupal, ai, automation, devops]
 date: 2026-02-08T11:39:00
 ---
 
-The Drupal community is gearing up for **Drupal 12**, anticipated for release in mid-2026. A critical part of this transition is the relaunch of the **Deprecation Dashboard**, a tool that provides a bird's-eye view of the readiness of contributed modules and core components.
+Drupal 12 lands mid-2026. The deprecation list is long, the database API is changing, and most teams will not discover their exposure until the upgrade breaks something in production. Static analysis catches the problems early. **But terminal output is not enough when you need to share findings with project managers, clients, or stakeholders who do not read diffs.**
 
-One of the most significant changes in the Drupal 12 readiness strategy is a policy shift: most disruptive deprecations from Drupal 11.3 onwards will be deferred until **Drupal 13**. This move is designed to make the jump from Drupal 11 to 12 as smooth as possible, maintaining consistency in public APIs and allowing maintainers to adopt the new version earlier.
+The **Drupal 12 Readiness CLI** now ships with an **HTML report generator**, GitHub Actions CI across three PHP versions, and coverage for all **32 deprecated database API functions**.
 
-### The New Deprecation Dashboard
+<!--truncate-->
 
-The relaunched dashboard, now hosted on docs.acquia.com, offers real-time insights into which modules are already compatible and which still have work to do. It leverages static analysis and automated testing to track progress across the entire ecosystem.
+### The Problem
 
-Key tools mentioned in the relaunch include:
-- **Upgrade Status Module:** The go-to module for in-site assessment.
-- **drupal-check:** A standalone CLI tool built on PHPStan.
-- **mglaman/phpstan-drupal:** The engine behind most modern Drupal static analysis.
+`drupal-check` and `phpstan-drupal` produce excellent terminal output. Developers can act on it immediately. But readiness assessments get shared beyond the terminal -- in project status meetings, client reports, and sprint planning tickets. Copying terminal output into a Google Doc is not a workflow. It is a workaround.
 
-### Building a Targeted Drupal 12 Readiness CLI
+**The tool needed to produce self-contained, styled HTML reports that non-developers can read.**
 
-To complement the existing tools, I've built a lightweight, targeted CLI tool: **Drupal 12 Readiness CLI**. While `drupal-check` is excellent for general deprecations, this tool is specifically configured to help developers identify the critical path for Drupal 12.
+### HTML Report Generator
 
-The tool wraps `phpstan-drupal` and `phpstan-deprecation-rules` into a single, zero-config command that you can run against any Drupal module or theme directory.
+The new `HtmlReportGenerator.php` produces **styled, self-contained HTML reports** with no external dependencies. No CSS CDN links, no JavaScript bundles. A single HTML file that opens in any browser and prints cleanly to PDF.
 
-#### Key Features:
-- **Automated Discovery:** Automatically identifies Drupal core and dependencies in your project.
-- **Targeted Analysis:** Focuses on level 1 analysis with full deprecation rule coverage.
-- **CI Ready:** Designed to be integrated into GitHub Actions or GitLab CI.
+Reports include:
+- Summary statistics with pass/fail counts
+- Grouped findings by file and severity
+- Direct links to deprecation documentation
+- Timestamp and scan configuration metadata
 
-### [View Code](https://github.com/victorstack-ai/drupal-12-readiness-cli)
+### Two Commands, Two Report Paths
 
-You can find the full source code and installation instructions on GitHub:
-**[victorstack-ai/drupal-12-readiness-cli](https://github.com/victorstack-ai/drupal-12-readiness-cli)**
+#### `scan` Command
 
-### Example Usage
+The `scan` command wraps PHPStan with `phpstan-drupal` and `phpstan-deprecation-rules`. When the `--output=html` flag is provided, the command runs PHPStan with `--error-format=json`, parses the structured output, and feeds it to the HTML report generator.
 
 ```bash
-# Install via Composer
-composer require --dev victorstack-ai/drupal-12-readiness-cli
-
-# Run the scan
-./vendor/bin/drupal-12-readiness scan web/modules/custom/my_module
+./vendor/bin/drupal-12-readiness scan web/modules/custom/my_module --output=html
 ```
 
-The tool will report any deprecated API calls that need attention before Drupal 12, giving you a clear roadmap for your upgrade path.
+This produces a styled report alongside the standard terminal output.
 
-By staying ahead of the deprecation curve, we ensure that the Drupal ecosystem remains robust and ready for the next generation of digital experiences.
+#### `check:db-api` Command
+
+The `check:db-api` command focuses specifically on the **32 deprecated database API functions** being removed in Drupal 12. When `--output=html` is specified, the report is written to `{path}/drupal12-db-api-report.html`.
+
+```bash
+./vendor/bin/drupal-12-readiness check:db-api web/modules/custom/my_module --output=html
+```
+
+The "What It Checks" section in the README lists every deprecated function. The full set of 32 includes `db_query()`, `db_select()`, `db_insert()`, `db_update()`, `db_delete()`, `db_merge()`, `db_truncate()`, `db_transaction()`, `db_like()`, `db_or()`, `db_and()`, `db_condition()`, `db_driver()`, `db_escape_field()`, `db_escape_table()`, `db_next_id()`, `db_query_range()`, `db_query_temporary()`, `db_set_active()`, and their associated helper functions.
+
+### GitHub Actions CI
+
+The project runs CI on **PHP 8.1, 8.2, and 8.3** via GitHub Actions. A separate PHPCS job enforces coding standards on every push and pull request. The matrix build ensures the tool works across the PHP versions that Drupal 11 and 12 actually support in production.
+
+```yaml
+strategy:
+  matrix:
+    php-version: ['8.1', '8.2', '8.3']
+```
+
+### README Badges and Documentation
+
+The README now includes:
+- **CI status badge** -- build health at a glance
+- **PHP version badge** -- supported runtime versions
+- **License badge** -- MIT
+- **Sample output** -- screenshot of the HTML report
+- **"What It Checks" section** -- complete list of all 32 deprecated database API functions with brief descriptions
+
+### Technical Takeaway
+
+**Reports are a deliverable, not an afterthought.** When a readiness tool only outputs to the terminal, it limits the audience to the developer who ran the command. Self-contained HTML reports turn a developer tool into a project management artifact. The `--output=html` flag costs one class and one conditional branch per command -- minimal complexity for maximum reach.
+
+The project ships with a comprehensive README, MIT LICENSE, and is CI-validated across three PHP versions.
+
+**View Code**
+
+[View Code](https://github.com/victorstack-ai/drupal-12-readiness-cli)
+
+---
+
+### References
+
+- [Drupal Deprecation Dashboard](https://docs.acquia.com/)
+- [Drupal 12 Release Timeline](https://www.drupal.org/about/core/policies/core-release-cycles)
+- [mglaman/phpstan-drupal](https://github.com/mglaman/phpstan-drupal)
+- [phpstan-deprecation-rules](https://github.com/phpstan/phpstan-deprecation-rules)
+- [Drupal Database API Changes](https://www.drupal.org/node/3265108)
