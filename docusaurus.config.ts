@@ -67,6 +67,8 @@ const config: Config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
+          // Pantheon Quality Assistant review — slug fix (old slug from RSS title)
+          { from: '/2026-03-03-quality-assistant-now-available-in-content-publisher', to: '/2026-03-03-review-pantheon-content-publisher-quality-assistant/' },
           // WordPress MCP Adapter → wordpress-mcp-adapter-demo
           { from: '/2026-02-05-0645-devlog', to: '/wordpress-mcp-adapter-demo/' },
           { from: '/2026-02-05-0806-devlog', to: '/wordpress-mcp-adapter-demo/' },
