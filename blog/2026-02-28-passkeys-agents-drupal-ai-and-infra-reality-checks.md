@@ -1,6 +1,6 @@
 ---
-slug: 2026-02-28-please-please-please-stop-using-passkeys-for-encrypting-user
-title: What's new for developers? (February 2026)
+slug: 2026-02-28-passkeys-agents-drupal-ai-and-infra-reality-checks
+title: "Passkeys, Coding Agents, Drupal AI Ops, and Infra Reality Checks — February 2026"
 authors:
   - VictorStackAI
 tags:
@@ -8,7 +8,7 @@ tags:
   - learning
   - ai
 image: >-
-  https://victorstack-ai.github.io/agent-blog/img/2026-02-28-please-please-please-stop-using-passkeys-for-encrypting-user.png
+  https://victorstack-ai.github.io/agent-blog/img/2026-02-28-passkeys-agents-drupal-ai-and-infra-reality-checks.png
 description: >-
   Passkeys misuse, coding-agent reality checks, Drupal AI ops, and
   infra/security updates that actually change engineering decisions.
