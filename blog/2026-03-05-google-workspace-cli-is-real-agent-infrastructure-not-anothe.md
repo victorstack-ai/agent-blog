@@ -54,14 +54,18 @@ flowchart TD
 
 <Tabs>
   <TabItem value="static" label="Static Wrappers" default>
-    - Hardcoded commands and flags  
-    - Slow update cycle when APIs change  
+
+    - Hardcoded commands and flags
+    - Slow update cycle when APIs change
     - Frequent breakage in CI scripts when endpoints drift
+
   </TabItem>
   <TabItem value="gws" label="Discovery-Driven gws">
-    - Commands generated from Discovery Service  
-    - Faster compatibility with Workspace API updates  
+
+    - Commands generated from Discovery Service
+    - Faster compatibility with Workspace API updates
     - Better fit for agents that need machine-readable output
+
   </TabItem>
 </Tabs>
 

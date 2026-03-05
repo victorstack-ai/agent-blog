@@ -38,13 +38,19 @@ GitHub + Andela’s update matters because it grounds AI adoption in real delive
 
 <Tabs>
   <TabItem value="cursor" label="Cursor Automations" default>
+
     Trigger-based always-on agents with explicit instructions. Strong for repeatable maintenance and repo chores. High risk if prompts are not versioned.
+
   </TabItem>
   <TabItem value="jetbrains" label="JetBrains ACP Client">
+
     Cursor available inside IntelliJ/PyCharm/WebStorm via ACP. Useful for teams locked into JetBrains workflows and inspections.
+
   </TabItem>
   <TabItem value="search-canvas" label="Search Canvas">
+
     Fast drafting and interactive tool prototyping in AI Mode. Good ideation surface, weak governance surface.
+
   </TabItem>
 </Tabs>
 

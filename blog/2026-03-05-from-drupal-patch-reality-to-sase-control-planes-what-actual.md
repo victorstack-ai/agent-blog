@@ -44,7 +44,7 @@ This week had one consistent theme: operational reality beat product marketing. 
 | 10.4.x and older | Ended/unsupported | Ended | Upgrade immediately |
 
 :::danger[Contrib XSS advisories are active, not theoretical housekeeping]
-`Google Analytics GA4` (<1.1.14, CVE-2026-3529) and `Calculation Fields` (<1.0.4, CVE-2026-3528) both ship XSS risk paths. Treat these as same-day patch items, then validate rendered output where custom attributes or expression inputs are accepted.
+`Google Analytics GA4` (&lt;1.1.14, CVE-2026-3529) and `Calculation Fields` (&lt;1.0.4, CVE-2026-3528) both ship XSS risk paths. Treat these as same-day patch items, then validate rendered output where custom attributes or expression inputs are accepted.
 :::
 
 ```bash title="scripts/drupal-security-audit.sh" showLineNumbers

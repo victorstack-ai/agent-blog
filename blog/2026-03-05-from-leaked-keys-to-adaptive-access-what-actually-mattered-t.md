@@ -157,18 +157,22 @@ flowchart TD
 Knuth’s quote and the graviton-amplitude preprint both point to one thing: model-assisted research is now credible in narrow, technical lanes when verification is explicit. Separately, the Qwen team turbulence is a reminder that model capability and org stability are different risks.
 
 <Tabs>
-  <TabItem value="high-signal" label="High Signal" default>
+  <TabItem value=”high-signal” label=”High Signal” default>
+
   - Cursor in JetBrains via ACP: practical if your team lives in IntelliJ/PyCharm/WebStorm.
   - Gemini 3.1 Flash-Lite pricing/perf tier: relevant for cost-constrained high-volume workloads.
   - Next.js 16 default + Node.js 25.8.0 current: upgrade planning impacts CI/CD and runtime baselines.
   - OpenAI Learning Outcomes Measurement Suite: needed if schools are deploying AI without longitudinal evidence.
   - Axios AI newsroom workflow: concrete operational use in local journalism throughput.
+
   </TabItem>
-  <TabItem value="watchlist" label="Watchlist / Hype">
+  <TabItem value=”watchlist” label=”Watchlist / Hype”>
+
   - “Canvas in AI Mode in Search”: useful UI packaging, but value depends on export fidelity and workflow integration.
   - Copilot Dev Days: community motion, not product proof.
   - Project Genie prompt tips: creative demo energy; production utility still niche.
   - “Something is afoot in Qwen land”: important governance signal, not a deployment blocker by itself.
+
   </TabItem>
 </Tabs>
 

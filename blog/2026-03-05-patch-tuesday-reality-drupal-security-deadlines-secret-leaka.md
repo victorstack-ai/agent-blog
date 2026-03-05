@@ -123,10 +123,14 @@ Five updates point in one direction: evaluate trust continuously, not just at lo
 
 <Tabs>
   <TabItem value="legacy" label="Legacy model" default>
+
   Static allow/deny, optional MFA, WAF tuning in "log vs block" mode, and device-client assumptions for policy enforcement.
+
   </TabItem>
   <TabItem value="current" label="Current model">
+
   Attack + full-transaction detection, mandatory auth from boot, independent MFA, user risk scoring in Access policies, and Gateway Authorization Proxy for clientless endpoints.
+
   </TabItem>
 </Tabs>
 

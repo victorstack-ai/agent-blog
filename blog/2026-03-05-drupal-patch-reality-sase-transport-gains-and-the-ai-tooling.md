@@ -49,7 +49,7 @@ Core support windows are explicit now: Drupal 10.6.x and 11.3.x are supported th
 | Drupal 10.4.x and below | Unsupported | Ended | Upgrade now |
 
 :::danger[Contrib XSS advisories are not optional]
-`Google Analytics GA4` (<1.1.14, CVE-2026-3529) and `Calculation Fields` (<1.0.4, CVE-2026-3528) both carry moderately critical XSS risk. Any admin-facing route with unsanitized attributes or expression input becomes a pivot for stored or reflected payloads.  
+`Google Analytics GA4` (&lt;1.1.14, CVE-2026-3529) and `Calculation Fields` (&lt;1.0.4, CVE-2026-3528) both carry moderately critical XSS risk. Any admin-facing route with unsanitized attributes or expression input becomes a pivot for stored or reflected payloads.  
 Patch immediately, then grep custom modules for similar attribute passthrough patterns.
 :::
 

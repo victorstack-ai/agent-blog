@@ -108,10 +108,14 @@ Cloudflare’s recent set of updates is coherent: always-on exploit detection (`
 
 <Tabs>
   <TabItem value="legacy" label="Legacy WAF/Auth" default>
-Point controls, manual tuning, and a permanent `log vs block` trade-off. Good for dashboards, weak for prevention consistency.
+
+  Point controls, manual tuning, and a permanent `log vs block` trade-off. Good for dashboards, weak for prevention consistency.
+
   </TabItem>
   <TabItem value="continuous" label="Continuous Enforcement">
-Correlated request+response detection, adaptive user risk policy, and enforced identity from boot through access. Lower blind spots, fewer brittle static rules.
+
+  Correlated request+response detection, adaptive user risk policy, and enforced identity from boot through access. Lower blind spots, fewer brittle static rules.
+
   </TabItem>
 </Tabs>
 
