@@ -107,16 +107,16 @@ Secrets leak in temp files, `.env`, logs, shell history, CI artifacts, and agent
 Cloudflare's recent set of updates is coherent: always-on exploit detection (`Attack Signature Detection`, `Full-Transaction Detection`), mandatory auth + independent MFA, identity-aware access for clientless environments (Gateway Authorization Proxy), deepfake-resistant onboarding (Nametag integration), and dynamic User Risk Scoring.
 
 <Tabs>
-  <TabItem value="legacy" label="Legacy WAF/Auth" default>
+<TabItem value="legacy" label="Legacy WAF/Auth" default>
 
-  Point controls, manual tuning, and a permanent `log vs block` trade-off. Good for dashboards, weak for prevention consistency.
+Point controls, manual tuning, and a permanent `log vs block` trade-off. Good for dashboards, weak for prevention consistency.
 
-  </TabItem>
-  <TabItem value="continuous" label="Continuous Enforcement">
+</TabItem>
+<TabItem value="continuous" label="Continuous Enforcement">
 
-  Correlated request+response detection, adaptive user risk policy, and enforced identity from boot through access. Lower blind spots, fewer brittle static rules.
+Correlated request+response detection, adaptive user risk policy, and enforced identity from boot through access. Lower blind spots, fewer brittle static rules.
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## AI + Dev Tooling: Practical Updates vs Marketing Noise

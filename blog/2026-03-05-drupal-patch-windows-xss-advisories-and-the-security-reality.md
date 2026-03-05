@@ -127,27 +127,27 @@ This is practical: identity and risk become continuous signals, not one-time gat
 ## AI Tooling Wave: Separate Useful Changes from Marketing Vapor
 
 <Tabs>
-  <TabItem value="useful-now" label="Useful Now" default>
+<TabItem value="useful-now" label="Useful Now" default>
 
-  - Cursor via ACP in JetBrains IDEs: real workflow impact for teams standardized on IntelliJ/PyCharm/WebStorm.
-  - Next.js 16 default for new sites: changes baseline assumptions for greenfield JS stacks.
-  - Node.js 25.8.0 current: relevant for experimentation, not automatic prod target.
-  - Gemini 3.1 Flash-Lite pricing/perf tier: viable for cost-sensitive high-volume paths.
+- Cursor via ACP in JetBrains IDEs: real workflow impact for teams standardized on IntelliJ/PyCharm/WebStorm.
+- Next.js 16 default for new sites: changes baseline assumptions for greenfield JS stacks.
+- Node.js 25.8.0 current: relevant for experimentation, not automatic prod target.
+- Gemini 3.1 Flash-Lite pricing/perf tier: viable for cost-sensitive high-volume paths.
 
-  </TabItem>
-  <TabItem value="needs-proof" label="Needs Proof">
+</TabItem>
+<TabItem value="needs-proof" label="Needs Proof">
 
-  - "Canvas in AI Mode in Search": promising UX, unclear production integration story.
-  - "Project Genie world-building tips": interesting, but not directly tied to delivery reliability.
-  - "Copilot Dev Days": community value depends entirely on practical follow-through.
+- "Canvas in AI Mode in Search": promising UX, unclear production integration story.
+- "Project Genie world-building tips": interesting, but not directly tied to delivery reliability.
+- "Copilot Dev Days": community value depends entirely on practical follow-through.
 
-  </TabItem>
-  <TabItem value="watch-closely" label="Watch Closely">
+</TabItem>
+<TabItem value="watch-closely" label="Watch Closely">
 
-  - Qwen team turbulence: model quality can stay high while org risk spikes.
-  - "89% Dormant Majority" package revival thesis: true pattern, needs dependency health gates to avoid supply-chain regressions.
+- Qwen team turbulence: model quality can stay high while org risk spikes.
+- "89% Dormant Majority" package revival thesis: true pattern, needs dependency health gates to avoid supply-chain regressions.
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Engineering Culture Signal: Review Discipline Is Non-Negotiable

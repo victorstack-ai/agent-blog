@@ -94,14 +94,18 @@ final class ContribAuditCommand {
 **Automatic Return Routing (ARR)** solves overlapping private IPs without hand-built NAT/VRF sprawl. **QUIC Proxy Mode** removes user-space TCP overhead and reports ~2x throughput. **User Risk Scoring**, **Gateway Authorization Proxy**, and Nametag-backed onboarding push policy from static allow/deny toward continuous identity confidence.
 
 <Tabs>
-  <TabItem value="arr" label="ARR vs NAT/VRF" default>
-    ARR uses stateful flow tracking for return-path correctness.  
-    Decision logic moves from brittle route math to session-aware forwarding.
-  </TabItem>
-  <TabItem value="proxy" label="QUIC Proxy Mode">
-    QUIC streams reduce head-of-line blocking and stack overhead in client proxy paths.  
-    Result: better throughput and lower latency for remote users.
-  </TabItem>
+<TabItem value="arr" label="ARR vs NAT/VRF" default>
+
+ARR uses stateful flow tracking for return-path correctness.
+Decision logic moves from brittle route math to session-aware forwarding.
+
+</TabItem>
+<TabItem value="proxy" label="QUIC Proxy Mode">
+
+QUIC streams reduce head-of-line blocking and stack overhead in client proxy paths.
+Result: better throughput and lower latency for remote users.
+
+</TabItem>
 </Tabs>
 
 ```mermaid

@@ -46,7 +46,7 @@ The word "import" implies a technical integration — a file format, an API endp
 Here is the core of what the "import" prompt does: it asks your current AI to describe how you like to work. That is a capability every LLM has had since GPT-3.5.
 
 <Tabs>
-  <TabItem value="anthropic" label="Anthropic's Import" default>
+<TabItem value="anthropic" label="Anthropic's Import" default>
 
 ```text title="What Anthropic provides"
 A pre-written prompt that asks your current AI to:
@@ -56,8 +56,8 @@ A pre-written prompt that asks your current AI to:
 - Summarize recurring topics
 ```
 
-  </TabItem>
-  <TabItem value="diy" label="DIY (always worked)">
+</TabItem>
+<TabItem value="diy" label="DIY (always worked)">
 
 ```text title="What you could always type yourself"
 "Summarize everything you know about my preferences,
@@ -65,7 +65,7 @@ working style, and any custom instructions I've given you.
 Format it as a bullet list I can paste into another tool."
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 The output is identical. The only difference is Anthropic hosts the prompt on a nice URL and calls it a feature.

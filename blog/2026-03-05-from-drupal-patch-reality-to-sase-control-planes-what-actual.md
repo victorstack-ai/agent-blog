@@ -120,12 +120,16 @@ flowchart TD
 ```
 
 <Tabs>
-  <TabItem value="legacy" label="Legacy posture" default>
-  Static allow/deny, manual NAT/VRF workarounds for overlap, WAF tuning loops with `log vs block` politics, device-client assumptions that fail on VDI and guest networks.
-  </TabItem>
-  <TabItem value="current" label="Current posture">
-  Stateful flow tracking for overlap, QUIC streams for proxy performance, response-aware exploit detection, identity-aware policy even without endpoint clients, and dynamic risk-scored access.
-  </TabItem>
+<TabItem value="legacy" label="Legacy posture" default>
+
+Static allow/deny, manual NAT/VRF workarounds for overlap, WAF tuning loops with `log vs block` politics, device-client assumptions that fail on VDI and guest networks.
+
+</TabItem>
+<TabItem value="current" label="Current posture">
+
+Stateful flow tracking for overlap, QUIC streams for proxy performance, response-aware exploit detection, identity-aware policy even without endpoint clients, and dynamic risk-scored access.
+
+</TabItem>
 </Tabs>
 
 :::caution[Runtime signals are only useful if they are enforced]

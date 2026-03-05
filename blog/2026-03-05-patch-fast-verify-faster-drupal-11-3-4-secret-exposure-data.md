@@ -138,27 +138,27 @@ flowchart TD
 ## AI product updates: some useful, some pure announcement churn
 
 <Tabs>
-  <TabItem value="signal" label="High Signal" default>
+<TabItem value="signal" label="High Signal" default>
 
 - **Cursor in JetBrains via ACP**: useful if a team is locked into IntelliJ/PyCharm/WebStorm and wants one agent workflow.
 - **OpenAI Learning Outcomes Measurement Suite**: finally measuring impact over time instead of "vibes-based pedagogy."
 - **Axios AI workflow notes**: practical newsroom automation framing instead of "AI replaces reporting."
 - **GPT-assisted graviton preprint workflow**: strongest value is verification speed in derivations, not replacing domain judgment.
 
-  </TabItem>
-  <TabItem value="noise" label="Mostly Noise">
+</TabItem>
+<TabItem value="noise" label="Mostly Noise">
 
 - Canvas in Google Search AI Mode: convenient, but this is packaging.
 - Copilot Dev Days: community enablement, not a technical shift.
 - Project Genie prompt tips: interesting demo surface, limited production relevance today.
 
-  </TabItem>
-  <TabItem value="watch" label="Watch Closely">
+</TabItem>
+<TabItem value="watch" label="Watch Closely">
 
 - **Qwen 3.5 momentum + team departures**: model quality can survive org churn, but roadmap stability risk increases immediately.
 - **Gemini 3.1 Flash-Lite pricing/perf**: cost profile is compelling; benchmark on real latency and refusal behavior before migration.
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 > "I'll have to revise my opinions about 'generative AI' one of these days."
