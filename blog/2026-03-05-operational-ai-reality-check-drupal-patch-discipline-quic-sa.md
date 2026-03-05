@@ -30,9 +30,9 @@ This batch of signals points to one theme: AI is becoming default infrastructure
 
 ## AI In Production: Better Plumbing, Less Theater
 
-GitHub + Andela’s update matters because it grounds AI adoption in real delivery workflows, not benchmark screenshots. Cursor automations and ACP support in JetBrains matter for the same reason: they move agentic behavior into existing IDE loops instead of forcing team migration theater. Google’s Canvas in AI Mode being broadly available in the U.S. and Next.js 16 becoming default both signal the same shift: AI-first UX and AI-assisted coding are now baseline assumptions.
+GitHub + Andela's update matters because it grounds AI adoption in real delivery workflows, not benchmark screenshots. Cursor automations and ACP support in JetBrains matter for the same reason: they move agentic behavior into existing IDE loops instead of forcing team migration theater. Google's Canvas in AI Mode being broadly available in the U.S. and Next.js 16 becoming default both signal the same shift: AI-first UX and AI-assisted coding are now baseline assumptions.
 
-> "Developers connected to Andela share how they’re learning AI tools inside real production workflows."
+> "Developers connected to Andela share how they're learning AI tools inside real production workflows."
 >
 > — GitHub Blog, [Scaling AI opportunity across the globe](https://github.blog/)
 
@@ -110,7 +110,7 @@ Treat moderately critical XSS advisories as immediate patch work when modules to
 
 ## Security and Networking: Fewer Assumptions, More Telemetry
 
-Cloudflare’s set of updates forms a coherent pattern: QUIC-based proxy mode for performance, stateful return routing for overlapping IP spaces, identity-aware proxying for clientless devices, dynamic user risk scoring, and always-on exploit detection that correlates request payload + server response. That is a real architecture progression, not a feature dump.
+Cloudflare's set of updates forms a coherent pattern: QUIC-based proxy mode for performance, stateful return routing for overlapping IP spaces, identity-aware proxying for clientless devices, dynamic user risk scoring, and always-on exploit detection that correlates request payload + server response. That is a real architecture progression, not a feature dump.
 
 ```mermaid
 flowchart TD
@@ -135,13 +135,13 @@ flowchart TD
 GitGuardian + Google mapped roughly 1M leaked keys to 140k certs, with 2,622 still valid as of September 2025. That means revocation/rotation SLAs are often fiction on paper.
 :::
 
-Delta CNCSoft-G2’s out-of-bounds write (CVSS v3 7.8) is the other side of the same story: operational tech environments still carry RCE-class exposure where patch cadence is slow and blast radius is high.
+Delta CNCSoft-G2's out-of-bounds write (CVSS v3 7.8) is the other side of the same story: operational tech environments still carry RCE-class exposure where patch cadence is slow and blast radius is high.
 
 ## AI, Education, and Media: Measure Outcomes or Stop Talking
 
-OpenAI’s education announcements (tools, certifications, and the Learning Outcomes Measurement Suite) are only useful if institutions instrument before/after learning impact over time. Axios’ newsroom use case is one of the better practical examples: AI as workflow acceleration around local reporting, not replacement of editorial judgment.
+OpenAI's education announcements (tools, certifications, and the Learning Outcomes Measurement Suite) are only useful if institutions instrument before/after learning impact over time. Axios' newsroom use case is one of the better practical examples: AI as workflow acceleration around local reporting, not replacement of editorial judgment.
 
-> "OpenAI introduces the Learning Outcomes Measurement Suite to assess AI’s impact on student learning..."
+> "OpenAI introduces the Learning Outcomes Measurement Suite to assess AI's impact on student learning..."
 >
 > — OpenAI, [Learning outcomes update](https://openai.com/)
 

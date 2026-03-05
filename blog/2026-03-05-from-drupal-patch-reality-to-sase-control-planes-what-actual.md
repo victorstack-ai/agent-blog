@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This week had one consistent theme: operational reality beat product marketing. Core CMS releases, security advisories, network control-plane changes, and AI tooling updates all pointed to the same conclusion: the teams shipping measurable risk reduction are winning. ~~“New model”~~ is not a strategy; verified maintenance posture is.
+This week had one consistent theme: operational reality beat product marketing. Core CMS releases, security advisories, network control-plane changes, and AI tooling updates all pointed to the same conclusion: the teams shipping measurable risk reduction are winning. ~~"New model"~~ is not a strategy; verified maintenance posture is.
 
 <!-- truncate -->
 
@@ -30,7 +30,7 @@ This week had one consistent theme: operational reality beat product marketing. 
 
 ## Drupal Core Moved, and the Clock Is Real
 
-**Drupal 10.6.4** and **Drupal 11.3.4** are production-ready patch releases, and both include CKEditor 5.47.6.0. The practical point is not “new version available”; it is support horizon and security window management.
+**Drupal 10.6.4** and **Drupal 11.3.4** are production-ready patch releases, and both include CKEditor 5.47.6.0. The practical point is not "new version available"; it is support horizon and security window management.
 
 > "Drupal 10.6.4 is a patch (bugfix) release... ready for use on production sites."
 >
@@ -134,7 +134,7 @@ If User Risk Scores and exploit detections are wired only to dashboards, teams k
 
 ## Secret Exposure Data and OSS Package Decay Became Quantifiable
 
-GitGuardian + Google mapped roughly 1M leaked private keys to 140k certificates; 2,622 certificates were still valid as of September 2025, then 97% got remediated during disclosure. That is not abstract “supply chain concern”; that is live trust material exposed in the wild. Add the “89% dormant majority” package-health problem and this becomes a dependency governance issue, not a scanner issue.
+GitGuardian + Google mapped roughly 1M leaked private keys to 140k certificates; 2,622 certificates were still valid as of September 2025, then 97% got remediated during disclosure. That is not abstract "supply chain concern"; that is live trust material exposed in the wild. Add the "89% dormant majority" package-health problem and this becomes a dependency governance issue, not a scanner issue.
 
 | Signal | What it proved | Operational response |
 |---|---|---|
@@ -185,7 +185,7 @@ Useful:
 
 Noisy but relevant:
 - Qwen team turbulence around a strong 3.5 model line.
-- Public “AI solved my open problem” moments, including Donald Knuth’s note, which matters because serious people changed their priors in public.
+- Public "AI solved my open problem" moments, including Donald Knuth's note, which matters because serious people changed their priors in public.
 
 > "What a joy it is to learn... celebrate this drama."
 >

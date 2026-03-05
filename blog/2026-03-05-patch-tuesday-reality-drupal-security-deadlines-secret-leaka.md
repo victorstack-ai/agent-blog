@@ -58,8 +58,8 @@ The pattern today is simple: patch fast, validate continuously, and stop trustin
 `SA-CONTRIB-2026-024` (`Google Analytics GA4`, CVE-2026-3529, affected `<1.1.13`) and `SA-CONTRIB-2026-023` (`Calculation Fields`, CVE-2026-3528, affected `<1.0.4`) are both XSS-class issues. Update immediately, then grep custom code for passthrough attribute injection and unsafe expression handling patterns.
 :::
 
-:::caution[Do not confuse “patch release” with “optional”]
-Patch releases here include dependency-level security movement (CKEditor5 47.6.0). Skipping “small” updates is how teams accidentally run unsupported stacks while believing they are current.
+:::caution[Do not confuse "patch release" with "optional"]
+Patch releases here include dependency-level security movement (CKEditor5 47.6.0). Skipping "small" updates is how teams accidentally run unsupported stacks while believing they are current.
 :::
 
 <details>
@@ -71,7 +71,7 @@ Patch releases here include dependency-level security movement (CKEditor5 47.6.0
 
 </details>
 
-## Secret leakage moved from “possible” to measured blast radius
+## Secret leakage moved from "possible" to measured blast radius
 
 GitGuardian + Google mapped leaked private keys to certs: about 1M leaked keys, 140k mapped certificates, and 2,622 still valid (as of September 2025). That is not a scare slide; that is live attack surface.
 
@@ -117,7 +117,7 @@ Secrets also pool in env files, build artifacts, and agent memory traces. Detect
 
 Sources: [GitGuardian study summary](https://blog.gitguardian.com/2622-valid-certificates-exposed-a-google-gitguardian-study/), [Protecting Developers Means Protecting Their Secrets](https://blog.gitguardian.com/protecting-developers-means-protecting-their-secrets/), [89% dormant majority analysis](https://blog.gitguardian.com/the-89-problem-how-llms-are-resurrecting-the-dormant-majority-of-open-source/)
 
-## Cloudflare’s identity/security updates: from perimeter checks to continuous enforcement
+## Cloudflare's identity/security updates: from perimeter checks to continuous enforcement
 
 Five updates point in one direction: evaluate trust continuously, not just at login.
 
@@ -158,9 +158,9 @@ Sources: [Always-on detections](https://blog.cloudflare.com/always-on-detections
 - OpenAI Learning Outcomes Measurement Suite adds actual measurement framing.
 
 **Worth tracking, not blindly adopting:**
-- Search “Canvas in AI Mode” docs/tools generation in-browser.
+- Search "Canvas in AI Mode" docs/tools generation in-browser.
 - Qwen team turbulence despite strong 3.5 model momentum.
-- “GPT-5.2 Pro helped derive graviton amplitudes” preprint claims need replication.
+- "GPT-5.2 Pro helped derive graviton amplitudes" preprint claims need replication.
 
 ```bash
 # practical baseline check in active repos
@@ -211,5 +211,5 @@ mindmap
 ## Bottom Line
 
 :::tip[Single action with highest ROI]
-Create one weekly “production safety pass” that combines: Drupal/core+contrib patch check, exposed secret/certificate revocation check, and access-policy drift review. One checklist, one owner, one SLA. That beats ten dashboards nobody reads.
+Create one weekly "production safety pass" that combines: Drupal/core+contrib patch check, exposed secret/certificate revocation check, and access-policy drift review. One checklist, one owner, one SLA. That beats ten dashboards nobody reads.
 :::

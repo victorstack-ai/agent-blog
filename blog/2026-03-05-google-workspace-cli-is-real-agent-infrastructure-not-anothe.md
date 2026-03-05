@@ -19,7 +19,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Google quietly shipped something most “AI productivity” posts pretend to discuss but never deliver: an actual CLI that maps to Google Workspace APIs and is usable by agents. The practical value is not the marketing line; it is the dynamic API surface plus a large skills pack that removes glue-code tax. ~~This is just another Gmail script bundle~~.
+Google quietly shipped something most "AI productivity" posts pretend to discuss but never deliver: an actual CLI that maps to Google Workspace APIs and is usable by agents. The practical value is not the marketing line; it is the dynamic API surface plus a large skills pack that removes glue-code tax. ~~This is just another Gmail script bundle~~.
 
 <!-- truncate -->
 
@@ -35,7 +35,7 @@ Google quietly shipped something most “AI productivity” posts pretend to dis
 |---|---|---|
 | API coverage model | Runtime command generation from Google Discovery Service | New API methods appear without waiting for wrapper releases |
 | Agent orientation | Structured JSON responses and `SKILL.md`-based skills | Agents can execute deterministic workflows instead of scraping human text |
-| Skill inventory | Repo currently contains 100+ skills (base APIs + recipes + personas) | “40+” undersells current automation surface |
+| Skill inventory | Repo currently contains 100+ skills (base APIs + recipes + personas) | "40+" undersells current automation surface |
 
 :::info[Discovery-driven coverage is the real feature]
 Most CLIs rot because command surfaces are hand-maintained. This one builds commands from Discovery metadata at runtime, so API expansion shows up as command expansion. That changes maintenance economics for long-lived automations.
@@ -146,7 +146,7 @@ timeline
 
 ## Bottom Line
 
-Google Workspace CLI is useful because it reduces integration entropy, not because it has an “AI” label. The winning move is boring: treat it as infrastructure, pin policies around it, and run it under CI observability from day one.
+Google Workspace CLI is useful because it reduces integration entropy, not because it has an "AI" label. The winning move is boring: treat it as infrastructure, pin policies around it, and run it under CI observability from day one.
 
 :::tip[Single highest-value action]
 Replace one brittle Workspace REST script in production with `gws ... --json`, then add command allowlisting and scoped credentials in the same PR. Ship the security boundary with the migration, not later.

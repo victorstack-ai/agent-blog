@@ -11,7 +11,7 @@ image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-05-from-leaked-keys-to-adaptive-access-what-actually-mattered-t.png
 description: >-
   A practitioner-focused read on leaked private keys, Drupal XSS advisories,
-  Cloudflare’s continuous enforcement push, and which AI/dev updates are signal
+  Cloudflare's continuous enforcement push, and which AI/dev updates are signal
   versus noise.
 date: 2026-03-05T10:04:00.000Z
 ---
@@ -34,14 +34,14 @@ GitGuardian + Google published the number that matters: leaked keys were mapped 
 >
 > — Simon Willison, [Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/)
 
-The anti-pattern above connects directly to the “89% problem” thesis: LLMs revive abandoned packages, and teams import them fast, often without ownership checks, maintenance history, or secret scanning around generated glue code.
+The anti-pattern above connects directly to the "89% problem" thesis: LLMs revive abandoned packages, and teams import them fast, often without ownership checks, maintenance history, or secret scanning around generated glue code.
 
 | Signal | Why it matters | Immediate move |
 |---|---|---|
 | 2,622 still-valid certs from leaked keys | Live credential abuse path | Revoke + rotate cert-linked keys within 24h |
 | CISA added CVE-2026-21385 and CVE-2026-22719 to KEV | Active exploitation confirmed | Patch on KEV SLA, not quarterly cycle |
 | ICS/OT CSAFs with CVSS 9.4 (Mobiliti, ePower, Everon, Labkotec) | Admin takeover / service disruption risk | Segment charging/OT control planes and block internet admin paths |
-| “Protecting Developers Means Protecting Their Secrets” | Secrets leak beyond Git history | Scan filesystem, env vars, CI logs, agent memory snapshots |
+| "Protecting Developers Means Protecting Their Secrets" | Secrets leak beyond Git history | Scan filesystem, env vars, CI logs, agent memory snapshots |
 
 :::danger[Credential Exposure Is an Incident, Not a Backlog Item]
 When a private key leak is tied to an active certificate, treat it as production compromise even if no abuse is detected yet. Revoke certificate, rotate key material, invalidate downstream sessions, and record proof of revocation in the incident ticket.
@@ -77,7 +77,7 @@ Two Drupal contrib advisories dropped on 2026-03-04:
 - **Google Analytics GA4** (`SA-CONTRIB-2026-024`, `CVE-2026-3529`), XSS, affected `<1.1.13`
 - **Calculation Fields** (`SA-CONTRIB-2026-023`, `CVE-2026-3528`), XSS, affected `<1.0.4`
 
-Both are “moderately critical,” but that label gets misread. XSS in admin-mediated flows is still a strong foothold for privilege expansion and session abuse in real environments.
+Both are "moderately critical," but that label gets misread. XSS in admin-mediated flows is still a strong foothold for privilege expansion and session abuse in real environments.
 
 ```diff title="drupal/ga4-attribute-sanitization.diff"
 --- a/src/GtagBuilder.php
@@ -121,9 +121,9 @@ final class ScriptTagPolicySubscriber implements EventSubscriberInterface {
 If these modules are present, upgrade now and backport sanitization checks into custom integrations that extend script attributes or expression evaluators. Audit stored form values for payload persistence before declaring closure.
 :::
 
-## Cloudflare’s Continuous Enforcement Push (Real Security, Not Slogans)
+## Cloudflare's Continuous Enforcement Push (Real Security, Not Slogans)
 
-Cloudflare’s updates are coherent when viewed as one architecture:
+Cloudflare's updates are coherent when viewed as one architecture:
 - Always-on detections (Attack Signature Detection + Full-Transaction Detection)
 - Mandatory authentication + independent MFA from boot-to-login path
 - Nametag integration for deepfake/laptop-farm resistance
@@ -145,7 +145,7 @@ flowchart TD
 ```
 
 :::warning[Binary Access Rules Are Obsolete]
-“Allow/deny once at login” misses post-auth abuse and stolen-session replay. Enforce continuous checks with response-aware detection and dynamic risk scoring, or the control plane is blind after initial authentication.
+"Allow/deny once at login" misses post-auth abuse and stolen-session replay. Enforce continuous checks with response-aware detection and dynamic risk scoring, or the control plane is blind after initial authentication.
 :::
 
 ## AI and Dev Tooling: Keep the Useful Parts, Ignore the Theater
@@ -154,10 +154,10 @@ flowchart TD
 >
 > — Donald Knuth, [paper note](https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf)
 
-Knuth’s quote and the graviton-amplitude preprint both point to one thing: model-assisted research is now credible in narrow, technical lanes when verification is explicit. Separately, the Qwen team turbulence is a reminder that model capability and org stability are different risks.
+Knuth's quote and the graviton-amplitude preprint both point to one thing: model-assisted research is now credible in narrow, technical lanes when verification is explicit. Separately, the Qwen team turbulence is a reminder that model capability and org stability are different risks.
 
 <Tabs>
-  <TabItem value=”high-signal” label=”High Signal” default>
+  <TabItem value="high-signal" label="High Signal" default>
 
   - Cursor in JetBrains via ACP: practical if your team lives in IntelliJ/PyCharm/WebStorm.
   - Gemini 3.1 Flash-Lite pricing/perf tier: relevant for cost-constrained high-volume workloads.
@@ -166,19 +166,19 @@ Knuth’s quote and the graviton-amplitude preprint both point to one thing: mod
   - Axios AI newsroom workflow: concrete operational use in local journalism throughput.
 
   </TabItem>
-  <TabItem value=”watchlist” label=”Watchlist / Hype”>
+  <TabItem value="watchlist" label="Watchlist / Hype">
 
-  - “Canvas in AI Mode in Search”: useful UI packaging, but value depends on export fidelity and workflow integration.
+  - "Canvas in AI Mode in Search": useful UI packaging, but value depends on export fidelity and workflow integration.
   - Copilot Dev Days: community motion, not product proof.
   - Project Genie prompt tips: creative demo energy; production utility still niche.
-  - “Something is afoot in Qwen land”: important governance signal, not a deployment blocker by itself.
+  - "Something is afoot in Qwen land": important governance signal, not a deployment blocker by itself.
 
   </TabItem>
 </Tabs>
 
 ## CMS and Frontend Practice: WP Rig + UI Suite Display Builder
 
-WP Rig’s value is still architectural discipline for theme development, especially in agencies where consistency collapses under deadline pressure. Display Builder in Drupal UI Suite targets a different pain: shipping composed layouts fast without turning every page into custom Twig/CSS debt.
+WP Rig's value is still architectural discipline for theme development, especially in agencies where consistency collapses under deadline pressure. Display Builder in Drupal UI Suite targets a different pain: shipping composed layouts fast without turning every page into custom Twig/CSS debt.
 
 | Topic | Useful for | Risk if misused |
 |---|---|---|
@@ -201,7 +201,7 @@ WP Rig’s value is still architectural discipline for theme development, especi
 - Cloudflare: Always-on detections, boot-to-login enforcement, deepfake/laptop-farm defenses, Gateway Authorization Proxy, User Risk Scoring.
 - UI Suite Initiative Display Builder walkthrough.
 - Graviton single-minus amplitude preprint assisted by GPT-5.2 Pro.
-- “89% Dormant Majority” open-source supply-chain framing.
+- "89% Dormant Majority" open-source supply-chain framing.
 - OpenAI Learning Outcomes Measurement Suite.
 - Axios AI for local journalism operations.
 - Cursor availability in JetBrains IDEs via ACP.

@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most of this week’s “news” falls into two piles: things that can hurt production this quarter, and things that are mostly vendor theater. The useful pattern is simple: patch aggressively where risk is concrete, then ignore hype unless it changes delivery speed or incident rates.
+Most of this week's "news" falls into two piles: things that can hurt production this quarter, and things that are mostly vendor theater. The useful pattern is simple: patch aggressively where risk is concrete, then ignore hype unless it changes delivery speed or incident rates.
 
 <!-- truncate -->
 
@@ -67,11 +67,11 @@ drush pm:security
 + $script_tag = build_safe_ga_script_tag($ga_url, $safe);
 ```
 
-## Secret leakage is still the fastest path from “small mistake” to “big incident”
+## Secret leakage is still the fastest path from "small mistake" to "big incident"
 
 The Google + GitGuardian study mapped about 1M leaked private keys to 140k certificates; **2,622 certificates were still valid** as of September 2025. That is not a theoretical problem.
 
-The companion lesson from “Protecting Developers Means Protecting Their Secrets” is correct: leaks are not only in Git history. They persist in filesystem artifacts, env vars, CI logs, and long-lived agent memory.
+The companion lesson from "Protecting Developers Means Protecting Their Secrets" is correct: leaks are not only in Git history. They persist in filesystem artifacts, env vars, CI logs, and long-lived agent memory.
 
 :::warning[Rotate before triage]
 Any leaked private key tied to active certs gets immediate revoke/rotate.  
@@ -109,14 +109,14 @@ Simon Willison called out the anti-pattern plainly:
 >
 > — Simon Willison, [Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/)
 
-That advice pairs perfectly with the “89% Problem” write-up: LLMs revive abandoned packages, which means dependency freshness is no longer a quality signal by itself.
+That advice pairs perfectly with the "89% Problem" write-up: LLMs revive abandoned packages, which means dependency freshness is no longer a quality signal by itself.
 
 :::caution[The new false positive: recently touched package == healthy package]
 Gate dependency updates with maintenance signal checks: active maintainers, release cadence, open security issues, and CI status.  
 `npm outdated` or `composer outdated` is inventory, not trust.
 :::
 
-## Cloudflare’s zero-trust updates are real progress, not blog gloss
+## Cloudflare's zero-trust updates are real progress, not blog gloss
 
 The set of Cloudflare One updates fits together: always-on detections, full-transaction correlation, mandatory auth from boot-to-login, identity checks against deepfake/laptop-farm abuse, clientless device policy via Gateway Authorization Proxy, and dynamic User Risk Scoring in Access decisions.
 
@@ -138,22 +138,22 @@ flowchart TD
 ## AI product updates: some useful, some pure announcement churn
 
 <Tabs>
-  <TabItem value=”signal” label=”High Signal” default>
+  <TabItem value="signal" label="High Signal" default>
 
 - **Cursor in JetBrains via ACP**: useful if a team is locked into IntelliJ/PyCharm/WebStorm and wants one agent workflow.
-- **OpenAI Learning Outcomes Measurement Suite**: finally measuring impact over time instead of “vibes-based pedagogy.”
-- **Axios AI workflow notes**: practical newsroom automation framing instead of “AI replaces reporting.”
+- **OpenAI Learning Outcomes Measurement Suite**: finally measuring impact over time instead of "vibes-based pedagogy."
+- **Axios AI workflow notes**: practical newsroom automation framing instead of "AI replaces reporting."
 - **GPT-assisted graviton preprint workflow**: strongest value is verification speed in derivations, not replacing domain judgment.
 
   </TabItem>
-  <TabItem value=”noise” label=”Mostly Noise”>
+  <TabItem value="noise" label="Mostly Noise">
 
 - Canvas in Google Search AI Mode: convenient, but this is packaging.
 - Copilot Dev Days: community enablement, not a technical shift.
 - Project Genie prompt tips: interesting demo surface, limited production relevance today.
 
   </TabItem>
-  <TabItem value=”watch” label=”Watch Closely”>
+  <TabItem value="watch" label="Watch Closely">
 
 - **Qwen 3.5 momentum + team departures**: model quality can survive org churn, but roadmap stability risk increases immediately.
 - **Gemini 3.1 Flash-Lite pricing/perf**: cost profile is compelling; benchmark on real latency and refusal behavior before migration.
@@ -161,7 +161,7 @@ flowchart TD
   </TabItem>
 </Tabs>
 
-> "I’ll have to revise my opinions about 'generative AI' one of these days."
+> "I'll have to revise my opinions about 'generative AI' one of these days."
 >
 > — Donald Knuth, [claude-cycles.pdf](https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf)
 
@@ -189,7 +189,7 @@ Multiple high-CVSS CSAF disclosures landed across EV charging and industrial con
 - **UI Suite Display Builder** is valuable for teams that need layout speed in Drupal without custom Twig/CSS for every page. It reduces handoff friction, not architecture complexity.
 
 :::info[Operational interpretation]
-~~“No-code layout” means no engineering needed~~.  
+~~"No-code layout" means no engineering needed~~.  
 It means engineers stop writing repetitive presentation glue and spend time on schema, access control, and performance budgets.
 :::
 
@@ -225,6 +225,6 @@ mindmap
 ## Bottom Line
 
 :::tip[Single action that prevents the most pain]
-Adopt a weekly “exploitability-first” review: patch confirmed exposed software (`Drupal contrib`, `KEV`, `internet-facing auth flaws`), rotate exposed secrets/certs, and defer everything else to scheduled evaluation.  
+Adopt a weekly "exploitability-first" review: patch confirmed exposed software (`Drupal contrib`, `KEV`, `internet-facing auth flaws`), rotate exposed secrets/certs, and defer everything else to scheduled evaluation.  
 This one filter cuts incident probability faster than any new AI tool rollout.
 :::

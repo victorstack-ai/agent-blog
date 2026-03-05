@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Today’s signal was mostly security operations, not product hype. Core Drupal patch lines moved, contrib advisories landed, and multiple vendors pushed “continuous” security controls that finally close obvious blind spots. On the AI side, a few releases are practical, many are just distribution updates with marketing paint.
+Today's signal was mostly security operations, not product hype. Core Drupal patch lines moved, contrib advisories landed, and multiple vendors pushed "continuous" security controls that finally close obvious blind spots. On the AI side, a few releases are practical, many are just distribution updates with marketing paint.
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
@@ -35,7 +35,7 @@ Today’s signal was mostly security operations, not product hype. Core Drupal p
 | Drupal 10 | `10.6.4` | 10.6.x until Dec 2026; 10.5.x until Jun 2026 | 10.4.x is out of support; upgrade path is no longer optional |
 | Drupal 11 | `11.3.4` | 11.3.x until Dec 2026 | Patch now to inherit CKEditor5 security update |
 
-:::caution[Do not treat patch releases as “low priority”]
+:::caution[Do not treat patch releases as "low priority"]
 Patch releases now carry direct security dependency movement (CKEditor5 in this case). Any site below supported minor lines is already in a risk state, not a backlog state.
 :::
 
@@ -76,7 +76,7 @@ rollback:
 | SA-CONTRIB-2026-023 | Calculation Fields | Moderately critical (14/25) | `<1.0.4` | `CVE-2026-3528` | Upgrade and validate/sanitize formula inputs across forms/webforms |
 
 :::danger[Admin-context XSS is still a production incident]
-“Admin only” does not mean safe. Admin sessions carry broad mutation rights, making stored/admin-XSS a practical pivot to full site compromise.
+"Admin only" does not mean safe. Admin sessions carry broad mutation rights, making stored/admin-XSS a practical pivot to full site compromise.
 :::
 
 ```diff title="docs/security-playbook.diff"
@@ -96,7 +96,7 @@ pie title Leaked-key certificate status (mapped sample)
   "Invalid/revoked/expired (137,378)" : 137378
 ```
 
-The “89% problem” framing is also valid: LLM coding throughput reactivates stale packages and stale risk. ~~Old code is harmless because it is dormant~~ is now false once assistants start importing forgotten dependencies into active builds.
+The "89% problem" framing is also valid: LLM coding throughput reactivates stale packages and stale risk. ~~Old code is harmless because it is dormant~~ is now false once assistants start importing forgotten dependencies into active builds.
 
 :::warning[Build pipelines need secret scanning beyond Git history]
 Secrets leak in temp files, `.env`, logs, shell history, CI artifacts, and agent memory buffers. Run scanning on filesystem + runtime outputs, not just commit diffs.
@@ -104,7 +104,7 @@ Secrets leak in temp files, `.env`, logs, shell history, CI artifacts, and agent
 
 ## Continuous Enforcement Is Replacing Point-in-Time Security
 
-Cloudflare’s recent set of updates is coherent: always-on exploit detection (`Attack Signature Detection`, `Full-Transaction Detection`), mandatory auth + independent MFA, identity-aware access for clientless environments (Gateway Authorization Proxy), deepfake-resistant onboarding (Nametag integration), and dynamic User Risk Scoring.
+Cloudflare's recent set of updates is coherent: always-on exploit detection (`Attack Signature Detection`, `Full-Transaction Detection`), mandatory auth + independent MFA, identity-aware access for clientless environments (Gateway Authorization Proxy), deepfake-resistant onboarding (Nametag integration), and dynamic User Risk Scoring.
 
 <Tabs>
   <TabItem value="legacy" label="Legacy WAF/Auth" default>
@@ -129,9 +129,9 @@ Cloudflare’s recent set of updates is coherent: always-on exploit detection (`
 | Next.js 16 default for new sites | Default track changed | Medium; impacts scaffolding conventions |
 | Node.js 25.8.0 (Current) | Current channel update | Medium; verify ecosystem compatibility before broad adoption |
 | Gemini 3.1 Flash-Lite | Faster/cheaper tier (`$0.25/M in`, `$1.5/M out`) | High for cost-sensitive inference workloads |
-| Canvas in AI Mode (US) | Draft docs + interactive tools in Search | Medium; useful if already inside Google’s workflow |
+| Canvas in AI Mode (US) | Draft docs + interactive tools in Search | Medium; useful if already inside Google's workflow |
 | OpenAI Learning Outcomes Suite | Longitudinal measurement framework | High for education teams needing evidence, not anecdotes |
-| Axios newsroom usage | AI for workflow acceleration in local journalism | Medium-high; operational proof beats generic “AI for media” claims |
+| Axios newsroom usage | AI for workflow acceleration in local journalism | Medium-high; operational proof beats generic "AI for media" claims |
 | Qwen team turbulence | Model quality story now coupled to org stability risk | High for roadmap-dependent adopters |
 | GPT-5.2 Pro in graviton amplitude preprint | Assisted symbolic derivation/verification claims | High research signal, low immediate product impact |
 | GitHub Copilot Dev Days | In-person adoption events | Low technical signal, high ecosystem reach |

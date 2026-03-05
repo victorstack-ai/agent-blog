@@ -120,7 +120,7 @@ For most teams, DataViews/DataForm is the highest long-term leverage change, whi
 ## Sources
 
 - [WordPress 7.0 Beta 1 announcement (February 11, 2026)](https://wordpress.org/news/2026/02/wordpress-7-0-beta-1/)
-- [What’s New in Gutenberg 22.6 (February 25, 2026)](https://make.wordpress.org/core/2026/02/25/whats-new-in-gutenberg-22-6-25-february/)
+- [What's New in Gutenberg 22.6 (February 25, 2026)](https://make.wordpress.org/core/2026/02/25/whats-new-in-gutenberg-22-6-25-february/)
 - [Introducing DataViews and DataForm APIs in WordPress 7.0 (March 4, 2026)](https://make.wordpress.org/core/2026/03/04/introducing-dataviews-and-dataform-apis-in-wordpress-7-0/)
 - [Customizable navigation overlays in WordPress 7.0 (March 5, 2026)](https://make.wordpress.org/core/2026/03/05/customizable-navigation-overlays-in-wordpress-7-0/)
-- [What’s New for Developers? (February 2026) - WordPress Developer Blog](https://developer.wordpress.org/news/2026/02/whats-new-for-developers-february-2026/)
+- [What's New for Developers? (February 2026) - WordPress Developer Blog](https://developer.wordpress.org/news/2026/02/whats-new-for-developers-february-2026/)
