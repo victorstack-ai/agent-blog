@@ -49,7 +49,7 @@ The generator creates the skeleton, not the business logic. Always review genera
 :::
 
 <Tabs>
-  <TabItem value="generated" label="Generated Structure" default>
+<TabItem value="generated" label="Generated Structure" default>
 
 ```text title="generated-module/"
 my_module/
@@ -58,12 +58,12 @@ my_module/
   my_module.services.yml
   my_module.routing.yml
   src/
-    Controller/
-    Service/
+Controller/
+Service/
 ```
 
-  </TabItem>
-  <TabItem value="intent" label="Module Intent">
+</TabItem>
+<TabItem value="intent" label="Module Intent">
 
 ```json title="module-intent.json"
 {
@@ -74,7 +74,7 @@ my_module/
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Technical Takeaway

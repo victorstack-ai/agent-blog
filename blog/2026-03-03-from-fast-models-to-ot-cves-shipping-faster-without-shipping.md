@@ -19,7 +19,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The signal today was simple: velocity is up across runtimes and models, while security debt is still compounding in the places people pretend are “internal.” Tooling got faster, agent UX got better, and critical infrastructure advisories kept proving that weak auth is still everywhere. Shipping speed is useful only if exploit speed is slower than patch speed.
+The signal today was simple: velocity is up across runtimes and models, while security debt is still compounding in the places people pretend are "internal." Tooling got faster, agent UX got better, and critical infrastructure advisories kept proving that weak auth is still everywhere. Shipping speed is useful only if exploit speed is slower than patch speed.
 
 <!-- truncate -->
 
@@ -45,15 +45,21 @@ The signal today was simple: velocity is up across runtimes and models, while se
 > — CISA, [KEV Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
 
 <Tabs>
-  <TabItem value="instant" label="GPT-5.3 Instant" default>
-    Best for conversational product surfaces where response quality under tight latency budgets matters more than raw depth.
-  </TabItem>
-  <TabItem value="flashlite" label="Gemini 3.1 Flash-Lite">
-    Best for high-throughput tasks where unit economics dominate and task complexity is moderate.
-  </TabItem>
-  <TabItem value="node" label="Node 25.8.0">
-    Not a model, but the same decision class: faster iteration only helps if CI and compatibility gates are already strict.
-  </TabItem>
+<TabItem value="instant" label="GPT-5.3 Instant" default>
+
+Best for conversational product surfaces where response quality under tight latency budgets matters more than raw depth.
+
+</TabItem>
+<TabItem value="flashlite" label="Gemini 3.1 Flash-Lite">
+
+Best for high-throughput tasks where unit economics dominate and task complexity is moderate.
+
+</TabItem>
+<TabItem value="node" label="Node 25.8.0">
+
+Not a model, but the same decision class: faster iteration only helps if CI and compatibility gates are already strict.
+
+</TabItem>
 </Tabs>
 
 :::info[Model speed changes architecture, not just UX]
@@ -83,7 +89,7 @@ flowchart TD
 ```
 
 :::danger[Stop treating secrets as a Git-only problem]
-~~“Secrets leak only in commits.”~~ They leak in env dumps, CI logs, local filesystems, shell history, crash reports, and agent memory/context. Run secret scanning on repos, runtime envs, artifact stores, and logs, then rotate anything exposed.
+~~"Secrets leak only in commits."~~ They leak in env dumps, CI logs, local filesystems, shell history, crash reports, and agent memory/context. Run secret scanning on repos, runtime envs, artifact stores, and logs, then rotate anything exposed.
 :::
 
 ```yaml title="security-watchlist.yaml" showLineNumbers
@@ -126,9 +132,9 @@ actions:
 
 </details>
 
-## CISA KEV Means Deadline, Not “FYI”
+## CISA KEV Means Deadline, Not "FYI"
 
-When KEV adds a CVE, treat it as active threat intel with an execution clock. “We saw it” is not a control; validated mitigation is.
+When KEV adds a CVE, treat it as active threat intel with an execution clock. "We saw it" is not a control; validated mitigation is.
 
 :::warning[KEV items require owner + due date immediately]
 For each KEV CVE, assign one owner, one due date, one evidence artifact (patch output, config diff, or compensating control). No owner means no remediation.
@@ -150,7 +156,7 @@ The Drupal/PHP conversation is finally addressing sustainability and contributor
 | Signal | Practical interpretation | Decision filter |
 |---|---|---|
 | Project Genie world creation tips | Prompt quality now affects generated environment quality directly | Keep prompt templates versioned |
-| Drupal “Crossroads of PHP” discussion | Ecosystem is confronting resource constraints directly | Fund maintenance, not just net-new features |
+| Drupal "Crossroads of PHP" discussion | Ecosystem is confronting resource constraints directly | Fund maintenance, not just net-new features |
 | Drupal 25th Anniversary Gala (Mar 24, Chicago) | Community coordination still matters for long-term roadmap health | Track governance and contributor pipeline, not just release notes |
 | Baseline Jan 2026 digest | Operational cadence updates still useful for dependency risk tracking | Summarize monthly external dependencies in one internal brief |
 | Programmable SASE announcement | Could be real if SDK + edge runtime are production-grade | Require policy test harness before adoption |

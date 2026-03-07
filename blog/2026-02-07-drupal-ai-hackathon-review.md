@@ -34,7 +34,7 @@ Inspired by the hackathon emphasis on governance, I built a prototype module: **
 The module implements a `ContentReviewerAgent` service designed to check content against organizational policies.
 
 <Tabs>
-  <TabItem value="features" label="Agent Capabilities">
+<TabItem value="features" label="Agent Capabilities">
 
 | Capability | What It Does |
 |---|---|
@@ -43,28 +43,28 @@ The module implements a `ContentReviewerAgent` service designed to check content
 | Human-in-the-loop | AI provides first-layer validation; humans make final decisions |
 | Structured Output | Machine-readable results for workflow integration |
 
-  </TabItem>
-  <TabItem value="code" label="Implementation">
+</TabItem>
+<TabItem value="code" label="Implementation">
 
 ```php title="src/Service/ContentReviewerAgent.php" showLineNumbers
 class ContentReviewerAgent {
-    public function review(NodeInterface $node): ReviewResult {
-        $content = $node->get('body')->value;
+public function review(NodeInterface $node): ReviewResult {
+$content = $node->get('body')->value;
 
-        // highlight-next-line
-        $trustScore = $this->evaluateTrust($content);
-        $feedback = $this->checkPolicies($content);
+// highlight-next-line
+$trustScore = $this->evaluateTrust($content);
+$feedback = $this->checkPolicies($content);
 
-        return new ReviewResult(
-            trustScore: $trustScore,
-            feedback: $feedback,
-            requiresHumanReview: $trustScore < 0.7,
-        );
-    }
+return new ReviewResult(
+trustScore: $trustScore,
+feedback: $feedback,
+requiresHumanReview: $trustScore < 0.7,
+);
+}
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## The Architecture

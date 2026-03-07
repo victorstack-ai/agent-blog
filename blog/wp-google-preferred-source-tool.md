@@ -58,24 +58,24 @@ If the configured URL is empty or set to `#`, the CTA renders nothing. Test with
 :::
 
 <Tabs>
-  <TabItem value="shortcode" label="Shortcode Rendering" default>
+<TabItem value="shortcode" label="Shortcode Rendering" default>
 
 ```php title="src/GooglePreferredSource.php" showLineNumbers
 public function render_shortcode() {
-    $options = get_option( $this->option_name );
-    $url     = isset( $options['google_news_url'] ) ? $options['google_news_url'] : '#';
+$options = get_option( $this->option_name );
+$url     = isset( $options['google_news_url'] ) ? $options['google_news_url'] : '#';
 
-    if ( empty( $url ) || '#' === $url ) {
-        // highlight-next-line
-        return ''; // No URL configured — render nothing
-    }
+if ( empty( $url ) || '#' === $url ) {
+// highlight-next-line
+return ''; // No URL configured — render nothing
+}
 
-    // Render the CTA box...
+// Render the CTA box...
 }
 ```
 
-  </TabItem>
-  <TabItem value="usage" label="Usage">
+</TabItem>
+<TabItem value="usage" label="Usage">
 
 ```php title="template-example.php"
 // Auto-append: enabled by default in plugin settings
@@ -87,7 +87,7 @@ public function render_shortcode() {
 echo do_shortcode('[google_preferred_source]');
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Next Steps

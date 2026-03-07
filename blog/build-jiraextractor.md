@@ -128,7 +128,7 @@ For read-only tasks where you're already authenticated, a well-written DOM scrap
 The final JSON is clean and predictable:
 
 <Tabs>
-  <TabItem value="json" label="Output JSON" default>
+<TabItem value="json" label="Output JSON" default>
 
 ```json title="ticket.json" showLineNumbers
 {
@@ -138,45 +138,45 @@ The final JSON is clean and predictable:
   "extractedAt": "2024-01-01T00:00:00.000Z",
   "description": "Clean text description without HTML",
   "comments": [
-    {
-      "id": 1,
-      "author": "John Doe",
-      "timestamp": "3 days ago",
-      "body": "Comment text"
-    }
+{
+"id": 1,
+"author": "John Doe",
+"timestamp": "3 days ago",
+"body": "Comment text"
+}
   ],
   "attachments": [
-    {
-      "id": 1,
-      "name": "file.pdf",
-      "url": "https://..."
-    }
+{
+"id": 1,
+"name": "file.pdf",
+"url": "https://..."
+}
   ]
 }
 ```
 
-  </TabItem>
-  <TabItem value="icons" label="Icon Generator">
+</TabItem>
+<TabItem value="icons" label="Icon Generator">
 
 ```python title="create_icons.py" showLineNumbers
 #!/usr/bin/env python3
 from PIL import Image, ImageDraw
 
 def create_icon(size, output_path):
-    # Create a new image with transparent background
-    img = Image.new('RGBA', (size, size), (0, 0, 0, 0))
-    draw = ImageDraw.Draw(img)
+# Create a new image with transparent background
+img = Image.new('RGBA', (size, size), (0, 0, 0, 0))
+draw = ImageDraw.Draw(img)
 
-    # Draw background circle (Jira blue: #0052CC)
-    margin = size // 10
-    # highlight-next-line
-    draw.ellipse([margin, margin, size - margin, size - margin],
-                 fill=(0, 82, 204, 255), outline=None)
-    # ... more drawing logic
-    img.save(output_path, 'PNG')
+# Draw background circle (Jira blue: #0052CC)
+margin = size // 10
+# highlight-next-line
+draw.ellipse([margin, margin, size - margin, size - margin],
+fill=(0, 82, 204, 255), outline=None)
+# ... more drawing logic
+img.save(output_path, 'PNG')
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## What I Learned

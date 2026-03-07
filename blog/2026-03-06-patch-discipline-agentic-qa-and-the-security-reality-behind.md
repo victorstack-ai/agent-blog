@@ -20,7 +20,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most “AI + web” news this week split cleanly into two buckets: shipping discipline and marketing theater. The useful signals were patch-level release hygiene (Drupal, contrib advisories), practical agent workflows (execute and verify), and network/security architecture changes that cut toil. The noise was mostly branding wrapped around features that only matter if teams actually change their operating model.
+Most "AI + web" news this week split cleanly into two buckets: shipping discipline and marketing theater. The useful signals were patch-level release hygiene (Drupal, contrib advisories), practical agent workflows (execute and verify), and network/security architecture changes that cut toil. The noise was mostly branding wrapped around features that only matter if teams actually change their operating model.
 
 <!-- truncate -->
 
@@ -40,7 +40,7 @@ Most “AI + web” news this week split cleanly into two buckets: shipping disc
 >
 > — Drupal Core Release Notes, [11.3.5](https://www.drupal.org/project/drupal/releases/11.3.5)
 
-**WHY this matters:** patch releases are now carrying dependency-level security movement (CKEditor) fast enough that “skip one sprint” becomes a risk decision, not a convenience decision.
+**WHY this matters:** patch releases are now carrying dependency-level security movement (CKEditor) fast enough that "skip one sprint" becomes a risk decision, not a convenience decision.
 
 | Stream | Current patch signal | Support window | Operational call |
 |---|---|---|---|
@@ -51,7 +51,7 @@ Most “AI + web” news this week split cleanly into two buckets: shipping disc
 | UI Suite Display Builder | 1.0.0-beta3 stability push | Pre-1.0 track | Safe for targeted pilots, not blind rollout |
 
 :::caution[Patch parity beats version vanity]
-Running “latest minor” is irrelevant if patch rollout lags and contrib advisories are ignored. Enforce `core + contrib + transitive dependency` updates as one gate, or security posture drifts silently.
+Running "latest minor" is irrelevant if patch rollout lags and contrib advisories are ignored. Enforce `core + contrib + transitive dependency` updates as one gate, or security posture drifts silently.
 :::
 
 ## Agentic Engineering Is Just Testing Culture With Better Tooling
@@ -64,7 +64,7 @@ Running “latest minor” is irrelevant if patch rollout lags and contrib advis
 >
 > — Simon Willison, [Anti-patterns](https://simonwillison.net/2026/Mar/)
 
-Cursor automations landing means more always-on agents. That helps only if review and execution are mandatory. ~~“Agentic” means autonomous coding~~; in practice it means faster draft generation plus stricter verification discipline.
+Cursor automations landing means more always-on agents. That helps only if review and execution are mandatory. ~~"Agentic" means autonomous coding~~; in practice it means faster draft generation plus stricter verification discipline.
 
 ```yaml title="ops/agent-guardrails.yaml" showLineNumbers
 agent:
@@ -101,7 +101,8 @@ Always-on agents that merge unreviewed output are a reliability regression disgu
 OpenAI shipped `gpt-5.4` and `gpt-5.4-pro` with 1M-token context and strong coding/tool use positioning, alongside a Thinking System Card and CoT-control research notes. Product add-ons (ChatGPT for Excel, financial integrations, education programs) are only valuable when governance and evaluation are already in place.
 
 <Tabs>
-  <TabItem value="model" label="Model Layer" default>
+<TabItem value="model" label="Model Layer" default>
+
   
   | Item | Practical impact |
   |---|---|
@@ -109,8 +110,10 @@ OpenAI shipped `gpt-5.4` and `gpt-5.4-pro` with 1M-token context and strong codi
   | 1M-token context | Fewer chunking hacks, more prompt-cost pressure |
   | CoT-control findings | Monitorability remains a real control point |
   
-  </TabItem>
-  <TabItem value="product" label="Product Layer">
+
+</TabItem>
+<TabItem value="product" label="Product Layer">
+
   
   | Item | Practical impact |
   |---|---|
@@ -118,11 +121,12 @@ OpenAI shipped `gpt-5.4` and `gpt-5.4-pro` with 1M-token context and strong codi
   | Financial integrations | Better workflow continuity, new compliance boundary |
   | Education tools/certifications | Capability lift only if teachers/admins get measurement tooling |
   
-  </TabItem>
+
+</TabItem>
 </Tabs>
 
 :::info[Model upgrades are procurement decisions now]
-Long-context frontier models force explicit token budgeting, data residency checks, and output evaluation standards. Treat model selection like infra architecture, not “try the shiny one.”
+Long-context frontier models force explicit token budgeting, data residency checks, and output evaluation standards. Treat model selection like infra architecture, not "try the shiny one."
 :::
 
 ## Security and Network Signals Were More Concrete Than Most AI News
@@ -133,7 +137,7 @@ The highest-value items this week were security advisories and transport archite
 - ICS advisory on Delta Electronics CNCSoft-G2 out-of-bounds write with RCE potential.
 - Drupal contrib advisories: `Google Analytics GA4` and `Calculation Fields` XSS exposures.
 - Google + GitGuardian found 2,622 still-valid certs tied to leaked private keys.
-- Cloudflare pushed “always-on detections” and full-transaction exploit visibility.
+- Cloudflare pushed "always-on detections" and full-transaction exploit visibility.
 - Cloudflare ARR and QUIC proxy-mode redesign showed measurable path-level performance gains.
 
 | Signal | Risk type | Immediate action |
@@ -161,21 +165,21 @@ test ! -s /tmp/security-findings.json
 ```
 
 :::danger[Patch deferral is now an exploit strategy for attackers]
-When CISA KEV and module advisories align in the same week, delayed patching stops being “tech debt” and becomes active exposure management failure.
+When CISA KEV and module advisories align in the same week, delayed patching stops being "tech debt" and becomes active exposure management failure.
 :::
 
 ## Ecosystem Signal: Useful Community Work, Plus Predictable Hype Cycles
 
 Good signals:
 - Docker spotlighting MCP product strategy leadership (Cecilia Liu) is a sign the ecosystem is formalizing secure AI tooling requirements.
-- GitHub + Andela focus on production workflow learning beats “prompt tips” content.
+- GitHub + Andela focus on production workflow learning beats "prompt tips" content.
 - Firefox AI controls emphasizing user choice is the correct default stance.
 - Stanford WebCamp CFP and DrupalCon sessions still matter because practitioner feedback loops outperform social media takes.
 - WP Rig episode reinforces starter-toolkit pedagogy over copy-paste theme cargo culting.
-- “Blog to book” remains valid for distribution, not for technical depth.
+- "Blog to book" remains valid for distribution, not for technical depth.
 
 Noisy signals:
-- “Department of War” discourse and Qwen team turbulence are strategically interesting, but low immediate impact for teams shipping software this sprint.
+- "Department of War" discourse and Qwen team turbulence are strategically interesting, but low immediate impact for teams shipping software this sprint.
 
 <details>
 <summary>Full signal ledger (compiled items and why they matter)</summary>

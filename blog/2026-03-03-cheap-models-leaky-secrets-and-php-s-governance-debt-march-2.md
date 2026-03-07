@@ -1,6 +1,6 @@
 ---
 slug: 2026-03-03-cheap-models-leaky-secrets-and-php-s-governance-debt-march-2
-title: 'Cheap Models, Leaky Secrets, and PHP’s Governance Debt: March 2026 Field Notes'
+title: 'Cheap Models, Leaky Secrets, and PHP's Governance Debt: March 2026 Field Notes'
 authors:
   - VictorStackAI
 tags:
@@ -20,7 +20,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most of this week’s “news” was marketing varnish over operational reality: cost curves, attack surface, and ecosystem governance. The useful signal was clear though: inference is cheaper, breaches are still boring and preventable, and PHP communities are finally saying the quiet part out loud about sustainability.  
+Most of this week's "news" was marketing varnish over operational reality: cost curves, attack surface, and ecosystem governance. The useful signal was clear though: inference is cheaper, breaches are still boring and preventable, and PHP communities are finally saying the quiet part out loud about sustainability.  
 If you ship production software, these items connect directly to budget, incident risk, and roadmap discipline.
 
 <!-- truncate -->
@@ -33,7 +33,7 @@ If you ship production software, these items connect directly to budget, inciden
 >
 > — Google announcement, [Link](https://blog.google/)
 
-**Gemini 3.1 Flash-Lite** matters because it pushes the floor down on per-request intelligence. That does not mean “free reasoning.” It means the old ~~bigger model everywhere~~ pattern is now a budget bug.
+**Gemini 3.1 Flash-Lite** matters because it pushes the floor down on per-request intelligence. That does not mean "free reasoning." It means the old ~~bigger model everywhere~~ pattern is now a budget bug.
 
 | Decision Axis | Flash-Lite Signal | Practical Call |
 |---|---|---|
@@ -48,11 +48,11 @@ Static model choice in config files is done. Runtime routing by request class, r
 
 ## Protecting Developers Means Protecting Their Secrets
 
-> "Secrets don’t just leak from Git. They accumulate in filesystems, env vars, and agent memory."
+> "Secrets don't just leak from Git. They accumulate in filesystems, env vars, and agent memory."
 >
 > — Security research summary, [Link](https://github.blog/security/)
 
-**Secret sprawl** is still the fastest path from “internal convenience” to “external incident.” Git scanning is table stakes; filesystem dumps, shell history, CI logs, and long-lived env vars are where teams still get burned.
+**Secret sprawl** is still the fastest path from "internal convenience" to "external incident." Git scanning is table stakes; filesystem dumps, shell history, CI logs, and long-lived env vars are where teams still get burned.
 
 :::danger[Stop Persisting Raw Secrets]
 Kill plaintext `.env` drift and process-level secret reuse. Use short-lived credentials (`OIDC`/STS), secret managers, and explicit redaction in logs. If a token can live longer than a deploy window, it already lives too long.
@@ -114,7 +114,7 @@ Three old classes, same lesson: weak input trust keeps resurfacing under new UI 
 ```
 
 :::caution[Exploit Class Age Is Irrelevant]
-“Legacy bug class” does not mean “legacy impact.” Modern blast radius is bigger because reset flows, internal metadata, and container file mounts are all richer targets now.
+"Legacy bug class" does not mean "legacy impact." Modern blast radius is bigger because reset flows, internal metadata, and container file mounts are all richer targets now.
 :::
 
 ## PHP Ecosystem Crossroads: Sustainability Is the Real Technical Constraint
@@ -126,17 +126,23 @@ Three old classes, same lesson: weak input trust keeps resurfacing under new UI 
 **Sustainability debt** is now a delivery risk, not a community footnote. Drupal, Joomla, Magento, and Mautic share the same stress pattern: fewer maintainers, more complexity, higher expectation of AI-era velocity.
 
 <Tabs>
-  <TabItem value="hype" label="Hype Story" default>
-The narrative says AI integration and new tooling will “modernize everything.”  
+<TabItem value="hype" label="Hype Story" default>
+
+The narrative says AI integration and new tooling will "modernize everything."  
 That skips governance, maintainer funding, and release discipline.
-  </TabItem>
-  <TabItem value="operator" label="Operator Reality">
+
+</TabItem>
+<TabItem value="operator" label="Operator Reality">
+
 No maintainer bandwidth means no secure patch cadence.  
 No patch cadence means enterprise churn, regardless of feature roadmap.
-  </TabItem>
-  <TabItem value="call" label="What To Do">
+
+</TabItem>
+<TabItem value="call" label="What To Do">
+
 Prioritize boring infrastructure work: CI stability, triage SLAs, module ownership maps, funded maintenance windows.
-  </TabItem>
+
+</TabItem>
 </Tabs>
 
 ## Drupal 25th Anniversary Gala: Community Signal, Not Just Ceremony
@@ -163,7 +169,7 @@ The event matters because community concentration still drives contributor recru
 >
 > — Baseline monthly digest, [Link](https://web.dev/)
 
-> "As the only SASE platform with a native developer stack, we’re giving you the tools to build custom, real-time security logic and integrations directly at the edge."
+> "As the only SASE platform with a native developer stack, we're giving you the tools to build custom, real-time security logic and integrations directly at the edge."
 >
 > — SASE platform announcement, [Link](https://www.cloudflare.com/)
 

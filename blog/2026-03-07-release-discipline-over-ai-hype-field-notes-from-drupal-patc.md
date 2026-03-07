@@ -28,20 +28,20 @@ This week had a clear pattern: strong teams are tightening release discipline wh
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## Stop Calling It “Legacy,” Start Asking Better Questions
+## Stop Calling It "Legacy," Start Asking Better Questions
 
-> “What’s the one area you’re afraid to touch?”
+> "What's the one area you're afraid to touch?"
 >
-> “When’s the last time you deployed on a Friday?”
+> "When's the last time you deployed on a Friday?"
 >
-> “What broke in production in the last 90 days that wasn’t caught by tests?”
+> "What broke in production in the last 90 days that wasn't caught by tests?"
 >
 > — Ally Piechowski, [How I audit a legacy Rails codebase](https://piechowski.io/post/how-i-audit-a-legacy-rails-codebase/)
 
-Those questions expose system risk faster than another architecture diagram. Pair that with Simon Willison’s blunt point about **agentic engineering**: code is untrusted until executed. ~~“Looks right”~~ is not a test strategy.
+Those questions expose system risk faster than another architecture diagram. Pair that with Simon Willison's blunt point about **agentic engineering**: code is untrusted until executed. ~~"Looks right"~~ is not a test strategy.
 
 :::caution[Release confidence is measurable]
-Track “Friday deploy confidence” as an explicit metric. If nobody will deploy late-week, the problem is test signal quality or rollback posture, not calendar superstition.
+Track "Friday deploy confidence" as an explicit metric. If nobody will deploy late-week, the problem is test signal quality or rollback posture, not calendar superstition.
 :::
 
 ```yaml title=".github/workflows/release-gate.yml" showLineNumbers
@@ -71,25 +71,29 @@ jobs:
 
 ## AI Announcements: Keep the Useful Parts, Ignore the Theater
 
-OpenAI’s GPT-5.4 launch, system card, and CoT-control work are meaningful in one narrow way: better model capability plus clearer safety instrumentation. Google’s **SpeciesNet** is useful because it solves a real conservation workflow, not because it has a big model attached.
+OpenAI's GPT-5.4 launch, system card, and CoT-control work are meaningful in one narrow way: better model capability plus clearer safety instrumentation. Google's **SpeciesNet** is useful because it solves a real conservation workflow, not because it has a big model attached.
 
-> “AI models are increasingly commodified... there is little to differentiate one from the other.”
+> "AI models are increasingly commodified... there is little to differentiate one from the other."
 >
 > — Bruce Schneier & Nathan E. Sanders, [Anthropic and the Pentagon](https://www.schneier.com/blog/archives/2026/03/anthropic-and-the-pentagon.html)
 
 The commodification argument is right. Differentiation now lives in deployment quality, governance, and integration into existing operations.
 
 <Tabs>
-  <TabItem value="signal" label="High Signal" default>
-  - SpeciesNet: direct field utility for wildlife monitoring.
-  - CoT-control research: practical safety/monitorability implications.
-  - Education tooling: useful only when tied to measurable capability gaps.
-  </TabItem>
-  <TabItem value="noise" label="Low Signal">
-  - Generic “AI strategy” narratives with no deployment metrics.
-  - Vendor claims with zero latency/cost/error-budget numbers.
-  - “Most capable” claims without workload-specific benchmarks.
-  </TabItem>
+<TabItem value="signal" label="High Signal" default>
+
+- SpeciesNet: direct field utility for wildlife monitoring.
+- CoT-control research: practical safety/monitorability implications.
+- Education tooling: useful only when tied to measurable capability gaps.
+
+</TabItem>
+<TabItem value="noise" label="Low Signal">
+
+- Generic "AI strategy" narratives with no deployment metrics.
+- Vendor claims with zero latency/cost/error-budget numbers.
+- "Most capable" claims without workload-specific benchmarks.
+
+</TabItem>
 </Tabs>
 
 ## Security Reality Check: KEV, ICS Bugs, and Leaked Keys
@@ -135,7 +139,7 @@ Drupal 10.6.x and 11.3.x support windows already define your maintenance cadence
 
 ## Ecosystem Signals Worth Tracking (Not Worshipping)
 
-Decoupled Days 2026 (Montréal), Stanford WebCamp CFP, Docker MCP leadership interview, Firefox AI controls, GitHub + Andela learning workflows, Electric Citizen’s legal-help delivery, and even “blog-to-book” content ops all point to one thing: teams are operationalizing, not theorizing.
+Decoupled Days 2026 (Montréal), Stanford WebCamp CFP, Docker MCP leadership interview, Firefox AI controls, GitHub + Andela learning workflows, Electric Citizen's legal-help delivery, and even "blog-to-book" content ops all point to one thing: teams are operationalizing, not theorizing.
 
 If a conference talk cannot show production constraints, skip it. If an AI story cannot show workflow impact, skip it faster.
 
@@ -169,8 +173,8 @@ mindmap
 
 ## Bottom Line
 
-Most teams don’t have an AI problem. They have a release-discipline and vulnerability-prioritization problem wearing an AI costume.
+Most teams don't have an AI problem. They have a release-discipline and vulnerability-prioritization problem wearing an AI costume.
 
 :::tip[Single highest-ROI move]
-Adopt a weekly “risk-first ship gate”: KEV patch status, unsupported-version count, failed runtime smoke tests, and unresolved production regressions from the last 90 days. Promote nothing that fails any one of those checks.
+Adopt a weekly "risk-first ship gate": KEV patch status, unsupported-version count, failed runtime smoke tests, and unresolved production regressions from the last 90 days. Promote nothing that fails any one of those checks.
 :::

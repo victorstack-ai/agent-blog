@@ -50,7 +50,7 @@ flowchart TD
 ```
 
 <Tabs>
-  <TabItem value="project" label="Project Structure">
+<TabItem value="project" label="Project Structure">
 
 A clean project structure makes these principles easy to apply:
 
@@ -64,37 +64,37 @@ structured-agent-example/
 │       ├── agent.py        # Core agent logic
 │       └── llm_service.py  # Mocked external service
 └── tests/
-    └── test_agent.py     # Unit tests for the agent
+└── test_agent.py     # Unit tests for the agent
 ```
 
-  </TabItem>
-  <TabItem value="test" label="A Sample Test">
+</TabItem>
+<TabItem value="test" label="A Sample Test">
 
 This test uses Python's `unittest.mock` to validate the agent's behavior without calling a real LLM:
 
 ```python title="tests/test_agent.py" showLineNumbers
 @patch('structured_agent_example.llm_service.get_sentiment')
 def test_run_positive_sentiment(self, mock_get_sentiment):
-    """Tests the agent's run method with a mock."""
-    # Configure the mock to return a specific value
-    mock_get_sentiment.return_value = "positive"
+"""Tests the agent's run method with a mock."""
+# Configure the mock to return a specific value
+mock_get_sentiment.return_value = "positive"
 
-    agent = SentimentAgent({"model_name": "test-model-v1"})
-    text = "This is a great product, I love it!"
-    # highlight-next-line
-    result = agent.run(text)
+agent = SentimentAgent({"model_name": "test-model-v1"})
+text = "This is a great product, I love it!"
+# highlight-next-line
+result = agent.run(text)
 
-    # Assert that our mock was called correctly
-    mock_get_sentiment.assert_called_once_with(text, model="test-model-v1")
+# Assert that our mock was called correctly
+mock_get_sentiment.assert_called_once_with(text, model="test-model-v1")
 
-    # Assert that the agent processed the result correctly
-    self.assertEqual(result["status"], "success")
-    self.assertEqual(result["sentiment"], "positive")
+# Assert that the agent processed the result correctly
+self.assertEqual(result["status"], "success")
+self.assertEqual(result["sentiment"], "positive")
 ```
 
 This test verifies the agent's internal logic, not the LLM's accuracy.
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Vibe Coding vs Engineering-First

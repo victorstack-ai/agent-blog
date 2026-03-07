@@ -26,7 +26,7 @@ Code like `db_query()` will fatal error in Drupal 12. No deprecation warning, no
 ### Before and after
 
 <Tabs>
-  <TabItem value="legacy" label="Legacy (Removed in D12)" default>
+<TabItem value="legacy" label="Legacy (Removed in D12)" default>
 
 ```php title="my_module.module"
 // highlight-next-line
@@ -34,8 +34,8 @@ Code like `db_query()` will fatal error in Drupal 12. No deprecation warning, no
 $result = db_query("SELECT nid FROM {node} LIMIT 1");
 ```
 
-  </TabItem>
-  <TabItem value="modern" label="Modern (D12 Ready)">
+</TabItem>
+<TabItem value="modern" label="Modern (D12 Ready)">
 
 ```php title="my_module.module" showLineNumbers
 // highlight-next-line
@@ -43,7 +43,7 @@ $result = db_query("SELECT nid FROM {node} LIMIT 1");
 $result = \Drupal::database()->query("SELECT nid FROM {node} LIMIT 1");
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 The diff:

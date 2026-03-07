@@ -32,7 +32,7 @@ Centarro is a key contributor to Drupal Commerce and positions this guidance alo
 I wanted a concrete, extendable starting point for the portal experience described in the post: a gated landing page, clear account highlights, and a place to route buyers to the next action.
 
 <Tabs>
-  <TabItem value="module" label="Module Features">
+<TabItem value="module" label="Module Features">
 
 | Feature | Implementation |
 |---|---|
@@ -41,21 +41,21 @@ I wanted a concrete, extendable starting point for the portal experience describ
 | Summary table | Isolated builder, swappable for real Commerce data |
 | Account highlights | Placeholder for customer profiles and pricing |
 
-  </TabItem>
-  <TabItem value="architecture" label="Portal Architecture">
+</TabItem>
+<TabItem value="architecture" label="Portal Architecture">
 
 ```mermaid
 flowchart TD
-    A[Authenticated B2B Buyer] --> B[Portal Landing Page]
-    B --> C[Account Summary Table]
-    B --> D[Order History]
-    B --> E[Price Lists / Payment Terms]
-    C --> F[Drupal Commerce Order Data]
-    D --> F
-    E --> G[Custom Pricing Logic]
+A[Authenticated B2B Buyer] --> B[Portal Landing Page]
+B --> C[Account Summary Table]
+B --> D[Order History]
+B --> E[Price Lists / Payment Terms]
+C --> F[Drupal Commerce Order Data]
+D --> F
+E --> G[Custom Pricing Logic]
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 The summary builder is isolated so it can be swapped for real Commerce order data, customer profiles, or pricing logic.

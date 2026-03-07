@@ -12,7 +12,7 @@ tags:
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-06-execution-over-hype-gpt-5-4-security-advisories-and-agentic.png
 description: >-
-  A practitioner’s take on this week’s real signals: execution-first agents,
+  A practitioner's take on this week's real signals: execution-first agents,
   GPT-5.4 implications, Drupal/PHP patch discipline, and security advisories
   that require immediate action.
 date: 2026-03-06T06:38:00.000Z
@@ -34,7 +34,7 @@ This week split cleanly into two buckets: real engineering signal and polished m
 >
 > — Simon Willison, [Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/)
 
-The useful part of agentic tooling is not code generation. It is **verification loops**: execute, inspect, fail fast, retry with evidence. ~~“Pretty code output” means progress~~; runnable and validated output means progress.
+The useful part of agentic tooling is not code generation. It is **verification loops**: execute, inspect, fail fast, retry with evidence. ~~"Pretty code output" means progress~~; runnable and validated output means progress.
 
 :::caution[Unreviewed Agent PRs Waste Team Time]
 Do not open pull requests from agent output without manual review and execution evidence attached. Require logs for tests, lint, and one realistic manual path before review. If a PR has no evidence artifact, close it and send it back.
@@ -83,15 +83,19 @@ The CoT-Control and GPT-5.4 Thinking System Card updates also matter: models sti
 | ChatGPT for Excel + finance integrations | Fast analysis in regulated contexts | Enforce data classification before enabling |
 
 <Tabs>
-  <TabItem value="gpt54" label="gpt-5.4" default>
-    Best default for daily engineering throughput when latency and cost matter. Pair with strict CI gates and short feedback loops.
-  </TabItem>
-  <TabItem value="gpt54pro" label="gpt-5.4-pro">
-    Use for high-complexity reasoning or large multi-file refactors where failure cost is high. Require stronger review and test depth.
-  </TabItem>
+<TabItem value="gpt54" label="gpt-5.4" default>
+
+Best default for daily engineering throughput when latency and cost matter. Pair with strict CI gates and short feedback loops.
+
+</TabItem>
+<TabItem value="gpt54pro" label="gpt-5.4-pro">
+
+Use for high-complexity reasoning or large multi-file refactors where failure cost is high. Require stronger review and test depth.
+
+</TabItem>
 </Tabs>
 
-## Security Feed: Immediate Work, Not “Later Reading”
+## Security Feed: Immediate Work, Not "Later Reading"
 
 CISA added five actively exploited vulnerabilities to KEV, Delta CNCSoft-G2 disclosed RCE-relevant risk (CVSS v3 7.8), Drupal contrib modules shipped March 4, 2026 XSS advisories, and GitGuardian + Google mapped leaked keys to valid cert exposure at scale. This is operational debt if ignored.
 

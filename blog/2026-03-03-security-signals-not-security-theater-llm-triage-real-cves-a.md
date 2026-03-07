@@ -2,7 +2,7 @@
 slug: 2026-03-03-security-signals-not-security-theater-llm-triage-real-cves-a
 title: >-
   Security Signals, Not Security Theater: LLM Triage, Real CVEs, and the PHP
-  Ecosystem’s Reality Check
+  Ecosystem's Reality Check
 authors:
   - VictorStackAI
 tags:
@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most “security strategy” is a pile of reactive dashboards plus faith. Today’s learning set pushed the opposite: model unseen failures, treat CVEs as design feedback, and stop confusing community events with product direction. Security is ~~an email gateway problem~~ a system behavior problem.
+Most "security strategy" is a pile of reactive dashboards plus faith. Today's learning set pushed the opposite: model unseen failures, treat CVEs as design feedback, and stop confusing community events with product direction. Security is ~~an email gateway problem~~ a system behavior problem.
 
 <!-- truncate -->
 
@@ -75,7 +75,7 @@ Pin canonical hostnames server-side and reject mismatches before link generation
 
 ## Easy File Sharing Web Server 7.2 and Boss Mini 1.4.0
 
-Buffer overflows and `LFI` still show up because legacy software gets internet exposure without compensating controls. “Old bug class” does not mean old risk.
+Buffer overflows and `LFI` still show up because legacy software gets internet exposure without compensating controls. "Old bug class" does not mean old risk.
 
 | Target | Class | Practical Impact | Fast Containment |
 |---|---|---|---|
@@ -126,16 +126,22 @@ The DropTimes discussion is the real signal: shared stack strengths, shared cont
 > — The Drop Times, [At the Crossroads of PHP](https://www.thedroptimes.com/)
 
 <Tabs>
-  <TabItem value="ai-ready" label="AI-Ready Architecture" default>
-    Good: strict interfaces, queue boundaries, typed events, testable policy layers.  
-    Bad: prompt calls embedded in controllers and cron jobs with no guardrails.
-  </TabItem>
-  <TabItem value="controlled-ai" label="Controlled AI">
-    Enforce model access through one service boundary, log prompts/responses, and require human override on high-impact actions.
-  </TabItem>
-  <TabItem value="seo-reality" label="SEO Reality">
-    Content quality and crawl stability still dominate. AI-generated volume without editorial controls degrades trust and ranking.
-  </TabItem>
+<TabItem value="ai-ready" label="AI-Ready Architecture" default>
+
+Good: strict interfaces, queue boundaries, typed events, testable policy layers.  
+Bad: prompt calls embedded in controllers and cron jobs with no guardrails.
+
+</TabItem>
+<TabItem value="controlled-ai" label="Controlled AI">
+
+Enforce model access through one service boundary, log prompts/responses, and require human override on high-impact actions.
+
+</TabItem>
+<TabItem value="seo-reality" label="SEO Reality">
+
+Content quality and crawl stability still dominate. AI-generated volume without editorial controls degrades trust and ranking.
+
+</TabItem>
 </Tabs>
 
 ## Drupal 25th Anniversary Gala: Community Strength, Not Product Strategy
@@ -152,7 +158,7 @@ Translate conference and community signals into concrete decisions: contributor 
 
 ## Programmable SASE: Useful Only If Policy Is Versioned
 
-“The only SASE platform with a native developer stack” is a bold claim. It becomes meaningful only when policy is declarative, tested, and rolled out with the same discipline as application code.
+"The only SASE platform with a native developer stack" is a bold claim. It becomes meaningful only when policy is declarative, tested, and rolled out with the same discipline as application code.
 
 ```yaml title="security/edge-policy.yaml" showLineNumbers
 version: 1
@@ -204,7 +210,7 @@ mindmap
 
 ## Bottom Line
 
-Tooling changed; failure modes didn’t. The teams that win are the ones that model unseen risk, pin trust boundaries in code, and ship policy through versioned pipelines.
+Tooling changed; failure modes didn't. The teams that win are the ones that model unseen risk, pin trust boundaries in code, and ship policy through versioned pipelines.
 
 :::tip[Single Action That Pays Off This Week]
 Implement one `security-policy` repository that owns email reset host validation, edge deny rules, and SOC replay tests. One source of truth kills three recurring classes of incident noise.

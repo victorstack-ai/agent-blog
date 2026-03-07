@@ -10,7 +10,7 @@ tags:
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-05-from-ai-code-review-to-kev-triage-what-actually-mattered-thi.png
 description: >-
-  A practitioner’s cut through this week’s AI, security, and web-platform
+  A practitioner's cut through this week's AI, security, and web-platform
   updates: what changed, what was hype, and what to do next.
 date: 2026-03-05T21:26:00.000Z
 ---
@@ -19,7 +19,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The pattern this week was simple: AI features are shipping faster than teams can review, while security advisories keep proving that “log-only” posture is a liability. The useful signal came from governance tooling, exploit intelligence, and boring upgrade discipline, not launch-day marketing copy.
+The pattern this week was simple: AI features are shipping faster than teams can review, while security advisories keep proving that "log-only" posture is a liability. The useful signal came from governance tooling, exploit intelligence, and boring upgrade discipline, not launch-day marketing copy.
 
 <!-- truncate -->
 
@@ -27,39 +27,45 @@ The pattern this week was simple: AI features are shipping faster than teams can
 
 ## AI Coding Moved from Autocomplete to Governance
 
-GitHub crossing **60 million Copilot code reviews** is the clearest “scale signal” in this batch. Not because volume is inherently good, but because review throughput is now a bottleneck for teams adopting AI-assisted code generation. GitHub + Andela reporting production learning loops tells the same story: real adoption happens when AI output is reviewed inside existing delivery systems, not in isolated demos.
+GitHub crossing **60 million Copilot code reviews** is the clearest "scale signal" in this batch. Not because volume is inherently good, but because review throughput is now a bottleneck for teams adopting AI-assisted code generation. GitHub + Andela reporting production learning loops tells the same story: real adoption happens when AI output is reviewed inside existing delivery systems, not in isolated demos.
 
 ~~AI coding adoption automatically improves code quality~~. It improves speed first. Quality only follows when review policy catches up.
 
 | Signal | What changed | Why it matters | Immediate team action |
 |---|---|---|---|
-| Copilot code review volume | 60M reviews reported | Review is now an AI-era control point | Track “AI-touched PR” review latency |
+| Copilot code review volume | 60M reviews reported | Review is now an AI-era control point | Track "AI-touched PR" review latency |
 | GitHub + Andela | AI learning in production workflows | Skills transfer happens in real repos | Pair junior devs on AI-assisted PRs |
 | Cursor automations | Triggered always-on agents | Review debt can increase silently | Require explicit policy for auto-runs |
 | Cursor in JetBrains via ACP | IDE parity expanding | Existing enterprise IDE fleets can adopt faster | Standardize policy across IDEs |
 | Next.js 16 default for new sites | Framework baseline moved | New project defaults will drift from old runbooks | Update scaffolding and CI presets |
 
 <Tabs>
-  <TabItem value="copilot" label="Copilot Review" default>
-    Best when branch protection and code owners are already strict.  
-    Weak point: teams treat AI review as a substitute for human ownership.
-  </TabItem>
-  <TabItem value="cursor" label="Cursor Automations">
-    Best when repetitive code hygiene is documented and test-backed.  
-    Weak point: auto-runs can flood repos with low-context changes.
-  </TabItem>
-  <TabItem value="jetbrains" label="JetBrains ACP">
-    Best for orgs locked into IntelliJ/PyCharm/WebStorm workflows.  
-    Weak point: policy drift if IDE-specific settings diverge by team.
-  </TabItem>
+<TabItem value="copilot" label="Copilot Review" default>
+
+Best when branch protection and code owners are already strict.  
+Weak point: teams treat AI review as a substitute for human ownership.
+
+</TabItem>
+<TabItem value="cursor" label="Cursor Automations">
+
+Best when repetitive code hygiene is documented and test-backed.  
+Weak point: auto-runs can flood repos with low-context changes.
+
+</TabItem>
+<TabItem value="jetbrains" label="JetBrains ACP">
+
+Best for orgs locked into IntelliJ/PyCharm/WebStorm workflows.  
+Weak point: policy drift if IDE-specific settings diverge by team.
+
+</TabItem>
 </Tabs>
 
 ## Search AI Became a Working Surface, Not Just an Answer Box
 
-Google’s AI Mode updates (visual query fan-out + Canvas in U.S. Search) and OpenAI’s ChatGPT for Excel integrations point in the same direction: the battleground is now structured task completion in-context, not generic chatbot output. Gemini 3.1 Flash-Lite pricing pushes that further by making high-volume inference cheap enough for routine tooling.
+Google's AI Mode updates (visual query fan-out + Canvas in U.S. Search) and OpenAI's ChatGPT for Excel integrations point in the same direction: the battleground is now structured task completion in-context, not generic chatbot output. Gemini 3.1 Flash-Lite pricing pushes that further by making high-volume inference cheap enough for routine tooling.
 
 :::info[What Actually Changed]
-“AI search” shifted from retrieval to workflow assembly. Query fan-out, visual interpretation, spreadsheet integration, and document drafting are all task graph features, not just ranking features.
+"AI search" shifted from retrieval to workflow assembly. Query fan-out, visual interpretation, spreadsheet integration, and document drafting are all task graph features, not just ranking features.
 :::
 
 | Surface | Practical strength | Risk |
@@ -77,10 +83,10 @@ The security items were unusually actionable: CISA added five actively exploited
 >
 > — CISA KEV update, [Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
 
-Cloudflare’s updates (always-on detections, user risk scoring, identity-aware proxy for clientless devices, ARR for IP overlap, QUIC proxy-mode rebuild, and anti-deepfake onboarding with Nametag) all target one operational gap: binary controls without continuous verification.
+Cloudflare's updates (always-on detections, user risk scoring, identity-aware proxy for clientless devices, ARR for IP overlap, QUIC proxy-mode rebuild, and anti-deepfake onboarding with Nametag) all target one operational gap: binary controls without continuous verification.
 
-:::danger[Do Not Leave These as “Backlog”]
-Patch Drupal contrib modules `google_analytics_ga4` (<1.1.14) and `calculation_fields` (<1.0.4) immediately if installed. Treat KEV-listed CVEs as incident work, not sprint work. For enterprise access, move from static allow/deny policies to risk-scored and identity-aware controls now.
+:::danger[Do Not Leave These as "Backlog"]
+Patch Drupal contrib modules `google_analytics_ga4` (&lt;1.1.14) and `calculation_fields` (&lt;1.0.4) immediately if installed. Treat KEV-listed CVEs as incident work, not sprint work. For enterprise access, move from static allow/deny policies to risk-scored and identity-aware controls now.
 :::
 
 ```js title="scripts/triage-kev.js" showLineNumbers
@@ -110,7 +116,7 @@ export { priorityFor };
 
 Drupal 10.6.4 and 11.3.4 are both production-ready patch releases; support windows are explicit, and CKEditor5 moved to 47.6.0 with a security fix reviewed as non-exploitable in built-in Drupal implementation. That is not a reason to delay upgrades. It is a reason to upgrade with less panic.
 
-Dripyard’s DrupalCon Chicago footprint and UI Suite’s Display Builder walkthrough reinforce that implementation velocity is moving up the stack: teams want fast page composition without Twig/CSS churn. On the WordPress side, WP Rig remains relevant as a “teach good defaults” starter, especially while block/classic coexistence remains messy.
+Dripyard's DrupalCon Chicago footprint and UI Suite's Display Builder walkthrough reinforce that implementation velocity is moving up the stack: teams want fast page composition without Twig/CSS churn. On the WordPress side, WP Rig remains relevant as a "teach good defaults" starter, especially while block/classic coexistence remains messy.
 
 ```diff
 --- a/composer.json
@@ -143,9 +149,9 @@ Drupal 10.4.x security support has ended. Any site below 10.5.x is on borrowed t
 
 OpenAI shipped GPT-5.4, a new Thinking System Card, CoT-Control findings, education opportunity tools, and the Learning Outcomes Measurement Suite. Useful direction: measurement and safety instrumentation are becoming product features, not just research PDFs.
 
-Axios discussing AI-assisted local journalism is the practical counterpart: constrained use cases, newsroom workflows, and impact metrics beat broad “AI transformation” slogans. The “89% Problem” framing around dormant open-source packages is also credible: LLMs revive abandoned dependencies, so package health intelligence moves from optional to mandatory.
+Axios discussing AI-assisted local journalism is the practical counterpart: constrained use cases, newsroom workflows, and impact metrics beat broad "AI transformation" slogans. The "89% Problem" framing around dormant open-source packages is also credible: LLMs revive abandoned dependencies, so package health intelligence moves from optional to mandatory.
 
-Qwen team turbulence is a reminder that model capability and org stability are separate variables. Don’t tie platform risk decisions to benchmark screenshots.
+Qwen team turbulence is a reminder that model capability and org stability are separate variables. Don't tie platform risk decisions to benchmark screenshots.
 
 > "Shock! Shock! I learned yesterday that an open problem ... had just been solved"
 >

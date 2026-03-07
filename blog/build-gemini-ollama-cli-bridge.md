@@ -56,15 +56,15 @@ The cache keys on SHA-256 of input content, not file paths or timestamps. This m
 ## CLI Interface
 
 <Tabs>
-  <TabItem value="before" label="Before (subprocess)" default>
+<TabItem value="before" label="Before (subprocess)" default>
 
 ```bash title="old-cli-usage.sh"
 # Old: fragile subprocess piping
 python bridge.py analyze src/ --gemini-command "gemini --model pro"
 ```
 
-  </TabItem>
-  <TabItem value="after" label="After (SDK)">
+</TabItem>
+<TabItem value="after" label="After (SDK)">
 
 ```bash title="new-cli-usage.sh"
 # New: explicit SDK flags
@@ -75,7 +75,7 @@ python bridge.py analyze src/ --gemini-api-key $GEMINI_KEY --gemini-model gemini
 python bridge.py analyze src/ --no-cache --gemini-api-key $GEMINI_KEY
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 The CLI flags reflect the new architecture:

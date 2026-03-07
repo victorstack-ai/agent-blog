@@ -37,7 +37,7 @@ The failure mode is simple: leaked credentials reach protected branches when sca
 Use GitGuardian capabilities in two layers:
 
 <Tabs>
-  <TabItem value="ci" label="CI Gate (GitHub Actions)">
+<TabItem value="ci" label="CI Gate (GitHub Actions)">
 
 ```yaml title=".github/workflows/secret-scan.yml" showLineNumbers
 name: secret-scan
@@ -45,24 +45,24 @@ name: secret-scan
 on:
   pull_request:
   push:
-    branches: [main]
+branches: [main]
 
 jobs:
   gitguardian:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      # highlight-next-line
-      - name: GitGuardian scan
-        uses: GitGuardian/ggshield/actions/secret@v1.37.0
-        env:
-          GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+# highlight-next-line
+- name: GitGuardian scan
+uses: GitGuardian/ggshield/actions/secret@v1.37.0
+env:
+GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
 ```
 
 Then enforce this workflow as a **required status check** in branch protection. If the check fails, merge is blocked.
 
-  </TabItem>
-  <TabItem value="local" label="Local Pre-Commit">
+</TabItem>
+<TabItem value="local" label="Local Pre-Commit">
 
 ```bash title="Pre-commit hook setup"
 # Install ggshield
@@ -75,7 +75,7 @@ ggshield install --mode pre-commit
 
 This provides fast feedback to developers and agents before code reaches CI. But it is **not sufficient on its own** — agents can bypass local hooks.
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Agent-Safe Policy Contract

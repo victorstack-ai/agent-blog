@@ -47,56 +47,56 @@ flowchart LR
 ```
 
 <Tabs>
-  <TabItem value="config" label="Configuration">
+<TabItem value="config" label="Configuration">
 
 ```json title="benchmark.config.json" showLineNumbers
 {
   "runs": 3,
   "regressionThresholdPct": 15,
   "profiles": [
-    { "name": "default", "command": "npm run build" },
-    { "name": "turbopack", "command": "npm run build:turbopack" }
+{ "name": "default", "command": "npm run build" },
+{ "name": "turbopack", "command": "npm run build:turbopack" }
   ],
   "scenarios": [
-    { "name": "cold-cache", "clearCacheBeforeRun": true },
-    { "name": "warm-cache", "clearCacheBeforeRun": false }
+{ "name": "cold-cache", "clearCacheBeforeRun": true },
+{ "name": "warm-cache", "clearCacheBeforeRun": false }
   ]
 }
 ```
 
-  </TabItem>
-  <TabItem value="loop" label="Benchmark Loop">
+</TabItem>
+<TabItem value="loop" label="Benchmark Loop">
 
 ```js title="src/lib/benchmark.js" showLineNumbers
 for (const profile of config.profiles) {
   for (const scenario of config.scenarios) {
-    const durations = [];
-    for (let runNumber = 1; runNumber <= runs; runNumber += 1) {
-      // highlight-next-line
-      if (scenario.clearCacheBeforeRun) await clearNextCache(projectDir);
-      const durationMs = await timedRun(profile.command, projectDir);
-      durations.push(durationMs);
-    }
-    const summary = summarizeDurations(durations);
-    // optional baseline regression check and ranking aggregation
+const durations = [];
+for (let runNumber = 1; runNumber <= runs; runNumber += 1) {
+// highlight-next-line
+if (scenario.clearCacheBeforeRun) await clearNextCache(projectDir);
+const durationMs = await timedRun(profile.command, projectDir);
+durations.push(durationMs);
+}
+const summary = summarizeDurations(durations);
+// optional baseline regression check and ranking aggregation
   }
 }
 ```
 
-  </TabItem>
-  <TabItem value="regression" label="Regression Detection">
+</TabItem>
+<TabItem value="regression" label="Regression Detection">
 
 ```js title="src/lib/stats.js"
 // highlight-next-line
 export function compareRegression(currentMean, baselineMean, thresholdPct) {
   const pctChange = Number(
-    (((currentMean - baselineMean) / baselineMean) * 100).toFixed(2)
+(((currentMean - baselineMean) / baselineMean) * 100).toFixed(2)
   );
   return { pctChange, regression: pctChange > thresholdPct };
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Build Profile Comparison

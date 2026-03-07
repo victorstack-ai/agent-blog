@@ -85,45 +85,45 @@ Packages site health checks behind a predictable MCP endpoint. Configuration, co
 [View Code](https://github.com/victorstack-ai/drupal-mcp-site-audit)
 
 <Tabs>
-  <TabItem value="audit" label="Audit Server" default>
+<TabItem value="audit" label="Audit Server" default>
 
 ```php title="mcp_audit_server/src/AuditLogger.php"
 // Structured event capture
 // highlight-next-line
 $this->log('tool_executed', [
-    'tool' => $toolName,
-    'endpoint' => $endpoint,
-    'timestamp' => time(),
-    'result' => $result->toArray(),
+'tool' => $toolName,
+'endpoint' => $endpoint,
+'timestamp' => time(),
+'result' => $result->toArray(),
 ]);
 ```
 
-  </TabItem>
-  <TabItem value="config" label="Config Export">
+</TabItem>
+<TabItem value="config" label="Config Export">
 
 ```bash title="drush-config-export.sh"
 # Export config in MCP-friendly format
 drush mcp:config-export --format=json > config-snapshot.json
 ```
 
-  </TabItem>
-  <TabItem value="nodeinfo" label="Node Info">
+</TabItem>
+<TabItem value="nodeinfo" label="Node Info">
 
 ```json title="mcp-node-info-response.json" showLineNumbers
 {
   "nodes": [
-    {
-      "nid": 42,
-      "title": "Security Policy",
-      "type": "page",
-      "status": 1,
-      "changed": "2026-02-06T18:09:00Z"
-    }
+{
+"nid": 42,
+"title": "Security Policy",
+"type": "page",
+"status": 1,
+"changed": "2026-02-06T18:09:00Z"
+}
   ]
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 <details>

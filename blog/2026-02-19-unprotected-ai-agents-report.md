@@ -58,7 +58,7 @@ The consequences range from embarrassing missteps (agent acting on old data) to 
 The report's core message is simple: treat AI agents with the same security rigor you apply to APIs and microservices. The emerging field of Agent-to-Agent (A2A) governance is essential.
 
 <Tabs>
-  <TabItem value="auth" label="Authentication and Authorization">
+<TabItem value="auth" label="Authentication and Authorization">
 
 Nobody would expose a critical internal API to the public internet without authentication. AI agents need the same treatment.
 
@@ -69,8 +69,8 @@ Nobody would expose a critical internal API to the public internet without authe
 | Scoped API tokens | Per-agent, per-environment, time-limited |
 | Regular access reviews | Quarterly permission audits |
 
-  </TabItem>
-  <TabItem value="observe" label="Observability">
+</TabItem>
+<TabItem value="observe" label="Observability">
 
 Without visibility into what an agent is doing, there is no way to know if it has been compromised.
 
@@ -81,8 +81,8 @@ Without visibility into what an agent is doing, there is no way to know if it ha
 | Real-time dashboards | Agent activity visible to security teams |
 | Audit trails | Immutable logs linked to agent identity |
 
-  </TabItem>
-  <TabItem value="management" label="Centralized Management">
+</TabItem>
+<TabItem value="management" label="Centralized Management">
 
 The "invisible risk" stems from lack of centralized control.
 
@@ -93,7 +93,7 @@ The "invisible risk" stems from lack of centralized control.
 | Single pane of glass | Unified view of agent ecosystem health |
 | Lifecycle management | Deploy, monitor, deprecate, decommission |
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Hype vs Reality: AI Agent Security

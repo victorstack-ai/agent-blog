@@ -21,7 +21,7 @@ I explored how Composer path repositories can simplify local Drupal module devel
 Drupal modules are Composer packages. If `module-a` requires `module-b`, you can point the consuming site to a local checkout of `module-b` during development, while keeping production on a tagged release. This keeps module boundaries clean and mirrors how dependency resolution will behave in production.
 
 **Minimal Setup (Composer Root)**
-Add a path repository entry in the project’s root `composer.json`:
+Add a path repository entry in the project's root `composer.json`:
 
 ```json showLineNumbers
 {
@@ -64,8 +64,8 @@ During development, the path repository overrides that constraint with your loca
 - If you need to test multiple dependency branches, switch the local checkout and run `composer update vendor/module-b` to refresh the lock file.
 
 **Common Pitfalls**
-- If `module-b` isn’t a valid Composer package (missing `composer.json` or `name`), the path repo won’t resolve.
-- If symlinks aren’t supported (some CI environments), set `symlink: false` or omit the option.
+- If `module-b` isn't a valid Composer package (missing `composer.json` or `name`), the path repo won't resolve.
+- If symlinks aren't supported (some CI environments), set `symlink: false` or omit the option.
 - If you forget to remove the path repository before releasing the site, you can accidentally pin to a local path in `composer.lock`.
 
 **The Code**

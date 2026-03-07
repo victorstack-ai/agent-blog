@@ -62,60 +62,60 @@ Why this matters:
 ### 2. Classic meta boxes: set intent explicitly
 
 <Tabs>
-  <TabItem value="compatible" label="Block Editor Compatible" default>
+<TabItem value="compatible" label="Block Editor Compatible" default>
 
 ```php title="functions.php" showLineNumbers
 add_meta_box(
-    'my-meta-box',
-    'My Meta Box',
-    'my_meta_box_callback',
-    null,
-    'normal',
-    'high',
-    array(
-        // highlight-next-line
-        '__block_editor_compatible_meta_box' => true,
-    )
+'my-meta-box',
+'My Meta Box',
+'my_meta_box_callback',
+null,
+'normal',
+'high',
+array(
+// highlight-next-line
+'__block_editor_compatible_meta_box' => true,
+)
 );
 ```
 
-  </TabItem>
-  <TabItem value="incompatible" label="Not Yet Compatible">
+</TabItem>
+<TabItem value="incompatible" label="Not Yet Compatible">
 
 ```php title="functions.php" showLineNumbers
 add_meta_box(
-    'my-meta-box',
-    'My Meta Box',
-    'my_meta_box_callback',
-    null,
-    'normal',
-    'high',
-    array(
-        // highlight-next-line
-        '__block_editor_compatible_meta_box' => false,
-    )
+'my-meta-box',
+'My Meta Box',
+'my_meta_box_callback',
+null,
+'normal',
+'high',
+array(
+// highlight-next-line
+'__block_editor_compatible_meta_box' => false,
+)
 );
 ```
 
-  </TabItem>
-  <TabItem value="backcompat" label="Legacy Fallback Only">
+</TabItem>
+<TabItem value="backcompat" label="Legacy Fallback Only">
 
 ```php title="functions.php" showLineNumbers
 add_meta_box(
-    'my-meta-box',
-    'My Meta Box',
-    'my_meta_box_callback',
-    null,
-    'normal',
-    'high',
-    array(
-        // highlight-next-line
-        '__back_compat_meta_box' => true,
-    )
+'my-meta-box',
+'My Meta Box',
+'my_meta_box_callback',
+null,
+'normal',
+'high',
+array(
+// highlight-next-line
+'__back_compat_meta_box' => true,
+)
 );
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 Decision table:

@@ -32,7 +32,7 @@ I keep seeing the same pattern: team gets AI module, team opens prompt field, te
 The module ships two tiny utilities:
 
 <Tabs>
-  <TabItem value="promptpack" label="Prompt Pack Builder">
+<TabItem value="promptpack" label="Prompt Pack Builder">
 
 Standardizes summaries, meta descriptions, social snippets, taxonomy suggestions, and content QA. Give it a title and body (plus optional audience, tone, and goal) and it returns a structured set of prompts that can feed any AI provider you connect in Drupal.
 
@@ -43,8 +43,8 @@ $prompts = $promptPackBuilder->generate($title, $body, $options);
 // Returns: summary, meta_description, social_snippet, taxonomy_suggestions, qa_checks
 ```
 
-  </TabItem>
-  <TabItem value="checklist" label="Day-One Checklist">
+</TabItem>
+<TabItem value="checklist" label="Day-One Checklist">
 
 A lightweight operational baseline for editors and content strategists. Align on audience, tone, and goals before content moves through review.
 
@@ -56,7 +56,7 @@ A lightweight operational baseline for editors and content strategists. Align on
 | Configure AI provider | Technical prerequisite |
 | Run first prompt pack test | Validation before rollout |
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## How It Works

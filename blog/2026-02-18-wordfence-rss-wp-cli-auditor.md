@@ -53,7 +53,7 @@ Version strings like `2.1.3.` vs `2.1.3` cause false mismatches with `version_co
 :::
 
 <Tabs>
-  <TabItem value="rss" label="RSS Client" default>
+<TabItem value="rss" label="RSS Client" default>
 
 ```php title="src/WordfenceRssClient.php"
 // Extract plugin slugs from WordPress.org links in RSS HTML
@@ -64,26 +64,26 @@ preg_match_all('#https?://wordpress\.org/plugins/([a-z0-9-]+)/?#i', $html, $matc
 ```php title="src/WordfenceRssClient.php"
 // Parse version constraints from advisory text
 if (preg_match_all('/versions?\s*(?:up to|<=|less than or equal to)\s*v?([0-9][0-9a-zA-Z.\-+]*)/i', $text, $maxMatches)) {
-    // highlight-next-line
-    $constraints[] = ['type' => 'max_inclusive', 'max' => $this->normalizeVersionToken($maxVersion)];
+// highlight-next-line
+$constraints[] = ['type' => 'max_inclusive', 'max' => $this->normalizeVersionToken($maxVersion)];
 }
 ```
 
-  </TabItem>
-  <TabItem value="matcher" label="Signal Matcher">
+</TabItem>
+<TabItem value="matcher" label="Signal Matcher">
 
 ```php title="src/SignalMatcher.php"
 // Compare installed version against advisory constraint
 if ($type === 'max_inclusive' && isset($constraint['max'])) {
-    // highlight-next-line
-    if (version_compare($installedVersion, (string) $constraint['max'], '<=')) {
-        return true;  // Installed version is in affected range
-    }
+// highlight-next-line
+if (version_compare($installedVersion, (string) $constraint['max'], '<=')) {
+return true;  // Installed version is in affected range
+}
 }
 ```
 
-  </TabItem>
-  <TabItem value="cli" label="CLI Usage">
+</TabItem>
+<TabItem value="cli" label="CLI Usage">
 
 ```bash title="wp-cli-usage.sh"
 # Table output (default)
@@ -96,7 +96,7 @@ wp wordfence-audit plugins --format=json
 wp wordfence-audit plugins --format=csv > audit.csv
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 <details>

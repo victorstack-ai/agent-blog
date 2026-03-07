@@ -52,7 +52,7 @@ flowchart TD
 ```
 
 <Tabs>
-  <TabItem value="what" label="What Digests Contain">
+<TabItem value="what" label="What Digests Contain">
 
 Each AI-generated summary explains:
 - **What** has changed in the issue
@@ -61,8 +61,8 @@ Each AI-generated summary explains:
 
 This lets developers quickly grasp the essence of a change without reading through long, complex issue threads.
 
-  </TabItem>
-  <TabItem value="projects" label="Tracked Projects">
+</TabItem>
+<TabItem value="projects" label="Tracked Projects">
 
 | Project | Why It Is Tracked |
 |---|---|
@@ -71,7 +71,7 @@ This lets developers quickly grasp the essence of a change without reading throu
 | Drupal Canvas | New page building interface |
 | Drupal AI Initiative | AI integration across the ecosystem |
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## AI as a Force Multiplier for Open Source

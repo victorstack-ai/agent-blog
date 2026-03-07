@@ -38,7 +38,7 @@ This is where single-metric alerting fails. Each signal below is individually no
 ## Alert-Correlation Playbook
 
 <Tabs>
-  <TabItem value="combos" label="Toxic Combinations">
+<TabItem value="combos" label="Toxic Combinations">
 
 | Combo ID | Low-signal A | Low-signal B | Window | Escalate When | Severity |
 |---|---|---|---|---|---|
@@ -51,8 +51,8 @@ This is where single-metric alerting fails. Each signal below is individually no
 | TC-07 | Rate-limit policy change | Support error reports >=5 in 15 min | 15 min | Same route/tenant in both sets | SEV-3 |
 | TC-08 | DNS/proxy config change | Regional timeout >1.2% | 30 min | Payment/auth path impacted | SEV-1 |
 
-  </TabItem>
-  <TabItem value="escalation" label="Escalation Thresholds">
+</TabItem>
+<TabItem value="escalation" label="Escalation Thresholds">
 
 | Trigger | Escalation | Required Actions |
 |---|---|---|
@@ -61,7 +61,7 @@ This is where single-metric alerting fails. Each signal below is individually no
 | 2+ combos across 2+ services or multi-region | SEV-1 | Org deploy freeze, rollback/kill-switch within 10 min |
 | Customer-visible data risk or burn >10%/hour | SEV-1 Critical | Executive comms, status page, forensic timeline owner |
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Correlation Rules to Implement First

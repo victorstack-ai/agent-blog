@@ -36,7 +36,7 @@ Drupal CMS 2.0.1 is the latest CMS release (created February 19, 2026). Drupal c
 Use a constrained response model before filling the form: tie each request to a role, a blocker, and a measurable outcome.
 
 <Tabs>
-  <TabItem value="context" label="Current Release Context">
+<TabItem value="context" label="Current Release Context">
 
 | Area | Current State (Feb 24, 2026) | Survey Implication |
 |---|---|---|
@@ -44,8 +44,8 @@ Use a constrained response model before filling the form: tie each request to a 
 | Drupal 10 bridge | 10.5.4 support bridge | Distinguish 10.5 bridge issues from 11.x issues |
 | Drupal CMS | 2.0.1 (created Feb 19, 2026) | Reference 2.x behavior explicitly |
 
-  </TabItem>
-  <TabItem value="snippets" label="Source Verification">
+</TabItem>
+<TabItem value="snippets" label="Source Verification">
 
 ```html title="Drupal core releases page"
 <span class="release-date">Released Feb 05 2026</span>
@@ -59,7 +59,7 @@ Use a constrained response model before filling the form: tie each request to a 
 Created on: 19 Feb 2026 at 18:10 UTC
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Practical Feedback Workflow

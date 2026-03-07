@@ -33,15 +33,15 @@ The pattern across this batch is simple: model capability is rising fast, integr
 | Domain | Verified items compiled |
 |---|---|
 | AI platforms and tooling | GitHub Copilot code reviews passed 60M; GitHub + Andela on production AI learning; Cursor Automations; Cursor in JetBrains via ACP; OpenAI GPT-5.4; GPT-5.4 Thinking System Card; CoT-Control findings; Gemini 3.1 Flash-Lite; Next.js 16 default for new sites; Qwen team turbulence commentary |
-| Search and user-facing AI | Google “Ask a Techspert” visual search fan-out explanation; Canvas in AI Mode rolled out in U.S. Search |
-| Browser and product controls | Firefox AI controls interview with Ajit Varma (“user choice”) |
-| Security and infrastructure | CISA added 5 KEVs; Delta CNCSoft-G2 CSAF (RCE via out-of-bounds write); GitGuardian+Google cert/key leakage study (2,622 valid certs exposed); Cloudflare ARR, QUIC Proxy Mode rebuild, always-on detections, deepfake/laptop-farm defense with Nametag, Gateway Authorization Proxy, User Risk Scoring; “89% Problem” open-source resurrection risk |
+| Search and user-facing AI | Google "Ask a Techspert" visual search fan-out explanation; Canvas in AI Mode rolled out in U.S. Search |
+| Browser and product controls | Firefox AI controls interview with Ajit Varma ("user choice") |
+| Security and infrastructure | CISA added 5 KEVs; Delta CNCSoft-G2 CSAF (RCE via out-of-bounds write); GitGuardian+Google cert/key leakage study (2,622 valid certs exposed); Cloudflare ARR, QUIC Proxy Mode rebuild, always-on detections, deepfake/laptop-farm defense with Nametag, Gateway Authorization Proxy, User Risk Scoring; "89% Problem" open-source resurrection risk |
 | CMS and web ecosystem | Drupal 10.6.4 and 11.3.4 patch releases; SA-CONTRIB-2026-024 (GA4 module XSS); SA-CONTRIB-2026-023 (Calculation Fields XSS); UI Suite Display Builder walkthrough; Dripyard DrupalCon Chicago plans; WP Rig episode #207 |
 | Education, media, research | OpenAI education opportunity toolkit; Learning Outcomes Measurement Suite; Axios local journalism AI workflow; graviton amplitudes preprint assisted by GPT-5.2 Pro; Donald Knuth quote on Claude solving his open problem |
 
 ## AI Coding Is Growing Up, But Review Discipline Is Still the Bottleneck
 
-GitHub’s 60M Copilot reviews and the Andela case study both point to the same thing: coding assistants are now normal production infrastructure, not experiments. Cursor’s automations and ACP support in JetBrains confirm the “always-on agent” direction across IDEs.
+GitHub's 60M Copilot reviews and the Andela case study both point to the same thing: coding assistants are now normal production infrastructure, not experiments. Cursor's automations and ACP support in JetBrains confirm the "always-on agent" direction across IDEs.
 
 ~~AI coding means fewer reviews~~. Real teams that survive scale increase review gates, because generated volume rises faster than human attention.
 
@@ -54,26 +54,30 @@ Set a hard policy: generated code is blocked from merge unless a human reviewer 
 :::
 
 <Tabs>
-  <TabItem value="team-policy" label="Team Policy" default>
-    | Area | Do this | Not this |
-    |---|---|---|
-    | PR review | Require reviewer rationale in PR template | “LGTM” with no technical notes |
-    | AI usage | Track which files were AI-assisted | Pretend provenance does not matter |
-    | Merge control | Enforce status checks and diff size limits | Merge giant generated refactors |
-  </TabItem>
-  <TabItem value="tool-signals" label="Tool Signals">
-    | Signal | Why it matters |
-    |---|---|
-    | Copilot review volume | Confirms enterprise-scale usage patterns |
-    | Cursor automations | Shifts from assistant to background operator |
-    | JetBrains ACP | Removes IDE lock-in excuses |
-    | GPT-5.4 + system card | Better capability plus explicit safety framing |
-  </TabItem>
+<TabItem value="team-policy" label="Team Policy" default>
+
+| Area | Do this | Not this |
+|---|---|---|
+| PR review | Require reviewer rationale in PR template | "LGTM" with no technical notes |
+| AI usage | Track which files were AI-assisted | Pretend provenance does not matter |
+| Merge control | Enforce status checks and diff size limits | Merge giant generated refactors |
+
+</TabItem>
+<TabItem value="tool-signals" label="Tool Signals">
+
+| Signal | Why it matters |
+|---|---|
+| Copilot review volume | Confirms enterprise-scale usage patterns |
+| Cursor automations | Shifts from assistant to background operator |
+| JetBrains ACP | Removes IDE lock-in excuses |
+| GPT-5.4 + system card | Better capability plus explicit safety framing |
+
+</TabItem>
 </Tabs>
 
 ## Search Is Becoming a Workspace, Not Just a Results List
 
-Google’s visual-search fan-out explanation and Canvas-in-Search rollout both move search toward task execution. This is useful when outputs are disposable drafts and dangerous when outputs are treated as authoritative without source checks.
+Google's visual-search fan-out explanation and Canvas-in-Search rollout both move search toward task execution. This is useful when outputs are disposable drafts and dangerous when outputs are treated as authoritative without source checks.
 
 ```mermaid
 flowchart TD
@@ -94,7 +98,7 @@ Use Canvas-style output for scaffolding only. Promote nothing to production docs
 
 ## Security Signal Was Loud This Week
 
-The KEV additions, Delta CSAF RCE risk, Drupal contrib XSS advisories, and Cloudflare detection updates all reinforce one point: exposure now comes from old software, weak identity checks, and stale assumptions about “monitor mode.”
+The KEV additions, Delta CSAF RCE risk, Drupal contrib XSS advisories, and Cloudflare detection updates all reinforce one point: exposure now comes from old software, weak identity checks, and stale assumptions about "monitor mode."
 
 :::danger[Patch and exploit window is shrinking]
 Treat KEV-listed CVEs and vendor CSAFs as immediate change tickets, not backlog ideas. If a component appears in your asset inventory and the version matches advisory criteria, patch or isolate in the same sprint.
@@ -133,7 +137,7 @@ triage:
 
 ## Drupal and WordPress: Patch Reality, Not Conference Theater
 
-Drupal 10.6.4 and 11.3.4 are straightforward patch releases, but they include CKEditor5 updates with security context. Contrib advisories on GA4 and Calculation Fields are the real footgun for many teams because “admin-only” paths are often treated as trusted.
+Drupal 10.6.4 and 11.3.4 are straightforward patch releases, but they include CKEditor5 updates with security context. Contrib advisories on GA4 and Calculation Fields are the real footgun for many teams because "admin-only" paths are often treated as trusted.
 
 ```diff title="composer.json"
  {
@@ -156,7 +160,7 @@ Drupal 10.6.4 and 11.3.4 are straightforward patch releases, but they include CK
 - CKEditor5 updated to `v47.6.0` in both trains.
 - SA-CONTRIB-2026-024: Google Analytics GA4 XSS (`CVE-2026-3529`) affects `<1.1.14`.
 - SA-CONTRIB-2026-023: Calculation Fields XSS (`CVE-2026-3528`) affects `<1.0.4`.
-- Ecosystem signals: UI Suite Display Builder momentum, Dripyard DrupalCon activity, WP Rig’s continued relevance for disciplined theme architecture.
+- Ecosystem signals: UI Suite Display Builder momentum, Dripyard DrupalCon activity, WP Rig's continued relevance for disciplined theme architecture.
 </details>
 
 ## OpenAI, Education, and Media: Useful If Measurement Is Mandatory
@@ -170,7 +174,7 @@ GPT-5.4, CoT controllability findings, and the Learning Outcomes Measurement Sui
 The Axios local journalism case and the graviton-amplitudes preprint show the same practical pattern: AI creates value when scoped to workflow acceleration plus expert verification, not autonomous truth production.
 
 :::info[What to copy from education pilots]
-Adopt outcome metrics before broad rollout: baseline performance, intervention duration, and post-intervention retention checks. Without those three, “AI improved learning” is a slogan, not evidence.
+Adopt outcome metrics before broad rollout: baseline performance, intervention duration, and post-intervention retention checks. Without those three, "AI improved learning" is a slogan, not evidence.
 :::
 
 ## The Bigger Picture

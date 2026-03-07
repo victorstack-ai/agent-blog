@@ -56,15 +56,15 @@ The PoC validates the workflow pattern. It does not handle edge cases like confl
 :::
 
 <Tabs>
-  <TabItem value="deps" label="Dependency Check" default>
+<TabItem value="deps" label="Dependency Check" default>
 
 ```bash title="maintenance/dependency-check.sh"
 # Agent parses this output and suggests safe updates
 composer outdated --direct --format=json
 ```
 
-  </TabItem>
-  <TabItem value="config" label="Config Drift">
+</TabItem>
+<TabItem value="config" label="Config Drift">
 
 ```bash title="maintenance/config-drift.sh"
 # Export current config and diff against baseline
@@ -73,7 +73,7 @@ drush config:export --destination=/tmp/config-export
 diff -r /tmp/config-export config/sync/
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Technical Takeaway

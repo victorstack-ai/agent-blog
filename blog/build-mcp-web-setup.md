@@ -91,25 +91,25 @@ CMS templates (Lando defaults for WordPress/Drupal MySQL) eliminate a whole clas
 :::
 
 <Tabs>
-  <TabItem value="claude" label="Claude Code Output" default>
+<TabItem value="claude" label="Claude Code Output" default>
 
 ```json title="~/.claude.json" showLineNumbers
 {
   "mcpServers": {
-    "playwright": {
-      "command": "npx",
-      "args": ["@anthropic/mcp-playwright"]
-    },
-    "lighthouse": {
-      "command": "npx",
-      "args": ["@anthropic/mcp-lighthouse"]
-    }
+"playwright": {
+"command": "npx",
+"args": ["@anthropic/mcp-playwright"]
+},
+"lighthouse": {
+"command": "npx",
+"args": ["@anthropic/mcp-lighthouse"]
+}
   }
 }
 ```
 
-  </TabItem>
-  <TabItem value="codex" label="Codex CLI Output">
+</TabItem>
+<TabItem value="codex" label="Codex CLI Output">
 
 ```toml title="~/.codex/config.toml"
 [mcp_servers.playwright]
@@ -121,21 +121,21 @@ command = "npx"
 args = ["@anthropic/mcp-lighthouse"]
 ```
 
-  </TabItem>
-  <TabItem value="gemini" label="Gemini CLI Output">
+</TabItem>
+<TabItem value="gemini" label="Gemini CLI Output">
 
 ```json title="~/.gemini/settings.json"
 {
   "mcpServers": {
-    "playwright": {
-      "command": "npx",
-      "args": ["@anthropic/mcp-playwright"]
-    }
+"playwright": {
+"command": "npx",
+"args": ["@anthropic/mcp-playwright"]
+}
   }
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ### Interactive Flow

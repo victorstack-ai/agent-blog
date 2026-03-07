@@ -80,35 +80,35 @@ class Rule:
 ### Example Rules
 
 <Tabs>
-  <TabItem value="iframe" label="Iframe Readiness" default>
+<TabItem value="iframe" label="Iframe Readiness" default>
 
 ```python title="scanner.py"
 Rule(
-    rule_id="WP-IFRAME-001",
-    category="iframe-readiness",
-    severity="high",
-    pattern=r"""\bwindow\.(?:parent|top)\.document\b|\btop\.document\b""",
-    # highlight-next-line
-    message="Cross-frame DOM access will break when editor runs in isolated iframe.",
-    replacement="Use editor data stores/events or postMessage contracts instead of parent/top DOM.",
+rule_id="WP-IFRAME-001",
+category="iframe-readiness",
+severity="high",
+pattern=r"""\bwindow\.(?:parent|top)\.document\b|\btop\.document\b""",
+# highlight-next-line
+message="Cross-frame DOM access will break when editor runs in isolated iframe.",
+replacement="Use editor data stores/events or postMessage contracts instead of parent/top DOM.",
 ),
 ```
 
-  </TabItem>
-  <TabItem value="deprecation" label="Editor Deprecation">
+</TabItem>
+<TabItem value="deprecation" label="Editor Deprecation">
 
 ```python title="scanner.py"
 Rule(
-    rule_id="WP-DEPR-001",
-    category="editor-deprecation",
-    severity="medium",
-    pattern=r"""\ballowed_block_types\b""",
-    message="allowed_block_types filter is deprecated in favor of allowed_block_types_all.",
-    replacement="Use allowed_block_types_all filter which receives the block editor context.",
+rule_id="WP-DEPR-001",
+category="editor-deprecation",
+severity="medium",
+pattern=r"""\ballowed_block_types\b""",
+message="allowed_block_types filter is deprecated in favor of allowed_block_types_all.",
+replacement="Use allowed_block_types_all filter which receives the block editor context.",
 ),
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ### CI Behavior

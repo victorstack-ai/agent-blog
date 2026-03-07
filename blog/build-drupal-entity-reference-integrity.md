@@ -64,7 +64,7 @@ The default batch size of 50 is conservative. On sites with tens of thousands of
 :::
 
 <Tabs>
-  <TabItem value="scan" label="Dry Scan" default>
+<TabItem value="scan" label="Dry Scan" default>
 
 ```bash title="drush-scan.sh"
 # Scan and report — no changes applied
@@ -73,8 +73,8 @@ drush entity-reference-integrity:scan --format=json > report.json
 drush entity-reference-integrity:scan --format=csv > report.csv
 ```
 
-  </TabItem>
-  <TabItem value="fix" label="Auto-Fix">
+</TabItem>
+<TabItem value="fix" label="Auto-Fix">
 
 ```bash title="drush-fix.sh"
 # Scan and auto-fix broken references
@@ -82,7 +82,7 @@ drush entity-reference-integrity:scan --format=csv > report.csv
 drush entity-reference-integrity:scan --fix --batch-size=100
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Test Coverage

@@ -35,7 +35,7 @@ This devlog compiles what held up under scrutiny and what deserves immediate eng
 
 ## Protecting Developers Means Protecting Their Secrets
 
-The core point is simple: secrets leak from much more than Git history. They persist in shell history, crash dumps, `.env` files, CI logs, browser local storage, and long-lived agent context. ~~“We rotated the key, so we’re good.”~~ No, not if the secret is still readable in ten other places.
+The core point is simple: secrets leak from much more than Git history. They persist in shell history, crash dumps, `.env` files, CI logs, browser local storage, and long-lived agent context. ~~"We rotated the key, so we're good."~~ No, not if the secret is still readable in ten other places.
 
 :::warning[Secret Rotation Without Secret Erasure Is Theater]
 Rotate credentials and immediately run discovery scans across workstation, CI artifacts, and app storage. If old values still match after rotation, the incident is still active. Add a hard TTL for local secret files and enforce `0600` permissions so they cannot linger for months.
@@ -65,7 +65,7 @@ ps eww -ax | rg -n "(_KEY|_TOKEN|_SECRET)=" || true
 
 ## From Reactive to Proactive: Closing the Phishing Gap With LLMs
 
-The survivorship-bias analogy is accurate. Teams tune filters based on what they catch, not what bypasses controls and gets reported days later. LLMs are useful here, but not as “magic classifiers.” They are best used as **triage amplifiers** and **detection-rule generators** with human review.
+The survivorship-bias analogy is accurate. Teams tune filters based on what they catch, not what bypasses controls and gets reported days later. LLMs are useful here, but not as "magic classifiers." They are best used as **triage amplifiers** and **detection-rule generators** with human review.
 
 ```mermaid
 flowchart TD
@@ -81,15 +81,21 @@ flowchart TD
 ```
 
 <Tabs>
-  <TabItem value="reactive" label="Reactive Stack" default>
-    IOC-first, incident-last. Cheap to run, expensive to recover from.
-  </TabItem>
-  <TabItem value="proactive" label="Proactive Stack">
-    Behavior-first with LLM-assisted anomaly explanations, then deterministic enforcement.
-  </TabItem>
-  <TabItem value="reality" label="What Actually Works">
-    Keep deterministic controls as gatekeepers; use LLMs only in ambiguous paths and post-delivery hunting.
-  </TabItem>
+<TabItem value="reactive" label="Reactive Stack" default>
+
+IOC-first, incident-last. Cheap to run, expensive to recover from.
+
+</TabItem>
+<TabItem value="proactive" label="Proactive Stack">
+
+Behavior-first with LLM-assisted anomaly explanations, then deterministic enforcement.
+
+</TabItem>
+<TabItem value="reality" label="What Actually Works">
+
+Keep deterministic controls as gatekeepers; use LLMs only in ambiguous paths and post-delivery hunting.
+
+</TabItem>
 </Tabs>
 
 ## Webapp Vulns That Still Hurt in 2026
@@ -102,8 +108,8 @@ Three entries stood out because they are old failure modes that keep reappearing
 | Easy File Sharing Web Server v7.2 | Buffer Overflow | Memory corruption from unchecked input length | Bound checks, modern compiler hardening, deprecate legacy service |
 | Boss Mini v1.4.0 | Local File Inclusion (LFI) | User input mapped to file path | Realpath constraints + deny traversal + route allowlist |
 
-:::danger[These Are Not “Edge Cases”]
-Password reset poisoning is account takeover surface. LFI is data exfiltration and often RCE adjacency. Buffer overflow in internet-facing services is breach material, not “legacy debt.” Put all three in regular attack-path testing, not annual audits.
+:::danger[These Are Not "Edge Cases"]
+Password reset poisoning is account takeover surface. LFI is data exfiltration and often RCE adjacency. Buffer overflow in internet-facing services is breach material, not "legacy debt." Put all three in regular attack-path testing, not annual audits.
 :::
 
 <details>
@@ -124,7 +130,7 @@ Password reset poisoning is account takeover surface. LFI is data exfiltration a
 + $resetUrl = "https://" . $resetHost . "/reset?token=" . $token;
 ```
 
-## PHP Crossroads and Drupal’s 25-Year Marker
+## PHP Crossroads and Drupal's 25-Year Marker
 
 The DropTimes framing is blunt and mostly correct: shared PHP communities are dealing with slower contributor growth, tighter budgets, and tougher positioning against SaaS defaults. This is governance and product strategy, not syntax debates.
 
@@ -153,11 +159,11 @@ projects:
     mitigation: "signed packages + mandatory SBOM"
 ```
 
-## “Truly Programmable SASE Platform”: Useful Claim, Needs Proof
+## "Truly Programmable SASE Platform": Useful Claim, Needs Proof
 
-This pitch can be real if “programmable” means deployable policy code with low-latency execution and auditable rollback, not just custom webhook glue.
+This pitch can be real if "programmable" means deployable policy code with low-latency execution and auditable rollback, not just custom webhook glue.
 
-> "As the only SASE platform with a native developer stack, we’re giving you the tools to build custom, real-time security logic and integrations directly at the edge."
+> "As the only SASE platform with a native developer stack, we're giving you the tools to build custom, real-time security logic and integrations directly at the edge."
 >
 > — Vendor announcement, [The truly programmable SASE platform](https://www.cloudflare.com)
 

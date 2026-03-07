@@ -139,7 +139,7 @@ Zones scope rules to filesystem paths. The LLM knows that rules under `@Z` only 
 The third layer replaces common vocabulary with short tokens. CPF ships with 100+ built-in abbreviations in `abbreviations.py`:
 
 <Tabs>
-  <TabItem value="common" label="Common">
+<TabItem value="common" label="Common">
 
 | Full word | Abbreviation |
 |-----------|-------------|
@@ -158,8 +158,8 @@ The third layer replaces common vocabulary with short tokens. CPF ships with 100
 | cache | cch |
 | context | ctx |
 
-  </TabItem>
-  <TabItem value="dev" label="Dev workflow">
+</TabItem>
+<TabItem value="dev" label="Dev workflow">
 
 | Full word | Abbreviation |
 |-----------|-------------|
@@ -176,8 +176,8 @@ The third layer replaces common vocabulary with short tokens. CPF ships with 100
 | production | prod |
 | development | dev |
 
-  </TabItem>
-  <TabItem value="actions" label="Actions">
+</TabItem>
+<TabItem value="actions" label="Actions">
 
 | Full word | Abbreviation |
 |-----------|-------------|
@@ -194,7 +194,7 @@ The third layer replaces common vocabulary with short tokens. CPF ships with 100
 | directory | dir |
 | parameter | param |
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 Custom abbreviations can be loaded from a JSON file and merged with the built-ins:
@@ -265,7 +265,7 @@ The full persona file is 152 lines. The equivalent English version would be 300+
 ## CLI and Python API
 
 <Tabs>
-  <TabItem value="cli" label="CLI">
+<TabItem value="cli" label="CLI">
 
 ```bash
 cpf encode persona.md -o persona.cpf          # English -> CPF
@@ -274,8 +274,8 @@ cpf validate persona.cpf                       # check correctness
 cpf stats persona.cpf --original persona.md    # show token reduction %
 ```
 
-  </TabItem>
-  <TabItem value="python" label="Python API">
+</TabItem>
+<TabItem value="python" label="Python API">
 
 ```python showLineNumbers
 from cpf.encoder import encode, encode_file
@@ -292,7 +292,7 @@ english = decode(cpf_text)
 assert is_valid(cpf_text)
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 The encoder reads English, applies operator substitutions, abbreviation compression, and block detection. The decoder reverses the process. The validator checks structural correctness (valid sigils, balanced heredocs, proper header). All pure Python, zero dependencies.

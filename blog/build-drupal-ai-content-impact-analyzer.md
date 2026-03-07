@@ -70,35 +70,35 @@ Content older than six months with no updates gets penalized proportionally. If 
 :::
 
 <Tabs>
-  <TabItem value="before" label="Before (v1)" default>
+<TabItem value="before" label="Before (v1)" default>
 
 ```php title="src/ImpactScorer.php"
 // Single opaque score — useless for editors
 public function score(NodeInterface $node): int {
-    return $this->computeAggregate($node);
+return $this->computeAggregate($node);
 }
 ```
 
-  </TabItem>
-  <TabItem value="after" label="After (v2)">
+</TabItem>
+<TabItem value="after" label="After (v2)">
 
 ```php title="src/ImpactScorer.php" showLineNumbers
 // Per-dimension breakdown — actionable
 public function score(NodeInterface $node): array {
-    return [
-        'word_count' => $this->evaluateWordCount($node),
-        'keyword_relevance' => $this->evaluateKeywords($node),
-        'readability' => $this->evaluateReadability($node),
-        'media_richness' => $this->evaluateMedia($node),
-        // highlight-next-line
-        'internal_linking' => $this->evaluateInternalLinks($node),
-        'freshness' => $this->evaluateFreshness($node),
-        'aggregate' => $this->computeAggregate($node),
-    ];
+return [
+'word_count' => $this->evaluateWordCount($node),
+'keyword_relevance' => $this->evaluateKeywords($node),
+'readability' => $this->evaluateReadability($node),
+'media_richness' => $this->evaluateMedia($node),
+// highlight-next-line
+'internal_linking' => $this->evaluateInternalLinks($node),
+'freshness' => $this->evaluateFreshness($node),
+'aggregate' => $this->computeAggregate($node),
+];
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Test Coverage

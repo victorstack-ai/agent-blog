@@ -38,48 +38,48 @@ flowchart TD
 ### Vulnerable vs. secure pattern
 
 <Tabs>
-  <TabItem value="vulnerable" label="Vulnerable (Deprecated Pattern)" default>
+<TabItem value="vulnerable" label="Vulnerable (Deprecated Pattern)" default>
 
 ```php title="ajax-handler.php" showLineNumbers
 add_action('wp_ajax_install_plugin', 'handle_install');
 
 function handle_install() {
-    // highlight-next-line
-    // WRONG: nonce only -- any authenticated user can reach this
-    check_ajax_referer('install_nonce', 'nonce');
+// highlight-next-line
+// WRONG: nonce only -- any authenticated user can reach this
+check_ajax_referer('install_nonce', 'nonce');
 
-    // Install plugin logic...
-    $upgrader = new Plugin_Upgrader();
-    $upgrader->install($plugin_url);
-    wp_die();
+// Install plugin logic...
+$upgrader = new Plugin_Upgrader();
+$upgrader->install($plugin_url);
+wp_die();
 }
 ```
 
-  </TabItem>
-  <TabItem value="secure" label="Secure (Required Pattern)">
+</TabItem>
+<TabItem value="secure" label="Secure (Required Pattern)">
 
 ```php title="ajax-handler.php" showLineNumbers
 add_action('wp_ajax_install_plugin', 'handle_install');
 
 function handle_install() {
-    check_ajax_referer('install_nonce', 'nonce');
+check_ajax_referer('install_nonce', 'nonce');
 
-    // highlight-start
-    // REQUIRED: capability check at handler entry
-    if ( ! current_user_can('install_plugins') ) {
-        wp_send_json_error('Unauthorized', 403);
-        wp_die();
-    }
-    // highlight-end
+// highlight-start
+// REQUIRED: capability check at handler entry
+if ( ! current_user_can('install_plugins') ) {
+wp_send_json_error('Unauthorized', 403);
+wp_die();
+}
+// highlight-end
 
-    // Install plugin logic...
-    $upgrader = new Plugin_Upgrader();
-    $upgrader->install($plugin_url);
-    wp_die();
+// Install plugin logic...
+$upgrader = new Plugin_Upgrader();
+$upgrader->install($plugin_url);
+wp_die();
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 The diff:

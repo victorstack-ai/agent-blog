@@ -19,7 +19,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most headlines this week were marketing theater. The useful part was smaller and sharper: execution-backed agent workflows, clearer model tiering with GPT-5.4, and concrete security signals that require immediate patch triage. ~~“Ship fast and trust the model output”~~ is still how teams create expensive bugs.
+Most headlines this week were marketing theater. The useful part was smaller and sharper: execution-backed agent workflows, clearer model tiering with GPT-5.4, and concrete security signals that require immediate patch triage. ~~"Ship fast and trust the model output"~~ is still how teams create expensive bugs.
 
 <!-- truncate -->
 
@@ -68,21 +68,25 @@ enforcement:
 
 ## GPT-5.4: Useful Upgrade, Not Magic
 
-OpenAI’s GPT-5.4 launch is practical for teams that hit context and tool-use limits, not a reason to rewrite architecture. Relevant facts: `gpt-5.4` and `gpt-5.4-pro`, broad product availability, and a 1M-token window.
+OpenAI's GPT-5.4 launch is practical for teams that hit context and tool-use limits, not a reason to rewrite architecture. Relevant facts: `gpt-5.4` and `gpt-5.4-pro`, broad product availability, and a 1M-token window.
 
 <Tabs>
-  <TabItem value="gpt54" label="gpt-5.4" default>
-  Best default for production workloads where latency and cost matter.
+<TabItem value="gpt54" label="gpt-5.4" default>
 
-  - Use for coding + tool orchestration in regular CI/CD paths.
-  - Add strict eval gates; don’t confuse longer context with better judgment.
-  </TabItem>
-  <TabItem value="gpt54pro" label="gpt-5.4-pro">
-  Use when the task is materially expensive to get wrong.
+Best default for production workloads where latency and cost matter.
 
-  - Better fit for complex reasoning, high-stakes planning, and deep codebase refactors.
-  - Keep it behind routing rules; don’t burn budget on CRUD work.
-  </TabItem>
+- Use for coding + tool orchestration in regular CI/CD paths.
+- Add strict eval gates; don't confuse longer context with better judgment.
+
+</TabItem>
+<TabItem value="gpt54pro" label="gpt-5.4-pro">
+
+Use when the task is materially expensive to get wrong.
+
+- Better fit for complex reasoning, high-stakes planning, and deep codebase refactors.
+- Keep it behind routing rules; don't burn budget on CRUD work.
+
+</TabItem>
 </Tabs>
 
 | Decision point | Use `gpt-5.4` | Use `gpt-5.4-pro` |
@@ -105,7 +109,7 @@ CISA KEV additions, ICS RCE on Delta CNCSoft-G2, Drupal advisories, and certific
 > — CISA, [KEV Update](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
 
 :::danger[Exploit Evidence Means Deadline Compression]
-If a CVE is in KEV, classify it as active threat intelligence, not backlog. Set patch SLA in hours/days, not “next sprint,” and record compensating controls only if deployment is blocked.
+If a CVE is in KEV, classify it as active threat intelligence, not backlog. Set patch SLA in hours/days, not "next sprint," and record compensating controls only if deployment is blocked.
 :::
 
 ```bash title="scripts/security-triage.sh"
@@ -140,7 +144,7 @@ echo "4) Open patch tickets with SLA"
 
 ## Ecosystem Noise vs Useful Signals
 
-Mozilla’s AI controls framing (“user choice”), Google Search AI mode updates, Cursor automations, GitHub+Andela adoption stories, and conference/news items are useful only when converted into operating changes.
+Mozilla's AI controls framing ("user choice"), Google Search AI mode updates, Cursor automations, GitHub+Andela adoption stories, and conference/news items are useful only when converted into operating changes.
 
 | Signal | Reality check | Action |
 |---|---|---|

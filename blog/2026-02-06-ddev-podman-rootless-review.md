@@ -30,7 +30,7 @@ I built a CLI that audits your `global_config.yaml` so you know before you flip 
 ## What Actually Changes
 
 <Tabs>
-  <TabItem value="podman" label="Podman on macOS">
+<TabItem value="podman" label="Podman on macOS">
 
 | Setting | Required Value | Why |
 |---|---|---|
@@ -44,8 +44,8 @@ router_http_port: "8080"
 router_https_port: "8443"
 ```
 
-  </TabItem>
-  <TabItem value="rootless" label="Docker Rootless">
+</TabItem>
+<TabItem value="rootless" label="Docker Rootless">
 
 | Setting | Required Value | Why |
 |---|---|---|
@@ -57,7 +57,7 @@ router_https_port: "8443"
 no_bind_mounts: true
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## The Real Trade-offs

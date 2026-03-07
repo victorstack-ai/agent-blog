@@ -57,34 +57,34 @@ flowchart TD
 ### Four Access Patterns
 
 <Tabs>
-  <TabItem value="rest" label="REST API" default>
+<TabItem value="rest" label="REST API" default>
 
 ```bash title="rest-api-usage.sh"
 # Permission-gated REST endpoint
 curl -u user:pass https://site.com/project-context-connector/snapshot
 ```
 
-  </TabItem>
-  <TabItem value="hmac" label="HMAC Signed">
+</TabItem>
+<TabItem value="hmac" label="HMAC Signed">
 
 ```bash title="hmac-signed-usage.sh"
 # No Drupal user needed — HMAC authentication
 curl -H "X-PCC-Timestamp: $(date +%s)" \
-     -H "X-PCC-Signature: $(echo -n "$(date +%s)" | \
-        openssl dgst -sha256 -hmac 'secret' -binary | base64)" \
-     https://site.com/project-context-connector/snapshot/signed
+-H "X-PCC-Signature: $(echo -n "$(date +%s)" | \
+openssl dgst -sha256 -hmac 'secret' -binary | base64)" \
+https://site.com/project-context-connector/snapshot/signed
 ```
 
-  </TabItem>
-  <TabItem value="drush" label="Drush">
+</TabItem>
+<TabItem value="drush" label="Drush">
 
 ```bash title="drush-usage.sh"
 # Local or CI usage
 drush pcc:snapshot --format=json
 ```
 
-  </TabItem>
-  <TabItem value="mcp" label="MCP Tool">
+</TabItem>
+<TabItem value="mcp" label="MCP Tool">
 
 ```json title="mcp-tool-definition.json"
 {
@@ -94,7 +94,7 @@ drush pcc:snapshot --format=json
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ### What Gets Exposed

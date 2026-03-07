@@ -12,7 +12,7 @@ tags:
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-04-from-model-hype-to-patch-discipline-ai-releases-runtime-shif.png
 description: >-
-  What actually mattered this week: Knuth’s Claude moment, Gemini/GPT release
+  What actually mattered this week: Knuth's Claude moment, Gemini/GPT release
   signals, Next.js and Node defaults, and a heavy security wave across ICS, web
   apps, and KEV.
 date: 2026-03-04T01:14:00.000Z
@@ -22,13 +22,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The pattern this week was simple: model launches got headlines, but security advisories and runtime defaults changed day-to-day engineering risk. Some announcements were useful, some were marketing paint, and some were direct “patch this now” signals. The only sane response is a tighter filter for what deserves action today versus what belongs in a bookmark graveyard.
+The pattern this week was simple: model launches got headlines, but security advisories and runtime defaults changed day-to-day engineering risk. Some announcements were useful, some were marketing paint, and some were direct "patch this now" signals. The only sane response is a tighter filter for what deserves action today versus what belongs in a bookmark graveyard.
 
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## Knuth’s Quote and the Real AI Inflection
+## Knuth's Quote and the Real AI Inflection
 
 > "Shock! Shock! I learned yesterday that an open problem I'd been working on for several weeks had just been solved by Claude Opus 4.6..."
 >
@@ -55,14 +55,18 @@ Google shipped **Gemini 3.1 Flash-Lite** as a cost/speed play, including multipl
 | MCP Apps + Team Marketplaces | Interactive UIs and private plugin sharing | Moves agent tooling from solo hacks to team governance |
 
 <Tabs>
-  <TabItem value="model-selection" label="Model Selection" default>
-    Use cheap-fast models for classification, routing, extraction, and first-pass drafts.  
-    Reserve heavy models for irreversible actions, long-horizon reasoning, and high-cost mistakes.
-  </TabItem>
-  <TabItem value="platform-governance" label="Platform Governance">
-    MCP team marketplaces are the part that matters: plugin provenance, scoped access, and shared internal tooling.  
-    If plugin controls are weak, model quality is irrelevant because your execution layer is the breach path.
-  </TabItem>
+<TabItem value="model-selection" label="Model Selection" default>
+
+Use cheap-fast models for classification, routing, extraction, and first-pass drafts.  
+Reserve heavy models for irreversible actions, long-horizon reasoning, and high-cost mistakes.
+
+</TabItem>
+<TabItem value="platform-governance" label="Platform Governance">
+
+MCP team marketplaces are the part that matters: plugin provenance, scoped access, and shared internal tooling.  
+If plugin controls are weak, model quality is irrelevant because your execution layer is the breach path.
+
+</TabItem>
 </Tabs>
 
 :::caution[Cheap tokens can still produce expensive incidents]
@@ -109,7 +113,7 @@ pnpm test
 ```
 
 :::warning[Default scaffolds drift faster than your production standards]
-Pin runtime and framework versions in CI policy files, not just local docs. If defaults change upstream and your CI doesn’t enforce engines, someone merges a time bomb on a Friday.
+Pin runtime and framework versions in CI policy files, not just local docs. If defaults change upstream and your CI doesn't enforce engines, someone merges a time bomb on a Friday.
 :::
 
 ## Security Wave: ICS/OT Advisories, KEV Adds, and Commodity Web Exploits
@@ -130,7 +134,7 @@ This was the high-signal section of the week. Multiple charging/industrial advis
 | Boss Mini 1.4.0 | LFI | Arbitrary file read path | Patch and block traversal patterns at edge |
 
 :::danger[Internet-exposed OT and charging stacks are now routine target material]
-If any of these systems are directly reachable from the public internet, move them behind controlled access paths now. Waiting for “next maintenance window” is not a risk strategy.
+If any of these systems are directly reachable from the public internet, move them behind controlled access paths now. Waiting for "next maintenance window" is not a risk strategy.
 :::
 
 ```php title="mu-plugin/security-guard.php"
@@ -163,12 +167,12 @@ Project and community items that still matter:
 - Drupal 25th Anniversary Gala on **March 24, 2026** in Chicago
 - DropTimes discussions on PHP ecosystem sustainability and Drupal direction
 - January 2026 Baseline digest
-- “Programmable SASE” messaging (interesting if backed by enforcement APIs, otherwise brochureware)
+- "Programmable SASE" messaging (interesting if backed by enforcement APIs, otherwise brochureware)
 
 <details>
 <summary>Full changelog-style notes from this learning batch</summary>
 
-- Knuth’s Claude Opus 4.6 quote is a real indicator that frontier model output occasionally clears non-trivial technical bars.
+- Knuth's Claude Opus 4.6 quote is a real indicator that frontier model output occasionally clears non-trivial technical bars.
 - Gemini 3.1 Flash-Lite appeared twice in the feed; same core signal: cost and speed positioning with thinking-level controls.
 - GPT-5.3 Instant + system card implies product behavior should be read together with governance docs.
 - MCP app UIs + private team marketplaces is an enterprise operations story more than a model quality story.

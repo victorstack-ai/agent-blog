@@ -81,18 +81,24 @@ process.exit(requiresHumanReview(payload) ? 1 : 0);
 GPT-5.4, its system card, CoT-control research, ChatGPT for Excel, Google AI Mode visual query fan-out, and Canvas-in-Search all point to the same direction: models are becoming execution surfaces. If governance is weak, mistakes scale faster than insight.
 
 <Tabs>
-  <TabItem value="openai" label="OpenAI Track" default>
-  GPT-5.4 + system card + reasoning control research + education measurement + Excel integrations.  
-  Strong capability stack; usable only when policy, audit logs, and role boundaries are wired.
-  </TabItem>
-  <TabItem value="google" label="Google Search AI">
-  Visual search fan-out and Canvas add high-velocity synthesis directly in search UX.  
-  Useful for drafting and prototyping, risky for unverified factual decisions.
-  </TabItem>
-  <TabItem value="cursor" label="Cursor Agents">
-  Always-on automations plus ACP in JetBrains shifts assistants from session tools to pipeline actors.  
-  Treat agent triggers as production jobs with observability and kill switches.
-  </TabItem>
+<TabItem value="openai" label="OpenAI Track" default>
+
+GPT-5.4 + system card + reasoning control research + education measurement + Excel integrations.  
+Strong capability stack; usable only when policy, audit logs, and role boundaries are wired.
+
+</TabItem>
+<TabItem value="google" label="Google Search AI">
+
+Visual search fan-out and Canvas add high-velocity synthesis directly in search UX.  
+Useful for drafting and prototyping, risky for unverified factual decisions.
+
+</TabItem>
+<TabItem value="cursor" label="Cursor Agents">
+
+Always-on automations plus ACP in JetBrains shifts assistants from session tools to pipeline actors.  
+Treat agent triggers as production jobs with observability and kill switches.
+
+</TabItem>
 </Tabs>
 
 :::info[Capability Demos Are Not Governance]

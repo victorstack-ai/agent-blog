@@ -34,22 +34,26 @@ The feed this week split into two buckets: faster/cheaper AI tooling, and the sa
 >
 > — Google, [Gemini 3.1 Flash-Lite](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/)
 
-**Next.js 16** becoming the default for new sites and **Node.js 25.8.0 (Current)** means baseline assumptions changed in one week: scaffolds move forward, and your CI image lag turns into silent drift. Add **GPT-5.3 Instant** and **Gemini 3.1 Flash-Lite** and the practical question is no longer “which model is smartest,” it is “which model is cheap enough to call constantly.”
+**Next.js 16** becoming the default for new sites and **Node.js 25.8.0 (Current)** means baseline assumptions changed in one week: scaffolds move forward, and your CI image lag turns into silent drift. Add **GPT-5.3 Instant** and **Gemini 3.1 Flash-Lite** and the practical question is no longer "which model is smartest," it is "which model is cheap enough to call constantly."
 
 | Item | What changed | Why it matters | Immediate action |
 |---|---|---|---|
 | Next.js 16 default | New-site default moved forward | Team templates can diverge from production baselines | Pin framework version in project generators |
 | Node.js 25.8.0 Current | Runtime current line advanced | Native API and package behavior can drift across environments | Lock Node via `.nvmrc`/CI matrix |
 | Gemini 3.1 Flash-Lite | Low-cost tier + configurable thinking levels | Better fit for high-volume classification/routing | Route non-critical inference to Flash-Lite |
-| GPT-5.3 Instant + System Card | Updated “everyday conversation” profile + safety doc | Better product UX, but still needs task-level evals | Keep per-task eval harness, not vibe checks |
+| GPT-5.3 Instant + System Card | Updated "everyday conversation" profile + safety doc | Better product UX, but still needs task-level evals | Keep per-task eval harness, not vibe checks |
 
 <Tabs>
-  <TabItem value="gemini" label="Gemini 3.1 Flash-Lite" default>
+<TabItem value="gemini" label="Gemini 3.1 Flash-Lite" default>
+
 At the cited pricing ($0.25/M input, $1.5/M output), Flash-Lite is the obvious default for routing, extraction, and first-pass drafts. Use higher tiers only when evals prove measurable lift.
-  </TabItem>
-  <TabItem value="gpt" label="GPT-5.3 Instant">
+
+</TabItem>
+<TabItem value="gpt" label="GPT-5.3 Instant">
+
 Great for conversational UX and operator tooling. Still not a free pass for autonomous actions; capability is not the same thing as reliable policy compliance.
-  </TabItem>
+
+</TabItem>
 </Tabs>
 
 :::caution[Default Versions Are Not a Migration Strategy]
@@ -71,7 +75,7 @@ flowchart TD
 ```
 
 :::warning[Plugin Marketplaces Expand Blast Radius]
-Treat internal plugin publishing like production code deploys: signed releases, scope review, and audit logs. “Internal” does not mean safe; it means mistakes scale faster.
+Treat internal plugin publishing like production code deploys: signed releases, scope review, and audit logs. "Internal" does not mean safe; it means mistakes scale faster.
 :::
 
 ## Security Feed: Same Bugs, Different Logos
@@ -80,7 +84,7 @@ Treat internal plugin publishing like production code deploys: signed releases, 
 >
 > — CISA, [KEV update](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
 
-This week’s CSAF stream is blunt: **Mobiliti e-mobi.hu**, **ePower epower.ie**, and **Everon OCPP Backends** report high-severity patterns (including missing authentication for critical function, weak auth throttling, and denial-of-service paths). **Labkotec LID-3300IP** lands with the same class of issue. **Hitachi Energy RTU500** and **Relion REB500** add access control and outage risk. Then KEV adds **CVE-2026-21385** (Qualcomm chipsets memory corruption) and **CVE-2026-22719** (VMware Aria Operations command injection). No novelty here, just recurring operational debt.
+This week's CSAF stream is blunt: **Mobiliti e-mobi.hu**, **ePower epower.ie**, and **Everon OCPP Backends** report high-severity patterns (including missing authentication for critical function, weak auth throttling, and denial-of-service paths). **Labkotec LID-3300IP** lands with the same class of issue. **Hitachi Energy RTU500** and **Relion REB500** add access control and outage risk. Then KEV adds **CVE-2026-21385** (Qualcomm chipsets memory corruption) and **CVE-2026-22719** (VMware Aria Operations command injection). No novelty here, just recurring operational debt.
 
 | Advisory | Risk snapshot | Severity signal |
 |---|---|---|
@@ -94,7 +98,7 @@ This week’s CSAF stream is blunt: **Mobiliti e-mobi.hu**, **ePower epower.ie**
 | Easy File Sharing v7.2 | Buffer overflow | Remote code execution class risk |
 | Boss Mini v1.4.0 | Local File Inclusion | Data exposure + pivot risk |
 
-:::danger[“Private Network” Is Not a Security Control]
+:::danger["Private Network" Is Not a Security Control]
 Charging infrastructure and OT interfaces keep shipping with unauthenticated critical paths. Segmenting networks helps, but fix order is clear: kill unauth endpoints, enforce strong auth throttling, and monitor abnormal admin actions.
 :::
 
@@ -138,12 +142,12 @@ export function owner(team) {
 - mailcow 2025-01a host header password reset poisoning
 - Easy File Sharing Web Server v7.2 buffer overflow
 - Boss Mini v1.4.0 local file inclusion
-- “Protecting Developers Means Protecting Their Secrets” security guidance
+- "Protecting Developers Means Protecting Their Secrets" security guidance
 </details>
 
 ## PHP/Drupal Signals: Sustainability Is the Actual Story
 
-The **DropTimes** “At the Crossroads of PHP” framing is accurate: contributor fatigue, tighter budgets, and fuzzy positioning are not a branding issue; they are maintenance economics. The **Drupal 25th Anniversary Gala** (March 24, 2026, Chicago) is symbolic, but the hard part is pipeline health and contributor retention. **January 2026 Baseline digest** reinforces the same theme: progress exists, but attention is fragmented.
+The **DropTimes** "At the Crossroads of PHP" framing is accurate: contributor fatigue, tighter budgets, and fuzzy positioning are not a branding issue; they are maintenance economics. The **Drupal 25th Anniversary Gala** (March 24, 2026, Chicago) is symbolic, but the hard part is pipeline health and contributor retention. **January 2026 Baseline digest** reinforces the same theme: progress exists, but attention is fragmented.
 
 :::info[Community Health Is a Technical Risk]
 If maintainer bandwidth drops, release cadence and security response degrade. Treat ecosystem health as dependency risk, the same way runtime EOL is dependency risk.
@@ -151,7 +155,7 @@ If maintainer bandwidth drops, release cadence and security response degrade. Tr
 
 ## Edge Security Is Becoming Code, Not Appliance Configuration
 
-The “truly programmable SASE platform” claim is only useful if policies are versioned, reviewed, and tested like application code. ~~Clickops firewalling is enough~~ has been false for years.
+The "truly programmable SASE platform" claim is only useful if policies are versioned, reviewed, and tested like application code. ~~Clickops firewalling is enough~~ has been false for years.
 
 ```bash title="ops/sase-policy-check.sh"
 #!/usr/bin/env bash

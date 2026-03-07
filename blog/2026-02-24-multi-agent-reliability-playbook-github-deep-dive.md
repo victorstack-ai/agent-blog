@@ -80,7 +80,7 @@ flowchart TD
 ### Evals that matter per step
 
 <Tabs>
-  <TabItem value="format" label="Format Eval" default>
+<TabItem value="format" label="Format Eval" default>
 
 ```json title="eval-format.json" showLineNumbers
 {
@@ -92,8 +92,8 @@ flowchart TD
 }
 ```
 
-  </TabItem>
-  <TabItem value="tool" label="Tool Eval">
+</TabItem>
+<TabItem value="tool" label="Tool Eval">
 
 ```json title="eval-tool.json" showLineNumbers
 {
@@ -105,8 +105,8 @@ flowchart TD
 }
 ```
 
-  </TabItem>
-  <TabItem value="task" label="Task Eval">
+</TabItem>
+<TabItem value="task" label="Task Eval">
 
 ```json title="eval-task.json" showLineNumbers
 {
@@ -118,7 +118,7 @@ flowchart TD
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 | Eval type | Example check | Why it matters |

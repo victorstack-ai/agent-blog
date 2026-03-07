@@ -12,7 +12,7 @@ tags:
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-05-patch-windows-agent-automation-and-security-drift-what-actua.png
 description: >-
-  A practitioner-focused read on this week’s real signals: Drupal patch urgency,
+  A practitioner-focused read on this week's real signals: Drupal patch urgency,
   AI product reality checks, and where security teams still get blindsided.
 date: 2026-03-05T19:22:00.000Z
 ---
@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The signal this week was not “new shiny AI.” It was operational discipline: patch windows, identity controls, cert hygiene, and better defaults in dev tooling. The AI news mattered too, but mostly where it touched production workflows instead of demo theater.
+The signal this week was not "new shiny AI." It was operational discipline: patch windows, identity controls, cert hygiene, and better defaults in dev tooling. The AI news mattered too, but mostly where it touched production workflows instead of demo theater.
 
 <!-- truncate -->
 
@@ -48,21 +48,27 @@ Google shipped two meaningful updates: visual query fan-out in AI Mode and Canva
 > — Ajit Varma, Mozilla, [The Mozilla Blog](https://blog.mozilla.org/)
 
 <Tabs>
-  <TabItem value="search" label="Search AI Mode" default>
-    Best for fast exploration where source fidelity still gets manually verified.  
-    Useful for visual + multimodal intent expansion, not for final factual claims.
-  </TabItem>
-  <TabItem value="cursor" label="Cursor Automations">
-    Best for always-on repo workflows with trigger-based execution.  
-    High leverage only when automation includes QA gates and rollback policy.
-  </TabItem>
-  <TabItem value="jetbrains" label="Cursor via ACP in JetBrains">
-    Best for teams staying in IntelliJ/PyCharm/WebStorm while adopting agent workflows incrementally.
-  </TabItem>
+<TabItem value="search" label="Search AI Mode" default>
+
+Best for fast exploration where source fidelity still gets manually verified.  
+Useful for visual + multimodal intent expansion, not for final factual claims.
+
+</TabItem>
+<TabItem value="cursor" label="Cursor Automations">
+
+Best for always-on repo workflows with trigger-based execution.  
+High leverage only when automation includes QA gates and rollback policy.
+
+</TabItem>
+<TabItem value="jetbrains" label="Cursor via ACP in JetBrains">
+
+Best for teams staying in IntelliJ/PyCharm/WebStorm while adopting agent workflows incrementally.
+
+</TabItem>
 </Tabs>
 
 :::caution[Automation without review is still bad engineering]
-~~Agent-generated code can go straight to PR if tests pass~~ is how teams ship regressions at scale. Simon Willison’s anti-pattern note is correct: no unreviewed code should hit collaborators.
+~~Agent-generated code can go straight to PR if tests pass~~ is how teams ship regressions at scale. Simon Willison's anti-pattern note is correct: no unreviewed code should hit collaborators.
 :::
 
 ## Model Announcements: Separate Capability from Claims
@@ -75,7 +81,7 @@ Also in the same week: Qwen turbulence and public discussion around team departu
 >
 > — Donald Knuth, [claude-cycles.pdf](https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf)
 
-## Security Reality: The Week’s Highest-Value Work
+## Security Reality: The Week's Highest-Value Work
 
 The most actionable updates were security bulletins and architecture fixes.
 
@@ -87,7 +93,7 @@ The most actionable updates were security bulletins and architecture fixes.
 | GitGuardian + Google cert leak study | 2,622 valid certs mapped from leaked private keys | Rotate exposed key material, enforce secret scanning in CI |
 | Cloudflare always-on detections | Better exploit confirmation via request+response correlation | Enable detection telemetry before strict block mode |
 
-:::danger[Do not treat “theoretical” XSS as low priority]
+:::danger[Do not treat "theoretical" XSS as low priority]
 Admin-context XSS becomes tenant-wide compromise in real CMS operations. Patch, then hunt for persistence artifacts (`<script>`, rogue attributes, unexpected admin users).
 :::
 
@@ -145,7 +151,7 @@ When editor components get security fixes, delayed patching is not neutral. It i
 
 ## Education and Media: AI Value Is in Measurement, Not Hype
 
-OpenAI’s education updates were useful because they included tooling plus measurement frameworks (Learning Outcomes Measurement Suite), not just “AI for schools” slogans. GitHub + Andela case studies were useful for the same reason: production workflow examples beat abstract capability talk. Axios on local journalism followed the same pattern: AI as force multiplier for workflow bottlenecks, not for replacing reporting judgment.
+OpenAI's education updates were useful because they included tooling plus measurement frameworks (Learning Outcomes Measurement Suite), not just "AI for schools" slogans. GitHub + Andela case studies were useful for the same reason: production workflow examples beat abstract capability talk. Axios on local journalism followed the same pattern: AI as force multiplier for workflow bottlenecks, not for replacing reporting judgment.
 
 ## The Bigger Picture
 

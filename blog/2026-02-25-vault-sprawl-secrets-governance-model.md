@@ -44,7 +44,7 @@ Kubernetes guidance still warns that native secrets can be mishandled without en
 ### Reference policy contract
 
 <Tabs>
-  <TabItem value="vault" label="Vault Policy (HCL)" default>
+<TabItem value="vault" label="Vault Policy (HCL)" default>
 
 ```hcl title="vault/policies/team-payments-ci.hcl" showLineNumbers
 # highlight-start
@@ -58,8 +58,8 @@ path "database/creds/payments-ci" {
 }
 ```
 
-  </TabItem>
-  <TabItem value="github" label="GitHub Actions Workflow">
+</TabItem>
+<TabItem value="github" label="GitHub Actions Workflow">
 
 ```yaml title=".github/workflows/deploy.yml" showLineNumbers
 permissions:
@@ -70,7 +70,7 @@ permissions:
 
 The `id-token: write` permission enables OIDC token minting in GitHub Actions and replaces stored long-lived cloud/Vault credentials with short-lived exchanges.
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ### Migration from deprecated pattern

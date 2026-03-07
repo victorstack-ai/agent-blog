@@ -32,48 +32,48 @@ Netomi operates in enterprise customer service automation. Their lessons are spe
 The playbook centers on three mechanics. Each decision is surfaced as structured output so it can be audited later.
 
 <Tabs>
-  <TabItem value="guardrails" label="Policy Guardrails">
+<TabItem value="guardrails" label="Policy Guardrails">
 
 Block or escalate sensitive intents before they reach the model.
 
 ```python title="guardrails.py"
 def evaluate_intent(intent: str, policy: dict) -> dict:
-    if intent in policy["blocked_intents"]:
-        # highlight-next-line
-        return {"action": "block", "reason": f"Intent '{intent}' is policy-blocked"}
-    if intent in policy["escalation_intents"]:
-        return {"action": "escalate", "reason": f"Intent '{intent}' requires human review"}
-    return {"action": "proceed"}
+if intent in policy["blocked_intents"]:
+# highlight-next-line
+return {"action": "block", "reason": f"Intent '{intent}' is policy-blocked"}
+if intent in policy["escalation_intents"]:
+return {"action": "escalate", "reason": f"Intent '{intent}' requires human review"}
+return {"action": "proceed"}
 ```
 
-  </TabItem>
-  <TabItem value="confidence" label="Confidence Gating">
+</TabItem>
+<TabItem value="confidence" label="Confidence Gating">
 
 Push uncertainty to humans instead of guessing.
 
 ```python title="confidence_gate.py"
 def confidence_check(score: float, threshold: float = 0.7) -> dict:
-    if score < threshold:
-        # highlight-next-line
-        return {"action": "escalate", "reason": f"Confidence {score} below threshold {threshold}"}
-    return {"action": "proceed", "confidence": score}
+if score < threshold:
+# highlight-next-line
+return {"action": "escalate", "reason": f"Confidence {score} below threshold {threshold}"}
+return {"action": "proceed", "confidence": score}
 ```
 
-  </TabItem>
-  <TabItem value="budget" label="Budget Guard">
+</TabItem>
+<TabItem value="budget" label="Budget Guard">
 
 Keep costs predictable by making spend limits part of routing, not an afterthought.
 
 ```python title="budget_guard.py"
 def check_budget(current_spend: float, limit: float) -> dict:
-    if current_spend >= limit:
-        # highlight-next-line
-        return {"action": "block", "reason": f"Budget exhausted: ${current_spend} >= ${limit}"}
-    remaining = limit - current_spend
-    return {"action": "proceed", "remaining_budget": remaining}
+if current_spend >= limit:
+# highlight-next-line
+return {"action": "block", "reason": f"Budget exhausted: ${current_spend} >= ${limit}"}
+remaining = limit - current_spend
+return {"action": "proceed", "remaining_budget": remaining}
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## How They Fit Together

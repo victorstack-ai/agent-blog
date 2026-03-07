@@ -57,35 +57,35 @@ Drupal's request lifecycle means shutdown hooks can fire more than once. If your
 :::
 
 <Tabs>
-  <TabItem value="interface" label="ToolInterface" default>
+<TabItem value="interface" label="ToolInterface" default>
 
 ```php title="src/ToolInterface.php"
 interface ToolInterface {
-    public function getName(): string;
-    public function getDescription(): string;
-    // highlight-next-line
-    public function execute(array $input): array;
+public function getName(): string;
+public function getDescription(): string;
+// highlight-next-line
+public function execute(array $input): array;
 }
 ```
 
-  </TabItem>
-  <TabItem value="executor" label="ToolExecutor">
+</TabItem>
+<TabItem value="executor" label="ToolExecutor">
 
 ```php title="src/ToolExecutor.php" showLineNumbers
 class ToolExecutor {
-    public function register(ToolInterface $tool): void;
-    public function remove(string $name): void;
-    public function has(string $name): bool;
-    public function get(string $name): ToolInterface;
-    // highlight-next-line
-    public function execute(string $name, array $input): array;
-    public function listTools(): array;
-    public function describeTools(): array;
+public function register(ToolInterface $tool): void;
+public function remove(string $name): void;
+public function has(string $name): bool;
+public function get(string $name): ToolInterface;
+// highlight-next-line
+public function execute(string $name, array $input): array;
+public function listTools(): array;
+public function describeTools(): array;
 }
 ```
 
-  </TabItem>
-  <TabItem value="runtime" label="Runtime Integration">
+</TabItem>
+<TabItem value="runtime" label="Runtime Integration">
 
 ```php title="src/ClaudeAgentRuntime.php" showLineNumbers
 // highlight-next-line
@@ -101,7 +101,7 @@ $runtime->closeSession();
 $runtime->closeSession();
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Test Coverage

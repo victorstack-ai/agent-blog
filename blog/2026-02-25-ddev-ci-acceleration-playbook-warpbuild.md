@@ -36,47 +36,47 @@ I use one workflow template and one benchmark script as the source of truth.
 ### Workflow template
 
 <Tabs>
-  <TabItem value="warpbuild" label="WarpBuild Runner" default>
+<TabItem value="warpbuild" label="WarpBuild Runner" default>
 
 ```yaml title="examples/devops/ddev-warpbuild-drupal-ci.yml" showLineNumbers
 jobs:
   test:
-    # highlight-next-line
-    runs-on: warp-ubuntu-latest-x64-4x
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/cache@v4
-        with:
-          path: ~/.cache/composer
-          # highlight-next-line
-          key: composer-${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
-      - uses: ddev/github-action-setup-ddev@v1
-      - run: ddev start
-      - run: ddev composer install --no-interaction --prefer-dist
-      - run: ddev exec phpunit -c web/core
+# highlight-next-line
+runs-on: warp-ubuntu-latest-x64-4x
+steps:
+- uses: actions/checkout@v4
+- uses: actions/cache@v4
+with:
+path: ~/.cache/composer
+# highlight-next-line
+key: composer-${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+- uses: ddev/github-action-setup-ddev@v1
+- run: ddev start
+- run: ddev composer install --no-interaction --prefer-dist
+- run: ddev exec phpunit -c web/core
 ```
 
-  </TabItem>
-  <TabItem value="github" label="GitHub-Hosted (Baseline)">
+</TabItem>
+<TabItem value="github" label="GitHub-Hosted (Baseline)">
 
 ```yaml title="examples/devops/ddev-github-hosted-drupal-ci.yml" showLineNumbers
 jobs:
   test:
-    # highlight-next-line
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/cache@v4
-        with:
-          path: ~/.cache/composer
-          key: composer-${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
-      - uses: ddev/github-action-setup-ddev@v1
-      - run: ddev start
-      - run: ddev composer install --no-interaction --prefer-dist
-      - run: ddev exec phpunit -c web/core
+# highlight-next-line
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- uses: actions/cache@v4
+with:
+path: ~/.cache/composer
+key: composer-${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+- uses: ddev/github-action-setup-ddev@v1
+- run: ddev start
+- run: ddev composer install --no-interaction --prefer-dist
+- run: ddev exec phpunit -c web/core
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ### Benchmark script

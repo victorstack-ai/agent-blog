@@ -14,7 +14,7 @@ tags:
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-06-from-model-hype-to-patch-reality-gpt-5-4-drupal-security-and.png
 description: >-
-  What actually mattered this week: GPT-5.4’s practical tradeoffs, Drupal and
+  What actually mattered this week: GPT-5.4's practical tradeoffs, Drupal and
   CISA security signals, Cloudflare network controls, and where AI features
   deliver real workflow value.
 date: 2026-03-06T03:35:00.000Z
@@ -50,21 +50,27 @@ A 1M-token context does not fix weak architecture decisions. Keep prompts scoped
 :::
 
 <Tabs>
-  <TabItem value="api" label="API Usage" default>
+<TabItem value="api" label="API Usage" default>
+
 Use `gpt-5.4` as the default model in CI-adjacent automation; reserve `gpt-5.4-pro` for gated review tasks where false positives are expensive.
-  </TabItem>
-  <TabItem value="chatgpt" label="ChatGPT">
+
+</TabItem>
+<TabItem value="chatgpt" label="ChatGPT">
+
 Good for rapid analysis and synthesis, but production changes still need repo-local tests and policy checks.
-  </TabItem>
-  <TabItem value="codex" label="Codex CLI">
+
+</TabItem>
+<TabItem value="codex" label="Codex CLI">
+
 Best fit for end-to-end coding loops because edits, tests, and git state are in one execution path.
-  </TabItem>
+
+</TabItem>
 </Tabs>
 
 ## Security Feed: This Week Was a Patch Week, Not a Blog Week
 
 CISA added five actively exploited vulnerabilities to KEV. Drupal published new releases (`10.6.4`, `11.3.4`) and two contrib advisories on March 4, 2026 (`SA-CONTRIB-2026-023`, `SA-CONTRIB-2026-024`). Delta CNCSoft-G2 published an out-of-bounds write with RCE risk. GitGuardian + Google found 2,622 still-valid certs linked to leaked private keys (as of September 2025).  
-That is enough data to drop ~~“monitor-only for now”~~ and enforce blocking controls with rollback plans.
+That is enough data to drop ~~"monitor-only for now"~~ and enforce blocking controls with rollback plans.
 
 :::danger[Known Exploitation Means Deadline, Not Discussion]
 When KEV lists active exploitation, patch windows become incident windows. Enforce: `inventory -> exposure check -> patch -> verify exploit path closed` in the same cycle.
@@ -149,10 +155,10 @@ The line between useful and noise is whether it reduces handoffs in a production
 | Google AI Mode Canvas | Quick doc/tool prototyping in search context | Not a substitute for source-of-truth repos |
 
 :::info[Adoption Channels Are Finally Talking About Measurement]
-OpenAI’s education/adoption material and enterprise value-model framing are useful when tied to capability measurement, not vanity usage metrics. Track defect rate, cycle time, and escaped incidents per AI-assisted workflow.
+OpenAI's education/adoption material and enterprise value-model framing are useful when tied to capability measurement, not vanity usage metrics. Track defect rate, cycle time, and escaped incidents per AI-assisted workflow.
 :::
 
-## Cloudflare’s Direction: Identity + Network + Detection in One Plane
+## Cloudflare's Direction: Identity + Network + Detection in One Plane
 
 ARR for overlapping private IPs, QUIC-based proxy mode throughput gains, always-on exploit detection, user risk scoring, gateway auth proxy, and anti-deepfake onboarding controls all point to the same pattern: policy is moving from static network edges to continuous identity and behavior signals.
 
@@ -181,7 +187,7 @@ timeline
 
 ## Bottom Line
 
-Production engineering in 2026 is not “model-first.” It is policy-first, patch-first, and measurement-first, with stronger models as force multipliers only after those basics are enforced.
+Production engineering in 2026 is not "model-first." It is policy-first, patch-first, and measurement-first, with stronger models as force multipliers only after those basics are enforced.
 
 :::tip[Single Action That Pays Off Immediately]
 Set one non-negotiable release gate: block deploys when KEV-matched vulns, unsupported Drupal versions, or leaked-key cert exposure is detected. Ship features after that gate passes, not before.

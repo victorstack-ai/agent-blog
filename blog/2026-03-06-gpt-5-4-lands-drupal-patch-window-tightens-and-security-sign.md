@@ -12,7 +12,7 @@ tags:
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-06-gpt-5-4-lands-drupal-patch-window-tightens-and-security-sign.png
 description: >-
-  A practitioner’s cut through this week’s signal: GPT-5.4 rollout details,
+  A practitioner's cut through this week's signal: GPT-5.4 rollout details,
   Drupal patch/security implications, and concrete cloud/security patterns worth
   operationalizing.
 date: 2026-03-06T05:36:00.000Z
@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This cycle was less “new toys” and more “new constraints.” GPT-5.4 shipped with real production implications (context, cost, control), Drupal tightened support windows, and security teams got another reminder that KEV + leaked keys + identity bypass are not abstract risks. The useful thread across all of it: operational discipline beats announcement fatigue.
+This cycle was less "new toys" and more "new constraints." GPT-5.4 shipped with real production implications (context, cost, control), Drupal tightened support windows, and security teams got another reminder that KEV + leaked keys + identity bypass are not abstract risks. The useful thread across all of it: operational discipline beats announcement fatigue.
 
 <!-- truncate -->
 
@@ -32,7 +32,7 @@ This cycle was less “new toys” and more “new constraints.” GPT-5.4 shipp
 
 OpenAI introduced `gpt-5.4` and `gpt-5.4-pro` across API, ChatGPT, and Codex CLI, with a 1M-token context window and an August 31, 2025 cutoff. This is not about bragging rights; it changes architecture choices for long-context retrieval, coding agents, and review loops.
 
-> "Introducing GPT-5.4, OpenAI’s most capable and efficient frontier model for professional work."
+> "Introducing GPT-5.4, OpenAI's most capable and efficient frontier model for professional work."
 >
 > — OpenAI, [Introducing GPT‑5.4](https://openai.com/index/introducing-gpt-5-4/)
 
@@ -44,34 +44,34 @@ OpenAI introduced `gpt-5.4` and `gpt-5.4-pro` across API, ChatGPT, and Codex CLI
 | 1M context workflows | Yes | Yes | Keep context hygiene anyway |
 
 <Tabs>
-  <TabItem value="prod-policy" label="Prod Policy" default>
+<TabItem value="prod-policy" label="Prod Policy" default>
 
 ```yaml title="model-routing.yaml" showLineNumbers
 routing:
   default_model: gpt-5.4
   escalation_model: gpt-5.4-pro
   rules:
-    - name: "security_review"
-      match: ["cve", "kev", "authz", "rce"]
-      // highlight-next-line
-      model: gpt-5.4-pro
-    - name: "bulk_refactor"
-      match: ["lint", "format", "rename", "boilerplate"]
-      model: gpt-5.4
-    - name: "financial_reporting"
-      match: ["excel", "forecast", "regulated"]
-      // highlight-next-line
-      model: gpt-5.4-pro
+- name: "security_review"
+match: ["cve", "kev", "authz", "rce"]
+// highlight-next-line
+model: gpt-5.4-pro
+- name: "bulk_refactor"
+match: ["lint", "format", "rename", "boilerplate"]
+model: gpt-5.4
+- name: "financial_reporting"
+match: ["excel", "forecast", "regulated"]
+// highlight-next-line
+model: gpt-5.4-pro
   context:
-    max_tokens: 1000000
-    hygiene:
-      - deduplicate_chunks
-      - strip_stale_threads
-      - cap_retrieval_top_k
+max_tokens: 1000000
+hygiene:
+- deduplicate_chunks
+- strip_stale_threads
+- cap_retrieval_top_k
 ```
 
-  </TabItem>
-  <TabItem value="anti-pattern" label="Anti-Pattern">
+</TabItem>
+<TabItem value="anti-pattern" label="Anti-Pattern">
 
 ```diff
 - Send every task to the strongest model by default
@@ -84,7 +84,7 @@ routing:
 + Convert model limitations into runtime guardrails
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 :::caution[Chain-of-thought control is not solved]
@@ -93,27 +93,27 @@ The CoT-control result matters operationally: reasoning traces are not reliably 
 
 ## The AI Product Layer Is Moving Into Regulated Workflows
 
-OpenAI’s education push, ChatGPT-for-Excel + financial integrations, and the new “Adoption” channel are signals of productization for enterprises with compliance overhead. Cursor automations joins that trend: always-on agents are now table stakes, and ~~prompt wizardry~~ runbook engineering is the real work.
+OpenAI's education push, ChatGPT-for-Excel + financial integrations, and the new "Adoption" channel are signals of productization for enterprises with compliance overhead. Cursor automations joins that trend: always-on agents are now table stakes, and ~~prompt wizardry~~ runbook engineering is the real work.
 
 :::info[What changes in practice]
-Capability demos are done. Teams now need measurable controls: model routing, audit logs, approval points, and rollback paths. If this is missing, “AI rollout” is still a pilot, not production.
+Capability demos are done. Teams now need measurable controls: model routing, audit logs, approval points, and rollback paths. If this is missing, "AI rollout" is still a pilot, not production.
 :::
 
 ## Web Platform and Dev Community: Keep the Signal, Ignore the Theater
 
 High-signal community updates:
 - Stanford WebCamp 2026 CFP is open (online April 30, hybrid May 1).
-- Firefox’s new AI controls emphasize user choice.
+- Firefox's new AI controls emphasize user choice.
 - Google Search AI Mode added Canvas and expanded visual query fan-out workflows.
 - GitHub + Andela highlighted AI adoption inside real delivery teams.
-- Simon Willison’s anti-pattern warning remains correct: unreviewed AI PRs burn teams.
+- Simon Willison's anti-pattern warning remains correct: unreviewed AI PRs burn teams.
 
 > "Don't file pull requests with code you haven't reviewed yourself."
 >
 > — Simon Willison, [Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/)
 
 :::tip[Review discipline that actually works]
-Require a human-authored PR summary with “risk, changed behavior, rollback plan” before merge. If the author cannot explain those three in plain language, the PR is not ready.
+Require a human-authored PR summary with "risk, changed behavior, rollback plan" before merge. If the author cannot explain those three in plain language, the PR is not ready.
 :::
 
 ## Drupal and WordPress: Patch Cadence Is a Security Feature
@@ -165,7 +165,7 @@ Patch KEV-relevant assets first, rotate exposed keys second, and enforce adaptiv
 
 ## Network Engineering Signal: ARR and QUIC Proxy Mode Are Real Wins
 
-Cloudflare’s Automatic Return Routing (ARR) addresses overlapping private IP environments without manual NAT/VRF complexity by relying on stateful flow tracking. Their QUIC-based Proxy Mode rebuild removes user-space TCP overhead and reports ~2x throughput gains. This is infrastructure work that users actually feel.
+Cloudflare's Automatic Return Routing (ARR) addresses overlapping private IP environments without manual NAT/VRF complexity by relying on stateful flow tracking. Their QUIC-based Proxy Mode rebuild removes user-space TCP overhead and reports ~2x throughput gains. This is infrastructure work that users actually feel.
 
 ## The Bigger Picture
 
@@ -197,5 +197,5 @@ mindmap
 Engineering reality this week: model upgrades, framework patches, and security controls are now one operating surface. Teams that separate them into different meetings will keep shipping avoidable incidents.
 
 :::tip[Single highest-ROI move]
-Implement one `model-routing.yaml` plus one weekly “KEV + framework release + key exposure” review in the same runbook, owned by one team. This collapses three failure classes before they compound.
+Implement one `model-routing.yaml` plus one weekly "KEV + framework release + key exposure" review in the same runbook, owned by one team. This collapses three failure classes before they compound.
 :::

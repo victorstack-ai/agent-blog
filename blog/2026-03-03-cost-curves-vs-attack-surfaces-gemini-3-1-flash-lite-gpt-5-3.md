@@ -42,15 +42,21 @@ Google shipped **Gemini 3.1 Flash-Lite** as the low-cost throughput play, and th
 | Node.js 25.8.0 (Current) | Current-line release cadence continues | Good for experimentation; bad default for conservative backend fleets |
 
 <Tabs>
-  <TabItem value="gemini" label="Gemini 3.1 Flash-Lite" default>
-Low latency + low price means this is the batch/assist workhorse. The useful feature is not “AI magic,” it is predictable cost under load.
-  </TabItem>
-  <TabItem value="gpt" label="GPT-5.3 Instant">
+<TabItem value="gemini" label="Gemini 3.1 Flash-Lite" default>
+
+Low latency + low price means this is the batch/assist workhorse. The useful feature is not "AI magic," it is predictable cost under load.
+
+</TabItem>
+<TabItem value="gpt" label="GPT-5.3 Instant">
+
 Conversation polish matters for support agents and coding copilots. The System Card is the part worth reading before rollout, not after incident review.
-  </TabItem>
-  <TabItem value="node" label="Node.js 25.8.0">
+
+</TabItem>
+<TabItem value="node" label="Node.js 25.8.0">
+
 Current releases are fine for labs and non-critical services. LTS remains the adult choice for core APIs with uptime targets.
-  </TabItem>
+
+</TabItem>
 </Tabs>
 
 :::caution[Cheap Tokens Encourage Bad Architecture]
@@ -59,7 +65,7 @@ Lower model cost does not justify uncontrolled context growth. Set strict `max_t
 
 ## Agent Product Surface: MCP Apps, Team Plugin Marketplaces, Copilot Dev Days, Project Genie
 
-MCP moving toward interactive UIs and private team marketplaces is what “agents in enterprise” actually needs: governance and distribution, not more demos. Copilot Dev Days is useful when teams treat it as workflow redesign, not autocomplete theater. Project Genie prompt craft is a reminder that tooling quality depends on input discipline.
+MCP moving toward interactive UIs and private team marketplaces is what "agents in enterprise" actually needs: governance and distribution, not more demos. Copilot Dev Days is useful when teams treat it as workflow redesign, not autocomplete theater. Project Genie prompt craft is a reminder that tooling quality depends on input discipline.
 
 ```mermaid
 flowchart TD
@@ -78,7 +84,7 @@ The win is standardized internal plugins with clear ownership, versioning, and p
 
 The security items this cycle were blunt: CISA KEV additions, multiple high-severity charging/industrial advisories, and public webapp exploit disclosures. Same lesson again: attackers still cash in on missing auth, weak auth controls, and basic injection/LFI classes.
 
-> "Secrets don’t just leak from Git. They accumulate in filesystems, env vars, and agent memory."
+> "Secrets don't just leak from Git. They accumulate in filesystems, env vars, and agent memory."
 >
 > — Source, [Protecting Developers Means Protecting Their Secrets](https://www.gitguardian.com/)
 
@@ -133,11 +139,11 @@ jobs:
 
 ## PHP/Drupal Ecosystem Signal: Sustainability, Governance, and Community Events
 
-The Drop Times coverage and the 25th anniversary framing are useful because they force a non-marketing question: who is funding and maintaining the boring core work. “AI-ready architecture” sounds nice; contributor economics decides what survives.
+The Drop Times coverage and the 25th anniversary framing are useful because they force a non-marketing question: who is funding and maintaining the boring core work. "AI-ready architecture" sounds nice; contributor economics decides what survives.
 
 | Ecosystem item | Practical read |
 |---|---|
-| “At the Crossroads of PHP” discussion | Sustainability and contributor throughput are now central technical risks |
+| "At the Crossroads of PHP" discussion | Sustainability and contributor throughput are now central technical risks |
 | Drupal 25th Anniversary Gala (Mar 24, Chicago) | Community energy is strong; governance clarity still matters more |
 | Baseline January 2026 digest | Incremental progress is happening, but velocity is uneven across projects |
 
@@ -145,9 +151,9 @@ The Drop Times coverage and the 25th anniversary framing are useful because they
 Event volume is not delivery velocity. Track release quality, maintainer burnout signals, and issue response times before committing platform strategy.
 :::
 
-## Edge Security Claims: “Programmable SASE” Is Useful Only With Guardrails
+## Edge Security Claims: "Programmable SASE" Is Useful Only With Guardrails
 
-“The truly programmable SASE platform” pitch is valid when programmability is scoped, tested, and observable. Unbounded custom logic at the edge can become a distributed outage machine.
+"The truly programmable SASE platform" pitch is valid when programmability is scoped, tested, and observable. Unbounded custom logic at the edge can become a distributed outage machine.
 
 ```bash
 # Minimum gate before shipping edge policy code

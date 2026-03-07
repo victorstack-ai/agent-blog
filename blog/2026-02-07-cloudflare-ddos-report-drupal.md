@@ -28,7 +28,7 @@ The **Aisuru-Kimwolf botnet** uses compromised Android TVs to launch HTTP DDoS a
 ## Attack Patterns That Matter for Drupal
 
 <Tabs>
-  <TabItem value="findings" label="Key Findings">
+<TabItem value="findings" label="Key Findings">
 
 | Finding | Impact on Drupal |
 |---|---|
@@ -38,23 +38,23 @@ The **Aisuru-Kimwolf botnet** uses compromised Android TVs to launch HTTP DDoS a
 | 700% increase in hyper-volumetric attacks | Scale of threat has fundamentally changed |
 | Telecom/service providers top targets | Any high-profile site is at risk |
 
-  </TabItem>
-  <TabItem value="vectors" label="Attack Vectors">
+</TabItem>
+<TabItem value="vectors" label="Attack Vectors">
 
 ```mermaid
 flowchart TD
-    A[Aisuru-Kimwolf Botnet] --> B[200M+ RPS HTTP Flood]
-    B --> C{Does it bypass edge cache?}
-    C -->|Yes - cache busting| D[Drupal origin hit directly]
-    C -->|No - cached| E[Edge absorbs traffic]
-    D --> F[PHP workers exhausted]
-    D --> G[Database connections saturated]
-    F --> H[Site offline]
-    G --> H
-    E --> I[Site stays up]
+A[Aisuru-Kimwolf Botnet] --> B[200M+ RPS HTTP Flood]
+B --> C{Does it bypass edge cache?}
+C -->|Yes - cache busting| D[Drupal origin hit directly]
+C -->|No - cached| E[Edge absorbs traffic]
+D --> F[PHP workers exhausted]
+D --> G[Database connections saturated]
+F --> H[Site offline]
+G --> H
+E --> I[Site stays up]
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Defense-in-Depth: What Actually Works

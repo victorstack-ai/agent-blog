@@ -27,13 +27,13 @@ Most updates today split into two buckets: real engineering progress and marketi
 
 ## Docker hardening and secret hygiene finally met reality
 
-Docker’s hardened packaging direction is practical: reduce image attack surface without forcing teams into weird custom distros. Pair that with secret-scanning discipline and the supply-chain story starts to look less performative.
+Docker's hardened packaging direction is practical: reduce image attack surface without forcing teams into weird custom distros. Pair that with secret-scanning discipline and the supply-chain story starts to look less performative.
 
 > "Secure, minimal, production-ready images should be the default."
 >
 > — Docker, [Announcing Docker Hardened System Packages](https://www.docker.com/blog/announcing-docker-hardened-system-packages/)
 
-> "Secrets don’t just leak from Git."
+> "Secrets don't just leak from Git."
 >
 > — Truffle Security, [Protecting Developers Means Protecting Their Secrets](https://trufflesecurity.com/blog/protecting-developers-means-protecting-their-secrets)
 
@@ -63,7 +63,7 @@ notifications:
 
 ## Runtime and model releases: speed is cheap, correctness is not
 
-`Node.js 25.8.0 (Current)` is a velocity release, not a "forget forever" release. `Gemini 3.1 Flash-Lite` and `GPT-5.3 Instant` both push lower-latency, lower-cost interaction. Useful for routing and UX, not a free pass on eval quality. Project Genie’s "4 prompt tips" is the same old truth: prompt specificity beats prompt poetry.
+`Node.js 25.8.0 (Current)` is a velocity release, not a "forget forever" release. `Gemini 3.1 Flash-Lite` and `GPT-5.3 Instant` both push lower-latency, lower-cost interaction. Useful for routing and UX, not a free pass on eval quality. Project Genie's "4 prompt tips" is the same old truth: prompt specificity beats prompt poetry.
 
 | Release | What changed | Practical use | Trap |
 |---|---|---|---|
@@ -73,12 +73,16 @@ notifications:
 | Project Genie prompt guidance | Better world-generation prompting | Structured generation inputs | Treating prompt hacks as architecture |
 
 <Tabs>
-  <TabItem value="gemini" label="Gemini 3.1 Flash-Lite" default>
+<TabItem value="gemini" label="Gemini 3.1 Flash-Lite" default>
+
 Latency-cost optimized path for scale workloads. Good default when task complexity is bounded and output can be scored cheaply.
-  </TabItem>
-  <TabItem value="gpt" label="GPT-5.3 Instant">
+
+</TabItem>
+<TabItem value="gpt" label="GPT-5.3 Instant">
+
 Better conversational smoothness and broad utility. Use when interaction quality matters more than absolute lowest token cost.
-  </TabItem>
+
+</TabItem>
 </Tabs>
 
 ```diff
@@ -121,7 +125,7 @@ done
 
 ## Drupal/PHP ecosystem signals and the SASE developer push
 
-The DropTimes "At the Crossroads of PHP" framing is blunt and mostly correct: contributor pressure and budget pressure are real. The Drupal 25th anniversary gala in Chicago is community momentum, but momentum only matters if maintainers are funded and roadmaps stay coherent. Baseline’s January digest and "programmable SASE" messaging both point to one thing: platform teams want programmable control planes, not another dashboard with pretty graphs.
+The DropTimes "At the Crossroads of PHP" framing is blunt and mostly correct: contributor pressure and budget pressure are real. The Drupal 25th anniversary gala in Chicago is community momentum, but momentum only matters if maintainers are funded and roadmaps stay coherent. Baseline's January digest and "programmable SASE" messaging both point to one thing: platform teams want programmable control planes, not another dashboard with pretty graphs.
 
 > "The Drupal 25th Anniversary Gala will take place on 24 March..."
 >

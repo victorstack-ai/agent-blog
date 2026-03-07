@@ -85,28 +85,28 @@ Use it to block obvious footguns, not to declare something safe.
 ### CLI usage
 
 <Tabs>
-  <TabItem value="quick" label="Quick Scan" default>
+<TabItem value="quick" label="Quick Scan" default>
 
 ```bash title="quick-scan.sh"
 python skills_sentry.py scan ./some-skill-bundle --json out/report.json
 ```
 
-  </TabItem>
-  <TabItem value="zip" label="Zip Bundle">
+</TabItem>
+<TabItem value="zip" label="Zip Bundle">
 
 ```bash title="zip-scan.sh"
 python skills_sentry.py scan ./skill.zip --json out/report.json
 ```
 
-  </TabItem>
-  <TabItem value="ci" label="CI Gate">
+</TabItem>
+<TabItem value="ci" label="CI Gate">
 
 ```bash title="ci-gate.sh"
 # highlight-next-line
 python skills_sentry.py scan ./bundle --fail-on high --max-score 60
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ### Detection Rules
@@ -402,33 +402,33 @@ Top findings:
 ### CI example
 
 <Tabs>
-  <TabItem value="gha" label="GitHub Actions" default>
+<TabItem value="gha" label="GitHub Actions" default>
 
 ```yaml title=".github/workflows/skill-scan.yml" showLineNumbers
 name: Skill bundle scan
 on:
   pull_request:
   push:
-    branches: [main]
+branches: [main]
 jobs:
   scan:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run Skills Sentry
-        # highlight-next-line
-        run: python skills_sentry.py scan . --fail-on high --max-score 60 --json out/report.json
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- name: Run Skills Sentry
+# highlight-next-line
+run: python skills_sentry.py scan . --fail-on high --max-score 60 --json out/report.json
 ```
 
-  </TabItem>
-  <TabItem value="local" label="Pre-commit">
+</TabItem>
+<TabItem value="local" label="Pre-commit">
 
 ```bash title="pre-commit-scan.sh"
 # Run before you install or publish a skill bundle
 python skills_sentry.py scan ./bundle --fail-on medium --max-score 40
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 :::tip[Isolation Is the Best Security Feature]

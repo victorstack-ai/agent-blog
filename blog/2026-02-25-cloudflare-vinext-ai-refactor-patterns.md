@@ -47,7 +47,7 @@ flowchart TD
 ```
 
 <Tabs>
-  <TabItem value="patterns" label="Refactor Patterns Worth Adopting">
+<TabItem value="patterns" label="Refactor Patterns Worth Adopting">
 
 1. **Route-by-route runtime isolation**: Ask AI to split edge-safe routes from Node-dependent routes first, then migrate only the edge-safe set.
 2. **Compatibility shims behind feature flags**: AI can generate wrappers, but ship them disabled by default and enable per route.
@@ -55,8 +55,8 @@ flowchart TD
 4. **Diff budget policy**: Reject AI patches touching files outside an explicit migration scope.
 5. **Reversible deployment units**: Every migration PR must be independently rollbackable.
 
-  </TabItem>
-  <TabItem value="antipatterns" label="Anti-Patterns to Avoid">
+</TabItem>
+<TabItem value="antipatterns" label="Anti-Patterns to Avoid">
 
 | Anti-Pattern | Why It Fails |
 |---|---|
@@ -66,7 +66,7 @@ flowchart TD
 | Rollback as afterthought | Cannot recover when canary fails |
 | Unbounded AI diff scope | Changes leak outside migration boundary |
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## AI-Assisted Migration: Effort vs Safety

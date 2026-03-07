@@ -40,15 +40,15 @@ Monty is not trying to be a full Python implementation. It is a **subset** of Py
 | Browser execution | Yes (WASM) | Yes (WASM) | Yes (WASM) | No |
 
 <Tabs>
-  <TabItem value="capabilities" label="What Monty Provides">
+<TabItem value="capabilities" label="What Monty Provides">
 
 1. **Restricted Environment**: No access to the host file system or network by default.
 2. **Fast Startup**: Ideal for serverless or agentic workflows where you need to run small snippets frequently.
 3. **Rust Foundation**: Leveraging Rust's safety and performance guarantees.
 4. **WASM Target**: Compiles to WebAssembly for browser or edge execution.
 
-  </TabItem>
-  <TabItem value="browser" label="Running in the Browser">
+</TabItem>
+<TabItem value="browser" label="Running in the Browser">
 
 By compiling Monty to WebAssembly, you get a Python REPL that runs entirely on the client side. This is useful for:
 
@@ -68,7 +68,7 @@ By compiling Monty to WebAssembly, you get a Python REPL that runs entirely on t
 </script>
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Why This Matters for AI Agents

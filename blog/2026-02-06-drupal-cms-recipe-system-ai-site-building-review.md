@@ -40,48 +40,48 @@ flowchart LR
 ```
 
 <Tabs>
-  <TabItem value="recipe" label="Recipe Structure">
+<TabItem value="recipe" label="Recipe Structure">
 
 ```yaml title="recipe.yml" showLineNumbers
 name: "AI Site Builder Baseline"
 description: "Installs a baseline site-building stack with AI Builder role."
 type: "drupal-recipe"
 install:
-  - node
-  - block
-  - views
-  - ai
+- node
+- block
+- views
+- ai
 config:
   actions:
-    user.role.ai_builder:
-      createIfNotExists:
-        label: "AI Builder"
-      grantPermissions:
-        - "administer nodes"
-        - "access content overview"
+user.role.ai_builder:
+createIfNotExists:
+label: "AI Builder"
+grantPermissions:
+- "administer nodes"
+- "access content overview"
 ```
 
-  </TabItem>
-  <TabItem value="helper" label="Blueprint Helper (PHP)">
+</TabItem>
+<TabItem value="helper" label="Blueprint Helper (PHP)">
 
 ```php title="src/BlueprintHelper.php" showLineNumbers
 class BlueprintHelper {
-    // highlight-next-line
-    public function fromJson(string $jsonBrief): string {
-        $brief = json_decode($jsonBrief, true);
-        $recipe = [
-            'name' => $brief['name'],
-            'description' => $brief['description'],
-            'type' => 'drupal-recipe',
-            'install' => $brief['modules'],
-            'config' => ['actions' => $brief['config_actions']],
-        ];
-        return Yaml::dump($recipe, 4);
-    }
+// highlight-next-line
+public function fromJson(string $jsonBrief): string {
+$brief = json_decode($jsonBrief, true);
+$recipe = [
+'name' => $brief['name'],
+'description' => $brief['description'],
+'type' => 'drupal-recipe',
+'install' => $brief['modules'],
+'config' => ['actions' => $brief['config_actions']],
+];
+return Yaml::dump($recipe, 4);
+}
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Recipe Capabilities at a Glance

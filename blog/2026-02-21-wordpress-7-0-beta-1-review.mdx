@@ -60,20 +60,20 @@ flowchart TD
 Plugins register "abilities" — like `create_post`, `install_plugin`, or `moderate_comments` — which the MCP Adapter translates into a standardized protocol that AI agents can understand.
 
 <Tabs>
-  <TabItem value="abilities" label="Abilities API">
+<TabItem value="abilities" label="Abilities API">
 
 ```php title="wp-content/plugins/my-plugin/abilities.php"
 // highlight-next-line
 register_ability('my_plugin_backup', [
-    'label' => 'Run Site Backup',
-    'callback' => 'my_plugin_run_backup',
-    'capability' => 'manage_options',
-    'description' => 'Triggers a full site backup.',
+'label' => 'Run Site Backup',
+'callback' => 'my_plugin_run_backup',
+'capability' => 'manage_options',
+'description' => 'Triggers a full site backup.',
 ]);
 ```
 
-  </TabItem>
-  <TabItem value="blocks" label="PHP-Only Block Registration">
+</TabItem>
+<TabItem value="blocks" label="PHP-Only Block Registration">
 
 Creating simple dynamic blocks no longer requires JavaScript build steps:
 
@@ -83,8 +83,8 @@ Creating simple dynamic blocks no longer requires JavaScript build steps:
 | **Controls** | `InspectorControls` in React (JS) | Auto-generated from PHP definitions |
 | **Build Step** | Required (`npm run build`) | Not required for simple blocks |
 
-  </TabItem>
-  <TabItem value="editor" label="Iframed Editor">
+</TabItem>
+<TabItem value="editor" label="Iframed Editor">
 
 The post editor is now always rendered in an `<iframe>`, regardless of block API version. This provides better style encapsulation.
 
@@ -92,12 +92,12 @@ The post editor is now always rendered in an `<iframe>`, regardless of block API
 // highlight-next-line
 // Check your admin CSS — the iframe boundary changes how styles cascade
 add_action('enqueue_block_assets', function() {
-    // Content styles that must run inside the editor canvas AND on front end
-    wp_enqueue_style('my-block-styles', plugins_url('style.css', __FILE__));
+// Content styles that must run inside the editor canvas AND on front end
+wp_enqueue_style('my-block-styles', plugins_url('style.css', __FILE__));
 });
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Developer Impact Summary

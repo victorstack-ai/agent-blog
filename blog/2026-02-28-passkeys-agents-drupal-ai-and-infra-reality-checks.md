@@ -28,7 +28,7 @@ February 2026 was a clean split between signal and noise. Signal: better agent t
 ## Passkeys for encryption is still a footgun
 The sharpest warning this month came from Tim Cappalli: teams are using passkeys to encrypt user data, then acting surprised when recovery becomes impossible after normal passkey loss. That is not a UX issue; it is a data-destruction design.
 
-> "please stop promoting and using passkeys to encrypt user data. I’m begging you."
+> "please stop promoting and using passkeys to encrypt user data. I'm begging you."
 >
 > — Tim Cappalli, [Please, please, please stop using passkeys for encrypting user data](https://blog.timcappalli.me/p/passkeys-prf-warning/)
 
@@ -43,30 +43,36 @@ Use passkeys for authentication, not as the only root for decrypting user conten
 ```
 
 ## Coding agents crossed the usefulness threshold, not the risk threshold
-Max Woolf’s write-up and Karpathy’s December inflection quote match what most practitioners saw: agents now finish meaningful tasks. That does not mean they are safe by default.
+Max Woolf's write-up and Karpathy's December inflection quote match what most practitioners saw: agents now finish meaningful tasks. That does not mean they are safe by default.
 
-> "coding agents basically didn’t work before December and basically work since"
+> "coding agents basically didn't work before December and basically work since"
 >
 > — Andrej Karpathy, [X post](https://twitter.com/karpathy/status/2026731645169185220)
 
 <Tabs>
-  <TabItem value="copilot" label="Copilot Path" default>
-    Copilot CLI + coding agent updates (model picker, self-review, security scanning, custom agents, CLI handoff) make it easier to go from intent to PR with fewer context switches.
-  </TabItem>
-  <TabItem value="claude" label="Claude Path">
-    Claude Max for OSS (with strict project thresholds) is high-value for maintainers who already run disciplined review and secrets controls.
-  </TabItem>
-  <TabItem value="reality" label="Operational Reality">
-    Agent speed gains collapse if you skip guardrails: secret scanning, scoped credentials, and mandatory human review on infra/auth changes.
-  </TabItem>
+<TabItem value="copilot" label="Copilot Path" default>
+
+Copilot CLI + coding agent updates (model picker, self-review, security scanning, custom agents, CLI handoff) make it easier to go from intent to PR with fewer context switches.
+
+</TabItem>
+<TabItem value="claude" label="Claude Path">
+
+Claude Max for OSS (with strict project thresholds) is high-value for maintainers who already run disciplined review and secrets controls.
+
+</TabItem>
+<TabItem value="reality" label="Operational Reality">
+
+Agent speed gains collapse if you skip guardrails: secret scanning, scoped credentials, and mandatory human review on infra/auth changes.
+
+</TabItem>
 </Tabs>
 
 :::caution[Agent velocity without controls is regression-as-a-service]
 Pair every agent-generated PR with policy checks for secrets, dependency risk, and auth surface changes. Faster output with weaker review increases incident rate, not productivity.
 :::
 
-## Drupal’s AI ecosystem is maturing through boring engineering
-The Drupal-related items were less “AI magic,” more “maintenance discipline”: SearXNG privacy-first search integration, GraphQL beta fixes, code search for Drupal 10+, structured Views extraction, AI digests for project tracking, and real performance diagnosis (cache tags, not vibes). That is the right trajectory.
+## Drupal's AI ecosystem is maturing through boring engineering
+The Drupal-related items were less "AI magic," more "maintenance discipline": SearXNG privacy-first search integration, GraphQL beta fixes, code search for Drupal 10+, structured Views extraction, AI digests for project tracking, and real performance diagnosis (cache tags, not vibes). That is the right trajectory.
 
 | Area | What shipped | Why it matters |
 |---|---|---|
@@ -82,7 +88,7 @@ $build['#cache']['tags'] = Cache::mergeTags($build['#cache']['tags'] ?? [], ['no
 ```
 
 ## Infra and platform updates got more practical
-Vercel Queues public beta, Telegram adapter support in Chat SDK, Cloudflare’s PQ/ASPA/Radar transparency, and Turnstile redesign at huge scale all point to the same thing: reliability and security work is moving into defaults, but teams still need to wire it correctly.
+Vercel Queues public beta, Telegram adapter support in Chat SDK, Cloudflare's PQ/ASPA/Radar transparency, and Turnstile redesign at huge scale all point to the same thing: reliability and security work is moving into defaults, but teams still need to wire it correctly.
 
 ```yaml title="ops/release-guardrails.yaml" showLineNumbers
 checks:
@@ -106,7 +112,7 @@ checks:
 ```
 
 ## Smaller but useful engineering reads
-Unicode binary search over HTTP range requests is a good reminder that protocol mechanics still unlock creative tooling. The “better Streams API” and “allocating on the stack” discussions are in the same category: less hype, more runtime mechanics that change performance and ergonomics when applied carefully.
+Unicode binary search over HTTP range requests is a good reminder that protocol mechanics still unlock creative tooling. The "better Streams API" and "allocating on the stack" discussions are in the same category: less hype, more runtime mechanics that change performance and ergonomics when applied carefully.
 
 :::info[The pattern across these posts]
 The durable advantage is still understanding system boundaries: caching metadata, stream semantics, key lifecycle, queue idempotency, and routing trust. Tools changed; fundamentals did not.
@@ -140,8 +146,8 @@ The durable advantage is still understanding system boundaries: caching metadata
 - ASPA routing security explainer
 - Stack allocation changes
 - Copilot coding agent updates
-- Simon Willison’s “hoard what you know how to do”
-- Karpathy’s December agent capability inflection quote
+- Simon Willison's "hoard what you know how to do"
+- Karpathy's December agent capability inflection quote
 
 </details>
 

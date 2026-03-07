@@ -68,7 +68,7 @@ If you do this halfway, you get the worst of both worlds: self-hosted ops burden
 ### Configuration approach
 
 <Tabs>
-  <TabItem value="minimal" label="Minimal SearXNG Config" default>
+<TabItem value="minimal" label="Minimal SearXNG Config" default>
 
 ```yaml title="searxng/settings.yml" showLineNumbers
 search:
@@ -76,40 +76,40 @@ search:
   # highlight-next-line
   default_lang: en
   formats:
-    - json
-    - html
+- json
+- html
 
 engines:
-  - name: duckduckgo
-    engine: duckduckgo
-    shortcut: ddg
-  - name: wikipedia
-    engine: wikipedia
-    shortcut: wp
+- name: duckduckgo
+engine: duckduckgo
+shortcut: ddg
+- name: wikipedia
+engine: wikipedia
+shortcut: wp
 ```
 
-  </TabItem>
-  <TabItem value="drupal" label="Drupal Integration Pattern">
+</TabItem>
+<TabItem value="drupal" label="Drupal Integration Pattern">
 
 ```php title="src/Service/SearxngSearchProvider.php" showLineNumbers
 class SearxngSearchProvider implements SearchProviderInterface {
 
   public function search(string $query, array $options = []): SearchResults {
-    $response = $this->httpClient->get($this->baseUrl . '/search', [
-      'query' => [
-        'q' => $query,
-        // highlight-next-line
-        'format' => 'json',
-        'categories' => $options['categories'] ?? 'general',
-      ],
-    ]);
+$response = $this->httpClient->get($this->baseUrl . '/search', [
+'query' => [
+'q' => $query,
+// highlight-next-line
+'format' => 'json',
+'categories' => $options['categories'] ?? 'general',
+],
+]);
 
-    return $this->normalizeResults($response);
+return $this->normalizeResults($response);
   }
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ### Maintained module check

@@ -28,15 +28,15 @@ When a team derives encryption keys directly from passkey credentials, losing th
 ## Approved Patterns for User-Data Encryption
 
 <Tabs>
-  <TabItem value="patternA" label="Pattern A: Envelope Encryption">
+<TabItem value="patternA" label="Pattern A: Envelope Encryption">
 
 Use per-record or per-tenant Data Encryption Keys (DEKs), wrapped by a Key Encryption Key (KEK) in KMS/HSM.
 
 ```text title="Data path"
 Generate DEK for object/tenant scope
-  -> Encrypt plaintext with AEAD (AES-256-GCM or XChaCha20-Poly1305)
-  -> Wrap DEK with KEK in managed KMS/HSM
-  -> Store ciphertext + wrapped DEK + metadata (alg, version, aad-context)
+-> Encrypt plaintext with AEAD (AES-256-GCM or XChaCha20-Poly1305)
+-> Wrap DEK with KEK in managed KMS/HSM
+-> Store ciphertext + wrapped DEK + metadata (alg, version, aad-context)
 ```
 
 | Benefit | Why |
@@ -45,8 +45,8 @@ Generate DEK for object/tenant scope
 | Scoped revocation | Revoke one tenant's keys without affecting others |
 | Auditable key usage | KMS/HSM provides full audit trail |
 
-  </TabItem>
-  <TabItem value="patternB" label="Pattern B: Split-Key Derivation">
+</TabItem>
+<TabItem value="patternB" label="Pattern B: Split-Key Derivation">
 
 When user-controlled secrecy is required, derive a user component from a high-entropy secret using memory-hard KDF (`Argon2id`), then combine with service-held key material in KMS.
 
@@ -56,8 +56,8 @@ When user-controlled secrecy is required, derive a user component from a high-en
 | Brute-force resistance | Argon2id parameters tied to current hardware baseline |
 | Key-version metadata | Transparent re-encryption support |
 
-  </TabItem>
-  <TabItem value="patternC" label="Pattern C: Hardware-Backed Keys">
+</TabItem>
+<TabItem value="patternC" label="Pattern C: Hardware-Backed Keys">
 
 Use platform authenticators/passkeys to **gate access and authorize key operations**, not to become sole raw encryption key material.
 
@@ -66,7 +66,7 @@ Use platform authenticators/passkeys to **gate access and authorize key operatio
 | Passkey-authenticated session obtains server authorization to unwrap DEK | Deriving irreversible data key directly from passkey credentials |
 | WebAuthn signatures authorize cryptographic operations | Passkey as sole encryption key with no recovery path |
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Architecture Review Decision Flow

@@ -53,7 +53,7 @@ Content audits are most valuable before a migration starts. Once content is mid-
 :::
 
 <Tabs>
-  <TabItem value="usage" label="Usage" default>
+<TabItem value="usage" label="Usage" default>
 
 ```bash title="drush-usage.sh"
 # Run the content audit
@@ -63,22 +63,22 @@ drush content-audit:run --format=json > audit.json
 drush content-audit:summary
 ```
 
-  </TabItem>
-  <TabItem value="output" label="Sample Output">
+</TabItem>
+<TabItem value="output" label="Sample Output">
 
 ```json title="audit-output.json"
 {
   "content_types": {
-    "article": { "published": 142, "unpublished": 23 },
-    "page": { "published": 38, "unpublished": 5 },
-    "landing_page": { "published": 12, "unpublished": 2 }
+"article": { "published": 142, "unpublished": 23 },
+"page": { "published": 38, "unpublished": 5 },
+"landing_page": { "published": 12, "unpublished": 2 }
   },
   "total_nodes": 222,
   "last_updated": "2026-02-06T18:07:00Z"
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Technical Takeaway

@@ -12,7 +12,7 @@ tags:
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-06-execution-over-hype-what-actually-mattered-across-gpt-5-4-dr.png
 description: >-
-  A practitioner’s read on this week’s real signals: execution-first agent
+  A practitioner's read on this week's real signals: execution-first agent
   patterns, GPT‑5.4 capabilities and safety framing, concrete CMS/security
   advisories, and infra changes that improve reliability.
 date: 2026-03-06T08:40:00.000Z
@@ -34,7 +34,7 @@ Most of this cycle looked like standard AI marketing noise, but a few signals we
 >
 > — Simon Willison, [Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/)
 
-This is still the most useful framing in agentic development. If the agent cannot run what it wrote, it is autocomplete with better branding. The anti-pattern remains common: unreviewed AI code pushed to teammates as a “draft PR.”
+This is still the most useful framing in agentic development. If the agent cannot run what it wrote, it is autocomplete with better branding. The anti-pattern remains common: unreviewed AI code pushed to teammates as a "draft PR."
 
 :::caution[Unreviewed PRs Are a Team Tax]
 Require execution evidence in every agent-generated PR: command logs, failing test fixed, and final green run. No evidence, no merge. This cuts rework and avoids socializing broken code into review queues.
@@ -43,7 +43,7 @@ Require execution evidence in every agent-generated PR: command logs, failing te
 | Pattern | What Works | Failure Mode |
 |---|---|---|
 | Manual agent loop | Generate → run → inspect → patch → rerun | Stopping at generation |
-| PR discipline | Human review + runtime proof | “Looks fine” approvals |
+| PR discipline | Human review + runtime proof | "Looks fine" approvals |
 | Test gating | CI blocks without tests/lint | Silent regressions in edge paths |
 
 ```yaml title="quality-gate.yml" showLineNumbers
@@ -74,19 +74,23 @@ jobs:
 
 ## GPT‑5.4: Useful Upgrade, Not Magic
 
-OpenAI’s GPT‑5.4 release is materially relevant because of three concrete facts: API availability (`gpt-5.4`, `gpt-5.4-pro`), **1M context window**, and broad tool/computer-use focus. That changes architecture choices for long-context assistants and codebase-scale reasoning.
+OpenAI's GPT‑5.4 release is materially relevant because of three concrete facts: API availability (`gpt-5.4`, `gpt-5.4-pro`), **1M context window**, and broad tool/computer-use focus. That changes architecture choices for long-context assistants and codebase-scale reasoning.
 
 > "Two new API models: gpt-5.4 and gpt-5.4-pro ... 1 million token context window."
 >
 > — OpenAI, [Introducing GPT‑5.4](https://openai.com/index/introducing-gpt-5-4/)
 
 <Tabs>
-  <TabItem value="gpt54" label="gpt-5.4" default>
-  Balanced latency/cost profile for production workflows that need long context and tool calls.
-  </TabItem>
-  <TabItem value="gpt54pro" label="gpt-5.4-pro">
-  Better for harder reasoning and code tasks when quality beats latency/cost.
-  </TabItem>
+<TabItem value="gpt54" label="gpt-5.4" default>
+
+Balanced latency/cost profile for production workflows that need long context and tool calls.
+
+</TabItem>
+<TabItem value="gpt54pro" label="gpt-5.4-pro">
+
+Better for harder reasoning and code tasks when quality beats latency/cost.
+
+</TabItem>
 </Tabs>
 
 :::info[System Card Matters More Than Demo Clips]
@@ -95,7 +99,7 @@ The GPT‑5.4 Thinking System Card and CoT-control research point to a practical
 
 ## Security and CMS Updates: Patch Windows Are Tight
 
-March 4, 2026 dropped multiple Drupal contrib XSS advisories (`SA-CONTRIB-2026-023`, `SA-CONTRIB-2026-024`), while Drupal core patch lines (`10.6.4`, `11.3.4`) shipped CKEditor5 `v47.6.0` updates. CISA also added five actively exploited vulnerabilities to KEV. This is not a “read later” bucket.
+March 4, 2026 dropped multiple Drupal contrib XSS advisories (`SA-CONTRIB-2026-023`, `SA-CONTRIB-2026-024`), while Drupal core patch lines (`10.6.4`, `11.3.4`) shipped CKEditor5 `v47.6.0` updates. CISA also added five actively exploited vulnerabilities to KEV. This is not a "read later" bucket.
 
 :::danger[Active Exploitation Is Already Happening]
 KEV entries imply observed exploitation, not theoretical risk. For internet-facing systems, patch/mitigate first, then write retrospective notes.
@@ -121,7 +125,7 @@ KEV entries imply observed exploitation, not theoretical risk. For internet-faci
 
 ## Infra Signals: Better Network Performance and Better Detection
 
-Cloudflare’s ARR and QUIC proxy-mode changes are practical infrastructure wins: fewer private-IP overlap headaches and materially better proxy throughput. Their always-on detection work is also notable because it moves beyond static request signatures by correlating payloads with server responses.
+Cloudflare's ARR and QUIC proxy-mode changes are practical infrastructure wins: fewer private-IP overlap headaches and materially better proxy throughput. Their always-on detection work is also notable because it moves beyond static request signatures by correlating payloads with server responses.
 
 ```bash title="ops-checklist.sh"
 #!/usr/bin/env bash
@@ -136,9 +140,9 @@ echo "5) Promote only if latency and FP targets are met"
 
 ## Ecosystem Reality Check: Education, Browser Controls, and Adoption Channels
 
-There’s a flood of “AI adoption” content. Useful pieces this week were the ones tied to operational behavior: GitHub+Andela examples of learning inside production workflows, Firefox emphasizing user choice for AI controls, and OpenAI pushing education capability tooling plus Excel/financial integrations for regulated analysis contexts.
+There's a flood of "AI adoption" content. Useful pieces this week were the ones tied to operational behavior: GitHub+Andela examples of learning inside production workflows, Firefox emphasizing user choice for AI controls, and OpenAI pushing education capability tooling plus Excel/financial integrations for regulated analysis contexts.
 
-The rule: ignore brand narrative, keep artifacts. If a post doesn’t include measurable workflow change, it’s content marketing.
+The rule: ignore brand narrative, keep artifacts. If a post doesn't include measurable workflow change, it's content marketing.
 
 :::warning[Adoption Without Measurement Is Theater]
 Track per-team deltas: lead time, escaped defects, and incident rate before/after AI workflow changes. If those metrics do not improve, roll back the process regardless of executive enthusiasm.
@@ -176,5 +180,5 @@ mindmap
 The durable pattern is boring and effective: execution evidence, patch discipline, and measurable workflow outcomes. Everything else is narrative.
 
 :::tip[Single Most Actionable Move]
-Add a hard “execution proof” gate to every AI-assisted PR this week: required repro/test logs plus final green run artifact. This one change removes the highest-volume failure mode in agentic coding.
+Add a hard "execution proof" gate to every AI-assisted PR this week: required repro/test logs plus final green run artifact. This one change removes the highest-volume failure mode in agentic coding.
 :::

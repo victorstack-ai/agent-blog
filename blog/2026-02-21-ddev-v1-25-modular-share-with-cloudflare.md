@@ -52,7 +52,7 @@ flowchart LR
 ```
 
 <Tabs>
-  <TabItem value="cloudflare" label="Cloudflare (New Default)">
+<TabItem value="cloudflare" label="Cloudflare (New Default)">
 
 | Aspect | Detail |
 |---|---|
@@ -68,8 +68,8 @@ ddev share --provider cloudflare
 # URL appears in terminal, share it
 ```
 
-  </TabItem>
-  <TabItem value="ngrok" label="ngrok (Legacy)">
+</TabItem>
+<TabItem value="ngrok" label="ngrok (Legacy)">
 
 | Aspect | Detail |
 |---|---|
@@ -85,7 +85,7 @@ ddev config global --ngrok-token=YOUR_TOKEN
 ddev share
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Provider Comparison

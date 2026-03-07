@@ -79,34 +79,34 @@ from playwright.sync_api import sync_playwright
 import anthropic  # or openai, or google.generativeai
 
 def extract_structured_data(url: str, schema: str) -> dict:
-    """Crawl4AI's entire value proposition in 20 lines."""
-    with sync_playwright() as p:
-        browser = p.chromium.launch()
-        page = browser.new_page()
-        page.goto(url, wait_until="networkidle")
-        # highlight-next-line
-        html = page.content()
-        browser.close()
+"""Crawl4AI's entire value proposition in 20 lines."""
+with sync_playwright() as p:
+browser = p.chromium.launch()
+page = browser.new_page()
+page.goto(url, wait_until="networkidle")
+# highlight-next-line
+html = page.content()
+browser.close()
 
-    # Strip to text — no need to send full HTML to the LLM
-    from bs4 import BeautifulSoup
-    text = BeautifulSoup(html, "html.parser").get_text(separator="\n", strip=True)
+# Strip to text — no need to send full HTML to the LLM
+from bs4 import BeautifulSoup
+text = BeautifulSoup(html, "html.parser").get_text(separator="\n", strip=True)
 
-    client = anthropic.Anthropic()
-    response = client.messages.create(
-        model="claude-sonnet-4-20250514",
-        max_tokens=2000,
-        messages=[{
-            "role": "user",
-            "content": f"Extract the following from this page:\n{schema}\n\nPage content:\n{text[:8000]}"
-        }]
-    )
-    return response.content[0].text
+client = anthropic.Anthropic()
+response = client.messages.create(
+model="claude-sonnet-4-20250514",
+max_tokens=2000,
+messages=[{
+"role": "user",
+"content": f"Extract the following from this page:\n{schema}\n\nPage content:\n{text[:8000]}"
+}]
+)
+return response.content[0].text
 
 # Usage: same thing Crawl4AI charges you for
 result = extract_structured_data(
-    "https://example.com/products",
-    "Return JSON: [{name, price, description}]"
+"https://example.com/products",
+"Return JSON: [{name, price, description}]"
 )
 ```
 
@@ -118,47 +118,47 @@ from playwright.sync_api import sync_playwright
 import anthropic
 
 def browser_agent(task: str, start_url: str, max_steps: int = 10):
-    """Moltbot's entire product in a function."""
-    client = anthropic.Anthropic()
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
-        page = browser.new_page()
-        page.goto(start_url)
+"""Moltbot's entire product in a function."""
+client = anthropic.Anthropic()
+with sync_playwright() as p:
+browser = p.chromium.launch(headless=False)
+page = browser.new_page()
+page.goto(start_url)
 
-        # highlight-next-line
-        for step in range(max_steps):
-            # Get page state
-            title = page.title()
-            text = page.inner_text("body")[:3000]
+# highlight-next-line
+for step in range(max_steps):
+# Get page state
+title = page.title()
+text = page.inner_text("body")[:3000]
 
-            # Ask LLM what to do
-            response = client.messages.create(
-                model="claude-sonnet-4-20250514",
-                max_tokens=500,
-                messages=[{
-                    "role": "user",
-                    "content": (
-                        f"Task: {task}\n"
-                        f"Current page: {title}\n"
-                        f"Page text: {text}\n\n"
-                        "Reply with ONE action: click 'selector' | type 'selector' 'text' | done 'result'"
-                    )
-                }]
-            )
-            action = response.content[0].text.strip()
+# Ask LLM what to do
+response = client.messages.create(
+model="claude-sonnet-4-20250514",
+max_tokens=500,
+messages=[{
+"role": "user",
+"content": (
+f"Task: {task}\n"
+f"Current page: {title}\n"
+f"Page text: {text}\n\n"
+"Reply with ONE action: click 'selector' | type 'selector' 'text' | done 'result'"
+)
+}]
+)
+action = response.content[0].text.strip()
 
-            if action.startswith("done"):
-                return action
-            elif action.startswith("click"):
-                selector = action.split("'")[1]
-                page.click(selector)
-                page.wait_for_load_state("networkidle")
-            elif action.startswith("type"):
-                parts = action.split("'")
-                page.fill(parts[1], parts[3])
+if action.startswith("done"):
+return action
+elif action.startswith("click"):
+selector = action.split("'")[1]
+page.click(selector)
+page.wait_for_load_state("networkidle")
+elif action.startswith("type"):
+parts = action.split("'")
+page.fill(parts[1], parts[3])
 
-        browser.close()
-    return "Max steps reached"
+browser.close()
+return "Max steps reached"
 ```
 
 </TabItem>

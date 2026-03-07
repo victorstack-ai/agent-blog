@@ -71,7 +71,7 @@ Every action goes through the same Drupal client, so transient error handling is
 :::
 
 <Tabs>
-  <TabItem value="actions" label="All 9 Actions" default>
+<TabItem value="actions" label="All 9 Actions" default>
 
 ```javascript title="src/actions/index.js" showLineNumbers
 const actions = {
@@ -90,32 +90,32 @@ const actions = {
 };
 ```
 
-  </TabItem>
-  <TabItem value="retry" label="Retry Logic">
+</TabItem>
+<TabItem value="retry" label="Retry Logic">
 
 ```javascript title="src/drupalClient.js" showLineNumbers
 async function requestWithRetry(config, retries = 3) {
   for (let attempt = 0; attempt <= retries; attempt++) {
-    try {
-      const response = await axios(config);
-      return response;
-    } catch (error) {
-      const status = error.response?.status;
-      // highlight-next-line
-      const retryable = [408, 429, 500, 502, 503, 504].includes(status)
-        || error.code === 'ECONNRESET'
-        || error.code === 'ENOTFOUND';
+try {
+const response = await axios(config);
+return response;
+} catch (error) {
+const status = error.response?.status;
+// highlight-next-line
+const retryable = [408, 429, 500, 502, 503, 504].includes(status)
+|| error.code === 'ECONNRESET'
+|| error.code === 'ENOTFOUND';
 
-      if (!retryable || attempt === retries) throw error;
+if (!retryable || attempt === retries) throw error;
 
-      const delay = Math.pow(2, attempt) * 1000;
-      await new Promise(r => setTimeout(r, delay));
-    }
+const delay = Math.pow(2, attempt) * 1000;
+await new Promise(r => setTimeout(r, delay));
+}
   }
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Test Coverage

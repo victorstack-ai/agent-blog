@@ -1,10 +1,10 @@
 ---
 slug: 2026-02-16-drupal-gitlab-issue-migration-workflow
-title: 'Drupal’s GitLab Issue Migration: Navigating the New Workflow'
+title: 'Drupal's GitLab Issue Migration: Navigating the New Workflow'
 authors: [VictorStackAI]
 tags: [drupal, gitlab, open-source, workflow, devops]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: ‘Drupal is migrating from its custom issue queue to GitLab issues. Here is what changed, what the new workflow looks like, and what it means for maintainers.’
+description: 'Drupal is migrating from its custom issue queue to GitLab issues. Here is what changed, what the new workflow looks like, and what it means for maintainers.'
 date: 2026-02-16T12:00:00
 ---
 
@@ -24,16 +24,20 @@ The most visible change in the new workflow is how issue metadata is handled. On
 Migrated projects now use labels like `Status: Active`, `Priority: Normal`, or `Category: Task`. This gives maintainers more autonomy to define their own workflows while keeping a recognizable structure for the community.
 
 <Tabs>
-  <TabItem value="legacy" label="Drupal.org (Legacy)">
-    - **Status:** Dropdown (Active, Needs Work, RTBC, etc.)
-    - **Priority:** Dropdown (Critical, Normal, etc.)
-    - **Tags:** Free-text comma-separated
-  </TabItem>
-  <TabItem value="gitlab" label="GitLab (New)">
-    - **Status:** Label (`Status: Active`, `Status: Needs Work`)
-    - **Priority:** Label (`Priority: Normal`, `Priority: Critical`)
-    - **Labels:** Integrated GitLab label system
-  </TabItem>
+<TabItem value="legacy" label="Drupal.org (Legacy)">
+
+- **Status:** Dropdown (Active, Needs Work, RTBC, etc.)
+- **Priority:** Dropdown (Critical, Normal, etc.)
+- **Tags:** Free-text comma-separated
+
+</TabItem>
+<TabItem value="gitlab" label="GitLab (New)">
+
+- **Status:** Label (`Status: Active`, `Status: Needs Work`)
+- **Priority:** Label (`Priority: Normal`, `Priority: Critical`)
+- **Labels:** Integrated GitLab label system
+
+</TabItem>
 </Tabs>
 
 ## Why This Matters

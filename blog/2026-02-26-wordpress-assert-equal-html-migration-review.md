@@ -28,13 +28,13 @@ If your test suite has ever failed because of a whitespace difference in rendere
 ## Migration Patterns
 
 <Tabs>
-  <TabItem value="direct" label="1. Direct String to Semantic">
+<TabItem value="direct" label="1. Direct String to Semantic">
 
 **Before:**
 ```php title="tests/test-output.php"
 $this->assertSame(
-    '<p class="notice">Saved</p>',
-    $actual_html
+'<p class="notice">Saved</p>',
+$actual_html
 );
 ```
 
@@ -42,13 +42,13 @@ $this->assertSame(
 ```php title="tests/test-output.php"
 // highlight-next-line
 $this->assertEqualHTML(
-    '<p class="notice">Saved</p>',
-    $actual_html
+'<p class="notice">Saved</p>',
+$actual_html
 );
 ```
 
-  </TabItem>
-  <TabItem value="normalize" label="2. Remove Custom Normalization">
+</TabItem>
+<TabItem value="normalize" label="2. Remove Custom Normalization">
 
 **Before:**
 ```php title="tests/test-render.php"
@@ -64,8 +64,8 @@ $this->assertEqualHTML( $expected, $actual );
 
 No more hand-rolled normalization functions.
 
-  </TabItem>
-  <TabItem value="buffer" label="3. Output Buffer Render Tests">
+</TabItem>
+<TabItem value="buffer" label="3. Output Buffer Render Tests">
 
 **Before:**
 ```php title="tests/test-blocks.php"
@@ -74,8 +74,8 @@ render_banner_block( array( 'message' => 'Hi' ) );
 $actual = ob_get_clean();
 
 $this->assertSame(
-    '<section class="banner"><p>Hi</p></section>',
-    $actual
+'<section class="banner"><p>Hi</p></section>',
+$actual
 );
 ```
 
@@ -87,13 +87,13 @@ $actual = ob_get_clean();
 
 // highlight-next-line
 $this->assertEqualHTML(
-    '<section class="banner"><p>Hi</p></section>',
-    $actual
+'<section class="banner"><p>Hi</p></section>',
+$actual
 );
 ```
 
-  </TabItem>
-  <TabItem value="attr" label="4. Attribute Order Noise">
+</TabItem>
+<TabItem value="attr" label="4. Attribute Order Noise">
 
 **Before (fails):**
 ```php title="tests/test-links.php"
@@ -108,7 +108,7 @@ $this->assertSame( $expected, $actual ); // FAILS
 $this->assertEqualHTML( $expected, $actual ); // PASSES
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## When to Use Which Assertion

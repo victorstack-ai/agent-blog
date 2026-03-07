@@ -58,7 +58,7 @@ The generated config needs a human review before import. Field machine names, en
 :::
 
 <Tabs>
-  <TabItem value="input" label="Natural Language Input" default>
+<TabItem value="input" label="Natural Language Input" default>
 
 ```text title="user-prompt.txt"
 Show published articles tagged 'security',
@@ -67,37 +67,37 @@ with fields: title, author, teaser, published date.
 Page display with 10 items per page.
 ```
 
-  </TabItem>
-  <TabItem value="output" label="Generated Views Config">
+</TabItem>
+<TabItem value="output" label="Generated Views Config">
 
 ```yaml title="config/views.view.security_articles.yml" showLineNumbers
 display:
   default:
-    display_options:
-      fields:
-        title:
-          type: string
-        uid:
-          type: entity_reference_label
-        body:
-          type: text_summary_or_trimmed
-        created:
-          type: timestamp
-      filters:
-        status:
-          value: '1'
-        field_tags_target_id:
-          value: security
-      sorts:
-        created:
-          order: DESC
-      pager:
-        type: full
-        options:
-          items_per_page: 10
+display_options:
+fields:
+title:
+type: string
+uid:
+type: entity_reference_label
+body:
+type: text_summary_or_trimmed
+created:
+type: timestamp
+filters:
+status:
+value: '1'
+field_tags_target_id:
+value: security
+sorts:
+created:
+order: DESC
+pager:
+type: full
+options:
+items_per_page: 10
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Technical Takeaway

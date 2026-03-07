@@ -53,20 +53,20 @@ The package was functional but had no explicit license, which blocks adoption in
 :::
 
 <Tabs>
-  <TabItem value="usage" label="Usage" default>
+<TabItem value="usage" label="Usage" default>
 
 ```php title="usage-example.php" showLineNumbers
 use Illuminate\Support\Collection;
 
 $users = collect([
-    ['id' => 1, 'name' => 'Alice'],
-    ['id' => 2, 'name' => 'Bob'],
+['id' => 1, 'name' => 'Alice'],
+['id' => 2, 'name' => 'Bob'],
 ]);
 
 $posts = collect([
-    ['user_id' => 1, 'title' => 'First Post'],
-    ['user_id' => 1, 'title' => 'Second Post'],
-    ['user_id' => 2, 'title' => 'Bob Writes'],
+['user_id' => 1, 'title' => 'First Post'],
+['user_id' => 1, 'title' => 'Second Post'],
+['user_id' => 2, 'title' => 'Bob Writes'],
 ]);
 
 // highlight-next-line
@@ -76,23 +76,23 @@ $users->hasMany($posts, 'user_id', 'id', 'posts');
 // Bob now has $user['posts'] => Collection of 1 post
 ```
 
-  </TabItem>
-  <TabItem value="ci" label="CI Matrix">
+</TabItem>
+<TabItem value="ci" label="CI Matrix">
 
 ```yaml title=".github/workflows/test.yml" showLineNumbers
 strategy:
   matrix:
-    php-version: ['8.1', '8.2', '8.3', '8.4']
+php-version: ['8.1', '8.2', '8.3', '8.4']
 steps:
-  - uses: shivammathur/setup-php@v2
-    with:
-      php-version: ${{ matrix.php-version }}
-  - run: composer install
+- uses: shivammathur/setup-php@v2
+with:
+php-version: ${{ matrix.php-version }}
+- run: composer install
   # highlight-next-line
-  - run: vendor/bin/phpunit
+- run: vendor/bin/phpunit
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 **MIT LICENSE** added. **GitHub Actions CI** runs the test suite against a **PHP 8.1, 8.2, 8.3, and 8.4 matrix**. Every push and pull request triggers the pipeline. **CHANGELOG.md** with a **v1.0.0 entry** documents the initial stable release. The package is now **ready for Packagist publication**.

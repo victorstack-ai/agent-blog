@@ -12,7 +12,7 @@ tags:
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-03-from-node-25-and-php-only-blocks-to-ics-cves-what-actually-d.png
 description: >-
-  A practitioner’s read on Node.js 25.8.0, WordPress PHP-only blocks, Gemini 3.1
+  A practitioner's read on Node.js 25.8.0, WordPress PHP-only blocks, Gemini 3.1
   Flash-Lite, Project Genie, and a heavy wave of ICS/webapp security advisories.
 date: 2026-03-03T18:00:00.000Z
 ---
@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most release feeds are noise; this batch had real signal. The useful pattern is simple: runtimes got incremental wins, AI launches split between practical and theatrical, and security advisories kept proving that authentication and access control are still where systems fail in 2026. ~~“Modern stacks are safer by default now.”~~ Not in infrastructure-facing software.
+Most release feeds are noise; this batch had real signal. The useful pattern is simple: runtimes got incremental wins, AI launches split between practical and theatrical, and security advisories kept proving that authentication and access control are still where systems fail in 2026. ~~"Modern stacks are safer by default now."~~ Not in infrastructure-facing software.
 
 <!-- truncate -->
 
@@ -55,21 +55,25 @@ function acme_register_server_kpi_block() {
 add_action( 'init', 'acme_register_server_kpi_block' );
 ```
 
-:::caution[Don’t fake interactivity with PHP-only blocks]
+:::caution[Don't fake interactivity with PHP-only blocks]
 Use PHP-only blocks for render-time composition, data reads, and controlled markup. Skip this path for rich client-side interactions, offline editing behavior, or block UIs that depend on dynamic JS state. For those, register full block assets and treat editor/runtime parity as a requirement.
 :::
 
 ## AI launches: practical throughput vs demo theater
 
-Google DeepMind’s Project Genie tips are interesting for prompt craft, but this is still “prototype world synthesis,” not production game tooling. Gemini 3.1 Flash-Lite is the more operational release because cost/latency curves decide what ships.
+Google DeepMind's Project Genie tips are interesting for prompt craft, but this is still "prototype world synthesis," not production game tooling. Gemini 3.1 Flash-Lite is the more operational release because cost/latency curves decide what ships.
 
 <Tabs>
-  <TabItem value="gemini" label="Gemini 3.1 Flash-Lite" default>
-    Better fit for high-volume inference where response cost dominates architecture decisions. Real value: lower per-request cost at acceptable quality, enabling wider automation coverage.
-  </TabItem>
-  <TabItem value="genie" label="Project Genie">
-    Useful for experimentation and internal prototyping of generated environments. Real risk: teams mistake “promptable world generation” for a replacement of deterministic content pipelines.
-  </TabItem>
+<TabItem value="gemini" label="Gemini 3.1 Flash-Lite" default>
+
+Better fit for high-volume inference where response cost dominates architecture decisions. Real value: lower per-request cost at acceptable quality, enabling wider automation coverage.
+
+</TabItem>
+<TabItem value="genie" label="Project Genie">
+
+Useful for experimentation and internal prototyping of generated environments. Real risk: teams mistake "promptable world generation" for a replacement of deterministic content pipelines.
+
+</TabItem>
 </Tabs>
 
 | Topic | Claimed Value | Engineering Reality | Decision |
@@ -83,7 +87,7 @@ Track three numbers per workload: p95 latency, cost per 1K calls, and regression
 
 ## Security reality: secrets and critical infrastructure stayed fragile
 
-The “Protecting Developers Means Protecting Their Secrets” thesis is correct: secret leakage is filesystem + env + memory, not just Git history. At the same time, ICS advisories from Hitachi Energy, Labkotec, ePower, Mobiliti, and Everon show the same old pattern: access control mistakes plus weak auth hardening.
+The "Protecting Developers Means Protecting Their Secrets" thesis is correct: secret leakage is filesystem + env + memory, not just Git history. At the same time, ICS advisories from Hitachi Energy, Labkotec, ePower, Mobiliti, and Everon show the same old pattern: access control mistakes plus weak auth hardening.
 
 :::danger[CVSS 9.4 in charging and control backends is an operations problem, not a backlog item]
 Treat internet-exposed management planes as incident candidates immediately. Segment, restrict by allowlist, rotate credentials, and force authenticated API paths behind policy gateways before patch windows close.
@@ -155,7 +159,7 @@ The DropTimes discussion and Drupal ecosystem updates matter because contributor
 >
 > — Drupal community announcement summary, [The Drop Times coverage](https://www.thedroptimes.com/)
 
-January 2026 Baseline digest and the SASE “programmable platform” narrative reinforce one point: teams are converging on programmable policy layers, but policy quality is the bottleneck, not API availability.
+January 2026 Baseline digest and the SASE "programmable platform" narrative reinforce one point: teams are converging on programmable policy layers, but policy quality is the bottleneck, not API availability.
 
 ## The Bigger Picture
 

@@ -32,7 +32,7 @@ Most announcements this week fell into one of two buckets: real operational cont
 
 ## Search UX Is Becoming an Execution Layer
 
-Google’s visual search story now hinges on **query fan-out** in AI Mode and Canvas inside Search. This matters because search is drifting from retrieval to task completion, which shifts failure modes from “bad ranking” to “bad execution trace.”
+Google's visual search story now hinges on **query fan-out** in AI Mode and Canvas inside Search. This matters because search is drifting from retrieval to task completion, which shifts failure modes from "bad ranking" to "bad execution trace."
 
 :::info[Fan-out Is Useful but Expensive]
 Fan-out improves recall by running multiple query variants in parallel, but it can amplify hallucinated intent if the original visual context is weak. Instrumentation has to log branch quality, not just final answer quality, or debugging turns into guesswork.
@@ -42,7 +42,7 @@ Fan-out improves recall by running multiple query variants in parallel, but it c
 |---|---|---|---|
 | Google AI Mode visual search | Query fan-out behavior explained | Better multi-intent retrieval, higher branch variance | Track per-branch confidence and token burn |
 | Canvas in AI Mode (US) | Draft docs and interactive tools in Search | Search session can now create artifacts directly | Require export provenance metadata |
-| Firefox AI controls | “User choice” framing in product controls | Model routing becomes a browser policy decision | Default-deny unknown model providers |
+| Firefox AI controls | "User choice" framing in product controls | Model routing becomes a browser policy decision | Default-deny unknown model providers |
 
 > "We believe in user choice."
 >
@@ -50,25 +50,31 @@ Fan-out improves recall by running multiple query variants in parallel, but it c
 
 ## Frontier Models: Capability Is Up, Controllability Is Not
 
-OpenAI shipped GPT-5.4 and published CoT-control findings plus a thinking system card. Useful release. The critical bit is not benchmark bragging; it’s that reasoning traces are still hard to control in deterministic ways.
+OpenAI shipped GPT-5.4 and published CoT-control findings plus a thinking system card. Useful release. The critical bit is not benchmark bragging; it's that reasoning traces are still hard to control in deterministic ways.
 
 > "Shock! Shock!"
 >
 > — Donald Knuth on new model progress, [Link](https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf)
 
 <Tabs>
-  <TabItem value="gpt54" label="GPT-5.4" default>
-    Strongest signal: 1M-token context plus coding/tool-search focus for professional workflows.  
-    Required response: add long-context regression tests, not just latency checks.
-  </TabItem>
-  <TabItem value="cot" label="CoT-Control">
-    Strongest signal: models struggle to reliably shape their own chain-of-thought behavior.  
-    Required response: external monitoring remains mandatory; ~~prompt-only safety~~ is not a control strategy.
-  </TabItem>
-  <TabItem value="alt-models" label="Gemini/Qwen">
-    Gemini 3.1 Flash-Lite pushes price-performance; Qwen 3.5 momentum is real but team churn is risk.  
-    Required response: keep multi-model fallback with provider health weighting.
-  </TabItem>
+<TabItem value="gpt54" label="GPT-5.4" default>
+
+Strongest signal: 1M-token context plus coding/tool-search focus for professional workflows.  
+Required response: add long-context regression tests, not just latency checks.
+
+</TabItem>
+<TabItem value="cot" label="CoT-Control">
+
+Strongest signal: models struggle to reliably shape their own chain-of-thought behavior.  
+Required response: external monitoring remains mandatory; ~~prompt-only safety~~ is not a control strategy.
+
+</TabItem>
+<TabItem value="alt-models" label="Gemini/Qwen">
+
+Gemini 3.1 Flash-Lite pushes price-performance; Qwen 3.5 momentum is real but team churn is risk.  
+Required response: keep multi-model fallback with provider health weighting.
+
+</TabItem>
 </Tabs>
 
 ```ts title="guardrails/release-gate.ts" showLineNumbers
@@ -100,7 +106,7 @@ export function releaseGate(input: ReleaseInput): string[] {
 Cursor automations and ACP support for JetBrains are meaningful because they reduce context switching inside mature enterprise IDEs. Next.js 16 becoming the default raises framework drift risk for teams that pin behavior implicitly.
 
 :::caution[Default Upgrades Break Quietly]
-When a framework becomes “default,” hidden assumptions in scaffolding spread quickly across repos. Pin versions in templates and CI bootstrap scripts, then schedule intentional upgrades with changelog diff review.
+When a framework becomes "default," hidden assumptions in scaffolding spread quickly across repos. Pin versions in templates and CI bootstrap scripts, then schedule intentional upgrades with changelog diff review.
 :::
 
 ```diff title="templates/web/composer.json"
@@ -112,7 +118,7 @@ When a framework becomes “default,” hidden assumptions in scaffolding spread
 
 ## Drupal/WordPress: Patch Discipline Beats Heroics
 
-Drupal 10.6.4 and 11.3.4 are production patch releases, both pulling CKEditor5 47.6.0 with an XSS-related security update context. Contrib advisories also flagged XSS in Google Analytics GA4 (`<1.1.14`, CVE-2026-3529) and Calculation Fields (`<1.0.4`, CVE-2026-3528). WP Rig’s maintainer interview and UI Suite Display Builder video both reinforce a practical truth: starter tooling matters when it encodes sane defaults.
+Drupal 10.6.4 and 11.3.4 are production patch releases, both pulling CKEditor5 47.6.0 with an XSS-related security update context. Contrib advisories also flagged XSS in Google Analytics GA4 (`<1.1.14`, CVE-2026-3529) and Calculation Fields (`<1.0.4`, CVE-2026-3528). WP Rig's maintainer interview and UI Suite Display Builder video both reinforce a practical truth: starter tooling matters when it encodes sane defaults.
 
 :::danger[Contrib XSS Advisories Need Same-Day Triage]
 Treat SA-CONTRIB notices like incident intake, not backlog decoration. Inventory affected modules immediately, patch to fixed versions, and verify no dangerous custom attribute injection paths remain exposed.
@@ -159,10 +165,10 @@ drush watchdog:show --count=50 --severity=Error || true
 
 ## Security and Networking: Identity and Telemetry Are the New Perimeter
 
-Cloudflare’s ARR, QUIC Proxy Mode rebuild, always-on detections, identity onboarding controls (with Nametag), Gateway Authorization Proxy, and User Risk Scoring all point in the same direction: policy decisions are now continuous and behavior-scored. Add the GitGuardian+Google certificate leak data (2,622 valid certs exposed) and the “89% dormant OSS” package resurrection issue, and the conclusion is obvious: static allow/deny models are obsolete.
+Cloudflare's ARR, QUIC Proxy Mode rebuild, always-on detections, identity onboarding controls (with Nametag), Gateway Authorization Proxy, and User Risk Scoring all point in the same direction: policy decisions are now continuous and behavior-scored. Add the GitGuardian+Google certificate leak data (2,622 valid certs exposed) and the "89% dormant OSS" package resurrection issue, and the conclusion is obvious: static allow/deny models are obsolete.
 
 :::warning[Certificate and Dependency Debt Is Active Risk]
-Leaked-but-still-valid certs and revived abandoned packages both bypass “looks fine in review” heuristics. Enforce certificate rotation SLAs and package-health scoring in CI before merge, not after incident response.
+Leaked-but-still-valid certs and revived abandoned packages both bypass "looks fine in review" heuristics. Enforce certificate rotation SLAs and package-health scoring in CI before merge, not after incident response.
 :::
 
 | Domain | Verified item | Practical move |
@@ -172,11 +178,11 @@ Leaked-but-still-valid certs and revived abandoned packages both bypass “looks
 | Access control | Gateway Authorization Proxy + User Risk Scoring | Shift from static policy to adaptive policy gates |
 | Detection | Attack Signature + Full-Transaction Detection | Correlate request payload + response outcome |
 | Secrets | 2,622 valid certs from leaked keys | Rotate keys on exposure, revoke certs fast |
-| Supply chain | “89% dormant majority” resurfacing | Add package health and maintainer-activity checks |
+| Supply chain | "89% dormant majority" resurfacing | Add package health and maintainer-activity checks |
 
 ## Education, Journalism, and Workforce: Measurement Finally Shows Up
 
-OpenAI’s education updates are useful because they include certification and outcome measurement framing, not just adoption slogans. Axios’ local journalism workflow and GitHub+Andela’s production-learning path show the same pattern: **AI value shows up when embedded in real throughput systems**.
+OpenAI's education updates are useful because they include certification and outcome measurement framing, not just adoption slogans. Axios' local journalism workflow and GitHub+Andela's production-learning path show the same pattern: **AI value shows up when embedded in real throughput systems**.
 
 ## Coverage Ledger (All Verified Items Compiled)
 
@@ -210,7 +216,7 @@ OpenAI’s education updates are useful because they include certification and o
 - Cloudflare + Nametag deepfake/laptop-farm defense: identity proofing.
 - Cloudflare Gateway Authorization Proxy: clientless identity-aware controls.
 - Cloudflare User Risk Scoring: adaptive access policy.
-- “89% Problem” dormant OSS resurrection: supply chain visibility gap.
+- "89% Problem" dormant OSS resurrection: supply chain visibility gap.
 - OpenAI learning outcomes measurement suite: longitudinal education impact tracking.
 - Axios AI newsroom operations: throughput support for local reporting.
 - Cursor ACP in JetBrains: enterprise IDE integration path.
@@ -257,5 +263,5 @@ mindmap
 Hype cycles are loud; control planes are quiet. The teams worth copying published exact versions, exact constraints, and exact failure handling.
 
 :::tip[Single Action to Take Today]
-Create one release gate that blocks deployment unless security advisories are patched, model documentation is present, and adaptive access controls are validated in staging. One gate, enforced in CI, removes most of this week’s avoidable failures.
+Create one release gate that blocks deployment unless security advisories are patched, model documentation is present, and adaptive access controls are validated in staging. One gate, enforced in CI, removes most of this week's avoidable failures.
 :::

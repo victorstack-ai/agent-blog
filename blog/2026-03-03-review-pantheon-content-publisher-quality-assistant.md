@@ -18,7 +18,7 @@ I did not find a standalone Pantheon doc page that explicitly brands a single fe
 
 ## Capabilities That Matter to CMS Teams
 
-From Pantheon’s Content Publisher launch and product documentation, the most relevant capabilities are:
+From Pantheon's Content Publisher launch and product documentation, the most relevant capabilities are:
 
 - AI-assisted fields and generation support (for example metadata generation and assistive creation workflows).
 - Integrated approval workflows so draft, review, and publish states can be governed by role.
@@ -39,7 +39,7 @@ With approval workflow + publisher permissions, quality control can be distribut
 
 ### 3. Better multi-site governance consistency
 
-Pantheon’s cross-site positioning means the same governance pattern can be replicated across brand or regional properties, reducing process drift.
+Pantheon's cross-site positioning means the same governance pattern can be replicated across brand or regional properties, reducing process drift.
 
 ## Governance Risks for AI-Assisted Publishing
 
@@ -90,7 +90,7 @@ Minimum governance baseline for CMS teams:
 
 ## Bottom Line
 
-Pantheon Content Publisher’s quality-oriented AI capabilities can materially improve editorial throughput, but only if teams treat governance as part of the feature, not an afterthought. The ROI comes from combining AI assistance with strict role/workflow controls, not from removing human review.
+Pantheon Content Publisher's quality-oriented AI capabilities can materially improve editorial throughput, but only if teams treat governance as part of the feature, not an afterthought. The ROI comes from combining AI assistance with strict role/workflow controls, not from removing human review.
 
 ## References
 

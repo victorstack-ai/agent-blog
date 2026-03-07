@@ -12,7 +12,7 @@ tags:
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-06-from-patch-releases-to-attack-telemetry-what-actually-moved.png
 description: >-
-  A practitioner’s read on this week’s real signals: Drupal patching, AI product
+  A practitioner's read on this week's real signals: Drupal patching, AI product
   shifts, cloud security controls, and supply-chain exposure.
 date: 2026-03-06T00:31:00.000Z
 ---
@@ -26,9 +26,9 @@ Most headlines this week were marketing wrappers around old patterns, but there 
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## Conferences, Community, and What’s Actually Useful
+## Conferences, Community, and What's Actually Useful
 
-Stanford WebCamp 2026 opened CFPs (online on **April 30, 2026**, hybrid on **May 1, 2026**). Dripyard is stacking DrupalCon Chicago with training/sessions, and UI Suite’s Display Builder walkthrough shows a real demand: shipping layout outcomes faster without turning every content team into Twig maintainers. The WP Rig podcast with Rob Ruiz lands in the same place for WordPress: starter systems still matter when they teach architecture instead of cargo-cult snippets.
+Stanford WebCamp 2026 opened CFPs (online on **April 30, 2026**, hybrid on **May 1, 2026**). Dripyard is stacking DrupalCon Chicago with training/sessions, and UI Suite's Display Builder walkthrough shows a real demand: shipping layout outcomes faster without turning every content team into Twig maintainers. The WP Rig podcast with Rob Ruiz lands in the same place for WordPress: starter systems still matter when they teach architecture instead of cargo-cult snippets.
 
 > "Stanford WebCamp has opened its call for session proposals for the 2026 conference."
 >
@@ -47,14 +47,15 @@ When conferences emphasize templates, display builders, and starter kits, that i
 
 ## AI Product Releases: Separate Throughput Gains from Branding
 
-OpenAI pushed **GPT-5.4**, a **GPT-5.4 Thinking System Card**, CoT-Control findings, education tooling, and ChatGPT-for-Excel plus financial integrations. Google expanded AI Mode with visual query fan-out details and Canvas in U.S. Search. Cursor added automations. GitHub + Andela published field learning on production AI use. Accenture’s "five value models" and the new Adoption channel are useful only when translated into delivery checkpoints, not slideware.
+OpenAI pushed **GPT-5.4**, a **GPT-5.4 Thinking System Card**, CoT-Control findings, education tooling, and ChatGPT-for-Excel plus financial integrations. Google expanded AI Mode with visual query fan-out details and Canvas in U.S. Search. Cursor added automations. GitHub + Andela published field learning on production AI use. Accenture's "five value models" and the new Adoption channel are useful only when translated into delivery checkpoints, not slideware.
 
 > "Reasoning models struggle to control their chains of thought, reinforcing monitorability as an AI safety safeguard."
 >
 > — OpenAI, [Research note](https://openai.com/)
 
 <Tabs>
-  <TabItem value="shipping" label="Shipping Value" default>
+<TabItem value="shipping" label="Shipping Value" default>
+
   
 | Release | Real value | Ignore this trap |
 |---|---|---|
@@ -63,8 +64,9 @@ OpenAI pushed **GPT-5.4**, a **GPT-5.4 Thinking System Card**, CoT-Control findi
 | Cursor automations | Always-on agent loops for repetitive project ops | Unbounded trigger scopes with no audit trail |
 | Google Canvas in AI Mode | Fast drafting/prototyping inside search | Shipping artifacts straight from search outputs |
 
-  </TabItem>
-  <TabItem value="safety" label="Safety/Control">
+</TabItem>
+<TabItem value="safety" label="Safety/Control">
+
   
 | Release | Governance implication |
 |---|---|
@@ -72,7 +74,7 @@ OpenAI pushed **GPT-5.4**, a **GPT-5.4 Thinking System Card**, CoT-Control findi
 | Firefox AI controls (Ajit Varma) | User-choice framing aligns with enterprise policy toggles and opt-in controls |
 | AI in education initiative | Skills gap closure needs measurement artifacts, not just access claims |
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 :::caution[Model Upgrade Rule]
@@ -144,8 +146,8 @@ echo "Fail deployment if any step returns unresolved critical findings."
 | Valid certs mapped to leaked keys | Revoke certs + rotate private keys + audit issuance pipeline | PKI Team |
 | Dormant package resurrection | Add maintenance/activity score to dependency policy | Platform Eng |
 
-:::warning[Do Not Run “Log-Only” Forever]
-Cloudflare’s always-on detections (Attack Signature Detection + Full-Transaction Detection) exist because "log vs block" stalemates leave production exposed for months. Keep a bounded observation phase, then enforce.
+:::warning[Do Not Run "Log-Only" Forever]
+Cloudflare's always-on detections (Attack Signature Detection + Full-Transaction Detection) exist because "log vs block" stalemates leave production exposed for months. Keep a bounded observation phase, then enforce.
 :::
 
 ## Cloudflare and Network Controls: Less Manual Routing, More Policy Feedback
@@ -170,7 +172,7 @@ Implement ARR and risk-aware policy decisions in the same quarter. Solving addre
 
 ## Research and Model Ecosystem Notes
 
-A physics preprint on extending single-minus amplitudes to gravitons cited GPT-5.2 Pro assistance in derivation/verification flow. That is useful as workflow evidence, not proof of scientific correctness by default. Simon Willison’s anti-pattern note is the needed counterweight: unreviewed AI-generated PRs are still engineering malpractice, no matter how fluent the diff looks. Qwen 3.5 momentum plus team-departure rumors is a reminder that open-weight strategy has people risk, not just benchmark risk.
+A physics preprint on extending single-minus amplitudes to gravitons cited GPT-5.2 Pro assistance in derivation/verification flow. That is useful as workflow evidence, not proof of scientific correctness by default. Simon Willison's anti-pattern note is the needed counterweight: unreviewed AI-generated PRs are still engineering malpractice, no matter how fluent the diff looks. Qwen 3.5 momentum plus team-departure rumors is a reminder that open-weight strategy has people risk, not just benchmark risk.
 
 > "Don't file pull requests with code you haven't reviewed yourself."
 >

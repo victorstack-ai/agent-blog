@@ -45,63 +45,63 @@ Here is how a simple "Get Server Time" feature looks in both paradigms.
 #### The Controller
 
 <Tabs>
-  <TabItem value="htmx" label="HTMX (New)">
+<TabItem value="htmx" label="HTMX (New)">
 
 ```php title="src/Controller/HtmxDemoController.php"
 public function time() {
-    $time = $this->time->getCurrentTime();
-    $formatted = $this->dateFormatter->format($time, 'long');
+$time = $this->time->getCurrentTime();
+$formatted = $this->dateFormatter->format($time, 'long');
 
-    // highlight-next-line
-    // Just return HTML. Simpler, lighter.
-    return new Response("<div>Time: $formatted</div>");
+// highlight-next-line
+// Just return HTML. Simpler, lighter.
+return new Response("<div>Time: $formatted</div>");
 }
 ```
 
-  </TabItem>
-  <TabItem value="ajax" label="Drupal Ajax (Old)">
+</TabItem>
+<TabItem value="ajax" label="Drupal Ajax (Old)">
 
 ```php title="src/Controller/AjaxDemoController.php" showLineNumbers
 public function timeAjax() {
-    $time = $this->time->getCurrentTime();
-    $formatted = $this->dateFormatter->format($time, 'long');
+$time = $this->time->getCurrentTime();
+$formatted = $this->dateFormatter->format($time, 'long');
 
-    // highlight-next-line
-    // Construct a JSON response with commands.
-    $response = new AjaxResponse();
-    $response->addCommand(new HtmlCommand('#time-container', "<div>Time: $formatted</div>"));
-    return $response;
+// highlight-next-line
+// Construct a JSON response with commands.
+$response = new AjaxResponse();
+$response->addCommand(new HtmlCommand('#time-container', "<div>Time: $formatted</div>"));
+return $response;
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 #### The Frontend
 
 <Tabs>
-  <TabItem value="htmx" label="HTMX (New)">
+<TabItem value="htmx" label="HTMX (New)">
 
 ```html title="templates/htmx-demo.html.twig"
 <!-- Declarative: Get from URL, swap into target -->
 <button hx-get="/htmx-demo/time"
-        hx-target="#container"
-        hx-swap="innerHTML">
-  Get Time
+hx-target="#container"
+hx-swap="innerHTML">
+Get Time
 </button>
 ```
 
-  </TabItem>
-  <TabItem value="ajax" label="Drupal Ajax (Old)">
+</TabItem>
+<TabItem value="ajax" label="Drupal Ajax (Old)">
 
 ```html title="templates/ajax-demo.html.twig"
 <!-- Requires 'use-ajax' class and implicit conventions -->
 <a href="/htmx-demo/time-ajax" class="use-ajax">
-  Get Time
+Get Time
 </a>
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Side-by-Side Comparison

@@ -74,27 +74,27 @@ add_meta_box(
 WordPress script APIs expect delayed loading via `$args['strategy']` (`defer`/`async`) rather than custom keys like `defer` directly in `$args`.
 
 <Tabs>
-  <TabItem value="wrong" label="Wrong (Outdated)" default>
+<TabItem value="wrong" label="Wrong (Outdated)" default>
 
 ```php title="Incorrect argument shape"
 wp_register_script('my-script', $url, [], '1.0', [
-    // highlight-next-line
-    'defer' => true,  // NOT a valid key
+// highlight-next-line
+'defer' => true,  // NOT a valid key
 ]);
 ```
 
-  </TabItem>
-  <TabItem value="correct" label="Correct (WP 7.0+)">
+</TabItem>
+<TabItem value="correct" label="Correct (WP 7.0+)">
 
 ```php title="Correct argument shape" showLineNumbers
 wp_register_script('my-script', $url, [], '1.0', [
-    // highlight-next-line
-    'strategy' => 'defer',  // Valid strategy key
-    'in_footer' => true,
+// highlight-next-line
+'strategy' => 'defer',  // Valid strategy key
+'in_footer' => true,
 ]);
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ### 5. PHP floor change

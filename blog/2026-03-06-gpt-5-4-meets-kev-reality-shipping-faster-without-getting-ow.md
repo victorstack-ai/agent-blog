@@ -11,7 +11,7 @@ image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-06-gpt-5-4-meets-kev-reality-shipping-faster-without-getting-ow.png
 description: >-
   What actually mattered this week: GPT‑5.4 capabilities, Drupal/PHP release
-  impact, and the security signals teams can’t ignore.
+  impact, and the security signals teams can't ignore.
 date: 2026-03-06T01:33:00.000Z
 ---
 
@@ -42,14 +42,18 @@ The signal this week is simple: model capability jumped again, but operational r
 | Older frontier models | Legacy pipelines | Mixed | ~~Good enough forever~~ slow quality drift vs new baselines |
 
 <Tabs>
-  <TabItem value="ship-fast" label="Ship Fast" default>
+<TabItem value="ship-fast" label="Ship Fast" default>
+
 Use `gpt-5.4` for CI assistants, code migration, and doc generation.  
 Escalate only hard tickets to `gpt-5.4-pro`.
-  </TabItem>
-  <TabItem value="ship-safe" label="Ship Safe">
+
+</TabItem>
+<TabItem value="ship-safe" label="Ship Safe">
+
 Gate both models behind evals and budget caps.  
 No model gets direct write access to production infra.
-  </TabItem>
+
+</TabItem>
 </Tabs>
 
 ```yaml title="ai-release-gate.yaml" showLineNumbers
@@ -79,11 +83,11 @@ Use [LLM Prices](https://www.llm-prices.com/) for current pricing snapshots, the
 
 ## Search and Browser AI: UX Is Improving, Control Still Matters
 
-Google’s AI Mode visual search fan-out and Canvas rollout in U.S. search reduce friction for mixed visual/text workflows. Firefox’s new AI controls messaging is the right counterweight: user choice has to stay first-class, not buried in settings.
+Google's AI Mode visual search fan-out and Canvas rollout in U.S. search reduce friction for mixed visual/text workflows. Firefox's new AI controls messaging is the right counterweight: user choice has to stay first-class, not buried in settings.
 
 > "We believe in user choice"
 >
-> — Mozilla, [Ajit Varma on Firefox’s new AI controls](https://blog.mozilla.org/)
+> — Mozilla, [Ajit Varma on Firefox's new AI controls](https://blog.mozilla.org/)
 
 :::caution[Productivity Feature != Governance]
 Canvas and visual AI shortcuts speed up drafting and prototyping, but they also speed up bad decisions if source traceability is weak. Require citation capture for anything that feeds product, legal, or security decisions.
@@ -138,7 +142,7 @@ If CVEs are in CISA KEV and your environment is exposed, patching is not a plann
 
 ## Ecosystem Meta: Hype Cycles vs Production Truth
 
-Stanford WebCamp 2026 CFP is open. GitHub + Andela content showed AI learning inside production workflows, which is what matters. Cursor automations signal more always-on agent behavior. Simon Willison’s anti-pattern warning remains the best sanity check: unreviewed AI output pushed to teammates is operationally irresponsible.
+Stanford WebCamp 2026 CFP is open. GitHub + Andela content showed AI learning inside production workflows, which is what matters. Cursor automations signal more always-on agent behavior. Simon Willison's anti-pattern warning remains the best sanity check: unreviewed AI output pushed to teammates is operationally irresponsible.
 
 > "Don't file pull requests with code you haven't reviewed yourself."
 >

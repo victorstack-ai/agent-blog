@@ -54,25 +54,25 @@ flowchart LR
 ## Implementation
 
 <Tabs>
-  <TabItem value="compose" label="Docker Compose" default>
+<TabItem value="compose" label="Docker Compose" default>
 
 ```yaml title=".ddev/docker-compose.mcp-playwright.yaml"
 services:
   mcp-playwright:
-    image: mcr.microsoft.com/playwright:v1.56.1-noble
-    working_dir: /var/www/html/.ddev/mcp-playwright
+image: mcr.microsoft.com/playwright:v1.56.1-noble
+working_dir: /var/www/html/.ddev/mcp-playwright
 ```
 
-  </TabItem>
-  <TabItem value="command" label="DDEV Command">
+</TabItem>
+<TabItem value="command" label="DDEV Command">
 
 ```bash title=".ddev/commands/host/mcp-pw-smoke"
 # highlight-next-line
 ddev exec -s mcp-playwright "cd /var/www/html/.ddev/mcp-playwright && npm ci --silent && MCP_BASE_URL=${MCP_BASE_URL:-http://web:3100} npx playwright test tests/mcp-health.spec.js --reporter=line"
 ```
 
-  </TabItem>
-  <TabItem value="test" label="Smoke Test">
+</TabItem>
+<TabItem value="test" label="Smoke Test">
 
 ```javascript title=".ddev/mcp-playwright/tests/mcp-health.spec.js"
 // highlight-next-line
@@ -80,7 +80,7 @@ const response = await request.get(`${baseUrl}/health`);
 expect(response.ok()).toBeTruthy();
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 :::tip[Use DDEV DNS Names, Not localhost]

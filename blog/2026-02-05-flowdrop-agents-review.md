@@ -62,7 +62,7 @@ mindmap
 ## Comparison: What You Get vs What is Missing
 
 <Tabs>
-  <TabItem value="agents" label="FlowDrop Agents">
+<TabItem value="agents" label="FlowDrop Agents">
 
 | Feature | Status |
 |---|---|
@@ -74,8 +74,8 @@ mindmap
 | Security advisory coverage | **Not covered** |
 | Production stability guarantee | **None** |
 
-  </TabItem>
-  <TabItem value="nodesession" label="FlowDrop Node Session">
+</TabItem>
+<TabItem value="nodesession" label="FlowDrop Node Session">
 
 | Feature | Status |
 |---|---|
@@ -87,7 +87,7 @@ mindmap
 | Bulk/scheduled execution | **Unconfirmed** |
 | Rollback/diff tooling | **Unconfirmed** |
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 :::caution[Reality Check]
