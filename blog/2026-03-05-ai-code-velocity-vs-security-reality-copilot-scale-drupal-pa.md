@@ -21,7 +21,6 @@ date: 2026-03-05T22:28:00.000Z
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
-import IdealImage from '@theme/IdealImage';
 
 This cycle had one clear pattern: **AI output velocity** keeps increasing, while quality and security controls are still playing catch-up. The useful updates were the ones tied to measurable operational changes, not the launch copy. Everything else was mostly branding with a changelog attached.
 
@@ -191,7 +190,7 @@ mindmap
       Axios local journalism workflows
 ```
 
-<IdealImage img={require('@site/static/img/vs-social-card.png').default} alt="Devlog signal map visual" />
+![Devlog signal map visual](/img/vs-social-card.png)
 
 ## Bottom Line
 

@@ -18,14 +18,13 @@ date: 2026-03-06T01:33:00.000Z
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
-import IdealImage from '@theme/IdealImage';
 
 The signal this week is simple: model capability jumped again, but operational risk jumped too. GPT‑5.4 gives serious upside for engineering work, while KEV additions, Drupal contrib XSS advisories, and leaked cert data remind everyone that speed without controls is just debt with better branding.
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-<IdealImage img={require('@site/static/img/vs-social-card.png')} alt="Devlog visual" />
+![Devlog visual](/img/vs-social-card.png)
 
 ## GPT‑5.4 Is Useful, Not Magic
 

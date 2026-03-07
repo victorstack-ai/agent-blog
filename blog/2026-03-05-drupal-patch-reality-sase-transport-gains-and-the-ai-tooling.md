@@ -19,7 +19,6 @@ date: 2026-03-05T16:15:00.000Z
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
-import IdealImage from '@theme/IdealImage';
 
 This batch had a clear pattern: maintenance work is shipping real risk reduction, while a lot of AI announcements are mostly packaging. Drupal core/contrib patches and identity-aware network controls are concrete. Model and IDE announcements are useful, but only after filtering hype from operational impact.
 
@@ -27,7 +26,7 @@ This batch had a clear pattern: maintenance work is shipping real risk reduction
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-<IdealImage img={require('@site/static/img/vs-social-card.png')} alt="Devlog social card" />
+![Devlog social card](/img/vs-social-card.png)
 
 ## Drupal Core and Contrib: Patch Now, Not Later
 

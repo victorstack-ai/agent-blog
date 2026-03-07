@@ -24,7 +24,6 @@ date: 2026-03-03T15:54:00.000Z
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
-import IdealImage from '@theme/IdealImage';
 
 Security incidents are rarely one dramatic breach. They are usually **operational drift**: secrets copied into random places, phishing detections tuned for yesterday, and ecosystems ignoring structural decline while marketing teams publish victory laps.  
 This devlog compiles what held up under scrutiny and what deserves immediate engineering time.
@@ -218,7 +217,7 @@ mindmap
       Rollback speed
 ```
 
-<IdealImage img={require('/img/vs-social-card.png')} alt="Devlog security and ecosystem map" />
+![Devlog security and ecosystem map](/img/vs-social-card.png)
 
 ## Bottom Line
 
