@@ -22,13 +22,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This batch of updates has one common theme: the **Drupal** and broader PHP ecosystem is done pretending momentum is automatic. Deadlines are hard, budgets are tighter, and "AI-ready" now means architecture discipline, not adding another chatbot button. The useful signal is where teams are choosing operational rigor over branding theater.
+This batch of updates has one common thread: the **Drupal** and broader PHP ecosystem has stopped assuming momentum will sustain itself. Deadlines are hard, budgets are tighter, and "AI-ready" now demands architecture discipline rather than bolting on another chatbot widget. The useful signal here is where teams are choosing operational rigor over branding exercises.
 
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## DrupalSouth 2026 Splash Awards: Deadline Pressure Is Real
+## DrupalSouth 2026 Splash Awards: What the Submission Deadline Demands
 
 Submissions are open and close on **27 March 2026** for projects completed or significantly updated during 2025, ahead of the Wellington event in May. This matters because award-ready case studies force teams to document outcomes, not vibes.
 
@@ -47,19 +47,19 @@ Submissions are open and close on **27 March 2026** for projects completed or si
 Freeze your award narrative assets by **20 March 2026**. That gives one week to fix evidence gaps, legal approvals, and client sign-off before the 27 March cutoff.
 :::
 
-## Drupal 25th Anniversary Gala: Community Signal, Not Just Nostalgia
+## Drupal 25th Anniversary Gala: A Governance Moment Disguised as a Party
 
-The gala is set for **24 March 2026, 7:00–10:00 PM**, at **610 S Michigan Ave, Chicago**, during DrupalCon Chicago. The important part is not the party; it is the public signal that the community is still organizing around long-term stewardship.
+The gala is set for **24 March 2026, 7:00–10:00 PM**, at **610 S Michigan Ave, Chicago**, during DrupalCon Chicago. The date on the calendar is less interesting than what it represents: a public signal that the community still organizes around long-term stewardship.
 
 > "The Drupal 25th Anniversary Gala will take place on 24 March from 7:00 to 10:00 PM at 610 S Michigan Ave, Chicago."
 >
 > — Drupal community update, [Coverage](https://www.thedroptimes.com)
 
-:::info[Why This Actually Matters]
+:::info[Beyond the Celebration]
 Leadership clarity is easier to build when major community milestones are treated as governance moments, not just social events. If the room only celebrates history and avoids current funding and contributor capacity issues, it becomes a missed operational checkpoint.
 :::
 
-## Accessibility Microlearning: 15 Minutes That Remove Real Friction
+## Accessibility Microlearning: Small Time Investment, Measurable Review Speedup
 
 AmyJune Hineline's Linux Foundation microlearning focuses on practical contributor habits: alt text, global English, keyboard accessibility, and docs quality. This is the kind of short training that pays back immediately in PR review time.
 
@@ -87,9 +87,9 @@ jobs:
         run: ./scripts/check-global-english.sh
 ```
 
-~~Accessibility training is "nice to have."~~ Accessibility training is a merge-speed optimization when it prevents predictable review churn.
+~~Accessibility training is "nice to have."~~ Done well, accessibility training prevents predictable review churn and keeps merge velocity from tanking over fixable issues.
 
-## PHP Ecosystem Crossroads: Sustainability Is an Operating Model Problem
+## PHP Ecosystem Crossroads: Sustainability Requires a Funding Model, Not a Slogan
 
 The opinion piece calling out Drupal, Joomla, Magento, and Mautic is blunt for a reason: shared tech roots do not protect any project from contributor burnout and budget compression.
 
@@ -100,21 +100,21 @@ The opinion piece calling out Drupal, Joomla, Magento, and Mautic is blunt for a
 <Tabs>
 <TabItem value="reactive" label="Reactive Mode" default>
 
-Teams chase short-term fixes: launch campaigns, rotate slogans, publish roadmaps with no staffing model.  
+Teams chase short-term fixes: launch campaigns, rotate slogans, publish roadmaps with no staffing model.
 Result: temporary attention, same structural bottlenecks.
 
 </TabItem>
 <TabItem value="durable" label="Durable Mode">
 
-Teams fund maintainer time, enforce release hygiene, and tie roadmap items to real capacity.  
+Teams fund maintainer time, enforce release hygiene, and tie roadmap items to real capacity.
 Result: slower promises, higher delivery credibility.
 
 </TabItem>
 </Tabs>
 
-## Newsletter v4, Issue 9: AI-Ready vs Controlled AI
+## Newsletter v4, Issue 9: The Gap Between "AI-Ready" and "AI-Controlled"
 
-The newsletter's useful thread is the tension between "AI-ready architecture" and "controlled AI." One is systems engineering; the other is procurement theater if guardrails are absent.
+The newsletter's useful thread is the tension between "AI-ready architecture" and "controlled AI." Without guardrails, "AI-ready" ends up meaning "we added endpoints and hoped for the best." Controlled AI requires systems engineering work that most orgs skip.
 
 ```diff title="ai-policy.diff"
 - AI assistant can call any external endpoint directly from production.
@@ -156,9 +156,9 @@ final class AiExecutionPolicy
 Any agent that can write content and call unrestricted endpoints is one prompt away from a data leak. Enforce tool allowlists and approval gates before shipping AI features into editorial or ops workflows.
 :::
 
-## "Truly Programmable SASE": Marketing Claim vs Engineering Test
+## "Truly Programmable SASE": How to Validate the Marketing
 
-The claim about a "native developer stack" in SASE only matters if teams can ship custom policy logic safely, version it, test it, and roll it back quickly. Otherwise it is just a nicer dashboard with new billing lines.
+The claim about a "native developer stack" in SASE only matters if teams can ship custom policy logic safely, version it, test it, and roll it back quickly. Without those capabilities, you get a nicer dashboard with new billing lines.
 
 > "As the only SASE platform with a native developer stack..."
 >
@@ -185,7 +185,7 @@ If custom security logic is proprietary and non-portable, migration cost rises e
 
 </details>
 
-## The Bigger Picture
+## How These Signals Connect
 
 ```mermaid
 mindmap
@@ -206,9 +206,9 @@ mindmap
       Portability and lock-in tests
 ```
 
-## Bottom Line
+## What To Do With This
 
-The signal this week is simple: serious teams are replacing slogans with operational controls, documented outcomes, and funding realism.
+Every signal this week points in the same direction: documented outcomes over vague claims, funded maintenance over volunteerism assumptions, and explicit controls over "we'll figure it out in production."
 
 :::tip[Single Action That Pays Off Fast]
 Create one `engineering-trust-checklist.md` in your repo this week with five non-negotiables: evidence for impact claims, accessibility PR gate, AI tool allowlist, policy-in-git requirement, and funded maintainer ownership for each roadmap stream.

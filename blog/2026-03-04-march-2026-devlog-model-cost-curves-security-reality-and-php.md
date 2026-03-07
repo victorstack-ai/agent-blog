@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The feed this week split into two buckets: faster/cheaper AI tooling, and the same old security failures wearing new vendor logos. On the platform side, costs are dropping and interfaces are getting friendlier. On the security side, unauthenticated admin paths and weak auth controls are still everywhere in critical infrastructure.
+The feed this week split into two buckets: faster/cheaper AI tooling, and security failures that could have been written in 2019 but happen to carry new vendor logos. On the platform side, costs keep dropping and interfaces keep getting friendlier. On the security side, unauthenticated admin paths and weak auth controls remain stubbornly present in critical infrastructure.
 
 <!-- truncate -->
 
@@ -34,7 +34,7 @@ The feed this week split into two buckets: faster/cheaper AI tooling, and the sa
 >
 > — Google, [Gemini 3.1 Flash-Lite](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/)
 
-**Next.js 16** becoming the default for new sites and **Node.js 25.8.0 (Current)** means baseline assumptions changed in one week: scaffolds move forward, and your CI image lag turns into silent drift. Add **GPT-5.3 Instant** and **Gemini 3.1 Flash-Lite** and the practical question is no longer "which model is smartest," it is "which model is cheap enough to call constantly."
+**Next.js 16** becoming the default for new sites and **Node.js 25.8.0 (Current)** means baseline assumptions changed in one week: scaffolds move forward, and your CI image lag turns into silent drift. Add **GPT-5.3 Instant** and **Gemini 3.1 Flash-Lite** and model selection has shifted from a quality competition to a cost-per-call budgeting exercise.
 
 | Item | What changed | Why it matters | Immediate action |
 |---|---|---|---|
@@ -60,9 +60,9 @@ Great for conversational UX and operator tooling. Still not a free pass for auto
 When framework defaults change, generated code gets ahead of team conventions. Freeze scaffolding inputs (`next`, `node`, lint config), then upgrade intentionally with a changelog-based checklist.
 :::
 
-## Agent UX Is Becoming Product Surface, Not Just API Surface
+## Agent UX Moves from API Layer to Product Governance
 
-**MCP Apps and Team Marketplaces for Plugins** signals a shift: agent extensibility is now a governance problem, not just an SDK problem. Add **GitHub Copilot Dev Days** and **Project Genie prompt tips**, and the pattern is clear: vendors are optimizing adoption mechanics, not only model quality.
+**MCP Apps and Team Marketplaces for Plugins** signals a shift worth watching: agent extensibility now creates governance overhead that most orgs haven't staffed for. Add **GitHub Copilot Dev Days** and **Project Genie prompt tips**, and you can see vendors investing heavily in adoption workflows and onboarding friction reduction, separate from model improvements.
 
 ```mermaid
 flowchart TD
@@ -78,13 +78,13 @@ flowchart TD
 Treat internal plugin publishing like production code deploys: signed releases, scope review, and audit logs. "Internal" does not mean safe; it means mistakes scale faster.
 :::
 
-## Security Feed: Same Bugs, Different Logos
+## Security Feed: Recurring Vulnerabilities Across Charging and OT Infrastructure
 
 > "CISA has added two new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog."
 >
 > — CISA, [KEV update](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
 
-This week's CSAF stream is blunt: **Mobiliti e-mobi.hu**, **ePower epower.ie**, and **Everon OCPP Backends** report high-severity patterns (including missing authentication for critical function, weak auth throttling, and denial-of-service paths). **Labkotec LID-3300IP** lands with the same class of issue. **Hitachi Energy RTU500** and **Relion REB500** add access control and outage risk. Then KEV adds **CVE-2026-21385** (Qualcomm chipsets memory corruption) and **CVE-2026-22719** (VMware Aria Operations command injection). No novelty here, just recurring operational debt.
+This week's CSAF stream is blunt: **Mobiliti e-mobi.hu**, **ePower epower.ie**, and **Everon OCPP Backends** report high-severity patterns (including missing authentication for critical function, weak auth throttling, and denial-of-service paths). **Labkotec LID-3300IP** lands with the same class of issue. **Hitachi Energy RTU500** and **Relion REB500** add access control and outage risk. Then KEV adds **CVE-2026-21385** (Qualcomm chipsets memory corruption) and **CVE-2026-22719** (VMware Aria Operations command injection). We keep seeing the same vulnerability classes rotate through different product lines, which says more about industry engineering practices than any individual vendor.
 
 | Advisory | Risk snapshot | Severity signal |
 |---|---|---|
@@ -145,15 +145,15 @@ export function owner(team) {
 - "Protecting Developers Means Protecting Their Secrets" security guidance
 </details>
 
-## PHP/Drupal Signals: Sustainability Is the Actual Story
+## PHP/Drupal Signals: Contributor Fatigue and Maintenance Economics
 
-The **DropTimes** "At the Crossroads of PHP" framing is accurate: contributor fatigue, tighter budgets, and fuzzy positioning are not a branding issue; they are maintenance economics. The **Drupal 25th Anniversary Gala** (March 24, 2026, Chicago) is symbolic, but the hard part is pipeline health and contributor retention. **January 2026 Baseline digest** reinforces the same theme: progress exists, but attention is fragmented.
+The **DropTimes** "At the Crossroads of PHP" framing is accurate: contributor fatigue, tighter budgets, and fuzzy positioning compound into a maintenance economics problem that no amount of rebranding will fix. The **Drupal 25th Anniversary Gala** (March 24, 2026, Chicago) is a milestone worth acknowledging, but the harder question is whether pipeline health and contributor retention can keep pace with the project's ambitions. **January 2026 Baseline digest** reinforces the same theme: progress exists, but attention is fragmented.
 
 :::info[Community Health Is a Technical Risk]
 If maintainer bandwidth drops, release cadence and security response degrade. Treat ecosystem health as dependency risk, the same way runtime EOL is dependency risk.
 :::
 
-## Edge Security Is Becoming Code, Not Appliance Configuration
+## Edge Security Policies Belong in Version Control, Not Appliance GUIs
 
 The "truly programmable SASE platform" claim is only useful if policies are versioned, reviewed, and tested like application code. ~~Clickops firewalling is enough~~ has been false for years.
 
@@ -178,7 +178,7 @@ fi
 echo "Policy validation passed"
 ```
 
-## The Bigger Picture
+## March 2026 Signal Timeline
 
 ```mermaid
 timeline
@@ -194,10 +194,10 @@ timeline
           : PHP/Drupal discourse centers on sustainability economics
 ```
 
-## Bottom Line
+## What to Do This Week
 
-Cheap inference got cheaper, agent integrations got easier, and attack surface got wider in the same week. The right response is boring and effective: version pinning, policy gates, KEV-first patching, and strict secret handling.
+Cheap inference got cheaper, agent integrations got easier, and attack surface got wider -- all in the same week. The response that works is the one nobody gets excited about: version pinning, policy gates, KEV-first patching, and strict secret handling.
 
 :::tip[Single Highest-ROI Move]
-Implement one triage rule today: `KEV OR exposed CVSS >= 9.0 => patch in 24h, with named owner`. This removes debate, cuts MTTR, and prevents backlog theater.
+Implement one triage rule today: `KEV OR exposed CVSS >= 9.0 => patch in 24h, with named owner`. This removes debate and cuts MTTR on the vulnerabilities most likely to be exploited tomorrow morning.
 :::

@@ -19,15 +19,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most updates today split into two buckets: real engineering progress and marketing varnish. The useful part was clear: better container hardening, faster cheap inference tiers, and brutal reminders that OT/charging infrastructure is still full of authentication failures. The fluff part stayed fluffy.
+Today's feed split cleanly into things you can ship and things you can safely ignore. On the shipping side: better container hardening defaults, cheaper inference tiers with real latency wins, and a fresh batch of OT/charging-infra advisories that all trace back to authentication failures nobody bothered to implement. The rest was press releases dressed up as product launches.
 
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## Docker hardening and secret hygiene finally met reality
+## Docker Hardened Packages and Secret Scanning Beyond Git
 
-Docker's hardened packaging direction is practical: reduce image attack surface without forcing teams into weird custom distros. Pair that with secret-scanning discipline and the supply-chain story starts to look less performative.
+Docker's hardened packaging direction makes sense: strip image attack surface down without pushing teams into exotic base distros nobody wants to maintain. Combine that with disciplined secret scanning and supply-chain security starts to feel less like a compliance checkbox and more like an engineering practice.
 
 > "Secure, minimal, production-ready images should be the default."
 >
@@ -38,7 +38,7 @@ Docker's hardened packaging direction is practical: reduce image attack surface 
 > — Truffle Security, [Protecting Developers Means Protecting Their Secrets](https://trufflesecurity.com/blog/protecting-developers-means-protecting-their-secrets)
 
 :::danger[Stop treating secrets as a Git-only problem]
-Scan runtime surfaces, not just commits: mounted volumes, `/proc/<pid>/environ`, CI artifacts, and shell histories. Add automatic revocation paths for leaked credentials; detection without rotation is theater.
+Scan runtime surfaces, not just commits: mounted volumes, `/proc/<pid>/environ`, CI artifacts, and shell histories. Add automatic revocation paths for leaked credentials; detection without rotation is a report that nobody reads.
 :::
 
 ```yaml title="security/secret-scan-policy.yaml" showLineNumbers
@@ -61,9 +61,9 @@ notifications:
   create_ticket: true
 ```
 
-## Runtime and model releases: speed is cheap, correctness is not
+## Runtime and Model Releases: Cheaper Tokens, Same Eval Burden
 
-`Node.js 25.8.0 (Current)` is a velocity release, not a "forget forever" release. `Gemini 3.1 Flash-Lite` and `GPT-5.3 Instant` both push lower-latency, lower-cost interaction. Useful for routing and UX, not a free pass on eval quality. Project Genie's "4 prompt tips" is the same old truth: prompt specificity beats prompt poetry.
+`Node.js 25.8.0 (Current)` lands as a velocity release — useful for early library validation, dangerous if you skip the matrix testing step. `Gemini 3.1 Flash-Lite` and `GPT-5.3 Instant` both compete on lower latency and lower cost per token, which helps routing and UX layers but says nothing about whether your evals still pass. Project Genie's "4 prompt tips" rehashes a truth that keeps needing repeating: prompt specificity matters more than prompt cleverness.
 
 | Release | What changed | Practical use | Trap |
 |---|---|---|---|
@@ -94,9 +94,9 @@ Better conversational smoothness and broad utility. Use when interaction quality
 Run `Current` in CI and staging first, then promote after dependency and regression checks. ~~Latest equals safest~~ is how teams sign up for weekend incident calls.
 :::
 
-## OT and webapp vulnerabilities: same root failures, different logos
+## OT and Webapp Vulnerabilities: Authentication Failures Across Industries
 
-Mobiliti e-mobi.hu, ePower epower.ie, Everon OCPP backends, and Labkotec LID-3300IP reported severe auth-related issues (many with CVSS 9.4). Hitachi Energy RTU500 and Relion REB500 advisories add outage and authorization boundary risks. The old web stack remains noisy too: `mailcow` host-header reset poisoning, `Easy File Sharing Web Server` overflow, `Boss Mini` LFI.
+Mobiliti e-mobi.hu, ePower epower.ie, Everon OCPP backends, and Labkotec LID-3300IP all reported severe auth-related issues (many with CVSS 9.4). These are different vendors in different verticals shipping the same class of bug: missing or broken authentication on management interfaces. Hitachi Energy RTU500 and Relion REB500 advisories compound the picture with outage and authorization boundary risks in industrial control systems. Meanwhile the legacy web stack keeps producing: `mailcow` host-header reset poisoning, `Easy File Sharing Web Server` overflow, `Boss Mini` LFI.
 
 | Advisory group | Main weakness | Severity signal | Action this week |
 |---|---|---|---|
@@ -123,9 +123,9 @@ for cve in "${KEV[@]}"; do
 done
 ```
 
-## Drupal/PHP ecosystem signals and the SASE developer push
+## Drupal, PHP Sustainability, and the Programmable SASE Push
 
-The DropTimes "At the Crossroads of PHP" framing is blunt and mostly correct: contributor pressure and budget pressure are real. The Drupal 25th anniversary gala in Chicago is community momentum, but momentum only matters if maintainers are funded and roadmaps stay coherent. Baseline's January digest and "programmable SASE" messaging both point to one thing: platform teams want programmable control planes, not another dashboard with pretty graphs.
+The DropTimes piece "At the Crossroads of PHP" is blunt and mostly on target: contributor burnout and shrinking budgets threaten Drupal, Joomla, Magento, and Mautic in parallel. The Drupal 25th anniversary gala in Chicago signals community energy, but energy without funded maintainers and coherent roadmaps tends to dissipate fast. On the infrastructure side, Baseline's January digest and the latest "programmable SASE" messaging share a common thread: platform teams want programmable control planes with real APIs, not another vendor dashboard.
 
 > "The Drupal 25th Anniversary Gala will take place on 24 March..."
 >
@@ -140,7 +140,7 @@ January 2026 Baseline digest: monthly updates worth tracking for platform mainta
 Programmable SASE announcement: developer-native extensibility at the edge is the relevant claim; evaluate by API quality, policy latency, and rollback safety.
 </details>
 
-## The Bigger Picture
+## How These Topics Connect
 
 ```mermaid
 mindmap
@@ -163,9 +163,9 @@ mindmap
       Programmable SASE Claims
 ```
 
-## Bottom Line
+## What to Prioritize This Week
 
-The pattern is consistent: hardening and patch velocity beat branding every time. Teams that win this cycle route cheap models intelligently, keep strict release gates, and treat KEV-class exposures as immediate operations work.
+Across all four areas, the leverage point is the same: hardening defaults and patch velocity compound over time, while branding and announcements do not. Route cheap models through proper eval gates, keep strict release promotion policies for `Current` runtimes, and handle KEV-listed exposures as operations work with a deadline — not items that sit in a sprint backlog.
 
 :::tip[One concrete move]
 Create a single weekly "risk merge" where platform, app, and security owners review: `Current` runtime upgrades, KEV deltas, and secret-scan findings in one board. One meeting, one owner, one patch SLA.

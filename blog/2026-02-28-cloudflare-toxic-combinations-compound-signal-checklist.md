@@ -11,13 +11,13 @@ date: 2026-02-28T20:30:00
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Cloudflare's "toxic combinations" lesson is simple: incidents often come from individually normal events that become dangerous only when correlated in a short time window. The useful operational takeaway is not just "be careful with change." It is to encode correlation logic that promotes stacked low-signal anomalies before they become user-visible incidents.
+Cloudflare published a postmortem pattern worth stealing: incidents rarely come from one obviously bad event. They come from two or three individually harmless events landing in the same short window. Your deploy was fine. Your WAF rule update was fine. Both hitting the same service within fifteen minutes? That's where the outage lives. The operational move here is encoding correlation logic that catches stacked low-signal anomalies before users notice.
 
 I turned their postmortem insight into an enforceable playbook.
 
 <!-- truncate -->
 
-## The Pattern
+## How Toxic Combinations Work
 
 > "Incidents often come from individually normal events that become dangerous only when correlated in a short time window."
 >
@@ -27,7 +27,7 @@ I turned their postmortem insight into an enforceable playbook.
 This is where single-metric alerting fails. Each signal below is individually normal and would not trigger an alert on its own. The danger is in the combination. The fix is a playbook that defines which low signals should be paired, correlation windows for each pair, and escalation thresholds tied to blast radius.
 :::
 
-## The Anti-Pattern
+## Why Per-Signal Alerting Misses These
 
 1. A change is valid in isolation.
 2. Another change is also valid in isolation.
@@ -106,7 +106,7 @@ Start with deterministic rules before ML anomaly scoring:
 | 10 | Ownership clarity: single incident commander for this combined risk surface? | Advisory |
 
 :::caution[Reality Check]
-If any answer is "no" for items 4, 5, 8, or 9, block autonomous merge/deploy and require human approval. This is where most agent-driven deployments fail — they evaluate each change in isolation without considering the compound risk surface.
+If any answer is "no" for items 4, 5, 8, or 9, block autonomous merge/deploy and require human approval. Most agent-driven deployments break here because they evaluate each change in isolation and never consider compound risk. Two safe changes can still produce one unsafe deployment.
 :::
 
 <details>
@@ -130,12 +130,12 @@ If any answer is "no" for items 4, 5, 8, or 9, block autonomous merge/deploy and
 | 4 | Require two-key approval for any deploy touching control-plane + auth/routing paths |
 | 5 | Emit `toxic_combination_candidate` events and review weekly, including near misses |
 
-## What I Learned
+## Takeaways
 
-- Cloudflare's "toxic combinations" is the most useful incident pattern I have seen for agent and CI workflows.
-- Single-signal alerting misses real incidents. Compound signal detection is the fix.
-- The pre-deploy checklist turns postmortem insight into enforceable automation.
-- Start with deterministic correlation rules. ML anomaly scoring can come later.
+- Cloudflare's "toxic combinations" pattern maps directly onto agent and CI workflows where multiple automated changes land in the same window without cross-checking each other.
+- Per-signal alerting will keep missing real incidents. Compound signal detection catches the overlaps that matter.
+- The pre-deploy checklist converts postmortem hindsight into gates that run before code ships.
+- Deterministic correlation rules first; ML anomaly scoring layered on top once you have labeled data from production near-misses.
 
 ## References
 

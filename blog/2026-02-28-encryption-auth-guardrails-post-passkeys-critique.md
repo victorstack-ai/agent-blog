@@ -11,13 +11,13 @@ date: 2026-02-28T11:10:00
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The passkeys critique surfaced a recurring architecture mistake: teams treat authentication credentials as direct data-encryption keys. That coupling is brittle and creates permanent data-loss risk for normal account lifecycle events (device loss, recovery, provider churn).
+The passkeys critique kept circling back to one architecture mistake that refuses to die: teams using authentication credentials as data-encryption keys. Once you couple those two lifecycles, every normal account event — device loss, recovery, provider migration — becomes a permanent data-loss event. That should terrify anyone shipping a product to real users.
 
-This review defines explicit guardrails for security design and architecture approvals.
+This post lays out the guardrails I'd enforce in any security design or architecture approval.
 
 <!-- truncate -->
 
-## The Core Problem
+## Why Authentication and Encryption Must Stay Separate
 
 > "Authentication proves user identity. Encryption protects data confidentiality. These controls can interact, but they must not be the same key lifecycle."
 
@@ -85,7 +85,7 @@ flowchart TD
     C --> K[Recommend Pattern A, B, or C]
 ```
 
-## Explicit Anti-Patterns to Block
+## Anti-Patterns Worth Blocking on Sight
 
 | Anti-Pattern | Why It Fails |
 |---|---|
@@ -119,13 +119,13 @@ Architecture reviews should reject any design where account recovery causes irre
 - Argon2id-derived user secret only where business requirements need user-side secrecy
 - Documented recovery with explicit user communication
 
-This gives strong authentication and durable encryption without coupling product data survival to a single credential artifact.
+This combination gives you strong authentication and durable encryption without tying your product's data survival to a single credential artifact.
 
 </details>
 
-## What I Learned
+## Takeaways
 
-- The passkeys critique exposed a fundamental architecture mistake that is more common than it should be.
-- Authentication and encryption must have separate key lifecycles. This is not optional.
-- Every encryption design needs a tested recovery path, a tested rotation path, and versioned metadata.
-- The anti-pattern list is the most actionable artifact — use it as a checklist in architecture reviews.
+- The passkeys critique dragged a common architecture mistake into the open: treating auth credentials as encryption keys. It happens more often than anyone wants to admit.
+- Authentication and encryption need separate key lifecycles. Full stop, no negotiation.
+- Every encryption design should prove — not promise — that recovery works, rotation works, and metadata versioning exists before it gets approved.
+- The anti-pattern table above is the most useful thing in this post. Print it, paste it into your review template, and use it as a gate.

@@ -19,15 +19,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The signal today was simple: velocity is up across runtimes and models, while security debt is still compounding in the places people pretend are "internal." Tooling got faster, agent UX got better, and critical infrastructure advisories kept proving that weak auth is still everywhere. Shipping speed is useful only if exploit speed is slower than patch speed.
+Today's theme across the wire: runtimes and models are getting faster while security debt keeps piling up in systems everyone assumes are behind a firewall. Tooling improved, agent plugin UX took a step forward, and a fat stack of critical infrastructure advisories reminded us that weak auth remains the gift that keeps on giving. None of this speed matters if your patch cycle can't outrun an exploit chain.
 
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## Runtime and Model Releases Worth Attention
+## Runtime and Model Releases Worth Tracking
 
-**Node.js 25.8.0** landing as Current is relevant for teams testing upcoming runtime behavior before it hardens in LTS. **Gemini 3.1 Flash-Lite** and **GPT-5.3 Instant** are both pushing the same angle: lower latency, lower cost, better day-to-day interaction quality. That is good for product loops, but it also means bad prompts and weak guardrails fail faster at scale.
+**Node.js 25.8.0** dropped as Current, which matters if your team tests upstream runtime behavior before committing to LTS. **Gemini 3.1 Flash-Lite** and **GPT-5.3 Instant** are both chasing the same goal: shave latency, cut cost, improve everyday interaction quality. Good news for product feedback loops. Bad news if your prompts are sloppy and your guardrails are thin — those failures now propagate faster.
 
 | Item | Why it matters operationally | Practical move |
 |---|---|---|
@@ -66,9 +66,9 @@ Not a model, but the same decision class: faster iteration only helps if CI and 
 Lower latency models shift system bottlenecks toward orchestration, plugin I/O, and policy enforcement. If request volume spikes after a model swap, queue strategy and rate-limit policy become primary reliability controls.
 :::
 
-## Security Reality Check: OT/EV Advisories and Old Web App Bugs
+## OT and EV Advisories Alongside Old Web App Favorites
 
-The CSAF batch is not subtle: multiple EV charging backend products and OT systems are showing high-severity issues (including auth failures and DoS vectors). Add the webapp disclosures (mailcow host header poisoning, Easy File Sharing overflow, Boss Mini LFI), and the pattern is familiar: internet-facing software still breaks at trust boundaries first.
+The CSAF batch this time around is blunt: multiple EV charging backend products and OT systems have high-severity findings, including authentication failures and denial-of-service vectors. Pair that with the webapp disclosures — mailcow host header poisoning, Easy File Sharing overflow, Boss Mini LFI — and you see the same story repeating: internet-facing software still breaks at trust boundaries before anything else.
 
 | Advisory cluster | Affected examples | CVSS signal | Core failure mode |
 |---|---|---|---|
@@ -132,9 +132,9 @@ actions:
 
 </details>
 
-## CISA KEV Means Deadline, Not "FYI"
+## KEV Additions Mean a Deadline, Not an FYI
 
-When KEV adds a CVE, treat it as active threat intel with an execution clock. "We saw it" is not a control; validated mitigation is.
+When a CVE lands in the KEV catalog, treat it as active threat intel with an execution clock attached. Having seen the advisory is not a control. Validated mitigation is.
 
 :::warning[KEV items require owner + due date immediately]
 For each KEV CVE, assign one owner, one due date, one evidence artifact (patch output, config diff, or compensating control). No owner means no remediation.
@@ -149,9 +149,9 @@ For each KEV CVE, assign one owner, one due date, one evidence artifact (patch o
 + require_evidence: true
 ```
 
-## Platform and Ecosystem Signals (Drupal/PHP + Project Genie + SASE)
+## Platform and Ecosystem Signals: Drupal/PHP, Project Genie, SASE
 
-The Drupal/PHP conversation is finally addressing sustainability and contributor economics instead of pretending growth is automatic. Project Genie prompt-driven world generation is interesting, but practical value depends on deterministic control and reproducibility. Programmable SASE claims are valid only if teams can ship policy as code with auditability, not screenshots.
+Drupal and the broader PHP ecosystem are having an overdue conversation about sustainability and contributor economics instead of hand-waving about growth. Project Genie's prompt-driven world generation looks interesting on paper, but practical value hinges on whether you can get deterministic, reproducible output from it. And programmable SASE? The claims hold up only if teams can ship policy as code with real auditability — not dashboard screenshots passed around in Slack.
 
 | Signal | Practical interpretation | Decision filter |
 |---|---|---|
@@ -168,7 +168,7 @@ npm run test:prompt-regressions
 npm run test:policy-e2e
 ```
 
-## The Bigger Picture
+## Connecting the Dots
 
 ```mermaid
 mindmap
@@ -193,9 +193,9 @@ mindmap
       Policy-as-code with evidence
 ```
 
-## Bottom Line
+## What It Comes Down To
 
-The operating model that works is boring and strict: faster models for the right workloads, explicit threat-driven remediation SLAs, and zero tolerance for unmanaged secrets outside source control.
+The operating model that holds up under pressure looks the same as last week and the week before: route faster models to the workloads that benefit from them, tie remediation SLAs directly to threat intel, and scan for secrets everywhere — not just in source control. Boring works. Undisciplined doesn't.
 
 :::tip[Single highest-ROI move this week]
 Create one unified `risk-register` pipeline that ingests KEV + CSAF + internal asset inventory, auto-assigns owners, and blocks release if critical internet-facing findings have no mitigation evidence.

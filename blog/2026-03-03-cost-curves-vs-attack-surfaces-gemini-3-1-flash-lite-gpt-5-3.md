@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The signal this week was simple: model pricing is collapsing, agent tooling is becoming productized, and security is still losing to fundamentals. Cheap inference and better chat UX are real. So are unauthenticated critical functions in live industrial systems, which is a far bigger story than any model demo.
+Three things happened this week worth paying attention to. Model pricing dropped again, agent tooling moved closer to something teams can govern and ship, and a batch of ICS advisories showed that unauthenticated critical functions are still running in production industrial systems. That last one matters more than any model launch, and it barely made a headline.
 
 <!-- truncate -->
 
@@ -29,7 +29,7 @@ The signal this week was simple: model pricing is collapsing, agent tooling is b
 
 ## Model Economics: Gemini 3.1 Flash-Lite, GPT-5.3 Instant, Node 25.8.0
 
-Google shipped **Gemini 3.1 Flash-Lite** as the low-cost throughput play, and the price delta matters more than most benchmark screenshots. If input is $0.25/M and output is $1.5/M, architecture decisions change: more aggressive fan-out, more retries, more eval runs, less guilt.
+Google shipped **Gemini 3.1 Flash-Lite** as their low-cost throughput option, and the pricing shift has more practical impact than most benchmark screenshots. At $0.25/M input and $1.5/M output, you can afford architecture patterns that were wasteful six months ago: wider fan-out, more retries, heavier eval coverage, fewer cost-driven shortcuts.
 
 > "Gemini 3.1 Flash-Lite is our fastest and most cost-efficient Gemini 3 series model yet."
 >
@@ -44,17 +44,17 @@ Google shipped **Gemini 3.1 Flash-Lite** as the low-cost throughput play, and th
 <Tabs>
 <TabItem value="gemini" label="Gemini 3.1 Flash-Lite" default>
 
-Low latency + low price means this is the batch/assist workhorse. The useful feature is not "AI magic," it is predictable cost under load.
+Low latency plus low price makes this the batch and assist workhorse. The part that matters for production is predictable cost under load, not model cleverness.
 
 </TabItem>
 <TabItem value="gpt" label="GPT-5.3 Instant">
 
-Conversation polish matters for support agents and coding copilots. The System Card is the part worth reading before rollout, not after incident review.
+Conversation polish matters for support agents and coding copilots. Read the System Card before rollout. You do not want to discover its guardrail gaps during incident review.
 
 </TabItem>
 <TabItem value="node" label="Node.js 25.8.0">
 
-Current releases are fine for labs and non-critical services. LTS remains the adult choice for core APIs with uptime targets.
+Current releases work fine for labs and non-critical services. LTS remains the responsible choice for core APIs with uptime targets.
 
 </TabItem>
 </Tabs>
@@ -65,7 +65,7 @@ Lower model cost does not justify uncontrolled context growth. Set strict `max_t
 
 ## Agent Product Surface: MCP Apps, Team Plugin Marketplaces, Copilot Dev Days, Project Genie
 
-MCP moving toward interactive UIs and private team marketplaces is what "agents in enterprise" actually needs: governance and distribution, not more demos. Copilot Dev Days is useful when teams treat it as workflow redesign, not autocomplete theater. Project Genie prompt craft is a reminder that tooling quality depends on input discipline.
+MCP moving toward interactive UIs and private team marketplaces addresses what enterprise agent adoption has been missing: governance and distribution controls. Copilot Dev Days delivers value when teams use it to restructure workflows rather than bolt autocomplete onto existing habits. Project Genie prompt craft reinforces something we keep relearning — tooling quality tracks directly with input discipline.
 
 ```mermaid
 flowchart TD
@@ -76,13 +76,13 @@ flowchart TD
     E --> F[Repeatable Team Workflow]
 ```
 
-:::info[Where the Real Value Shows Up]
-The win is standardized internal plugins with clear ownership, versioning, and permission boundaries. Team marketplaces reduce copy-pasted prompt folklore and make behavior auditable.
+:::info[Standardized Plugins Over Ad-Hoc Prompts]
+The win is internal plugins with clear ownership, versioning, and permission boundaries. Team marketplaces replace copy-pasted prompt collections with auditable, versioned behavior.
 :::
 
-## Security Reality Check: Secrets Hygiene, KEV Additions, ICS/OT Advisories, Public Web Exploits
+## Security Advisories: Secrets Hygiene, KEV Additions, ICS/OT Exposure, Public Web Exploits
 
-The security items this cycle were blunt: CISA KEV additions, multiple high-severity charging/industrial advisories, and public webapp exploit disclosures. Same lesson again: attackers still cash in on missing auth, weak auth controls, and basic injection/LFI classes.
+The security items this cycle were direct: CISA KEV additions, multiple high-severity charging and industrial advisories, and public webapp exploit disclosures. The pattern has not changed. Attackers keep profiting from missing auth, weak access controls, and textbook injection and LFI classes — the same failure modes we have been documenting for years.
 
 > "Secrets don't just leak from Git. They accumulate in filesystems, env vars, and agent memory."
 >
@@ -139,7 +139,7 @@ jobs:
 
 ## PHP/Drupal Ecosystem Signal: Sustainability, Governance, and Community Events
 
-The Drop Times coverage and the 25th anniversary framing are useful because they force a non-marketing question: who is funding and maintaining the boring core work. "AI-ready architecture" sounds nice; contributor economics decides what survives.
+The Drop Times coverage and the 25th anniversary framing raise a question that marketing materials tend to skip: who funds and maintains the boring core work. Talking about "AI-ready architecture" is easy; contributor economics determines what survives long-term.
 
 | Ecosystem item | Practical read |
 |---|---|
@@ -151,9 +151,9 @@ The Drop Times coverage and the 25th anniversary framing are useful because they
 Event volume is not delivery velocity. Track release quality, maintainer burnout signals, and issue response times before committing platform strategy.
 :::
 
-## Edge Security Claims: "Programmable SASE" Is Useful Only With Guardrails
+## Edge Security Claims: Programmable SASE Needs Scope and Observability
 
-"The truly programmable SASE platform" pitch is valid when programmability is scoped, tested, and observable. Unbounded custom logic at the edge can become a distributed outage machine.
+"The truly programmable SASE platform" pitch holds up when programmability is scoped, tested, and observable. Without those constraints, custom logic at the edge becomes a distributed outage generator. Every policy change needs the same rigor as a production deploy.
 
 ```bash
 # Minimum gate before shipping edge policy code
@@ -162,7 +162,7 @@ conftest test ingress-config.yaml
 k6 run edge-regression.js
 ```
 
-## The Bigger Picture
+## Weekly Summary
 
 ```mermaid
 mindmap
@@ -187,9 +187,9 @@ mindmap
       Blast radius without policy testing
 ```
 
-## Bottom Line
+## What This Means for Practitioners
 
-Cheap models and better agent UX are real improvements. They do not reduce operational risk by themselves; in many orgs they increase it by accelerating fragile automation on top of weak security fundamentals.
+Cheaper models and improved agent UX are genuine progress. But they do not reduce operational risk on their own. For most orgs, they accelerate the rate at which fragile automation gets layered on top of weak security fundamentals. The cost savings only pay off if the guardrails keep up.
 
 :::tip[Single Action That Pays Off This Week]
 Add mandatory secret scanning plus runtime secret injection checks in CI, then block merges on failure. It is the fastest way to cut real incident probability across AI, app, and infrastructure work.

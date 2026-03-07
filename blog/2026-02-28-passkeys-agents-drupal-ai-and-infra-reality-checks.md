@@ -19,14 +19,14 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-February 2026 was a clean split between signal and noise. Signal: better agent tooling, better infra primitives, better observability, and practical Drupal ecosystem movement. Noise: people still shipping risky identity patterns and pretending automation replaces human support.
+February 2026 had a handful of things worth paying attention to: better agent tooling, better infra primitives, better observability, and practical movement in the Drupal ecosystem. It also had people shipping risky identity patterns and pretending automation replaces human support, which is par for the course.
 
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## Passkeys for encryption is still a footgun
-The sharpest warning this month came from Tim Cappalli: teams are using passkeys to encrypt user data, then acting surprised when recovery becomes impossible after normal passkey loss. That is not a UX issue; it is a data-destruction design.
+## Passkeys for encryption remain a data-loss trap
+The sharpest warning this month came from Tim Cappalli: teams are binding encryption keys to passkeys, then losing users' data when those passkeys inevitably get lost or replaced. Passkey loss is a normal lifecycle event. Permanent data destruction is a design defect you chose to ship.
 
 > "please stop promoting and using passkeys to encrypt user data. I'm begging you."
 >
@@ -42,8 +42,8 @@ Use passkeys for authentication, not as the only root for decrypting user conten
 + controls: rotate KEK on account recovery, log key events
 ```
 
-## Coding agents crossed the usefulness threshold, not the risk threshold
-Max Woolf's write-up and Karpathy's December inflection quote match what most practitioners saw: agents now finish meaningful tasks. That does not mean they are safe by default.
+## Coding agents now finish real tasks — review burden grows with them
+Max Woolf's write-up and Karpathy's December inflection quote match what most practitioners saw: agents can complete meaningful work end-to-end now. The part nobody wants to talk about is that every productivity gain adds review surface, and most teams haven't adjusted their review process to match.
 
 > "coding agents basically didn't work before December and basically work since"
 >
@@ -71,8 +71,8 @@ Agent speed gains collapse if you skip guardrails: secret scanning, scoped crede
 Pair every agent-generated PR with policy checks for secrets, dependency risk, and auth surface changes. Faster output with weaker review increases incident rate, not productivity.
 :::
 
-## Drupal's AI ecosystem is maturing through boring engineering
-The Drupal-related items were less "AI magic," more "maintenance discipline": SearXNG privacy-first search integration, GraphQL beta fixes, code search for Drupal 10+, structured Views extraction, AI digests for project tracking, and real performance diagnosis (cache tags, not vibes). That is the right trajectory.
+## Drupal's AI ecosystem grows through maintenance discipline
+The Drupal-related items this month were about plumbing, not spectacle: SearXNG privacy-first search integration, GraphQL beta fixes, code search for Drupal 10+, structured Views extraction, AI digests for project tracking, and genuine performance diagnosis down to missing cache tags causing multi-second loads. This is what production-grade AI readiness looks like — unglamorous and specific.
 
 | Area | What shipped | Why it matters |
 |---|---|---|
@@ -87,8 +87,8 @@ The Drupal-related items were less "AI magic," more "maintenance discipline": Se
 $build['#cache']['tags'] = Cache::mergeTags($build['#cache']['tags'] ?? [], ['node:' . $product_id]);
 ```
 
-## Infra and platform updates got more practical
-Vercel Queues public beta, Telegram adapter support in Chat SDK, Cloudflare's PQ/ASPA/Radar transparency, and Turnstile redesign at huge scale all point to the same thing: reliability and security work is moving into defaults, but teams still need to wire it correctly.
+## Infra and platform updates are converging on safer defaults
+Vercel Queues public beta, Telegram adapter support in Chat SDK, Cloudflare's PQ/ASPA/Radar transparency, and Turnstile redesign at huge scale all share a direction: reliability and security features moving into defaults. The catch is that defaults still require wiring — misconfigured queues and unmonitored PQ adoption don't protect anyone.
 
 ```yaml title="ops/release-guardrails.yaml" showLineNumbers
 checks:
@@ -112,10 +112,10 @@ checks:
 ```
 
 ## Smaller but useful engineering reads
-Unicode binary search over HTTP range requests is a good reminder that protocol mechanics still unlock creative tooling. The "better Streams API" and "allocating on the stack" discussions are in the same category: less hype, more runtime mechanics that change performance and ergonomics when applied carefully.
+Unicode binary search over HTTP range requests is a good reminder that protocol mechanics still unlock creative tooling. The "better Streams API" and "allocating on the stack" discussions belong in the same bucket: runtime mechanics that change performance and ergonomics when you apply them to the right problem, even if they'll never trend on social media.
 
 :::info[The pattern across these posts]
-The durable advantage is still understanding system boundaries: caching metadata, stream semantics, key lifecycle, queue idempotency, and routing trust. Tools changed; fundamentals did not.
+Understanding system boundaries — caching metadata, stream semantics, key lifecycle, queue idempotency, routing trust — still compounds better than chasing whatever framework launched this week. The tools keep changing; the failure modes don't.
 :::
 
 <details>
@@ -178,8 +178,8 @@ mindmap
       Anti-abuse UX at scale
 ```
 
-## Bottom Line
-Tools are better, but bad architecture fails faster now. Ship controls first, then agent speed.
+## What this month reinforces
+Better tools amplify whatever process you already have. If your review and controls are solid, agents make you faster. If they're weak, agents help you ship broken things at higher volume. Invest in the gates before you invest in the throughput.
 
 :::tip[Single action to take this week]
 Add a release gate that blocks PRs touching `auth`, `secrets`, or `infra` unless security scan passes and a human reviewer signs off. This catches the highest-cost failures while keeping agent throughput high.

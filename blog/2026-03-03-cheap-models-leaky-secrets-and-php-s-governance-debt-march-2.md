@@ -20,20 +20,20 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most of this week's "news" was marketing varnish over operational reality: cost curves, attack surface, and ecosystem governance. The useful signal was clear though: inference is cheaper, breaches are still boring and preventable, and PHP communities are finally saying the quiet part out loud about sustainability.  
-If you ship production software, these items connect directly to budget, incident risk, and roadmap discipline.
+Stripped down, this week's news cycle covered cost curves, attack surface, and ecosystem governance — buried under the usual marketing gloss. The signal worth caring about: inference got cheaper, breaches remain boring and preventable, and PHP communities are starting to say the quiet part out loud about sustainability.
+If you ship production software, these items touch your budget, your incident risk, and your roadmap discipline directly.
 
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## Gemini 3.1 Flash-Lite: Cost Wins, If Your Guardrails Exist
+## Gemini 3.1 Flash-Lite Drops the Per-Request Cost Floor
 
 > "Gemini 3.1 Flash-Lite is our fastest and most cost-efficient Gemini 3 series model yet."
 >
 > — Google announcement, [Link](https://blog.google/)
 
-**Gemini 3.1 Flash-Lite** matters because it pushes the floor down on per-request intelligence. That does not mean "free reasoning." It means the old ~~bigger model everywhere~~ pattern is now a budget bug.
+**Gemini 3.1 Flash-Lite** matters because it pushes the floor down on per-request intelligence. That does not mean "free reasoning." It means the ~~bigger model everywhere~~ pattern has become a budget bug you can no longer ignore.
 
 | Decision Axis | Flash-Lite Signal | Practical Call |
 |---|---|---|
@@ -46,13 +46,13 @@ If you ship production software, these items connect directly to budget, inciden
 Static model choice in config files is done. Runtime routing by request class, risk level, and budget window is now part of backend architecture, not an AI sidecar.
 :::
 
-## Protecting Developers Means Protecting Their Secrets
+## Secret Sprawl Beyond Git: Where Teams Keep Getting Burned
 
 > "Secrets don't just leak from Git. They accumulate in filesystems, env vars, and agent memory."
 >
 > — Security research summary, [Link](https://github.blog/security/)
 
-**Secret sprawl** is still the fastest path from "internal convenience" to "external incident." Git scanning is table stakes; filesystem dumps, shell history, CI logs, and long-lived env vars are where teams still get burned.
+**Secret sprawl** remains the fastest path from "internal convenience" to "external incident." Git scanning is table stakes. The places where teams still get burned are filesystem dumps, shell history, CI logs, and long-lived env vars — the boring, unglamorous corners nobody audits until after the page.
 
 :::danger[Stop Persisting Raw Secrets]
 Kill plaintext `.env` drift and process-level secret reuse. Use short-lived credentials (`OIDC`/STS), secret managers, and explicit redaction in logs. If a token can live longer than a deploy window, it already lives too long.
@@ -99,7 +99,7 @@ If coding agents can read credentials, agents can also paste credentials into lo
 >
 > — Exploit feed, [Link](https://www.exploit-db.com/)
 
-Three old classes, same lesson: weak input trust keeps resurfacing under new UI paint.
+Three old bug classes surfaced again this week. Different products, same root cause: trusting user-controlled input in places where nobody should have trusted it in 2016, let alone 2026.
 
 | Product | Issue Class | Real Risk | Immediate Mitigation |
 |---|---|---|---|
@@ -117,24 +117,24 @@ Three old classes, same lesson: weak input trust keeps resurfacing under new UI 
 "Legacy bug class" does not mean "legacy impact." Modern blast radius is bigger because reset flows, internal metadata, and container file mounts are all richer targets now.
 :::
 
-## PHP Ecosystem Crossroads: Sustainability Is the Real Technical Constraint
+## PHP Ecosystem Governance: Sustainability as a Delivery Risk
 
 > "Across the PHP ecosystem, a hard conversation is beginning to take shape... slower growth, tighter budgets, and a thinning contributor base."
 >
 > — The Drop Times, [Link](https://www.thedroptimes.com/)
 
-**Sustainability debt** is now a delivery risk, not a community footnote. Drupal, Joomla, Magento, and Mautic share the same stress pattern: fewer maintainers, more complexity, higher expectation of AI-era velocity.
+**Sustainability debt** has graduated from community footnote to delivery risk. Drupal, Joomla, Magento, and Mautic share the same stress pattern: fewer maintainers, more complexity, and rising expectations of AI-era velocity that the contributor base cannot absorb.
 
 <Tabs>
 <TabItem value="hype" label="Hype Story" default>
 
-The narrative says AI integration and new tooling will "modernize everything."  
+The narrative says AI integration and new tooling will "modernize everything."
 That skips governance, maintainer funding, and release discipline.
 
 </TabItem>
 <TabItem value="operator" label="Operator Reality">
 
-No maintainer bandwidth means no secure patch cadence.  
+No maintainer bandwidth means no secure patch cadence.
 No patch cadence means enterprise churn, regardless of feature roadmap.
 
 </TabItem>
@@ -145,13 +145,13 @@ Prioritize boring infrastructure work: CI stability, triage SLAs, module ownersh
 </TabItem>
 </Tabs>
 
-## Drupal 25th Anniversary Gala: Community Signal, Not Just Ceremony
+## Drupal 25th Anniversary Gala: Why the Community Signal Matters
 
 > "The Drupal 25th Anniversary Gala will take place on 24 March from 7:00 to 10:00 PM at 610 S Michigan Ave, Chicago..."
 >
 > — Drupal community announcement, [Link](https://www.thedroptimes.com/)
 
-The event matters because community concentration still drives contributor recruitment and strategic alignment. In practical terms: contributor energy and project clarity are production inputs.
+Events like this matter because community concentration still drives contributor recruitment and strategic alignment. Contributor energy and project clarity are production inputs — you lose them, and patch cadence degrades downstream.
 
 <details>
 <summary>Event details snapshot</summary>
@@ -163,7 +163,7 @@ The event matters because community concentration still drives contributor recru
 
 </details>
 
-## January 2026 Baseline + Programmable SASE: Policy Is Becoming Software
+## January 2026 Baseline and Programmable SASE: Policy Becomes Versioned Code
 
 > "Read about various happenings with Baseline during January 2026."
 >
@@ -173,7 +173,7 @@ The event matters because community concentration still drives contributor recru
 >
 > — SASE platform announcement, [Link](https://www.cloudflare.com/)
 
-The useful part here is not branding. It is the shift to **programmable policy** at the edge, where security controls become versioned code with testable behavior.
+Skip the branding. The development worth tracking here is the shift toward **programmable policy** at the edge — security controls that live as versioned code with testable behavior, not click-ops dashboards you pray somebody configured correctly.
 
 ```yaml title="policy/edge-access.yaml"
 service: internal-admin
@@ -192,7 +192,7 @@ rules:
     action: reauthenticate
 ```
 
-## The Bigger Picture
+## How These Threads Connect
 
 ```mermaid
 mindmap
@@ -219,9 +219,9 @@ mindmap
       Policy-as-code
 ```
 
-## Bottom Line
+## What to Do About It
 
-Cheap intelligence, exploitable defaults, and underfunded maintenance are colliding. The correct response is disciplined routing, aggressive secret hygiene, and governance choices that prioritize patch velocity over roadmap theater.
+Cheaper inference, exploitable defaults, and underfunded maintenance are converging. The work that pays off right now: disciplined model routing, aggressive secret hygiene, and governance decisions that favor patch velocity over feature promises.
 
 :::tip[Single Highest-ROI Move This Week]
 Implement one CI gate that blocks merges on detected secrets (`gitleaks`/`trufflehog`) and untrusted host-header reset behavior tests. That one gate cuts both immediate breach probability and incident-response drag.

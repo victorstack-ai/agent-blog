@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The pattern across this batch is simple: model capability is rising fast, integration points are multiplying, and security debt is compounding at the same speed. Some announcements were useful, some were marketing noise, and a few were direct operational warnings. The practical takeaway is to treat AI adoption and patch discipline as one pipeline, not two separate tracks.
+The pattern across this batch is straightforward: model capability is climbing fast, integration points are multiplying, and security debt compounds at matching speed. Some announcements were useful, some were marketing noise, and a few were direct operational warnings. If you take one thing from this roundup, it should be this: AI adoption and patch discipline belong in the same pipeline, not on separate calendars.
 
 <!-- truncate -->
 
@@ -39,11 +39,11 @@ The pattern across this batch is simple: model capability is rising fast, integr
 | CMS and web ecosystem | Drupal 10.6.4 and 11.3.4 patch releases; SA-CONTRIB-2026-024 (GA4 module XSS); SA-CONTRIB-2026-023 (Calculation Fields XSS); UI Suite Display Builder walkthrough; Dripyard DrupalCon Chicago plans; WP Rig episode #207 |
 | Education, media, research | OpenAI education opportunity toolkit; Learning Outcomes Measurement Suite; Axios local journalism AI workflow; graviton amplitudes preprint assisted by GPT-5.2 Pro; Donald Knuth quote on Claude solving his open problem |
 
-## AI Coding Is Growing Up, But Review Discipline Is Still the Bottleneck
+## AI Coding Tools at Production Scale, Review Discipline Still Lagging
 
-GitHub's 60M Copilot reviews and the Andela case study both point to the same thing: coding assistants are now normal production infrastructure, not experiments. Cursor's automations and ACP support in JetBrains confirm the "always-on agent" direction across IDEs.
+GitHub's 60M Copilot reviews and the Andela case study confirm the same shift: coding assistants are standard production infrastructure now, not experiments. Cursor's automations and ACP support in JetBrains push further toward the "always-on agent" model across IDEs.
 
-~~AI coding means fewer reviews~~. Real teams that survive scale increase review gates, because generated volume rises faster than human attention.
+~~AI coding means fewer reviews~~. Teams that survive at scale do the opposite — they increase review gates, because generated volume rises faster than human attention can keep up.
 
 > "Don't file pull requests with code you haven't reviewed yourself."
 >
@@ -75,9 +75,9 @@ Set a hard policy: generated code is blocked from merge unless a human reviewer 
 </TabItem>
 </Tabs>
 
-## Search Is Becoming a Workspace, Not Just a Results List
+## Search Evolving Toward Task Execution
 
-Google's visual-search fan-out explanation and Canvas-in-Search rollout both move search toward task execution. This is useful when outputs are disposable drafts and dangerous when outputs are treated as authoritative without source checks.
+Google's visual-search fan-out explanation and Canvas-in-Search rollout both push search toward executing tasks inline. That works well when outputs are disposable drafts. It gets dangerous when people treat those outputs as authoritative without checking the underlying sources.
 
 ```mermaid
 flowchart TD
@@ -98,7 +98,7 @@ Use Canvas-style output for scaffolding only. Promote nothing to production docs
 
 ## Security Signal Was Loud This Week
 
-The KEV additions, Delta CSAF RCE risk, Drupal contrib XSS advisories, and Cloudflare detection updates all reinforce one point: exposure now comes from old software, weak identity checks, and stale assumptions about "monitor mode."
+The KEV additions, Delta CSAF RCE risk, Drupal contrib XSS advisories, and Cloudflare detection updates all converge on the same pressure point: exposure keeps coming from old software, weak identity checks, and stale assumptions about "monitor mode" being sufficient.
 
 :::danger[Patch and exploit window is shrinking]
 Treat KEV-listed CVEs and vendor CSAFs as immediate change tickets, not backlog ideas. If a component appears in your asset inventory and the version matches advisory criteria, patch or isolate in the same sprint.
@@ -135,9 +135,9 @@ triage:
     action: "rotate key + revoke cert + scan history"
 ```
 
-## Drupal and WordPress: Patch Reality, Not Conference Theater
+## Drupal and WordPress: Patches That Need Attention Now
 
-Drupal 10.6.4 and 11.3.4 are straightforward patch releases, but they include CKEditor5 updates with security context. Contrib advisories on GA4 and Calculation Fields are the real footgun for many teams because "admin-only" paths are often treated as trusted.
+Drupal 10.6.4 and 11.3.4 are straightforward patch releases, but they include CKEditor5 updates with security context. The contrib advisories on GA4 and Calculation Fields deserve more urgency than they'll get on most teams, because "admin-only" paths are routinely treated as trusted when they shouldn't be.
 
 ```diff title="composer.json"
  {
@@ -163,21 +163,21 @@ Drupal 10.6.4 and 11.3.4 are straightforward patch releases, but they include CK
 - Ecosystem signals: UI Suite Display Builder momentum, Dripyard DrupalCon activity, WP Rig's continued relevance for disciplined theme architecture.
 </details>
 
-## OpenAI, Education, and Media: Useful If Measurement Is Mandatory
+## OpenAI, Education, and Media: Credible Only With Measurement Attached
 
-GPT-5.4, CoT controllability findings, and the Learning Outcomes Measurement Suite are more credible together than separately. Capability claims without measurement are marketing. Measurement without deployment is theater.
+GPT-5.4, CoT controllability findings, and the Learning Outcomes Measurement Suite carry more weight together than separately. Capability claims without measurement are marketing copy. And measurement that never reaches a real deployment tells you nothing useful either.
 
 > "Shock! Shock! I learned yesterday that an open problem I'd been working on for several weeks had just been solved by Claude Opus 4.6..."
 >
 > — Donald Knuth, [Claude Cycles (PDF)](https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf)
 
-The Axios local journalism case and the graviton-amplitudes preprint show the same practical pattern: AI creates value when scoped to workflow acceleration plus expert verification, not autonomous truth production.
+The Axios local journalism case and the graviton-amplitudes preprint follow the same practical pattern: AI delivers value when scoped to workflow acceleration with expert verification on top — not when left to produce "truths" autonomously.
 
 :::info[What to copy from education pilots]
 Adopt outcome metrics before broad rollout: baseline performance, intervention duration, and post-intervention retention checks. Without those three, "AI improved learning" is a slogan, not evidence.
 :::
 
-## The Bigger Picture
+## Week Signal Map
 
 ```mermaid
 mindmap
@@ -202,9 +202,9 @@ mindmap
       Research assistance in amplitudes
 ```
 
-## Bottom Line
+## Summary and Next Steps
 
-Velocity increased across coding, search, and content workflows, but the signal from security advisories and exploit catalogs was even stronger. Teams shipping AI-assisted changes without strict review policy, patch cadence, and measurable outcomes are accumulating failure debt at high speed.
+Velocity increased across coding, search, and content workflows this week, but the signal from security advisories and exploit catalogs was stronger. Teams shipping AI-assisted changes without strict review policy, patch cadence, and measurable outcomes are building up failure debt — and the interest rate on that debt keeps climbing.
 
 :::tip[Single most actionable move]
 Create one weekly `AI + Security` review meeting with a fixed agenda: generated-code review exceptions, KEV/CSAF exposure checks, and module/framework patch status. One pipeline, one owner, one dashboard.

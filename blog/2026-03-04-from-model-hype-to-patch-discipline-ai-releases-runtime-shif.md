@@ -22,19 +22,19 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The pattern this week was simple: model launches got headlines, but security advisories and runtime defaults changed day-to-day engineering risk. Some announcements were useful, some were marketing paint, and some were direct "patch this now" signals. The only sane response is a tighter filter for what deserves action today versus what belongs in a bookmark graveyard.
+This week's feed had a clear split: model launches dominated the headlines while security advisories and runtime default changes quietly shifted the ground under day-to-day engineering. Some announcements carried real operational weight, some were press releases dressed as product launches, and a handful demanded immediate patching. Sorting those three buckets is the whole game.
 
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## Knuth's Quote and the Real AI Inflection
+## Knuth Confirms Frontier Models Can Do Non-Trivial Math
 
 > "Shock! Shock! I learned yesterday that an open problem I'd been working on for several weeks had just been solved by Claude Opus 4.6..."
 >
 > — Donald Knuth, [Claude Cycles](https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf)
 
-This matters because Knuth is not a hype merchant. When someone at that level says an open problem got solved by a model, ~~LLMs are just autocomplete~~ stops being a serious default argument.
+This matters because Knuth has zero incentive to inflate AI capabilities. When someone who has spent sixty years defining computer science says a model solved an open problem, ~~LLMs are just autocomplete~~ loses most of its remaining shelf life as a dismissal.
 
 :::info[How to use this signal]
 Treat this as evidence that frontier reasoning models can occasionally contribute non-trivial mathematical value. Do not treat it as evidence that model output is self-verifying. Keep proof validation and independent checks in the loop.
@@ -57,13 +57,13 @@ Google shipped **Gemini 3.1 Flash-Lite** as a cost/speed play, including multipl
 <Tabs>
 <TabItem value="model-selection" label="Model Selection" default>
 
-Use cheap-fast models for classification, routing, extraction, and first-pass drafts.  
+Use cheap-fast models for classification, routing, extraction, and first-pass drafts.
 Reserve heavy models for irreversible actions, long-horizon reasoning, and high-cost mistakes.
 
 </TabItem>
 <TabItem value="platform-governance" label="Platform Governance">
 
-MCP team marketplaces are the part that matters: plugin provenance, scoped access, and shared internal tooling.  
+MCP team marketplaces are the part that matters: plugin provenance, scoped access, and shared internal tooling.
 If plugin controls are weak, model quality is irrelevant because your execution layer is the breach path.
 
 </TabItem>
@@ -75,7 +75,7 @@ Lower inference price does not lower blast radius. Set policy gates around `writ
 
 ## Runtime Defaults Shifted: Next.js 16 and Node.js 25.8.0
 
-Next.js 16 becoming default for new sites and Node.js 25.8.0 (Current) are operational changes, not trivia. Defaults silently set the baseline for every new repo and every rushed scaffold.
+Next.js 16 becoming the default for new sites and Node.js 25.8.0 landing as Current are operational changes worth tracking, not release note trivia. Defaults set the baseline for every new repo and every rushed scaffold, and most teams don't override them until something breaks.
 
 ```diff
 - "next": "^15.2.0",
@@ -113,12 +113,12 @@ pnpm test
 ```
 
 :::warning[Default scaffolds drift faster than your production standards]
-Pin runtime and framework versions in CI policy files, not just local docs. If defaults change upstream and your CI doesn't enforce engines, someone merges a time bomb on a Friday.
+Pin runtime and framework versions in CI policy files, not just local docs. If defaults change upstream and your CI doesn't enforce engines, someone merges an incompatibility on a Friday afternoon and nobody notices until Monday morning's deploy fails.
 :::
 
 ## Security Wave: ICS/OT Advisories, KEV Adds, and Commodity Web Exploits
 
-This was the high-signal section of the week. Multiple charging/industrial advisories reported severe auth and control weaknesses, plus CISA KEV catalog growth and fresh webapp exploit disclosures.
+This was the highest-signal section of the week. Multiple charging infrastructure and industrial advisories reported severe auth and control weaknesses, CISA expanded the KEV catalog, and fresh webapp exploit disclosures landed.
 
 | Advisory / Source | Affected | Severity / Type | Practical action |
 |---|---|---|---|
@@ -157,17 +157,17 @@ add_action('init', function (): void {
 });
 ```
 
-## Ecosystem Reality Check: Community Events, Research Toys, and Security Marketing
+## Community Events, Research Experiments, and Vendor Positioning
 
-The rest of the feed split into three buckets: legitimate community coordination, experimental platform demos, and security positioning pages.
+The rest of the feed split into three buckets: legitimate community coordination, experimental platform demos, and vendor security positioning.
 
-Project and community items that still matter:
+Project and community items worth noting:
 - GitHub Copilot Dev Days (in-person, hands-on)
 - Google DeepMind Project Genie prompt guidance (useful for controlled experimentation, not production architecture)
 - Drupal 25th Anniversary Gala on **March 24, 2026** in Chicago
 - DropTimes discussions on PHP ecosystem sustainability and Drupal direction
 - January 2026 Baseline digest
-- "Programmable SASE" messaging (interesting if backed by enforcement APIs, otherwise brochureware)
+- "Programmable SASE" messaging (worth investigating if backed by enforcement APIs; otherwise, it's a landing page with ambitions)
 
 <details>
 <summary>Full changelog-style notes from this learning batch</summary>
@@ -183,7 +183,7 @@ Project and community items that still matter:
 - Drupal and PHP ecosystem commentary is strategically relevant: contributor economics and governance clarity are no longer side topics.
 </details>
 
-## The Bigger Picture
+## Week in Context
 
 ```mermaid
 mindmap
@@ -208,9 +208,9 @@ mindmap
       Baseline monthly digest
 ```
 
-## Bottom Line
+## What to Do With All This
 
-Velocity without controls is just faster failure. The practical move is a two-track process: adopt cheaper/faster model/runtime improvements where blast radius is low, and aggressively prioritize exploited and high-CVSS security work where blast radius is high.
+Two tracks, split by blast radius. On the low-risk side, adopt cheaper and faster model and runtime improvements where mistakes are recoverable. On the high-risk side, aggressively prioritize exploited and high-CVSS security work where a miss means production exposure. Trying to treat everything with equal urgency guarantees the security items get buried under feature work.
 
 :::tip[Single action that pays off this week]
 Create one `security+runtime` weekly gate in CI: fail builds unless runtime pins are explicit, KEV-tracked packages are patched, and secret/host-header checks pass. This removes 80% of the avoidable regressions from this entire feed.

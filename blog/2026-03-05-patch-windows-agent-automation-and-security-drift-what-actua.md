@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The signal this week was not "new shiny AI." It was operational discipline: patch windows, identity controls, cert hygiene, and better defaults in dev tooling. The AI news mattered too, but mostly where it touched production workflows instead of demo theater.
+Most of this week's signal came from operational discipline: patch windows, identity controls, cert hygiene, and better defaults in dev tooling. AI news showed up too, but the parts worth paying attention to were the ones touching production workflows rather than launch-day demos.
 
 <!-- truncate -->
 
@@ -29,17 +29,17 @@ The signal this week was not "new shiny AI." It was operational discipline: patc
 
 ## Conferences, Community, and Practical Training
 
-Three items stood out because they create real skill transfer, not just content velocity:
+Three items stood out for delivering genuine skill transfer:
 
 - **Stanford WebCamp 2026** opened CFPs for an online event on 30 April 2026 and hybrid program on 1 May 2026. Source: [Stanford WebCamp](https://webcamp.stanford.edu/).
 - **Dripyard at DrupalCon Chicago** is doing training + talks + template session, which is the right ratio: hands-on plus architecture context. Source: [Dripyard](https://www.dripyard.com/).
-- **WP Rig maintainer interview (#207)** highlighted a truth people still avoid: starter frameworks are education tools first, productivity tools second. Source: [WP Builds episode 207](https://wpbuilds.com/).
+- **WP Rig maintainer interview (#207)** highlighted something people still dodge: starter frameworks teach you how to build things before they make you faster at building things. Source: [WP Builds episode 207](https://wpbuilds.com/).
 
 :::info[What this means in practice]
-Conference announcements are only useful when they include formats that force implementation: training labs, architecture walkthroughs, and migration stories. Keynotes are branding; workshops are competence.
+Conference announcements earn attention when they include formats that force implementation: training labs, architecture walkthroughs, and migration stories. The workshops do the heavy lifting; keynotes mostly serve marketing.
 :::
 
-## AI in Search and IDEs: Useful, but Only with Guardrails
+## AI in Search and IDEs: Useful Within Guardrails
 
 Google shipped two meaningful updates: visual query fan-out in AI Mode and Canvas in AI Mode for drafting/building in Search. Cursor shipped automations and ACP-based JetBrains support. Firefox shipped user-facing AI controls with an explicit user-choice stance.
 
@@ -50,13 +50,13 @@ Google shipped two meaningful updates: visual query fan-out in AI Mode and Canva
 <Tabs>
 <TabItem value="search" label="Search AI Mode" default>
 
-Best for fast exploration where source fidelity still gets manually verified.  
+Best for fast exploration where source fidelity still gets manually verified.
 Useful for visual + multimodal intent expansion, not for final factual claims.
 
 </TabItem>
 <TabItem value="cursor" label="Cursor Automations">
 
-Best for always-on repo workflows with trigger-based execution.  
+Best for always-on repo workflows with trigger-based execution.
 High leverage only when automation includes QA gates and rollback policy.
 
 </TabItem>
@@ -68,12 +68,12 @@ Best for teams staying in IntelliJ/PyCharm/WebStorm while adopting agent workflo
 </Tabs>
 
 :::caution[Automation without review is still bad engineering]
-~~Agent-generated code can go straight to PR if tests pass~~ is how teams ship regressions at scale. Simon Willison's anti-pattern note is correct: no unreviewed code should hit collaborators.
+~~Agent-generated code can go straight to PR if tests pass~~ — and that mindset is how you get regressions merged at scale. Simon Willison's anti-pattern note is correct: no unreviewed code should hit collaborators.
 :::
 
-## Model Announcements: Separate Capability from Claims
+## Model Announcements and What They Mean for Operations
 
-OpenAI posted GPT-5.4 + GPT-5.4 Thinking System Card, plus CoT-Control findings saying reasoning models still struggle to tightly control their chains of thought. Translation: monitorability remains a real safety lever, not a solved checkbox.
+OpenAI posted GPT-5.4 + GPT-5.4 Thinking System Card, plus CoT-Control findings showing that reasoning models still struggle to tightly control their chains of thought. In plain terms: monitorability remains an active safety problem, not a solved checkbox.
 
 Also in the same week: Qwen turbulence and public discussion around team departures, Gemini 3.1 Flash-Lite price/perf positioning, and Donald Knuth publicly revising his AI skepticism after a concrete math result.
 
@@ -81,7 +81,7 @@ Also in the same week: Qwen turbulence and public discussion around team departu
 >
 > — Donald Knuth, [claude-cycles.pdf](https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf)
 
-## Security Reality: The Week's Highest-Value Work
+## Security Bulletins: The Week's Highest-Value Work
 
 The most actionable updates were security bulletins and architecture fixes.
 
@@ -149,11 +149,11 @@ Drupal 10.6.4 and 11.3.4 are patch releases ready for production, both carrying 
 When editor components get security fixes, delayed patching is not neutral. It increases incident response cost, especially in content-heavy orgs with many admin users.
 :::
 
-## Education and Media: AI Value Is in Measurement, Not Hype
+## Education and Media: AI Value Shows Up in Measurement
 
-OpenAI's education updates were useful because they included tooling plus measurement frameworks (Learning Outcomes Measurement Suite), not just "AI for schools" slogans. GitHub + Andela case studies were useful for the same reason: production workflow examples beat abstract capability talk. Axios on local journalism followed the same pattern: AI as force multiplier for workflow bottlenecks, not for replacing reporting judgment.
+OpenAI's education updates were useful because they shipped tooling alongside measurement frameworks (Learning Outcomes Measurement Suite) rather than stopping at slogans. GitHub + Andela case studies worked for the same reason: production workflow examples with specifics you can evaluate. Axios covering local journalism followed the same pattern: AI as a force multiplier for workflow bottlenecks, applied to distribution and production rather than editorial judgment.
 
-## The Bigger Picture
+## Week Overview
 
 ```mermaid
 mindmap
@@ -183,7 +183,7 @@ mindmap
 
 ## Bottom Line
 
-The hard truth: the highest ROI this week was still boring engineering hygiene, with AI features adding value only when wrapped in review, policy, and measurement.
+The highest ROI this week came from boring engineering hygiene. AI features added value where they were wrapped in review, policy, and measurement — and created risk where they weren't.
 
 :::tip[Single action that pays off this week]
 Run a 90-minute release-and-security sweep: patch Drupal core/contrib, rotate any exposed cert material, and gate all agent automation with mandatory human review before merge.
