@@ -22,15 +22,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This cycle was less "new toys" and more "new constraints." GPT-5.4 shipped with real production implications (context, cost, control), Drupal tightened support windows, and security teams got another reminder that KEV + leaked keys + identity bypass are not abstract risks. The useful thread across all of it: operational discipline beats announcement fatigue.
+Fewer shiny announcements this cycle, more operational consequences. GPT-5.4 shipped with context, cost, and control changes that affect real architecture decisions. Drupal tightened support windows. Security teams got yet another week of KEV additions, leaked keys, and identity bypasses showing up in production — none of it hypothetical. The common thread: discipline in how you respond to these matters more than knowing they happened.
 
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## GPT-5.4 Is a Runtime Decision, Not a Press-Release Headline
+## GPT-5.4 Model Routing and What the 1M Context Window Changes
 
-OpenAI introduced `gpt-5.4` and `gpt-5.4-pro` across API, ChatGPT, and Codex CLI, with a 1M-token context window and an August 31, 2025 cutoff. This is not about bragging rights; it changes architecture choices for long-context retrieval, coding agents, and review loops.
+OpenAI introduced `gpt-5.4` and `gpt-5.4-pro` across API, ChatGPT, and Codex CLI, with a 1M-token context window and an August 31, 2025 cutoff. The part worth paying attention to: this changes architecture choices for long-context retrieval, coding agents, and review loops. Whether you upgrade depends on what you're building, not on the announcement itself.
 
 > "Introducing GPT-5.4, OpenAI's most capable and efficient frontier model for professional work."
 >
@@ -87,19 +87,19 @@ hygiene:
 </TabItem>
 </Tabs>
 
-:::caution[Chain-of-thought control is not solved]
-The CoT-control result matters operationally: reasoning traces are not reliably steerable. Do not build policy controls that assume perfect hidden-thought obedience. Build monitors around observable behavior, tool calls, and outputs.
+:::caution[Chain-of-thought control remains unreliable]
+The CoT-control result has direct operational consequences: reasoning traces cannot be steered reliably. Any policy control that assumes perfect hidden-thought obedience will break. Monitor observable behavior, tool calls, and outputs instead.
 :::
 
-## The AI Product Layer Is Moving Into Regulated Workflows
+## AI Products Are Entering Regulated Workflows
 
-OpenAI's education push, ChatGPT-for-Excel + financial integrations, and the new "Adoption" channel are signals of productization for enterprises with compliance overhead. Cursor automations joins that trend: always-on agents are now table stakes, and ~~prompt wizardry~~ runbook engineering is the real work.
+OpenAI's education push, ChatGPT-for-Excel with financial integrations, and the new "Adoption" channel all point the same direction — productization for enterprises that carry compliance overhead. Cursor automations fits the pattern too: always-on agents are shipping everywhere, and the hard part has shifted from ~~prompting~~ to building runbooks with measurable controls.
 
-:::info[What changes in practice]
-Capability demos are done. Teams now need measurable controls: model routing, audit logs, approval points, and rollback paths. If this is missing, "AI rollout" is still a pilot, not production.
+:::info[What this means for teams shipping AI]
+If your AI rollout lacks model routing, audit logs, approval gates, and rollback paths, you're still running a pilot. Production requires controls you can measure and explain to an auditor.
 :::
 
-## Web Platform and Dev Community: Keep the Signal, Ignore the Theater
+## Web Platform and Dev Community Updates Worth Tracking
 
 High-signal community updates:
 - Stanford WebCamp 2026 CFP is open (online April 30, hybrid May 1).
@@ -112,11 +112,11 @@ High-signal community updates:
 >
 > — Simon Willison, [Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/)
 
-:::tip[Review discipline that actually works]
-Require a human-authored PR summary with "risk, changed behavior, rollback plan" before merge. If the author cannot explain those three in plain language, the PR is not ready.
+:::tip[A review gate that holds up]
+Require a human-authored PR summary covering risk, changed behavior, and rollback plan before merge. If the author can't articulate those three things plainly, the PR goes back.
 :::
 
-## Drupal and WordPress: Patch Cadence Is a Security Feature
+## Drupal and WordPress Releases: Patch Cadence as Security Posture
 
 Drupal 10.6.4 and 11.3.4 shipped as bugfix releases, with CKEditor5 at `47.6.0` (including an upstream XSS fix). Support windows are explicit: Drupal 10.4.x is out; 10.5.x support ends June 2026; 10.6.x and 11.3.x carry through December 2026. Two contrib advisories (`SA-CONTRIB-2026-023`, `024`) flagged moderately critical XSS risk.
 
@@ -146,9 +146,9 @@ php -v
 
 </details>
 
-## Security Feed: KEV, ICS, Certificates, and Identity All Converge
+## Security Feed: KEV, ICS, Certificates, and Identity Risks Converging
 
-CISA added five actively exploited CVEs to KEV (Hikvision, Rockwell, Apple). Delta CNCSoft-G2 surfaced an out-of-bounds write with possible RCE impact. GitGuardian + Google mapped leaked private keys to real cert exposure (2,622 valid certs in September 2025 before disclosure remediation). Cloudflare pushed multiple controls: always-on detections, user risk scoring, gateway authorization proxy, deepfake-resistant onboarding with Nametag.
+CISA added five actively exploited CVEs to KEV (Hikvision, Rockwell, Apple). Delta CNCSoft-G2 surfaced an out-of-bounds write with possible RCE impact. GitGuardian and Google mapped leaked private keys to real cert exposure — 2,622 valid certs were found in September 2025 before disclosure remediation began. On the controls side, Cloudflare pushed several updates: always-on detections, user risk scoring, gateway authorization proxy, and deepfake-resistant onboarding with Nametag.
 
 ```mermaid
 timeline
@@ -163,11 +163,11 @@ timeline
 Patch KEV-relevant assets first, rotate exposed keys second, and enforce adaptive identity checks third. Reversing that order increases active exploit exposure while teams debate architecture.
 :::
 
-## Network Engineering Signal: ARR and QUIC Proxy Mode Are Real Wins
+## Network Engineering: ARR and QUIC Proxy Mode Deliver Measurable Gains
 
-Cloudflare's Automatic Return Routing (ARR) addresses overlapping private IP environments without manual NAT/VRF complexity by relying on stateful flow tracking. Their QUIC-based Proxy Mode rebuild removes user-space TCP overhead and reports ~2x throughput gains. This is infrastructure work that users actually feel.
+Cloudflare's Automatic Return Routing (ARR) handles overlapping private IP environments without manual NAT/VRF complexity — it relies on stateful flow tracking instead. Their QUIC-based Proxy Mode rebuild removes user-space TCP overhead and reports roughly 2x throughput gains. Both are infrastructure changes that show up in latency numbers users notice.
 
-## The Bigger Picture
+## Connecting the Dots
 
 ```mermaid
 mindmap
@@ -194,8 +194,8 @@ mindmap
 
 ## Bottom Line
 
-Engineering reality this week: model upgrades, framework patches, and security controls are now one operating surface. Teams that separate them into different meetings will keep shipping avoidable incidents.
+Model upgrades, framework patches, and security controls have collapsed into one operating surface this week. Teams that split these across separate meetings and separate owners will keep shipping avoidable incidents. The fix is straightforward.
 
 :::tip[Single highest-ROI move]
-Implement one `model-routing.yaml` plus one weekly "KEV + framework release + key exposure" review in the same runbook, owned by one team. This collapses three failure classes before they compound.
+Stand up one `model-routing.yaml` and one weekly review that covers KEV additions, framework releases, and key exposure — in a single runbook, owned by one team. Three failure classes, one place to catch them before they compound.
 :::
