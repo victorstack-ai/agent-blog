@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The pattern across this batch is straightforward: model capability is climbing fast, integration points are multiplying, and security debt compounds at matching speed. Some announcements were useful, some were marketing noise, and a few were direct operational warnings. If you take one thing from this roundup, it should be this: AI adoption and patch discipline belong in the same pipeline, not on separate calendars.
+GitHub Copilot crossed 60 million code reviews — and CISA added five actively exploited CVEs to its catalog in the same news cycle. That juxtaposition tells you everything about the current state of the industry: teams are generating code faster than they can patch the infrastructure running it. AI adoption and patch discipline belong in the same pipeline, not on separate calendars.
 
 <!-- truncate -->
 
@@ -92,9 +92,7 @@ flowchart TD
   G --> H[Human validation]
 ```
 
-:::caution[Search-canvas output is draft code/content]
-Use Canvas-style output for scaffolding only. Promote nothing to production docs or code until linked sources are checked and copied into internal notes.
-:::
+Canvas-style output from search is scaffolding, not source of truth. Promote nothing to production docs or code until linked sources are checked and copied into internal notes.
 
 ## Security Signal Was Loud This Week
 
@@ -111,29 +109,6 @@ Treat KEV-listed CVEs and vendor CSAFs as immediate change tickets, not backlog 
 | Drupal GA4 `<1.1.14` and Calculation Fields `<1.0.4` | Admin-context XSS risk | Upgrade modules and review custom attribute input paths |
 | GitGuardian+Google cert findings | Real cert abuse risk from leaked keys | Rotate keys, revoke certs, enforce secret scanning pre-commit |
 | Cloudflare always-on detection/user risk updates | Better exploit confirmation and adaptive access control | Enable response-aware detection and risk-based policy decisions |
-
-```yaml title="security/weekly-triage-policy.yaml" showLineNumbers
-policy_version: 1
-windows:
-  kev_review_hours: 24
-  high_risk_patch_days: 7
-  medium_risk_patch_days: 30
-
-triage:
-  # highlight-next-line
-  - source: cisa_kev
-    priority: p0
-    action: "inventory + patch_or_isolate"
-  - source: vendor_csaf
-    priority: p0
-    action: "validate exploitability + mitigation"
-  - source: drupal_sa_contrib
-    priority: p1
-    action: "upgrade module + regression test"
-  - source: ct_leaked_keys
-    priority: p0
-    action: "rotate key + revoke cert + scan history"
-```
 
 ## Drupal and WordPress: Patches That Need Attention Now
 
@@ -171,41 +146,8 @@ GPT-5.4, CoT controllability findings, and the Learning Outcomes Measurement Sui
 >
 > — Donald Knuth, [Claude Cycles (PDF)](https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf)
 
-The Axios local journalism case and the graviton-amplitudes preprint follow the same practical pattern: AI delivers value when scoped to workflow acceleration with expert verification on top — not when left to produce "truths" autonomously.
-
-:::info[What to copy from education pilots]
-Adopt outcome metrics before broad rollout: baseline performance, intervention duration, and post-intervention retention checks. Without those three, "AI improved learning" is a slogan, not evidence.
-:::
-
-## Week Signal Map
-
-```mermaid
-mindmap
-  root((Week Signal))
-    AI Delivery Speed
-      Copilot 60M reviews
-      Cursor automations + ACP
-      GPT-5.4 capability jump
-    Security Pressure
-      KEV active exploitation
-      Delta CSAF RCE risk
-      Drupal contrib XSS
-      Leaked key -> valid cert exposure
-    Platform Shift
-      Search fan-out + Canvas
-      Firefox AI controls
-      Next.js 16 defaults
-    Real-World Validation
-      Andela production learning
-      Axios newsroom workflow
-      Education outcomes measurement
-      Research assistance in amplitudes
-```
+The Axios local journalism case and the graviton-amplitudes preprint follow the same practical pattern: AI delivers value when scoped to workflow acceleration with expert verification on top — not when left to produce "truths" autonomously. Adopt outcome metrics before broad rollout: baseline performance, intervention duration, and post-intervention retention checks. Without those three, "AI improved learning" is a slogan, not evidence.
 
 ## Summary and Next Steps
 
 Velocity increased across coding, search, and content workflows this week, but the signal from security advisories and exploit catalogs was stronger. Teams shipping AI-assisted changes without strict review policy, patch cadence, and measurable outcomes are building up failure debt — and the interest rate on that debt keeps climbing.
-
-:::tip[Single most actionable move]
-Create one weekly `AI + Security` review meeting with a fixed agenda: generated-code review exceptions, KEV/CSAF exposure checks, and module/framework patch status. One pipeline, one owner, one dashboard.
-:::

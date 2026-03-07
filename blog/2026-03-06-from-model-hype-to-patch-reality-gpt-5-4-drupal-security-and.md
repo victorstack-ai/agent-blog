@@ -24,7 +24,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Model capability keeps climbing. So does operational risk, and this week the risk side had more to say. GPT-5.4 brings real improvements for production coding and long-context work. Meanwhile, CISA added five actively exploited CVEs, Drupal shipped security releases, and leaked private keys are still floating around attached to valid certificates. The priority order writes itself: patch, instrument, then leverage the better models.
+Another week, another model drop that every LinkedIn thought-leader will call "transformative" without running a single benchmark. GPT-5.4 is genuinely useful — but the internet managed to spend more cycles celebrating a context window than patching five actively exploited CVEs. Priorities, as always, remain aspirational.
 
 <!-- truncate -->
 
@@ -75,26 +75,6 @@ That volume of signal makes ~~"monitor-only for now"~~ indefensible. Blocking co
 When KEV lists active exploitation, patch windows become incident windows. The sequence is `inventory -> exposure check -> patch -> verify exploit path closed`, and it runs in one cycle.
 :::
 
-```yaml title="security-baseline.yaml" showLineNumbers
-services:
-  drupal:
-    min_supported:
-      core_10: "10.6.4"
-      core_11: "11.3.4"
-  dependency_policy:
-    block_if:
-      - kev_match: true
-      - known_rce: true
-# highlight-next-line
-  cert_policy:
-    rotate_if_key_leaked: true
-    max_validity_days: 90
-    ct_log_monitoring: true
-  waf_policy:
-    mode: "detect+block"
-    require_full_transaction_detection: true
-```
-
 <details>
 <summary>Security items tracked in this devlog</summary>
 
@@ -111,28 +91,6 @@ services:
 Drupal `10.6.x` and `11.3.x` define the safe baseline through December 2026 security coverage. If you are still running anything below `10.5.x`, you are outside supported coverage and that upgrade needs to jump the queue ahead of feature work. No negotiation on this one.
 
 PHP JIT improvements keep landing too, which is welcome. But shipping unpatched CMS and plugin code faster does not count as progress.
-
-```bash title="ops/drupal-security-rollout.sh" showLineNumbers
-#!/usr/bin/env bash
-set -euo pipefail
-
-SITE_ROOT="${1:-/var/www/html}"
-
-cd "$SITE_ROOT"
-
-# highlight-next-line
-drush status --fields=drupal-version
-drush pm:security
-
-# highlight-start
-composer update drupal/core-recommended drupal/core-composer-scaffold drupal/core-project-message --with-all-dependencies
-drush updb -y
-drush cr
-# highlight-end
-
-drush pm:security
-drush status --fields=drupal-version
-```
 
 ```diff title="composer.json"
  {
@@ -155,10 +113,6 @@ The filter is simple: does it cut handoffs in a production workflow while keepin
 | Cursor automations | Always-on repetitive engineering tasks | Bad prompts automate bad outcomes |
 | Google AI Mode Canvas | Quick doc/tool prototyping in search context | Not a substitute for source-of-truth repos |
 
-:::info[Measuring AI Adoption by Something Other Than Seat Count]
-OpenAI's education and enterprise value-model framing gets more useful when you tie it to capability measurement. Track defect rate, cycle time, and escaped incidents per AI-assisted workflow. Usage dashboards alone tell you nothing about whether the work got better.
-:::
-
 ## Cloudflare Consolidating Identity, Network, and Detection
 
 ARR for overlapping private IPs, QUIC-based proxy mode throughput gains, always-on exploit detection, user risk scoring, gateway auth proxy, and anti-deepfake onboarding controls. The direction is clear: policy enforcement is shifting from static network boundaries to continuous signals about identity and behavior. If your security posture still depends on "which subnet is this request from," you are falling behind.
@@ -172,18 +126,6 @@ That advice extends to security automation. Auto-detection without operator revi
 ## Community Signals: Ship Artifacts, Not Announcements
 
 Stanford WebCamp 2026 CFP, WP Rig maintainer discussion, UI Suite Display Builder demos, GitHub + Andela production-learning stories, and Qwen team turbulence all showed up this week. The common thread across all of them is boring and reliable: teams that ship reviewable artifacts outlast teams that ship press releases. When leadership churn or product messaging dominates the feed, put your energy into reliability work. It compounds.
-
-## Timeline
-
-```mermaid
-timeline
-    title 2026-03-06 Devlog Signal Map
-    2025-09 : Certificate leak study shows 2,622 valid exposed certs
-    2026-03-04 : Drupal contrib XSS advisories published
-    2026-03-04 : CISA KEV adds five actively exploited CVEs
-    2026-03-06 : GPT-5.4 adoption expands across API, ChatGPT, Codex
-    2026-03-06 : Tooling trend converges on always-on automation + identity-aware controls
-```
 
 ## Bottom Line
 

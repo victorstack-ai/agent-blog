@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This batch of signals points to one theme: AI is becoming default infrastructure, but reliability still depends on old-school engineering discipline. The useful updates were not hype demos, they were upgrade policies, transport-layer rewrites, detection pipelines, and measurable outcomes. The noisy part of the ecosystem is still noisy, but the practical path is clearer than people admit.
+Another week, another avalanche of announcements dressed up as revolutions. Strip the launch confetti and you find something more interesting underneath: the teams shipping real results are not chasing model leaderboards — they are wiring AI into upgrade policies, transport-layer rewrites, and detection pipelines. The gap between "impressive demo" and "survives on-call rotation" remains the only metric worth tracking.
 
 <!-- truncate -->
 
@@ -54,10 +54,6 @@ Fast drafting and interactive tool prototyping in AI Mode. Good ideation surface
 </TabItem>
 </Tabs>
 
-:::info[What Actually Changed]
-The industry moved from "chat with model" to "wire model into workflow." That includes IDE-native clients, triggered automations, and default framework baselines (Next.js 16 for new sites). ~~Prompt quality alone drives outcomes~~; operational controls drive outcomes.
-:::
-
 ## CMS Reality: Drupal and WordPress Reward Discipline
 
 Drupal 10.6.4 and 11.3.4 are patch releases, but the operational message is bigger: unsupported branches are now a liability window, not a "sometime later" task. Both updates include CKEditor5 `v47.6.0` with a security fix relevant to XSS handling in General HTML Support. Contrib advisories on March 4, 2026 add urgency: `google_analytics_ga4 < 1.1.14` and `calculation_fields < 1.0.4` both carry XSS risk.
@@ -71,28 +67,6 @@ Drupal 10.6.4 and 11.3.4 are patch releases, but the operational message is bigg
 | UI Suite Display Builder video | Low-code layout velocity for Drupal teams | Use for page layout, keep review gates |
 | WP Rig episode #207 | Starter theme with best-practice teaching value | Good for onboarding, still needs perf budgets |
 | Dripyard at DrupalCon Chicago | Training/presentations indicate ecosystem maturity | Track practical demos, ignore booth fluff |
-
-```yaml title="ops/2026-03-05-cms-remediation.yaml" showLineNumbers
-release_policy:
-  drupal:
-    supported_branches:
-      - "10.6.x"
-      - "11.3.x"
-    eol_notes:
-      # highlight-next-line
-      - "10.4.x security support ended; block deploys on <10.5.x"
-advisories:
-  - id: "SA-CONTRIB-2026-024"
-    project: "google_analytics_ga4"
-    fixed_in: "1.1.14"
-  - id: "SA-CONTRIB-2026-023"
-    project: "calculation_fields"
-    fixed_in: "1.0.4"
-gates:
-  # highlight-next-line
-  - "Fail CI if vulnerable contrib version detected"
-  - "Fail CI if CKEditor5 version drifts from secured baseline"
-```
 
 :::danger[Drupal Contrib XSS Is Not Theoretical Busywork]
 Treat moderately critical XSS advisories as immediate patch work when modules touch script attributes or user-controlled expressions. Waiting for exploit PoCs is unnecessary risk; the attacker path is already described.
@@ -123,14 +97,6 @@ flowchart TD
     G --> H[Exploit + Exfil Signal]
 ```
 
-```diff title="security/policy-shift.diff"
-- action: allow_if_identity_valid
-+ action: allow_if_identity_valid_and_risk_below_threshold
-+ detection: full_transaction
-+ response_logic: correlate_payload_with_origin_response
-+ transport: quic_streams_proxy_mode
-```
-
 :::warning[Certificate and Key Leakage Has a Long Tail]
 GitGuardian + Google mapped roughly 1M leaked keys to 140k certs, with 2,622 still valid as of September 2025. That means revocation/rotation SLAs are often fiction on paper.
 :::
@@ -145,10 +111,6 @@ OpenAI's education announcements (tools, certifications, and the Learning Outcom
 >
 > — OpenAI, [Learning outcomes update](https://openai.com/)
 
-:::caution[No Measurement, No Credibility]
-If school or newsroom AI rollouts lack baseline metrics, every success claim is marketing copy. Track cycle time, quality deltas, and user-level outcomes before expanding budget.
-:::
-
 ## Model and OSS Signals: Useful, Messy, and Sometimes Uncomfortable
 
 Qwen 3.5 momentum plus high-profile team departures is a reminder that model quality and org stability are separate risk vectors. Knuth publicly reacting to Claude solving a problem he was working on is a strong signal that frontier models are crossing into non-trivial expert workflows. The "89% Problem" on dormant open-source packages is the supply-chain counterpoint: AI-assisted resurrection can increase utility and risk at the same time.
@@ -156,39 +118,6 @@ Qwen 3.5 momentum plus high-profile team departures is a reminder that model qua
 > "Don't file pull requests with code you haven't reviewed yourself."
 >
 > — Simon Willison, [Agentic Engineering Anti-patterns](https://simonwillison.net/guides/agentic-engineering-patterns/)
-
-## The Bigger Picture
-
-```mermaid
-mindmap
-  root((2026 Practical AI Stack))
-    Delivery
-      GitHub + Andela workflows
-      Cursor automations
-      Cursor in JetBrains ACP
-      Next.js 16 defaults
-    Platform Security
-      Drupal patch cadence
-      Contrib XSS advisories
-      CKEditor5 security update
-      Delta CNCSoft-G2 RCE risk
-    Network Security
-      ARR for IP overlap
-      QUIC proxy mode
-      Always-on detections
-      User risk scoring
-      Gateway auth proxy
-      Deepfake/laptop-farm defense
-    Governance
-      Learning outcomes measurement
-      Key leak remediation SLAs
-      Human review anti-patterns
-    Ecosystem Signals
-      Qwen uncertainty
-      Knuth + Claude moment
-      Dormant OSS package revival risk
-      Gemini 3.1 Flash-Lite price/perf pressure
-```
 
 ## Bottom Line
 

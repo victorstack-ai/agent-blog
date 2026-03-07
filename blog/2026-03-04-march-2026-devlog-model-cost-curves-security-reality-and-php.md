@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The feed this week split into two buckets: faster/cheaper AI tooling, and security failures that could have been written in 2019 but happen to carry new vendor logos. On the platform side, costs keep dropping and interfaces keep getting friendlier. On the security side, unauthenticated admin paths and weak auth controls remain stubbornly present in critical infrastructure.
+Gemini 3.1 Flash-Lite now costs $0.25 per million input tokens. Meanwhile, six separate CSAF advisories dropped with CVSS scores above 9.0 -- all for missing authentication on critical functions. One side of the industry is racing to make inference disposable; the other keeps shipping admin panels with no login screen.
 
 <!-- truncate -->
 
@@ -56,9 +56,7 @@ Great for conversational UX and operator tooling. Still not a free pass for auto
 </TabItem>
 </Tabs>
 
-:::caution[Default Versions Are Not a Migration Strategy]
-When framework defaults change, generated code gets ahead of team conventions. Freeze scaffolding inputs (`next`, `node`, lint config), then upgrade intentionally with a changelog-based checklist.
-:::
+**When framework defaults change, generated code gets ahead of team conventions.** Freeze scaffolding inputs (`next`, `node`, lint config), then upgrade intentionally with a changelog-based checklist.
 
 ## Agent UX Moves from API Layer to Product Governance
 
@@ -74,9 +72,7 @@ flowchart TD
   E --> F
 ```
 
-:::warning[Plugin Marketplaces Expand Blast Radius]
-Treat internal plugin publishing like production code deploys: signed releases, scope review, and audit logs. "Internal" does not mean safe; it means mistakes scale faster.
-:::
+**Treat internal plugin publishing like production code deploys:** signed releases, scope review, and audit logs. "Internal" does not mean safe; it means mistakes scale faster.
 
 ## Security Feed: Recurring Vulnerabilities Across Charging and OT Infrastructure
 
@@ -102,33 +98,6 @@ This week's CSAF stream is blunt: **Mobiliti e-mobi.hu**, **ePower epower.ie**, 
 Charging infrastructure and OT interfaces keep shipping with unauthenticated critical paths. Segmenting networks helps, but fix order is clear: kill unauth endpoints, enforce strong auth throttling, and monitor abnormal admin actions.
 :::
 
-```js title="security/triage-policy.js" showLineNumbers
-const kev = new Set(["CVE-2026-21385", "CVE-2026-22719"]);
-
-export function classify(vuln) {
-  // highlight-next-line
-  if (kev.has(vuln.cve)) return "patch-now";
-  if (vuln.cvss >= 9.0 && vuln.exposed === true) return "patch-now";
-  if (vuln.cvss >= 8.0) return "patch-this-week";
-  return "scheduled";
-}
-
-export function owner(team) {
-  // highlight-start
-  if (team === "ot") return "infra-security";
-  if (team === "web") return "appsec";
-  // highlight-end
-  return "platform";
-}
-```
-
-```diff
-- Priority = "CVSS only"
-+ Priority = "KEV first, then CVSS+exposure"
-- Patch window = "next sprint"
-+ Patch window = "24h for KEV or exposed 9.x"
-```
-
 <details>
 <summary>Full security watchlist captured this cycle</summary>
 
@@ -149,50 +118,11 @@ export function owner(team) {
 
 The **DropTimes** "At the Crossroads of PHP" framing is accurate: contributor fatigue, tighter budgets, and fuzzy positioning compound into a maintenance economics problem that no amount of rebranding will fix. The **Drupal 25th Anniversary Gala** (March 24, 2026, Chicago) is a milestone worth acknowledging, but the harder question is whether pipeline health and contributor retention can keep pace with the project's ambitions. **January 2026 Baseline digest** reinforces the same theme: progress exists, but attention is fragmented.
 
-:::info[Community Health Is a Technical Risk]
-If maintainer bandwidth drops, release cadence and security response degrade. Treat ecosystem health as dependency risk, the same way runtime EOL is dependency risk.
-:::
+**If maintainer bandwidth drops, release cadence and security response degrade.** Treat ecosystem health as dependency risk, the same way runtime EOL is dependency risk.
 
 ## Edge Security Policies Belong in Version Control, Not Appliance GUIs
 
 The "truly programmable SASE platform" claim is only useful if policies are versioned, reviewed, and tested like application code. ~~Clickops firewalling is enough~~ has been false for years.
-
-```bash title="ops/sase-policy-check.sh"
-#!/usr/bin/env bash
-set -euo pipefail
-
-POLICY_DIR="edge-policies"
-FAILED=0
-
-for f in "$POLICY_DIR"/*.rego; do
-  echo "Validating $f"
-  opa fmt --fail "$f" >/dev/null || FAILED=1
-  conftest test "$f" || FAILED=1
-done
-
-if [ "$FAILED" -ne 0 ]; then
-  echo "Policy validation failed"
-  exit 1
-fi
-
-echo "Policy validation passed"
-```
-
-## March 2026 Signal Timeline
-
-```mermaid
-timeline
-  title March 2026 Signals
-  2026-03 : Next.js 16 default scaffolding baseline shifts
-          : Node.js 25.8.0 current runtime update
-          : Gemini 3.1 Flash-Lite pricing pressure on model routing
-          : GPT-5.3 Instant + System Card for productized chat UX
-  2026-03 : MCP apps/team marketplaces turn plugins into governance surface
-          : Copilot Dev Days + Project Genie prompts push adoption workflows
-  2026-03 : CSAF cluster repeats unauth/admin-control failures in infra
-          : CISA KEV adds actively exploited Qualcomm and VMware issues
-          : PHP/Drupal discourse centers on sustainability economics
-```
 
 ## What to Do This Week
 

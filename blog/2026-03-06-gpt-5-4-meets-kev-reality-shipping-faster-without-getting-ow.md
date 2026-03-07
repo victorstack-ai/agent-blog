@@ -19,7 +19,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Model capability jumped again this week. So did operational risk. GPT‑5.4 brings real upside for engineering work, but KEV additions, Drupal contrib XSS advisories, and leaked cert data are a blunt reminder: shipping fast without controls means you're accumulating exposure, not velocity.
+Another week, another frontier model drop promising to revolutionize your workflow — right alongside a fresh batch of CVEs promising to revolutionize your incident channel. GPT‑5.4 landed with genuine upgrades for engineering work, but CISA's KEV additions, Drupal contrib XSS advisories, and leaked cert data don't care how impressive your context window is. Speed without controls is just exposure with better marketing.
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
@@ -55,31 +55,6 @@ No model gets direct write access to production infra.
 </TabItem>
 </Tabs>
 
-```yaml title="ai-release-gate.yaml" showLineNumbers
-models:
-  gpt-5.4:
-    max_context: 1000000
-    knowledge_cutoff: "2025-08-31"
-    allowed_tasks:
-      - code_review
-      - test_generation
-      - doc_summarization
-  gpt-5.4-pro:
-    allowed_tasks:
-      - root_cause_analysis
-      - architecture_decisions
-policy:
-  # highlight-start
-  require_human_review: true
-  block_prod_credentials: true
-  # highlight-end
-  monthly_cost_cap_usd: 1500
-```
-
-:::info[Pricing Reality Check]
-Check [LLM Prices](https://www.llm-prices.com/) for current snapshots, then lock internal routing rules by task criticality. Sending CRUD-grade work to premium reasoning models is the fastest way to blow through your budget without gaining anything.
-:::
-
 ## Search and Browser AI: Better UX, Same Governance Gap
 
 Google's AI Mode visual search fan-out and Canvas rollout in U.S. search reduce friction for mixed visual/text workflows. Meanwhile, Mozilla's new Firefox AI controls take the opposite stance and put user choice front and center. Both moves are worth watching.
@@ -87,10 +62,6 @@ Google's AI Mode visual search fan-out and Canvas rollout in U.S. search reduce 
 > "We believe in user choice"
 >
 > — Mozilla, [Ajit Varma on Firefox's new AI controls](https://blog.mozilla.org/)
-
-:::caution[Productivity Feature != Governance]
-Canvas and visual AI shortcuts speed up drafting and prototyping. They also speed up bad decisions when source traceability is weak. If the output feeds product, legal, or security decisions, require citation capture.
-:::
 
 ## Drupal and PHP: Bugfix Releases and Contrib XSS Flags
 
@@ -126,15 +97,6 @@ drush updb -y
 
 CISA added five KEVs this week. Delta CNCSoft-G2 published an out-of-bounds write with RCE impact potential. GitGuardian and Google mapped leaked keys to valid cert exposure — meaning those credentials are still live and exploitable. On the defensive side, Cloudflare shipped identity and detection controls including attack signature detection, full-transaction detection, user risk scoring, gateway auth proxy, and anti-deepfake onboarding flows.
 
-```diff title="security-baseline.diff"
-- allow_kev_exceptions: true
-- waf_mode: log_only
-+ allow_kev_exceptions: false
-+ waf_mode: block_with_transaction_detection
-+ require_identity_reverification_on_high_risk: true
-+ rotate_exposed_keys_within_hours: 4
-```
-
 :::danger[KEV Means Patch Now]
 If CVEs are in CISA KEV and your environment is exposed, patching is not a planning discussion. It is an outage-prevention task. Track MTTR in hours, not in sprint labels.
 :::
@@ -146,36 +108,6 @@ Stanford WebCamp 2026 CFP is open. GitHub and Andela published content on AI lea
 > "Don't file pull requests with code you haven't reviewed yourself."
 >
 > — Simon Willison, [Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/)
-
-## Putting It Together
-
-```mermaid
-mindmap
-  root((2026 Dev Signal))
-    Capability Jump
-      GPT-5.4
-      GPT-5.4-pro
-      1M Context
-      ChatGPT for Excel integrations
-    Governance Pressure
-      CoT control limits
-      System cards
-      Human review gates
-    Security Escalation
-      CISA KEV additions
-      Delta CNCSoft-G2 RCE risk
-      Drupal contrib XSS advisories
-      Leaked certs still valid
-    Infra Evolution
-      QUIC proxy mode
-      ARR for IP overlap
-      WAF full-transaction detection
-      User risk scoring
-    Ecosystem Reality
-      WebCamp CFP
-      WP Rig ecosystem education
-      Qwen team turbulence
-```
 
 ## Bottom Line
 

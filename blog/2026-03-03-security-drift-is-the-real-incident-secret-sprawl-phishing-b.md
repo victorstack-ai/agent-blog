@@ -25,8 +25,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most security incidents don't start with a dramatic breach. They accumulate quietly through **operational drift** — secrets copied into places nobody tracks, phishing filters calibrated against last quarter's attacks, and ecosystems coasting on inertia while marketing ships blog posts about momentum.
-This devlog covers what held up under scrutiny and what needs engineering time right now.
+Secrets leaked from shell history, crash dumps, and browser local storage outnumber secrets leaked from Git repos — and most rotation playbooks ignore every location except the repository. That gap, plus three webapp vulns that should have died a decade ago and a PHP ecosystem running on nostalgia fumes, made for a productive week of triage.
 
 <!-- truncate -->
 
@@ -137,26 +136,7 @@ The DropTimes framing is blunt and mostly correct: shared PHP communities are de
 >
 > — The Drop Times, [Drupal 25th Anniversary Gala Set for 24 March in Chicago](https://www.thedroptimes.com)
 
-:::info[What a 25-Year Anniversary Needs to Produce]
-Nostalgia is nice. What matters is whether it converts into maintainership commitments, funding, and clearer product direction. If your framework's ecosystem health is shaky, that affects every team building on top of it — it is an engineering dependency worth tracking.
-:::
-
-```yaml title="governance/maintainer-risk-register.yaml"
-ecosystem: php
-projects:
-  - name: drupal
-    risk: medium
-    trigger: "maintainer churn > 15% annually"
-    mitigation: "funded maintainership + release automation"
-  - name: joomla
-    risk: medium
-    trigger: "security response SLA drift"
-    mitigation: "shared incident response guild"
-  - name: magento
-    risk: high
-    trigger: "extension supply-chain compromise"
-    mitigation: "signed packages + mandatory SBOM"
-```
+**A 25-year anniversary needs to produce more than nostalgia.** What matters is whether it converts into maintainership commitments, funding, and clearer product direction. If your framework's ecosystem health is shaky, that affects every team building on top of it — it is an engineering dependency worth tracking.
 
 ## Evaluating "Programmable SASE" Claims
 
@@ -167,57 +147,6 @@ The pitch sounds good on paper. For it to mean anything, "programmable" has to m
 > — Vendor announcement, [The truly programmable SASE platform](https://www.cloudflare.com)
 
 Here is the acceptance test I would use: can a policy change go from commit to production in minutes, with deterministic rollback and full traceability? If yes, interesting. If no, it is a managed proxy with a marketing budget.
-
-```php title="edge/policies/block_suspicious_reset.php" showLineNumbers
-<?php
-
-declare(strict_types=1);
-
-// highlight-next-line
-if (!defined('EDGE_RUNTIME')) { exit(1); }
-
-$path = $_SERVER['REQUEST_URI'] ?? '/';
-$host = $_SERVER['HTTP_HOST'] ?? '';
-
-$allowedResetHosts = ['auth.example.com', 'accounts.example.com'];
-
-if (str_starts_with($path, '/reset') && !in_array($host, $allowedResetHosts, true)) {
-    header('HTTP/1.1 403 Forbidden');
-    echo 'Blocked by edge policy';
-    exit;
-}
-
-echo 'ok';
-```
-
-## How These Topics Connect
-
-```mermaid
-mindmap
-  root((Security Drift))
-    Secrets
-      Git is one source
-      Filesystem and process env
-      Agent memory and logs
-    Phishing
-      Reactive filters miss gaps
-      LLM triage for ambiguous mail
-      Human feedback loop
-    Webapp Vulns
-      Host header poisoning
-      Buffer overflow
-      LFI traversal
-    PHP Ecosystem
-      Maintainer sustainability
-      Governance clarity
-      Release discipline
-    SASE
-      Programmable policy
-      Auditability
-      Rollback speed
-```
-
-![Devlog security and ecosystem map](/img/vs-social-card.png)
 
 ## Bottom Line
 

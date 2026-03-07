@@ -19,7 +19,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This week had a clear throughline: AI features are shipping faster than teams can review them, and security advisories keep reminding us that "log-only" posture will bite you. The useful signal came from governance tooling, exploit intelligence, and boring upgrade discipline — not launch-day press releases.
+CISA dropped five actively exploited CVEs into the KEV catalog the same day GitHub decided to brag about 60 million Copilot code reviews. One of those numbers demands incident-level urgency; the other got the press release. Guess which is which.
 
 <!-- truncate -->
 
@@ -64,9 +64,7 @@ Weak point: policy drift if IDE-specific settings diverge by team.
 
 Google's AI Mode updates (visual query fan-out + Canvas in U.S. Search) and OpenAI's ChatGPT for Excel integrations point in the same direction: the competition has moved to in-context task completion — assembling workflows, not returning ten blue links. Gemini 3.1 Flash-Lite pricing accelerates this by making high-volume inference cheap enough for mundane internal tools.
 
-:::info[What Actually Changed]
 "AI search" shifted from retrieval to workflow assembly. Query fan-out, visual interpretation, spreadsheet integration, and document drafting are all task graph features, not just ranking features.
-:::
 
 | Surface | Practical strength | Risk |
 |---|---|---|
@@ -89,29 +87,6 @@ Cloudflare's updates (always-on detections, user risk scoring, identity-aware pr
 Patch Drupal contrib modules `google_analytics_ga4` (&lt;1.1.14) and `calculation_fields` (&lt;1.0.4) immediately if installed. Treat KEV-listed CVEs as incident work, not sprint work. For enterprise access, move from static allow/deny policies to risk-scored and identity-aware controls now.
 :::
 
-```js title="scripts/triage-kev.js" showLineNumbers
-const kevList = new Set([
-  "CVE-2017-7921",
-  "CVE-2021-22681",
-  "CVE-2021-30952",
-  "CVE-2023-41974",
-  "CVE-2023-43000",
-]);
-
-function priorityFor(cve, cvss, internetExposed) {
-  // highlight-next-line
-  const cvssFloor = 7.0;
-  // highlight-start
-  if (kevList.has(cve)) return "P0";
-  if (internetExposed && cvss >= cvssFloor) return "P1";
-  // highlight-end
-  if (cvss >= cvssFloor) return "P2";
-  return "P3";
-}
-
-export { priorityFor };
-```
-
 ## Drupal and WordPress: Patch Discipline Still Wins
 
 Drupal 10.6.4 and 11.3.4 are both production-ready patch releases with explicit support windows. CKEditor5 moved to 47.6.0 with a security fix reviewed as non-exploitable in Drupal's built-in implementation. That should lower your stress level, not your urgency — upgrade on schedule, not in a panic.
@@ -132,9 +107,7 @@ Dripyard's DrupalCon Chicago footprint and UI Suite's Display Builder walkthroug
 +    "drupal/calculation_fields": "^1.0.4"
 ```
 
-:::caution[Support Windows Are Not Suggestions]
 Drupal 10.4.x security support has ended. Any site below 10.5.x is on borrowed time. Keep core and contrib patch cadence weekly, with emergency override for KEV-linked or XSS advisories.
-:::
 
 <details>
 <summary>Ecosystem notes logged this week</summary>
@@ -156,20 +129,6 @@ Qwen team turbulence is worth noting as a reminder that model capability and org
 > "Shock! Shock! I learned yesterday that an open problem ... had just been solved"
 >
 > — Donald Knuth, [Claude Cycles note](https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf)
-
-## Week in Context
-
-```mermaid
-timeline
-    title 2026-03-04 to 2026-03-05: Signal vs Hype
-    2026-03-04 : Drupal contrib XSS advisories published
-               : CISA KEV adds 5 actively exploited CVEs
-               : Security posture shifts from log-only to adaptive controls
-    2026-03-05 : Copilot review scale milestone highlighted
-               : Search AI expands into Canvas + visual fan-out workflows
-               : GPT-5.4 + system card + CoT-control emphasize measurable behavior
-               : Framework defaults and IDE clients widen AI adoption surface
-```
 
 ## What to Do With All This
 

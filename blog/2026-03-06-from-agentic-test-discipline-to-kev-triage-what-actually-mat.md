@@ -19,7 +19,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most of this week's headlines were product announcements dressed as breakthroughs. The stuff worth your time fits in three buckets: agent workflows that require proof of execution, GPT-5.4 model routing decisions, and security patches with real deadlines attached. ~~"Ship fast and trust the model output"~~ remains the fastest way to mass-produce expensive bugs.
+Another week, another parade of press releases cosplaying as technical progress. Beneath the confetti, exactly three things deserved more than a skim: agent PRs that nobody bothered to run, a new model tier most teams will misuse, and CISA deadlines that don't care about your sprint cadence.
 
 <!-- truncate -->
 
@@ -36,35 +36,6 @@ Willison's rule holds up because the failure mode is so common: agents generate 
 :::warning[Unreviewed Agent PRs Are Operational Debt]
 Require an execution artifact on every agent-generated change: test output, runtime logs, or reproducible command transcript. If a PR has no verification evidence, block merge immediately and request rerun with trace.
 :::
-
-```yaml title="ci/pull_request_policy.yaml" showLineNumbers
-policy:
-  pull_request:
-    require_human_review: true
-    require_execution_evidence: true
-    required_artifacts:
-      - test_summary
-      - failing_test_count
-      - command_log
-    reject_if:
-      - no_artifacts
-      - generated_code_without_runtime_check
-      - skipped_security_tests
-enforcement:
-  owner: platform-team
-  mode: blocking
-```
-
-```diff title=".github/workflows/pr.yml"
- jobs:
-   validate:
-     steps:
-       - run: npm test
-+      - name: Verify agent evidence
-+        run: test -f artifacts/test_summary.json
-+      - name: Block unverified generated code
-+        run: ./scripts/check_agent_evidence.sh
-```
 
 ## GPT-5.4 Model Routing: When to Use Which Tier
 
@@ -96,9 +67,7 @@ Use when the task is materially expensive to get wrong.
 | High-risk security analysis | Maybe | Yes |
 | Cost-sensitive batch jobs | Yes | No |
 
-:::info[CoT Control Result Matters]
-The chain-of-thought control finding deserves attention because it bears on monitorability: models resist hidden-reasoning shaping in ways that are hard to predict. That should push you toward more observable evaluation, not toward burying more reasoning steps out of sight.
-:::
+The chain-of-thought control finding deserves a note: models resist hidden-reasoning shaping in ways that are hard to predict. That should push you toward more observable evaluation, not toward burying more reasoning steps out of sight.
 
 ## CISA KEV and ICS Advisories: Concrete Patch Deadlines
 
@@ -111,23 +80,6 @@ CISA KEV additions, ICS RCE on Delta CNCSoft-G2, Drupal advisories, and certific
 :::danger[Exploit Evidence Means Deadline Compression]
 If a CVE is in KEV, classify it as active threat intelligence, not backlog. Set patch SLA in hours/days, not "next sprint," and record compensating controls only if deployment is blocked.
 :::
-
-```bash title="scripts/security-triage.sh"
-#!/usr/bin/env bash
-set -euo pipefail
-
-echo "1) Pull latest advisories"
-./bin/fetch-advisories --sources cisa,drupal,vendor
-
-echo "2) Match against SBOM/inventory"
-./bin/match-cves --inventory ./infra/asset-inventory.json --out ./artifacts/matches.json
-
-echo "3) Escalate KEV and RCE"
-./bin/prioritize --input ./artifacts/matches.json --rule "kev=true || impact=rce"
-
-echo "4) Open patch tickets with SLA"
-./bin/create-tickets --input ./artifacts/prioritized.json --sla-policy ./policy/sla.yaml
-```
 
 <details>
 <summary>Security items worth immediate action</summary>
@@ -153,33 +105,7 @@ Mozilla's AI controls framing ("user choice"), Google Search AI mode updates, Cu
 | GitHub + Andela AI workflows | Upskilling works when tied to production tasks | Pair AI usage metrics with defect-rate metrics |
 | Search AI Canvas/visual fan-out | Fast discovery, uneven trust | Use for exploration, then verify in primary docs |
 
-:::caution[Automation Without Guardrails Recreates Legacy Ops Failure]
 Always-on agent triggers without explicit boundaries will execute stale intent forever. Add expiry to automation instructions and require weekly policy review.
-:::
-
-## How These Topics Connect
-
-```mermaid
-mindmap
-  root((2026 Dev Reality))
-    Agentic Engineering
-      Execute before trust
-      Review before merge
-      Evidence artifacts
-    Model Layer
-      GPT-5.4 routing
-      Pro for high-stakes work
-      CoT monitorability implications
-    Security Operations
-      KEV-driven SLAs
-      ICS RCE triage
-      Drupal patch cadence
-      Key leak remediation
-    Platform Productivity
-      Cursor automations
-      AI search canvas
-      Team upskilling in real workflows
-```
 
 ## What to Do This Week
 

@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This week had one consistent theme: operational reality beat product marketing. Core CMS releases, security advisories, network control-plane changes, and AI tooling updates all pointed to the same conclusion: the teams shipping measurable risk reduction are winning. ~~"New model"~~ is not a strategy; verified maintenance posture is.
+Roughly a million leaked private keys mapped to 140k certificates, two Drupal contrib modules shipping XSS in production, and Cloudflare quietly gutting the static-policy model that half the industry still clings to. Meanwhile, the loudest headline was another model announcement nobody will remember by April. Operational reality beat product marketing again, and it was not even close.
 
 <!-- truncate -->
 
@@ -46,31 +46,6 @@ This week had one consistent theme: operational reality beat product marketing. 
 :::danger[Contrib XSS advisories are active, not theoretical housekeeping]
 `Google Analytics GA4` (&lt;1.1.14, CVE-2026-3529) and `Calculation Fields` (&lt;1.0.4, CVE-2026-3528) both ship XSS risk paths. Treat these as same-day patch items, then validate rendered output where custom attributes or expression inputs are accepted.
 :::
-
-```bash title="scripts/drupal-security-audit.sh" showLineNumbers
-#!/usr/bin/env bash
-set -euo pipefail
-
-echo "Core version:"
-drush status --fields=drupal-version --format=string
-
-echo "Contrib versions:"
-drush pm:list --status=enabled --type=module --format=json | jq -r '
-  to_entries[] | "\(.key): \(.value.version // "unknown")"
-'
-
-# highlight-next-line
-echo "Fail build if vulnerable GA4 or Calculation Fields is detected"
-composer show --direct --format=json | jq -e '
-  .installed[]
-  | select(.name=="drupal/google_analytics_ga4" and (.version|sub("^v";"")|split(".")|map(tonumber)) < [1,1,14])
-' >/dev/null && { echo "VULN: drupal/google_analytics_ga4"; exit 1; } || true
-
-composer show --direct --format=json | jq -e '
-  .installed[]
-  | select(.name=="drupal/calculation_fields" and (.version|sub("^v";"")|split(".")|map(tonumber)) < [1,0,4])
-' >/dev/null && { echo "VULN: drupal/calculation_fields"; exit 1; } || true
-```
 
 ```diff title="policies/dependency-baseline.diff"
 --- a/policies/dependency-baseline.yaml
@@ -132,9 +107,7 @@ Stateful flow tracking for overlap, QUIC streams for proxy performance, response
 </TabItem>
 </Tabs>
 
-:::caution[Runtime signals are only useful if they are enforced]
-If User Risk Scores and exploit detections are wired only to dashboards, teams keep reacting after impact. Bind high-risk states directly to step-up auth, short-lived session policy, and privileged route denial.
-:::
+If User Risk Scores and exploit detections are wired only to dashboards, teams keep reacting after impact. The move that actually matters: bind high-risk states directly to step-up auth, short-lived session policy, and privileged route denial.
 
 ## Secret Exposure Data and OSS Package Decay Became Quantifiable
 
@@ -145,33 +118,6 @@ GitGuardian + Google mapped roughly 1M leaked private keys to 140k certificates;
 | 2,622 valid certs from leaked keys | Leaks persist into active trust | Automate key/cert revocation and re-issuance |
 | 97% remediation rate after disclosure | Direct outreach works | Keep owner metadata and escalation paths current |
 | Dormant OSS majority reactivated by LLM coding | Stale packages get pulled back into production | Gate on maintenance cadence and release recency |
-
-```yaml title=".github/workflows/secret-and-health.yml" showLineNumbers
-name: secret-and-health-gate
-on:
-  pull_request:
-  push:
-    branches: [main]
-
-jobs:
-  gate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Secret scan
-        run: ggshield secret scan repo .
-      - name: Dependency health snapshot
-        run: ./scripts/dependency-health.sh > health.json
-      # highlight-start
-      - name: Block stale critical packages
-        run: jq -e '.critical[] | select(.days_since_release > 365)' health.json >/dev/null && exit 1 || exit 0
-      # highlight-end
-      - name: Persist report
-        uses: actions/upload-artifact@v4
-        with:
-          name: dependency-health
-          path: health.json
-```
 
 :::warning[Certificate leaks are breach accelerators]
 If private key leaks are discovered after incident response starts, containment cost is already inflated. Rotate first, investigate second, and treat Certificate Transparency lookups as a continuous control.
@@ -195,34 +141,7 @@ Noisy but relevant:
 >
 > — Donald Knuth, [Claude and Cycles](https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf)
 
-:::info[Model announcements are cheap; integration economics are not]
 Choose tools based on integration surface (`IDE`, `CI`, `eval`, `policy`), latency budget, and governance fit. Capability demos without deployment discipline are just another backlog source.
-:::
-
-## The Bigger Picture
-
-```mermaid
-mindmap
-  root((2026-03-05 Signal Map))
-    Drupal lifecycle reality
-      Core patch cadence
-      Support deadlines
-      Contrib CVE patching
-    Security control-plane shift
-      ARR for IP overlap
-      QUIC proxy throughput
-      Response-aware detection
-      Risk-adaptive access
-    Supply chain exposure
-      Leaked private keys
-      Valid certs in circulation
-      Dormant package risk
-    AI tooling maturity
-      IDE-native agents
-      Measurable learning outcomes
-      Cost-tiered inference choices
-      Separate signal from hype
-```
 
 ## Bottom Line
 

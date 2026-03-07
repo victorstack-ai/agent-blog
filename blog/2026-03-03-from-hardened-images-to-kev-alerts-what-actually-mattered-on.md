@@ -19,7 +19,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Today's feed split cleanly into things you can ship and things you can safely ignore. On the shipping side: better container hardening defaults, cheaper inference tiers with real latency wins, and a fresh batch of OT/charging-infra advisories that all trace back to authentication failures nobody bothered to implement. The rest was press releases dressed up as product launches.
+Four different EV charging vendors shipped the same authentication bug this cycle. That pattern — identical failure class, different codebases, different verticals — tells you more about industry security posture than any CVSS score. Here is what else was worth acting on.
 
 <!-- truncate -->
 
@@ -40,26 +40,6 @@ Docker's hardened packaging direction makes sense: strip image attack surface do
 :::danger[Stop treating secrets as a Git-only problem]
 Scan runtime surfaces, not just commits: mounted volumes, `/proc/<pid>/environ`, CI artifacts, and shell histories. Add automatic revocation paths for leaked credentials; detection without rotation is a report that nobody reads.
 :::
-
-```yaml title="security/secret-scan-policy.yaml" showLineNumbers
-version: 1
-targets:
-  - git
-  - filesystem
-  - env
-  - ci_artifacts
-rules:
-  entropy_threshold: 4.2
-  block_on_high_confidence: true
-  allowlist_paths:
-    - docs/examples/
-rotation:
-  provider: vault
-  auto_rotate_on_detection: true
-notifications:
-  slack_channel: "#sec-alerts"
-  create_ticket: true
-```
 
 ## Runtime and Model Releases: Cheaper Tokens, Same Eval Burden
 
@@ -90,9 +70,7 @@ Better conversational smoothness and broad utility. Use when interaction quality
 + "engines": { "node": "25.8.0" }
 ```
 
-:::caution[Current means churn by design]
-Run `Current` in CI and staging first, then promote after dependency and regression checks. ~~Latest equals safest~~ is how teams sign up for weekend incident calls.
-:::
+Run `Current` in CI and staging first, then promote after dependency and regression checks. **"Latest equals safest" is how teams sign up for weekend incident calls.**
 
 ## OT and Webapp Vulnerabilities: Authentication Failures Across Industries
 
@@ -108,20 +86,6 @@ Mobiliti e-mobi.hu, ePower epower.ie, Everon OCPP backends, and Labkotec LID-330
 :::warning[KEV entries change patch priority]
 CISA added `CVE-2026-21385` (Qualcomm memory corruption) and `CVE-2026-22719` (VMware Aria Operations command injection) to KEV. If an asset is exposed and affected, patching is an incident response task, not backlog grooming.
 :::
-
-```bash title="scripts/kev-priority-check.sh"
-#!/usr/bin/env bash
-set -euo pipefail
-# highlight-next-line
-KEV=("CVE-2026-21385" "CVE-2026-22719")
-for cve in "${KEV[@]}"; do
-  if rg -q "$cve" inventory/*.csv; then
-    echo "[P1] affected asset found for $cve"
-  else
-    echo "[OK] no direct match for $cve in current inventory"
-  fi
-done
-```
 
 ## Drupal, PHP Sustainability, and the Programmable SASE Push
 
@@ -140,33 +104,8 @@ January 2026 Baseline digest: monthly updates worth tracking for platform mainta
 Programmable SASE announcement: developer-native extensibility at the edge is the relevant claim; evaluate by API quality, policy latency, and rollback safety.
 </details>
 
-## How These Topics Connect
-
-```mermaid
-mindmap
-  root((2026-03-03 Devlog))
-    Security Defaults
-      Docker Hardened System Packages
-      Secret Sprawl Controls
-    AI Runtime Economics
-      Gemini 3.1 Flash-Lite
-      GPT-5.3 Instant + System Card
-      Project Genie Prompt Discipline
-    Vulnerability Pressure
-      EV Charging / OCPP Advisories
-      ICS (RTU500, REB500)
-      KEV Additions
-      Legacy Webapp Exploits
-    Ecosystem Governance
-      PHP Sustainability Debate
-      Drupal 25th Community Signal
-      Programmable SASE Claims
-```
-
 ## What to Prioritize This Week
 
 Across all four areas, the leverage point is the same: hardening defaults and patch velocity compound over time, while branding and announcements do not. Route cheap models through proper eval gates, keep strict release promotion policies for `Current` runtimes, and handle KEV-listed exposures as operations work with a deadline — not items that sit in a sprint backlog.
 
-:::tip[One concrete move]
-Create a single weekly "risk merge" where platform, app, and security owners review: `Current` runtime upgrades, KEV deltas, and secret-scan findings in one board. One meeting, one owner, one patch SLA.
-:::
+**One concrete move:** create a single weekly "risk merge" where platform, app, and security owners review `Current` runtime upgrades, KEV deltas, and secret-scan findings in one board. One meeting, one owner, one patch SLA.

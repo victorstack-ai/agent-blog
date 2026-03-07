@@ -19,7 +19,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Today's theme across the wire: runtimes and models are getting faster while security debt keeps piling up in systems everyone assumes are behind a firewall. Tooling improved, agent plugin UX took a step forward, and a fat stack of critical infrastructure advisories reminded us that weak auth remains the gift that keeps on giving. None of this speed matters if your patch cycle can't outrun an exploit chain.
+Nine EV charging and OT advisories landed with CVSS scores above 9.0 — all rooted in missing or broken authentication. Meanwhile, two new model releases promise cheaper latency and Node.js 25.8.0 shipped as Current. The speed is nice; the patch debt is not.
 
 <!-- truncate -->
 
@@ -62,9 +62,7 @@ Not a model, but the same decision class: faster iteration only helps if CI and 
 </TabItem>
 </Tabs>
 
-:::info[Model speed changes architecture, not just UX]
-Lower latency models shift system bottlenecks toward orchestration, plugin I/O, and policy enforcement. If request volume spikes after a model swap, queue strategy and rate-limit policy become primary reliability controls.
-:::
+Lower latency models shift system bottlenecks toward orchestration, plugin I/O, and policy enforcement. If request volume spikes after a model swap, queue strategy and rate-limit policy become your primary reliability controls.
 
 ## OT and EV Advisories Alongside Old Web App Favorites
 
@@ -92,30 +90,6 @@ flowchart TD
 ~~"Secrets leak only in commits."~~ They leak in env dumps, CI logs, local filesystems, shell history, crash reports, and agent memory/context. Run secret scanning on repos, runtime envs, artifact stores, and logs, then rotate anything exposed.
 :::
 
-```yaml title="security-watchlist.yaml" showLineNumbers
-generated_at: "2026-03-03T22:09:00Z"
-sources:
-  - cisa_kev
-  - csaf_vendor_feeds
-  - webapps_disclosures
-rules:
-  # highlight-next-line
-  kev_due_days: 7
-  critical_cvss_threshold: 9.0
-  internet_facing_priority: immediate
-assets:
-  # highlight-start
-  - name: ev_charging_backends
-    owner: secops
-  - name: ot_gateways
-    owner: platform
-  # highlight-end
-actions:
-  - patch_or_mitigate
-  - verify_exploitability
-  - document_exceptions
-```
-
 <details>
 <summary>Full vulnerability watchlist compiled today</summary>
 
@@ -140,15 +114,6 @@ When a CVE lands in the KEV catalog, treat it as active threat intel with an exe
 For each KEV CVE, assign one owner, one due date, one evidence artifact (patch output, config diff, or compensating control). No owner means no remediation.
 :::
 
-```diff
-# mitigation-policy.diff
-- priority: normal
-- due_days: 30
-+ priority: emergency
-+ due_days: 7
-+ require_evidence: true
-```
-
 ## Platform and Ecosystem Signals: Drupal/PHP, Project Genie, SASE
 
 Drupal and the broader PHP ecosystem are having an overdue conversation about sustainability and contributor economics instead of hand-waving about growth. Project Genie's prompt-driven world generation looks interesting on paper, but practical value hinges on whether you can get deterministic, reproducible output from it. And programmable SASE? The claims hold up only if teams can ship policy as code with real auditability — not dashboard screenshots passed around in Slack.
@@ -161,42 +126,6 @@ Drupal and the broader PHP ecosystem are having an overdue conversation about su
 | Baseline Jan 2026 digest | Operational cadence updates still useful for dependency risk tracking | Summarize monthly external dependencies in one internal brief |
 | Programmable SASE announcement | Could be real if SDK + edge runtime are production-grade | Require policy test harness before adoption |
 
-```bash
-# prompt-ops quick check for generated worlds and policy experiments
-git diff --name-only | rg "prompts/|policies/"
-npm run test:prompt-regressions
-npm run test:policy-e2e
-```
-
-## Connecting the Dots
-
-```mermaid
-mindmap
-  root((2026-03-03 Dev Signals))
-    Speed
-      Node.js 25.8.0 Current
-      Gemini 3.1 Flash-Lite
-      GPT-5.3 Instant
-      MCP plugin marketplaces
-    Security
-      EV/OCPP critical auth flaws
-      OT device exposure
-      KEV active exploitation
-      Webapp classics LFI overflow host-header abuse
-    Ecosystem
-      Drupal/PHP sustainability debate
-      Drupal 25th anniversary governance moment
-      Baseline monthly operational cadence
-    Execution
-      Patch windows tied to threat intel
-      Secrets scanning beyond Git
-      Policy-as-code with evidence
-```
-
 ## What It Comes Down To
 
-The operating model that holds up under pressure looks the same as last week and the week before: route faster models to the workloads that benefit from them, tie remediation SLAs directly to threat intel, and scan for secrets everywhere — not just in source control. Boring works. Undisciplined doesn't.
-
-:::tip[Single highest-ROI move this week]
-Create one unified `risk-register` pipeline that ingests KEV + CSAF + internal asset inventory, auto-assigns owners, and blocks release if critical internet-facing findings have no mitigation evidence.
-:::
+The operating model that holds up under pressure looks the same as last week and the week before: route faster models to the workloads that benefit from them, tie remediation SLAs directly to threat intel, and scan for secrets everywhere — not just in source control. **Single highest-ROI move: build one unified risk-register pipeline that ingests KEV + CSAF + internal asset inventory, auto-assigns owners, and blocks release if critical internet-facing findings have no mitigation evidence.** Boring works. Undisciplined doesn't.

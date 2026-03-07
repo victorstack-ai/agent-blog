@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most of this cycle looked like standard AI marketing noise, but a few signals were operationally relevant: execution-first agent workflows, model upgrades with meaningful context/tooling implications, and a heavy set of security advisories that require immediate patch discipline. The pattern holds: teams shipping reliable software are the teams that run code, verify assumptions, and patch fast. ~~Prompting is QA~~ Execution is QA.
+Every week the AI news cycle delivers a fresh avalanche of breathless announcements, and every week roughly 90% of it evaporates on contact with a production environment. This cycle was no exception — but buried under the launch posts and demo reels were a few signals that actually change how you ship: execution-first agent discipline, a model upgrade with real architectural implications, and a pile of security advisories that do not care about your sprint cadence.
 
 <!-- truncate -->
 
@@ -45,26 +45,6 @@ Require execution evidence in every agent-generated PR: command logs, failing te
 | Manual agent loop | Generate → run → inspect → patch → rerun | Stopping at generation |
 | PR discipline | Human review + runtime proof | "Looks fine" approvals |
 | Test gating | CI blocks without tests/lint | Silent regressions in edge paths |
-
-```yaml title="quality-gate.yml" showLineNumbers
-name: quality-gate
-on: [pull_request]
-
-jobs:
-  verify:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install deps
-        run: composer install --no-interaction --prefer-dist
-      - name: Static checks
-        run: composer phpcs
-      - name: Tests
-        run: composer test
-      # highlight-next-line
-      - name: Enforce execution proof
-        run: test -f artifacts/agent-run.log
-```
 
 ```diff
 - AI-generated code attached for review. Not tested.
@@ -101,10 +81,6 @@ The GPT‑5.4 Thinking System Card and CoT-control research highlight a constrai
 
 March 4, 2026 dropped multiple Drupal contrib XSS advisories (`SA-CONTRIB-2026-023`, `SA-CONTRIB-2026-024`), while Drupal core patch lines (`10.6.4`, `11.3.4`) shipped CKEditor5 `v47.6.0` updates. CISA also added five actively exploited vulnerabilities to KEV. None of this can wait for next sprint.
 
-:::danger[Active Exploitation Is Already Happening]
-KEV entries imply observed exploitation, not theoretical risk. For internet-facing systems, patch/mitigate first, then write retrospective notes.
-:::
-
 | Item | Date | Action |
 |---|---|---|
 | Drupal 10.6.4 | 2026-03 | Upgrade production sites on 10.x |
@@ -127,53 +103,11 @@ KEV entries imply observed exploitation, not theoretical risk. For internet-faci
 
 Cloudflare's ARR and QUIC proxy-mode changes are practical infrastructure wins: fewer private-IP overlap headaches and measurably better proxy throughput. Their always-on detection work also deserves attention — it moves beyond static request signatures by correlating payloads with server responses, which reduces false positives in meaningful ways.
 
-```bash title="ops-checklist.sh"
-#!/usr/bin/env bash
-set -euo pipefail
-
-echo "1) Verify tunnel overlap cases"
-echo "2) Benchmark TCP proxy vs QUIC proxy throughput"
-echo "3) Enable exploit+response correlation detections"
-echo "4) Compare false positive rates over 7 days"
-echo "5) Promote only if latency and FP targets are met"
-```
-
 ## Ecosystem Updates: Education, Browser Controls, and Adoption Channels
 
 There was a flood of "AI adoption" content this week. The pieces worth reading were the ones tied to operational behavior: GitHub+Andela examples of learning inside production workflows, Firefox emphasizing user choice for AI controls, and OpenAI pushing education capability tooling plus Excel/financial integrations for regulated analysis contexts.
 
 The filter I keep applying: ignore brand narrative, keep artifacts. If a post does not include a measurable workflow change, it is content marketing and you can skip it.
-
-:::warning[Measure Adoption or Don't Bother]
-Track per-team deltas: lead time, escaped defects, and incident rate before/after AI workflow changes. If those metrics do not improve, roll back the process regardless of executive enthusiasm.
-:::
-
-## How These Signals Connect
-
-```mermaid
-mindmap
-  root((Execution Over Hype))
-    Agentic Workflows
-      Run generated code
-      Review before PR
-      Enforce runtime proof
-    Model Layer
-      GPT-5.4 long context
-      Tool + computer use
-      CoT monitorability limits
-    Security Layer
-      Drupal patch cadence
-      CISA KEV active exploits
-      Cert/key leakage risk
-    Infra Layer
-      QUIC proxy throughput gains
-      ARR for IP overlap
-      Always-on exploit detection
-    Org Layer
-      Education capability gaps
-      Adoption metrics over narrative
-      User-choice controls in browsers
-```
 
 ## What To Do This Week
 

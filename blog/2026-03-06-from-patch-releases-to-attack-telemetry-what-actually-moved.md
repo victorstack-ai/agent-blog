@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This week's headlines were mostly marketing paint on old lumber. But a few things had teeth: Drupal patch cadence, cloud detection upgrades, identity risk scoring, and AI workflow integration that goes beyond demos. I care about where operational burden goes down without sweeping risk under the rug. The rest — the announcements dressed up as breakthroughs — you can skip.
+Another week, another avalanche of press releases cosplaying as innovation. Somewhere between the fifth "revolutionary AI integration" and the third "next-generation platform update," a few things actually deserved attention: Drupal patch cadence, cloud detection upgrades, identity risk scoring, and AI workflow integration that survives contact with production. Everything else was furniture polish on particleboard.
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
@@ -40,10 +40,6 @@ Stanford WebCamp 2026 opened CFPs (online on **April 30, 2026**, hybrid on **May
 | Dripyard at DrupalCon Chicago | Agency-level implementation patterns are getting more productized | Mine session topics for repeatable delivery templates |
 | UI Suite Display Builder video | Visual composition pressure is real in Drupal projects | Guardrail with strict component contracts |
 | WP Rig episode #207 | Theme tooling still defines maintainability debt | Treat starter themes as policy, not boilerplate |
-
-:::info[Community Signal]
-When conferences keep emphasizing templates, display builders, and starter kits, pay attention. That trend tracks a staffing problem: teams need opinionated scaffolds because there aren't enough senior reviewers to go around.
-:::
 
 ## AI Product Releases: Throughput vs. Branding
 
@@ -101,22 +97,6 @@ Drupal **10.6.4** and **11.3.4** dropped as patch releases. CKEditor5 moves to *
    }
 ```
 
-```yaml title="upgrade-policy.yaml" showLineNumbers
-stack:
-  drupal:
-    min_supported: "10.5.x"
-    target: "10.6.4"
-    eol_block:
-      - "10.4.x"
-  editor:
-    ckeditor5: "47.6.0"
-gates:
-  # highlight-next-line
-  block_deploy_if_security_support_ended: true
-  require_release_note_review: true
-  require_smoke_tests: ["content_edit", "media_embed", "search_index"]
-```
-
 :::danger[Contrib Security Window]
 Drupal contrib advisories `SA-CONTRIB-2026-023` (Calculation Fields, CVE-2026-3528) and `SA-CONTRIB-2026-024` (Google Analytics GA4, CVE-2026-3529) are XSS class issues. Any site below fixed versions must patch immediately and rotate admin session cookies after remediation.
 :::
@@ -124,20 +104,6 @@ Drupal contrib advisories `SA-CONTRIB-2026-023` (Calculation Fields, CVE-2026-35
 ## Security: Exploits, Leaked Keys, and Detection That Matters
 
 CISA added five KEVs (including Hikvision, Rockwell, multiple Apple CVEs). Delta CNCSoft-G2 published an out-of-bounds write with potential RCE impact. GitGuardian and Google mapped private-key leaks to certificate reality: 2,622 valid certs were found exposed as of September 2025. And the "89% Problem" report on dormant open-source packages? Same supply-chain story, different coat of paint — abandoned code keeps coming back through AI-assisted reuse, and nobody wants to own the dependency hygiene.
-
-```bash title="security-triage.sh" showLineNumbers
-#!/usr/bin/env bash
-set -euo pipefail
-
-# highlight-start
-echo "[1] Pull KEV delta and map to asset inventory"
-echo "[2] Match Drupal contrib advisories to installed module versions"
-echo "[3] Revoke/rotate keys linked to still-valid certs"
-echo "[4] Raise package-health gate for AI-suggested dependencies"
-# highlight-end
-
-echo "Fail deployment if any step returns unresolved critical findings."
-```
 
 | Threat signal | Immediate action | Owner |
 |---|---|---|
@@ -165,10 +131,6 @@ flowchart TD
     E --> H[Full-Transaction Detection]
     H --> I[Exploit/Exfil Signal]
 ```
-
-:::tip[Network Policy Shortcut]
-Implement ARR and risk-aware policy decisions in the same quarter. Solving address overlap without adaptive auth just moves the bottleneck from routing to access control tickets.
-:::
 
 ## Research and Model Ecosystem Updates
 
@@ -205,38 +167,6 @@ A physics preprint on extending single-minus amplitudes to gravitons cited GPT-5
 
 </details>
 
-## The Bigger Picture
-
-```mermaid
-mindmap
-  root((2026 Week Signal))
-    Patch Discipline
-      Drupal 10.6.4 / 11.3.4
-      CKEditor security update
-      Contrib XSS advisories
-    AI in Production
-      GPT-5.4 tool use
-      Cursor automations
-      ChatGPT for Excel
-      GitHub + Andela workflow learning
-    Security Control Maturity
-      KEV exploitation evidence
-      Valid certs from leaked keys
-      Always-on detection vs log-only
-      User risk scoring + identity checks
-    Infra Throughput
-      QUIC proxy mode
-      ARR for overlapping IP
-    Community Engine
-      Stanford WebCamp CFP
-      DrupalCon sessions
-      WP Rig maintenance culture
-```
-
 ## What to Do With All This
 
 Patch on time. Instrument real exploit outcomes. Tie AI usage to delivery metrics you can measure. ~~Everything else is branding~~ — well, most of it is.
-
-:::tip[Single Highest-ROI Move]
-Build one weekly "risk-to-release" review that pulls four feeds into a single page: Drupal/PHP patch status, KEV overlap, leaked-key/cert exposure, and AI automation guardrails. If your team cannot show all four in one view, you are flying blind.
-:::

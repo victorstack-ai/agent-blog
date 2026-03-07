@@ -24,7 +24,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This week's announcements split cleanly into two piles: teams that published concrete mechanisms with hard version numbers and measurable outcomes, and teams that shipped polished marketing copy and asked for trust. Here's what landed in each pile.
+Google turned Search into a task-execution engine, OpenAI admitted reasoning traces resist deterministic control, and Cloudflare replaced static access rules with continuous behavior scoring. Meanwhile, 2,622 leaked TLS certificates are still valid in the wild. Here is what each of those means for your deployment pipeline.
 
 <!-- truncate -->
 
@@ -34,9 +34,7 @@ This week's announcements split cleanly into two piles: teams that published con
 
 Google's visual search story now depends on **query fan-out** in AI Mode and Canvas inside Search. Search has been drifting toward task completion for a while, but this makes it explicit — and it changes the failure mode. You're no longer debugging bad ranking. You're debugging bad execution traces across branching queries.
 
-:::info[Fan-out Is Useful but Expensive]
 Fan-out improves recall by running multiple query variants in parallel, but it can amplify hallucinated intent if the original visual context is weak. Instrumentation has to log branch quality, not just final answer quality, or debugging turns into guesswork.
-:::
 
 | Surface | What changed | Why it matters in production | Immediate guardrail |
 |---|---|---|---|
@@ -77,37 +75,11 @@ Required response: keep multi-model fallback with provider health weighting.
 </TabItem>
 </Tabs>
 
-```ts title="guardrails/release-gate.ts" showLineNumbers
-type ReleaseInput = {
-  model: string;
-  systemCardPublished: boolean;
-  cotControlReportPublished: boolean;
-  evalPassRate: number;
-  longContextRegressionPass: boolean;
-  incidentRunbookLinked: boolean;
-};
-
-export function releaseGate(input: ReleaseInput): string[] {
-  const blockers: string[] = [];
-  // highlight-next-line
-  if (!input.systemCardPublished) blockers.push("Missing system card");
-  // highlight-start
-  if (!input.cotControlReportPublished) blockers.push("Missing CoT control report");
-  if (input.evalPassRate < 0.95) blockers.push("Eval pass rate below threshold");
-  if (!input.longContextRegressionPass) blockers.push("Long-context regression failed");
-  // highlight-end
-  if (!input.incidentRunbookLinked) blockers.push("Incident runbook missing");
-  return blockers;
-}
-```
-
 ## Agent Automation Embeds Deeper in IDE Workflows
 
 Cursor automations and ACP support for JetBrains matter because they cut context switching inside mature enterprise IDEs. Meanwhile, Next.js 16 becoming the default for new projects introduces framework drift risk for any team that pins behavior implicitly through scaffolding rather than explicit version locks.
 
-:::caution[Default Upgrades Break Quietly]
-When a framework becomes "default," hidden assumptions in scaffolding spread quickly across repos. Pin versions in templates and CI bootstrap scripts, then schedule intentional upgrades with changelog diff review.
-:::
+**Default upgrades break quietly.** When a framework becomes "default," hidden assumptions in scaffolding spread quickly across repos. Pin versions in templates and CI bootstrap scripts, then schedule intentional upgrades with changelog diff review.
 
 ```diff title="templates/web/composer.json"
 -  "next": "^15.4.0",
@@ -226,42 +198,6 @@ OpenAI's education updates stand out because they include certification and outc
 
 </details>
 
-## How It All Connects
-
-```mermaid
-mindmap
-  root((2026-03-05 Devlog Signal))
-    AI Surfaces
-      Google AI Mode fan-out
-      Canvas in Search
-      Firefox user-choice controls
-    Model Ops
-      GPT-5.4 release
-      CoT-control limits
-      System-card discipline
-      Gemini Flash-Lite pricing pressure
-      Qwen momentum plus org risk
-    App Toolchains
-      Cursor automations
-      ACP in JetBrains
-      Next.js 16 default shift
-      WP Rig and UI Suite as default-shapers
-    Security Plane
-      Drupal core/contrib XSS patching
-      Delta OT RCE risk
-      Cloudflare adaptive policy stack
-      Cert leak remediation at scale
-      Dormant OSS package risk
-    Social Impact
-      GitHub plus Andela workforce upskilling
-      OpenAI education measurement
-      Axios local journalism workflows
-```
-
 ## What to Do With This
 
-The teams worth studying this week published exact versions, exact constraints, and exact failure handling. If your deployment pipeline lacks any of those three, that's where to start.
-
-:::tip[Single Action to Take Today]
-Create one release gate that blocks deployment unless security advisories are patched, model documentation is present, and adaptive access controls are validated in staging. One gate, enforced in CI, removes most of this week's avoidable failures.
-:::
+The teams worth studying this week published exact versions, exact constraints, and exact failure handling. If your deployment pipeline lacks any of those three, that is where to start.

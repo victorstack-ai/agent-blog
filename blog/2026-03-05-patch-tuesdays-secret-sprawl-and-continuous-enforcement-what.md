@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Today's signal was mostly security operations, not product hype. Core Drupal patch lines moved, contrib advisories landed, and multiple vendors pushed "continuous" security controls that finally close obvious blind spots. On the AI side, a few releases are practical, many are just distribution updates with marketing paint.
+Nobody shipped a press release titled "We Finally Stopped Ignoring Our Own Patch Windows," but that is effectively what happened across the Drupal ecosystem, secret-management vendors, and half the WAF industry on March 5. The real theme was security operations catching up to risks everyone already knew about — while AI announcements kept arriving like confetti at a funeral.
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
@@ -35,37 +35,6 @@ Today's signal was mostly security operations, not product hype. Core Drupal pat
 | Drupal 10 | `10.6.4` | 10.6.x until Dec 2026; 10.5.x until Jun 2026 | 10.4.x is out of support; upgrade path is no longer optional |
 | Drupal 11 | `11.3.4` | 11.3.x until Dec 2026 | Patch now to inherit CKEditor5 security update |
 
-:::caution[Do not treat patch releases as "low priority"]
-Patch releases now carry direct security dependency movement (CKEditor5 in this case). Any site below supported minor lines is already in a risk state, not a backlog state.
-:::
-
-```yaml title="ops/drupal-upgrade-runbook.yaml" showLineNumbers
-site: example-drupal-prod
-owner: platform
-window: "2026-03-06 02:00-03:00 UTC"
-checks:
-  - php -v
-  - composer validate --strict
-  - drush status
-  # highlight-next-line
-  - drush pm:security --format=json
-upgrade:
-  # highlight-start
-  from: "10.4.x|10.5.x|10.6.x"
-  to: "10.6.4"
-  require:
-    - "drupal/core-recommended:^10.6.4"
-    - "ckeditor5:^47.6.0"
-  # highlight-end
-post:
-  - drush updb -y
-  - drush cr
-  - drush test:run --group=smoke
-rollback:
-  - restore-db-snapshot
-  - restore-files-snapshot
-```
-
 ## Contrib Advisories: Two Moderately Critical XSS Issues, Same Root Cause
 
 **Contrib modules** took hits in `SA-CONTRIB-2026-023` and `SA-CONTRIB-2026-024`. Both are XSS class flaws with admin-context exploit assumptions, which teams regularly underestimate.
@@ -78,13 +47,6 @@ rollback:
 :::danger[Admin-context XSS is still a production incident]
 "Admin only" does not mean safe. Admin sessions carry broad mutation rights, making stored/admin-XSS a practical pivot to full site compromise.
 :::
-
-```diff title="docs/security-playbook.diff"
-- Treat admin-only XSS as low urgency
-+ Treat admin-only XSS as incident-level until patched
-+ Require module-version policy checks in CI
-+ Block deploy when advisory-affected version is detected
-```
 
 ## Secret Exposure: Certificates Proved the Risk Is Not Theoretical
 
@@ -147,59 +109,6 @@ That anti-pattern is still everywhere. Shipping unreviewed agent output is not s
 > — Donald Knuth, [Claude cycles note](https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf)
 
 Short version: model capability is climbing fast, but review discipline is still the bottleneck.
-
-<details>
-<summary>Full operational checklist used for these updates</summary>
-
-```bash title="scripts/weekly-security-and-tooling-check.sh" showLineNumbers
-#!/usr/bin/env bash
-set -euo pipefail
-
-date
-drush pm:security --format=json
-composer outdated "drupal/*"
-
-npm outdated || true
-node -v
-
-# Secret scanning beyond git history
-gitleaks detect --no-git --source . || true
-
-# Dependency and package health spot-check
-npm audit --omit=dev || true
-```
-</details>
-
-## The Bigger Picture
-
-```mermaid
-mindmap
-  root((2026-03-05 Engineering Reality))
-    Drupal patch cadence
-      10.6.4 production ready
-      11.3.4 production ready
-      CKEditor5 47.6.0 security update
-      support windows drive deadlines
-    Contrib vulnerabilities
-      SA-CONTRIB-2026-023
-      SA-CONTRIB-2026-024
-      admin-XSS is still critical
-    Secrets and supply chain
-      2622 valid certs exposed
-      97 percent remediation campaign
-      dormant OSS reactivated by LLMs
-    Continuous enforcement
-      response-aware detection
-      mandatory auth + independent MFA
-      user risk scoring
-      identity-aware proxy for clientless devices
-    AI/dev tooling
-      JetBrains ACP via Cursor
-      Next.js 16 defaults
-      Node 25.8 current
-      Gemini 3.1 Flash-Lite economics
-      education and journalism applied AI
-```
 
 ## Bottom Line
 

@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most of this week's "news" falls into two piles: things that can hurt production this quarter, and things that are mostly vendor theater. The useful pattern is simple: patch aggressively where risk is concrete, then ignore hype unless it changes delivery speed or incident rates.
+Another week, another firehose of advisories competing for your attention with vendor keynotes nobody asked for. Here is what actually matters if you ship software for a living: two Drupal contrib XSS patches, a sobering dataset on leaked private keys still attached to valid certificates, and a handful of AI announcements that range from genuinely useful to pure marketing exhaust.
 
 <!-- truncate -->
 
@@ -43,21 +43,9 @@ At the same time, two March 4 advisories matter for real sites:
 | SA-CONTRIB-2026-023 (Calculation Fields) | Moderately critical XSS | `< 1.0.4` | `CVE-2026-3528` | Upgrade to `>=1.0.4`, validate user-supplied expressions |
 
 :::danger[Drupal contrib XSS in production paths]
-Run `drush pm:list --status=enabled | rg "google_analytics_ga4|calculation_fields"` and patch same day.  
+Run `drush pm:list --status=enabled | rg "google_analytics_ga4|calculation_fields"` and patch same day.
 If change windows are slow, add temporary WAF rules for reflected/stored script payloads on analytics and form endpoints until deployment completes.
 :::
-
-```bash title="drupal-security-check.sh"
-#!/usr/bin/env bash
-set -euo pipefail
-
-drush pm:list --status=enabled --type=module --format=list \
-  | rg "google_analytics_ga4|calculation_fields" || true
-
-drush updatedb -y
-drush cr
-drush pm:security
-```
 
 ```diff
 - $attributes = $request->get('custom_attributes');
@@ -74,32 +62,9 @@ The Google + GitGuardian study mapped about 1M leaked private keys to 140k certi
 The companion lesson from "Protecting Developers Means Protecting Their Secrets" is correct: leaks are not only in Git history. They persist in filesystem artifacts, env vars, CI logs, and long-lived agent memory.
 
 :::warning[Rotate before triage]
-Any leaked private key tied to active certs gets immediate revoke/rotate.  
+Any leaked private key tied to active certs gets immediate revoke/rotate.
 Forensics can happen after containment. Reverse that order and incident cost jumps fast.
 :::
-
-```yaml title="security-watchlist.yaml" showLineNumbers
-controls:
-  # highlight-next-line
-  - id: cert_transparency_monitor
-    source: ct_logs
-    frequency: "15m"
-    action: open_incident_if_valid_cert
-  - id: repo_secret_scan
-    source: git_history_and_prs
-    frequency: "on_push"
-    action: block_merge_and_rotate
-  # highlight-start
-  - id: runtime_secret_scan
-    source: ci_logs_env_and_artifacts
-    frequency: "hourly"
-    action: scrub_store_rotate
-  # highlight-end
-  - id: agent_memory_scrub
-    source: tool_session_transcripts
-    frequency: "daily"
-    action: redact_and_expire
-```
 
 ## Agentic engineering anti-patterns: unreviewed code is still malpractice
 
@@ -109,12 +74,7 @@ Simon Willison called out the anti-pattern plainly:
 >
 > — Simon Willison, [Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/)
 
-That advice pairs perfectly with the "89% Problem" write-up: LLMs revive abandoned packages, which means dependency freshness is no longer a quality signal by itself.
-
-:::caution[The new false positive: recently touched package == healthy package]
-Gate dependency updates with maintenance signal checks: active maintainers, release cadence, open security issues, and CI status.  
-`npm outdated` or `composer outdated` is inventory, not trust.
-:::
+That advice pairs perfectly with the "89% Problem" write-up: LLMs revive abandoned packages, which means dependency freshness is no longer a quality signal by itself. Gate dependency updates with maintenance signal checks: active maintainers, release cadence, open security issues, and CI status. `npm outdated` or `composer outdated` is inventory, not trust.
 
 ## Cloudflare's zero-trust updates are real progress, not blog gloss
 
@@ -186,45 +146,11 @@ Multiple high-CVSS CSAF disclosures landed across EV charging and industrial con
 
 - **Next.js 16 default for new sites** and **Node.js 25.8.0 (Current)** mean more teams will hit framework/runtime skew in CI unless version pinning is explicit.
 - **WP Rig** remains relevant because it teaches sane defaults and modern build patterns without pretending classic and block themes are identical.
-- **UI Suite Display Builder** is valuable for teams that need layout speed in Drupal without custom Twig/CSS for every page. It reduces handoff friction, not architecture complexity.
-
-:::info[Operational interpretation]
-~~"No-code layout" means no engineering needed~~.  
-It means engineers stop writing repetitive presentation glue and spend time on schema, access control, and performance budgets.
-:::
-
-## The Bigger Picture
-
-```mermaid
-mindmap
-  root((March 2026 engineering reality))
-    Security
-      Drupal contrib XSS advisories
-      CKEditor patch in core release
-      Leaked keys mapped to valid certs
-      CISA KEV active exploitation
-      ICS and EV backend auth failures
-    Delivery
-      Next.js 16 default
-      Node.js 25.8.0 current
-      WP Rig practical theme workflows
-      Drupal Display Builder for faster layouts
-    AI
-      Useful
-        JetBrains ACP in Cursor
-        Learning outcome measurement
-        Domain-assisted research verification
-      Hype-prone
-        Search-integrated canvas surfaces
-        Event marketing cycles
-      Watchlist
-        Qwen team churn
-        Gemini Flash-Lite price-performance claims
-```
+- **UI Suite Display Builder** is valuable for teams that need layout speed in Drupal without custom Twig/CSS for every page. It reduces handoff friction, not architecture complexity. In practice, "no-code layout" does not mean no engineering is needed -- it means engineers stop writing repetitive presentation glue and spend time on schema, access control, and performance budgets.
 
 ## Bottom Line
 
 :::tip[Single action that prevents the most pain]
-Adopt a weekly "exploitability-first" review: patch confirmed exposed software (`Drupal contrib`, `KEV`, `internet-facing auth flaws`), rotate exposed secrets/certs, and defer everything else to scheduled evaluation.  
+Adopt a weekly "exploitability-first" review: patch confirmed exposed software (`Drupal contrib`, `KEV`, `internet-facing auth flaws`), rotate exposed secrets/certs, and defer everything else to scheduled evaluation.
 This one filter cuts incident probability faster than any new AI tool rollout.
 :::

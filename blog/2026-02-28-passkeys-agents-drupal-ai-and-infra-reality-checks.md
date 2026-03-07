@@ -19,7 +19,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-February 2026 had a handful of things worth paying attention to: better agent tooling, better infra primitives, better observability, and practical movement in the Drupal ecosystem. It also had people shipping risky identity patterns and pretending automation replaces human support, which is par for the course.
+Nothing screams "move fast and break users" quite like encrypting someone's data with a key they can never recover. February delivered that gem alongside agent tooling that finally works, Drupal plumbing nobody will celebrate, and platform defaults that only protect you if you bother wiring them up.
 
 <!-- truncate -->
 
@@ -35,12 +35,6 @@ The sharpest warning this month came from Tim Cappalli: teams are binding encryp
 :::warning[Do not bind irreversible encryption keys to passkeys]
 Use passkeys for authentication, not as the only root for decrypting user content. If recovery is impossible after device loss, ship server-side wrapped keys with explicit recovery controls, auditing, and revocation.
 :::
-
-```diff
-- auth: passkey-only unlock for user vault
-+ auth: passkey login + server-wrapped DEK + recovery flow
-+ controls: rotate KEK on account recovery, log key events
-```
 
 ## Coding agents now finish real tasks — review burden grows with them
 Max Woolf's write-up and Karpathy's December inflection quote match what most practitioners saw: agents can complete meaningful work end-to-end now. The part nobody wants to talk about is that every productivity gain adds review surface, and most teams haven't adjusted their review process to match.
@@ -67,10 +61,6 @@ Agent speed gains collapse if you skip guardrails: secret scanning, scoped crede
 </TabItem>
 </Tabs>
 
-:::caution[Agent velocity without controls is regression-as-a-service]
-Pair every agent-generated PR with policy checks for secrets, dependency risk, and auth surface changes. Faster output with weaker review increases incident rate, not productivity.
-:::
-
 ## Drupal's AI ecosystem grows through maintenance discipline
 The Drupal-related items this month were about plumbing, not spectacle: SearXNG privacy-first search integration, GraphQL beta fixes, code search for Drupal 10+, structured Views extraction, AI digests for project tracking, and genuine performance diagnosis down to missing cache tags causing multi-second loads. This is what production-grade AI readiness looks like — unglamorous and specific.
 
@@ -90,33 +80,10 @@ $build['#cache']['tags'] = Cache::mergeTags($build['#cache']['tags'] ?? [], ['no
 ## Infra and platform updates are converging on safer defaults
 Vercel Queues public beta, Telegram adapter support in Chat SDK, Cloudflare's PQ/ASPA/Radar transparency, and Turnstile redesign at huge scale all share a direction: reliability and security features moving into defaults. The catch is that defaults still require wiring — misconfigured queues and unmonitored PQ adoption don't protect anyone.
 
-```yaml title="ops/release-guardrails.yaml" showLineNumbers
-checks:
-  identity:
-    - forbid_passkey_only_encryption: true
-    - recovery_flow_required: true
-  agents:
-    - require_human_review_on:
-        - auth/**
-        - infra/**
-        - secrets/**
-    # highlight-next-line
-    - security_scan: required
-  platform:
-    - async_jobs_must_be_idempotent: true
-    - retries_backoff: exponential
-    - dead_letter_queue: enabled
-  network_security:
-    - monitor_pq_adoption: true
-    - monitor_aspa_coverage: true
-```
-
 ## Smaller but useful engineering reads
 Unicode binary search over HTTP range requests is a good reminder that protocol mechanics still unlock creative tooling. The "better Streams API" and "allocating on the stack" discussions belong in the same bucket: runtime mechanics that change performance and ergonomics when you apply them to the right problem, even if they'll never trend on social media.
 
-:::info[The pattern across these posts]
 Understanding system boundaries — caching metadata, stream semantics, key lifecycle, queue idempotency, routing trust — still compounds better than chasing whatever framework launched this week. The tools keep changing; the failure modes don't.
-:::
 
 <details>
 <summary>Full changelog snapshot from this learning batch</summary>
@@ -150,33 +117,6 @@ Understanding system boundaries — caching metadata, stream semantics, key life
 - Karpathy's December agent capability inflection quote
 
 </details>
-
-## The Bigger Picture
-
-```mermaid
-mindmap
-  root((Feb 2026 Dev Signal))
-    Identity
-      Passkeys auth-only
-      Recovery is mandatory
-      Secrets and key lifecycle
-    Agentic Coding
-      Capabilities improved
-      Review burden increased
-      Tooling converges CLI IDE PR
-    Drupal
-      AI-ready architecture
-      Search + retrieval modules
-      Cacheability and observability
-    Platform
-      Durable queues
-      Multi-channel bot adapters
-      Runtime primitives
-    Internet Security
-      PQ visibility
-      ASPA adoption
-      Anti-abuse UX at scale
-```
 
 ## What this month reinforces
 Better tools amplify whatever process you already have. If your review and controls are solid, agents make you faster. If they're weak, agents help you ship broken things at higher volume. Invest in the gates before you invest in the throughput.

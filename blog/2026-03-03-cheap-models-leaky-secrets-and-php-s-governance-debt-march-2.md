@@ -20,8 +20,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Stripped down, this week's news cycle covered cost curves, attack surface, and ecosystem governance — buried under the usual marketing gloss. The signal worth caring about: inference got cheaper, breaches remain boring and preventable, and PHP communities are starting to say the quiet part out loud about sustainability.
-If you ship production software, these items touch your budget, your incident risk, and your roadmap discipline directly.
+Google made per-request inference meaningfully cheaper, three webapp exploit classes from the mid-2010s showed up again in production software, and the PHP ecosystem started admitting out loud that it cannot sustain its own patch cadence. A useful week if you pay attention to the right parts.
 
 <!-- truncate -->
 
@@ -42,9 +41,7 @@ If you ship production software, these items touch your budget, your incident ri
 | Product scope | Cheap inference invites overuse | Put hard spend caps per feature, not just per org |
 | Architecture | Multi-model routing becomes mandatory | Treat model selection as runtime policy |
 
-:::info[Model Routing Is Now Core App Logic]
-Static model choice in config files is done. Runtime routing by request class, risk level, and budget window is now part of backend architecture, not an AI sidecar.
-:::
+**Model routing is now core app logic.** Static model choice in config files is done. Runtime routing by request class, risk level, and budget window is now part of backend architecture, not an AI sidecar.
 
 ## Secret Sprawl Beyond Git: Where Teams Keep Getting Burned
 
@@ -81,9 +78,7 @@ gitleaks detect --no-git --source . --report-format sarif --report-path gitleaks
 trufflehog filesystem --directory . --json > trufflehog.json
 ```
 
-:::warning[Agent Memory Is Part of Your Threat Model]
-If coding agents can read credentials, agents can also paste credentials into logs, patches, or chat context. Run secret scanners on generated diffs before merge, not after deploy.
-:::
+**Agent memory is part of your threat model.** If coding agents can read credentials, agents can also paste credentials into logs, patches, or chat context. Run secret scanners on generated diffs before merge, not after deploy.
 
 ## Webapp Exploit Cluster: Host Header Poisoning, Buffer Overflow, LFI
 
@@ -113,9 +108,7 @@ Three old bug classes surfaced again this week. Different products, same root ca
 + if ($host !~* ^mail\.example\.com$) { return 444; }
 ```
 
-:::caution[Exploit Class Age Is Irrelevant]
 "Legacy bug class" does not mean "legacy impact." Modern blast radius is bigger because reset flows, internal metadata, and container file mounts are all richer targets now.
-:::
 
 ## PHP Ecosystem Governance: Sustainability as a Delivery Risk
 
@@ -174,50 +167,6 @@ Events like this matter because community concentration still drives contributor
 > — SASE platform announcement, [Link](https://www.cloudflare.com/)
 
 Skip the branding. The development worth tracking here is the shift toward **programmable policy** at the edge — security controls that live as versioned code with testable behavior, not click-ops dashboards you pray somebody configured correctly.
-
-```yaml title="policy/edge-access.yaml"
-service: internal-admin
-rules:
-  - id: geo-block
-    when:
-      country_not_in: [US, CA, CO]
-    action: deny
-  - id: mfa-required
-    when:
-      path_prefix: /admin
-    action: require_mfa
-  - id: token-age
-    when:
-      session_age_minutes_gt: 30
-    action: reauthenticate
-```
-
-## How These Threads Connect
-
-```mermaid
-mindmap
-  root((March 2026 Reality Check))
-    AI Economics
-      Gemini 3.1 Flash-Lite
-      Lower unit cost
-      Need runtime routing
-    Supply Chain Security
-      Secret sprawl
-      Agent-context leakage
-      Continuous scanning
-    AppSec Ground Truth
-      Host header poisoning
-      Buffer overflow
-      LFI traversal
-    PHP Ecosystem Governance
-      Maintainer bandwidth
-      Funding pressure
-      Brand and leadership clarity
-    Edge Enforcement
-      Programmable SASE
-      Baseline operational standards
-      Policy-as-code
-```
 
 ## What to Do About It
 

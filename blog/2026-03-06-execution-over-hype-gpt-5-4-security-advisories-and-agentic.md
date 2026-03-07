@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This week had two distinct categories of input: engineering signal worth acting on, and marketing noise dressed up as progress. The signal boiled down to running code, verifying outputs, patching fast, and treating security advisories as operational tasks. The noise was model announcements presented as if they change delivery outcomes by themselves.
+Another week, another round of breathless announcements competing with vulnerabilities that actually need your attention right now. The ratio of marketing theater to engineering signal stayed roughly where you'd expect — heavily skewed toward hype — but the stuff worth acting on was genuinely worth acting on: verification discipline for agent output, patch-or-regret advisories, and a shiny new model that still can't tell you whether its own code works.
 
 <!-- truncate -->
 
@@ -35,35 +35,6 @@ This week had two distinct categories of input: engineering signal worth acting 
 > — Simon Willison, [Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/)
 
 Code generation gets all the attention, but the part that matters in agentic tooling is **verification loops**: execute, inspect, fail fast, retry with evidence. ~~"Pretty code output" means progress~~; runnable and validated output means progress.
-
-:::caution[Unreviewed Agent PRs Waste Team Time]
-Do not open pull requests from agent output without manual review and execution evidence attached. Require logs for tests, lint, and one realistic manual path before review. If a PR has no evidence artifact, close it and send it back.
-:::
-
-```bash title="scripts/verify-agent-output.sh" showLineNumbers
-#!/usr/bin/env bash
-set -euo pipefail
-
-task="${1:-unnamed-task}"
-# highlight-next-line
-run_id="$(date +%Y%m%d-%H%M%S)"
-out_dir="artifacts/${task}-${run_id}"
-
-mkdir -p "$out_dir"
-echo "Task: $task" | tee "$out_dir/summary.txt"
-echo "Run: $run_id" | tee -a "$out_dir/summary.txt"
-
-# highlight-start
-npm run lint | tee "$out_dir/lint.log"
-npm test | tee "$out_dir/test.log"
-phpunit --colors=never | tee "$out_dir/phpunit.log"
-# highlight-end
-
-echo "Manual checks" | tee -a "$out_dir/summary.txt"
-echo "- login flow" | tee -a "$out_dir/summary.txt"
-echo "- role permissions" | tee -a "$out_dir/summary.txt"
-echo "- rollback path" | tee -a "$out_dir/summary.txt"
-```
 
 ## GPT-5.4: Better Model, Same Verification Requirements
 
@@ -111,22 +82,6 @@ Track KEV additions and CMS advisories in the same queue as production incidents
 | SA-CONTRIB-2026-023 | 2026-03-04 | XSS | Upgrade `calculation_fields` to `>=1.0.4` |
 | 2,622 valid certs exposed study | Sep 2025 snapshot | Credential abuse | Rotate keys, enforce short-lived certs |
 
-```bash title="scripts/security-triage.sh" showLineNumbers
-#!/usr/bin/env bash
-set -euo pipefail
-
-drush pm:list --status=enabled --type=module --format=json > enabled.json
-
-# highlight-start
-jq -r '.[] | select(.name=="google_analytics_ga4" or .name=="calculation_fields") | "\(.name) \(.version)"' enabled.json
-# highlight-end
-
-echo "Check KEV list deltas"
-curl -s https://www.cisa.gov/known-exploited-vulnerabilities-catalog | grep -E "CVE-2017-7921|CVE-2021-22681|CVE-2021-30952|CVE-2023-41974|CVE-2023-43000" || true
-
-echo "Rotate exposed certs and keys if inventory matches leak indicators"
-```
-
 ## Drupal and PHP: Consistent Patch Intake Keeps You Off the News
 
 Drupal `10.6.4` and `11.3.4` landed as production-ready patch releases, both carrying CKEditor 5 `v47.6.0` updates, with stated support windows through December 2026 for the active branches. Nobody writes blog posts celebrating uneventful upgrades, which is exactly the point. Regular patch intake, narrow blast radius, fast verification.
@@ -135,10 +90,6 @@ Drupal `10.6.4` and `11.3.4` landed as production-ready patch releases, both car
 - "drupal/core-recommended": "^10.5"
 + "drupal/core-recommended": "^10.6.4"
 ```
-
-:::info[Support Windows Are Scheduling Inputs]
-Drupal 10.6.x and 11.3.x support timelines are release-planning constraints, not trivia. Roadmaps that ignore these windows turn upgrades into emergency projects.
-:::
 
 <details>
 <summary>Patch intake checklist used this week</summary>
@@ -158,19 +109,6 @@ Google pushed AI Mode visual search and Canvas in Search (U.S. availability), Fi
 :::warning[Always-On Agents Expand Failure Modes]
 Trigger-based automation without guardrails becomes silent damage at scale. Require three controls before enabling: scope-bound credentials, action allowlists, and human-visible execution logs.
 :::
-
-## March 2026 Signal Map
-
-```mermaid
-timeline
-    title 2026-03 Signal Map: Build, Verify, Patch, Govern
-    2025-08-31 : GPT-5.4 knowledge cutoff
-    2025-09 : 2,622 valid certs still exposed (GitGuardian+Google study snapshot)
-    2026-03-04 : Drupal contrib XSS advisories SA-CONTRIB-2026-023/024
-    2026-03-06 : CISA adds five KEVs tied to active exploitation
-    2026-Q1 : Always-on agents (Cursor automations), AI Mode Canvas, enterprise AI adoption channels
-    Ongoing : Core rule holds: execute code, verify behavior, ship with evidence
-```
 
 ## What This Means for Next Week
 

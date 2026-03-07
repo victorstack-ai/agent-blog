@@ -19,7 +19,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Google quietly shipped something most "AI productivity" posts pretend to discuss but never deliver: an actual CLI that maps to Google Workspace APIs and is usable by agents. The practical value is not the marketing line; it is the dynamic API surface plus a large skills pack that removes glue-code tax. ~~This is just another Gmail script bundle~~.
+Every few months someone announces a "revolutionary AI productivity tool" that turns out to be three API calls in a trench coat. Google's Workspace CLI is not that. It ships a dynamic command surface built from Discovery Service metadata, a skills pack north of 100 entries, and structured JSON output that agents can actually parse without hallucinating a schema. ~~This is just another Gmail script bundle~~.
 
 <!-- truncate -->
 
@@ -36,10 +36,6 @@ Google quietly shipped something most "AI productivity" posts pretend to discuss
 | API coverage model | Runtime command generation from Google Discovery Service | New API methods appear without waiting for wrapper releases |
 | Agent orientation | Structured JSON responses and `SKILL.md`-based skills | Agents can execute deterministic workflows instead of scraping human text |
 | Skill inventory | Repo currently contains 100+ skills (base APIs + recipes + personas) | "40+" undersells current automation surface |
-
-:::info[Discovery-driven coverage is the real feature]
-Most CLIs rot because command surfaces are hand-maintained. This one builds commands from Discovery metadata at runtime, so API expansion shows up as command expansion. That changes maintenance economics for long-lived automations.
-:::
 
 ## Why This Matters for Agent Workflows
 
@@ -73,39 +69,9 @@ flowchart TD
 A large skill catalog is distribution, not governance. Production use still needs explicit scope control, audit logging, and failure policy per workflow. Treat every skill as privileged code, not a harmless prompt macro.
 :::
 
-## CI/CD Pattern That Does Not Rot
+## CI/CD Integration
 
-```yaml title=".github/workflows/workspace-ops.yml" showLineNumbers
-name: workspace-ops
-
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 * * * *"
-
-jobs:
-  inbox-triage:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-      - run: npm i -g @googleworkspace/cli
-      # highlight-start
-      - name: Auth check
-        run: gws auth status --json
-      - name: Unread summary
-        run: gws gmail users.messages.list --userId=me --q="is:unread newer_than:1d" --json
-      # highlight-end
-      - name: Persist artifact
-        run: mkdir -p artifacts && gws calendar events.list --calendarId=primary --maxResults=20 --json > artifacts/calendar.json
-```
-
-```diff title="ci/pipeline-change.diff"
-- curl -H "Authorization: Bearer $TOKEN" "https://gmail.googleapis.com/gmail/v1/users/me/messages?q=is:unread"
-+ gws gmail users.messages.list --userId=me --q="is:unread" --json
-```
+The core migration pattern is replacing raw REST calls with `gws ... --json`. Discovery-driven commands track API changes automatically, so CI pipelines stop breaking when Google shifts an endpoint. Pair that with scheduled `workflow_dispatch` runs and artifact persistence, and Workspace ops become observable infrastructure instead of cron-and-pray scripts.
 
 <details>
 <summary>Verification snapshot (repo state on 2026-03-05)</summary>
@@ -122,27 +88,11 @@ rg "40\\+ agent skills included" README.md
 
 ## Security and Failure Modes
 
-:::warning[Token scope sprawl becomes silent blast radius]
 If one agent credential has broad Gmail, Drive, Admin, and Chat scopes, a prompt-injection incident stops being a bad email and turns into lateral damage. Split workflows by service account or profile, and enforce least-privilege OAuth scopes per job.
-:::
 
 :::danger[Indirect prompt injection is a real operational risk]
 Workspace content is untrusted input. A malicious doc or email can instruct an agent to perform unrelated actions unless tool-call policy is constrained. Put model-output guardrails in front of execution: allowlisted commands, argument validation, and approval gates for state-changing operations.
 :::
-
-## The Bigger Picture
-
-```mermaid
-timeline
-    title Workspace Automation Maturity Path
-    section Old Pattern
-      Manual scripts : Per-API wrappers, brittle auth handling
-      Bot glue code : Endpoint drift and maintenance debt
-    section New Pattern
-      Discovery CLI : Dynamic command surface from Google metadata
-      Skill packs : Reusable workflows for common operations
-      CI integration : Scheduled, observable Workspace automations
-```
 
 ## Bottom Line
 

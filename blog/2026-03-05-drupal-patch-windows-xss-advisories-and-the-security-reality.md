@@ -20,7 +20,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The pattern today is simple: patch discipline and identity controls are real engineering, while most AI announcements are positioning. Drupal core and contrib shipped concrete security-relevant updates; infra/security vendors pushed more continuous enforcement patterns; AI ecosystem news ranged from useful to noisy. ~~"Latest" means "safe enough"~~ is still how teams get burned.
+Two Drupal contrib modules shipped XSS fixes on the same day CKEditor 5 quietly patched its own HTML-sanitization hole inside core. Meanwhile, GitGuardian confirmed over 2,600 TLS certificates are still live in the wild, chained to leaked private keys nobody revoked. But sure, let's talk about the new AI canvas feature.
 
 <!-- truncate -->
 
@@ -45,27 +45,7 @@ The pattern today is simple: patch discipline and identity controls are real eng
 | Drupal 10.5.x | latest 10.5 patch line | Until June 2026 | Transitional only |
 | Drupal 10.4.x and older | EOL for security | Ended | Upgrade immediately |
 
-:::warning[Patch release complacency]
 Treating patch releases as "can wait" is how known vulnerabilities stay live for months. Put Drupal patch lines on a fixed deployment train and enforce maximum patch age in CI.
-:::
-
-```yaml title="ops/drupal-release-policy.yaml" showLineNumbers
-release_policy:
-  drupal_core:
-    cadence: weekly
-    max_patch_age_days: 14
-    supported_targets:
-      # highlight-next-line
-      - "11.3.x"
-      - "10.6.x"
-  editor_stack:
-    ckeditor5:
-      required_min_version: "47.6.0"
-  gates:
-    - composer_validate
-    - security_advisory_check
-    - smoke_test_admin_login
-```
 
 <details>
 <summary>Support-window notes to pin in your runbook</summary>
@@ -106,11 +86,7 @@ If either module is installed, upgrade first, then review any custom code that e
 
 GitGuardian + Google mapped leaked private keys to real certs: ~1M leaked keys tied to ~140k certs; **2,622 certs were still valid** as of September 2025. Remediation hit 97%, which is good and still leaves a dangerous tail.
 
-**Why this matters:** secret scanning that stops at "detected" is theater. Detection without forced rotation is an incident queue.
-
-:::caution[Detection-only programs fail quietly]
-Implement an SLO for revocation/rotation time. If secret leak MTTR is not measured, it is not controlled.
-:::
+**Why this matters:** secret scanning that stops at "detected" is theater. Detection without forced rotation is an incident queue. Implement an SLO for revocation/rotation time -- if secret leak MTTR is not measured, it is not controlled.
 
 ## Cloudflare's Direction: Continuous Enforcement Beats Point Checks
 
@@ -158,22 +134,6 @@ This is practical: identity and risk become continuous signals, not one-time gat
 
 That sentence should be printed over every AI-assisted repo. "The model wrote it" is not a review strategy.
 
-```bash title="ci/review-guard.sh"
-#!/usr/bin/env bash
-set -euo pipefail
-
-changed_files=$(git diff --name-only origin/main...HEAD)
-test -n "$changed_files"
-
-# highlight-start
-echo "Run static analysis + tests before PR is mergeable"
-npm run lint
-npm test
-# highlight-end
-
-echo "Require human review checklist completion"
-```
-
 ## WordPress and Practical Craft: WP Rig Still Matters
 
 Rob Ruiz's WP Rig discussion is useful because it stays grounded in maintainability: starter theme as a teaching surface, not a magic scaffold. Agencies shipping both classic and block-based themes still benefit from opinionated baseline tooling.
@@ -188,32 +148,6 @@ Rob Ruiz's WP Rig discussion is useful because it stays grounded in maintainabil
 > "I learned yesterday that an open problem ... had just been solved by Claude Opus 4.6."
 >
 > — Donald Knuth, [paper note](https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf)
-
-## The Bigger Picture
-
-```mermaid
-mindmap
-  root((2026-03-05 Devlog))
-    Drupal
-      Core patch lines
-      CKEditor5 security update
-      Contrib XSS advisories
-    Security Reality
-      Leaked keys -> valid cert exposure
-      Secret rotation SLOs
-      Supply-chain package health
-    Zero Trust Shift
-      Continuous auth
-      Risk-scored access
-      Full-transaction detection
-    AI Tooling
-      IDE integration that ships value
-      Model pricing/perf tiers
-      Hype announcements with weak ops tie-in
-    Engineering Discipline
-      Human review remains mandatory
-      Measured outcomes over demos
-```
 
 ## Bottom Line
 

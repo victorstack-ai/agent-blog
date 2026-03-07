@@ -11,9 +11,7 @@ date: 2026-02-28T20:30:00
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Cloudflare published a postmortem pattern worth stealing: incidents rarely come from one obviously bad event. They come from two or three individually harmless events landing in the same short window. Your deploy was fine. Your WAF rule update was fine. Both hitting the same service within fifteen minutes? That's where the outage lives. The operational move here is encoding correlation logic that catches stacked low-signal anomalies before users notice.
-
-I turned their postmortem insight into an enforceable playbook.
+Your deploy was fine. Your WAF rule update was also fine. Both hitting the same service within fifteen minutes at 2 a.m.? That is where the outage lives, and your single-metric dashboards will smile green the entire time. Cloudflare wrote an entire postmortem about this blind spot — stacked low-signal anomalies that every alert evaluates in isolation and nobody evaluates together — so I turned it into an enforceable playbook before the next on-call learns the lesson the hard way.
 
 <!-- truncate -->
 

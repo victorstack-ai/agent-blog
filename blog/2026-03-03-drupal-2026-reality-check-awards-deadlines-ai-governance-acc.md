@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This batch of updates has one common thread: the **Drupal** and broader PHP ecosystem has stopped assuming momentum will sustain itself. Deadlines are hard, budgets are tighter, and "AI-ready" now demands architecture discipline rather than bolting on another chatbot widget. The useful signal here is where teams are choosing operational rigor over branding exercises.
+Drupal turns 25 next month, PHP ecosystem funding is under real pressure, and "AI-ready" has quietly become a security liability for teams that skipped the guardrails. Here is what actually matters from this cycle and what you can ignore.
 
 <!-- truncate -->
 
@@ -43,9 +43,7 @@ Submissions are open and close on **27 March 2026** for projects completed or si
 | Accessibility notes | Strengthens judging narrative | Project looks incomplete in 2026 |
 | Delivery timeline | Confirms 2025 eligibility | Risk of disqualification |
 
-:::caution[Deadline Triage]
 Freeze your award narrative assets by **20 March 2026**. That gives one week to fix evidence gaps, legal approvals, and client sign-off before the 27 March cutoff.
-:::
 
 ## Drupal 25th Anniversary Gala: A Governance Moment Disguised as a Party
 
@@ -55,9 +53,7 @@ The gala is set for **24 March 2026, 7:00–10:00 PM**, at **610 S Michigan Ave,
 >
 > — Drupal community update, [Coverage](https://www.thedroptimes.com)
 
-:::info[Beyond the Celebration]
 Leadership clarity is easier to build when major community milestones are treated as governance moments, not just social events. If the room only celebrates history and avoids current funding and contributor capacity issues, it becomes a missed operational checkpoint.
-:::
 
 ## Accessibility Microlearning: Small Time Investment, Measurable Review Speedup
 
@@ -66,26 +62,6 @@ AmyJune Hineline's Linux Foundation microlearning focuses on practical contribut
 > "Accessibility Fundamentals for Open Source Contributors... focuses on practical habits contributors can apply immediately."
 >
 > — Linux Foundation course release, [Report](https://www.thedroptimes.com)
-
-```yaml title="a11y-pr-review-checklist.yml" showLineNumbers
-name: accessibility-pr-gate
-on:
-  pull_request:
-    paths:
-      - "**/*.md"
-      - "**/*.twig"
-      - "**/*.html"
-jobs:
-  review:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check image alt text
-        run: ./scripts/check-alt-text.sh
-      - name: Check keyboard trap regressions
-        run: ./scripts/check-keyboard-nav.sh
-      - name: Check plain-language docs
-        run: ./scripts/check-global-english.sh
-```
 
 ~~Accessibility training is "nice to have."~~ Done well, accessibility training prevents predictable review churn and keeps merge velocity from tanking over fixable issues.
 
@@ -123,35 +99,6 @@ The newsletter's useful thread is the tension between "AI-ready architecture" an
 + Prompt and response logs retained for 90 days for incident review.
 ```
 
-```php title="src/Security/AiExecutionPolicy.php" showLineNumbers
-<?php
-
-declare(strict_types=1);
-
-namespace App\Security;
-
-final class AiExecutionPolicy
-{
-    public function canExecute(string $tool, string $environment): bool
-    {
-        // highlight-next-line
-        if ($environment === 'production' && $tool === 'raw_http') {
-            return false;
-        }
-
-        $allowlist = ['search_index', 'content_draft', 'taxonomy_lookup'];
-
-        // highlight-start
-        if (!in_array($tool, $allowlist, true)) {
-            return false;
-        }
-        // highlight-end
-
-        return true;
-    }
-}
-```
-
 :::danger[Controlled AI Is a Security Requirement]
 Any agent that can write content and call unrestricted endpoints is one prompt away from a data leak. Enforce tool allowlists and approval gates before shipping AI features into editorial or ops workflows.
 :::
@@ -185,31 +132,6 @@ If custom security logic is proprietary and non-portable, migration cost rises e
 
 </details>
 
-## How These Signals Connect
-
-```mermaid
-mindmap
-  root((2026 Ecosystem Reality))
-    Drupal Community Signals
-      DrupalSouth awards deadline pressure
-      25th anniversary governance optics
-    Engineering Discipline
-      Accessibility as merge-speed multiplier
-      Controlled AI with allowlists and approvals
-      Security policy in git and CI
-    Sustainability Constraints
-      Thinner contributor base
-      Tighter budgets
-      Need for funded maintenance
-    Vendor Narrative vs Reality
-      Programmable SASE claims
-      Portability and lock-in tests
-```
-
 ## What To Do With This
 
 Every signal this week points in the same direction: documented outcomes over vague claims, funded maintenance over volunteerism assumptions, and explicit controls over "we'll figure it out in production."
-
-:::tip[Single Action That Pays Off Fast]
-Create one `engineering-trust-checklist.md` in your repo this week with five non-negotiables: evidence for impact claims, accessibility PR gate, AI tool allowlist, policy-in-git requirement, and funded maintainer ownership for each roadmap stream.
-:::

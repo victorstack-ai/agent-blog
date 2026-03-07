@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The pattern today is simple: patch fast, validate continuously, and stop trusting one-time checks. Drupal dropped production-ready patch releases with hard support deadlines, Cloudflare moved deeper into always-on identity and detection, and multiple AI/vendor announcements separated useful tooling from marketing theater.
+Another week, another round of vendors announcing that security is now "continuous" — as if the rest of us had been running on a prayer and a cron job. Drupal shipped patch releases with hard support deadlines baked in, GitGuardian put real numbers on the leaked-key-to-valid-certificate pipeline, and Cloudflare kept expanding its identity enforcement surface. Meanwhile, the AI tooling announcements ranged from genuinely useful to "please clap."
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
@@ -58,10 +58,6 @@ The pattern today is simple: patch fast, validate continuously, and stop trustin
 `SA-CONTRIB-2026-024` (`Google Analytics GA4`, CVE-2026-3529, affected `<1.1.13`) and `SA-CONTRIB-2026-023` (`Calculation Fields`, CVE-2026-3528, affected `<1.0.4`) are both XSS-class issues. Update immediately, then grep custom code for passthrough attribute injection and unsafe expression handling patterns.
 :::
 
-:::caution[Do not confuse "patch release" with "optional"]
-Patch releases here include dependency-level security movement (CKEditor5 47.6.0). Skipping "small" updates is how teams accidentally run unsupported stacks while believing they are current.
-:::
-
 <details>
 <summary>Security bulletin quick list</summary>
 
@@ -89,26 +85,6 @@ flowchart TD
   C -->|Yes| D[Impersonation / MITM / trust abuse risk]
   C -->|No| E[Historical exposure only]
   D --> F[Revoke + rotate + audit downstream trust stores]
-```
-
-```yaml title="security/secret-governance.yaml" showLineNumbers
-version: 1
-controls:
-  detection:
-    providers:
-      - git_history
-      - filesystem
-      - ci_artifacts
-      # highlight-next-line
-      - agent_runtime_memory
-  response:
-    # highlight-start
-    revoke_certificate_on_match: true
-    rotate_private_key_on_match: true
-    # highlight-end
-    max_minutes_to_revoke: 30
-  exceptions:
-    require_security_signoff: true
 ```
 
 :::warning[Secret scanning only in Git is a partial control]
@@ -162,17 +138,6 @@ Sources: [Always-on detections](https://blog.cloudflare.com/always-on-detections
 - Qwen team turbulence despite strong 3.5 model momentum.
 - "GPT-5.2 Pro helped derive graviton amplitudes" preprint claims need replication.
 
-```bash
-# practical baseline check in active repos
-node -v
-npm view next version
-npm outdated
-```
-
-:::info[Use capability announcements as integration triggers, not strategy]
-Adopt when the feature closes a specific bottleneck: editor latency, test feedback loop, deployment friction, or measurable learning outcomes. Ignore everything that cannot produce a before/after metric.
-:::
-
 ## CMS and builder ecosystem: no-code promises are fine when outputs stay auditable
 
 UI Suite Display Builder is pushing visual Drupal layout construction; WP Rig remains relevant as a starter that teaches structure instead of dumping abstractions. Different surface area, same question: can teams audit what ships.
@@ -184,29 +149,6 @@ UI Suite Display Builder is pushing visual Drupal layout construction; WP Rig re
 | Axios AI newsroom workflow | Media ops | AI as workflow acceleration, not author replacement |
 
 Sources: [UI Suite Initiative](https://www.ui-suite.com/), [WP Builds #207](https://wpbuilds.com/2026/), [Axios AI + local journalism](https://openai.com/)
-
-## The Bigger Picture
-
-```mermaid
-mindmap
-  root((2026-03-05 Devlog))
-    Drupal patch cadence
-      10.6.4 and 11.3.4
-      CKEditor5 47.6.0
-      contrib XSS advisories
-    Identity and edge security
-      continuous auth
-      risk scoring
-      clientless policy enforcement
-    Secrets and supply chain
-      leaked key to cert mapping
-      runtime secret exposure
-      dormant OSS revival risk
-    AI tooling reality
-      editor + framework upgrades
-      cost-tier model shifts
-      research-assist claims need validation
-```
 
 ## Bottom Line
 

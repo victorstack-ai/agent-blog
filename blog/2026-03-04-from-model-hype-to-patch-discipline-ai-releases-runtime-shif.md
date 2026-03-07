@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This week's feed had a clear split: model launches dominated the headlines while security advisories and runtime default changes quietly shifted the ground under day-to-day engineering. Some announcements carried real operational weight, some were press releases dressed as product launches, and a handful demanded immediate patching. Sorting those three buckets is the whole game.
+Donald Knuth publicly credited Claude Opus 4.6 with solving an open math problem he'd been working on for weeks, CISA added two actively exploited CVEs to the KEV catalog, and half a dozen ICS/OT advisories dropped with CVSS 9.4 scores. Meanwhile, Google and OpenAI shipped cheaper models and Next.js 16 quietly became the default scaffold.
 
 <!-- truncate -->
 
@@ -36,9 +36,7 @@ This week's feed had a clear split: model launches dominated the headlines while
 
 This matters because Knuth has zero incentive to inflate AI capabilities. When someone who has spent sixty years defining computer science says a model solved an open problem, ~~LLMs are just autocomplete~~ loses most of its remaining shelf life as a dismissal.
 
-:::info[How to use this signal]
-Treat this as evidence that frontier reasoning models can occasionally contribute non-trivial mathematical value. Do not treat it as evidence that model output is self-verifying. Keep proof validation and independent checks in the loop.
-:::
+Treat this as evidence that frontier reasoning models can occasionally contribute non-trivial mathematical value. It is not evidence that model output is self-verifying -- keep proof validation and independent checks in the loop.
 
 ## AI Model Releases: Useful, Cheap, and Still Easy to Misuse
 
@@ -69,9 +67,7 @@ If plugin controls are weak, model quality is irrelevant because your execution 
 </TabItem>
 </Tabs>
 
-:::caution[Cheap tokens can still produce expensive incidents]
-Lower inference price does not lower blast radius. Set policy gates around `write`, `delete`, deployment, and secret access operations before rolling out high-throughput automations.
-:::
+**Lower inference price does not lower blast radius.** Set policy gates around `write`, `delete`, deployment, and secret access operations before rolling out high-throughput automations.
 
 ## Runtime Defaults Shifted: Next.js 16 and Node.js 25.8.0
 
@@ -84,27 +80,6 @@ Next.js 16 becoming the default for new sites and Node.js 25.8.0 landing as Curr
 + "node": "^25.8.0"
 ```
 
-```yaml title="runtime-policy.yaml" showLineNumbers
-project: web-platform
-runtime:
-  node: "25.8.0"
-  packageManager: "pnpm@10"
-framework:
-  nextjs: "16.x"
-ci:
-  # highlight-next-line
-  enforceEngineStrict: true
-  smokeTests:
-    - route-render
-    - api-contract
-    # highlight-start
-    - auth-callback
-    - env-validation
-    # highlight-end
-release:
-  rollbackWindowMinutes: 30
-```
-
 ```bash
 nvm install 25.8.0
 nvm use 25.8.0
@@ -112,9 +87,7 @@ pnpm install
 pnpm test
 ```
 
-:::warning[Default scaffolds drift faster than your production standards]
-Pin runtime and framework versions in CI policy files, not just local docs. If defaults change upstream and your CI doesn't enforce engines, someone merges an incompatibility on a Friday afternoon and nobody notices until Monday morning's deploy fails.
-:::
+**Pin runtime and framework versions in CI policy files, not just local docs.** If defaults change upstream and your CI doesn't enforce engines, someone merges an incompatibility on a Friday afternoon and nobody notices until Monday morning's deploy fails.
 
 ## Security Wave: ICS/OT Advisories, KEV Adds, and Commodity Web Exploits
 
@@ -182,31 +155,6 @@ Project and community items worth noting:
 - Exploit reports for mailcow host-header poisoning, Easy File Sharing buffer overflow, and Boss Mini LFI are active hardening prompts.
 - Drupal and PHP ecosystem commentary is strategically relevant: contributor economics and governance clarity are no longer side topics.
 </details>
-
-## Week in Context
-
-```mermaid
-mindmap
-  root((March 2026 Dev Signal))
-    AI Models
-      Knuth-Claude moment
-      Gemini 3.1 Flash-Lite economics
-      GPT-5.3 Instant + system card
-      MCP team plugin marketplaces
-    Runtime Baselines
-      Next.js 16 default
-      Node.js 25.8.0 current
-      CI policy pinning
-    Security Pressure
-      ICS/OT auth failures
-      CISA KEV active exploitation
-      Webapp exploit disclosures
-    Community Direction
-      Copilot Dev Days
-      Drupal 25th anniversary
-      PHP ecosystem sustainability debate
-      Baseline monthly digest
-```
 
 ## What to Do With All This
 

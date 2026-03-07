@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most release feeds are noise; this batch had some genuine signal worth pulling apart. Runtimes got incremental wins, AI launches split between operationally useful and speculative, and security advisories kept hammering the same lesson: authentication and access control are still where systems crumble in 2026. ~~"Modern stacks are safer by default now."~~ Not in infrastructure-facing software.
+Six ICS vendors published critical-severity advisories in the same window, and every single root cause was some flavor of broken authentication. That pattern deserves more attention than Node's latest point release or Google's newest model name — but those shipped too, so here is everything worth pulling apart.
 
 <!-- truncate -->
 
@@ -55,9 +55,7 @@ function acme_register_server_kpi_block() {
 add_action( 'init', 'acme_register_server_kpi_block' );
 ```
 
-:::caution[Don't fake interactivity with PHP-only blocks]
-Use PHP-only blocks for render-time composition, data reads, and controlled markup. Skip this path for rich client-side interactions, offline editing behavior, or block UIs that depend on dynamic JS state. For those, register full block assets and treat editor/runtime parity as a requirement.
-:::
+Use PHP-only blocks for render-time composition, data reads, and controlled markup. For rich client-side interactions or block UIs that depend on dynamic JS state, register full block assets instead.
 
 ## AI launches: separating throughput gains from research demos
 
@@ -81,9 +79,7 @@ Useful for experimentation and internal prototyping of generated environments. T
 | Gemini 3.1 Flash-Lite | Fastest, most cost-efficient Gemini 3 series model | Good for scale paths where latency + unit economics matter | Adopt for high-throughput, bounded-quality tasks |
 | Project Genie prompt tips | Create new worlds with prompting | Useful for ideation, weak for reproducible production assets | Keep in R&D sandbox |
 
-:::info[How to evaluate AI model announcements]
-Track three numbers per workload: p95 latency, cost per 1K calls, and regression rate against your golden set. If one looks great while another collapses, that launch is marketing collateral, not platform strategy.
-:::
+**When evaluating AI model announcements**, track three numbers per workload: p95 latency, cost per 1K calls, and regression rate against your golden set. If one looks great while another collapses, that launch is marketing collateral, not platform strategy.
 
 ## Security: secrets and critical infrastructure stayed fragile
 
@@ -101,26 +97,6 @@ Treat internet-exposed management planes as incident candidates immediately. Seg
 | ePower `epower.ie` | all versions listed | Missing auth + auth attempt controls + related weaknesses | Admin takeover / DoS |
 | Mobiliti `e-mobi.hu` | all versions listed | Same class as above | Admin takeover / DoS |
 | Everon OCPP backends | `api.everon.io` all listed versions | Same class as above | Admin takeover / DoS |
-
-```bash title="ops/secret-hygiene-check.sh" showLineNumbers
-#!/usr/bin/env bash
-set -euo pipefail
-
-# highlight-start
-echo "[1] Scan tracked files"
-gitleaks detect --source . --no-git --redact
-
-echo "[2] Scan environment at runtime"
-env | rg -i "(token|secret|password|key)" || true
-
-echo "[3] Check process args for leaked creds"
-ps aux | rg -i "(token|secret|password|apikey)" || true
-# highlight-end
-
-echo "[4] Enforce pre-commit secret scan"
-test -f .git/hooks/pre-commit || cp scripts/pre-commit-gitleaks .git/hooks/pre-commit
-chmod +x .git/hooks/pre-commit
-```
 
 ## Web exploit classes that keep working despite being well-understood
 
@@ -160,30 +136,6 @@ The DropTimes discussion and Drupal ecosystem updates matter because contributor
 > — Drupal community announcement summary, [The Drop Times coverage](https://www.thedroptimes.com/)
 
 January 2026 Baseline digest and the SASE "programmable platform" narrative reinforce one point: teams are converging on programmable policy layers, but policy quality is the bottleneck, not API availability.
-
-## Week in context
-
-```mermaid
-mindmap
-  root((2026-03-03 Learning Signal))
-    Runtime and Platform
-      Node.js 25.8.0 Current
-      WordPress PHP-only blocks
-    AI Releases
-      Gemini 3.1 Flash-Lite
-      Project Genie prompt workflows
-    Security
-      Secrets beyond Git
-      ICS advisories
-      Webapp exploit classes
-    Ecosystem
-      Drupal sustainability debate
-      Governance and leadership clarity
-      Community coordination events
-    Network Edge
-      Programmable SASE logic
-      Policy-as-code pressure
-```
 
 ## What to prioritize
 

@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This week's useful material came from release notes, security advisories, and people who run things in production. Drupal patch trains, CISA KEV additions, key-leak telemetry — all of it specific and actionable. Most "AI transformation" messaging, predictably, was not. The throughline: ship faster, verify harder.
+Another week, another avalanche of release notes dressed up as thought leadership. Somewhere between Drupal patch trains, CISA advisories, and yet another model launch promising to change everything, a few things turned out to be genuinely worth acting on. Here is what survived the filter.
 
 <!-- truncate -->
 
@@ -39,10 +39,6 @@ Simon Willison's agentic pattern notes and anti-patterns remain the most grounde
 > "Don't file pull requests with code you haven't reviewed yourself."
 >
 > — Simon Willison, [Anti-patterns: things to avoid](https://simonwillison.net/guides/agentic-engineering-patterns/)
-
-:::warning[Manual testing is now a release gate]
-If the workflow ends at "model responded," you have no evidence the code works. Add a mandatory execute-and-verify stage with real commands, fixtures, and failure capture before merge. ~~Prompt quality alone guarantees working code~~ — that idea should have died months ago.
-:::
 
 | Pattern | Works in production? | Why |
 |---|---|---|
@@ -71,9 +67,7 @@ Use for hard reasoning/codegen passes where a failure costs more than extra infe
 </TabItem>
 </Tabs>
 
-:::info[Chain-of-thought control result matters]
 The CoT-control finding — reasoning models struggling to fully hide their chains — is worth paying attention to for safety. Monitorability remains feasible. Instead of worrying about "perfect hidden reasoning," invest in logging, evals, and policy checks.
-:::
 
 ## Drupal 10.6.5 and 11.3.5: Patch Now, Plan Your Migration Window
 
@@ -103,25 +97,6 @@ The CoT-control finding — reasoning models struggling to fully hide their chai
 + "drupal/calculation_fields": "1.0.4"
 ```
 
-```bash title="scripts/drupal-security-audit.sh" showLineNumbers
-#!/usr/bin/env bash
-set -euo pipefail
-
-# highlight-next-line
-echo "Checking Drupal core and contrib security posture..."
-
-composer show drupal/core-recommended --format=json | jq -r '.versions[0]'
-composer show drupal/google_analytics --format=json | jq -r '.versions[0]'
-composer show drupal/calculation_fields --format=json | jq -r '.versions[0]'
-
-# highlight-start
-drush pm:security --format=json > build/security-report.json
-jq '.[] | select(.advisory != null)' build/security-report.json || true
-# highlight-end
-
-echo "Done. Review build/security-report.json before deploy."
-```
-
 :::danger[Contrib advisories are not "low priority"]
 `SA-CONTRIB-2026-024` (Google Analytics GA4, CVE-2026-3529) and `SA-CONTRIB-2026-023` (Calculation Fields, CVE-2026-3528) are XSS vectors. Patch affected contrib before arguing about severity labels.
 :::
@@ -147,19 +122,6 @@ CISA added five KEVs (including Hikvision, Rockwell, and Apple entries), Delta C
 | Delta CNCSoft-G2 | Out-of-bounds write, potential RCE | Isolate/segment and patch |
 | Key leak telemetry | Valid certs tied to leaked keys | Revoke/rotate automatically |
 
-```yaml title="policy/patch-and-rotate.yaml"
-kev_sla:
-  critical_exploited: "72h"
-  high_exploited: "7d"
-certificate_hygiene:
-  private_key_leak_detection: true
-  auto_revoke_on_match: true
-  forced_reissue: true
-network_controls:
-  ics_segment_isolation: true
-  internet_exposed_admin_panels: false
-```
-
 Cloudflare's ARR work, QUIC proxy-mode rebuild, and always-on detection efforts are worth studying for the engineering details: removing unnecessary TCP and user-space overhead, keeping detections continuous, and reducing false positives with response-aware signals. Good infra work tends to be boring on purpose.
 
 ## What Was Useful vs. What Was Marketing
@@ -168,27 +130,7 @@ A few announcements had substance. Most did not.
 
 - Useful: Stanford WebCamp 2026 CFP deadlines, WP Rig maintenance direction, Cursor automations, Canvas in AI Mode shipping in U.S., GitHub/Andela real workflow adoption data.
 - Vague until proven otherwise: generic "AI value model" decks and broad "adoption channel" messaging with no deployment evidence behind them.
-- Quietly practical: the "blog to book" playbook, assuming content is already structured and edited for coherence.
-
-:::caution[Content repackaging is a product task, not copy-paste]
-Turning posts into a book only works after dedupe, narrative ordering, and technical updates. Raw export produces a bloated archive, not something anyone would actually read cover to cover.
-:::
-
-## Timeline and Broader Context
-
-```mermaid
-timeline
-    title 2026 Dev Signal Timeline
-    March 2026 : Drupal 10.6.5/11.3.5 patch releases
-               : SA-CONTRIB-2026-023 and 024 published
-               : CISA adds 5 KEVs
-               : Delta CNCSoft-G2 RCE-risk advisory
-               : Agentic engineering anti-patterns highlighted
-               : GPT-5.4 + GPT-5.4-pro operationalized
-    Ongoing    : QUIC proxy improvements and ARR deployment patterns
-               : Always-on detection replacing log-vs-block guesswork
-               : Teams integrating AI tools into production workflows
-```
+- Quietly practical: the "blog to book" playbook, assuming content is already structured and edited for coherence. Turning posts into a book only works after dedupe, narrative ordering, and technical updates. Raw export produces a bloated archive, not something anyone would actually read cover to cover.
 
 ## What To Do With All of This
 

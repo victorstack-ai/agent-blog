@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most of this week's signal came from operational discipline: patch windows, identity controls, cert hygiene, and better defaults in dev tooling. AI news showed up too, but the parts worth paying attention to were the ones touching production workflows rather than launch-day demos.
+Another week, another parade of product launches dressed up as paradigm shifts. Strip the press releases away and the actual signal was quieter: patch your CMS, rotate your leaked certs, and stop letting agents merge code while you sleep.
 
 <!-- truncate -->
 
@@ -34,10 +34,6 @@ Three items stood out for delivering genuine skill transfer:
 - **Stanford WebCamp 2026** opened CFPs for an online event on 30 April 2026 and hybrid program on 1 May 2026. Source: [Stanford WebCamp](https://webcamp.stanford.edu/).
 - **Dripyard at DrupalCon Chicago** is doing training + talks + template session, which is the right ratio: hands-on plus architecture context. Source: [Dripyard](https://www.dripyard.com/).
 - **WP Rig maintainer interview (#207)** highlighted something people still dodge: starter frameworks teach you how to build things before they make you faster at building things. Source: [WP Builds episode 207](https://wpbuilds.com/).
-
-:::info[What this means in practice]
-Conference announcements earn attention when they include formats that force implementation: training labs, architecture walkthroughs, and migration stories. The workshops do the heavy lifting; keynotes mostly serve marketing.
-:::
 
 ## AI in Search and IDEs: Useful Within Guardrails
 
@@ -97,32 +93,6 @@ The most actionable updates were security bulletins and architecture fixes.
 Admin-context XSS becomes tenant-wide compromise in real CMS operations. Patch, then hunt for persistence artifacts (`<script>`, rogue attributes, unexpected admin users).
 :::
 
-```yaml title="security-triage-playbook.yaml" showLineNumbers
-week_of: 2026-03-05
-priorities:
-  - id: drupal-contrib-xss
-    systems: [drupal]
-    // highlight-next-line
-    required_versions: {google_analytics_ga4: ">=1.1.14", calculation_fields: ">=1.0.4"}
-    validation:
-      - run: "drush pm:list --status=enabled --type=module"
-      - run: "grep -R \"data-.*=\" web/modules/contrib -n"
-  - id: cert-leak-response
-    systems: [pkI, ci]
-    actions:
-      // highlight-start
-      - "Rotate keys tied to leaked cert chains"
-      - "Invalidate old certs and deploy replacements"
-      - "Enable pre-commit and CI secret scanning"
-      // highlight-end
-  - id: cloudflare-policy-hardening
-    systems: [edge, identity]
-    actions:
-      - "Enable Attack Signature Detection"
-      - "Enable Full-Transaction Detection"
-      - "Add User Risk Score to Access policy decisions"
-```
-
 ## Drupal and Framework Release Hygiene
 
 Drupal 10.6.4 and 11.3.4 are patch releases ready for production, both carrying CKEditor5 47.6.0 with a security update in General HTML Support. Support windows are explicit and short enough to force planning discipline.
@@ -145,41 +115,9 @@ Drupal 10.6.4 and 11.3.4 are patch releases ready for production, both carrying 
 
 </details>
 
-:::warning[Patch lag now compounds faster]
-When editor components get security fixes, delayed patching is not neutral. It increases incident response cost, especially in content-heavy orgs with many admin users.
-:::
-
 ## Education and Media: AI Value Shows Up in Measurement
 
 OpenAI's education updates were useful because they shipped tooling alongside measurement frameworks (Learning Outcomes Measurement Suite) rather than stopping at slogans. GitHub + Andela case studies worked for the same reason: production workflow examples with specifics you can evaluate. Axios covering local journalism followed the same pattern: AI as a force multiplier for workflow bottlenecks, applied to distribution and production rather than editorial judgment.
-
-## Week Overview
-
-```mermaid
-mindmap
-  root((Week of 2026-03-05))
-    Security First
-      Drupal contrib XSS advisories
-      Delta CNCSoft-G2 RCE risk
-      Cert leak remediation data
-      Cloudflare always-on detections
-    Dev Workflow Shift
-      Cursor automations
-      Cursor in JetBrains via ACP
-      Next.js 16 default baseline
-    AI Product Reality
-      GPT-5.4 + system card
-      CoT-control limits
-      Firefox AI user controls
-      Google AI Mode Canvas/query fan-out
-    Community Skill Transfer
-      Stanford WebCamp CFP
-      DrupalCon training sessions
-      WP Rig maintainer insights
-    Applied Outcomes
-      Education measurement tooling
-      Local journalism workflow acceleration
-```
 
 ## Bottom Line
 

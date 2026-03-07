@@ -20,7 +20,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Clear pattern this week: the maintenance work is quietly reducing real risk, while a chunk of the AI announcements amount to repackaging. Drupal core/contrib patches and identity-aware network controls have concrete security payoff. Model and IDE releases are worth knowing about, but you have to separate operational impact from press-release energy.
+Google and GitGuardian traced roughly one million leaked private keys back to 140k certificates — 2,622 of them still valid. Meanwhile, two Drupal contrib modules ship XSS advisories that most teams will ignore until they become incidents. The gap between "patch available" and "patch applied" remains the industry's favorite self-inflicted wound.
 
 <!-- truncate -->
 
@@ -51,33 +51,6 @@ Core support windows are explicit now: Drupal 10.6.x and 11.3.x are supported th
 `Google Analytics GA4` (&lt;1.1.14, CVE-2026-3529) and `Calculation Fields` (&lt;1.0.4, CVE-2026-3528) both carry moderately critical XSS risk. Any admin-facing route with unsanitized attributes or expression input becomes a pivot for stored or reflected payloads.
 Patch immediately, then grep custom modules for similar attribute passthrough patterns.
 :::
-
-```php title="web/modules/custom/security_audit/src/Command/ContribAuditCommand.php" showLineNumbers
-<?php
-
-declare(strict_types=1);
-
-namespace Drupal\security_audit\Command;
-
-if (!defined('ABSPATH')) { exit; } // highlight-line
-
-final class ContribAuditCommand {
-  public function run(array $modules): array {
-    $findings = [];
-    foreach ($modules as $name => $version) {
-      // highlight-start
-      if ($name === 'google_analytics_ga4' && version_compare($version, '1.1.14', '<')) {
-        $findings[] = 'Upgrade google_analytics_ga4 to >=1.1.14 (CVE-2026-3529)';
-      }
-      if ($name === 'calculation_fields' && version_compare($version, '1.0.4', '<')) {
-        $findings[] = 'Upgrade calculation_fields to >=1.0.4 (CVE-2026-3528)';
-      }
-      // highlight-end
-    }
-    return $findings;
-  }
-}
-```
 
 <details>
 <summary>Core patch details worth tracking</summary>
@@ -120,9 +93,7 @@ flowchart TD
   I --> J[Stateful flow return path]
 ```
 
-:::warning[Policy model changed]
 If Access policies still assume binary trust (`allow`/`deny`) and static device posture, they are stale. Integrate user risk score signals, identity verification checkpoints, and clientless device controls in the same policy graph.
-:::
 
 ## Supply Chain Exposure: Leaked Keys and Zombie Dependencies
 
@@ -130,17 +101,7 @@ Google and GitGuardian linked roughly 1M leaked private keys to 140k certificate
 
 Meanwhile, "The 89% Problem" highlights the other side of this: LLM-generated code keeps reviving abandoned packages, quietly re-importing old vulnerabilities under fresh commit timestamps. A recent commit date tells you almost nothing about whether a package is safe.
 
-```diff title="security/controls/dependency-policy.diff"
-- allow_if: package_is_recently_updated
-+ allow_if: package_has_maintainer_activity_12m
-+ allow_if: package_has_release_signing
-+ allow_if: no_known_credential_leak_association
-+ deny_if: cert_or_key_exposure_unremediated
-```
-
-:::caution[Fresh commit date is a weak trust signal]
-Require package health metadata in CI: maintainer continuity, issue response latency, signing, and incident history. "Recently updated" alone is cosmetic.
-:::
+Require package health metadata in CI: maintainer continuity, issue response latency, signing, and incident history. "Recently updated" alone is cosmetic — treat it as a weak trust signal, not a gate.
 
 ## AI Product Releases: What Has Operational Impact
 
@@ -174,33 +135,6 @@ Hard to argue with that one.
 Donald Knuth publicly acknowledging Claude Opus 4.6 solving an open problem is a real marker. When serious experts update their priors in public, that carries more weight than any product launch blog post.
 
 A new preprint extending single-minus amplitudes to gravitons, with GPT-5.2 Pro assisting derivation and verification, reinforces a pattern I keep seeing: model utility peaks when paired with expert validation loops. Autonomous claims without that loop remain unreliable.
-
-## Week Overview
-
-```mermaid
-mindmap
-  root((Week of 2026-03-05))
-    Security
-      Drupal contrib XSS advisories
-      CKEditor5 security update
-      Key leak to valid cert exposure
-      User Risk Scoring in access policy
-    Networking
-      ARR for overlapping IP space
-      QUIC proxy mode throughput gains
-      Gateway Authorization Proxy
-    Developer Platforms
-      Next.js 16 defaults
-      Node.js 25.8.0 current
-      Cursor in JetBrains via ACP
-    AI Reality Check
-      Learning outcomes measurement
-      Journalism workflow augmentation
-      Hype vs operational fit
-    Engineering Discipline
-      Review your own PRs
-      Dependency health over recency
-```
 
 ## Bottom Line
 

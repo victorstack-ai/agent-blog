@@ -20,7 +20,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This week's "AI + web" news fell into two piles: concrete shipping work and press releases dressed as progress. The stuff worth your time was patch-level release hygiene (Drupal, contrib advisories), practical agent workflows where code gets executed before it gets merged, and network/security architecture changes that cut real toil. Everything else was branding.
+Another week, another flood of breathless announcements about AI reshaping everything — except nobody's patching the CMS that actually serves the traffic. Here's what deserved attention and what was just noise dressed in a press release.
 
 <!-- truncate -->
 
@@ -66,36 +66,6 @@ Running "latest minor" is irrelevant if patch rollout lags and contrib advisorie
 
 Cursor automations landing means more always-on agents writing code in the background. This helps exactly one way: faster first drafts. It does not help if those drafts bypass review and execution. ~~"Agentic" means autonomous coding~~; in practice it means faster draft generation plus stricter verification gates than you had before.
 
-```yaml title="ops/agent-guardrails.yaml" showLineNumbers
-agent:
-  mode: "auto"
-  pr_policy:
-    require_human_review: true
-    require_execution_evidence: true
-  checks:
-    - lint
-    - unit
-    - integration
-    # highlight-next-line
-    - manual_verification_for_ui_paths
-  fail_on:
-    - missing_test_output
-    - unverifiable_claims
-```
-
-```diff title="policies/review.diff"
-- PR opened after prompt output and quick glance.
-+ PR opens only after executable validation artifacts are attached.
-+ Required artifacts:
-+ - test logs
-+ - failing->passing diff
-+ - risk notes for unchanged but touched paths
-```
-
-:::warning[Automation without review is incident pre-production]
-Always-on agents that merge unreviewed output are a reliability regression disguised as productivity. If review bandwidth is the bottleneck, reduce scope per change; do not remove review.
-:::
-
 ## GPT-5.4: Meaningful Capability Jump, New Cost and Governance Surface
 
 OpenAI shipped `gpt-5.4` and `gpt-5.4-pro` with 1M-token context and strong coding/tool use positioning, plus a Thinking System Card and CoT-control research notes. The product add-ons (ChatGPT for Excel, financial integrations, education programs) only matter if your team already has governance and evaluation pipelines. Without those, you're adding capability to a system that can't measure its own output.
@@ -125,10 +95,6 @@ OpenAI shipped `gpt-5.4` and `gpt-5.4-pro` with 1M-token context and strong codi
 </TabItem>
 </Tabs>
 
-:::info[Model upgrades are procurement decisions now]
-Long-context frontier models force explicit token budgeting, data residency checks, and output evaluation standards. Treat model selection like infra architecture, not "try the shiny one."
-:::
-
 ## Security and Network Changes Outweighed Most AI Announcements This Week
 
 The highest-signal items this week were not model launches. They were security advisories and transport architecture changes with immediate operational consequences:
@@ -148,21 +114,6 @@ The highest-signal items this week were not model launches. They were security a
 | Valid certs from leaked keys | Credential compromise at scale | Rotate keys, revoke certs, enforce secret scanning |
 | Always-on WAF detections | False positive vs missed attack trade-off | Enable correlated request+response detection |
 | ARR + QUIC proxy mode | Throughput/latency + overlap handling | Revisit tunnel architecture assumptions |
-
-```bash title="security/release-audit.sh" showLineNumbers
-#!/usr/bin/env bash
-set -euo pipefail
-
-# highlight-start
-drush pm:security --format=list
-drush cr
-drush updb -y
-# highlight-end
-
-# Manual gate: fail pipeline if any moderately critical+ advisory remains
-drush pm:security --format=json | jq '.[] | select(.severity!="Low")' >/tmp/security-findings.json
-test ! -s /tmp/security-findings.json
-```
 
 :::danger[Patch deferral is now an exploit strategy for attackers]
 When CISA KEV and module advisories align in the same week, delayed patching stops being "tech debt" and becomes active exposure management failure.
@@ -212,33 +163,6 @@ Noisy signals:
 | Department of War update | Policy/geopolitical context, low direct dev action |
 
 </details>
-
-## How These Signals Connect
-
-```mermaid
-mindmap
-  root((2026 Engineering Reality))
-    Shipping Discipline
-      Drupal patch windows
-      CKEditor transitive security
-      Beta releases with stability focus
-    Agentic Execution
-      Code must run
-      Review before PR
-      Automations need guardrails
-    Frontier Models
-      GPT-5.4 long context
-      Cost and governance pressure
-      Monitorability still useful
-    Security Posture
-      KEV active exploitation
-      Cert/key leakage exposure
-      Contrib XSS advisories
-    Edge and Network
-      ARR for IP overlap
-      QUIC proxy throughput gains
-      Always-on exploit detection
-```
 
 ## Bottom Line
 

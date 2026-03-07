@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This cycle had one clear pattern: **AI output velocity** keeps climbing, but quality and security controls haven't kept pace. The updates worth paying attention to were the ones tied to measurable operational changes. Everything else was launch copy dressed up as a changelog.
+GitHub just crossed 60 million Copilot code reviews, Drupal shipped two contrib XSS advisories you need to patch before your next deploy, and Cloudflare quietly wired identity signals into its gateway authorization layer. Three different ecosystems, one shared lesson: the tooling got faster, but the guardrails didn't.
 
 <!-- truncate -->
 
@@ -48,32 +48,7 @@ GitHub crossed 60 million Copilot code reviews. The number by itself is impressi
 | Cursor automations + JetBrains ACP | Assistant workflows move into existing IDEs | Standardize policy at repo/CI level, not IDE level |
 | Qwen team turbulence | Open model strategy can shift overnight | Keep provider fallback paths and model abstraction |
 
-:::caution[Unreviewed AI PRs Are a Team Tax]
-Require author self-review plus one independent reviewer for any auth, billing, or dependency diff.
-Auto-merge policies that ignore risk class create silent incident debt.
-:::
-
-```ts title="tools/review-gate.ts" showLineNumbers
-import { readFileSync } from 'node:fs';
-
-type Risk = 'low' | 'medium' | 'high';
-
-function classifyRisk(filesChanged: number, touchesAuth: boolean, touchesDeps: boolean): Risk {
-  // highlight-next-line
-  if (touchesAuth || touchesDeps || filesChanged > 40) return 'high';
-  if (filesChanged > 15) return 'medium';
-  return 'low';
-}
-
-// highlight-start
-export function requiresHumanReview(meta: { filesChanged: number; touchesAuth: boolean; touchesDeps: boolean }) {
-  return classifyRisk(meta.filesChanged, meta.touchesAuth, meta.touchesDeps) !== 'low';
-}
-// highlight-end
-
-const payload = JSON.parse(readFileSync('review-meta.json', 'utf8'));
-process.exit(requiresHumanReview(payload) ? 1 : 0);
-```
+**Unreviewed AI PRs are a team tax.** Require author self-review plus one independent reviewer for any auth, billing, or dependency diff. Auto-merge policies that ignore risk class create silent incident debt.
 
 ## Model Announcements Worth Reading vs. Skipping
 
@@ -100,10 +75,7 @@ Treat agent triggers as production jobs with observability and kill switches.
 </TabItem>
 </Tabs>
 
-:::info[Launch Demos Don't Replace Controls]
-System cards and launch notes are useful inputs, but they aren't controls by themselves.
-Controls live in policy files, CI gates, audit trails, and rollback procedures.
-:::
+System cards and launch notes are useful inputs, but they are not controls by themselves. **Controls live in policy files, CI gates, audit trails, and rollback procedures.**
 
 ## Drupal and WordPress: Patch Now, Ask Questions Later
 
@@ -161,40 +133,6 @@ flowchart TD
 If detection results sit in a dashboard but never trigger a policy decision, you've built a monitoring system that watches you get compromised.
 Wire exploit signals and user risk scores directly into access controls.
 :::
-
-## How It All Connects
-
-```mermaid
-mindmap
-  root((2026-03-05 Devlog))
-    AI Coding Velocity
-      Copilot reviews at scale
-      Cursor automations
-      ACP in JetBrains
-      Anti-pattern: unreviewed PRs
-    Model Surface Expansion
-      GPT-5.4 + system card
-      CoT monitorability findings
-      Search AI fan-out + Canvas
-      ChatGPT for Excel
-    OSS and CMS Discipline
-      Drupal patch lines
-      Contrib XSS advisories
-      WP Rig practices
-      WebCamp and DrupalCon signals
-    Security Modernization
-      CISA KEV additions
-      Delta CNCSoft-G2 RCE risk
-      Cloudflare identity-aware controls
-      Leaked cert real-world exposure
-    Adoption Reality
-      AI value models
-      Andela production learning
-      Education measurement suite
-      Axios local journalism workflows
-```
-
-![Devlog signal map visual](/img/vs-social-card.png)
 
 ## What to Do This Week
 

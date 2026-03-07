@@ -20,7 +20,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-The pattern across this week was simple: **security telemetry** got more concrete while AI announcements kept mixing real progress with polished marketing. The useful signal was in remediation rates, exploit evidence, and policy enforcement paths, not launch-page adjectives. Most teams still underinvest in review discipline and secret hygiene, then wonder why incident response is chaos.
+GitGuardian and Google just mapped 2,622 leaked private keys to still-valid certificates — not theoretical exposure, but live attack surface sitting in production. Meanwhile Cloudflare shipped an entire adaptive-access architecture and two Drupal XSS advisories landed on the same day, which is the kind of week that makes "we'll get to it next quarter" sound like a resignation letter.
 
 <!-- truncate -->
 
@@ -47,29 +47,6 @@ The anti-pattern above connects directly to the "89% problem" thesis: LLMs reviv
 When a private key leak is tied to an active certificate, treat it as production compromise even if no abuse is detected yet. Revoke certificate, rotate key material, invalidate downstream sessions, and record proof of revocation in the incident ticket.
 :::
 
-```yaml title="security/triage-rules.yaml" showLineNumbers
-version: 1
-rules:
-  leaked_private_key:
-    source: certificate_transparency
-    severity: critical
-    # highlight-next-line
-    action: revoke_and_rotate_within_24h
-    evidence_required:
-      - ct_log_match
-      - ownership_verified
-  kev_entry:
-    source: cisa_kev
-    severity: high
-    # highlight-next-line
-    action: patch_or_mitigate_within_72h
-  dormant_dependency_revival:
-    source: llm_generated_imports
-    severity: medium
-    # highlight-next-line
-    action: enforce_maintainer_and_release_recency_checks
-```
-
 ## Drupal Security Advisories That Need Immediate Upgrades
 
 Two Drupal contrib advisories dropped on 2026-03-04:
@@ -88,38 +65,7 @@ Both are "moderately critical," but that label gets misread. XSS in admin-mediat
 + $attributes[Html::escape($name)] = Xss::filterAdmin($value);
 ```
 
-```php title="drupal/modules/custom/security_guard/src/EventSubscriber/ScriptTagPolicySubscriber.php" showLineNumbers
-<?php
-
-declare(strict_types=1);
-
-namespace Drupal\security_guard\EventSubscriber;
-
-use Drupal\Component\Utility\Html;
-use Drupal\Component\Utility\Xss;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-
-final class ScriptTagPolicySubscriber implements EventSubscriberInterface {
-  public static function getSubscribedEvents(): array {
-    // highlight-next-line
-    return ['ga4.script_attributes.build' => 'onBuild'];
-  }
-
-  public function onBuild(array &$attributes): void {
-    foreach ($attributes as $key => $value) {
-      // highlight-start
-      $cleanKey = Html::escape((string) $key);
-      $cleanValue = Xss::filterAdmin((string) $value);
-      // highlight-end
-      $attributes[$cleanKey] = $cleanValue;
-    }
-  }
-}
-```
-
-:::caution[Moderately Critical Does Not Mean Optional]
 If these modules are present, upgrade now and backport sanitization checks into custom integrations that extend script attributes or expression evaluators. Audit stored form values for payload persistence before declaring closure.
-:::
 
 ## Cloudflare's Continuous Enforcement Push (Real Security, Not Slogans)
 
@@ -223,31 +169,6 @@ WP Rig's value is still architectural discipline for theme development, especial
   - CVE-2026-22719 (VMware Aria Operations command injection)
 
 </details>
-
-## The Bigger Picture
-
-```mermaid
-mindmap
-  root((March 2026 Signal))
-    Security Reality
-      Leaked keys mapped to valid certs
-      KEV entries with active exploitation
-      OT/EV infrastructure CVSS 9.4 patterns
-      Secret exposure beyond Git repos
-    Enforcement Shift
-      Continuous detection
-      Identity at boot and session lifecycle
-      Adaptive risk-scored access
-    AI Tooling
-      IDE integration becoming normal
-      Cost-tiered model strategy
-      Research-assist credibility with verification
-      Org turbulence risk in model vendors
-    Dev Discipline
-      Review your generated code
-      Patch advisories on release day
-      Govern low-code/page-builder sprawl
-```
 
 ## Bottom Line
 

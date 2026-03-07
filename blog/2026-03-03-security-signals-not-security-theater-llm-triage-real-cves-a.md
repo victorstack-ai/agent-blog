@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Most "security strategy" amounts to reactive dashboards and hope. Today's learning set went the other direction: model the failures nobody noticed yet, treat CVEs as design feedback, and stop reading community events as product roadmaps. Security is ~~an email gateway problem~~ a system behavior problem.
+A mailcow password-reset flaw lets attackers rewrite reset links by injecting a `Host` header — no authentication required, full account takeover. That single CVE anchors a broader pattern across today's batch: old bug classes (host poisoning, path traversal, buffer overflows) meeting new tooling layers like LLM-assisted triage and declarative edge policy.
 
 <!-- truncate -->
 
@@ -112,9 +112,7 @@ final class DownloadController
 }
 ```
 
-:::caution[Patching Without Exposure Mapping Fails]
-Before patching, map where these services are reachable (`edge`, `VPN`, `flat LAN`). Most emergency fixes fail because the vulnerable service remains publicly routable through forgotten paths.
-:::
+**Before patching, map where these services are reachable** (`edge`, `VPN`, `flat LAN`). Most emergency fixes fail because the vulnerable service remains publicly routable through forgotten paths.
 
 ## PHP Ecosystem Under Shared Pressure (Drupal, Joomla, Magento, Mautic)
 
@@ -151,32 +149,11 @@ The March 24, 2026 Chicago gala is a healthy sign for the community. It tells yo
 >
 > — Event announcement, [The Drop Times](https://www.thedroptimes.com/)
 
-:::info[Use Community Events as Governance Inputs]
-Translate conference and community signals into concrete decisions: contributor onboarding targets, module maintenance ownership, and release quality metrics. Sentiment without ownership tracking turns into noise that never reaches a backlog.
-:::
+Translate conference and community signals into concrete decisions: contributor onboarding targets, module maintenance ownership, and release quality metrics. **Sentiment without ownership tracking turns into noise that never reaches a backlog.**
 
 ## Programmable SASE: Useful Only If Policy Is Versioned
 
 "The only SASE platform with a native developer stack" is a bold claim. It becomes meaningful only when policy is declarative, tested, and rolled out with the same discipline as application code.
-
-```yaml title="security/edge-policy.yaml" showLineNumbers
-version: 1
-policies:
-  - id: block-untrusted-reset-domains
-    match:
-      app: mail
-      path: /reset
-      host_not_in:
-        - mail.example.com
-    action: deny
-
-  - id: inspect-suspicious-attachments
-    match:
-      app: mail
-      attachment_types: [exe, js, scr]
-    # highlight-next-line
-    action: sandbox_and_hold
-```
 
 <details>
 <summary>Operational checklist for programmable edge policy</summary>
@@ -188,29 +165,6 @@ policies:
 - Keep deterministic fallback rules if model services degrade.
 </details>
 
-## How These Topics Connect
-
-```mermaid
-mindmap
-  root((Today's Throughline))
-    Security posture
-      Proactive phishing detection
-      Host header trust boundaries
-      LFI and memory-corruption hygiene
-    Engineering discipline
-      Policy as code
-      Testable guardrails
-      Exposure mapping before patching
-    Ecosystem reality
-      PHP contributor pressure
-      Drupal community momentum
-      AI adoption with control, not hype
-```
-
 ## What I'm Taking Away
 
 The failure modes in this batch are old acquaintances: host header trust, path traversal, buffer overflows. What changes is the tooling layer on top — LLM triage, programmable edge policy, declarative security config. The work that pays off is pinning trust boundaries in code and shipping policy through versioned pipelines, not waiting for the next CVE to force your hand.
-
-:::tip[Single Action That Pays Off This Week]
-Implement one `security-policy` repository that owns email reset host validation, edge deny rules, and SOC replay tests. One source of truth kills three recurring classes of incident noise.
-:::

@@ -11,9 +11,7 @@ date: 2026-02-28T11:10:00
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The passkeys critique kept circling back to one architecture mistake that refuses to die: teams using authentication credentials as data-encryption keys. Once you couple those two lifecycles, every normal account event — device loss, recovery, provider migration — becomes a permanent data-loss event. That should terrify anyone shipping a product to real users.
-
-This post lays out the guardrails I'd enforce in any security design or architecture approval.
+Somewhere a team is shipping a product that uses passkey credentials as data-encryption keys, and they are genuinely proud of the elegance. They will be less proud the first time a user switches phones and watches their data evaporate. The passkeys critique made this failure mode impossible to ignore — so here are the guardrails I would enforce in any architecture review before that elegant design reaches production.
 
 <!-- truncate -->
 
@@ -21,7 +19,7 @@ This post lays out the guardrails I'd enforce in any security design or architec
 
 > "Authentication proves user identity. Encryption protects data confidentiality. These controls can interact, but they must not be the same key lifecycle."
 
-:::info[Context]
+:::caution[Reality Check]
 When a team derives encryption keys directly from passkey credentials, losing the passkey means losing the data. This is not a theoretical risk — it is the default failure mode for normal user behavior: switching devices, resetting accounts, or changing authentication providers. Architecture reviews must reject designs that cannot handle these events without irreversible data loss.
 :::
 
@@ -32,12 +30,7 @@ When a team derives encryption keys directly from passkey credentials, losing th
 
 Use per-record or per-tenant Data Encryption Keys (DEKs), wrapped by a Key Encryption Key (KEK) in KMS/HSM.
 
-```text title="Data path"
-Generate DEK for object/tenant scope
--> Encrypt plaintext with AEAD (AES-256-GCM or XChaCha20-Poly1305)
--> Wrap DEK with KEK in managed KMS/HSM
--> Store ciphertext + wrapped DEK + metadata (alg, version, aad-context)
-```
+The data path is: generate a DEK scoped to the object or tenant, encrypt plaintext with AEAD (AES-256-GCM or XChaCha20-Poly1305), wrap the DEK with a KEK in managed KMS/HSM, then store the ciphertext alongside the wrapped DEK and metadata (algorithm, version, AAD context).
 
 | Benefit | Why |
 |---|---|
@@ -98,10 +91,6 @@ flowchart TD
 | `Soft-delete only` | Keys remain active after deletion request |
 | `Opaque key metadata` | No key IDs, algorithm IDs, or version tags |
 | `Silent downgrade` | Fallback to weaker crypto without explicit control and alerting |
-
-:::caution[Reality Check]
-Architecture reviews should reject any design where account recovery causes irreversible data loss, or where cryptographic compromise has a full-account blast radius. These are not edge cases — they are the normal lifecycle of user accounts.
-:::
 
 ## Control Mapping for Review Boards
 

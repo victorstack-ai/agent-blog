@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This week drew a clean line between teams doing release work and teams doing press releases. The useful signals were specific — patch timelines, exploit catalogs, runtime improvements, operator-grade testing patterns. The rest was marketing copy dressed up as engineering news.
+Another week, another round of vendors announcing breakthroughs that somehow never include latency numbers or error budgets. Fortunately, underneath the fanfare, a few teams shipped things that actually matter — patch timelines, exploit catalogs, runtime fixes, and the kind of testing discipline that never trends on social media.
 
 <!-- truncate -->
 
@@ -38,35 +38,6 @@ This week drew a clean line between teams doing release work and teams doing pre
 > — Ally Piechowski, [How I audit a legacy Rails codebase](https://piechowski.io/post/how-i-audit-a-legacy-rails-codebase/)
 
 Three questions, zero architecture diagrams, and you already know where the risk lives. Meanwhile, Simon Willison keeps hammering the point about **agentic engineering** that people keep forgetting: code is untrusted until executed. ~~"Looks right"~~ has never been a test strategy and never will be.
-
-:::caution[Release confidence is measurable]
-Track "Friday deploy confidence" as an explicit metric. If nobody will deploy late-week, that tells you something about test signal quality or rollback posture — not about Fridays being cursed.
-:::
-
-```yaml title=".github/workflows/release-gate.yml" showLineNumbers
-name: release-gate
-on:
-  pull_request:
-  push:
-    branches: [main]
-
-jobs:
-  quality:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install deps
-        run: composer install --no-interaction --prefer-dist
-      # highlight-next-line
-      - name: Unit + integration tests must pass before merge
-        run: vendor/bin/phpunit --testsuite=unit,integration
-      # highlight-start
-      - name: Smoke runtime behavior in container
-        run: docker compose run --rm app ./scripts/smoke.sh
-      - name: Block deploy on unresolved sev-1 alerts
-        run: ./scripts/check_alert_budget.sh --max-open-sev1=0
-      # highlight-end
-```
 
 ## AI Announcements: Sorting Signal from Noise
 
@@ -109,22 +80,11 @@ Hard data this week: CISA added five actively exploited CVEs to the KEV catalog.
 Treat leaked private keys as compromised credentials even if no abuse is observed yet. Revoke, rotate, and reissue immediately; then verify dependent services and trust stores.
 :::
 
-```diff
-- Security backlog sorted by "oldest first"
-+ Security backlog sorted by KEV exploit status and blast radius
-+ Certificate/key leaks trigger immediate rotation playbook
-+ ICS vulnerabilities require separate containment runbook
-```
-
 ## Drupal and PHP Patches Worth Tracking
 
 Drupal 10.6.4/10.6.5 and 11.3.4/11.3.5 shipped this week. The CKEditor5 security-related updates are the ones to pay attention to. Drupal 10.4.x is out of security support entirely, so if you're still running a pre-10.5 minor and "planning to upgrade eventually," you're carrying unpatched risk in production right now.
 
 On the PHP side, SQL Server connectivity improvements for Runtime Generation 2 (8.2+) and new JIT support look promising. Profile before you celebrate — JIT gains vary wildly depending on workload shape.
-
-:::info[Version policy is a product decision]
-Drupal 10.6.x and 11.3.x support windows already define your maintenance cadence. Ignoring those windows shifts cost from planned maintenance to emergency remediation.
-:::
 
 <details>
 <summary>Release notes that changed upgrade priority this week</summary>
@@ -141,34 +101,6 @@ Drupal 10.6.x and 11.3.x support windows already define your maintenance cadence
 Decoupled Days 2026 (Montreal), Stanford WebCamp CFP, Docker MCP leadership interview, Firefox AI controls, GitHub + Andela learning workflows, Electric Citizen's legal-help delivery, and "blog-to-book" content ops — all point toward teams building production workflows, not writing thought-leadership posts about them.
 
 My filter stays simple: if a conference talk can't show production constraints, I skip it. If an AI story can't show workflow impact, I skip it faster.
-
-## The Bigger Picture
-
-```mermaid
-mindmap
-  root((2026 Engineering Signals))
-    Release Discipline
-      Legacy audit questions
-      Agentic manual testing
-      Friday deploy confidence
-    AI Practicality
-      SpeciesNet field impact
-      GPT-5.4 capability
-      CoT monitorability
-      Pentagon procurement pressure
-    Security Pressure
-      CISA KEV active exploitation
-      ICS RCE exposure
-      Leaked private keys
-    Platform Maintenance
-      Drupal patch cadence
-      CKEditor security updates
-      PHP runtime/JIT improvements
-    Community Throughput
-      CFPs and conferences
-      Real-world case studies
-      Skills-to-production learning
-```
 
 ## What to Do About It
 

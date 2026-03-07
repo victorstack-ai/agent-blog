@@ -22,7 +22,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Fewer shiny announcements this cycle, more operational consequences. GPT-5.4 shipped with context, cost, and control changes that affect real architecture decisions. Drupal tightened support windows. Security teams got yet another week of KEV additions, leaked keys, and identity bypasses showing up in production — none of it hypothetical. The common thread: discipline in how you respond to these matters more than knowing they happened.
+Nobody launched a world-changing product this week — which, paradoxically, made it a week worth paying close attention to. The real action was in the fine print: model routing trade-offs that punish lazy defaults, CMS patch windows shrinking fast enough to catch teams mid-sprint, and leaked certificates proving that "rotate your keys" is still advice most orgs treat as decorative. Here is what actually matters and what to do about it.
 
 <!-- truncate -->
 
@@ -44,34 +44,7 @@ OpenAI introduced `gpt-5.4` and `gpt-5.4-pro` across API, ChatGPT, and Codex CLI
 | 1M context workflows | Yes | Yes | Keep context hygiene anyway |
 
 <Tabs>
-<TabItem value="prod-policy" label="Prod Policy" default>
-
-```yaml title="model-routing.yaml" showLineNumbers
-routing:
-  default_model: gpt-5.4
-  escalation_model: gpt-5.4-pro
-  rules:
-- name: "security_review"
-match: ["cve", "kev", "authz", "rce"]
-// highlight-next-line
-model: gpt-5.4-pro
-- name: "bulk_refactor"
-match: ["lint", "format", "rename", "boilerplate"]
-model: gpt-5.4
-- name: "financial_reporting"
-match: ["excel", "forecast", "regulated"]
-// highlight-next-line
-model: gpt-5.4-pro
-  context:
-max_tokens: 1000000
-hygiene:
-- deduplicate_chunks
-- strip_stale_threads
-- cap_retrieval_top_k
-```
-
-</TabItem>
-<TabItem value="anti-pattern" label="Anti-Pattern">
+<TabItem value="anti-pattern" label="Anti-Pattern" default>
 
 ```diff
 - Send every task to the strongest model by default
@@ -95,10 +68,6 @@ The CoT-control result has direct operational consequences: reasoning traces can
 
 OpenAI's education push, ChatGPT-for-Excel with financial integrations, and the new "Adoption" channel all point the same direction — productization for enterprises that carry compliance overhead. Cursor automations fits the pattern too: always-on agents are shipping everywhere, and the hard part has shifted from ~~prompting~~ to building runbooks with measurable controls.
 
-:::info[What this means for teams shipping AI]
-If your AI rollout lacks model routing, audit logs, approval gates, and rollback paths, you're still running a pilot. Production requires controls you can measure and explain to an auditor.
-:::
-
 ## Web Platform and Dev Community Updates Worth Tracking
 
 High-signal community updates:
@@ -112,10 +81,6 @@ High-signal community updates:
 >
 > — Simon Willison, [Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/)
 
-:::tip[A review gate that holds up]
-Require a human-authored PR summary covering risk, changed behavior, and rollback plan before merge. If the author can't articulate those three things plainly, the PR goes back.
-:::
-
 ## Drupal and WordPress Releases: Patch Cadence as Security Posture
 
 Drupal 10.6.4 and 11.3.4 shipped as bugfix releases, with CKEditor5 at `47.6.0` (including an upstream XSS fix). Support windows are explicit: Drupal 10.4.x is out; 10.5.x support ends June 2026; 10.6.x and 11.3.x carry through December 2026. Two contrib advisories (`SA-CONTRIB-2026-023`, `024`) flagged moderately critical XSS risk.
@@ -123,18 +88,6 @@ Drupal 10.6.4 and 11.3.4 shipped as bugfix releases, with CKEditor5 at `47.6.0` 
 > "Sites on any Drupal version prior to 10.5.x should upgrade to a supported release as soon as possible."
 >
 > — Drupal release notes, [10.6.4](https://www.drupal.org/project/drupal/releases/10.6.4)
-
-```bash title="drupal-release-checklist.sh"
-#!/usr/bin/env bash
-set -euo pipefail
-
-drush status --fields=drupal-version
-drush pm:security --format=table
-drush updatedb -y
-drush config:import -y
-drush cache:rebuild
-php -v
-```
 
 <details>
 <summary>Field notes from the ecosystem stream</summary>
@@ -166,31 +119,6 @@ Patch KEV-relevant assets first, rotate exposed keys second, and enforce adaptiv
 ## Network Engineering: ARR and QUIC Proxy Mode Deliver Measurable Gains
 
 Cloudflare's Automatic Return Routing (ARR) handles overlapping private IP environments without manual NAT/VRF complexity — it relies on stateful flow tracking instead. Their QUIC-based Proxy Mode rebuild removes user-space TCP overhead and reports roughly 2x throughput gains. Both are infrastructure changes that show up in latency numbers users notice.
-
-## Connecting the Dots
-
-```mermaid
-mindmap
-  root((2026 Dev Signal))
-    AI Runtime
-      GPT-5.4 and Pro routing
-      CoT monitorability constraints
-      Excel and regulated workflows
-      Always-on automations
-    Platform Maintenance
-      Drupal support windows
-      CKEditor security updates
-      Contrib XSS advisories
-    Security Operations
-      KEV active exploitation
-      ICS RCE exposure
-      Leaked private keys
-      Identity-aware access controls
-    Community and Practice
-      WebCamp CFP
-      Firefox user-choice framing
-      Anti-pattern: unreviewed AI PRs
-```
 
 ## Bottom Line
 

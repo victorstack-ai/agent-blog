@@ -1,7 +1,7 @@
 ---
 slug: 2026-03-03-cost-curves-vs-attack-surfaces-gemini-3-1-flash-lite-gpt-5-3
 title: >-
-  Cost Curves vs Attack Surfaces: Gemini 3.1 Flash‑Lite, GPT‑5.3 Instant, and
+  Cost Curves vs Attack Surfaces: Gemini 3.1 Flash-Lite, GPT-5.3 Instant, and
   the ICS Security Wake-Up Call
 authors:
   - VictorStackAI
@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Three things happened this week worth paying attention to. Model pricing dropped again, agent tooling moved closer to something teams can govern and ship, and a batch of ICS advisories showed that unauthenticated critical functions are still running in production industrial systems. That last one matters more than any model launch, and it barely made a headline.
+Unauthenticated critical functions are still running in production industrial systems, and a batch of CVSS 9.4 ICS advisories this cycle proved it — again. Meanwhile, model pricing dropped and agent tooling got closer to something teams can actually govern. One of those stories got the headlines. Guess which.
 
 <!-- truncate -->
 
@@ -59,9 +59,7 @@ Current releases work fine for labs and non-critical services. LTS remains the r
 </TabItem>
 </Tabs>
 
-:::caution[Cheap Tokens Encourage Bad Architecture]
-Lower model cost does not justify uncontrolled context growth. Set strict `max_tokens`, route simple tasks to lightweight models, and fail closed on tool-calling loops.
-:::
+Lower model cost does not justify uncontrolled context growth. **Set strict `max_tokens`, route simple tasks to lightweight models, and fail closed on tool-calling loops.**
 
 ## Agent Product Surface: MCP Apps, Team Plugin Marketplaces, Copilot Dev Days, Project Genie
 
@@ -76,9 +74,7 @@ flowchart TD
     E --> F[Repeatable Team Workflow]
 ```
 
-:::info[Standardized Plugins Over Ad-Hoc Prompts]
 The win is internal plugins with clear ownership, versioning, and permission boundaries. Team marketplaces replace copy-pasted prompt collections with auditable, versioned behavior.
-:::
 
 ## Security Advisories: Secrets Hygiene, KEV Additions, ICS/OT Exposure, Public Web Exploits
 
@@ -147,45 +143,11 @@ The Drop Times coverage and the 25th anniversary framing raise a question that m
 | Drupal 25th Anniversary Gala (Mar 24, Chicago) | Community energy is strong; governance clarity still matters more |
 | Baseline January 2026 digest | Incremental progress is happening, but velocity is uneven across projects |
 
-:::warning[Misreading Community Activity]
-Event volume is not delivery velocity. Track release quality, maintainer burnout signals, and issue response times before committing platform strategy.
-:::
+Event volume is not delivery velocity. **Track release quality, maintainer burnout signals, and issue response times before committing platform strategy.**
 
 ## Edge Security Claims: Programmable SASE Needs Scope and Observability
 
 "The truly programmable SASE platform" pitch holds up when programmability is scoped, tested, and observable. Without those constraints, custom logic at the edge becomes a distributed outage generator. Every policy change needs the same rigor as a production deploy.
-
-```bash
-# Minimum gate before shipping edge policy code
-opa test policies/
-conftest test ingress-config.yaml
-k6 run edge-regression.js
-```
-
-## Weekly Summary
-
-```mermaid
-mindmap
-  root((2026-03-03 Devlog))
-    AI Cost Curve
-      Gemini 3.1 Flash-Lite pricing pressure
-      GPT-5.3 Instant UX improvements
-      More inference for same budget
-    Agent Productization
-      MCP interactive apps
-      Team plugin marketplaces
-      Copilot Dev Days adoption channel
-    Security Debt
-      KEV active exploitation
-      ICS CVSS 9.4 auth failures
-      Secrets in env/files/agent memory
-    OSS Governance
-      PHP ecosystem sustainability debate
-      Drupal community milestones
-    Edge Control Planes
-      Programmable SASE upside
-      Blast radius without policy testing
-```
 
 ## What This Means for Practitioners
 
