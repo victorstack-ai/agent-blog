@@ -22,15 +22,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-This cycle had one clear pattern: **AI output velocity** keeps increasing, while quality and security controls are still playing catch-up. The useful updates were the ones tied to measurable operational changes, not the launch copy. Everything else was mostly branding with a changelog attached.
+This cycle had one clear pattern: **AI output velocity** keeps climbing, but quality and security controls haven't kept pace. The updates worth paying attention to were the ones tied to measurable operational changes. Everything else was launch copy dressed up as a changelog.
 
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## AI-Assisted Coding Is Now Process Engineering
+## Review Gates for AI-Generated Code at Scale
 
-GitHub crossed 60 million Copilot code reviews, and the interesting part is not the number, it is what it implies: review automation is now default infrastructure for teams shipping AI-assisted diffs daily. Add Cursor automations and ACP support in JetBrains, and assistant output is no longer an event; it is background traffic.
+GitHub crossed 60 million Copilot code reviews. The number by itself is impressive enough, but what matters more is the implication: review automation has become default infrastructure for teams shipping AI-assisted diffs daily. Combine that with Cursor automations and ACP support in JetBrains, and assistant output is now background traffic in most active repos.
 
 ~~More AI code means higher developer productivity by default~~. More AI code means higher review and regression pressure unless review gates are explicit.
 
@@ -49,7 +49,7 @@ GitHub crossed 60 million Copilot code reviews, and the interesting part is not 
 | Qwen team turbulence | Open model strategy can shift overnight | Keep provider fallback paths and model abstraction |
 
 :::caution[Unreviewed AI PRs Are a Team Tax]
-Require author self-review plus one independent reviewer for any auth, billing, or dependency diff.  
+Require author self-review plus one independent reviewer for any auth, billing, or dependency diff.
 Auto-merge policies that ignore risk class create silent incident debt.
 :::
 
@@ -75,39 +75,41 @@ const payload = JSON.parse(readFileSync('review-meta.json', 'utf8'));
 process.exit(requiresHumanReview(payload) ? 1 : 0);
 ```
 
-## Model Announcements: Separate Capability from Control
+## Model Announcements Worth Reading vs. Skipping
 
-GPT-5.4, its system card, CoT-control research, ChatGPT for Excel, Google AI Mode visual query fan-out, and Canvas-in-Search all point to the same direction: models are becoming execution surfaces. If governance is weak, mistakes scale faster than insight.
+GPT-5.4, its system card, CoT-control research, ChatGPT for Excel, Google AI Mode visual query fan-out, and Canvas-in-Search all dropped this cycle. The common thread: models are becoming execution surfaces — they run things, not just suggest things. That shift demands stronger governance, because when governance is weak, mistakes compound faster than insights.
 
 <Tabs>
 <TabItem value="openai" label="OpenAI Track" default>
 
-GPT-5.4 + system card + reasoning control research + education measurement + Excel integrations.  
+GPT-5.4 + system card + reasoning control research + education measurement + Excel integrations.
 Strong capability stack; usable only when policy, audit logs, and role boundaries are wired.
 
 </TabItem>
 <TabItem value="google" label="Google Search AI">
 
-Visual search fan-out and Canvas add high-velocity synthesis directly in search UX.  
+Visual search fan-out and Canvas add high-velocity synthesis directly in search UX.
 Useful for drafting and prototyping, risky for unverified factual decisions.
 
 </TabItem>
 <TabItem value="cursor" label="Cursor Agents">
 
-Always-on automations plus ACP in JetBrains shifts assistants from session tools to pipeline actors.  
+Always-on automations plus ACP in JetBrains shifts assistants from session tools to pipeline actors.
 Treat agent triggers as production jobs with observability and kill switches.
 
 </TabItem>
 </Tabs>
 
-:::info[Capability Demos Are Not Governance]
-Treat system cards and launch notes as input, not controls.  
-Controls are implemented in policy files, CI gates, audit trails, and rollback procedures.
+:::info[Launch Demos Don't Replace Controls]
+System cards and launch notes are useful inputs, but they aren't controls by themselves.
+Controls live in policy files, CI gates, audit trails, and rollback procedures.
 :::
 
-## Drupal and WordPress: Patch Cadence Still Wins
+## Drupal and WordPress: Patch Now, Ask Questions Later
 
-Drupal 10.6.4 and 11.3.4 shipped bugfix releases with CKEditor5 47.6.0 updates; contrib advisories SA-CONTRIB-2026-023 and -024 flagged XSS risk in Calculation Fields and Google Analytics GA4. Meanwhile, community velocity is healthy: Stanford WebCamp CFP is open, Dripyard is shipping training/sessions, UI Suite Display Builder is pushing no-Twig layout workflows, and WP Rig keeps modern theme practice grounded.
+Drupal 10.6.4 and 11.3.4 shipped bugfix releases with CKEditor5 47.6.0 updates. More urgently, contrib advisories SA-CONTRIB-2026-023 and -024 flagged XSS risk in Calculation Fields and Google Analytics GA4. If you run either module, upgrading before your next feature sprint is the move.
+
+On the community side, things look healthy. Stanford WebCamp CFP is open, Dripyard is shipping training and sessions for DrupalCon Chicago, and UI Suite Display Builder keeps pushing no-Twig layout workflows forward. WP Rig also continues to be a solid anchor for modern theme development practice.
 
 | Item | Immediate impact | Required move |
 |---|---|---|
@@ -124,8 +126,8 @@ Drupal 10.6.4 and 11.3.4 shipped bugfix releases with CKEditor5 47.6.0 updates; 
 + "drupal/calculation_fields": "^1.0.4"
 ```
 
-:::danger[Contrib Module XSS Is Still the Fastest Way to Lose a Week]
-Pin minimum safe versions in `composer.json` and enforce with CI.  
+:::danger[Contrib XSS Will Cost You a Week]
+Pin minimum safe versions in `composer.json` and enforce with CI.
 If contrib is below advisory floor, fail the build before deployment artifacts are created.
 :::
 
@@ -140,9 +142,11 @@ If contrib is below advisory floor, fail the build before deployment artifacts a
 - WP Builds #207: Rob Ruiz on WP Rig, modern starter workflows for classic and block themes.
 </details>
 
-## Security Shift: From Logs to Adaptive Decisions
+## Security: Detection That Feeds Decisions, Not Just Dashboards
 
-CISA added five KEVs, Delta CNCSoft-G2 shows RCE potential via out-of-bounds write, Cloudflare pushed ARR, QUIC proxy mode rebuild, always-on detections, identity-aware gateway authorization, and user risk scoring. GitGuardian + Google showed 2,622 valid leaked-cert mappings as of September 2025 and 97% remediation after disclosure. The "89% dormant majority" argument in open source supply chain risk lines up with this: stale dependencies are attack surface, not archive trivia.
+CISA added five KEVs this cycle. Delta CNCSoft-G2 has RCE potential via out-of-bounds write. Cloudflare pushed ARR, QUIC proxy mode rebuild, always-on detections, identity-aware gateway authorization, and user risk scoring. GitGuardian and Google disclosed 2,622 valid leaked-cert mappings as of September 2025, with 97% remediation after disclosure.
+
+The "89% dormant majority" finding in open source supply chain research fits the pattern here. Stale dependencies are attack surface. Treating them as archived or harmless is how you end up in an incident post-mortem wondering why nobody checked.
 
 ```mermaid
 flowchart TD
@@ -153,12 +157,12 @@ flowchart TD
   E --> F[Block / Step-up Auth / Allow]
 ```
 
-:::warning[Log-Only Security Is Operational Theater]
-If detection does not feed policy decisions, incident response is delayed by design.  
+:::warning[Log-Only Security Is a Delayed Incident Response]
+If detection results sit in a dashboard but never trigger a policy decision, you've built a monitoring system that watches you get compromised.
 Wire exploit signals and user risk scores directly into access controls.
 :::
 
-## The Bigger Picture
+## How It All Connects
 
 ```mermaid
 mindmap
@@ -192,11 +196,11 @@ mindmap
 
 ![Devlog signal map visual](/img/vs-social-card.png)
 
-## Bottom Line
+## What to Do This Week
 
-The real pattern is simple: assistant output got faster, so review, patching, and policy decisions must get stricter and more automated in the same sprint.
+Assistant output got faster. Review, patching, and policy enforcement need to keep up in the same sprint — not the next one.
 
 :::tip[Single highest-ROI move]
-Implement one repo-level risk gate this week: block merges when diffs touch auth/dependencies without human review and when dependency versions are below security advisory minimums.  
+Implement one repo-level risk gate this week: block merges when diffs touch auth/dependencies without human review and when dependency versions are below security advisory minimums.
 That one gate covers AI code volume, CMS advisories, and supply-chain exposure in one control plane.
 :::

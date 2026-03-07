@@ -25,19 +25,19 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Security incidents are rarely one dramatic breach. They are usually **operational drift**: secrets copied into random places, phishing detections tuned for yesterday, and ecosystems ignoring structural decline while marketing teams publish victory laps.  
-This devlog compiles what held up under scrutiny and what deserves immediate engineering time.
+Most security incidents don't start with a dramatic breach. They accumulate quietly through **operational drift** — secrets copied into places nobody tracks, phishing filters calibrated against last quarter's attacks, and ecosystems coasting on inertia while marketing ships blog posts about momentum.
+This devlog covers what held up under scrutiny and what needs engineering time right now.
 
 <!-- truncate -->
 
 <TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={2} />
 
-## Protecting Developers Means Protecting Their Secrets
+## Secret Sprawl Beyond Git
 
-The core point is simple: secrets leak from much more than Git history. They persist in shell history, crash dumps, `.env` files, CI logs, browser local storage, and long-lived agent context. ~~"We rotated the key, so we're good."~~ No, not if the secret is still readable in ten other places.
+The core point is simple: secrets leak from far more places than Git history. They persist in shell history, crash dumps, `.env` files, CI logs, browser local storage, and long-lived agent context. ~~Rotating the key doesn't help if the old value is still readable in ten other locations.~~
 
-:::warning[Secret Rotation Without Secret Erasure Is Theater]
-Rotate credentials and immediately run discovery scans across workstation, CI artifacts, and app storage. If old values still match after rotation, the incident is still active. Add a hard TTL for local secret files and enforce `0600` permissions so they cannot linger for months.
+:::warning[Rotation Without Discovery Is Incomplete]
+Rotate credentials and immediately run discovery scans across workstations, CI artifacts, and app storage. If old values still match after rotation, the incident is still open. Set hard TTLs for local secret files and enforce `0600` permissions — stale credentials sitting around for months are free attack surface.
 :::
 
 ```bash title="scripts/secret-hunt.sh" showLineNumbers
@@ -62,9 +62,9 @@ echo "Validate process env leakage"
 ps eww -ax | rg -n "(_KEY|_TOKEN|_SECRET)=" || true
 ```
 
-## From Reactive to Proactive: Closing the Phishing Gap With LLMs
+## LLM-Assisted Phishing Defense: Where It Helps and Where It Doesn't
 
-The survivorship-bias analogy is accurate. Teams tune filters based on what they catch, not what bypasses controls and gets reported days later. LLMs are useful here, but not as "magic classifiers." They are best used as **triage amplifiers** and **detection-rule generators** with human review.
+There is a survivorship-bias problem in phishing defense. Teams tune their filters based on what gets caught, ignoring everything that slipped through and only surfaced in a user report days later. LLMs can help close that gap, but they work best as **triage amplifiers** and **detection-rule generators** with human review — not standalone classifiers.
 
 ```mermaid
 flowchart TD
@@ -97,9 +97,9 @@ Keep deterministic controls as gatekeepers; use LLMs only in ambiguous paths and
 </TabItem>
 </Tabs>
 
-## Webapp Vulns That Still Hurt in 2026
+## Three Webapp Vulns That Keep Coming Back
 
-Three entries stood out because they are old failure modes that keep reappearing with minor cosmetic changes.
+These three entries stood out because they represent old failure modes wearing new clothes. The underlying bugs — trusting user-controlled headers, skipping bounds checks, mapping user input to file paths — have been documented for over a decade. They still ship.
 
 | Target | Vulnerability | Failure Mode | Practical Mitigation |
 |---|---|---|---|
@@ -107,8 +107,8 @@ Three entries stood out because they are old failure modes that keep reappearing
 | Easy File Sharing Web Server v7.2 | Buffer Overflow | Memory corruption from unchecked input length | Bound checks, modern compiler hardening, deprecate legacy service |
 | Boss Mini v1.4.0 | Local File Inclusion (LFI) | User input mapped to file path | Realpath constraints + deny traversal + route allowlist |
 
-:::danger[These Are Not "Edge Cases"]
-Password reset poisoning is account takeover surface. LFI is data exfiltration and often RCE adjacency. Buffer overflow in internet-facing services is breach material, not "legacy debt." Put all three in regular attack-path testing, not annual audits.
+:::danger[These Belong in Regular Testing, Not Annual Audits]
+Password reset poisoning gives you account takeover. LFI gives you data exfiltration and often RCE adjacency. Buffer overflow in an internet-facing service is breach material. All three should be in your attack-path testing rotation, not buried in a yearly compliance checklist.
 :::
 
 <details>
@@ -129,16 +129,16 @@ Password reset poisoning is account takeover surface. LFI is data exfiltration a
 + $resetUrl = "https://" . $resetHost . "/reset?token=" . $token;
 ```
 
-## PHP Crossroads and Drupal's 25-Year Marker
+## PHP Ecosystem Pressure and Drupal at 25
 
-The DropTimes framing is blunt and mostly correct: shared PHP communities are dealing with slower contributor growth, tighter budgets, and tougher positioning against SaaS defaults. This is governance and product strategy, not syntax debates.
+The DropTimes framing is blunt and mostly correct: shared PHP communities are dealing with slower contributor growth, tighter budgets, and harder positioning against SaaS defaults. These are governance and product-strategy problems. No amount of syntax improvements will fix them.
 
 > "The Drupal 25th Anniversary Gala will take place on 24 March from 7:00 to 10:00 PM at 610 S Michigan Ave, Chicago, during DrupalCon Chicago."
 >
 > — The Drop Times, [Drupal 25th Anniversary Gala Set for 24 March in Chicago](https://www.thedroptimes.com)
 
-:::info[Community Events Are Signal, Not Just Ceremony]
-A 25-year anniversary only matters if it converts nostalgia into maintainership, funding, and clearer product direction. Ecosystem stability is an engineering dependency, not marketing content.
+:::info[What a 25-Year Anniversary Needs to Produce]
+Nostalgia is nice. What matters is whether it converts into maintainership commitments, funding, and clearer product direction. If your framework's ecosystem health is shaky, that affects every team building on top of it — it is an engineering dependency worth tracking.
 :::
 
 ```yaml title="governance/maintainer-risk-register.yaml"
@@ -158,15 +158,15 @@ projects:
     mitigation: "signed packages + mandatory SBOM"
 ```
 
-## "Truly Programmable SASE Platform": Useful Claim, Needs Proof
+## Evaluating "Programmable SASE" Claims
 
-This pitch can be real if "programmable" means deployable policy code with low-latency execution and auditable rollback, not just custom webhook glue.
+The pitch sounds good on paper. For it to mean anything, "programmable" has to mean deployable policy code with low-latency execution and auditable rollback — not a dashboard with a webhook builder.
 
 > "As the only SASE platform with a native developer stack, we're giving you the tools to build custom, real-time security logic and integrations directly at the edge."
 >
 > — Vendor announcement, [The truly programmable SASE platform](https://www.cloudflare.com)
 
-Use one acceptance test: policy change from commit to production in minutes, with deterministic rollback and traceability.
+Here is the acceptance test I would use: can a policy change go from commit to production in minutes, with deterministic rollback and full traceability? If yes, interesting. If no, it is a managed proxy with a marketing budget.
 
 ```php title="edge/policies/block_suspicious_reset.php" showLineNumbers
 <?php
@@ -190,7 +190,7 @@ if (str_starts_with($path, '/reset') && !in_array($host, $allowedResetHosts, tru
 echo 'ok';
 ```
 
-## The Bigger Picture
+## How These Topics Connect
 
 ```mermaid
 mindmap
@@ -221,8 +221,8 @@ mindmap
 
 ## Bottom Line
 
-Engineering teams lose more time to silent security drift than to headline zero-days. Fix drift first: secret lifecycle control, phishing feedback loops, and hard guardrails on known vuln classes.
+Engineering teams lose more time to quiet security drift than to headline zero-days. The week's takeaway is straightforward: get secret lifecycle control in place, close your phishing feedback loops, and put hard guardrails on the vuln classes that keep showing up decade after decade.
 
-:::tip[Single Action That Pays Off This Week]
-Add a CI job that fails builds when secret patterns appear in repo, generated artifacts, or deployment manifests, then pair it with automatic credential revocation hooks. Detection without revocation is noise.
+:::tip[One Thing to Ship This Week]
+Add a CI job that fails builds when secret patterns appear in the repo, generated artifacts, or deployment manifests. Pair it with automatic credential revocation hooks. Detection without revocation just generates alerts nobody acts on.
 :::
