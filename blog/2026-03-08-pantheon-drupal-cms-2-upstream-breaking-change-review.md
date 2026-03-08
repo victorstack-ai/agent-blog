@@ -25,6 +25,18 @@ Pantheon announced on **March 6, 2026** that new sites created from the Drupal C
 
 That split matters operationally. Teams can misread this as "new upstream available, apply update everywhere." For managed portfolios, that interpretation is risky.
 
+The important point: this is not a patch-level update. Treat it as a controlled migration.
+
+```mermaid
+graph TD
+    A[CMS 1.x Multidev] --> B[Composer: Migrate to ^2]
+    B --> C[Drush: updb / cim]
+    C --> D[Theme Update: Olivero -> Byte]
+    D --> E[QA: Visual + Editor Smoke]
+    B --> F[Integrated Composer Pipeline]
+    F --> G[Build Artifact]
+```
+
 ## What Actually Changed
 
 From Pantheon and Drupal.org sources:
@@ -38,7 +50,16 @@ The important point: this is not a patch-level update. Treat it as a controlled 
 
 ## Breaking-Change Surface You Need to Map First
 
-Pantheon's own Drupal CMS doc calls out the highest-risk breaks for CMS 1.x sites:
+Pantheon's own Drupal CMS doc calls out the highest-risk breaks for CMS 1.x sites, including theme removal and recipe package splits.
+
+```bash
+# Update sequencing for Drupal CMS 2
+composer require drupal/cms:^2 -W
+composer require drupal/site_template_helper:^1
+vendor/bin/drush theme:enable byte
+vendor/bin/drush theme:set-default byte
+vendor/bin/drush cr
+```
 
 - `drupal_cms_olivero` is removed and replaced by `byte`; post-upgrade, unresolved theme config can trigger missing theme errors.
 - Several content-type recipe packages are replaced by `drupal_cms_site_template_base`.
@@ -65,6 +86,13 @@ The safest order is environment-first and evidence-driven:
 7. Merge to Dev only with explicit rollback criteria and owner sign-off.
 
 This sequencing aligns with Pantheon's Multidev-first guidance and reduces production surprise.
+
+## The Integration Test Gate: Beyond Code Success
+
+A successful build artifact does not guarantee a successful Drupal CMS 2 site. Because CMS 2 relies heavily on recipes and configuration-as-code, you must validate the **Canvas** editor experience and the integrity of the **Byte** theme mappings in Multidev before merging any code to production.
+
+***
+*Need an Enterprise Drupal Architect who specializes in Pantheon upstream migrations and CI/CD optimization? View my Open Source work on [Project Context Connector](https://github.com/victorstack-ai/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*
 
 ## Deployment Checklist
 

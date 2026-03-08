@@ -23,11 +23,17 @@ description: >-
 date: 2026-03-08T10:20:00.000Z
 ---
 
-Codex is now concrete enough to evaluate as maintainer infrastructure, not just demo tooling. For WordPress plugin and Drupal module teams, the question is not "can it code?" but "where does it reduce queue pressure without weakening review safety?"
+Codex is now concrete enough to evaluate as maintainer infrastructure. For WordPress and Drupal teams, the primary value is in triage and patch drafting.
 
-This assessment focuses on that practical boundary.
-
-<!-- truncate -->
+```mermaid
+graph TD
+    A[New Issue / Bug Report] --> B[Codex Triage Agent]
+    B --> C[Reproduce / Artifacts]
+    C --> D[Codex Patch Agent]
+    D --> E[Isolated CI Test Run]
+    E --> F{Human Maintainer Review}
+    F -->|Approve| G[Merge to Production]
+```
 
 ## Scope and Evidence
 
@@ -57,7 +63,6 @@ Safety control:
 - Require all triage outputs to include reproducible commands and environment details.
 - Reject triage summaries that do not include concrete evidence artifacts.
 
-## 2) Patch Authoring: High Leverage, But Keep It Narrow
 
 Codex can draft viable patches quickly when the task is well-scoped:
 

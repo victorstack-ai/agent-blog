@@ -20,7 +20,16 @@ image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-08-pantheon-sql-server-gen2-drupal-risk-review.png
 ---
 
-Pantheon published a release note on **March 6, 2026** announcing SQL Server connectivity improvements for PHP Runtime Generation 2: native `sqlsrv` and `pdo_sqlsrv` (PECL `5.13.0`) for PHP 8.3/8.4, plus Microsoft ODBC Drivers 17 and 18 for PHP 8.2+.
+Pantheon announced on **March 6, 2026** enhancements for SQL Server connectivity on PHP Runtime Generation 2. This changes the connection path for any Drupal site relying on external SQL Server backends.
+
+```mermaid
+graph TD
+    A[Drupal 10/11 Application] --> B{PHP Runtime Gen 2}
+    B -->|Native| C[sqlsrv / pdo_sqlsrv 5.13]
+    B -->|Legacy| D[ODBC Driver 17/18]
+    C --> E[SQL Server / Azure SQL]
+    D --> E
+```
 
 For teams running Drupal with SQL Server backends, this is meaningful. It changes both the connection path options and the failure modes you need to test before Pantheon's Generation 1 removal window in **April 2026**.
 
@@ -36,7 +45,28 @@ This means SQL Server-connected workloads are no longer limited to the previous 
 
 ## Drupal-Focused Compatibility Reality
 
-The Drupal SQL Server contrib driver (`drupal/sqlsrv`) currently targets Drupal 10.3/11 and has stable 5.0.x releases with PHP 8.1+ requirements. That is helpful, but you still need environment-level validation because:
+The Drupal SQL Server contrib driver (`drupal/sqlsrv`) now has modern paths to support these runtime changes.
+
+```php
+// Example settings.php for SQL Server on Pantheon Gen 2
+$databases['external']['default'] = [
+  'database' => 'my_db',
+  'username' => 'admin',
+  'password' => 'password',
+  'prefix' => '',
+  'host' => 'sqlserver.example.com',
+  'port' => '1433',
+  'namespace' => 'Drupal\\sqlsrv\\Driver\\Database\\sqlsrv',
+  'driver' => 'sqlsrv',
+  'pdo' => [
+    // highlight-next-line
+    PDO::SQLSRV_ATTR_ENCODING => PDO::SQLSRV_ENCODING_UTF8,
+    PDO::SQLSRV_ATTR_DIRECT_QUERY => TRUE,
+  ],
+];
+```
+
+That is helpful, but you still need environment-level validation because:
 
 - The driver layer (Drupal DB driver) is separate from the runtime layer (Pantheon extensions + ODBC packages).
 - A site can be "module-compatible" but still fail at runtime due to TLS/cert defaults, missing connection options, or subtle SQL behavior differences.

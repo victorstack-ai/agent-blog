@@ -23,6 +23,17 @@ If you run Drupal or WordPress in production, KEV should drive patch priority mo
 
 As of **March 5, 2026** (catalog version `2026.03.05`), CISA added seven CVEs in March 2026, all with due dates on **March 24** or **March 26** for federal agencies. That deadline is your outer bound, not your target.
 
+```mermaid
+graph TD
+    A[CISA KEV JSON Feed] --> B[KEV Ingest Script]
+    B --> C{Exposure Triage}
+    C -->|Internet Exposed| D[SLA-0: 24h Patch]
+    C -->|Control Plane| E[SLA-1: 48h Patch]
+    C -->|Internal/Dev| F[SLA-2: 72h Patch]
+    D --> G[CI/CD Deployment Gate]
+    E --> G
+```
+
 <!-- truncate -->
 
 ## March 2026 KEV Additions (What Changed)
@@ -36,7 +47,18 @@ Not every KEV item maps directly to CMS runtime, but every item can map to your 
 
 ## Practical Exposure Triage for Drupal/WordPress Teams
 
-Use this four-bucket decision model:
+Use this four-bucket decision model to translate KEV into a technical response.
+
+```bash
+# Example KEV Triage Script (Bash/CLI)
+# Ingest CISA KEV and map to local asset SLA
+curl -s https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json | \
+jq -r '.vulnerabilities[] | select(.dateAdded >= "2026-03-01") | [.cveID, .dueDate] | @tsv' | \
+while read CVE DUE; do
+  echo "Triage required for $CVE (Due: $DUE)"
+  # Logic to check CMDB/SBOM goes here
+done
+```
 
 1. **Internet-exposed CMS or edge-adjacent service in exploit path**
 Patch/mitigate in **24 hours**. If patch is unavailable, isolate or remove exposure the same day.
@@ -67,6 +89,10 @@ Then enforce mechanically:
 - Block deploy for environments with open SLA-0/SLA-1 KEV exceptions.
 - Require explicit risk acceptance (time-bound) for any SLA breach.
 - Auto-create tickets with due dates derived from `dateAdded + policy window`, but never later than CISA `dueDate`.
+
+## Automated KEV Ingestion: The "Guardian" Layer
+
+Instead of manual spreadsheet tracking, enterprise CMS platforms should integrate the KEV feed directly into their monitoring stacks (like Prometheus or Grafana alerts). This ensures that when a new CVE is added to the catalog, the operations team is notified within minutes, not when the next security newsletter is published.
 
 ## Mapping March KEV Additions to CMS Operations
 

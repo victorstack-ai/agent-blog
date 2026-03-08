@@ -24,17 +24,38 @@ image: >-
 
 For Drupal teams, the key question is not "is this interesting?" but "where does this fit against Layout Builder in production architecture and migration sequencing?"
 
+```mermaid
+graph TD
+    A[Entity / View] --> B[Display Builder]
+    B -->|Configuration| C[Third Party Settings]
+    B -->|Rendering| D[SDC Components]
+    D --> E[Final HTML]
+    F[Layout Builder Maps] -.->|Migration| B
+```
+
 For WordPress teams, this review is still relevant: agencies running both WordPress and Drupal can use this as a pattern for how to evaluate visual-builder adoption risk before committing editor workflows and CI policy.
 
 ## What Beta3 Actually Delivers
 
-From the release notes and changelog:
+From the release notes and changelog, Beta3 contains critical fixes for slot movement and JSON:API compatibility.
 
-- Bug fixes around slot movement, empty renderables, JSON:API compatibility, and instance recreation.
-- Migration-related changes, including Layout Builder content override handling.
-- Feature additions such as importing initial config from Block Layout and grouped pattern presets.
+```yaml
+# Example SDC Mapping in Display Builder
+id: my_component
+label: Hero Section
+slots:
+  title:
+    label: Title
+  image:
+    label: Background Image
+```
 
-This is meaningful because the improvements are in the exact places that usually break early builder adoption: state handling, migration behavior, and interoperability.
+## The Unified Render Pipeline
+
+Display Builder's model is intentionally "unified": entity display building, page layout, and Views display surfaces are presented through a single builder approach. This reduces architectural fragmentation and ensures that your SDC components behave identically regardless of where they are placed in the CMS ecosystem.
+
+***
+*Need an Enterprise Drupal Architect who specializes in UI Suite and visual builder implementations? View my Open Source work on [Project Context Connector](https://github.com/victorstack-ai/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*
 
 ## Workflow Impact for Drupal 10/11 Site Builders
 

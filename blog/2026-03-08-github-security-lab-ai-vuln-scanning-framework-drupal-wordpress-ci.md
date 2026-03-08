@@ -15,26 +15,40 @@ tags:
 date: 2026-03-08T02:30:00.000Z
 ---
 
+```mermaid
+graph TD
+    A[Code Push] --> B{CI Dispatch}
+    B -->|Required| C[Fast SAST / Tests]
+    B -->|Scheduled| D[Deep AI Security Lane]
+    C -->|Pass| E[Merge Build]
+    D -->|Findings| F[SQLite Debt Ledger]
+    F -->|High Conf| G[Manual Security Triage]
+```
+
 GitHub Security Lab's open-source framework is now concrete enough to test in real CI, but not as a "scan every PR and block merges" replacement for existing SAST.
-
-The stack is two repos: **SecLab Taskflow Agent** (framework/runtime) and **SecLab Taskflows** (auditing workflows + MCP servers). The practical opportunity for Drupal module and WordPress plugin teams is to use it as a high-context, scheduled security review lane that complements fast PR checks.
-
-<!-- truncate -->
 
 ## What the Framework Actually Provides
 
-From the official repos and launch posts:
+From the official repos and launch posts, SecLab provides a YAML taskflow grammar for multi-agent workflows. Important operational detail: audit taskflows can take hours and generate many AI requests. That makes this better for **nightly/deep scan lanes** than as a required sub-10-minute PR gate.
 
-- A YAML taskflow grammar for multi-agent workflows.
-- MCP-driven tool access, including CodeQL-backed exploration tools.
-- A CLI and Docker execution model suitable for CI runners.
-- Example audit workflows that write findings to SQLite for triage.
+## The Triage Matrix: Logic vs Syntax
 
-Important operational detail: GitHub Security Lab explicitly notes audit taskflows can take hours and generate many AI requests. That makes this better for **nightly/deep scan lanes** than as a required sub-10-minute PR gate.
+Traditional scanners are excellent at finding syntax-level issues (e.g., missing escaping). The GitHub Taskflow Agent excels at semantic logic flaws.
+
+```yaml
+# Example Triage Logic (Simplified)
+- task: find_access_bypass
+  agent: security_expert
+  prompt: |
+    Analyze all custom route controllers. 
+    Identify any path where $_GET parameters 
+    directly influence entity access without 
+    a checkAccess() call.
+```
 
 ## CI Design for Drupal/WordPress Repos
 
-For CMS extension teams, the highest-signal pattern is a two-lane pipeline:
+For CMS extension teams, the highest-signal pattern is a two-lane pipeline: a PR Fast Lane for immediate feedback and a Deep AI Security Lane for scheduled semantic auditing.
 
 1. **PR Fast Lane (required):**
 - PHPCS/PHPCSWordPress or Drupal coding standards.

@@ -49,6 +49,17 @@ For Drupal and WordPress teams, this is the dangerous chain:
 
 Use Firefox as a managed browser profile for privileged work, not as a personal all-purpose profile.
 
+```mermaid
+graph TD
+    A[Privileged Laptop] --> B[Hardened Firefox Profile]
+    B --> C[Drupal Admin]
+    B --> D[CI/CD Console]
+    B --> E[GitHub Ops]
+    F[Personal Profile] --> G[Social Media]
+    F --> H[General Web]
+    B -.-|Isolate| F
+```
+
 Baseline controls:
 
 - Dedicated profile for admin and release operations only.
@@ -67,25 +78,13 @@ Place this under the Firefox distribution policy location used by your endpoint 
 {
   "policies": {
     "DisableAppUpdate": false,
-    "DisableFirefoxStudies": true,
-    "DisablePocket": true,
-    "DisableTelemetry": false,
-    "DontCheckDefaultBrowser": true,
     "ExtensionSettings": {
-      "*": {
-        "installation_mode": "blocked"
-      },
+      "*": { "installation_mode": "blocked" },
       "uBlock0@raymondhill.net": {
         "installation_mode": "force_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
-      },
-      "{446900e4-71c2-419f-a6a7-df9c091e268b}": {
-        "installation_mode": "force_installed",
-        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
       }
-    },
-    "OfferToSaveLogins": false,
-    "PasswordManagerEnabled": false
+    }
   }
 }
 ```
@@ -103,20 +102,26 @@ Browser hardening fails if workflow policy is weak. Enforce these habits for Dru
 - Block copy/paste of production secrets into AI chat tools unless routed through an approved secure workflow.
 - Require hardware-backed MFA for CMS admin, hosting, Git, CI, and SSO.
 
+## The Container Strategy: Profile Separation
+
+Instead of relying on tab hygiene, use **Firefox Multi-Account Containers**. This architectural choice ensures that the session tokens for your Drupal production admin never leak to an AI coding tool or a social media script running in another container.
+
+```javascript
+/* user.js - Force strict privacy and isolation */
+user_pref("privacy.firstparty.isolate", true);
+user_pref("network.cookie.cookieBehavior", 1);
+user_pref("privacy.trackingprotection.enabled", true);
+user_pref("dom.event.clipboardevents.enabled", false);
+```
+
 ## AI Coding Tool Risk in the Same Browser
 
-Many teams now run AI tools in the same browser used for CMS admin panels. That increases blast radius:
+Many teams now run AI tools in the same browser used for CMS admin panels. That increases blast radius: prompt history can capture sensitive snippets, and browser extensions can scrape page content.
 
-- Prompt history can capture sensitive snippets.
-- Browser extensions can scrape page content.
-- Open tabs can leak contextual data through accidental sharing.
+Security baseline: run AI coding tools in a separate Firefox profile with its own cookie jar and extension set. Never keep production CMS admin tabs open while using AI tools.
 
-Security baseline:
-
-- Run AI coding tools in a separate Firefox profile with its own cookie jar and extension set.
-- Never keep production CMS admin tabs open while using AI tools.
-- Treat uploaded logs, diffs, and configs as sensitive data with data-classification policy.
-- Enforce short session TTLs and frequent token rotation for tools with repository or deployment access.
+***
+*Need an Enterprise Security Architect who specializes in browser hardening and privileged access management? View my Open Source work on [Project Context Connector](https://github.com/victorstack-ai/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*
 
 ## Verification Checklist for Infra Leads
 

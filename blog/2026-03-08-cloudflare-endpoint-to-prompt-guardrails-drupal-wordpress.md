@@ -22,6 +22,15 @@ image: >-
 
 Cloudflare's March 6, 2026 post on endpoint-to-prompt security is useful because it reframes AI risk as a data-movement problem, not a model-brand problem.
 
+```mermaid
+graph TD
+    A[Developer Endpoint] --> B{Cloudflare One Client}
+    B -->|Secret Detected| C[Block Prompt / Upload]
+    B -->|Context Match| D[Slab-side CASB Triage]
+    B -->|Sanitized| E[AI Model / SaaS App]
+    F[Remote Browser Isolation] -->|Deny Copy Out| G[Local Clipboard]
+```
+
 For Drupal and WordPress teams using AI coding tools, the practical implication is simple: if you only secure repos and CI, but ignore clipboard flows, prompt flows, and SaaS-side scans, your secrets and regulated content can still leak through "normal" developer behavior.
 
 <!-- truncate -->
@@ -39,15 +48,33 @@ This is the right framing for CMS engineering teams because plugin/module code, 
 
 ## Translation to CMS Guardrails
 
-### 1) Secrets boundary: never let credentials become prompt content
+### 1) Secrets boundary: Never let credentials become prompt content
 
-For WordPress/Drupal teams, block these from AI prompts and uploads:
+For WordPress/Drupal teams, block these from AI prompts and uploads using DLP profiles.
 
-- `.env` values, API keys, OAuth refresh tokens, SSH keys.
-- CI secrets (`GITHUB_TOKEN`, deploy keys, package registry tokens).
-- production database snippets and user exports.
+```json
+/* Cloudflare One DLP Profile Snippet */
+{
+  "name": "CMS Secret Detection",
+  "rules": [
+    {
+      "pattern": "DRUPAL_HASH_[a-zA-Z0-9]{32}",
+      "action": "block"
+    },
+    {
+      "pattern": "wp-config\\.php",
+      "action": "block"
+    }
+  ]
+}
+```
 
-Use DLP profiles for secret patterns and fail closed on matches. The policy target is not "all AI tools"; it is "all egress paths where developers can paste or upload."
+## The Clipboard Isolation Strategy
+
+The most common leak path is not a git push; it is a copy/paste from a production admin session into a personal AI tool. By strictly controlling the clipboard direction on remote browser isolation (RBI) sessions, you ensure that the production data layer remains decoupled from the developer's chat history.
+
+***
+*Need an Enterprise Security Architect who specializes in Cloudflare One and AI-assisted CMS workflows? View my Open Source work on [Project Context Connector](https://github.com/victorstack-ai/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*
 
 ### 2) Prompt boundary: classify prompt operations as data egress
 
