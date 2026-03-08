@@ -15,7 +15,7 @@ tags:
   - drupal
   - wordpress
   - ai
-date: 2026-03-08T18:40:00.000Z
+date: 2026-03-08T02:40:00.000Z
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-08-firefox-hardening-red-team-browser-security-baselines-cms-ai-tools.png
 ---
