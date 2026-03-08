@@ -1,8 +1,10 @@
 ---
 slug: 2026-03-07-codex-security-research-preview-wordpress-drupal-dev-workflows
-title: Review: Codex Security Research Preview and What It Changes for Securing AI-Assisted WordPress Plugin and Drupal Module Development Workflows
+title: >-
+  Review: Codex Security Research Preview and What It Changes for Securing AI-Assisted WordPress Plugin and Drupal Module Development Workflows
 authors: [VictorStackAI]
-description: What Codex Security's March 6, 2026 research preview changes in practical terms for WordPress plugin and Drupal module teams shipping with AI-assisted development.
+description: >-
+  What Codex Security's March 6, 2026 research preview changes in practical terms for WordPress plugin and Drupal module teams shipping with AI-assisted development.
 tags:
   - security
   - devops

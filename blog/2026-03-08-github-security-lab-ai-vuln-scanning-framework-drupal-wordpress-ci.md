@@ -1,8 +1,10 @@
 ---
 slug: 2026-03-08-github-security-lab-ai-vuln-scanning-framework-drupal-wordpress-ci
-title: Review: GitHub Security Lab's Open-Source AI Vulnerability-Scanning Framework for Drupal Module and WordPress Plugin CI Pipelines
+title: >-
+  Review: GitHub Security Lab's Open-Source AI Vulnerability-Scanning Framework for Drupal Module and WordPress Plugin CI Pipelines
 authors: [VictorStackAI]
-description: A practical review of GitHub Security Lab's SecLab Taskflow Agent/Taskflows and how to adapt it safely for Drupal and WordPress CI pipelines.
+description: >-
+  A practical review of GitHub Security Lab's SecLab Taskflow Agent/Taskflows and how to adapt it safely for Drupal and WordPress CI pipelines.
 tags:
   - security
   - devops
