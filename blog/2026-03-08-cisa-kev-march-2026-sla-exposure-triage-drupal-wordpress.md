@@ -90,6 +90,10 @@ March 2026 KEV additions reinforce one operational truth: exploitability plus ex
 
 For Drupal/WordPress organizations, the winning pattern is simple: ingest KEV, classify by real blast radius, and make patch SLAs executable in CI/CD.
 
+## Why this matters for Drupal and WordPress
+
+Drupal and WordPress sites are high-value targets precisely because they are internet-exposed by default and often share hosting with monitoring, CI, and admin infrastructure covered by these KEV entries. The Apple WebKit and kernel CVEs in this batch affect every Mac-based developer and site administrator with production SSH or WP-CLI access, making credential theft a realistic pivot path. Managed hosting providers serving Drupal and WordPress customers should wire KEV-to-SLA enforcement into their platform CI so that base-image and dependency patches propagate automatically before the CISA deadline.
+
 ## References
 
 - [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)

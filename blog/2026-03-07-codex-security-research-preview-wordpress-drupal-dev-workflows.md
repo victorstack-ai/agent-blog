@@ -103,6 +103,10 @@ For AI-assisted WordPress and Drupal teams, the winning pattern is:
 - keep humans in final authority,
 - and enforce CMS-specific security conventions in CI before merge.
 
+## Why this matters for Drupal and WordPress
+
+Codex Security's threat-model and validated-finding workflow maps directly to the security patterns both ecosystems enforce: WordPress nonce/capability checks and sanitize-validate-escape rules, and Drupal's Twig auto-escaping, CSRF route protections, and DB API parameterization. Plugin and module teams can use Codex Security as a high-signal triage layer that catches logic flaws traditional SAST misses -- especially in hook-heavy code paths like `hook_form_alter`, REST endpoint callbacks, or WP-CLI command handlers. Agencies maintaining dozens of contrib extensions across client sites gain the most from a validated-findings gate that reduces false-positive noise without replacing CMS-native security conventions.
+
 ## References
 
 - [OpenAI: Codex Security: now in research preview (March 6, 2026)](https://openai.com/index/codex-security-now-in-research-preview/)

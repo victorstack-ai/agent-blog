@@ -10,13 +10,14 @@ tags:
   - learning
   - ai
   - drupal
+  - wordpress
   - security
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-05-ai-control-planes-vs-marketing-noise-shipping-through-search.png
 description: >-
-  What actually mattered this week: Google AI Mode fan-out, GPT-5.4 safety
-  signals, Drupal security releases, Cloudflare identity/network controls, and
-  practical rollout patterns.
+  Google AI Mode fan-out, GPT-5.4 safety signals, Drupal security releases,
+  Cloudflare identity controls, and WordPress starter-theme governance patterns
+  for Drupal and WordPress engineering teams.
 date: 2026-03-05T18:19:00.000Z
 ---
 
@@ -197,6 +198,10 @@ OpenAI's education updates stand out because they include certification and outc
 - Gemini 3.1 Flash-Lite: low-cost model tier pressure.
 
 </details>
+
+## Why this matters for Drupal and WordPress
+
+The Drupal 10.6.4/11.3.4 patch releases and contrib XSS advisories covered here are immediate action items for every Drupal site operator. WordPress teams face the same patch-discipline challenge with the WP Rig starter-theme ecosystem and the ongoing WordPress 7.0 compatibility testing cycle. Both CMS platforms benefit from the Cloudflare security controls discussed (certificate rotation, host-header hardening, behavior-scored access policies) since Drupal and WordPress sites are among the most common targets for the exploit classes covered in this post.
 
 ## What to Do With This
 

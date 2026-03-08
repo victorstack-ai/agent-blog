@@ -131,6 +131,10 @@ Clinejection was not just “an AI mistake.” It was a release-engineering warn
 
 WordPress and Drupal teams that adopt coding agents can keep the productivity gains, but only if release pipelines are hardened like critical infrastructure.
 
+## Why this matters for Drupal and WordPress
+
+WordPress plugin teams publishing to the .org SVN repository or npm-based CLI tools and Drupal module maintainers using Composer-based release pipelines share the same trust-boundary risks exposed by Clinejection. Agent-generated triage on GitHub issues can influence release workflows if permissions are not isolated, and long-lived publish tokens remain common in both ecosystems. The hardening baseline here -- OIDC trusted publishing, split untrusted AI jobs from release jobs, and human approval gates -- maps directly to WordPress plugin deploy scripts and Drupal contrib CI workflows on GitHub Actions or GitLab CI.
+
 ## References
 
 - [Adnan Khan: Clinejection — Compromising Cline's Production Releases](https://adnanthekhan.com/posts/clinejection/)

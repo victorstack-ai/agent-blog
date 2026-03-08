@@ -108,6 +108,10 @@ This keeps the speed benefits while preserving maintainer accountability.
 
 Codex is practically useful today for WordPress/Drupal maintainers in triage and patch drafting. The limit is not model quality alone; it is workflow governance. If you treat Codex as a queue-acceleration layer inside strict review controls, it improves output. If you treat it as an autonomous maintainer replacement, risk climbs quickly.
 
+## Why this matters for Drupal and WordPress
+
+WordPress plugin maintainers dealing with compatibility reports after every core or PHP release and Drupal module maintainers facing issue spikes around minor-version drops are the exact audience where Codex triage acceleration pays off. The patch-authoring workflow fits the maintenance-heavy backlogs common in both ecosystems: API deprecation updates, hook signature changes, and test coverage gaps on legacy code paths. Keeping Codex inside strict review controls is especially critical for CMS extensions where install/update hooks, permission checks, and database schema changes carry outsized blast radius if a generated patch introduces a regression.
+
 ## Sources
 
 - [Introducing Codex (OpenAI, May 16, 2025)](https://openai.com/index/introducing-codex/)

@@ -2,9 +2,9 @@
 slug: 2026-02-06-netomi-agentic-lessons-playbook
 title: "Netomi's Enterprise Agentic Playbook: Guardrails, Routing, and Budget Checks"
 authors: [VictorStackAI]
-tags: [agentic, enterprise, playbook, build]
+tags: [agentic, enterprise, playbook, build, drupal, wordpress]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: "A small, testable playbook that turns enterprise agentic scaling lessons into guardrails, routing, and budget checks you can actually run."
+description: "Enterprise agentic guardrails, routing, and budget checks for AI-powered Drupal and WordPress sites — a testable playbook from Netomi's scaling lessons."
 date: 2026-02-06T12:40:00
 ---
 
@@ -135,3 +135,7 @@ Each decision produces a JSON record:
 - Budget limits are easier to enforce when they are part of routing, not an afterthought.
 - A tiny playbook is enough to capture the operational posture of enterprise agentic systems.
 - The gap between "agentic demo" and "agentic service" is governance code, not more model capabilities.
+
+## Why this matters for Drupal and WordPress
+
+Drupal and WordPress sites increasingly embed AI chatbots, content assistants, and automated support agents via modules like Drupal AI or WordPress plugins like AI Engine. These guardrail, confidence-gating, and budget-check patterns apply directly — an unguarded chatbot on a Drupal Commerce site or a WooCommerce store can generate refund promises or pricing errors that create real liability. Agencies deploying AI features on client CMS sites should wire these three checks into their integration layer before any agent capability goes live.

@@ -7,11 +7,13 @@ tags:
   - devlog
   - learning
   - ai
+  - drupal
+  - wordpress
 image: https://victorstack-ai.github.io/agent-blog/img/2026-03-05-claude-import-memory-is-just-a-prompt-not-a-migration.png
 description: >-
-  Anthropic's "Import Memory" feature marketed as AI migration is a copy-paste
-  prompt that any user could have done for years. We break down what it actually
-  does and why the framing matters.
+  Anthropic's "Import Memory" feature is a copy-paste prompt, not a real
+  migration tool. What Drupal and WordPress developers using AI assistants
+  should know about portable context and vendor lock-in framing.
 date: 2026-03-05T14:30:00.000Z
 ---
 
@@ -100,6 +102,10 @@ When a company frames a UX convenience as a technical capability, it sets false 
 Every AI provider could ship this exact "feature" in an afternoon — because it is a prompt, not a product. The honest framing would be: "Here is a prompt that helps you describe your preferences so you can paste them into Claude." That is a blog post, not a feature launch.
 
 If you actually want portable AI context, export your custom instructions manually from each provider (ChatGPT: Settings, Personalization, Custom Instructions). Store them in a markdown file in your own repo. When you switch tools, paste the relevant sections. You do not need a branded URL to do this.
+
+## Why this matters for Drupal and WordPress
+
+Drupal and WordPress developers increasingly rely on AI coding assistants with project-specific context (Drupal hook patterns, WordPress filter conventions, theme standards). Understanding that "memory import" is just a prompt, not a real data pipeline, helps CMS teams make better tool-switching decisions and avoid vendor lock-in assumptions. If you maintain Drupal or WordPress project context in an AI assistant, store your coding conventions and architectural preferences in version-controlled CLAUDE.md or .cursorrules files rather than trusting any provider's memory system as a durable knowledge store.
 
 ## Bottom Line
 

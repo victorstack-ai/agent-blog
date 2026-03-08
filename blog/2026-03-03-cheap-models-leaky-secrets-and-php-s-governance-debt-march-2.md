@@ -7,12 +7,15 @@ tags:
   - devlog
   - learning
   - ai
+  - drupal
+  - wordpress
+  - security
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-03-cheap-models-leaky-secrets-and-php-s-governance-debt-march-2.png
 description: >-
-  What actually mattered this week: Gemini Flash-Lite economics, secret-sprawl
-  defense, active webapp exploit classes, and why the PHP ecosystem is being
-  forced to pick sustainability over nostalgia.
+  Gemini Flash-Lite economics, secret-sprawl defense, active webapp exploits,
+  and PHP governance debt affecting Drupal, WordPress, and the broader CMS
+  ecosystem's patch cadence and maintainer sustainability.
 date: 2026-03-03T16:56:00.000Z
 ---
 
@@ -167,6 +170,10 @@ Events like this matter because community concentration still drives contributor
 > — SASE platform announcement, [Link](https://www.cloudflare.com/)
 
 Skip the branding. The development worth tracking here is the shift toward **programmable policy** at the edge — security controls that live as versioned code with testable behavior, not click-ops dashboards you pray somebody configured correctly.
+
+## Why this matters for Drupal and WordPress
+
+The PHP ecosystem governance crisis directly threatens Drupal and WordPress security patch cadence. Both CMS platforms depend on volunteer and under-funded maintainers to ship timely contrib/plugin security updates, and the thinning contributor base documented here means longer windows of exposure for known vulnerabilities. Drupal and WordPress agencies should factor maintainer health into module/plugin selection decisions and allocate budget for upstream contribution. The host-header poisoning and secret-sprawl patterns covered above apply directly to both platforms since WordPress mu-plugins and Drupal custom modules routinely handle password-reset flows and environment credentials.
 
 ## What to Do About It
 

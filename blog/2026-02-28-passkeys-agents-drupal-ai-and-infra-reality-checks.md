@@ -7,11 +7,12 @@ tags:
   - devlog
   - learning
   - ai
+  - drupal
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-02-28-passkeys-agents-drupal-ai-and-infra-reality-checks.png
 description: >-
-  Passkeys misuse, coding-agent reality checks, Drupal AI ops, and
-  infra/security updates that actually change engineering decisions.
+  Passkeys misuse, coding-agent reality checks, Drupal AI module updates, and
+  infrastructure security signals relevant to Drupal and WordPress engineering teams.
 date: 2026-02-28T18:47:00.000Z
 ---
 
@@ -117,6 +118,10 @@ Understanding system boundaries — caching metadata, stream semantics, key life
 - Karpathy's December agent capability inflection quote
 
 </details>
+
+## Why this matters for Drupal and WordPress
+
+Drupal teams adopting AI-assisted search modules (like SearXNG) and GraphQL-based decoupled architectures need the same guardrails covered here: passkey-safe authentication design, cache-tag correctness, and agent-generated code review gates. WordPress sites integrating AI plugins or exposing REST/GraphQL APIs face identical risks around secret sprawl and unreviewed agent output. Both CMS ecosystems benefit from treating coding-agent output as untrusted draft code that must pass the same CI and security checks as human-written contributions.
 
 ## What this month reinforces
 Better tools amplify whatever process you already have. If your review and controls are solid, agents make you faster. If they're weak, agents help you ship broken things at higher volume. Invest in the gates before you invest in the throughput.

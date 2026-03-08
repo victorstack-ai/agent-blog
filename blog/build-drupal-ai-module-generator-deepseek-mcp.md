@@ -2,9 +2,9 @@
 slug: build-drupal-ai-module-generator-deepseek-mcp
 title: 'Drupal Module Generator Powered by DeepSeek and MCP'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, drupal, mcp, deepseek]
+tags: [devlog, agent, ai, drupal, wordpress, mcp, deepseek]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'A Drupal-oriented generator that uses a DeepSeek-backed MCP workflow to scaffold module code — standardizing the starting point so the first commit is reliable.'
+description: 'A Drupal module generator using DeepSeek and MCP to scaffold standardized module code. The MCP-based scaffolding pattern applies to WordPress plugin generation workflows too.'
 date: 2026-02-06T18:06:00
 ---
 
@@ -76,6 +76,10 @@ Service/
 
 </TabItem>
 </Tabs>
+
+## Why this matters for Drupal and WordPress
+
+Drupal agencies spinning up multiple custom modules per project spend hours on boilerplate that this generator eliminates in seconds. The same MCP-backed scaffolding pattern transfers directly to WordPress plugin generation -- swapping `.info.yml` for plugin headers, `services.yml` for action/filter registration, and routing files for REST API endpoint stubs. For teams maintaining both Drupal and WordPress projects, standardizing the generator contract through MCP means one workflow pattern serves both ecosystems with platform-specific output templates.
 
 ## Technical Takeaway
 

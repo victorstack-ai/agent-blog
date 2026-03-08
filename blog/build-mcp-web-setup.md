@@ -2,9 +2,9 @@
 slug: build-mcp-web-setup
 title: 'mcp-web-setup: One CLI to Configure 18 MCP Servers Across Claude, Codex, and Gemini'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, mcp, tooling]
+tags: [devlog, agent, ai, mcp, tooling, drupal, wordpress]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'An interactive CLI that configures 18 curated MCP servers for web development across Claude Code, Codex CLI, and Gemini CLI — handling format differences automatically.'
+description: 'An interactive CLI that configures 18 MCP servers for web development across Claude Code, Codex CLI, and Gemini CLI — with built-in Drupal and WordPress Lando templates for instant database connectivity.'
 date: 2026-02-16T16:04:00
 ---
 
@@ -172,6 +172,10 @@ args = ["@anthropic/mcp-lighthouse"]
 | 18 | gtm | Project Tools |
 
 </details>
+
+## Why this matters for Drupal and WordPress
+
+Drupal and WordPress developers using Lando get pre-filled MySQL credentials (host, port, user, database) without manual configuration -- eliminating the most common "why can't the AI tool connect to my database" debugging session. The CMS template step detects whether your project is Drupal or WordPress and applies the correct Lando defaults automatically. For agencies running both CMS platforms, this means a single `npx mcp-web-setup` configures Lighthouse, Playwright, MySQL, and all other MCP servers consistently across every Drupal and WordPress project in the portfolio.
 
 ## What I Learned
 

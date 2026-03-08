@@ -2,9 +2,9 @@
 slug: build-cpf
 title: 'CPF: Compact Prompt Format — 30-50% Fewer Tokens, Zero Loss'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, llm, tokens]
+tags: [devlog, agent, ai, llm, tokens, drupal, wordpress]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'A Python CLI and library that compresses verbose English prompts into a compact notation LLMs understand natively — cutting token usage by 30-50% with zero runtime dependencies.'
+description: 'A Python CLI and library that compresses verbose English prompts into compact notation LLMs understand natively — cutting token usage by 30-50%. Useful for Drupal and WordPress agent system prompts, module scaffolding instructions, and CMS workflow automation.'
 date: 2026-02-16T16:03:00
 ---
 
@@ -323,6 +323,10 @@ You do not need the preamble for models that have seen CPF-style notation in tra
 - **A preamble legend is cheap insurance.** 80 tokens once, and the format becomes self-documenting. Worth it even when the model probably does not need it.
 - **Round-trippability matters.** Being able to encode English to CPF and decode back means you can validate that nothing was lost. The encoder and decoder are inverses — that is the correctness guarantee.
 - **Zero runtime dependencies matters.** CPF is pure Python. No tokenizer calls, no model dependencies, no API keys needed for encoding. It runs anywhere Python runs.
+
+## Why this matters for Drupal and WordPress
+
+Drupal and WordPress agent workflows -- module generators, content analyzers, Views scaffolders, plugin security reviewers -- all rely on system prompts that grow as rules accumulate. CPF can compress those CMS-specific instruction sets by 30-50%, fitting more guardrails into the same context window. For agencies running AI-assisted content operations or module development pipelines, the token savings compound across every agent call, reducing API costs while preserving the full set of CMS coding standards, security rules, and architectural constraints the agent needs to follow.
 
 ## Project Hygiene
 

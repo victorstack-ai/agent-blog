@@ -117,6 +117,10 @@ GitHub Security Lab's framework is useful today as a **deep, agentic security an
 
 It should be integrated as a complement to fast deterministic checks, with strict secret scoping, explicit triage criteria, and CMS-native secure coding gates.
 
+## Why this matters for Drupal and WordPress
+
+Drupal modules and WordPress plugins often contain logic-level vulnerabilities -- access bypass in custom route handlers, unsafe direct object references in AJAX callbacks, SQL injection through improperly parameterized queries -- that traditional SAST tools miss because they lack semantic context. SecLab Taskflows can catch these patterns through deep agentic analysis of PHP code paths, making the nightly audit lane especially valuable for contrib maintainers who cannot afford dedicated security review for every release. The two-lane CI design keeps merge velocity high for both ecosystems while adding the kind of deep security coverage that WordPress.org plugin review and Drupal Security Team advisories increasingly demand.
+
 ## References
 
 - [GitHub Blog (Jan 14, 2026): Introducing Security Lab's open-source AI vulnerability-scanning framework](https://github.blog/security/vulnerability-research/introducing-security-labs-open-source-ai-vulnerability-scanning-framework/)

@@ -9,11 +9,12 @@ tags:
   - devlog
   - learning
   - ai
+  - drupal
+  - wordpress
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-06-from-patch-releases-to-attack-telemetry-what-actually-moved.png
 description: >-
-  A practitioner's read on this week's real signals: Drupal patching, AI product
-  shifts, cloud security controls, and supply-chain exposure.
+  Weekly practitioner digest covering Drupal patch releases, WordPress tooling updates, AI product shifts, and supply-chain security signals relevant to CMS teams.
 date: 2026-03-06T00:31:00.000Z
 ---
 
@@ -166,6 +167,10 @@ A physics preprint on extending single-minus amplitudes to gravitons cited GPT-5
 - Physics preprint on graviton amplitudes with model-assisted derivation.
 
 </details>
+
+## Why this matters for Drupal and WordPress
+
+Drupal 10.6.4 and 11.3.4 patch releases plus two contrib XSS advisories make this week's update cycle non-optional for any production Drupal site. WordPress teams face the same pressure from WP Rig starter-theme debt and the CKEditor5 security update that ships through both ecosystems. Supply-chain signals like leaked private keys and dormant package reuse apply directly to the plugin and module ecosystems where abandoned extensions get forked and repackaged without audit.
 
 ## What to Do With All This
 

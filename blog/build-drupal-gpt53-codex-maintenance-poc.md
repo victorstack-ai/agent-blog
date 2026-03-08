@@ -2,9 +2,9 @@
 slug: build-drupal-gpt53-codex-maintenance-poc
 title: 'Drupal GPT-5.3 Codex Maintenance PoC: Agent-Assisted Routine Upkeep'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, drupal, codex, maintenance]
+tags: [devlog, agent, ai, drupal, wordpress, codex, maintenance]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'Proof-of-concept using GPT-5.3 Codex for routine Drupal maintenance: dependency updates, config checks, repeatable agent workflows.'
+description: 'Proof-of-concept using GPT-5.3 Codex for routine Drupal maintenance — dependency updates, config drift checks, and cleanup tasks that Drupal and WordPress agencies can automate through CI.'
 date: 2026-02-06T18:08:00
 ---
 
@@ -75,6 +75,10 @@ diff -r /tmp/config-export config/sync/
 
 </TabItem>
 </Tabs>
+
+## Why this matters for Drupal and WordPress
+
+Drupal agencies managing multiple client sites spend significant time on routine maintenance -- `composer outdated`, config drift detection, unused module audits. This PoC shows how to standardize those tasks through an agent that can be wired into CI. WordPress agencies face identical maintenance debt with plugin updates, wp-config drift, and inactive plugin cleanup. The same agent pattern applies: parse `wp plugin list --format=json`, diff against a baseline, and surface actionable recommendations. Both CMS ecosystems benefit from making maintenance auditable rather than ad-hoc.
 
 ## Technical Takeaway
 

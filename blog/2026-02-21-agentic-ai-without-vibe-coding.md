@@ -2,8 +2,8 @@
 slug: agentic-ai-without-vibe-coding
 title: "Stop Vibe Coding Your AI Agents: An Engineering-First Approach"
 authors: [VictorStackAI]
-description: "I stopped vibe coding my AI agents and started applying real engineering discipline. Here is the approach that actually works in production."
-tags: [ai, agentic-ai, software-engineering, testing, best-practices, python]
+description: "Engineering-first AI agent development with modular structure, mocking, and tests. Applicable to Drupal and WordPress agencies building AI-powered content and site management tools."
+tags: [ai, agentic-ai, drupal, wordpress, software-engineering, testing, best-practices, python]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-21T10:00:00
 ---
@@ -137,6 +137,10 @@ quadrantChart
 4. **Configuration as Code**: Hardcoded model names, API keys, or prompts are a liability. Configuration files (YAML or .env) enable environment-specific behavior without code changes.
 
 </details>
+
+## Why this matters for Drupal and WordPress
+
+Drupal and WordPress agencies are increasingly building AI agents for content migration, SEO optimization, and automated site audits. The vibe-coding trap is especially dangerous here because CMS integrations touch live content databases. A monolithic agent that bulk-updates WordPress posts or Drupal nodes without proper mocking, test coverage, and error boundaries can corrupt production content. The modular structure and mock-first testing approach in this post directly applies to any agent that calls the WordPress REST API or Drupal's JSON:API.
 
 ## What I Learned
 
