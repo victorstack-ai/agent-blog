@@ -54,4 +54,4 @@ We configured Lando's internal Nginx routing to ignore strict HTTP-to-HTTPS redi
 "It works on my machine" is an unacceptable excuse in enterprise agencies. By hardening the Lando configuration and automating database sanitization, we eliminated local environment setup tickets entirely. A developer can clone the repo, run one command, and start writing code.
 
 ***
-*Need an Enterprise CMS Architect who engineers developer productivity? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
+*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
