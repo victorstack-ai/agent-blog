@@ -64,27 +64,7 @@ By removing the "environment setup" phase from the sprint cycle:
 
 *   **Recaptured Time:** Saves roughly 4 to 5 hours per developer, per week.
 *   **Reduced Human Error:** Eliminates "I forgot to install that dependency" or "I was working against the wrong database snapshot" errors.
-*   **Accelerated Onboarding:** New contractors can literally click a button and have the enterprise stack running locally without a 3-day initiation process.<script type="application/ld+json">
-  {`
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "The Ticket Agent: Automating Jira Requirements to Instant Local Environments",
-  "description": "How to combine a custom Chrome Extension with an LLM backend to automatically parse Jira tickets and instantly provision local Lando/Docker environments.",
-  "author": {
-    "@type": "Person",
-    "name": "Victor Jimenez",
-    "url": "https://victorjimenezdev.github.io/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "VictorStack AI",
-    "url": "https://victorjimenezdev.github.io/"
-  },
-  "datePublished": "2026-03-08T09:00:00"
-}
-  `}
-</script>
+*   **Accelerated Onboarding:** New contractors can literally click a button and have the enterprise stack running locally without a 3-day initiation process.
 
 
 ***

@@ -227,28 +227,6 @@ python3 -c "import bs4; print('BeautifulSoup: installed')"
 - [Playwright Documentation](https://playwright.dev/python/) -- Everything you need to automate a browser
 - [Anthropic Claude API](https://docs.anthropic.com/) -- The actual brain. You already pay for this.
 
-<script type="application/ld+json">
-  {`
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Stop Paying for Crawl4AI and Moltbot: You Already Have Everything You Need",
-  "description": "Why Crawl4AI, Moltbot, and similar AI browser bots are glorified wrappers around tools you already pay for — and how to build your own in 30 lines of Python.",
-  "author": {
-    "@type": "Person",
-    "name": "Victor Jimenez",
-    "url": "https://victorjimenezdev.github.io/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "VictorStack AI",
-    "url": "https://victorjimenezdev.github.io/"
-  },
-  "datePublished": "2026-02-21T05:35:00"
-}
-  `}
-</script>
-
 
 ***
 *Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

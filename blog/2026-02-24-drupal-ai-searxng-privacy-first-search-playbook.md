@@ -151,28 +151,6 @@ Drupal's AI Initiative is actively building search integration patterns, and Sea
 
 - [Drupal AI Initiative: SearXNG - Privacy-First Web Search for Drupal AI Assistants](https://www.drupal.org/about/starshot/initiatives/ai/blog/searxng-privacy-first-web-search-for-drupal-ai-assistants)
 
-<script type="application/ld+json">
-  {`
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Stop Shipping Blind RAG: SearXNG for Drupal AI Assistants That Respect Privacy",
-  "description": "This post explains how to wire SearXNG into Drupal AI assistants so teams get auditable, privacy-first web search instead of opaque SaaS retrieval.",
-  "author": {
-    "@type": "Person",
-    "name": "Victor Jimenez",
-    "url": "https://victorjimenezdev.github.io/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "VictorStack AI",
-    "url": "https://victorjimenezdev.github.io/"
-  },
-  "datePublished": "2026-02-24T23:16:00"
-}
-  `}
-</script>
-
 
 ***
 *Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

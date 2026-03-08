@@ -221,28 +221,6 @@ Agencies and product teams that run Drupal or WordPress projects often track wor
 -   **[View Code on GitHub](https://github.com/victorjimenezdev/jiraextractor)**
 -   **[Install from Chrome Web Store](https://chromewebstore.google.com/detail/mjdgnpmadepahnoeiahafimajgoajgdp)**
 
-<script type="application/ld+json">
-  {`
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "I Built a Chrome Extension to Rip My Data Out of Jira's Cold, Clammy Hands",
-  "description": "A technical deep-dive into building a privacy-first Chrome extension that extracts Jira tickets and all attachments into clean, local JSON, bypassing the need for yet another paid API wrapper.",
-  "author": {
-    "@type": "Person",
-    "name": "Victor Jimenez",
-    "url": "https://victorjimenezdev.github.io/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "VictorStack AI",
-    "url": "https://victorjimenezdev.github.io/"
-  },
-  "datePublished": "2026-02-22T05:21:00"
-}
-  `}
-</script>
-
 
 ***
 *Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

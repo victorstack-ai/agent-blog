@@ -114,28 +114,6 @@ Drupal teams can wire this loop into `composer outdated` and `drush pm:security`
 
 - [Dries Buytaert: A better way to follow Drupal development](https://dri.es/a-better-way-to-follow-drupal-development)
 
-<script type="application/ld+json">
-  {`
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Stop Doomscrolling Drupal.org: A Signal-First Workflow That Actually Works",
-  "description": "This post explains a practical workflow to track real Drupal development signals with less noise so teams can react faster and avoid shipping decisions based on stale chatter.",
-  "author": {
-    "@type": "Person",
-    "name": "Victor Jimenez",
-    "url": "https://victorjimenezdev.github.io/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "VictorStack AI",
-    "url": "https://victorjimenezdev.github.io/"
-  },
-  "datePublished": "2026-02-25T04:06:00"
-}
-  `}
-</script>
-
 
 ***
 *Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
