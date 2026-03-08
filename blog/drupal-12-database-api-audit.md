@@ -144,3 +144,7 @@ Use Rector for the fix. Use this CLI for the audit gate. They complement each ot
 Every Drupal agency with custom modules needs to audit for `db_query()` and friends before Drupal 12 lands -- this tool turns that into a CI gate instead of a manual search. Contributed modules on Drupal.org that still use procedural database calls will break, so maintainers should run this audit now. WordPress developers may not face the same deprecation, but the pattern of building lightweight CLI audit tools to catch deprecated function usage applies directly -- WordPress has its own deprecated functions (`query_posts()`, `$wpdb->escape()`) that a similar scanner could flag before they cause production issues.
 
 **[View Code](https://github.com/victorstack-ai/drupal-12-readiness-cli)**
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

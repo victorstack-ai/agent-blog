@@ -95,3 +95,7 @@ If you rely on CAPTCHA as a core spam gate and are below the fixed versions, tre
 - [SA-CONTRIB-2026-015](https://www.drupal.org/sa-contrib-2026-015)
 - [OSV: DRUPAL-CONTRIB-2026-015](https://api.osv.dev/v1/vulns/DRUPAL-CONTRIB-2026-015)
 - [Advisory JSON](https://github.com/DrupalSecurityTeam/drupal-advisory-database/blob/main/advisories/captcha/DRUPAL-CONTRIB-2026-015.json)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

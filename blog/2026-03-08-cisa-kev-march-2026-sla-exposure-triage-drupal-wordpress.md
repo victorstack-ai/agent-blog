@@ -99,3 +99,7 @@ Drupal and WordPress sites are high-value targets precisely because they are int
 - [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
 - [CISA KEV JSON Feed](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json)
 - [Binding Operational Directive 22-01](https://www.cisa.gov/binding-operational-directive-22-01)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

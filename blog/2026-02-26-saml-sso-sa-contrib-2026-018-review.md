@@ -100,3 +100,7 @@ If your site uses SAML SSO - Service Provider and is below `3.1.3`, this is not 
 - [SA-CONTRIB-2026-018](https://www.drupal.org/sa-contrib-2026-018)
 - [OSV: DRUPAL-CONTRIB-2026-018](https://api.osv.dev/v1/vulns/DRUPAL-CONTRIB-2026-018)
 - [Advisory JSON](https://github.com/DrupalSecurityTeam/drupal-advisory-database/blob/main/advisories/miniorange_saml/DRUPAL-CONTRIB-2026-018.json)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

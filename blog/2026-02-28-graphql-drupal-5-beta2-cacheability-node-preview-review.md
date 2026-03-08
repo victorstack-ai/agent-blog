@@ -70,3 +70,7 @@ Decoupled Drupal teams using GraphQL for headless frontends need to validate cac
 - [5.0.0-beta2 tag page](https://git.drupalcode.org/project/graphql/-/tags/5.0.0-beta2)
 - [Compare 5.0.0-beta1...5.0.0-beta2](https://git.drupalcode.org/project/graphql/-/compare/5.0.0-beta1...5.0.0-beta2)
 - [graphql.info.yml at 5.0.0-beta2](https://git.drupalcode.org/project/graphql/-/raw/5.0.0-beta2/graphql.info.yml)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

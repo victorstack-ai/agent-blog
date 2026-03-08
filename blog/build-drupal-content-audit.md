@@ -92,3 +92,7 @@ Keep the audit output narrowly scoped and deterministic. When the report structu
 ## References
 
 - [View Code](https://github.com/victorstack-ai/drupal-content-audit)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -130,3 +130,7 @@ Drupal's AI Initiative is establishing production-ready patterns for AI agents a
 ## References
 
 - [Drupal AI Initiative](https://www.drupal.org/about/starshot/initiatives/ai)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

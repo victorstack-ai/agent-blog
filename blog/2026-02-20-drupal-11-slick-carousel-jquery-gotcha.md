@@ -144,3 +144,7 @@ Drupal 11 sites using Slick Carousel will hit this jQuery 4 breakage immediately
 - [Drupal 11.1 Custom Entity Breaking Changes](/2026-02-17-drupal-11-1-custom-entity-breaking-changes)
 - [Drupal 11 Change Record Impact Map](/2026-02-17-drupal-11-change-record-impact-map-10-4x-teams)
 - [Drupal.org Issue: Slick Carousel Fails on Drupal 11 with jQuery 4](https://www.drupal.org/project/slick/issues/3412532)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

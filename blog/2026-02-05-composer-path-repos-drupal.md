@@ -81,3 +81,7 @@ Composer path repositories are essential for Drupal module developers working on
 ## References
 - [Using Composer Path Repositories to Handle Module Dependencies During Development](https://drupalize.me/blog/using-composer-path-repositories-handle-module-dependencies-during-development)
 - [Composer path repository documentation](https://getcomposer.org/doc/05-repositories.md#path)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -132,3 +132,7 @@ DDEV is the primary local development tool for Drupal and a growing choice for W
 ## References
 
 - [DDEV v1.25.0 Release Notes](https://ddev.com/ddev-local/ddev-v1-25-0-whats-new-for-developers/)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

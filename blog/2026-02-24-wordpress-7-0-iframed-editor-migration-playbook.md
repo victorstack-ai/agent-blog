@@ -197,3 +197,7 @@ WordPress plugin developers must migrate meta boxes, block registrations, and ad
 - https://developer.wordpress.org/block-editor/how-to-guides/metabox/
 - https://developer.wordpress.org/block-editor/how-to-guides/enqueueing-assets-in-the-editor/
 - https://make.wordpress.org/core/2018/11/07/meta-box-compatibility-flags/
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

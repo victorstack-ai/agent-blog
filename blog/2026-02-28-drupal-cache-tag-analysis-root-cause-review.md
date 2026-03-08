@@ -74,3 +74,7 @@ Cache metadata correctness is one of the most common root causes of Drupal perfo
 - [Cache tags (Drupal.org docs)](https://www.drupal.org/docs/drupal-apis/cache-api/cache-tags)
 - [Cacheability of render arrays (Drupal.org docs)](https://www.drupal.org/docs/drupal-apis/render-api/cacheability-of-render-arrays)
 - [Drupal Caching Best Practices and Performance Monitoring Explained (QED42)](https://www.qed42.com/insights/drupal-caching-best-practices-and-performance-monitoring-explained)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

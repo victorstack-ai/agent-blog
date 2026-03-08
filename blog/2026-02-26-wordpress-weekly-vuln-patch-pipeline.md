@@ -105,3 +105,7 @@ This pipeline maps directly to Drupal's security advisory workflow. Replace `wp 
 ## References
 
 - [Wordfence Intelligence Weekly WordPress Vulnerability Report (February 9, 2026 to February 15, 2026)](https://www.wordfence.com/blog/2026/02/wordfence-intelligence-weekly-wordpress-vulnerability-report-february-9-2026-to-february-15-2026/)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

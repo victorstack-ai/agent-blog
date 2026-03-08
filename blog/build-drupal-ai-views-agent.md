@@ -111,3 +111,7 @@ Agent workflows are most effective when they output structured configuration tha
 ## References
 
 - [View Code](https://github.com/victorstack-ai/drupal-ai-views-agent)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

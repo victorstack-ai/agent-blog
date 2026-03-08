@@ -116,3 +116,7 @@ Codex Security's threat-model and validated-finding workflow maps directly to th
 - [WordPress Developer Handbook: Escaping Data](https://developer.wordpress.org/apis/security/escaping/)
 - [Drupal.org: Writing secure code for Drupal](https://www.drupal.org/docs/administering-a-drupal-site/security-in-drupal/writing-secure-code-for-drupal)
 - [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

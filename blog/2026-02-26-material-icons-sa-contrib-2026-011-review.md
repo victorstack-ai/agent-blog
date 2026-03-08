@@ -95,3 +95,7 @@ If your site uses Material Icons and is below `2.0.4`, treat this as active patc
 - [SA-CONTRIB-2026-011](https://www.drupal.org/sa-contrib-2026-011)
 - [OSV: DRUPAL-CONTRIB-2026-011](https://api.osv.dev/v1/vulns/DRUPAL-CONTRIB-2026-011)
 - [Advisory JSON](https://github.com/DrupalSecurityTeam/drupal-advisory-database/blob/main/advisories/material_icons/DRUPAL-CONTRIB-2026-011.json)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -42,3 +42,7 @@ By replacing human coordination with immutable CI/CD logic, we reduced the organ
 
 ***
 *Need an Enterprise Drupal Architect who secures your infrastructure? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or let's connect on LinkedIn.*
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

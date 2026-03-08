@@ -335,3 +335,7 @@ The project now ships with **GitHub Actions CI** running pytest across Python 3.
 ## References
 
 - [View Code](https://github.com/victorstack-ai/cpf)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

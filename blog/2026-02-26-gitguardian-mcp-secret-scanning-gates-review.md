@@ -147,3 +147,7 @@ Drupal contrib and WordPress plugin development increasingly involves AI-generat
 - [ggshield Repository](https://github.com/GitGuardian/ggshield)
 - [ggshield Secret Action](https://github.com/GitGuardian/ggshield/tree/main/actions/secret)
 - [GitGuardian MCP](https://github.com/GitGuardian/gg-mcp)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -115,3 +115,7 @@ Drupal contributors and agency teams can now stay current on Core, CMS, Canvas, 
 
 - [The Drop Times: Dries Buytaert Introduces Drupal Digests](https://thedroptimes.com/39321/dries-buytaert-introduces-drupal-digests-ai-powered-tool-track-drupal-development)
 - [GitHub: Drupal Digest AI Project](https://github.com/dries/digest)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

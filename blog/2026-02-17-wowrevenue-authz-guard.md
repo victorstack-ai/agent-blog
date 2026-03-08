@@ -154,3 +154,7 @@ Any `wp_ajax_*` handler that calls these without a capability check is a high-ri
 WordPress plugin developers must enforce `current_user_can()` capability checks at every AJAX handler entry point — nonces only prevent CSRF, not unauthorized access by low-privilege authenticated users. Drupal module developers face the same anti-pattern when custom route callbacks rely solely on CSRF tokens without explicit permission checks via `$account->hasPermission()`. The scanner pattern built here can be adapted for Drupal by searching for route callbacks that lack `_permission` requirements in routing YAML, catching the same class of authorization bypass that plagues WordPress plugins like WowRevenue.
 
 **[View Code](https://github.com/victorstack-ai/wp-wowrevenue-authz-guard)**
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

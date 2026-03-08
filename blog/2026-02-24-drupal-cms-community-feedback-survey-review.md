@@ -115,3 +115,7 @@ Drupal agencies and site builders have a direct channel to influence Drupal CMS 
 - [Drupal Core Releases](https://www.drupal.org/project/drupal/releases)
 - [Drupal CMS Releases](https://www.drupal.org/project/cms/releases)
 - [Drupal CMS 2.0.1](https://www.drupal.org/project/cms/releases/2.0.1)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

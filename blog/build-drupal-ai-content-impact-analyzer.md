@@ -131,3 +131,7 @@ Score content on **multiple independent axes** and expose the breakdown. A singl
 ## References
 
 - [View Code](https://github.com/victorstack-ai/drupal-ai-content-impact-analyzer)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -131,3 +131,7 @@ WordPress sites running dozens of plugins face constant exposure to newly disclo
 - https://www.wordfence.com/blog/feed/
 - https://wordpress.org/plugins/wpvulnerability/
 - https://wordpress.org/plugins/fullworks-scanner/
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

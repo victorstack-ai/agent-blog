@@ -170,3 +170,7 @@ Two tracks, split by blast radius. On the low-risk side, adopt cheaper and faste
 :::tip[Single action that pays off this week]
 Create one `security+runtime` weekly gate in CI: fail builds unless runtime pins are explicit, KEV-tracked packages are patched, and secret/host-header checks pass. This removes 80% of the avoidable regressions from this entire feed.
 :::
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

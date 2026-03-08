@@ -122,3 +122,7 @@ Drupal and WordPress power a huge share of sites that store user data, PII, and 
 - Authentication and encryption need separate key lifecycles. Full stop, no negotiation.
 - Every encryption design should prove — not promise — that recovery works, rotation works, and metadata versioning exists before it gets approved.
 - The anti-pattern table above is the most useful thing in this post. Print it, paste it into your review template, and use it as a gate.
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -96,3 +96,7 @@ If your site runs Responsive Favicons below `2.0.2`, this is immediate patch wor
 - [SA-CONTRIB-2026-019](https://www.drupal.org/sa-contrib-2026-019)
 - [OSV: DRUPAL-CONTRIB-2026-019](https://api.osv.dev/v1/vulns/DRUPAL-CONTRIB-2026-019)
 - [Advisory JSON](https://github.com/DrupalSecurityTeam/drupal-advisory-database/blob/main/advisories/responsive_favicons/DRUPAL-CONTRIB-2026-019.json)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

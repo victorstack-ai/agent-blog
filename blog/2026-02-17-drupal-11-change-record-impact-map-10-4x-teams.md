@@ -98,3 +98,7 @@ Drupal 10.4.x teams face a hard deadline: security support has ended, and the mi
 - https://www.drupal.org/node/3478634
 - https://www.drupal.org/project/cms/releases
 - https://api.drupal.org/api/drupal/core%21modules%21user%21src%21Entity%21EntityPermissionsRouteProviderWithCheck.php/11.x
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

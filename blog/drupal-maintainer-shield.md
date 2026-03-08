@@ -118,3 +118,7 @@ Drupal Maintainer Shield is a prototype, not a finished product. But the princip
 - [Dries Buytaert — AI and Open Source Security](https://socket.dev/blog/dries-buytaert-ai-open-source-security)
 - [MITRE CWE List](https://cwe.mitre.org/)
 - [Drupal Security Advisories](https://www.drupal.org/security)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

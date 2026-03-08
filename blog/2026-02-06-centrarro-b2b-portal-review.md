@@ -103,3 +103,7 @@ Drupal Commerce's ability to serve B2B and B2C from a single install is a compet
 
 - [Centarro: Any Drupal Commerce Site Can Have a B2B Portal](https://centarro.io/blog/any-drupal-commerce-site-can-have-a-b2b-portal)
 - [Drupal Planet coverage](https://www.drupal.org/planet/drupal/2026-02-04/any-drupal-commerce-site-can-have-a-b2b-portal)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

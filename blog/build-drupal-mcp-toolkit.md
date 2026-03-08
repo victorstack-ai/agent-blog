@@ -155,3 +155,7 @@ These four modules define a reference architecture for how CMS sites can expose 
 - [drupal-mcp-config-export](https://github.com/victorstack-ai/drupal-mcp-config-export)
 - [drupal-mcp-node-info](https://github.com/victorstack-ai/drupal-mcp-node-info)
 - [drupal-mcp-site-audit](https://github.com/victorstack-ai/drupal-mcp-site-audit)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

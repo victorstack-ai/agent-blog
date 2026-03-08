@@ -134,3 +134,7 @@ Drupal recipes are the most practical path to AI-driven site assembly in the Dru
 - [Config Actions Documentation](https://project.pages.drupalcode.org/distributions_recipes/config_actions.html)
 - [Recipe Author Guide](https://project.pages.drupalcode.org/distributions_recipes/recipe_author_guide.html)
 - [Distributions Recipes Project](https://www.drupal.org/project/distributions_recipes)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

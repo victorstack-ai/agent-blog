@@ -125,3 +125,7 @@ DDEV is the standard local development environment for Drupal projects and incre
 - [View Code](https://github.com/victorstack-ai/ddev-mcp-playwright-addon)
 - https://ddev.readthedocs.io/en/stable/users/extend/additional-services/
 - https://playwright.dev/docs/test-intro
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

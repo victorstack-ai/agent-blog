@@ -97,3 +97,7 @@ If your site runs Islandora below `2.17.5`, treat this as active patch work. Upg
 - [SA-CONTRIB-2026-016](https://www.drupal.org/sa-contrib-2026-016)
 - [OSV: DRUPAL-CONTRIB-2026-016](https://api.osv.dev/v1/vulns/DRUPAL-CONTRIB-2026-016)
 - [Advisory JSON](https://github.com/DrupalSecurityTeam/drupal-advisory-database/blob/main/advisories/islandora/DRUPAL-CONTRIB-2026-016.json)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

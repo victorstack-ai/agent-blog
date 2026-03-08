@@ -45,3 +45,7 @@ By shifting validation to the extreme left—right at the point of the commit—
 
 ***
 *Need an Enterprise Architect to optimize your team's throughput? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

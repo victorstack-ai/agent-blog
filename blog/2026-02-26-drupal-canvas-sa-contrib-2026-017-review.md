@@ -94,3 +94,7 @@ If you run Drupal Canvas below `1.1.1`, update now. But the bigger lesson here i
 
 - [SA-CONTRIB-2026-017](https://www.drupal.org/sa-contrib-2026-017)
 - [Drupal Canvas 1.1.1 release](https://www.drupal.org/project/canvas/releases/1.1.1)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

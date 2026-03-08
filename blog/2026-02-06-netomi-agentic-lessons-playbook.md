@@ -139,3 +139,7 @@ Each decision produces a JSON record:
 ## Why this matters for Drupal and WordPress
 
 Drupal and WordPress sites increasingly embed AI chatbots, content assistants, and automated support agents via modules like Drupal AI or WordPress plugins like AI Engine. These guardrail, confidence-gating, and budget-check patterns apply directly — an unguarded chatbot on a Drupal Commerce site or a WooCommerce store can generate refund promises or pricing errors that create real liability. Agencies deploying AI features on client CMS sites should wire these three checks into their integration layer before any agent capability goes live.
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

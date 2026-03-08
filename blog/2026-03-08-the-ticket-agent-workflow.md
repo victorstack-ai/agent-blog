@@ -90,3 +90,7 @@ By removing the "environment setup" phase from the sprint cycle:
 }
   `}
 </script>
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

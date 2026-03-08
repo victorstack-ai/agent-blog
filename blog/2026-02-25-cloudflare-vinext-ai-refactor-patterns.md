@@ -117,3 +117,7 @@ Headless Drupal and WordPress architectures using Next.js as a frontend are a gr
 - [OpenNext](https://opennext.js.org/)
 - [A Reproducible Next.js Rebuild Benchmark](/2026-02-25-nextjs-ai-rebuild-benchmark/)
 - [DDEV v1.25 Modular Share with Cloudflare](/ddev-v1-25-modular-share-with-cloudflare/)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -206,3 +206,7 @@ The Drupal 10.6.4/11.3.4 patch releases and contrib XSS advisories covered here 
 ## What to Do With This
 
 The teams worth studying this week published exact versions, exact constraints, and exact failure handling. If your deployment pipeline lacks any of those three, that is where to start.
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

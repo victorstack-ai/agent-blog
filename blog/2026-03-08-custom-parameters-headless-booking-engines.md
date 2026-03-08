@@ -55,3 +55,7 @@ By centralizing the parameter logic inside the CMS and relying on server-side se
 
 ***
 *Looking for an Architect to bridge your decoupled commerce platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

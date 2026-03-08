@@ -121,3 +121,7 @@ DDEV is the most widely used local development environment for both Drupal and W
 - [DDEV: Podman and Docker Rootless](https://ddev.com/blog/podman-and-docker-rootless)
 - [DDEV Architecture Documentation](https://docs.ddev.com/en/stable/users/usage/architecture/)
 - [DDEV Config YAML Reference](https://docs.ddev.com/en/stable/users/configuration/config_yaml/)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

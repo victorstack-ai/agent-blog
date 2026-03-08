@@ -131,3 +131,7 @@ Drupal module maintainers with custom entity types must treat 11.1 as a migratio
 - https://www.drupal.org/node/3442349
 - https://api.drupal.org/api/drupal/core%21modules%21user%21src%21Entity%21EntityPermissionsRouteProviderWithCheck.php/11.x
 - https://www.drupal.org/project/cms
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

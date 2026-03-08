@@ -123,3 +123,7 @@ wp-google-preferred-source-demo/
 ## References
 
 - [View Code](https://github.com/victorstack-ai/wp-google-preferred-source-demo)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

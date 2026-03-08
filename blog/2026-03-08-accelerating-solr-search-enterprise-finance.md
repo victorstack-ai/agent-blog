@@ -47,3 +47,7 @@ Performance tuning at an enterprise scale is rarely about throwing more RAM at a
 
 ***
 *Need an Enterprise Drupal or WordPress Architect to rescue your project or lead your migration? Let's talk. View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

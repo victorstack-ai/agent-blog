@@ -122,3 +122,7 @@ Drupal and WordPress sites increasingly embed interactive elements — code play
 
 - [Simon Willison: Pydantic Monty Research](https://simonwillison.net/2026/Feb/6/pydantic-monty/)
 - [Pydantic Monty WASM Demo](https://github.com/victorstack-ai/pydantic-monty-wasm-demo)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

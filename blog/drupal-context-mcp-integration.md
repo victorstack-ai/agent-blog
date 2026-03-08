@@ -263,3 +263,7 @@ For agencies managing multiple Drupal sites, this creates a **standard interface
 - [Project Context Connector (Drupal Module)](https://www.drupal.org/project/project_context_connector)
 - [GitHub Mirror](https://github.com/victorjimenezdev/project_context_connector)
 - [Slack Bot Example](https://github.com/victorjimenezdev/project-context-slackbot)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

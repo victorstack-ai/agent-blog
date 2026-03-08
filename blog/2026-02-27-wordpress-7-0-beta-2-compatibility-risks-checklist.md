@@ -174,3 +174,7 @@ WordPress plugin and theme developers need to start compatibility testing now, n
 - https://developer.wordpress.org/block-editor/how-to-guides/metabox/
 - https://developer.wordpress.org/reference/functions/wp_register_script/
 - https://make.wordpress.org/core/2026/01/09/dropping-support-for-php-7-2-and-7-3/
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

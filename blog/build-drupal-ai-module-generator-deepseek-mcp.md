@@ -88,3 +88,7 @@ Pairing MCP with a targeted generator creates a clear contract between intent an
 ## References
 
 - [View Code](https://github.com/victorstack-ai/drupal-ai-module-generator-deepseek-mcp)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

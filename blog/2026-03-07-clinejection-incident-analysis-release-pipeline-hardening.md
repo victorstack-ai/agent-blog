@@ -144,3 +144,7 @@ WordPress plugin teams publishing to the .org SVN repository or npm-based CLI to
 - [GitHub Docs: Secure use reference for GitHub Actions](https://docs.github.com/en/actions/reference/security/secure-use)
 - [npm Docs: Trusted publishing with OIDC](https://docs.npmjs.com/trusted-publishers/)
 - [OWASP GenAI: LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

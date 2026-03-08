@@ -119,3 +119,7 @@ WordPress plugin maintainers dealing with compatibility reports after every core
 - [About assigning tasks to Copilot coding agent (GitHub Docs)](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/assign-tasks-to-copilot)
 - [Troubleshooting Copilot coding agent (GitHub Docs)](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/troubleshooting-copilot-coding-agent)
 - [Best practices for using Copilot to work on tasks (GitHub Docs)](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/best-practices-for-using-copilot-to-work-on-tasks)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

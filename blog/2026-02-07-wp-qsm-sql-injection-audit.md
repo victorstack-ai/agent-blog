@@ -115,3 +115,7 @@ wp plugin update quiz-and-survey-master
 This vulnerability is a textbook example of the SQL injection pattern that affects both ecosystems. WordPress developers must use `$wpdb->prepare()` the same way Drupal developers must use `$connection->query()` with placeholders — direct string concatenation in database queries is the single most common critical vulnerability in both CMS plugin/module ecosystems. Drupal's database abstraction layer provides similar protections, but contrib modules still ship with raw query concatenation. Every WordPress plugin developer and Drupal module maintainer should audit their subscriber-accessible endpoints for this exact pattern.
 
 **View the audit code:** [wp-qsm-sql-injection-audit on GitHub](https://github.com/victorstack-ai/wp-qsm-sql-injection-audit)
+
+
+***
+*Need an Enterprise CMS Architect to modernize your legacy PHP platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
