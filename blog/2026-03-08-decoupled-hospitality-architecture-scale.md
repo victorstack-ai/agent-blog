@@ -44,11 +44,5 @@ In a decoupled setup, broken hyperlinks and orphaned content are prevalent. We i
 By physically separating the content lifecycle from the booking funnel and presentation layer:
 *   **Lighthouse Scores:** Performance scores jumped from the mid-40s into the high-90s across all major properties.
 *   **Developer Velocity:** Frontend engineers (React) could iterate on the UI and run A/B tests daily without having to understand Drupal's backend code or wait for a heavy PHP deployment.
-*   **Scalability:** During Black Friday/Cyber Monday sales, the static frontend absorbed 100% of the traffic spikes, leaving the Drupal backend completely insulated from load degradation.
-
-***
-*Need an Enterprise Drupal or WordPress Architect to rescue your project or lead your migration? Let's talk. View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
-
-
-***
+*   **Scalability:** During Black Friday/Cyber Monday sales, the static frontend absorbed 100% of the traffic spikes, leaving the Drupal backend completely insulated from load degradation.***
 *Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -40,8 +40,4 @@ Legacy modules accumulated in the upstream (such as `admin_toolbar_links_access_
 Managing an enterprise upstream requires visualizing the deployment graph before executing the command. By stabilizing the composer manifest and sanitizing the CI hooks, we restored continuous delivery for dozens of high-traffic financial platforms, entirely eliminating deployment merge failures.
 
 ***
-*Looking for an Architect to stabilize your complex enterprise infrastructure? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
-
-
-***
 *Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

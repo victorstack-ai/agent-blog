@@ -40,11 +40,5 @@ A critical edge case occurred when media was physically replaced on the server. 
 
 Implementing targeted cache invalidation bridges the gap between the DevOps team's need for high Cache Hit Ratios and the Marketing team's need for instant content updates. 
 
-By eliminating "stale image" help desk tickets, we removed friction from the publishing workflow and preserved origin server stability.
-
-***
-*Need an Enterprise Drupal or WordPress Architect to rescue your project or lead your migration? Let's talk. View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
-
-
-***
+By eliminating "stale image" help desk tickets, we removed friction from the publishing workflow and preserved origin server stability.***
 *Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -64,12 +64,7 @@ By removing the "environment setup" phase from the sprint cycle:
 
 *   **Recaptured Time:** Saves roughly 4 to 5 hours per developer, per week.
 *   **Reduced Human Error:** Eliminates "I forgot to install that dependency" or "I was working against the wrong database snapshot" errors.
-*   **Accelerated Onboarding:** New contractors can literally click a button and have the enterprise stack running locally without a 3-day initiation process.
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
-
-<script type="application/ld+json">
+*   **Accelerated Onboarding:** New contractors can literally click a button and have the enterprise stack running locally without a 3-day initiation process.<script type="application/ld+json">
   {`
 {
   "@context": "https://schema.org",

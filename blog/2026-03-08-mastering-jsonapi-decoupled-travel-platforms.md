@@ -40,8 +40,4 @@ We integrated a fail-safe into the Gatsby/Next.js static build process. By expos
 Engineered correctly, JSON:API is the backbone of the enterprise open web. By solidifying the reference logic and automating the regression suite, API 500 errors dropped to zero, and the frontend team tripled their feature delivery velocity.
 
 ***
-*Need an Enterprise Drupal Architect who secures your decoupled infrastructure? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or let's connect on LinkedIn.*
-
-
-***
 *Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

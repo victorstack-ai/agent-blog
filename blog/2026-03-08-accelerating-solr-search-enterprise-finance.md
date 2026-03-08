@@ -43,11 +43,5 @@ Following deployment to production:
 *   **Infrastructure Costs:** We were able to scale down the Solr cluster by one tier, saving significant monthly OPEX.
 *   **User Engagement:** Analytical tracking showed a 35% increase in successfully downloaded reports, as researchers no longer abandoned sluggish search queries.
 
-Performance tuning at an enterprise scale is rarely about throwing more RAM at a server; it's about meticulously pruning the data pipeline between the CMS and the search engine.
-
-***
-*Need an Enterprise Drupal or WordPress Architect to rescue your project or lead your migration? Let's talk. View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
-
-
-***
+Performance tuning at an enterprise scale is rarely about throwing more RAM at a server; it's about meticulously pruning the data pipeline between the CMS and the search engine.***
 *Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -41,11 +41,5 @@ We engineered the `composer.json` scaffolding scripts to intentionally disable o
 
 ## The ROI of Syntax Automation
 
-By shifting validation to the extreme left—right at the point of the commit—we dropped CI failure rates due to syntax by 98%. Senior architects spend their time reviewing business logic and security vectors, rather than leaving comments about line-length limits.
-
-***
-*Need an Enterprise Architect to optimize your team's throughput? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
-
-
-***
+By shifting validation to the extreme left—right at the point of the commit—we dropped CI failure rates due to syntax by 98%. Senior architects spend their time reviewing business logic and security vectors, rather than leaving comments about line-length limits.***
 *Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

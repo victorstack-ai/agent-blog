@@ -41,8 +41,4 @@ If the visual diff returns a 0% variance, the pipeline automatically flags the s
 By replacing human coordination with immutable CI/CD logic, we reduced the organization's average "Time to Patch" from 72 hours down to just under 45 minutes across the entire fleet. Security at scale is not about working faster; it's about removing humans from the critical path.
 
 ***
-*Need an Enterprise Drupal Architect who secures your infrastructure? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or let's connect on LinkedIn.*
-
-
-***
 *Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

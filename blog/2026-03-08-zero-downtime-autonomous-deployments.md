@@ -55,12 +55,7 @@ By enforcing AI-driven visual QA alongside code-level CI:
 
 *   **Confident Deployments:** We enabled high-confidence Friday deployments. If the Playwright agent passes the staging replication, production deploys proceed automatically.
 *   **Eliminated the QA Bottleneck:** Reduced regression testing cycles from 4 hours of manual labor to under 5 minutes of automated parallel verification.
-*   **Cross-Site Consistency:** For organizations running 50+ localized sites on a single master CMS branch, the agent verifies all 50 sites simultaneously—a task impossible for manual QA resources.
-
-***
-*Looking for an Architect who builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
-
-<script type="application/ld+json">
+*   **Cross-Site Consistency:** For organizations running 50+ localized sites on a single master CMS branch, the agent verifies all 50 sites simultaneously—a task impossible for manual QA resources.<script type="application/ld+json">
   {`
 {
   "@context": "https://schema.org",

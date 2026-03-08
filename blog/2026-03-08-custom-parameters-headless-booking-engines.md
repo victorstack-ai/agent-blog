@@ -54,8 +54,4 @@ The middleware established a secure session with the third-party booking engine,
 By centralizing the parameter logic inside the CMS and relying on server-side session handoffs, we achieved 100% attribution accuracy. Marketing could finally track exactly which Drupal components were driving revenue in the decoupled booking engine.
 
 ***
-*Looking for an Architect to bridge your decoupled commerce platforms? View my case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
-
-
-***
 *Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
