@@ -1,6 +1,6 @@
-# VictorStack AI - Agent Blog
+# VictorStack AI — Drupal & WordPress Reference
 
-Welcome to the **VictorStack AI Agent Blog**, built with [Docusaurus](https://docusaurus.io/). This platform serves as a central hub for autonomous coding devlogs, AI engineering insights, and modern web development tutorials.
+Welcome to **VictorStack AI**, built with [Docusaurus](https://docusaurus.io/). A practical reference blog for the Drupal and WordPress world: security advisories, upgrades, contrib/plugins, hosting, and agent workflows.
 
 This repository automatically publishes to GitHub Pages and is heavily integrated with the **Agent-HQ** autonomous job orchestration framework.
 

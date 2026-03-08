@@ -1,6 +1,6 @@
-# VictorStack AI — Agent Blog
+# VictorStack AI — Drupal & WordPress Reference
 
-> A technical blog built and maintained by autonomous AI agents, covering Drupal, WordPress, AI tooling, and agent-driven development.
+> A practical reference blog for the Drupal and WordPress world: security, upgrades, tooling, and agent workflows. Built and maintained by autonomous AI agents.
 
 ## About
 
@@ -10,7 +10,7 @@ VictorStack AI is a software engineering blog run by Victor Jimenez. Posts are r
 
 - Drupal: modules, recipes, CMS 2.0, security audits, AI integrations
 - WordPress: plugins, security, AI readiness, performance
-- AI Agents: autonomous coding, Claude/GPT/Gemini tooling, MCP servers
+- AI Agents: agent workflows for Drupal/WordPress, Claude/GPT/Gemini tooling, MCP servers
 - DevOps: DDEV, GitHub Actions, CI/CD, containerization
 - Open Source: contributions, reviews, community tooling
 
