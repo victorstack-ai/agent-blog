@@ -20,24 +20,74 @@ The core challenge was translating deeply nested Drupal content structures (e.g.
 
 When the built-in Drupal JSON:API attempts to resolve an entity reference that has been deleted or unpublished (like an inactive `field_hotel_reference`), it can trigger fatal errors in the normalization pipeline, cascading into 500 Internal Server Errors for the decoupled application.
 
+```mermaid
+graph TD
+    A[Gatsby/Next.js Consumer] --> B{JSON:API Edge}
+    B -- "Unresolved Ref" --> C[Default Normalizer]
+    C -- "Throws LogicException" --> D[500 Error]
+    B -- "Hardened Ref" --> E[Custom Normalizer]
+    E -- "Drops Orphan" --> F[200 OK + Partial Data]
+    F --> G[Frontend Resilience Layer]
+```
+
 ## The Solution: Strict Schema Enforcement and Regression Suites
 
 Instead of patching the frontend to "handle nulls," we hardened the API layer itself.
 
-### 1. Robust Reference Handling
-We wrote custom API normalizers to catch missing or unpublished entity references gracefully. If a location referenced a hotel that was taken offline, the API stripped the reference from the payload rather than failing the entire request. 
+### 1. Robust Reference Handling (The "Zero-500" Normalizer)
+We implemented a custom normalizer decorator that intercepts all `EntityReferenceFieldItem` objects. If the target entity is missing, it returns a `null` value instead of allowing the core normalizer to attempt an unauthorized or impossible load.
+
+```php
+// Custom normalizer preventing 500s on orphaned references
+public function normalize($object, $format = null, array $context = []) {
+  $attributes = parent::normalize($object, $format, $context);
+  
+  // Guard clause for unpublished/missing entity references
+  if ($object->getFieldDefinition()->getType() === 'entity_reference') {
+    $entity = $object->entity;
+    if (!$entity || !$entity->isPublished()) {
+      return null; // Gracefully drop the reference
+    }
+  }
+  
+  return $attributes;
+}
+```
 
 ### 2. Comprehensive API Regression Testing
-To ensure stability, we didn't just write unit tests. We integrated a full suite of API regression tests covering all JSON:API endpoints.
-*   **Snapshot Testing:** We pulled live JSON snapshots from the staging environment and used them as baseline assertions.
-*   **Authentication Mocks:** We implemented per-endpoint schemas to validate payloads for both authenticated app users and anonymous web traffic.
+To ensure stability, we integrated a full suite of API regression tests using Playwright. This ensures that even as the Drupal schema evolves, the "Contract" between backend and frontend remains intact.
 
-### 3. Static Build Resilience
-We integrated a fail-safe into the Gatsby/Next.js static build process. By exposing an `/autocomplete` endpoint alongside the main data payloads, the build system could query available terms quickly and build pages progressively, avoiding massive timeouts when requesting full entity graphs.
+```typescript
+// Playwright API Schema Validation
+test('Cruise endpoint returns valid schema', async ({ request }) => {
+  const response = await request.get('/jsonapi/node/cruise');
+  const body = await response.json();
+  
+  expect(response.ok()).toBeTruthy();
+  // highlight-next-line
+  expect(body.data).toEqual(expect.arrayContaining([
+    expect.objectContaining({
+      type: 'node--cruise',
+      attributes: expect.objectContaining({
+        title: expect.any(String),
+        field_cruise_id: expect.any(String)
+      })
+    })
+  ]));
+});
+```
 
-## The Impact
+## Advanced Optimization: Sparse Fieldsets and Query Complexity
 
-Engineered correctly, JSON:API is the backbone of the enterprise open web. By solidifying the reference logic and automating the regression suite, API 500 errors dropped to zero, and the frontend team tripled their feature delivery velocity.
+In enterprise travel data, payloads can be massive. We utilized **Sparse Fieldsets** to reduce bandwidth and memory overhead. Instead of requesting the full entity, the frontend specifies exactly which fields it requires:
+
+`GET /jsonapi/node/cruise?fields[node--cruise]=title,field_price,field_dates`
+
+Additionally, we implemented the **Query Complexity** gate. If a frontend developer attempts to perform a query with too many `include` parameters (e.g., nesting depth > 3), the API returns a 400 Bad Request. This prevents "Denial of Service by Query" where complex recursive inclusions would otherwise exhaust PHP memory limits.
+
+## Security: Sanitizing the Data Stream
+
+A critical enterprise requirement is ensuring PII (Personally Identifiable Information) never leaks into public JSON:API streams. We utilized Drupal's access control layer to ensure that even if a field is "exposed" via the API, the current user (typically an anonymous frontend "consumer" user) has zero view permissions for sensitive fields like internal hotel contact numbers or guest ID numbers.
 
 ***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
+*Need an Enterprise Drupal Architect who specializes in high-availability decoupled systems? View my Open Source work on [Project Context Connector](https://github.com/victorjimenezdev/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*
