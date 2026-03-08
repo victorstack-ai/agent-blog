@@ -41,9 +41,28 @@ jobs:
 
       - name: Validate blog content
         run: |
-          BAD=' @theme/'
-          if grep -r "$BAD" blog/ 2>/dev/null; then
-            echo "::error::Invalid MDX import: space before @theme (e.g. ' @theme/Tabs') breaks the build. Fix: remove the space so it is '@theme/Tabs'. From agent-hq run: python jobs/sanitize_blog_repo.py"
+          ERRORS=0
+
+          # Check 1: Space before @theme import (breaks Docusaurus MDX loader)
+          if grep -r "' @theme/" blog/ 2>/dev/null || grep -r '" @theme/' blog/ 2>/dev/null; then
+            echo "::error::Invalid MDX import: space before @theme breaks the build. Fix: remove the space."
+            ERRORS=$((ERRORS + 1))
+          fi
+
+          # Check 2: <script> tags (MDX doesn't support them, JSX syntax inside crashes the compiler)
+          if grep -rli '<script' blog/ 2>/dev/null; then
+            echo "::error::Blog posts contain <script> tags — MDX does not support them. Remove all <script>...</script> blocks."
+            ERRORS=$((ERRORS + 1))
+          fi
+
+          # Check 3: <style> tags (same issue)
+          if grep -rli '<style' blog/ 2>/dev/null; then
+            echo "::error::Blog posts contain <style> tags — MDX does not support them."
+            ERRORS=$((ERRORS + 1))
+          fi
+
+          if [ "$ERRORS" -gt 0 ]; then
+            echo "::error::Blog content validation failed with $ERRORS error(s)."
             exit 1
           fi
           echo "Blog content validation passed."
