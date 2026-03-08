@@ -16,6 +16,16 @@ In a recent architecture overhaul for a major international development organiza
 
 Query execution times were spiking over 3 seconds during peak traffic hours, rendering the "Knowledge Center" unusable for researchers.
 
+```mermaid
+graph LR
+    A[User Query] --> B[Decoupled Search UI]
+    B -->|Async Request| C[Edge Cache / Memcache]
+    C -- "Miss" --> D[Apache Solr Cluster]
+    D -->|Faceted Results| C
+    C -- "Hit" --> B
+    E[Drupal Origin] -->|Flattened Sync| D
+```
+
 ## The Architecture Bottleneck
 
 The existing implementation utilized Drupal's `search_api_solr` module in a standard configuration. While adequate for smaller datasets, it failed at enterprise scale due to:
@@ -28,20 +38,54 @@ The existing implementation utilized Drupal's `search_api_solr` module in a stan
 Rather than simply provisioning larger AWS instances, we implemented a software-level optimization strategy focusing on indexing efficiency and query offloading.
 
 ### 1. Index Pruning and Entity Resolution
-We audited the `search_api` index configuration. By writing custom data alterations (`hook_search_api_index_items_alter`), we stripped out non-essential paragraph entities and heavy HTML blob fields. We flattened nested references at index-time, ensuring Solr only stored lightweight, pre-processed text payloads instead of having Drupal render entities on the fly during indexing.
+
+We audited the `search_api` index configuration. By writing custom data alterations, we stripped out non-essential metadata.
+
+```php
+/**
+ * Prune unnecessary Paragraph entities from Solr Index.
+ */
+function my_module_search_api_index_items_alter(IndexInterface $index, array &$items) {
+  foreach ($items as $item_id => $item) {
+    // Drop revision history and administrative tracking fields from the index
+    $item->setField('revision_log', []);
+    $item->setField('field_internal_admin_notes', []);
+    
+    // Flatten nested locations into a single multi-value string 
+    // to avoid Solr Join queries
+    $flattened = $item->getFieldValue('field_location_coordinates');
+    // ... logic to simplify data ...
+  }
+}
+```
 
 ### 2. Memcache-Backed Facet Caching
-Faceted search dynamically filters results (e.g., "Show me reports from 2025, in Peru, regarding Water Infrastructure"). Calculating these counts on every keystroke destroys database performance. We implemented aggressive facet caching using Memcached, storing the facet permutations for 15 minutes. This immediately reduced backend load by 40%.
 
-### 3. Asynchronous Rendering
-Instead of relying on Drupal to render complex teaser view modes for every search result synchronously, we returned lightweight JSON from Solr and dehydrated the results using a decoupled React component on the frontend. The rendering workload was pushed to the client's browser, bypassing Drupal's heavy theme registry.
+Faceted search dynamically filters results. Calculating these counts on every keystroke destroys database performance. We implemented aggressive facet caching using Memcached.
+
+```php
+// Backend implementation of Facet Result Caching
+public function getCachedFacets($query_hash) {
+  $cache = \Drupal::cache('search_api_facets')->get($query_hash);
+  if ($cache) {
+    return $cache->data; // Instant sub-millisecond return
+  }
+  
+  $results = $this->calculateFacetsFromSolr();
+  \Drupal::cache('search_api_facets')->set($query_hash, $results, Cache::PERMANENT, ['search_api_list']);
+  return $results;
+}
+```
+
+## Semantic Language Tokenization
+
+To handle English, Spanish, and French in a single index without quality loss, we replaced standard tokenizers with language-specific **Stemming** and **Stop-word filters** within the `schema.xml`. This ensures that a search for "investición" correctly maps to "invest" in Spanish without polluting the English search results for the same stem.
 
 ## The Outcome
 
 Following deployment to production:
 *   **Query Time:** Average search response time dropped from ~3,200ms to **140ms**.
 *   **Infrastructure Costs:** We were able to scale down the Solr cluster by one tier, saving significant monthly OPEX.
-*   **User Engagement:** Analytical tracking showed a 35% increase in successfully downloaded reports, as researchers no longer abandoned sluggish search queries.
 
-Performance tuning at an enterprise scale is rarely about throwing more RAM at a server; it's about meticulously pruning the data pipeline between the CMS and the search engine.***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
+***
+*Need an Enterprise Drupal Architect who specializes in high-scale search performance? View my Open Source work on [Project Context Connector](https://github.com/victorjimenezdev/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*

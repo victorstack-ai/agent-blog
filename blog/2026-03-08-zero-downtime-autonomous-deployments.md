@@ -18,6 +18,16 @@ If a team deploys a decoupled headless architecture update, standard unit tests 
 
 This is where traditional CI stops, and Agentic QA begins.
 
+```mermaid
+graph TD
+    A[GitLab CI Success] -->|Webhook| B[Agent Orchestrator]
+    B -->|CLI| C[Infra Alignment: Purge Cache]
+    C -->|Puppeteer/Playwright| D[Global Edge Testing]
+    D -->|Vision API| E[Visual Drift Analysis]
+    E -->|Pass| F[Auto-Promote to Prod]
+    E -->|Fail| G[Slack / Jira Alert]
+```
+
 ## The Problem with Purely Scripted Pipelines
 
 Standard Jenkins or GitLab CI pipelines verify that code compiles cleanly and unit tests pass. However, they lack the contextual awareness to examine the *rendered page state*. This forces companies to rely on human QA teams to manually verify critical paths like Login, Search, and Checkout workflows after every deployment.
@@ -36,18 +46,39 @@ When GitHub Actions or GitLab CI successfully completes a deployment to a Stagin
 
 The first task the agent performs is infrastructure alignment. For Drupal or WordPress platforms running behind Varnish or Cloudflare, stale cache guarantees false negative tests.
 
-The agent automatically authenticates via CLI tools (e.g., `terminus env:clear-cache` for Pantheon, or `drush cr` for standardized VPS hosts) to ensure the environment is pristine before testing begins.
+The agent automatically authenticates via CLI tools to ensure the environment is pristine.
+
+```bash
+# Automated Cache Invalidation via CLI
+terminus env:clear-cache $SITE.$ENV
+lando drush cr
+cloudflare-cli purge --zone $ZONE_ID --all
+```
 
 ### Step 3: Visual and Functional Verification
 
 Here is the differentiation point: instead of simple `curl` status checks, the orchestrator spawns headless Chrome instances globally using Playwright. 
 
-The agent is pre-programmed with the "Critical Paths" of the enterprise application:
-*   Can a test user successfully authenticate against an external SAML Identity Provider?
-*   Does the decoupled React frontend successfully pull the new JSON:API schema from Drupal?
-*   Are key visually-styled components (like a mega-menu or hero slider) rendering without massive CSS regressions?
+```javascript
+// Playwright: Automated Multi-Site Verification
+test('Verify Decoupled Component Render across Regionals', async ({ page }) => {
+  const regionalSites = ['en-us', 'es-mx', 'fr-fr', 'de-de'];
+  for (const site of regionalSites) {
+    await page.goto(`https://${site}.brand.com/booking`);
+    // highlight-next-line
+    const component = page.locator('.booking-masthead-v2');
+    await expect(component).toBeVisible({ timeout: 10000 });
+    
+    // Functional check: Does the API respond?
+    const apiResponse = await page.waitForResponse(res => res.url().includes('/jsonapi/'));
+    expect(apiResponse.status()).toBe(200);
+  }
+});
+```
 
-By piping the Playwright screenshots through a fast Vision LLM module, the system can instantly flag visual drift or broken layouts that traditional DOM scrapers gloss over.
+## Vision LLM Regression Detection
+
+By piping the Playwright screenshots through a fast Vision LLM module, the system can instantly flag visual drift or broken layouts (like a hero banner covering the "Book Now" button) that traditional DOM scrapers gloss over.
 
 ## Business Impact
 

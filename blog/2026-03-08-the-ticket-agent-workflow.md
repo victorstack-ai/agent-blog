@@ -22,39 +22,72 @@ Instead of relying on fragile Jira API webhooks or requiring developers to conte
 
 The result? You click one button on a Jira ticket, watch a progress bar for 30 seconds, and your local environment is running with the correct CMS branch, database, and scaffolded module boilerplate matching the ticket's Acceptance Criteria.
 
+```mermaid
+graph LR
+    A[Jira Tab] -->|Content Script| B[JSON Payload]
+    B -->|Local Request| C[Node.js Orchestrator]
+    C -->|Secure API| D[LLM Analysis]
+    D -->|Strict JSON| C
+    C -->|Shell Exec| E[Local Dev Environment]
+    E -->|Success| F[IDE Ready]
+```
+
 ## Architecture Deep Dive
 
 ### Step 1: DOM Extraction (No Jira API Tokens Required)
 
 Enterprise Jira instances are heavily locked down. Requesting API tokens for custom scripts is often an IT security nightmare. My Chrome Extension sidesteps this entirely.
 
-Because the developer is already authenticated in their browser session, the Extension uses a content script to scrape the DOM directly. It extracts the ticket Summary, Description, and Acceptance Criteria. This approach requires zero API keys and keeps all proprietary data within the local machine's memory context.
+Because the developer is already authenticated in their browser session, the Extension uses a content script to scrape the DOM directly.
 
-### Step 2: Strict LLM Processing
+```javascript
+// Lightweight Scraper logic for Atlassian Jira
+async function scrapeJiraContext() {
+  const summary = document.querySelector('[data-test-id="issue.views.issue-base.foundation.summary.heading"]')?.innerText;
+  const description = document.querySelector('[data-test-id="issue.views.field.rich-text.description"]')?.innerText;
+  const criteria = [...document.querySelectorAll('.ak-renderer-extension')].map(el => el.innerText).join('\n');
+
+  return { summary, description, criteria };
+}
+```
+
+### Step 2: Strict LLM Processing & Schema Refinement
 
 The raw scraped text is messy. It contains Jira macro formatting, irrelevant comments, and ambiguous instructions. The Chrome Extension sends this text payload to a local Node.js endpoint which routes it to an LLM (typically a highly-quantized local model or a secure enterprise API).
 
 **The LLM's strict directive:**
-Output *only* a rigid JSON schema representing the technical requirements. For example, it detects if the project involves Drupal 10 or WordPress 6, identifies any required contrib plugins mentioned in the requirements, and parses out the target feature branch name.
+Output *only* a rigid JSON schema representing the technical requirements.
 
 ```json
 {
   "project_type": "drupal10",
   "branch_name": "feature/PROJ-1234-decoupled-search",
   "dependencies": ["search_api_solr"],
-  "scaffold_module": "custom_search_enhancer"
+  "scaffold_module": "custom_search_enhancer",
+  "confidence_score": 0.98
 }
 ```
 
 ### Step 3: Execution (The Magic)
 
-With a strict JSON payload, the local Node.js worker executes deterministic shell commands.
+With a strict JSON payload, the local Node.js worker executes deterministic shell commands using a child-process wrapper.
 
-1. **`git checkout -b feature/PROJ-1234-decoupled-search`**: Creates the branch automatically.
-2. **`lando start` or `ddev start`**: Spins up the required containers.
-3. **Database Syncing**: Pulls the sanitized nightly database snapshot from the appropriate environment.
-4. **`composer require drupal/search_api_solr`**: Installs identified dependencies.
-5. **Boilerplate Scaffolding**: Uses Drush or WP-CLI to generate the `.module` or `plugin.php` framework.
+```javascript
+// Node.js Execution Wrapper (Abstraction)
+async function provisionEnvironment(config) {
+  const commands = [
+    `git checkout -b ${config.branch_name}`,
+    `lando start`,
+    `lando drupal-sync-db`,
+    `lando composer require drupal/${config.dependencies[0]}`
+  ];
+
+  for (const cmd of commands) {
+    console.log(`Executing: ${cmd}`);
+    await execShellCommand(cmd);
+  }
+}
+```
 
 The developer's terminal pops up, runs the sequence, and drops them directly into a ready state.
 
