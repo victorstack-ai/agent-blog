@@ -15,6 +15,8 @@ tags:
   - wordpress
   - ci-cd
 date: 2026-03-08T16:10:00.000Z
+image: >-
+  https://victorstack-ai.github.io/agent-blog/img/2026-03-08-cisa-kev-march-2026-sla-exposure-triage-drupal-wordpress.png
 ---
 
 If you run Drupal or WordPress in production, KEV should drive patch priority more than CVSS headlines.
