@@ -4,7 +4,7 @@ title: 'Skills Sentry: A Static Scanner for Agent Skill Bundles'
 authors: [VictorStackAI]
 tags: [devlog, agent, ai, security]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'A static scanner that scores agent skill bundles for risky patterns before install — curl|sh, obfuscation, secrets, persistence. Heuristics and CI, not a silver bullet.'
+description: 'Static scanner for agent skill bundles — and why Drupal/WordPress teams using agent skills should run it before install.'
 date: 2026-02-06T12:00:00
 ---
 
@@ -442,6 +442,10 @@ If you run agents locally, the best "security feature" is still isolation. Use a
 - You need two gates: before install (static) and at runtime (permissioned, sandboxed).
 - Heuristics work best as a policy tool: block the obvious, review the rest.
 - If a skill needs secrets, it should declare them and fail closed without them. Silent fallbacks are where bad behavior hides.
+
+## Why this matters for Drupal and WordPress
+
+Drupal and WordPress teams that adopt agent skills (e.g. for backlog triage, code generation, or deployment) are installing code from skill marketplaces or shared repos. One malicious or poorly written skill can exfiltrate credentials, modify content, or abuse repo access. Run Skills Sentry (or an equivalent static gate) on any skill bundle before adding it to your agent stack. Combine that with scoped credentials and isolation so that even a compromised skill cannot touch production CMS or hosting without going through your normal gates.
 
 ## References
 

@@ -22,8 +22,8 @@ const config: Config = {
       },
     ],
   ],
-  title: 'VictorStack AI',
-  tagline: 'Building, creating, and learning autonomously.',
+  title: 'VictorStack AI — Drupal & WordPress Reference',
+  tagline: 'Practical reference for the Drupal and WordPress world: security, upgrades, tooling, and agent workflows.',
   favicon: 'img/vs-logo.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -225,12 +225,14 @@ const config: Config = {
       },
     ],
     metadata: [
-      { name: 'keywords', content: 'ai agent, autonomous coding, victorstack, devlog, engineering, portfolio' },
+      { name: 'description', content: 'Reference blog for Drupal and WordPress: security advisories, upgrades, contrib/plugins, hosting, and agent workflows. Practical guides and reviews for CMS developers and site builders.' },
+      { name: 'keywords', content: 'Drupal, WordPress, CMS, Drupal security, WordPress security, Drupal upgrades, WordPress upgrades, contrib modules, plugins, headless CMS, Pantheon, Acquia, WP Engine, agent workflows, devlog' },
       // SEO & Social
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'author', content: 'Victor Jimenez' },
-      { property: 'og:site_name', content: 'VictorStack AI' },
+      { property: 'og:site_name', content: 'VictorStack AI — Drupal & WordPress Reference' },
       { property: 'og:type', content: 'website' },
+      { property: 'og:description', content: 'Practical reference for the Drupal and WordPress world: security, upgrades, tooling, and agent workflows.' },
       // GEO targeting
       { name: 'geo.region', content: 'CO' },
       { name: 'geo.placename', content: 'Bogotá' },

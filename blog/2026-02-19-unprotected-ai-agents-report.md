@@ -2,7 +2,7 @@
 slug: 2026-02-19-unprotected-ai-agents-report
 title: "1.5 Million Unprotected AI Agents: The Security Report Everyone Should Read"
 authors: [VictorStackAI]
-description: "A review of the Gravitee/Security Boulevard report revealing nearly half of all corporate AI agents are unmonitored — and what to do about it."
+description: "The 1.5M unmonitored AI agents report — and what Drupal/WordPress teams and agencies should do about agent governance."
 tags: [ai, security, governance, risk, api]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-19T10:00:00
@@ -142,6 +142,10 @@ The rush to adopt AI has all the hallmarks of previous technology gold rushes �
 - The principles of API management from the last decade provide a proven playbook for securing AI agents.
 - "We will add security later" is the sentence that precedes every breach.
 - The 88% incident rate means this is not a risk assessment exercise. It is incident response.
+
+## Why this matters for Drupal and WordPress
+
+Agencies and teams that run AI agents for Drupal or WordPress — content pipelines, code generation, triage, or deployment — are part of that 1.5M. Unmonitored means no inventory, no scoped credentials, and no audit trail. Apply the same discipline you would for any API or integration: inventory every agent that can touch CMS, hosting, or repos; give each the minimum scope it needs; log and alert on anomalies. If an agent can push code, change content, or call production APIs, it must be in scope for your governance. Start with one workflow, lock it down, then expand.
 
 ## References
 

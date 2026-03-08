@@ -10,8 +10,8 @@ tags:
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-05-google-workspace-cli-is-real-agent-infrastructure-not-anothe.png
 description: >-
-  A technical review of Google Workspace CLI: discovery-driven API coverage,
-  agent skills, CI/CD usage, and operational risks.
+  Google Workspace CLI as real agent infrastructure — and how Drupal/WordPress
+  agencies can use it for content and ops automation.
 date: 2026-03-05T09:32:00.000Z
 ---
 
@@ -93,6 +93,10 @@ If one agent credential has broad Gmail, Drive, Admin, and Chat scopes, a prompt
 :::danger[Indirect prompt injection is a real operational risk]
 Workspace content is untrusted input. A malicious doc or email can instruct an agent to perform unrelated actions unless tool-call policy is constrained. Put model-output guardrails in front of execution: allowlisted commands, argument validation, and approval gates for state-changing operations.
 :::
+
+## Why this matters for Drupal and WordPress
+
+Agencies and teams that run Drupal or WordPress often rely on Gmail, Drive, and Calendar for client work, content handoffs, and ops. Replacing brittle custom scripts with a single CLI that emits structured JSON makes agent-driven workflows (content pipelines, triage, reporting) easier to automate and to secure. Use Workspace CLI for the parts that touch Google; keep Drupal/WordPress (and their APIs) as the source of truth for site content. Split credentials by scope so a compromised agent cannot cross from Workspace into deployment or repo access.
 
 ## Bottom Line
 
