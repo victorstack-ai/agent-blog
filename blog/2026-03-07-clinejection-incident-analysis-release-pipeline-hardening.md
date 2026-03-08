@@ -46,21 +46,21 @@ The key lesson is architectural:
 - It only needed to influence a privileged automation path enough to pivot into release infrastructure.
 - After that, release-token governance became the decisive control.
 
-This matches OWASP’s 2025 framing of prompt injection: not a “chat safety bug,” but a control-plane risk when models can influence tool execution and downstream systems.
+This matches OWASP's 2025 framing of prompt injection: not a "chat safety bug," but a control-plane risk when models can influence tool execution and downstream systems.
 
 ## Where Pipelines Usually Break
 
 For WordPress plugin and Drupal module teams, the recurring failure points look familiar:
 
 1. Agent workflows and release workflows share trust surfaces (cache, artifacts, or permissions).
-2. Long-lived publish tokens are still present, even after teams “migrate” partway to OIDC.
+2. Long-lived publish tokens are still present, even after teams "migrate" partway to OIDC.
 3. Workflow permissions are broader than necessary.
 4. Untrusted content (issues, PR text, docs, changelogs) is treated as safe context for high-agency jobs.
-5. Incident response rotates “a token,” but not the complete credential graph.
+5. Incident response rotates "a token," but not the complete credential graph.
 
 ## Release-Pipeline Hardening Baseline (WordPress/Drupal)
 
-This is the practical baseline I’d apply now.
+This is the practical baseline I'd apply now.
 
 ### 1) Split Untrusted AI Jobs From Release Jobs
 
@@ -87,7 +87,7 @@ This is the practical baseline I’d apply now.
 
 - Agent-generated output can propose changes.
 - Humans approve release promotion, publish commands, and production deploys.
-- No autonomous “issue text to release” path.
+- No autonomous "issue text to release" path.
 
 ### 6) Treat Agent Inputs as Hostile by Default
 
@@ -119,11 +119,11 @@ Then design your release architecture so that those assumptions still do not pro
 4. Migrate npm publishing to OIDC trusted publishing and revoke legacy write tokens.
 5. Add release gate checks for provenance and expected publisher identity.
 6. Require manual approval for release/publish jobs.
-7. Run one tabletop incident drill: “prompt-injected issue to package publish.”
+7. Run one tabletop incident drill: "prompt-injected issue to package publish."
 
 ## Bottom Line
 
-Clinejection was not just “an AI mistake.” It was a release-engineering warning shot:
+Clinejection was not just "an AI mistake." It was a release-engineering warning shot:
 
 - AI-facing workflows are part of your software supply chain.
 - Prompt injection is a realistic trigger.

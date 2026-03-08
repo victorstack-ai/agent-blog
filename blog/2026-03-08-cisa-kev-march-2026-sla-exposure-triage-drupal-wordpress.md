@@ -27,7 +27,7 @@ As of **March 5, 2026** (catalog version `2026.03.05`), CISA added seven CVEs in
 
 ## March 2026 KEV Additions (What Changed)
 
-From CISA’s KEV feed, March additions are:
+From CISA's KEV feed, March additions are:
 
 - **2026-03-03**: `CVE-2026-22719` (Broadcom VMware Aria Operations), `CVE-2026-21385` (Qualcomm chipsets), due **2026-03-24**
 - **2026-03-05**: `CVE-2017-7921` (Hikvision), `CVE-2021-22681` (Rockwell), `CVE-2023-43000` (Apple), `CVE-2021-30952` (Apple), `CVE-2023-41974` (Apple), due **2026-03-26**

@@ -145,7 +145,7 @@ OIDC plus short-lived credentials is the fastest risk reduction move in CI/CD. S
 
 ## Why this matters for Drupal and WordPress
 
-Drupal and WordPress deployments often run on platform or agency CI: Pantheon, Acquia, WP Engine, or custom pipelines that build, test, and deploy sites and contrib/plugins. Those pipelines need DB credentials, API keys, and sometimes Vault (or similar) for secrets. Multi-tenant or multi-team setups suffer the same sprawl — shared namespaces, long-lived tokens in GitHub Actions or GitLab CI, and no clear path ownership. Applying this governance model (OIDC for CI, team-scoped paths, policy-as-code, rotation SLAs as CI gates) reduces risk for any team that deploys Drupal/WordPress from CI. If you maintain contrib modules or plugins and use a shared secrets store, push for identity-based access and required rotation metadata so one leaked token doesn’t expose every site or environment.
+Drupal and WordPress deployments often run on platform or agency CI: Pantheon, Acquia, WP Engine, or custom pipelines that build, test, and deploy sites and contrib/plugins. Those pipelines need DB credentials, API keys, and sometimes Vault (or similar) for secrets. Multi-tenant or multi-team setups suffer the same sprawl — shared namespaces, long-lived tokens in GitHub Actions or GitLab CI, and no clear path ownership. Applying this governance model (OIDC for CI, team-scoped paths, policy-as-code, rotation SLAs as CI gates) reduces risk for any team that deploys Drupal/WordPress from CI. If you maintain contrib modules or plugins and use a shared secrets store, push for identity-based access and required rotation metadata so one leaked token doesn't expose every site or environment.
 
 ## What I learned
 

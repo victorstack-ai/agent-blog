@@ -13,7 +13,7 @@ tags:
   - release-management
   - devops
 description: >-
-  Pantheon’s March 6, 2026 Drupal CMS upstream update moves new installs to
+  Pantheon's March 6, 2026 Drupal CMS upstream update moves new installs to
   Drupal CMS 2 while existing sites remain unchanged. Here is the real
   breaking-change surface, safe update sequencing, and a deployment checklist
   for managed Drupal teams.
@@ -32,13 +32,13 @@ From Pantheon and Drupal.org sources:
 - Pantheon updated the Drupal CMS upstream to version 2 for newly created sites.
 - Existing Drupal CMS sites require deliberate upgrade work and validation.
 - CMS 2 introduces architectural shifts, including Canvas as default editing UX and the Byte site template.
-- Pantheon’s Drupal CMS guidance flags concrete break risks for 1.x to 2.0 upgrades.
+- Pantheon's Drupal CMS guidance flags concrete break risks for 1.x to 2.0 upgrades.
 
 The important point: this is not a patch-level update. Treat it as a controlled migration.
 
 ## Breaking-Change Surface You Need to Map First
 
-Pantheon’s own Drupal CMS doc calls out the highest-risk breaks for CMS 1.x sites:
+Pantheon's own Drupal CMS doc calls out the highest-risk breaks for CMS 1.x sites:
 
 - `drupal_cms_olivero` is removed and replaced by `byte`; post-upgrade, unresolved theme config can trigger missing theme errors.
 - Several content-type recipe packages are replaced by `drupal_cms_site_template_base`.
@@ -64,7 +64,7 @@ The safest order is environment-first and evidence-driven:
 6. Validate editor workflows (Canvas, content creation, revisions), not just homepage rendering.
 7. Merge to Dev only with explicit rollback criteria and owner sign-off.
 
-This sequencing aligns with Pantheon’s Multidev-first guidance and reduces production surprise.
+This sequencing aligns with Pantheon's Multidev-first guidance and reduces production surprise.
 
 ## Deployment Checklist
 
@@ -93,7 +93,7 @@ That process is reusable across Drupal and WordPress estates, even when only one
 
 ## Bottom Line
 
-Pantheon’s Drupal CMS 2 upstream update is a positive move for new builds, but for existing managed Drupal estates it is a migration event, not a maintenance click. The teams that avoid incidents will be the ones that map the breaking surface early, run Multidev-first sequencing, and enforce a release gate that checks content and editor workflows, not only code deploy success.
+Pantheon's Drupal CMS 2 upstream update is a positive move for new builds, but for existing managed Drupal estates it is a migration event, not a maintenance click. The teams that avoid incidents will be the ones that map the breaking surface early, run Multidev-first sequencing, and enforce a release gate that checks content and editor workflows, not only code deploy success.
 
 ## Sources
 

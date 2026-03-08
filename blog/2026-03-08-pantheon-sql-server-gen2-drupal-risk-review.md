@@ -22,11 +22,11 @@ image: >-
 
 Pantheon published a release note on **March 6, 2026** announcing SQL Server connectivity improvements for PHP Runtime Generation 2: native `sqlsrv` and `pdo_sqlsrv` (PECL `5.13.0`) for PHP 8.3/8.4, plus Microsoft ODBC Drivers 17 and 18 for PHP 8.2+.
 
-For teams running Drupal with SQL Server backends, this is meaningful. It changes both the connection path options and the failure modes you need to test before Pantheon’s Generation 1 removal window in **April 2026**.
+For teams running Drupal with SQL Server backends, this is meaningful. It changes both the connection path options and the failure modes you need to test before Pantheon's Generation 1 removal window in **April 2026**.
 
 ## What Actually Changed
 
-According to Pantheon’s release note and Gen 2 docs:
+According to Pantheon's release note and Gen 2 docs:
 
 - `sqlsrv` and `pdo_sqlsrv` are now available on Gen 2 for PHP 8.3+ (v5.13.0).
 - Microsoft ODBC Driver 17 and 18 are installed for PHP 8.2+.
@@ -39,8 +39,8 @@ This means SQL Server-connected workloads are no longer limited to the previous 
 The Drupal SQL Server contrib driver (`drupal/sqlsrv`) currently targets Drupal 10.3/11 and has stable 5.0.x releases with PHP 8.1+ requirements. That is helpful, but you still need environment-level validation because:
 
 - The driver layer (Drupal DB driver) is separate from the runtime layer (Pantheon extensions + ODBC packages).
-- A site can be “module-compatible” but still fail at runtime due to TLS/cert defaults, missing connection options, or subtle SQL behavior differences.
-- Drupal 11 requires PHP 8.3, which aligns with Pantheon’s new `sqlsrv`/`pdo_sqlsrv` availability, but your deployed connection config might still assume older ODBC behavior.
+- A site can be "module-compatible" but still fail at runtime due to TLS/cert defaults, missing connection options, or subtle SQL behavior differences.
+- Drupal 11 requires PHP 8.3, which aligns with Pantheon's new `sqlsrv`/`pdo_sqlsrv` availability, but your deployed connection config might still assume older ODBC behavior.
 
 For WordPress teams: this matters primarily when custom code or middleware touches SQL Server, not for standard WordPress/MySQL setups. Agencies managing both CMS stacks should still treat this as an infra control-plane update.
 
@@ -96,7 +96,7 @@ Mitigation:
 
 ## Bottom Line
 
-Pantheon’s March 2026 SQL Server update is a positive capability upgrade, especially for Drupal teams that needed native `sqlsrv`/`pdo_sqlsrv` on modern PHP. The real risk is not feature availability; it is **configuration drift plus certificate/encryption assumptions** during Gen 2 migration.
+Pantheon's March 2026 SQL Server update is a positive capability upgrade, especially for Drupal teams that needed native `sqlsrv`/`pdo_sqlsrv` on modern PHP. The real risk is not feature availability; it is **configuration drift plus certificate/encryption assumptions** during Gen 2 migration.
 
 Treat this as an infra migration with database-connector QA, not as a patch-level runtime bump.
 

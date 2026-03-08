@@ -42,12 +42,16 @@ Anthropic announced six months of free Claude Max for qualifying maintainers on 
 | OpenAI Codex for OSS | 6 months ChatGPT Pro + Codex (conditional terms) | Open source maintainer criteria | Strong if workflow is already terminal/PR-agent heavy |
 
 <Tabs>
-  <TabItem value="maintainer" label="Maintainer Lens" default>
+<TabItem value="maintainer" label="Maintainer Lens" default>
+
 If the repo has active triage debt, take the credits and route them to issue labeling, flaky test diagnosis, and docs pruning. Burning subsidy on codegen demos is waste.
-  </TabItem>
-  <TabItem value="team" label="Team Lead Lens">
+
+</TabItem>
+<TabItem value="team" label="Team Lead Lens">
+
 Treat these programs as temporary compute grants. Measure merged PR quality, review latency, and escaped defects before renewing anything at retail price.
-  </TabItem>
+
+</TabItem>
 </Tabs>
 
 :::caution[Do not build process around promotional pricing]
