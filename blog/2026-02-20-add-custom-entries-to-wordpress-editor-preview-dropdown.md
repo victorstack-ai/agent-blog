@@ -90,7 +90,7 @@ Register the CSS that resizes the preview pane for your custom devices.
  */
 function my_custom_preview_styles() {
     ?>
-    <style type="text/css">
+    &lt;style type="text/css">
         .wp-customizer .preview-laptop .wp-full-overlay-main {
             width: 1280px;
             height: 800px;

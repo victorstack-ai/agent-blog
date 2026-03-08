@@ -10,34 +10,59 @@ date: 2026-03-08T12:15:00
 
 Modernizing a legacy PHP application presents a paradox: you critically need strict static analysis to prevent future bugs, but turning on a tool like PHPStan immediately throws 5,000 errors, completely breaking the CI pipeline.
 
-<!-- truncate -->
-
-During a recent stabilization project on an enterprise platform (`rlh-core`), we faced exactly this. The codebase had excellent business logic but was rife with missing return types, empty variable checks (`empty($message)` rather than strict `null` checks), and loosely defined arrays.
+```mermaid
+graph TD
+    A[Legacy Codebase] --> B[PHPStan Level 8 Run]
+    B -->|5,000 Errors| C[Generate Baseline]
+    C --> D[phpstan-baseline.neon]
+    D --> E[CI Pipeline Passes]
+    F[New Code / Edit] --> G[PHPStan Level 8 Check]
+    G -->|Clean| H[PR Merged]
+    G -->|New Debt| I[Build Fails]
+```
 
 ## The Impossible Migration
 
-The naive approach is to halt feature development for a month and force the team to fix all 5,000 errors until PHPStan returns green. From a business perspective, this is financial suicide.
-
-The alternative is to leave PHPStan disabled, allowing the technical debt to accumulate.
+The naive approach is to halt feature development for a month and force the team to fix all 5,000 errors. From a business perspective, this is financial suicide. The alternative is to leave PHPStan disabled, allowing the technical debt to accumulate.
 
 ## The "Baseline" Deployment Strategy
 
 To enforce future quality while respecting past debt, we implemented the PHPStan Baseline pattern. 
 
 ### 1. Generating the Debt Ledger
-We configured PHPStan to its maximum strictness (Level 8) and ran it against the entire codebase. When it identified the 5,000 errors, we piped that output into a specialized baseline file (`phpstan-baseline.neon`).
 
-This baseline acts as a cryptographic signature of the *existing* technical debt. Essentially, it tells the CI pipeline: "Ignore these specific 5,000 errors on these specific 5,000 lines of code."
+We configured PHPStan to its maximum strictness (Level 8) and piped the output into a specialized baseline file.
 
-### 2. Enforcing the Border
-Once the baseline was committed, the CI pipeline immediately went "green." However, the strict Level 8 rules were now fully active for all *new* code. 
+```neon
+# phpstan.neon
+includes:
+    - phpstan-baseline.neon
 
-If a developer wrote a new class that lacked a return type, or attempted to access an array key without verifying its existence, PHPStan failed the build. They could not introduce new debt.
+parameters:
+    level: 8
+    paths:
+        - src
+    # highlight-next-line
+    reportUnmatchedIgnoredErrors: true
+```
 
-### 3. Incremental Eradication
-We introduced a rule regarding the baseline: if you touch a file to add a feature, you must resolve the baseline errors for that file. 
+### 2. The Baseline Fingerprint
 
-When an engineer fixed an `empty()` check on a legacy controller, PHPStan automatically noticed the error no longer existed and requested that the specific error be removed from the baseline file (`reportUnmatched: true`).
+The baseline acts as a cryptographic signature of the existing technical debt.
+
+```neon
+# phpstan-baseline.neon snippet
+parameters:
+    ignoreErrors:
+        -
+            message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+            count: 42
+            path: src/Controller/LegacyController.php
+```
+
+### 3. Incremental Eradication: The "Boy Scout" Rule
+
+We introduced a rule regarding the baseline: if you touch a file to add a feature, you must resolve the baseline errors for that file. As you fix bugs, PHPStan will require you to remove those errors from the baseline, effectively "shrinking" the debt footprint.
 
 ## A Culture of Gradual Perfection
 
@@ -46,4 +71,4 @@ Over a six-month period, the baseline shrank from 5,000 errors to under 300, wit
 When dealing with enterprise technical debt, the strategy isn't to burn the house down; it's to stop adding fuel to the fire.
 
 ***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
+*Need an Enterprise Drupal Architect who specializes in static analysis and debt remediation? View my Open Source work on [Project Context Connector](https://github.com/victorjimenezdev/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*

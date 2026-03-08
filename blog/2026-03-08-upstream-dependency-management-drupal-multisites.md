@@ -16,6 +16,16 @@ Organizations like global financial banks or international universities often ut
 
 Sub-sites deploy from this upstream. When the upstream breaks, the blast radius is organization-wide.
 
+```mermaid
+graph TD
+    A[Core Upstream Repo] -->|Automated PR| B[CI: Dependency Matrix Test]
+    B -->|Success| C[Release Tag v2.x]
+    C -->|One-Click Update| D[Multisite-1]
+    C -->|One-Click Update| E[Multisite-2]
+    C -->|One-Click Update| F[Multisite-50]
+    G[Vendor Dependency] -.->|Unexpected Update| A
+```
+
 ## The Chaos of Composer Plugins
 
 A common failure point in this model is dependency drift. In a recent enterprise engagement, a critical update to a Design System module (`outline_design_system`) triggered cascading conflicts within Composer.
@@ -27,17 +37,42 @@ The downstream sites required specific versions of `doctrine/annotations` that c
 To restore governance, we had to enforce strict architectural rules on the `composer.json` level.
 
 ### 1. Restoring Missing Bridges
-We deliberately injected `doctrine/annotations` explicitly into the upstream's Composer requirements. While technically a sub-dependency, making it explicit restored the `PsrCachedReader` functionality required by the decoupled frontend, anchoring the version so downstream sites couldn't resolve conflicting matrices.
+
+We deliberately injected `doctrine/annotations` explicitly into the upstream's Composer requirements to anchor the version.
+
+```json
+{
+  "require": {
+    "drupal/core-recommended": "^10.3",
+    "doctrine/annotations": "1.14.3",
+    "psr/cache": "^3.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "drupal/core-composer-scaffold": true
+    }
+  }
+}
+```
 
 ### 2. Disabling Toxic Pre-Commit Hooks
-A rogue pre-commit hook included in a third-party dependency was attempting to lint code on downstream servers during deployment. Because the downstream servers lacked the specific linting binaries, the upstream merges failed. We intercepted and disabled this hook at the upstream level using custom `composer.scripts`.
 
-### 3. Strategic Uninstalls
-Legacy modules accumulated in the upstream (such as `admin_toolbar_links_access_filter` which was recently integrated into Drupal Core 10.3+) were surgically uninstalled via configuration updates prior to composer removal. This prevented fatal errors during downstream database updates.
+We intercepted rogue pre-commit hooks at the upstream level using custom `composer.scripts`. This ensured that downstream environments didn't fail due to missing local binaries.
 
-## 10x Developer Impact
+```bash
+# composer.json snippet for sanitizing hooks
+"scripts": {
+  "post-install-cmd": [
+    "rm -rf .git/hooks/pre-commit",
+    "echo 'Platform hooks sanitized' "
+  ]
+}
+```
 
-Managing an enterprise upstream requires visualizing the deployment graph before executing the command. By stabilizing the composer manifest and sanitizing the CI hooks, we restored continuous delivery for dozens of high-traffic financial platforms, entirely eliminating deployment merge failures.
+## Governance through CI Gates
+
+Managing an enterprise upstream requires visualizing the deployment graph before executing the command. We implemented a "Canary Build" in our CI pipeline. Before any upstream update is tagged, the CI system attempts a dry-run update on three diverse "Canary" downstream sites. If the dependency resolution fails on even one site, the upstream tag is blocked.
 
 ***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
+*Need an Enterprise Drupal Architect who specializes in complex multisite governance? View my Open Source work on [Project Context Connector](https://github.com/victorjimenezdev/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*

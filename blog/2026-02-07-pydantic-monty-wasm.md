@@ -58,7 +58,7 @@ By compiling Monty to WebAssembly, you get a Python REPL that runs entirely on t
 - Secure client-side computation
 
 ```html title="index.html"
-<script type="module">
+&lt;script type="module">
   // highlight-next-line
   import { MontyRuntime } from './monty_wasm.js';
 
