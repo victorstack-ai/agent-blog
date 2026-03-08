@@ -21,7 +21,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TOCInline from '@theme/TOCInline';
 
-Vendors handed out free AI plans like conference swag this week, hoping maintainers would mistake a six-month coupon for a long-term strategy. Meanwhile, the unglamorous work — security patches, runtime tuning, upgrade-window math — kept demanding the same engineering discipline it always has. Here is what actually mattered once you strip the press releases.
+Vendors handed out free AI plans like conference swag, hoping maintainers would mistake a six-month coupon for a long-term strategy. Meanwhile, the unglamorous work — security patches, runtime tuning, upgrade-window math — kept demanding the same engineering discipline it always has. Here is what actually mattered once you strip the press releases.
 
 <!-- truncate -->
 
@@ -145,7 +145,7 @@ Not all of these are equally deep technically, but all four are grounded in outp
 
 ## Bottom Line
 
-Most of this week's useful information fits one rule: incentives change fast, reliability work does not. ~~More model access equals better engineering~~ only when teams enforce execution, observability, and upgrade discipline.
+Most of the useful information here fits one rule: incentives change fast, reliability work does not. ~~More model access equals better engineering~~ only when teams enforce execution, observability, and upgrade discipline.
 
 :::tip[Single highest-ROI move]
 Create one `release-watch` checklist that combines model eval parity, runtime benchmark gates, and CMS security-window tracking. Run it on every release train and block deploys on red checks.
