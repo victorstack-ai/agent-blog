@@ -62,12 +62,16 @@ flowchart TD
 ```
 
 <Tabs>
-  <TabItem value="drupal" label="Drupal" default>
-  Map Drupal cache metadata to response headers in the delivery layer for headless routes, then invalidate by tag on publish hooks or queue consumers. Treat cache tags as first-class release artifacts, not an afterthought.
-  </TabItem>
-  <TabItem value="wordpress" label="WordPress">
-  Emit tags per post, taxonomy, and key listing pages from your headless/API edge responses. On post update, invalidate only related tags and keep `stale-if-error` long enough to survive short outages.
-  </TabItem>
+<TabItem value="drupal" label="Drupal" default>
+
+Map Drupal cache metadata to response headers in the delivery layer for headless routes, then invalidate by tag on publish hooks or queue consumers. Treat cache tags as first-class release artifacts, not an afterthought.
+
+</TabItem>
+<TabItem value="wordpress" label="WordPress">
+
+Emit tags per post, taxonomy, and key listing pages from your headless/API edge responses. On post update, invalidate only related tags and keep `stale-if-error` long enough to survive short outages.
+
+</TabItem>
 </Tabs>
 
 :::tip[Cache policy that survives production]
@@ -107,7 +111,7 @@ These are relevant when Drupal/WordPress teams run untrusted automation around p
 - **Header injection in sandboxed outbound HTTP**: secrets stay outside sandbox runtime.
 - **Sandboxes GA**: isolate untrusted code execution from production infra.
 
-:::warning[Don’t run untrusted plugin or module code in your main CI runner]
+:::warning[Don't run untrusted plugin or module code in your main CI runner]
 Use isolated sandbox execution and scoped network policy. CMS ecosystems are dependency-heavy; trust boundaries must be explicit or you will eventually run hostile code in the wrong place.
 :::
 
