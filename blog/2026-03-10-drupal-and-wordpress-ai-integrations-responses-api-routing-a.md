@@ -21,7 +21,7 @@ date: 2026-03-10T01:34:00.000Z
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Two items survived filtering, and both are operationally relevant for CMS teams: AI Gateway support for OpenAI **Responses API**, and provider-level timeout failover. The second “Responses API” item was the same announcement repeated with slightly different wording, so it was deduped instead of treated as a separate signal.
+Two items survived filtering, and both are operationally relevant for CMS teams: AI Gateway support for OpenAI **Responses API**, and provider-level timeout failover. The second "Responses API" item was the same announcement repeated with slightly different wording, so it was deduped instead of treated as a separate signal.
 
 <!-- truncate -->
 
@@ -52,12 +52,16 @@ console.log(res.output_text);
 ```
 
 <Tabs>
-  <TabItem value="drupal" label="Drupal" default>
-  Use this in custom services behind dependency injection, not directly in controllers. Store model routing and base URL in config (`settings.php` + config overrides), then lock response parsing in typed DTOs before touching entities.
-  </TabItem>
-  <TabItem value="wordpress" label="WordPress">
-  Keep calls behind a plugin service class and execute remote requests with retries only for idempotent prompts. Persist provider/model metadata with post meta or custom tables for auditability when output quality shifts after model swaps.
-  </TabItem>
+<TabItem value="drupal" label="Drupal" default>
+
+Use this in custom services behind dependency injection, not directly in controllers. Store model routing and base URL in config (`settings.php` + config overrides), then lock response parsing in typed DTOs before touching entities.
+
+</TabItem>
+<TabItem value="wordpress" label="WordPress">
+
+Keep calls behind a plugin service class and execute remote requests with retries only for idempotent prompts. Persist provider/model metadata with post meta or custom tables for auditability when output quality shifts after model swaps.
+
+</TabItem>
 </Tabs>
 
 :::warning[Contract drift is where outages hide]
