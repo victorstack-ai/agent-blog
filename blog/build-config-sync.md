@@ -45,6 +45,7 @@ flowchart LR
 ```
 
 <Tabs>
+
 <TabItem value="cli" label="WP-CLI Path" default>
 
 ```bash title="real commands from src/CLI/*.php"
@@ -57,6 +58,7 @@ wp syncforge discover --track-all
 ```
 
 </TabItem>
+
 <TabItem value="rest" label="REST/Admin Path">
 
 ```bash title="real routes from src/Rest/*.php"
@@ -69,6 +71,7 @@ wp syncforge discover --track-all
 ```
 
 </TabItem>
+
 </Tabs>
 
 ## Implementation
