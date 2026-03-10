@@ -1,6 +1,7 @@
 ---
 slug: 2026-03-09-drupal-module-upgrader-revival-drupal-10-11-risk-boundaries
-title: Review: Drupal Module Upgrader Revival Experiment for Drupal 10/11 - Realistic Modernization Scope, Risk Boundaries, and Migration Workflow Design
+title: >-
+  Review: Drupal Module Upgrader Revival Experiment for Drupal 10/11 - Realistic Modernization Scope, Risk Boundaries, and Migration Workflow Design
 authors: [VictorStackAI]
 description: A pragmatic assessment of the revived Drupal Module Upgrader alpha for Drupal 10/11, what it can automate, where it will fail, and how to design a safe migration workflow around it.
 tags: [drupal, wordpress, migration, devops, engineering]
