@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 
 ~~A DB dump is config management~~. It is mostly a panic button.
 
-What breaks teams is **configuration drift**: options changed in wp-admin, theme mods changed in one environment, widget trees drifting silently, rewrite config different after one plugin update. Normal release pipelines don’t track any of that cleanly.
+What breaks teams is **configuration drift**: options changed in wp-admin, theme mods changed in one environment, widget trees drifting silently, rewrite config different after one plugin update. Normal release pipelines don't track any of that cleanly.
 
 > "Export, import, and sync WordPress site configuration as YAML files across environments."
 >
@@ -45,7 +45,7 @@ flowchart LR
 ```
 
 <Tabs>
-  <TabItem value="cli" label="WP-CLI Path" default>
+<TabItem value="cli" label="WP-CLI Path" default>
 
 ```bash title="real commands from src/CLI/*.php"
 wp syncforge export
@@ -56,8 +56,8 @@ wp syncforge status
 wp syncforge discover --track-all
 ```
 
-  </TabItem>
-  <TabItem value="rest" label="REST/Admin Path">
+</TabItem>
+<TabItem value="rest" label="REST/Admin Path">
 
 ```bash title="real routes from src/Rest/*.php"
 /wp-json/syncforge/v1/export
@@ -68,7 +68,7 @@ wp syncforge discover --track-all
 /wp-json/syncforge/v1/discover
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Implementation
@@ -168,7 +168,7 @@ A real project change that matters: the rename from generic `config-sync` brandi
 
 ## What I Learned
 
-- Provider contracts beat one giant “sync everything” routine. Dependencies are explicit and sortable.
+- Provider contracts beat one giant "sync everything" routine. Dependencies are explicit and sortable.
 - The lock model (`config_sync_lock` in `wp_options`) is simple and good enough for admin/CLI concurrency.
 - The same orchestration layer serving REST, CLI, and admin reduces edge-case drift in behavior.
 - Default path choices matter more than people admit; the code defaults to `wp-content/syncforge-config-manager`, while docs still mention `wp-content/config-sync/`.
@@ -178,7 +178,7 @@ Make `wp syncforge diff` and `wp syncforge import --dry-run` mandatory in stagin
 :::
 
 :::caution[Capability Model Is Split]
-REST checks `manage_config_sync`, while parts of admin/ZIP handling check `manage_options`. If this runs in a delegated ops model, unify capability checks to avoid “works in one interface, blocked in another” support drama.
+REST checks `manage_config_sync`, while parts of admin/ZIP handling check `manage_options`. If this runs in a delegated ops model, unify capability checks to avoid "works in one interface, blocked in another" support drama.
 :::
 
 ## References
