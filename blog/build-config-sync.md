@@ -18,11 +18,11 @@ import TabItem from '@theme/TabItem';
 
 ~~A DB dump is config management~~. It is mostly a panic button.
 
-What breaks teams is **configuration drift**: options changed in wp-admin, theme mods changed in one environment, widget trees drifting silently, rewrite config different after one plugin update. Normal release pipelines don't track any of that cleanly.
+What breaks teams is **configuration drift**: options changed in wp-admin, theme mods changed in one environment, widget trees drifting silently, rewrite config different after one plugin update. Normal release pipelines do not track any of that cleanly.
 
 > "Export, import, and sync WordPress site configuration as YAML files across environments."
 >
-> — SyncForge Config Manager README, [GitHub](https://github.com/victorstack-ai/config-sync/blob/main/README.md)
+> - SyncForge Config Manager README, [GitHub](https://github.com/victorstack-ai/config-sync/blob/main/README.md)
 
 ## How It Works
 
@@ -188,4 +188,4 @@ REST checks `manage_config_sync`, while parts of admin/ZIP handling check `manag
 - [Main Plugin Bootstrap](https://github.com/victorstack-ai/config-sync/blob/main/syncforge-config-manager/syncforge-config-manager.php)
 
 ***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
+*Looking for an Architect who does not just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
