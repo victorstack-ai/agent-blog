@@ -29,7 +29,7 @@ Two items survived filtering, and both are operationally relevant for CMS teams:
 
 > "OpenAI's Responses API is now available through AI Gateway."
 >
-> — Cloudflare AI Gateway, [Announcement](https://developers.cloudflare.com/ai-gateway/)
+> - Cloudflare AI Gateway, [Announcement](https://developers.cloudflare.com/ai-gateway/)
 
 For Drupal modules and WordPress plugins that already call Chat Completions, this is mostly an interface cleanup plus better reasoning support. The practical gain is single-endpoint routing across providers without rewriting app logic each time a model vendor changes pricing, quality, or rate limits.
 
@@ -72,7 +72,7 @@ Responses API flattening reduces payload complexity, but it does not remove sche
 
 > "If a provider doesn't start responding within your configured timeout, AI Gateway aborts the request and falls back."
 >
-> — Cloudflare AI Gateway, [Timeouts update](https://developers.cloudflare.com/ai-gateway/)
+> - Cloudflare AI Gateway, [Timeouts update](https://developers.cloudflare.com/ai-gateway/)
 
 This one matters for Drupal/WordPress because editors do not care which model answered; they care that admin screens, autosuggestions, and scheduled jobs keep moving. Provider timeout + failover is a hosting reliability control, especially when inference runs inside request/response paths.
 
