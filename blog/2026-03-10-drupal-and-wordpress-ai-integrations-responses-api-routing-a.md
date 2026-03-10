@@ -117,4 +117,4 @@ Put inference behind asynchronous workers when possible (`queue_worker` in Drupa
 Migrate new AI features to Responses API paths and leave legacy Chat Completions wrappers only where refactor risk is high. Enable provider-level startup timeouts for user-facing inference endpoints, then verify fallback behavior under load before shipping plugin/module updates.
 
 ***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
+*Looking for an Architect who does not just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
