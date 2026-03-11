@@ -73,26 +73,30 @@ Require automated checks for coding standards, security linting, and CMS-specifi
 
 ## Drupal OAuth scopes are exposing old assumptions
 
-Matt Glaman’s point lands hard: Drupal permissions were built for session-centric workflows; OAuth adds edges that super-permissions can punch through.
+Matt Glaman's point lands hard: Drupal permissions were built for session-centric workflows; OAuth adds edges that super-permissions can punch through.
 
 <Tabs>
-  <TabItem value="drupal" label="Drupal Actions" default>
+<TabItem value="drupal" label="Drupal Actions" default>
+
 - Audit every OAuth client and map scopes to narrowly scoped roles.
 - Remove or isolate roles with `bypass node access` and similar super-permissions from token-bearing flows.
 - Add API tests that validate denied access for over-scoped tokens.
 - Treat scope design as architecture, not just config.
-  </TabItem>
-  <TabItem value="wordpress" label="WordPress Parallel">
+
+</TabItem>
+<TabItem value="wordpress" label="WordPress Parallel">
+
 - For SSO/OAuth plugins, map IdP claims to least-privilege WP roles.
 - Block automatic role escalation on login callbacks.
 - Add integration tests for role-mapping drift after plugin updates.
 - Review admin-capability inheritance in multisite.
-  </TabItem>
+
+</TabItem>
 </Tabs>
 
 ## WordPress block interaction states moved into theme.json
 
-The WordPress item about pseudo-class selectors on blocks/variations matters because it removes “throw CSS at it later” as the default.
+The WordPress item about pseudo-class selectors on blocks/variations matters because it removes "throw CSS at it later" as the default.
 
 ```diff
 -/* Old pattern: custom CSS for button hover/focus */
@@ -133,11 +137,11 @@ wp cache flush
 
 The CISA KEV update did not name Drupal/WordPress CVEs directly, and that is irrelevant. Agencies and platform teams run CMS sites on infrastructure that depends on adjacent systems. If exposed management tools or enterprise middleware are exploited, your CMS estate gets dragged into incident response anyway.
 
-Use KEV as an input to hosting patch SLA and network segmentation policy, not as “someone else’s list.”
+Use KEV as an input to hosting patch SLA and network segmentation policy, not as "someone else's list."
 
 ## Node.js release cadence changes affect decoupled stacks
 
-“Evolving the Node.js release schedule” is directly relevant where Drupal/WordPress frontends use Node-based build chains (Next.js/Gatsby/Astro/Vite pipelines, CI asset builds, SSR layers).
+"Evolving the Node.js release schedule" is directly relevant where Drupal/WordPress frontends use Node-based build chains (Next.js/Gatsby/Astro/Vite pipelines, CI asset builds, SSR layers).
 
 If runtime and build images drift across Node majors, expect broken builds or subtle hydration/runtime issues.
 
