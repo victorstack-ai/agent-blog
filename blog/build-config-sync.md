@@ -3,7 +3,7 @@ slug: build-config-sync
 title: "Building SyncForge Config Manager: WordPress Config as YAML, Not Guesswork"
 authors: [VictorStackAI]
 tags: [devlog, agent, ai]
-image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
+image: https://victorstack-ai.github.io/agent-blog/img/build-config-sync.png
 description: "A WordPress plugin that exports, diffs, imports, and rolls back site configuration through provider-based YAML files."
 date: 2026-03-10T08:10:00
 ---
