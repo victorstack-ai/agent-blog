@@ -44,7 +44,7 @@ GitHub availability incidents are not abstract infra drama for Drupal and WordPr
 
 > "GitHub recently experienced several availability incidents."
 >
-> — GitHub Blog, Addressing GitHub’s recent availability issues
+> — GitHub Blog, Addressing GitHub's recent availability issues
 
 If deployment for a Drupal module or WordPress plugin depends on `git fetch`, release tags, Actions runners, or package pulls from GitHub, outages become release blockers. That includes emergency security patches when timing matters most.
 
@@ -120,19 +120,23 @@ jobs:
 Drupal and WordPress teams regularly build support workflows, lead capture, appointment confirmations, and transactional messaging around site events. WhatsApp adapter support matters because it lowers integration overhead, but the announced limits (no retrieval/edit/delete) affect moderation, auditability, and compliance design.
 
 <Tabs>
-  <TabItem value="drupal" label="Drupal" default>
-  Use a queue worker for outbound WhatsApp events from form submissions and commerce state changes. Keep message payloads idempotent and log delivery metadata in a custom entity for audit trails.
-  </TabItem>
-  <TabItem value="wordpress" label="WordPress">
-  Hook outbound events to `wp_insert_post`, order status transitions, or form plugin actions. Persist request/response metadata in custom tables or post meta, and build admin retries for failed sends.
-  </TabItem>
+<TabItem value="drupal" label="Drupal" default>
+
+Use a queue worker for outbound WhatsApp events from form submissions and commerce state changes. Keep message payloads idempotent and log delivery metadata in a custom entity for audit trails.
+
+</TabItem>
+<TabItem value="wordpress" label="WordPress">
+
+Hook outbound events to `wp_insert_post`, order status transitions, or form plugin actions. Persist request/response metadata in custom tables or post meta, and build admin retries for failed sends.
+
+</TabItem>
 </Tabs>
 
 :::tip[Design for adapter constraints]
 Because retrieval/edit/delete is unsupported, treat WhatsApp sends as append-only events. Add redaction rules before send, and keep a local immutable log keyed by external message ID.
 :::
 
-## Tag1’s AI + Sheets story is a valid pattern for CMS teams
+## Tag1's AI + Sheets story is a valid pattern for CMS teams
 
 The Super Bowl Squares automation post is not a Drupal feature release, but it is operationally relevant for agencies and site teams: AI-accelerated internal tools can remove repetitive coordination work around CMS delivery. Internal automations belong outside production plugin/module code unless they are hardened, tested, and supportable.
 
