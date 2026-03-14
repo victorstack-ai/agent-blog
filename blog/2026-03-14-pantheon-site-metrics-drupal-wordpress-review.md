@@ -16,7 +16,7 @@ tags:
   - wordpress
   - performance
   - infrastructure
-date: 2026-03-14T19:39:00
+date: 2026-03-14T19:39:00.000Z
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-14-pantheon-site-metrics-drupal-wordpress-review.png
 ---
