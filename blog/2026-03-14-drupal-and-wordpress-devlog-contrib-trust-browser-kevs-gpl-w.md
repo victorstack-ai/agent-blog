@@ -80,12 +80,16 @@ That has real use in both ecosystems:
 - Comparing old and new implementations during plugin or module rewrites.
 
 <Tabs>
-  <TabItem value="drupal" label="Drupal" default>
-  A 1M-context model is good at following relationships across `composer.json`, custom modules, service definitions, routing, permissions, config exports, and Twig overrides. That makes it useful for pre-upgrade reviews where the real problem is not syntax, but hidden coupling.
-  </TabItem>
-  <TabItem value="wordpress" label="WordPress">
-  It helps when a plugin sprawls across bootstrap code, admin pages, block registration, REST endpoints, cron hooks, and upgrade routines. The value is seeing the whole surface area at once, especially before a major PHP or WordPress core bump.
-  </TabItem>
+<TabItem value="drupal" label="Drupal" default>
+
+A 1M-context model is good at following relationships across `composer.json`, custom modules, service definitions, routing, permissions, config exports, and Twig overrides. That makes it useful for pre-upgrade reviews where the real problem is not syntax, but hidden coupling.
+
+</TabItem>
+<TabItem value="wordpress" label="WordPress">
+
+It helps when a plugin sprawls across bootstrap code, admin pages, block registration, REST endpoints, cron hooks, and upgrade routines. The value is seeing the whole surface area at once, especially before a major PHP or WordPress core bump.
+
+</TabItem>
 </Tabs>
 
 This does not change one important fact: ~~more context means better judgment~~. It means the model can see more files. Someone still has to verify whether the conclusion is sane.
