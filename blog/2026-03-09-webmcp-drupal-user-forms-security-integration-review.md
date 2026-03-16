@@ -41,6 +41,18 @@ At a high level, this pattern joins three trust zones:
 
 The module is marked experimental and not covered by Drupal Security Advisory policy, which should immediately move it into a "controlled pilot" lane rather than general production rollout.
 
+## Why not just use JSON:API or ordinary admin forms
+
+This is where the module/plugin-first rule matters. Before adding an MCP-facing mutation layer, compare it with the options that already exist:
+
+| Option | Best at | Weakness |
+|---|---|---|
+| Drupal Form API in normal admin UI | Human operators, mature permissions | No agent-oriented bridge or structured tool contract |
+| JSON:API / custom REST routes | Explicit machine contracts | You have to design every validation and mutation path yourself |
+| WebMCP user-forms | Reusing real Drupal forms as agent tools | Higher trust-boundary complexity and immature ecosystem support |
+
+WebMCP only makes sense when reusing existing validated form workflows is more valuable than building a narrower API surface. If the action is high-risk and easy to model as a small REST endpoint, the REST endpoint is usually the cleaner answer.
+
 ### Strong Boundary (if you implement it)
 
 - Drupal permission checks on every form operation.
@@ -87,6 +99,17 @@ Low-value or high-risk use cases:
 - Full autonomous admin changes without review.
 - Unbounded tool access in shared environments.
 - Agent-controlled plugin/module configuration touching execution paths.
+
+## What a safe pilot looks like
+
+If a team wants to test this without being reckless, the minimum bar is boring:
+
+1. Restrict to one non-destructive form workflow.
+2. Require authenticated user context tied to a narrow Drupal role.
+3. Log the acting user, tool input, validation result, and changed entity IDs.
+4. Keep production behind a human approval step until logs prove the workflow is stable.
+
+Anything broader than that belongs in a security review, not a quick experiment.
 
 ## Drupal/WordPress Joint Guidance
 
