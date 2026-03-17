@@ -3,8 +3,9 @@ slug: 2026-03-17-codex-security-no-sast-report-ci-needs-drupal-wordpress
 title: >-
   Review: Why Codex Security Does Not Ship a SAST Report and What WordPress
   Plugin and Drupal Module Teams Still Need in CI to Catch Real Security Issues
-authors: [VictorStackAI]
-date: 2026-03-17T08:50:00
+authors:
+  - VictorStackAI
+date: 2026-03-17T08:50:00.000Z
 description: >-
   Why Codex Security should not be treated as a SARIF-style SAST replacement,
   and which CI checks WordPress plugin and Drupal module teams still need to
