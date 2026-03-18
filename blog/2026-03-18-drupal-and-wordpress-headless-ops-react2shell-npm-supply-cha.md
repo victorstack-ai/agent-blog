@@ -39,7 +39,7 @@ Most of the list was marketing lacquer with a pulse. The useful part was narrowe
 
 ## Custom regions are a CMS architecture decision, not a cloud footnote
 
-“Custom Regions” sounds like one more control-plane checkbox until a client asks where editorial drafts, user uploads, search indexes, AI summaries, logs, backups, and CDN edge traces are processed. At that point it stops being branding and becomes a Drupal/WordPress architecture review.
+"Custom Regions" sounds like one more control-plane checkbox until a client asks where editorial drafts, user uploads, search indexes, AI summaries, logs, backups, and CDN edge traces are processed. At that point it stops being branding and becomes a Drupal/WordPress architecture review.
 
 For **Drupal** and **WordPress** shops dealing with government, health, finance, or cross-border publishing, region controls affect more than the database. A site can keep MySQL in one country and still leak compliance scope through object storage, image optimization, observability, search, translation, or AI add-ons running elsewhere. Headless builds make this worse because the CMS, frontend, cache layer, and background jobs often live in different places.
 
@@ -47,22 +47,22 @@ For **Drupal** and **WordPress** shops dealing with government, health, finance,
 If a hosting vendor adds finer regional controls, use that moment to redraw the data map for the whole stack: `db`, `files`, `logs`, `search`, `email`, `analytics`, `CDN`, `preview`, and any AI service touching content. For Drupal and WordPress, the compliance failure usually hides in the add-ons, not in the core CMS runtime.
 :::
 
-A boring but necessary consequence: procurement and migration docs need to name every processor that handles CMS content. “Hosted in region X” is incomplete unless it covers previews, backups, and observability.
+A boring but necessary consequence: procurement and migration docs need to name every processor that handles CMS content. "Hosted in region X" is incomplete unless it covers previews, backups, and observability.
 
 ## Editorial dashboards still decide what gets published
 
 The Four Kitchens piece is squarely in Drupal territory, but the point lands just as hard in WordPress: dashboards are governance. If the platform team picks widgets based on what is easy to measure instead of what editorial teams need, the admin UI starts training people badly.
 
-> “A dashboard isn’t just a summary page. It’s a statement of priorities.”
+> "A dashboard isn't just a summary page. It's a statement of priorities."
 >
-> — Four Kitchens, “When the people who run the platform aren’t the people who run the content”
+> — Four Kitchens, "When the people who run the platform aren't the people who run the content"
 
 That matters for **Drupal** because custom admin dashboards, content moderation queues, and editorial workspaces often drift toward operational vanity metrics. It matters for **WordPress** because `wp-admin` dashboards and plugin-added widgets love to turn the first screen into clutter, upsells, and meaningless counts.
 
-The practical rule is simple: if a dashboard widget does not change a publishing decision, it is decoration. Replace “number of nodes/posts created” with things editors can act on: unpublished scheduled items, broken preview links, stale landing pages, pending moderation, failed webhooks, translation backlog, expiring campaign content.
+The practical rule is simple: if a dashboard widget does not change a publishing decision, it is decoration. Replace "number of nodes/posts created" with things editors can act on: unpublished scheduled items, broken preview links, stale landing pages, pending moderation, failed webhooks, translation backlog, expiring campaign content.
 
 <Tabs>
-  <TabItem value="wordpress" label="WordPress" default>
+<TabItem value="wordpress" label="WordPress" default>
 
 ```bash title="Editorial dashboard triage for WordPress"
 wp plugin list --status=active
@@ -71,8 +71,8 @@ wp cron event list
 wp post list --post_status=future --fields=ID,post_title,post_date
 ```
 
-  </TabItem>
-  <TabItem value="drupal" label="Drupal">
+</TabItem>
+<TabItem value="drupal" label="Drupal">
 
 ```bash title="Editorial dashboard triage for Drupal"
 drush pm:list --status=enabled --type=module
@@ -81,7 +81,7 @@ drush sqlq "SELECT nid, title, status, changed FROM node_field_data ORDER BY cha
 drush config:get workflows.workflow.editorial
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 Those commands are not a dashboard solution. They are a fast way to see whether the admin layer reflects real editorial work or just whatever the platform team happened to expose.
@@ -90,7 +90,7 @@ Those commands are not a dashboard solution. They are a fast way to see whether 
 
 If a **Drupal** or **WordPress** build uses React through **Next.js** or another headless frontend, the React2Shell bulletin is your problem. No escape hatch there.
 
-> “CVE-2025-55182 is a critical vulnerability in React that requires immediate action. Next.js and other frameworks that React are affected.”
+> "CVE-2025-55182 is a critical vulnerability in React that requires immediate action. Next.js and other frameworks that React are affected."
 >
 > — Vercel, [React2Shell Security Bulletin](https://vercel.com/)
 
@@ -112,11 +112,11 @@ flowchart TD
 The diagram is the point: in headless CMS setups, React is not sitting off to the side. It is in the request path, preview path, and regeneration path.
 
 :::danger[Headless patching rule]
-Treat any critical React or Next.js bulletin as production work for the Drupal/WordPress estate if that frontend serves CMS content. Do not wait for the next sprint, the next platform meeting, or the next round of “who owns this.” Patch, test preview/auth flows, and verify cache regeneration behavior.
+Treat any critical React or Next.js bulletin as production work for the Drupal/WordPress estate if that frontend serves CMS content. Do not wait for the next sprint, the next platform meeting, or the next round of "who owns this." Patch, test preview/auth flows, and verify cache regeneration behavior.
 :::
 
 <Tabs>
-  <TabItem value="wordpress-headless" label="WordPress" default>
+<TabItem value="wordpress-headless" label="WordPress" default>
 
 ```bash title="WordPress headless dependency check"
 npm ls react react-dom next
@@ -124,8 +124,8 @@ composer audit
 wp plugin list --status=active
 ```
 
-  </TabItem>
-  <TabItem value="drupal-headless" label="Drupal">
+</TabItem>
+<TabItem value="drupal-headless" label="Drupal">
 
 ```bash title="Drupal headless dependency check"
 npm ls react react-dom next
@@ -133,14 +133,14 @@ composer audit
 drush pm:list --status=enabled --type=module
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 The WordPress or Drupal command at the end is there for one reason: patching the frontend without checking the CMS-side preview/auth modules is how teams create a second outage while fixing the first one.
 
 ## npm supply-chain attacks hit Gutenberg plugins and decoupled builds first
 
-The npm incident belongs in a Drupal/WordPress devlog because the JS toolchain is no longer optional. Gutenberg blocks, modern admin interfaces, decoupled frontends, and theme build steps all pull from npm. A compromised maintainer account upstream is enough to turn “build asset update” into malware delivery.
+The npm incident belongs in a Drupal/WordPress devlog because the JS toolchain is no longer optional. Gutenberg blocks, modern admin interfaces, decoupled frontends, and theme build steps all pull from npm. A compromised maintainer account upstream is enough to turn "build asset update" into malware delivery.
 
 The old fiction was that PHP CMS teams could ignore the JavaScript ecosystem and still be serious about security. ~~That fiction is dead.~~ A plugin with a `package.json` has a second supply chain whether the team likes it or not.
 
@@ -161,7 +161,7 @@ npm ci
 git diff --exit-code package-lock.json composer.lock
 ```
 
-That last line is the release gate too many teams skip because “the build passed.” Malware also passes builds.
+That last line is the release gate too many teams skip because "the build passed." Malware also passes builds.
 
 <details>
   <summary>Where this lands in real CMS repos</summary>
@@ -191,17 +191,17 @@ A CMS team using ISR, on-demand revalidation, or edge caching should make three 
 2. Which origin endpoints must be shielded or rate-limited.
 3. Which pages should be pre-rendered instead of lazily regenerated.
 
-This is one of those areas where “fast frontend” can quietly become “fragile origin” if nobody models expiry behavior.
+This is one of those areas where "fast frontend" can quietly become "fragile origin" if nobody models expiry behavior.
 
 ## Repo-local instructions beat abstract agent lore for CMS maintenance
 
-Two items belong together here: the AGENTS.md evaluation result and the “filesystem + bash” approach. The interesting part is not agent hype. The useful part is that **repo-local instructions** appear to work better than detached skill catalogs when an agent has to maintain real code.
+Two items belong together here: the AGENTS.md evaluation result and the "filesystem + bash" approach. The interesting part is not agent hype. The useful part is that **repo-local instructions** appear to work better than detached skill catalogs when an agent has to maintain real code.
 
-> “A compressed 8KB docs index embedded directly in AGENTS.md achieved a 100% pass rate, while skills maxed out at 79%...”
+> "A compressed 8KB docs index embedded directly in AGENTS.md achieved a 100% pass rate, while skills maxed out at 79%..."
 >
-> — “AGENTS.md outperforms skills in our agent evals”
+> — "AGENTS.md outperforms skills in our agent evals"
 
-That has a very direct consequence for **Drupal** and **WordPress** repositories. Upgrade rules, coding standards, release policies, cache-clearing steps, and deployment constraints should live in the repo where the agent and the human maintainer can both see them. Not in a wiki nobody opens. Not in Slack archaeology. Not in the senior dev’s memory.
+That has a very direct consequence for **Drupal** and **WordPress** repositories. Upgrade rules, coding standards, release policies, cache-clearing steps, and deployment constraints should live in the repo where the agent and the human maintainer can both see them. Not in a wiki nobody opens. Not in Slack archaeology. Not in the senior dev's memory.
 
 The related item about running agents with filesystem and bash is useful for the same reason: CMS maintenance is mostly file inspection, command execution, and diff review. That maps well to `composer`, `drush`, `wp`, `phpunit`, PHPCS, static analysis, and lockfile checks. Fancy tools are optional; clear local instructions are not.
 
@@ -214,7 +214,7 @@ A practical repo rule for CMS teams:
 - Spell out what must never be auto-fixed.
 - Note deployment-sensitive files like `composer.lock`, `package-lock.json`, exported config, and built assets.
 
-If a maintenance agent cannot discover the project’s rules from the repository itself, it will invent them. That usually ends badly, and in a CMS repo “badly” often means a broken deploy with stale config or regenerated assets nobody intended to ship.
+If a maintenance agent cannot discover the project's rules from the repository itself, it will invent them. That usually ends badly, and in a CMS repo "badly" often means a broken deploy with stale config or regenerated assets nobody intended to ship.
 
 ## What goes into the next Drupal/WordPress maintenance pass
 
