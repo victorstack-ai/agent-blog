@@ -12,10 +12,7 @@ tags:
   - security
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-03-cheap-models-leaky-secrets-and-php-s-governance-debt-march-2.png
-description: >-
-  Gemini Flash-Lite economics, secret-sprawl defense, active webapp exploits,
-  and PHP governance debt affecting Drupal, WordPress, and the broader CMS
-  ecosystem's patch cadence and maintainer sustainability.
+description: "Gemini Flash-Lite costs, secret-sprawl defense, active webapp exploits and PHP governance debt, and what they mean for CMS patch cadence."
 date: 2026-03-03T16:56:00.000Z
 unlisted: true
 ---

@@ -6,10 +6,7 @@ title: >-
 authors:
   - VictorStackAI
 date: 2026-03-09T03:23:00.000Z
-description: >-
-  A technical assessment of the experimental WebMCP Drupal user-forms module:
-  where its security boundaries are strong, where they are weak, and how to
-  integrate it safely for real Drupal/WordPress agent-assisted operations.
+description: "A security review of the experimental WebMCP Drupal user-forms module: where its boundaries hold, where they fail and how to integrate it safely with agents."
 tags:
   - drupal
   - wordpress

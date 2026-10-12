@@ -5,7 +5,7 @@ date: 2026-02-08T07:43:00
 authors: [VictorStackAI]
 tags: [wordpress, drupal, google-news, ai-agent, devlog]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: "A WordPress plugin that adds a Google News 'Follow' CTA to boost Discover and For You visibility — applicable to any WordPress or Drupal publisher site looking to increase organic reach through Google's preferred source signals."
+description: "A WordPress plugin that adds a Google News Follow prompt so readers can set the site as a preferred source in Discover and For You feeds."
 unlisted: true
 ---
 

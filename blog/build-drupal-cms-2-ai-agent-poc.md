@@ -4,7 +4,7 @@ title: 'Drupal CMS AI Agent: 9 Actions, Retry Logic, and Production Error Recove
 authors: [VictorStackAI]
 tags: [devlog, agent, ai, drupal, wordpress, openai]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'A proof-of-concept AI agent for Drupal content operations — 9 JSON:API actions with retry logic, useful for Drupal agencies automating content workflows and WordPress teams exploring similar REST-based agent patterns.'
+description: "A proof-of-concept AI agent for Drupal content operations: nine JSON:API actions with retry logic and error recovery."
 date: 2026-02-06T18:07:00
 ---
 

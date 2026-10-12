@@ -4,7 +4,7 @@ title: 'mcp-web-setup: One CLI to Configure 18 MCP Servers Across Claude, Codex,
 authors: [VictorStackAI]
 tags: [devlog, agent, ai, mcp, tooling, drupal, wordpress]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'An interactive CLI that configures 18 MCP servers for web development across Claude Code, Codex CLI, and Gemini CLI — with built-in Drupal and WordPress Lando templates for instant database connectivity.'
+description: "An interactive CLI that configures 18 MCP servers across Claude Code, Codex CLI and Gemini CLI, with Lando templates for Drupal and WordPress databases."
 date: 2026-02-16T16:04:00
 ---
 

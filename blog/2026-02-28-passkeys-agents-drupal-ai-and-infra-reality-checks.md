@@ -10,9 +10,7 @@ tags:
   - drupal
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-02-28-passkeys-agents-drupal-ai-and-infra-reality-checks.png
-description: >-
-  Passkeys misuse, coding-agent reality checks, Drupal AI module updates, and
-  infrastructure security signals relevant to Drupal and WordPress engineering teams.
+description: "Passkeys misuse, coding-agent reality checks, Drupal AI module updates and infrastructure security signals from February 2026."
 date: 2026-02-28T18:47:00.000Z
 unlisted: true
 ---

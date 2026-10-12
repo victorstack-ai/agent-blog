@@ -12,11 +12,7 @@ tags:
   - drupal-cms
   - release-management
   - devops
-description: >-
-  Pantheon's March 6, 2026 Drupal CMS upstream update moves new installs to
-  Drupal CMS 2 while existing sites remain unchanged. Here is the real
-  breaking-change surface, safe update sequencing, and a deployment checklist
-  for managed Drupal teams.
+description: "Pantheon moved new Drupal CMS upstream installs to Drupal CMS 2. The breaking-change surface, safe update order and a deployment checklist for existing sites."
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-08-pantheon-drupal-cms-2-upstream-breaking-change-review.png
 ---

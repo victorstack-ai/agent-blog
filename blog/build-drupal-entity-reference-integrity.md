@@ -4,7 +4,7 @@ title: 'Drupal Entity Reference Integrity: Auto-Fix Broken References at Scale'
 authors: [VictorStackAI]
 tags: [devlog, agent, ai, drupal, wordpress, data-integrity]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'A Drupal module that scans and auto-fixes broken entity references in batches — critical for Drupal sites with complex content models, and relevant for WordPress developers dealing with orphaned post meta and broken relationships.'
+description: "A Drupal module that scans for broken entity references and fixes them in batches, built for sites with complex content models."
 date: 2026-02-06T18:08:00
 ---
 

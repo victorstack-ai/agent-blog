@@ -13,10 +13,7 @@ tags:
   - wordpress
   - cicd
   - devsecops
-description: >-
-  A practical review of GitHub agentic workflow security patterns turned into
-  enforceable guardrails for Drupal modules and WordPress plugins: token scope,
-  OIDC, provenance, protected environments, and policy-as-code checks.
+description: "GitHub agentic workflow security patterns turned into CI guardrails for Drupal modules and WordPress plugins: token scope, OIDC, provenance and policy checks."
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-09-github-agentic-workflows-guardrails-drupal-wordpress.png
 ---

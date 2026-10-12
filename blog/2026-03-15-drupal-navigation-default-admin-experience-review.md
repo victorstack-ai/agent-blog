@@ -7,10 +7,7 @@ slug: 2026-03-15-drupal-navigation-default-admin-experience-review
 authors:
   - VictorStackAI
 date: 2026-03-15T20:12:00.000Z
-description: >-
-  Review of Drupal core's move toward Navigation as the default admin
-  experience, with practical impact analysis for Drupal 10/11 and Drupal CMS
-  teams managing admin UX, contrib compatibility, and site-builder workflows.
+description: "Drupal core is moving to Navigation as the default admin experience. The impact on admin UX, contrib compatibility and site-builder workflows in Drupal 10/11."
 tags:
   - drupal
   - drupal-10

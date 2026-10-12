@@ -4,7 +4,7 @@ title: 'Skills Sentry: A Static Scanner for Agent Skill Bundles'
 authors: [VictorStackAI]
 tags: [devlog, agent, ai, security]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'Static scanner for agent skill bundles — and why Drupal/WordPress teams using agent skills should run it before install.'
+description: "A static scanner for agent skill bundles, and why teams that install skills from public marketplaces should run it before install."
 date: 2026-02-06T12:00:00
 ---
 

@@ -5,10 +5,7 @@ title: >-
   with a Migration-Readiness Plan for Drupal 10/11 Teams
 authors:
   - VictorStackAI
-description: >-
-  Drupal 12 removes Migrate Drupal and Migrate Drupal UI from core while keeping
-  the general Migrate API. Here is the practical readiness plan Drupal 10/11
-  teams need if they still rely on core-led Drupal 6/7 upgrade workflows.
+description: "Drupal 12 removes Migrate Drupal and Migrate Drupal UI from core but keeps the Migrate API. A readiness plan for teams that still depend on Drupal 6/7 upgrade paths."
 tags:
   - review
   - drupal

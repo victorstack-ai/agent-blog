@@ -6,10 +6,7 @@ title: >-
 authors:
   - VictorStackAI
 date: 2026-03-17T08:50:00.000Z
-description: >-
-  Why Codex Security should not be treated as a SARIF-style SAST replacement,
-  and which CI checks WordPress plugin and Drupal module teams still need to
-  catch exploitable issues in real PHP CMS codebases.
+description: "Codex Security is not a SAST replacement. The CI checks WordPress plugin and Drupal module teams still need to catch exploitable issues in PHP code."
 tags:
   - review
   - security

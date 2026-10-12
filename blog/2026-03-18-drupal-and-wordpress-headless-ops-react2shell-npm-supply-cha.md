@@ -11,11 +11,7 @@ tags:
   - ai
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-18-drupal-and-wordpress-headless-ops-react2shell-npm-supply-cha.png
-description: >-
-  A technical Drupal and WordPress devlog on the items that matter in practice:
-  React2Shell exposure in headless stacks, npm supply chain risk, data residency
-  controls, cache-stampede protection, and repo documentation for AI-assisted
-  maintenance.
+description: "Devlog on React2Shell exposure in headless CMS stacks, npm supply chain risk, data residency controls, cache-stampede protection and repo docs for AI maintenance."
 date: 2026-03-18T08:03:00.000Z
 unlisted: true
 ---

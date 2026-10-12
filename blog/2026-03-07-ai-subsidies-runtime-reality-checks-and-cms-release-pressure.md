@@ -13,8 +13,7 @@ tags:
   - wordpress
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-07-ai-subsidies-runtime-reality-checks-and-cms-release-pressure.png
-description: >-
-  Drupal and WordPress practitioner digest on OSS AI credit programs, agent testing discipline, CMS patch release signals, and separating hype from operational value.
+description: "Digest on open-source AI credit programs, agent testing discipline, Drupal patch release signals and separating hype from operational value."
 date: 2026-03-07T20:14:00.000Z
 unlisted: true
 ---

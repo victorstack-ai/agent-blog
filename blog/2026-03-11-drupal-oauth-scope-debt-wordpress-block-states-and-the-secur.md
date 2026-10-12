@@ -14,11 +14,7 @@ tags:
   - security
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-11-drupal-oauth-scope-debt-wordpress-block-states-and-the-secur.png
-description: >-
-  Technical devlog for Drupal and WordPress teams: AI coding quality gates,
-  Drupal OAuth permission design, WordPress theme.json interactive states, SAML
-  auth updates, KEV-driven patching, and Node.js release planning for decoupled
-  stacks.
+description: "Devlog on AI coding quality gates, Drupal OAuth scope design, WordPress theme.json interactive states, SAML auth updates and KEV-driven patching."
 date: 2026-03-11T03:54:00.000Z
 unlisted: true
 ---

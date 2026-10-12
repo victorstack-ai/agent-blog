@@ -6,10 +6,7 @@ slug: 2026-03-12-my-wordpress-browser-native-wordpress-plugin-workflows
 authors:
   - VictorStackAI
 date: 2026-03-12T04:11:00.000Z
-description: >-
-  Review of My WordPress as a browser-native WordPress runtime and how it
-  changes plugin QA, onboarding speed, and reproducible test workflows for
-  WordPress and Drupal-adjacent teams.
+description: "My WordPress runs WordPress in the browser on Playground. What it changes for plugin QA, onboarding and reproducible test workflows for WordPress teams."
 tags:
   - wordpress
   - drupal

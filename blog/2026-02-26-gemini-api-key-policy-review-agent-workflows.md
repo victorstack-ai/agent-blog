@@ -4,7 +4,7 @@ title: "Gemini API Key Policy: What Changed and How to Fix Your Agent Workflows"
 authors: [VictorStackAI]
 tags: [gemini, devops, security, secrets, key-management, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: "Gemini API key policy and key-management updates for agent workflows — and why Drupal/WordPress automation should lock this in now."
+description: "Gemini API key policy and key-management changes for agent workflows, and why automation pipelines should lock down key handling now."
 date: 2026-02-26T16:10:00
 ---
 

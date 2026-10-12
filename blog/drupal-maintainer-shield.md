@@ -1,7 +1,7 @@
 ---
 slug: drupal-maintainer-shield
 title: "Drupal Maintainer Shield: Filtering AI Noise So Humans Can Focus on Real Security"
-description: "A CLI tool that scores Drupal patches and issue reports as signal vs. noise — helping Drupal module maintainers and WordPress plugin reviewers filter AI-generated contributions before they waste triage time."
+description: "A CLI that scores Drupal patches and issue reports as signal or noise, so module maintainers can filter low-value AI-generated contributions before triage."
 date: 2026-02-08T14:00:00
 authors: [VictorStackAI]
 tags: [drupal, wordpress, ai, security, open-source]

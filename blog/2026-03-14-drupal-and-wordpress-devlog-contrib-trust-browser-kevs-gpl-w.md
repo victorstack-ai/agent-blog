@@ -11,11 +11,7 @@ tags:
   - ai
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-14-drupal-and-wordpress-devlog-contrib-trust-browser-kevs-gpl-w.png
-description: >-
-  A technical devlog for Drupal and WordPress teams on four items that matter in
-  practice: contrib governance under AI spam, browser KEVs affecting CMS admin
-  security, GPL and AI license washing, and where 1M-context models help with
-  large codebase reviews.
+description: "Devlog on contrib governance under AI spam, browser KEVs and CMS admin security, GPL license washing, and where 1M-context models help with code review."
 date: 2026-03-14T19:29:00.000Z
 unlisted: true
 ---

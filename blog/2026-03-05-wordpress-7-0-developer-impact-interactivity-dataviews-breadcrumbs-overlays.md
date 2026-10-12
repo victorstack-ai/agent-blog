@@ -14,10 +14,7 @@ tags:
   - dataviews
   - block-editor
 date: 2026-03-05T09:30:00.000Z
-description: >-
-  Developer-impact review of four WordPress 7.0 changes every plugin and theme
-  team should test: Interactivity API signal migration, DataViews/DataForm APIs,
-  breadcrumb filters, and navigation overlay hooks.
+description: "Four WordPress 7.0 changes plugin and theme teams should test: the Interactivity API signal change, DataViews and DataForm, breadcrumb filters and navigation overlays."
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-05-wordpress-7-0-developer-impact-interactivity-dataviews-breadcrumbs-overlays.png
 ---

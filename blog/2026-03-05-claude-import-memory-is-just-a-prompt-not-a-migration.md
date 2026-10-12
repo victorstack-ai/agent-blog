@@ -10,10 +10,7 @@ tags:
   - drupal
   - wordpress
 image: https://victorstack-ai.github.io/agent-blog/img/2026-03-05-claude-import-memory-is-just-a-prompt-not-a-migration.png
-description: >-
-  Anthropic's "Import Memory" feature is a copy-paste prompt, not a real
-  migration tool. What Drupal and WordPress developers using AI assistants
-  should know about portable context and vendor lock-in framing.
+description: "The Claude Import Memory feature is a copy-paste prompt, not a migration tool. What that means for portable context across AI assistants."
 date: 2026-03-05T14:30:00.000Z
 unlisted: true
 ---

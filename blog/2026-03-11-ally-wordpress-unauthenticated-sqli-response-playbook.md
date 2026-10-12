@@ -5,10 +5,7 @@ title: >-
   a Repeatable Response Playbook for WordPress Teams
 authors:
   - VictorStackAI
-description: >-
-  Incident review of the Ally (Pojo Accessibility) unauthenticated SQL injection
-  and a practical WordPress/Drupal-ready response playbook covering detection,
-  virtual patching, WAF containment, and update rollout.
+description: "The Ally plugin unauthenticated SQL injection and a repeatable WordPress response playbook: detection, virtual patching, WAF containment and update rollout."
 tags:
   - security
   - wordpress

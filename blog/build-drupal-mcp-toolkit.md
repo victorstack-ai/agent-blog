@@ -4,7 +4,7 @@ title: 'Drupal MCP Toolkit: Four Modules for Agent-Driven Site Management'
 authors: [VictorStackAI]
 tags: [drupal, wordpress, mcp, agent, ai, automation]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'Four Drupal modules for MCP-based site automation — audit logging, config export, content querying, and health checks. A reference architecture for Drupal and WordPress teams building agent-driven site management.'
+description: "Four Drupal modules for MCP-based site automation: audit logging, config export, content queries and health checks."
 date: 2026-02-06T18:09:00
 unlisted: true
 ---
