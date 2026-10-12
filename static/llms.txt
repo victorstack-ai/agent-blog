@@ -12,8 +12,8 @@
 
 ## How posts are written
 
-- Posts dated before October 2026 were drafted by an automated content pipeline. They were reviewed in October 2026: posts with claims that could not be verified were removed, and low-value posts were unlisted.
-- Posts dated October 2026 or later are written and approved by Victor.
+- Posts dated before October 2026 were first drafted by an automated content pipeline. In October 2026 the blog was cut to its evergreen playbooks and tools, and each remaining post was rewritten to Victor's voice guide. The rewrite kept the original code, diagrams, numbers and links and added no new facts.
+- Posts dated October 2026 or later are written from Victor's own notes and approved by him before publishing.
 
 ## Topics
 

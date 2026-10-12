@@ -11,7 +11,7 @@
  * - no <script or <style tags, and no "' @theme/" import typo
  * - no link to the wrong LinkedIn profile (linkedin.com/in/victor-jimenez)
  * - no old CTA footer ("Looking for an Architect", "Need an Enterprise ... Architect")
- * Extra rules for posts dated 2026-10-01 or later (written by Victor):
+ * Extra rules for every post (all posts follow the October 2026 voice guide):
  * - no em or en dashes and no emoji anywhere in the file
  *
  * Usage: node scripts/validate-content.mjs
@@ -25,7 +25,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BLOG_DIR = path.join(ROOT, 'blog');
 const REQUIRED_FIELDS = ['slug', 'title', 'authors', 'tags', 'description', 'date'];
 const MAX_DESCRIPTION = 200;
-const STRICT_FROM = '2026-10-01';
+const STRICT_FROM = '0000-01-01';
 const FRONT_MATTER = /^---\n([\s\S]*?)\n---\n/;
 
 /** Patterns checked on the raw file text, with the message to report. */
@@ -92,7 +92,7 @@ function checkPost(file, source, taxonomy) {
   }
   if (frontMatter.date && toIsoDate(frontMatter.date) >= STRICT_FROM) {
     for (const { pattern, message } of STRICT_RULES) {
-      for (const line of findAll(source, pattern)) add(`${message} (not allowed in posts dated ${STRICT_FROM} or later)`, line);
+      for (const line of findAll(source, pattern)) add(`${message}`, line);
     }
   }
   return errors;
