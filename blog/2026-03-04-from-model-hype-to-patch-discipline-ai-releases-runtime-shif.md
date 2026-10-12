@@ -19,6 +19,7 @@ description: >-
   Drupal 10.6.4/11.3.4 patch releases, contrib XSS advisories, and WordPress
   starter-theme governance insights.
 date: 2026-03-04T01:14:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

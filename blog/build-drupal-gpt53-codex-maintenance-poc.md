@@ -6,6 +6,7 @@ tags: [devlog, agent, ai, drupal, wordpress, codex, maintenance]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'Proof-of-concept using GPT-5.3 Codex for routine Drupal maintenance — dependency updates, config drift checks, and cleanup tasks that Drupal and WordPress agencies can automate through CI.'
 date: 2026-02-06T18:08:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

@@ -6,6 +6,7 @@ tags: [drupal, wordpress, ai, community, open-source]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "Dries Buytaert launched Drupal Digests -- AI-powered summaries of Drupal Core, CMS, and Canvas development activity. A model for how Drupal and WordPress communities can use AI to manage open-source information overload."
 date: 2026-02-21
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

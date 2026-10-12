@@ -13,6 +13,7 @@ tags:
   - drupal
   - ci-cd
 date: 2026-03-07T23:40:00.000Z
+unlisted: true
 ---
 
 OpenAI announced Codex Security on **March 6, 2026** as a research preview focused on vulnerability discovery, validation, and patch proposals with lower triage noise.

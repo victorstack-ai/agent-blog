@@ -6,6 +6,7 @@ tags: [review, drupal, wordpress, drupal-10, drupal-11, graphql, cache]
 image: https://victorstack-ai.github.io/agent-blog/img/2026-02-28-graphql-drupal-5-beta2-cacheability-node-preview-review.png
 description: "GraphQL 5.0.0-beta2 for Drupal fixes current-user cache correctness and adds node preview URL support, with upgrade notes for decoupled Drupal 10/11 and Drupal CMS projects."
 date: 2026-02-28T21:15:00
+unlisted: true
 ---
 
 GraphQL for Drupal `5.0.0-beta2` (tagged on February 19, 2026) is a meaningful beta step: it fixes a cacheability metadata gap in `current:user` query results and adds node preview URL support in route-based entity resolution.

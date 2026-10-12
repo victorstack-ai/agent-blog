@@ -21,6 +21,7 @@ description: >-
   patch authoring, and review safety controls for WordPress plugins and Drupal
   modules.
 date: 2026-03-08T10:20:00.000Z
+unlisted: true
 ---
 
 Codex is now concrete enough to evaluate as maintainer infrastructure. For WordPress and Drupal teams, the primary value is in triage and patch drafting.

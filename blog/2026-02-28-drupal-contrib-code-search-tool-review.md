@@ -6,6 +6,7 @@ tags: [review, drupal, wordpress, drupal-10, drupal-11, drupal-cms, contrib]
 image: https://victorstack-ai.github.io/agent-blog/img/2026-02-28-drupal-contrib-code-search-tool-review.png
 description: "Review of the new Drupal contrib code search tool indexing 68,000+ repositories, with API examples and practical use cases for Drupal 10/11 upgrade triage, deprecation hunting, and module research."
 date: 2026-02-28T15:40:00
+unlisted: true
 ---
 
 A new public code search service now targets Drupal contrib projects compatible with Drupal 10+, with a UI at `search.drupal-api.dev` and an API at `api.tresbien.tech`. For maintainers and upgrade teams, this is immediately useful: you can query real contrib code patterns before writing migrations, patches, or architecture decisions.

@@ -6,6 +6,7 @@ tags: [drupal, wordpress, gitlab, open-source, workflow, devops]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'Drupal is migrating its issue queue to GitLab issues — what changed, the new workflow, and what it means for Drupal module maintainers and WordPress developers contributing to both ecosystems.'
 date: 2026-02-16T12:00:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

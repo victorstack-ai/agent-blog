@@ -14,6 +14,7 @@ description: >-
   Passkeys misuse, coding-agent reality checks, Drupal AI module updates, and
   infrastructure security signals relevant to Drupal and WordPress engineering teams.
 date: 2026-02-28T18:47:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

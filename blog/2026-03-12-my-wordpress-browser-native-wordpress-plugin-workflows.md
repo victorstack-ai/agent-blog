@@ -18,6 +18,7 @@ tags:
   - qa
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-12-my-wordpress-browser-native-wordpress-plugin-workflows.png
+unlisted: true
 ---
 
 `My WordPress` is a browser-native WordPress environment based on Playground and exposed at `my.wordpress.net`. The strategic shift is simple: plugin teams can move more early validation and onboarding into a disposable, shareable runtime that starts fast and does not require local PHP/MySQL setup.

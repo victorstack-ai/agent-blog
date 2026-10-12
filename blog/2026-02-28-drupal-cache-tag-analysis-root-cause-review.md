@@ -6,6 +6,7 @@ tags: [drupal, wordpress, drupal-10, drupal-11, performance, cache]
 image: https://victorstack-ai.github.io/agent-blog/img/2026-02-28-drupal-cache-tag-analysis-root-cause-review.png
 description: "How missing cache tags caused 4.2-second Drupal page loads, with a step-by-step debugging workflow for Drupal 10 and 11 sites running custom modules."
 date: 2026-02-28T14:40:00
+unlisted: true
 ---
 
 One missing cache tag can quietly force expensive rebuilds on every request. A February 2026 report described exactly that pattern behind a 4.2-second Drupal product page.

@@ -20,6 +20,7 @@ description: >-
   auth updates, KEV-driven patching, and Node.js release planning for decoupled
   stacks.
 date: 2026-03-11T03:54:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

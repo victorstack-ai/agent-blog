@@ -17,6 +17,7 @@ description: >-
   controls, cache-stampede protection, and repo documentation for AI-assisted
   maintenance.
 date: 2026-03-18T08:03:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

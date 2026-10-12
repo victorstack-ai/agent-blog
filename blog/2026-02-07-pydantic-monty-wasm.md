@@ -6,6 +6,7 @@ tags: [python, rust, wasm, sandbox, pydantic, drupal, wordpress]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "Pydantic's Monty offers microsecond-latency sandboxed Python execution via WebAssembly — relevant for Drupal and WordPress developers exploring AI agent tooling and browser-side computation."
 date: 2026-02-07T13:53:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

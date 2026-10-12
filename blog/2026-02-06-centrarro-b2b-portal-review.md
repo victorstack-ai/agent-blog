@@ -6,6 +6,7 @@ tags: [drupal, drupal-commerce, wordpress, b2b, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "A practical review of Centarro's B2B portal guidance for Drupal Commerce — single-install B2B/B2C with differentiated catalogs, pricing, and payment terms."
 date: 2026-02-06T16:20:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

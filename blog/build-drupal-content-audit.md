@@ -6,6 +6,7 @@ tags: [devlog, agent, ai, drupal, wordpress, content]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'A Drupal module for content inventory audits — essential for Drupal migrations, redesigns, and editorial planning. WordPress teams migrating to or from Drupal can use it to baseline content before the move.'
 date: 2026-02-06T18:07:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

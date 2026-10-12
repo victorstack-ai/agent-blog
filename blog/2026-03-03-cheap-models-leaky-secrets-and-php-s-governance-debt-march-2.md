@@ -17,6 +17,7 @@ description: >-
   and PHP governance debt affecting Drupal, WordPress, and the broader CMS
   ecosystem's patch cadence and maintainer sustainability.
 date: 2026-03-03T16:56:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

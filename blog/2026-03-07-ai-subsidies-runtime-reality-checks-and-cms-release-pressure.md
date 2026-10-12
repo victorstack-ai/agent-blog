@@ -16,6 +16,7 @@ image: >-
 description: >-
   Drupal and WordPress practitioner digest on OSS AI credit programs, agent testing discipline, CMS patch release signals, and separating hype from operational value.
 date: 2026-03-07T20:14:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

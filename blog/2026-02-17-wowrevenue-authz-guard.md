@@ -6,6 +6,7 @@ tags: [wordpress, drupal, security, plugins, authorization]
 description: "WowRevenue <= 2.1.3 has a high-risk WordPress authorization flaw in AJAX handlers. I built a scanner and documented the fix pattern that every WordPress and Drupal plugin developer should enforce."
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-17T12:00:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

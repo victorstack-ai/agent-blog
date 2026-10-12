@@ -6,6 +6,7 @@ tags: [drupal, wordpress, composer, dependencies, workflow]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'How to use Composer path repositories for local Drupal module development — iterate across dependent modules without publishing interim versions.'
 date: 2026-02-05T11:00:00
+unlisted: true
 ---
 
 **The Hook**

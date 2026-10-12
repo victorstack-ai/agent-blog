@@ -6,6 +6,7 @@ tags: [devlog, agent, ai, ddev, mcp, playwright, testing, drupal, wordpress]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "A DDEV add-on that runs Playwright checks against local MCP endpoints for Drupal and WordPress projects — one command for repeatable MCP smoke tests using internal DDEV DNS names."
 date: 2026-02-06T18:06:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

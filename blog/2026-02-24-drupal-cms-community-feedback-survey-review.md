@@ -6,6 +6,7 @@ tags: [drupal, drupal-cms, survey, community, product-strategy, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "How Drupal developers and agencies can submit actionable Drupal CMS survey feedback that influences near-term priorities. Includes release context for Drupal CMS 2.x and core 11.3.0."
 date: 2026-02-24T10:00:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

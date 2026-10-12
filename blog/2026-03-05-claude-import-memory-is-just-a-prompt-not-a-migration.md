@@ -15,6 +15,7 @@ description: >-
   migration tool. What Drupal and WordPress developers using AI assistants
   should know about portable context and vendor lock-in framing.
 date: 2026-03-05T14:30:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';

@@ -16,6 +16,7 @@ image: >-
 description: >-
   Weekly practitioner digest covering Drupal patch releases, WordPress tooling updates, AI product shifts, and supply-chain security signals relevant to CMS teams.
 date: 2026-03-06T00:31:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
