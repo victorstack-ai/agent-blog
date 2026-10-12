@@ -137,6 +137,3 @@ AI Gateway is ~~only for chatbots~~ useful when attached to deterministic checks
 ## What to do next
 
 Prioritize cache tagging and stale fallback first, because that directly improves uptime and editor experience. Then fix redirect architecture and isolate untrusted execution paths; those two changes remove the most common migration and security failures in Drupal/WordPress delivery stacks.
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

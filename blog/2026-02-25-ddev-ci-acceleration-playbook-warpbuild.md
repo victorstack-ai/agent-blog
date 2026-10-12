@@ -165,7 +165,3 @@ Drupal CI pipelines running PHPUnit, Nightwatch, or Cypress through DDEV are the
 - https://www.warpbuild.com/docs/ci/features
 - https://www.warpbuild.com/docs/ci/preinstalled-software
 - https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

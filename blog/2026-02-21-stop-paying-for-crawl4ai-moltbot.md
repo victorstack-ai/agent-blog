@@ -226,7 +226,3 @@ python3 -c "import bs4; print('BeautifulSoup: installed')"
 - [Crawl4AI GitHub](https://github.com/unclecode/crawl4ai) -- Look at the source. It's Playwright + LLM calls. That's it.
 - [Playwright Documentation](https://playwright.dev/python/) -- Everything you need to automate a browser
 - [Anthropic Claude API](https://docs.anthropic.com/) -- The actual brain. You already pay for this.
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

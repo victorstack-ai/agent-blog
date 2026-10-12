@@ -91,9 +91,6 @@ This sequencing aligns with Pantheon's Multidev-first guidance and reduces produ
 
 A successful build artifact does not guarantee a successful Drupal CMS 2 site. Because CMS 2 relies heavily on recipes and configuration-as-code, you must validate the **Canvas** editor experience and the integrity of the **Byte** theme mappings in Multidev before merging any code to production.
 
-***
-*Need an Enterprise Drupal Architect who specializes in Pantheon upstream migrations and CI/CD optimization? View my Open Source work on [Project Context Connector](https://github.com/victorstack-ai/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*
-
 ## Deployment Checklist
 
 Use this as a release gate before promotion:

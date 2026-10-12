@@ -74,6 +74,3 @@ test('Compare Staging against Production', async ({ page }) => {
 ## Regression Gates: The Final Frontier
 
 By enforcing a visual regression gate, we eliminate the fear of "breaking the site" with a security patch. If the visual diff returns a 0% variance, the pipeline automatically flags the security branch as "Ready for Production." This allows security teams to move at the speed of the exploit, rather than the speed of the manual QA cycle.
-
-***
-*Need an Enterprise Drupal Architect who specializes in high-security rapid response? View my Open Source work on [Project Context Connector](https://github.com/victorjimenezdev/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*

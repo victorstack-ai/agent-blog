@@ -159,7 +159,3 @@ Most of the useful information here fits one rule: incentives change fast, relia
 :::tip[Single highest-ROI move]
 Create one `release-watch` checklist that combines model eval parity, runtime benchmark gates, and CMS security-window tracking. Run it on every release train and block deploys on red checks.
 :::
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

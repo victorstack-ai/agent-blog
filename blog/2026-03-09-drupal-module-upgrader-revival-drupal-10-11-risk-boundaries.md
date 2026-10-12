@@ -107,6 +107,3 @@ Drupal teams finally get a viable automation assist again for D7 module porting 
 - [Upgrade Status project page](https://www.drupal.org/project/upgrade_status)
 - [Upgrade Rector project page](https://www.drupal.org/project/upgrade_rector)
 - [Drupal.org guide: How to upgrade from Drupal 10 to Drupal 11 (updated February 24, 2026)](https://www.drupal.org/docs/upgrading-drupal/upgrading-drupal/how-to-upgrade-from-drupal-10-to-drupal-11)
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -149,7 +149,3 @@ Drupal's JSON:API is the natural transport for agent-driven content operations, 
 ## References
 
 - [View Code](https://github.com/victorstack-ai/drupal-cms-2-ai-agent-poc)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

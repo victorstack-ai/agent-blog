@@ -88,6 +88,3 @@ async function generateHandoffSession(payload) {
 ## Attribution Integrity Middleware
 
 By centralizing the parameter logic inside the CMS and relying on server-side session handoffs, we achieved 100% attribution accuracy. The middleware acts as a "Guardian" for campaign data, ensuring that regardless of browser privacy settings, the commercial intent and campaign origin are securely transmitted to the transaction engine.
-
-***
-*Need an Enterprise Drupal Architect who specializes in secure commercial handoffs? View my Open Source work on [Project Context Connector](https://github.com/victorjimenezdev/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*

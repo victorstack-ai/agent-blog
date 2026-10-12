@@ -144,7 +144,3 @@ Drupal modules and WordPress plugins often contain logic-level vulnerabilities -
 - [GitHubSecurityLab/seclab-taskflows](https://github.com/GitHubSecurityLab/seclab-taskflows)
 - [WordPress Developer Handbook: Security](https://developer.wordpress.org/apis/security/)
 - [Drupal.org: Writing secure code for Drupal](https://www.drupal.org/docs/administering-a-drupal-site/security-in-drupal/writing-secure-code-for-drupal)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -66,7 +66,3 @@ Drupal maintainers running upgrade sprints from Drupal 9 to 10/11 can use this s
 - [New Drupal Contrib Code Search Tool announcement](https://www.tresbien.tech/new-drupal-contrib-code-search-tool/)
 - [Search UI](https://search.drupal-api.dev/)
 - [API reference UI](https://api.tresbien.tech/docs)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

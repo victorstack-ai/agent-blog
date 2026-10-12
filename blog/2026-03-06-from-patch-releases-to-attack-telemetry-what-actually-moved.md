@@ -175,7 +175,3 @@ Drupal 10.6.4 and 11.3.4 patch releases plus two contrib XSS advisories make thi
 ## What to Do With All This
 
 Patch on time. Instrument real exploit outcomes. Tie AI usage to delivery metrics you can measure. ~~Everything else is branding~~ — well, most of it is.
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

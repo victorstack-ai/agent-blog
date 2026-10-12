@@ -182,7 +182,3 @@ Cheaper inference, exploitable defaults, and underfunded maintenance are converg
 :::tip[Single Highest-ROI Move This Week]
 Implement one CI gate that blocks merges on detected secrets (`gitleaks`/`trufflehog`) and untrusted host-header reset behavior tests. That one gate cuts both immediate breach probability and incident-response drag.
 :::
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

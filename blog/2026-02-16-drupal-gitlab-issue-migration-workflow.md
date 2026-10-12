@@ -61,7 +61,3 @@ Drupal module maintainers now get native GitLab issue boards, merge request inte
 *   [Drupal.org: GitLab Issue Migration Documentation](https://www.drupal.org/project/drupalorg/issues/3277732)
 *   [GitLab Issues Transition: FAQ for Maintainers](https://www.drupal.org/docs/develop/git/gitlab/gitlab-issues)
 *   [Blog: Modernizing Drupal Contribution with GitLab](https://www.drupal.org/blog/gitlab-issues-migration-update)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

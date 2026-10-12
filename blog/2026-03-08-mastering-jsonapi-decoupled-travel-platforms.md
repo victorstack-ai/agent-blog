@@ -88,6 +88,3 @@ Additionally, we implemented the **Query Complexity** gate. If a frontend develo
 ## Security: Sanitizing the Data Stream
 
 A critical enterprise requirement is ensuring PII (Personally Identifiable Information) never leaks into public JSON:API streams. We utilized Drupal's access control layer to ensure that even if a field is "exposed" via the API, the current user (typically an anonymous frontend "consumer" user) has zero view permissions for sensitive fields like internal hotel contact numbers or guest ID numbers.
-
-***
-*Need an Enterprise Drupal Architect who specializes in high-availability decoupled systems? View my Open Source work on [Project Context Connector](https://github.com/victorjimenezdev/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*

@@ -202,6 +202,3 @@ For Drupal teams, the analogy is config export/import discipline rather than fea
 - [View Code](https://github.com/victorstack-ai/config-sync)
 - [Project README](https://github.com/victorstack-ai/config-sync/blob/main/README.md)
 - [Main Plugin Bootstrap](https://github.com/victorstack-ai/config-sync/blob/main/syncforge-config-manager/syncforge-config-manager.php)
-
-***
-*Looking for an Architect who does not just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

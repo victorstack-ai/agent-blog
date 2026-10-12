@@ -164,7 +164,3 @@ For Drupal module developers, HTMX adoption in core means rewriting Ajax-heavy c
 ## References
 
 - [HTMX Now in Drupal Core — Ajax API replacement initiative](https://www.drupal.org/node/3539472)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -69,6 +69,3 @@ We configured Lando's internal Nginx routing to ignore strict HTTP-to-HTTPS redi
 ## Automated DB Sanitization
 
 Executing these commands manually is prone to error. By embedding the sanitization login into the `.lando.yml` events, we ensure that every developer—regardless of their seniority level—is working in a perfectly configured sandbox every time they pull fresh data. This "Shift Left" on environment parity saves dozens of hours in debugging non-existent production bugs that were actually just local configuration drifts.
-
-***
-*Need an Enterprise CMS Architect who specializes in developer experience and local sandboxing? View my Open Source work on [Project Context Connector](https://github.com/victorjimenezdev/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*

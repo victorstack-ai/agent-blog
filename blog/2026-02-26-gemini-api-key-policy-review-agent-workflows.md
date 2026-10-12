@@ -119,7 +119,3 @@ Agent workflows that generate Drupal or WordPress code, triage issues, or run co
 - [Google API Key Support](https://support.google.com/googleapi/answer/178723?hl=en)
 - [Google Cloud API Keys Best Practices](https://cloud.google.com/docs/authentication/api-keys-best-practices)
 - [Gemini API Terms](https://ai.google.dev/gemini-api/terms)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

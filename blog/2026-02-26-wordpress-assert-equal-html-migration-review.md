@@ -180,7 +180,3 @@ WordPress plugin and theme developers can immediately reduce flaky CI failures b
 
 - [WordPress 6.9 Developer Changes](https://make.wordpress.org/core/2025/04/16/miscellaneous-developer-changes-in-wordpress-6-9/)
 - [Core Changeset 60301](https://core.trac.wordpress.org/changeset/60301)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

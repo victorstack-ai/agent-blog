@@ -112,7 +112,3 @@ Drupal and WordPress developers increasingly rely on AI coding assistants with p
 Claude Import Memory is a copy-paste workflow with a marketing page. The underlying technique — asking an AI to summarize your preferences — has been available since the first ChatGPT custom instructions shipped in July 2023. Calling it "import" is generous. Calling it "migration" is misleading.
 
 The feature works fine for what it is. Just do not mistake a prompt for a protocol.
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

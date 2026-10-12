@@ -162,7 +162,3 @@ Drupal and WordPress deployments often run on platform or agency CI: Pantheon, A
 - https://kubernetes.io/docs/concepts/security/secrets-good-practices
 - https://kubernetes.io/docs/concepts/configuration/secret/
 - https://developer.hashicorp.com/vault/docs/deploy/kubernetes/vso/csi
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

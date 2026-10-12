@@ -189,7 +189,3 @@ Drupal 12 will require PHP 8.4 as its minimum, and WordPress is actively testing
 - [PHP 8.4: Tighter Type and Error Handling](https://php.watch/versions/8.4)
 - [PHP RFC: Stricter implicit boolean coercions](https://wiki.php.net/rfc/deprecate_implicit_bool_coercion)
 - [Drupal 12 Readiness Dashboard](/2026-02-08-drupal-12-readiness-dashboard)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

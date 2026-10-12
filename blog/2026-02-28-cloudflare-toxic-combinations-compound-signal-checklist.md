@@ -142,7 +142,3 @@ Drupal and WordPress sites on managed or platform hosting (Pantheon, Acquia, WP 
 ## References
 
 - [Cloudflare: The Curious Case of Toxic Combinations (October 26, 2025)](https://blog.cloudflare.com/the-curious-case-of-toxic-combinations/)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

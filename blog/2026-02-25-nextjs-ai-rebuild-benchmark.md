@@ -145,7 +145,3 @@ Decoupled and headless setups are common in the Drupal and WordPress world: Next
 - [WordPress AI Search Optimization Playbook](/2026-02-17-wordpress-ai-search-optimization-playbook/)
 - [Drupal 12 Readiness Dashboard](/2026-02-08-drupal-12-readiness-dashboard/)
 - [Pydantic + Monty + WebAssembly](/2026-02-07-pydantic-monty-wasm/)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

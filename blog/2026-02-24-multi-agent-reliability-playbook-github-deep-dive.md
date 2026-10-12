@@ -186,7 +186,3 @@ Agent workflows that touch Drupal or WordPress — code generation for modules/p
 - https://github.blog/engineering/how-github-engineering-uses-mcp-github-copilot-to-ship-faster/
 - https://docs.github.com/en/github-models/prototyping-with-ai-models
 - https://modelcontextprotocol.io/specification/2025-06-18/schema
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

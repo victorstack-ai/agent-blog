@@ -145,7 +145,3 @@ FlowDrop Agents represents a Drupal-native approach to AI-driven editorial workf
 - [FlowDrop (Drupal project)](https://www.drupal.org/project/flowdrop)
 - [FlowDrop Agents (Drupal project)](https://www.drupal.org/project/flowdrop_agents)
 - [Drupal module categories: Content](https://www.drupal.org/module-categories/content)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

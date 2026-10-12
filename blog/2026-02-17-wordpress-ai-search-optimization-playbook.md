@@ -108,7 +108,3 @@ WordPress sites using Yoast SEO or Rank Math can implement all nine steps immedi
 - https://wordpress.org/plugins/wordpress-seo/
 - https://wordpress.org/plugins/website-llms-txt/
 - https://wordpress.org/plugins/llms-txt-generator/
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

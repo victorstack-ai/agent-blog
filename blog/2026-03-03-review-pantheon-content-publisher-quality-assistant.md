@@ -104,7 +104,3 @@ Pantheon Content Publisher supports both Drupal and WordPress sites, making its 
 - [Manage Content Publisher workflows (Pantheon docs)](https://docs.content.pantheon.io/manage-workflows)
 - [Content Publisher user roles (Pantheon docs)](https://docs.content.pantheon.io/user-roles)
 - [Content Publisher metadata fields (Pantheon docs)](https://docs.content.pantheon.io/metadata-fields)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

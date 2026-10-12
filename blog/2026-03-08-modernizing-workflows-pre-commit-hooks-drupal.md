@@ -71,6 +71,3 @@ An edge case arose when deploying the upstream distribution to downstream vendor
 ## Linting as a Service: The Architectural ROI
 
 By shifting validation to the extreme left—right at the point of the commit—we dropped CI failure rates due to syntax by 98%. Senior architects spend their time reviewing business logic and security vectors, rather than leaving comments about line-length limits. This is what it looks like to treat the developer experience as a first-class citizen of the enterprise architecture.
-
-***
-*Need an Enterprise Drupal Architect who specializes in developer productivity and CI/CD optimization? View my Open Source work on [Project Context Connector](https://github.com/victorjimenezdev/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*

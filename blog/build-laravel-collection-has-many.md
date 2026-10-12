@@ -122,7 +122,3 @@ Drupal developers often work with plain arrays from custom database queries, Vie
 ## References
 
 - [View Code](https://github.com/victorstack-ai/laravel-collection-has-many)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -105,7 +105,3 @@ Google Workspace CLI is useful because it reduces integration entropy, not becau
 :::tip[Single highest-value action]
 Replace one brittle Workspace REST script in production with `gws ... --json`, then add command allowlisting and scoped credentials in the same PR. Ship the security boundary with the migration, not later.
 :::
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

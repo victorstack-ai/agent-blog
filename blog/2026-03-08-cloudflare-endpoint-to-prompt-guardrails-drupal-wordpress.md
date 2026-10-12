@@ -73,9 +73,6 @@ For WordPress/Drupal teams, block these from AI prompts and uploads using DLP pr
 
 The most common leak path is not a git push; it is a copy/paste from a production admin session into a personal AI tool. By strictly controlling the clipboard direction on remote browser isolation (RBI) sessions, you ensure that the production data layer remains decoupled from the developer's chat history.
 
-***
-*Need an Enterprise Security Architect who specializes in Cloudflare One and AI-assisted CMS workflows? View my Open Source work on [Project Context Connector](https://github.com/victorstack-ai/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*
-
 ### 2) Prompt boundary: classify prompt operations as data egress
 
 Treat operations such as `SendPrompt`, file upload, and share as controlled exfil paths:

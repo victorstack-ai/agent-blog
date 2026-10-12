@@ -150,7 +150,3 @@ Agencies and teams that run AI agents for Drupal or WordPress — content pipeli
 ## References
 
 - [Security Boulevard: The Invisible Risk: 1.5 Million Unmonitored AI Agents Threaten Corporate Security](https://securityboulevard.com/2024/05/the-invisible-risk-1-5-million-unmonitored-ai-agents-threaten-corporate-security/)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -86,6 +86,3 @@ To handle English, Spanish, and French in a single index without quality loss, w
 Following deployment to production:
 *   **Query Time:** Average search response time dropped from ~3,200ms to **140ms**.
 *   **Infrastructure Costs:** We were able to scale down the Solr cluster by one tier, saving significant monthly OPEX.
-
-***
-*Need an Enterprise Drupal Architect who specializes in high-scale search performance? View my Open Source work on [Project Context Connector](https://github.com/victorjimenezdev/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*

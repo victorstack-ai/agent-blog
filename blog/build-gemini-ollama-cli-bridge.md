@@ -127,7 +127,3 @@ Drupal and WordPress maintainers and agencies often need to run code analysis on
 
 - [gemini-ollama-cli-bridge on GitHub](https://github.com/victorstack-ai/gemini-ollama-cli-bridge)
 - [google-generativeai Python SDK](https://pypi.org/project/google-generativeai/)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -94,7 +94,3 @@ Drupal agencies managing multiple client sites need shareable readiness reports 
 - [mglaman/phpstan-drupal](https://github.com/mglaman/phpstan-drupal)
 - [phpstan-deprecation-rules](https://github.com/phpstan/phpstan-deprecation-rules)
 - [Drupal Database API Changes](https://www.drupal.org/node/3265108)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

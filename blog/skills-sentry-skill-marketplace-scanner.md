@@ -451,7 +451,3 @@ Drupal and WordPress teams that adopt agent skills (e.g. for backlog triage, cod
 
 - [malware found in the top downloaded skill on clawhub and so it begins](https://x.com/DanielLockyer/status/2019422410018267328) (Daniel Lockyer)
 - [Here we go](https://x.com/elonmusk/status/2019823468968370633) (Elon Musk)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

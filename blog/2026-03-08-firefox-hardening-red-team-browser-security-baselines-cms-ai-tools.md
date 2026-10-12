@@ -120,9 +120,6 @@ Many teams now run AI tools in the same browser used for CMS admin panels. That 
 
 Security baseline: run AI coding tools in a separate Firefox profile with its own cookie jar and extension set. Never keep production CMS admin tabs open while using AI tools.
 
-***
-*Need an Enterprise Security Architect who specializes in browser hardening and privileged access management? View my Open Source work on [Project Context Connector](https://github.com/victorstack-ai/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*
-
 ## Verification Checklist for Infra Leads
 
 Measure controls, do not just declare them:

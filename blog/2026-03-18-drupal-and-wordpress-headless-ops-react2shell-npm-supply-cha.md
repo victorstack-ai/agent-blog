@@ -221,6 +221,3 @@ If a maintenance agent cannot discover the project's rules from the repository i
 The useful items were the ones with a concrete engineering consequence. For Drupal and WordPress teams, that means four things: review data residency beyond the database, fix admin dashboards that train editors badly, treat React/npm issues as first-class CMS risk in headless builds, and move maintenance rules into the repo so humans and agents stop guessing.
 
 Anything outside that list was mostly noise, executive theater, or product-page fog. The web has enough of that already.
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

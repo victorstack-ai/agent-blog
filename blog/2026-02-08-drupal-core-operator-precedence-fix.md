@@ -51,7 +51,3 @@ This bug affects any Drupal site using database table prefixes — common in sha
 **Issue Link**
 
 Issue: [Operator precedence bug in DefaultTableMapping fix](https://www.drupal.org/project/drupal/issues/3412567)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

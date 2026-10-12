@@ -129,7 +129,3 @@ Better tools amplify whatever process you already have. If your review and contr
 :::tip[Single action to take this week]
 Add a release gate that blocks PRs touching `auth`, `secrets`, or `infra` unless security scan passes and a human reviewer signs off. This catches the highest-cost failures while keeping agent throughput high.
 :::
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

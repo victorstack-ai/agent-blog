@@ -83,6 +83,3 @@ In a decoupled setup, broken hyperlinks and orphaned content are prevalent. We i
 ## Global Content Dehydration
 
 To minimize initial page weight, we adopted a "dehydration" strategy. Static marketing content is delivered as pure HTML/CSS, while interactive components (like the "Check Availability" calendar) remain inert until a lightweight JS bundle hydrates them. This ensures immediate visual load while maintaining deep functionality.
-
-***
-*Need an Enterprise Drupal Architect who specializes in high-availability decoupled systems? View my Open Source work on [Project Context Connector](https://github.com/victorjimenezdev/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*

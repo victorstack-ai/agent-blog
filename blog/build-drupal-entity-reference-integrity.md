@@ -113,7 +113,3 @@ Detection without remediation is a report that sits in someone's inbox. **Auto-f
 ## References
 
 - [View Code](https://github.com/victorstack-ai/drupal-entity-reference-integrity)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

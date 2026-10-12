@@ -162,6 +162,3 @@ A practical reading for Drupal/WordPress shops: automate internal operations agg
 2. Use coding agents for triage and patch prep in bounded scopes (tests, lint, issue labeling), not full autonomous merges.
 3. Build WhatsApp integrations as append-only outbound systems with retry queues and local audit logs.
 4. Keep agency/internal AI automations separate from production CMS plugin/module code until reliability and ownership are clear.
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

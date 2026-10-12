@@ -54,9 +54,6 @@ slots:
 
 Display Builder's model is intentionally "unified": entity display building, page layout, and Views display surfaces are presented through a single builder approach. This reduces architectural fragmentation and ensures that your SDC components behave identically regardless of where they are placed in the CMS ecosystem.
 
-***
-*Need an Enterprise Drupal Architect who specializes in UI Suite and visual builder implementations? View my Open Source work on [Project Context Connector](https://github.com/victorstack-ai/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*
-
 ## Workflow Impact for Drupal 10/11 Site Builders
 
 Display Builder's model is intentionally "unified": entity display building, page layout, and Views display surfaces are presented through a single builder approach, implemented by sub-modules (`display_builder_entity_view`, `display_builder_page_layout`, `display_builder_views`).

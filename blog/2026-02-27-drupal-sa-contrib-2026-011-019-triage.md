@@ -127,7 +127,3 @@ Drupal agencies and site owners running contrib-heavy stacks need a repeatable t
 - [SA-CONTRIB-2026-017](https://www.drupal.org/sa-contrib-2026-017)
 - [SA-CONTRIB-2026-018](https://www.drupal.org/sa-contrib-2026-018)
 - [SA-CONTRIB-2026-019](https://www.drupal.org/sa-contrib-2026-019)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

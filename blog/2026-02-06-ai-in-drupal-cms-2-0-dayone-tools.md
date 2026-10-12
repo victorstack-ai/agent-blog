@@ -109,7 +109,3 @@ Drupal CMS 2.0 is positioning AI as a first-class editorial tool, and this promp
 ## References
 
 - [Drupal AI module](https://www.drupal.org/project/ai)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

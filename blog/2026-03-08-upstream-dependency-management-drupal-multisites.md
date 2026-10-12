@@ -73,6 +73,3 @@ We intercepted rogue pre-commit hooks at the upstream level using custom `compos
 ## Governance through CI Gates
 
 Managing an enterprise upstream requires visualizing the deployment graph before executing the command. We implemented a "Canary Build" in our CI pipeline. Before any upstream update is tagged, the CI system attempts a dry-run update on three diverse "Canary" downstream sites. If the dependency resolution fails on even one site, the upstream tag is blocked.
-
-***
-*Need an Enterprise Drupal Architect who specializes in complex multisite governance? View my Open Source work on [Project Context Connector](https://github.com/victorjimenezdev/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*

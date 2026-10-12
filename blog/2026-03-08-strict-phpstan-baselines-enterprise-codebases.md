@@ -69,6 +69,3 @@ We introduced a rule regarding the baseline: if you touch a file to add a featur
 Over a six-month period, the baseline shrank from 5,000 errors to under 300, without a single dedicated "refactoring sprint." The application became highly deterministic and type-safe simply by enforcing a strict boundary on new code. 
 
 When dealing with enterprise technical debt, the strategy isn't to burn the house down; it's to stop adding fuel to the fire.
-
-***
-*Need an Enterprise Drupal Architect who specializes in static analysis and debt remediation? View my Open Source work on [Project Context Connector](https://github.com/victorjimenezdev/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*

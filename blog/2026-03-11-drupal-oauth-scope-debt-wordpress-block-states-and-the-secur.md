@@ -176,6 +176,3 @@ What to do now:
 2. Re-audit OAuth/SAML role and scope mappings.
 3. Move WordPress block state styling into `theme.json` where possible.
 4. Tie KEV updates to concrete hosting patch deadlines.
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
