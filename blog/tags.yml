@@ -152,3 +152,32 @@ build:
   label: Build
   permalink: /build
   description: Write-ups of tools and projects I built, with links to the code.
+
+product-engineering:
+  label: Product Engineering
+  permalink: /product-engineering
+  description: Building and shipping web products end to end, from the browser to the database.
+web-platform:
+  label: Web Platform
+  permalink: /web-platform
+  description: Browser features, web standards and platform APIs.
+css:
+  label: CSS
+  permalink: /css
+  description: Layout, styling and CSS features that ship in browsers.
+nodejs:
+  label: Node.js
+  permalink: /nodejs
+  description: Node.js runtime, releases and server-side JavaScript.
+observability:
+  label: Observability
+  permalink: /observability
+  description: Logs, metrics, traces and knowing what production is doing.
+process:
+  label: Process
+  permalink: /process
+  description: How teams plan and ship, and which rituals earn their place.
+ux:
+  label: UX
+  permalink: /ux
+  description: User experience decisions engineers make every day.
