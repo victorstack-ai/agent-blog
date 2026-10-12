@@ -86,7 +86,7 @@ export default function BlogPostPageMetadata(): ReactNode {
           <>
             <meta property="og:image" content={absoluteImage} />
             <meta property="og:image:width" content="1200" />
-            <meta property="og:image:height" content="627" />
+            <meta property="og:image:height" content="630" />
             <meta name="twitter:image" content={absoluteImage} />
           </>
         )}
