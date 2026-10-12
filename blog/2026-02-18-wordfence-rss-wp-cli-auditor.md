@@ -112,7 +112,7 @@ wp wordfence-audit plugins --format=csv > audit.csv
 
 Related reading:
 - [WP Malware Sentinel Scanner](/2026-02-08-wp-malware-sentinel-scanner/)
-- [WP QSM SQL Injection Audit](/2026-02-07-wp-qsm-sql-injection-audit/)
+- WP QSM SQL Injection Audit
 
 ## Why this matters for Drupal and WordPress
 

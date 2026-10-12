@@ -146,7 +146,7 @@ replacement="Use allowed_block_types_all filter which receives the block editor 
 </details>
 
 Related posts:
-- [WordPress Google Preferred Source Tool](/wp-google-preferred-source-tool/)
+- WordPress Google Preferred Source Tool
 
 ## Why this matters for Drupal and WordPress
 

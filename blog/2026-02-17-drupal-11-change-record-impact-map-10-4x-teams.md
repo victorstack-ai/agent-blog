@@ -73,8 +73,8 @@ flowchart TD
 
 Related posts:
 - [Drupal 11.1 Breaking Changes for Custom Entities](/2026-02-17-drupal-11-1-custom-entity-breaking-changes/)
-- [Drupal 12 Readiness Dashboard](/2026-02-08-drupal-12-readiness-dashboard/)
-- [Drupal GitLab Issue Migration Workflow](/2026-02-16-drupal-gitlab-issue-migration-workflow/)
+- Drupal 12 Readiness Dashboard
+- Drupal GitLab Issue Migration Workflow
 
 ## Why this matters for Drupal and WordPress
 

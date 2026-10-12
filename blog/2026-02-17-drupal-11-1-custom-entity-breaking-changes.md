@@ -106,8 +106,8 @@ flowchart TD
 ```
 
 Related reading from this blog:
-- [Drupal 12 Readiness Dashboard](/2026-02-08-drupal-12-readiness-dashboard/)
-- [Drupal GitLab Issue Migration Workflow](/2026-02-16-drupal-gitlab-issue-migration-workflow/)
+- Drupal 12 Readiness Dashboard
+- Drupal GitLab Issue Migration Workflow
 - [Drupal Context MCP Integration](/drupal-context-mcp-integration/)
 
 ## Why this matters for Drupal and WordPress

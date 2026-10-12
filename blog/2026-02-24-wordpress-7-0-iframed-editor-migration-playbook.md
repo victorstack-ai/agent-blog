@@ -171,7 +171,7 @@ add_action( 'enqueue_block_editor_assets', 'example_enqueue_editor_assets' );
 <details>
 <summary>Related reading</summary>
 
-- [WordPress 7.0 Beta 1 Review](/wordpress-7-0-beta-1-review/)
+- WordPress 7.0 Beta 1 Review
 - [WordPress 7.0 Compatibility Scanner CLI](/2026-02-18-wp-7-compat-scanner-cli/)
 
 </details>
