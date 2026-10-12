@@ -316,6 +316,19 @@ const config: Config = {
     require.resolve('./src/client/gtm-events.ts'),
   ],
   themeConfig: {
+    // Diagrams render at natural size and scroll sideways on narrow screens instead of shrinking
+    // their labels until nobody can read them. Strict security keeps diagrams from running code.
+    mermaid: {
+      theme: { light: 'neutral', dark: 'dark' },
+      options: {
+        securityLevel: 'strict',
+        fontSize: 16,
+        flowchart: { useMaxWidth: false, htmlLabels: false },
+        sequence: { useMaxWidth: false },
+        state: { useMaxWidth: false },
+        timeline: { useMaxWidth: false },
+      },
+    },
     // theme-color per scheme (iOS/Android status bar) + viewport-fit + safe-area
     headTags: [
       /* Fallback for Android WebView: many ignore media on theme-color, so set default first */

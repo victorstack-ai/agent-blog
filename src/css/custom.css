@@ -293,3 +293,15 @@ h1 {
   background-clip: text;
   text-fill-color: transparent;
 }
+/* Mermaid: keep natural size, center it, and scroll sideways when wider than the column. */
+.docusaurus-mermaid-container {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.docusaurus-mermaid-container svg {
+  max-width: none !important;
+  height: auto;
+}
