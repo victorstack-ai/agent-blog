@@ -17,11 +17,12 @@
 
 ## Topics
 
-- Architecture, APIs and integrations
-- Release engineering, CI/CD and testing
-- Performance and technical SEO
-- Security and accessibility
-- AI engineering and agent workflows
+- Product engineering: React, Next.js, TypeScript and Node from the browser to the database
+- Web platform, performance, accessibility and technical SEO
+- AI-assisted engineering and agents in practice
+- Release engineering, testing and quality
+- Integrations, payments, identity and security
+- Technical leadership and process that fits the team
 - Drupal and WordPress
 
 ## Links
