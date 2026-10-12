@@ -14,6 +14,8 @@ image: >-
 
 The experimental **WebMCP Drupal user-forms module** is one of the more practical attempts to expose Drupal form workflows to AI agents. The opportunity is real, but the security model must be treated as an explicit architecture decision, not a convenience feature.
 
+<!-- truncate -->
+
 ## Executive Assessment
 
 - Useful for internal automation where agents assist trusted operators.

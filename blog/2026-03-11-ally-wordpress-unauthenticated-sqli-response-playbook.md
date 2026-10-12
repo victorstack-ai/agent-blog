@@ -14,6 +14,8 @@ date: 2026-03-11T04:03:00.000Z
 
 The Ally plugin incident is the exact class of WordPress risk that causes avoidable firefights: unauthenticated SQL injection on a high-install-base plugin, active exploitation, and a short window between disclosure and broad scanning.
 
+<!-- truncate -->
+
 This review translates that event into an operations playbook teams can repeat across plugin incidents, not just this one.
 
 ## Incident Snapshot

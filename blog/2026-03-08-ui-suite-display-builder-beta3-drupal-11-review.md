@@ -12,9 +12,12 @@ description: >-
   where migration risk is real.
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-08-ui-suite-display-builder-beta3-drupal-11-review.png
+date: 2026-03-08
 ---
 
 `display_builder` `1.0.0-beta3` shipped on **March 3, 2026** with Drupal support declared as **^11.3.3** and 15 resolved issues since `beta2`. This is still beta software, but the release is now concrete enough to evaluate for real site-building programs.
+
+<!-- truncate -->
 
 For Drupal teams, the key question is not "is this interesting?" but "where does this fit against Layout Builder in production architecture and migration sequencing?"
 

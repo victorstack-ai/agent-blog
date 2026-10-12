@@ -21,6 +21,8 @@ graph TD
 
 GitHub Security Lab's open-source framework is now concrete enough to test in real CI, but not as a "scan every PR and block merges" replacement for existing SAST.
 
+<!-- truncate -->
+
 ## What the Framework Actually Provides
 
 From the official repos and launch posts, SecLab provides a YAML taskflow grammar for multi-agent workflows. Important operational detail: audit taskflows can take hours and generate many AI requests. That makes this better for **nightly/deep scan lanes** than as a required sub-10-minute PR gate.

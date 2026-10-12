@@ -18,6 +18,8 @@ unlisted: true
 
 Codex is now concrete enough to evaluate as maintainer infrastructure. For WordPress and Drupal teams, the primary value is in triage and patch drafting.
 
+<!-- truncate -->
+
 ```mermaid
 graph TD
     A[New Issue / Bug Report] --> B[Codex Triage Agent]

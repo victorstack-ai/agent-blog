@@ -12,9 +12,12 @@ description: >-
   risk analysis before April 2026 Gen 1 removal.
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-08-pantheon-sql-server-gen2-drupal-risk-review.png
+date: 2026-03-08
 ---
 
 Pantheon announced on **March 6, 2026** enhancements for SQL Server connectivity on PHP Runtime Generation 2. This changes the connection path for any Drupal site relying on external SQL Server backends.
+
+<!-- truncate -->
 
 ```mermaid
 graph TD

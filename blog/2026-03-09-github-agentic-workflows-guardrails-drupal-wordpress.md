@@ -14,6 +14,8 @@ image: >-
 
 GitHub's agentic workflow model is useful only if teams convert architecture promises into controls that actually block risky behavior. For Drupal and WordPress maintainers, that means treating CI as a **policy enforcement plane**, not just a build runner.
 
+<!-- truncate -->
+
 This review maps the architecture to concrete guardrails you can enforce in GitHub Actions for plugin and module repositories.
 
 ## Why This Matters for Drupal and WordPress Teams
