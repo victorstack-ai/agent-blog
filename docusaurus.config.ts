@@ -7,6 +7,10 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+      onBrokenMarkdownImages: 'throw',
+    },
   },
   themes: [
     '@docusaurus/theme-mermaid',
@@ -22,8 +26,8 @@ const config: Config = {
       },
     ],
   ],
-  title: 'VictorStack AI — Drupal & WordPress Reference',
-  tagline: 'Practical reference for the Drupal and WordPress world: security, upgrades, tooling, and agent workflows.',
+  title: 'Victor Jimenez | VictorStack',
+  tagline: 'Engineering notes by Victor Jimenez, Senior Product Engineer: full-stack web, integrations, release engineering, performance and security.',
   favicon: 'img/vs-logo.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -42,7 +46,7 @@ const config: Config = {
   organizationName: 'victorstack-ai', // Usually your GitHub org/user name.
   projectName: 'agent-blog', // Usually your repo name.
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -164,8 +168,8 @@ const config: Config = {
           editUrl:
             'https://github.com/victorstack-ai/agent-blog/tree/main/',
           // Useful options to enforce blogging best practices
-          onInlineTags: 'ignore',
-          onInlineAuthors: 'ignore',
+          onInlineTags: 'throw',
+          onInlineAuthors: 'throw',
           onUntruncatedBlogPosts: 'ignore',
           postsPerPage: 20,
           blogSidebarCount: 'ALL',
@@ -225,14 +229,14 @@ const config: Config = {
       },
     ],
     metadata: [
-      { name: 'description', content: 'Reference blog for Drupal and WordPress: security advisories, upgrades, contrib/plugins, hosting, and agent workflows. Practical guides and reviews for CMS developers and site builders.' },
-      { name: 'keywords', content: 'Drupal, WordPress, CMS, Drupal security, WordPress security, Drupal upgrades, WordPress upgrades, contrib modules, plugins, headless CMS, Pantheon, Acquia, WP Engine, agent workflows, devlog' },
+      { name: 'description', content: 'Engineering notes by Victor Jimenez, Senior Product Engineer with 13+ years of full-stack web work: React, Next.js, TypeScript, PHP, Node and Python, integrations, release engineering, performance, security and accessibility.' },
+      { name: 'keywords', content: 'Victor Jimenez, Senior Product Engineer, full-stack web development, React, Next.js, TypeScript, PHP, Node.js, Python, software architecture, API integrations, payments, OAuth, SSO, CI/CD, release engineering, web performance, technical SEO, web security, accessibility, AI-assisted engineering, Drupal, WordPress' },
       // SEO & Social
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'author', content: 'Victor Jimenez' },
-      { property: 'og:site_name', content: 'VictorStack AI — Drupal & WordPress Reference' },
+      { property: 'og:site_name', content: 'VictorStack' },
       { property: 'og:type', content: 'website' },
-      { property: 'og:description', content: 'Practical reference for the Drupal and WordPress world: security, upgrades, tooling, and agent workflows.' },
+      { property: 'og:description', content: 'Engineering notes by Victor Jimenez, Senior Product Engineer: full-stack web, integrations, release engineering, performance and security.' },
       // GEO targeting
       { name: 'geo.region', content: 'CO' },
       { name: 'geo.placename', content: 'Bogotá' },
@@ -250,14 +254,13 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     navbar: {
-      title: 'VictorStack AI',
+      title: 'VictorStack',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'VictorStack',
         src: 'img/vs-logo.png',
       },
       items: [
         { to: '/', label: 'Blog', position: 'left' },
-        { to: 'https://victorstack-ai.github.io/status-dashboard/', label: 'Live Agent Status', position: 'left' },
         { to: 'https://victorjimenezdev.github.io/', label: 'Portfolio', position: 'right' },
         { href: 'https://victorstack-ai.github.io/agent-blog/rss.xml', label: 'RSS', position: 'right' },
         { href: 'https://github.com/victorstack-ai', label: 'GitHub', position: 'right' },
@@ -274,30 +277,34 @@ const config: Config = {
               href: 'https://victorjimenezdev.github.io/',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/victorstack-ai',
-            },
-            {
               label: 'LinkedIn',
               href: 'https://www.linkedin.com/in/victor-j-8268a2266/',
             },
             {
+              label: 'GitHub',
+              href: 'https://github.com/victorjimenezdev',
+            },
+            {
               label: 'Email',
-              href: 'mailto:victorcjimenezv@gmail.com',
+              href: 'mailto:victorcamilo.jimenezv@gmail.com',
             },
           ],
         },
         {
-          title: 'Live Systems',
+          title: 'Blog',
           items: [
             {
-              label: 'Agent Status Dashboard',
-              href: 'https://victorstack-ai.github.io/status-dashboard/',
-            }
+              label: 'RSS',
+              href: 'https://victorstack-ai.github.io/agent-blog/rss.xml',
+            },
+            {
+              label: 'Source on GitHub',
+              href: 'https://github.com/victorstack-ai/agent-blog',
+            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Victor Jimenez & VictorStack AI. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Victor Jimenez. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

@@ -1,13 +1,14 @@
 /**
  * Swizzled: ensure blog post pages get per-post OG/Twitter card meta (absolute URLs)
  * so shared links show the post title, description, and image — not the homepage.
- * Also injects JSON-LD structured data (BlogPosting + Person + Organization).
+ * Also injects JSON-LD structured data (BlogPosting with a Person author).
  */
 import React, {type ReactNode} from 'react';
 import {PageMetadata} from '@docusaurus/theme-common';
 import {useBlogPost} from '@docusaurus/plugin-content-blog/client';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Head from '@docusaurus/Head';
+import {PERSON_SCHEMA} from '@site/src/data/person';
 
 export default function BlogPostPageMetadata(): ReactNode {
   const {assets, metadata} = useBlogPost();
@@ -48,23 +49,12 @@ export default function BlogPostPageMetadata(): ReactNode {
       },
     }),
     ...(keywords && {keywords: Array.isArray(keywords) ? keywords.join(', ') : keywords}),
-    author: authors.length > 0
-      ? authors.map((author) => ({
-          '@type': 'Person',
-          name: author.name ?? 'VictorStackAI',
-          ...(author.url && {url: author.url}),
-          ...(author.imageURL && {
-            image: author.imageURL,
-          }),
-        }))
-      : [{
-          '@type': 'Person',
-          name: 'VictorStackAI',
-          url: 'https://github.com/victorstack-ai',
-        }],
+    // Every post is published under Victor's identity, so the author is
+    // always the same Person entity used by the footer JSON-LD.
+    author: PERSON_SCHEMA,
     publisher: {
       '@type': 'Organization',
-      name: 'VictorStack AI',
+      name: 'VictorStack',
       url: `${siteUrl}${baseUrl}`,
       logo: {
         '@type': 'ImageObject',

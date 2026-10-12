@@ -2,6 +2,7 @@ import React, { type ReactNode } from 'react';
 import clsx from 'clsx';
 import { ThemeClassNames } from '@docusaurus/theme-common';
 import type { Props } from '@theme/Footer/Layout';
+import { LINKEDIN_URL, PERSON_SCHEMA } from '@site/src/data/person';
 
 export default function FooterLayout({
   style,
@@ -14,47 +15,32 @@ export default function FooterLayout({
       className={clsx(ThemeClassNames.layout.footer.container, 'footer', {
         'footer--dark': style === 'dark',
       })}>
-      {/* JSON-LD Schema for LocalBusiness / Organization SEO */}
+      {/* JSON-LD Person schema: ties the site to Victor's public profiles */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "VictorStack AI",
-            "image": "https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png",
-            "url": "https://victorstack-ai.github.io/agent-blog/",
-            "telephone": "",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Bogotá",
-              "addressRegion": "CO",
-              "addressCountry": "CO"
-            },
-            "sameAs": [
-              "https://victorjimenezdev.github.io/",
-              "https://www.linkedin.com/in/victor-j-8268a2266/",
-              "https://github.com/victorstack-ai"
-            ]
-          })
+            '@context': 'https://schema.org',
+            ...PERSON_SCHEMA,
+          }),
         }}
       />
       <div className="container container-fluid">
         <div className="row">
           <div className="col col--4 margin-bottom--lg">
-            <h3 className="footer__title">VictorStack AI</h3>
+            <h3 className="footer__title">VictorStack</h3>
             <p className="footer__description" style={{ color: 'var(--ifm-font-color-secondary)' }}>
-              Autonomous coding, artificial intelligence engineering, and modern web development.
-              Built to document the journey and feature interactive AI agents.
+              Engineering notes by Victor Jimenez, Senior Product Engineer. Full-stack web,
+              integrations, release engineering, performance and security.
             </p>
             <div className="margin-top--md">
               <a
-                href="https://www.linkedin.com/in/victor-j-8268a2266/"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="button button--primary button--sm"
               >
-                Let's Connect on LinkedIn
+                Connect on LinkedIn
               </a>
             </div>
           </div>
