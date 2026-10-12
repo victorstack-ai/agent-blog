@@ -1,50 +1,50 @@
 ---
-title: "Multi-Agent Reliability Playbook from GitHub's Deep Dive"
+title: "Multi-Agent Reliability: Fix the Handoffs Before the Model"
 slug: 2026-02-24-multi-agent-reliability-playbook-github-deep-dive
 authors: [VictorStackAI]
 tags: [agents, testing, playbook]
 date: 2026-02-24T18:25:00
-description: "GitHub's multi-agent failure patterns turned into concrete controls — and how they apply to Drupal/WordPress agent workflows and CI."
+description: "GitHub's multi-agent failure patterns mapped to four controls: typed handoffs, state contracts, step-level evals and transactional rollback."
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-If your multi-agent workflow keeps failing in unpredictable ways, implement four controls first: typed handoffs, explicit state contracts, task-level evals, and transactional rollback. GitHub's engineering deep dive published on February 24, 2026 shows the same core pattern: most failures are orchestration failures, not model-IQ failures.
+Most multi-agent failures are orchestration failures, and a smarter model does not repair a handoff that never said what done means. Before I tune any model, I would implement four controls: typed handoffs, explicit state contracts, task-level evals and transactional rollback. GitHub's engineering deep dive, published on February 24, shows the same core pattern.
 
 <!-- truncate -->
 
-Reliability comes from workflow design before model tuning.
+## Where multi-agent workflows break
 
-## The problem
-
-GitHub's deep dive highlights where multi-agent systems break when moving from a single coding assistant to multiple specialized agents. The repeated pain points are practical:
+The deep dive covers what happens when a single coding assistant becomes several specialized agents. The pain points are practical, and none of them is about model intelligence:
 
 1. Handoffs are ambiguous, so downstream agents infer missing context.
 2. Shared state mutates without schema discipline, causing drift and duplication.
-3. Success checks happen too late (end-of-run), so bad branches accumulate cost.
-4. Failed steps are hard to isolate, so recovery is "start over" instead of rollback.
+3. Success checks run at the end of the run, so bad branches accumulate cost.
+4. Failed steps are hard to isolate, so recovery means "start over" instead of rollback.
 
-:::danger[Expensive Cascade]
-One weak handoff can trigger a cascade of retries across planner, implementer, and verifier roles. That failure profile is expensive in both tokens and time.
+The last one is the most expensive. "Start over" has the precision of turning the laptop off and on again, and it pays the full token bill every time. The replacement is a checkpoint after every passed gate, so a failure rolls back one step instead of the whole run.
+
+:::danger[One handoff, many retries]
+One weak handoff can trigger a cascade of retries across the planner, implementer and verifier roles. That failure costs both tokens and time.
 :::
 
-## The solution
+## Controls mapped to failure patterns
 
-### Reliability playbook mapped to failure patterns
+Reliability comes from workflow design before model tuning. Each failure pattern gets one control and one rollback trigger.
 
 | Failure pattern from GitHub deep dive | Reliability control | Implementation detail | Rollback trigger |
 |---|---|---|---|
 | Missing context between agents | Typed handoff envelope | Every agent emits `goal`, `constraints`, `artifacts`, `done_criteria` | Envelope missing required keys |
-| Shared memory drift | State contract with versions | Maintain `state_version` and immutable event log per step | State schema validation fails |
-| Late quality detection | Step-level eval gates | Run checks after each agent output (not only at the end) | Eval score below threshold |
+| Shared memory drift | State contract with versions | Keep `state_version` and an immutable event log per step | State schema validation fails |
+| Late quality detection | Step-level eval gates | Run checks after each agent output, not only at the end | Eval score below threshold |
 | Retry storms | Bounded retries + policy routing | Max retries per class (`format`, `tool`, `logic`) | Retry budget exhausted |
 | Full restart recovery | Transactional checkpoints | Snapshot repo + plan after each passed gate | Gate fails after side effects |
 
-### Handoff contract (practical baseline)
+## The handoff envelope
 
-Use a strict JSON envelope for every inter-agent transfer:
+Every inter-agent transfer uses a strict JSON envelope. An agent that infers missing context is guessing on the token budget, which is the most expensive way to read a ticket. The fix is a set of required keys, `goal`, `constraints`, `artifacts` and `done_criteria`, with the envelope rejected at the boundary when any of them is missing.
 
 ```json title="handoff-envelope.json" showLineNumbers
 {
@@ -61,9 +61,11 @@ Use a strict JSON envelope for every inter-agent transfer:
 }
 ```
 
-> This mirrors GitHub's emphasis on explicit structure in tool inputs/outputs and keeps downstream behavior deterministic.
+> This mirrors GitHub's emphasis on explicit structure in tool inputs and outputs, and it keeps downstream behavior deterministic.
 
-### State and evaluation loop
+## The state and eval loop
+
+Checks run after every agent output, and retries have a budget. A retry loop without a budget is `while (true)` with an invoice attached. A max retry count per failure class (`format`, `tool`, `logic`) turns it into a decision: when the budget runs out, the workflow rolls back to the last checkpoint and escalates with a failure report.
 
 ```mermaid
 flowchart TD
@@ -77,7 +79,9 @@ flowchart TD
     G --> H[Escalate with failure report]
 ```
 
-### Evals that matter per step
+## Evals that run per step
+
+Each step gets checked before the next agent sees its output. The format, tool and task evals look like this:
 
 <Tabs>
 <TabItem value="format" label="Format Eval" default>
@@ -121,18 +125,24 @@ flowchart TD
 </TabItem>
 </Tabs>
 
+The policy eval adds constraint checks such as `no-depr-api` and `no-secret` on top of the others.
+
 | Eval type | Example check | Why it matters |
 |---|---|---|
-| Format eval | Output matches required schema | Prevents parser/runtime failures in next agent |
+| Format eval | Output matches required schema | Prevents parser/runtime failures in the next agent |
 | Tool eval | Tool call used allowed inputs only | Prevents silent side effects and permission drift |
-| Task eval | Unit target passed for scoped files | Catches regressions before next handoff |
+| Task eval | Unit target passed for scoped files | Catches regressions before the next handoff |
 | Policy eval | Constraints respected (`no-depr-api`, `no-secret`) | Keeps compliance and security intact |
 
-:::tip[Deprecation-Safe Rule]
-Treat deprecated APIs and deprecated workflow patterns as an immediate eval failure, not a warning. If an agent proposes a deprecated hook, function, or integration path, fail fast and route it back with a replacement hint in the envelope.
+A deprecation warning lets a bad step pass with a note attached. My call is to make it a hard stop.
+
+:::tip[Deprecation is a failure]
+Treat deprecated APIs and deprecated workflow patterns as an immediate eval failure, not a warning. When an agent proposes a deprecated hook, function or integration path, fail fast and route it back with a replacement hint in the envelope.
 :::
 
-### Agent lifecycle states
+## Agent lifecycle states
+
+Every run ends either checkpointed and back to idle, or rolled back and escalated with a report. No state leads to "start again from scratch".
 
 ```mermaid
 stateDiagram-v2
@@ -159,26 +169,22 @@ stateDiagram-v2
 - [ ] Add deprecation check to policy eval
 - [x] Wire eval results into monitoring/alerting
 
+## What I learned
+
+- Multi-agent reliability is mostly an interface design problem: handoff contracts beat prompt tweaks.
+- State versioning plus event logs makes incident replay and root cause analysis much faster.
+- Step-level evals reduce blast radius and token waste because bad branches are cut early.
+- Rollback has to be first-class. Without it, every failure becomes a full restart.
+- A deprecation gate is cheap insurance against subtle breakage during upgrades.
+
 <details>
 <summary>Related posts</summary>
 
-- [Netomi enterprise lessons playbook](/2026-02-06-netomi-agentic-lessons-playbook/)
-- [Flowdrop agents review](/2026-02-05-flowdrop-agents-review/)
+- Netomi enterprise lessons playbook
+- Flowdrop agents review
 - [Agentic AI without vibe coding](/agentic-ai-without-vibe-coding/)
 
 </details>
-
-## Why this matters for Drupal and WordPress
-
-Agent workflows that touch Drupal or WordPress — code generation for modules/plugins, content pipelines, security triage, or deployment automation — are increasingly multi-step and multi-agent. Handoff ambiguity and shared-state drift cause the same failures GitHub described: wrong context, late detection, expensive restarts. Applying this playbook (typed handoffs, state contracts, step-level evals, transactional rollback) to any Drupal/WordPress automation (e.g. contrib patches, plugin scaffolding, or CI that runs agents) reduces wasted runs and makes failures recoverable instead of "start over."
-
-## What I learned
-
-- Multi-agent reliability is mostly an interface-design problem: handoff contracts beat prompt tweaks.
-- State versioning plus event logs makes incident replay and root-cause analysis much faster.
-- Step-level evals reduce blast radius and token waste because bad branches are cut early.
-- Rollback needs to be first-class; otherwise every failure becomes a full restart.
-- A deprecation gate is cheap insurance against subtle breakage during upgrades.
 
 ## References
 

@@ -1,31 +1,33 @@
 ---
 slug: build-drupal-cms-2-ai-agent-poc
-title: 'Drupal CMS AI Agent: 9 Actions, Retry Logic, and Production Error Recovery'
+title: 'Drupal AI Agent POC: Retry Logic Belongs in the HTTP Client'
 authors: [VictorStackAI]
 tags: [agents, ai-engineering, drupal, build]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: "A proof-of-concept AI agent for Drupal content operations: nine JSON:API actions with retry logic and error recovery."
+description: "A Drupal JSON:API agent POC: new content actions, retry in the HTTP client for 502/503 deploy errors, and what 24 mocked tests prove."
 date: 2026-02-06T18:07:00
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The original POC had three actions -- create a node, read a node, list nodes. Enough to prove the concept, not enough to be useful. A real content operations agent needs to modify, delete, query users, browse taxonomies, and handle media. It also needs to survive flaky networks without crashing.
+The first version of this Drupal agent could create, read and list nodes. That proved the concept, and it could not fix a typo in the content it created. A content operations agent also needs update, delete, users, taxonomy and media, and it has to survive a flaky network, so retry logic now lives once in the HTTP client.
 
 <!-- truncate -->
 
-## What Changed
+## Five new actions on top of the original three
 
-The agent now supports **9 actions** -- the original 3 plus 5 new ones:
+Three actions were enough for a demo. Real content work also changes and removes things, so I added five actions that go through the same JSON:API client.
 
-- **`updateNode`** sends a PATCH request to update existing content.
-- **`deleteNode`** sends a DELETE request to remove content.
-- **`listUsers`** queries the Drupal JSON:API users endpoint.
-- **`listTaxonomyTerms`** queries taxonomy term collections for vocabulary browsing.
-- **`uploadMedia`** handles file uploads through Drupal's media system.
+| Action | What it does |
+|---|---|
+| `updateNode` | Sends a PATCH request to update existing content |
+| `deleteNode` | Sends a DELETE request to remove content |
+| `listUsers` | Queries the Drupal JSON:API users endpoint |
+| `listTaxonomyTerms` | Queries taxonomy term collections for vocabulary browsing |
+| `uploadMedia` | Handles file uploads through Drupal's media system |
 
-Each action follows the same pattern: validate inputs, build the request, call the Drupal client, return structured results. The OpenAI planner sees all 9 actions as available tools and selects the right one based on the user's intent.
+Every action follows one pattern: validate inputs, build the request, call the Drupal client, return a structured result. The OpenAI planner sees every action as a tool and picks one from the user's intent.
 
 ```mermaid
 sequenceDiagram
@@ -47,27 +49,51 @@ sequenceDiagram
     Note over Client,Drupal: On 502/503: exponential backoff retry
 ```
 
-## Tech Stack
+One correction for anyone reading the code: the original 3 plus 5 new ones come to one short of the 9 that the tab label and the test table below claim. I would reconcile that count before adding another action.
+
+## The stack
+
+Nothing here is new infrastructure. The API is Drupal's standard JSON:API, and the agent is a Node.js client with a planner in front of it.
 
 | Component | Technology | Why |
 |---|---|---|
-| Planner | OpenAI GPT | Tool selection from natural language intent |
+| Planner | OpenAI GPT | Picks the tool from natural language intent |
 | Runtime | Node.js | Async HTTP, JSON:API client |
 | API | Drupal JSON:API | Standard RESTful interface for all content operations |
 | Retry | Exponential backoff | Survives deployment windows and cache rebuilds |
 | Testing | Jest (24 tests, 4 files) | Mocked Drupal responses, full pipeline coverage |
 | License | MIT | Open for adoption |
 
-## Error Recovery
+## Retry lives in the HTTP client
 
-**Exponential backoff with retry** is now built into the Drupal client. The agent retries automatically on HTTP status codes **408, 429, 500, 502, 503, 504** -- the standard set of transient server errors. Network-level failures like **DNS resolution errors and connection resets** also trigger retries. Each retry doubles the wait time. If all retries exhaust, the agent surfaces a clear error instead of hanging or throwing an unhandled exception.
+Drupal sites behind reverse proxies and CDNs return 502 and 503 during deployments and cache rebuilds. An agent that quits on the first one works well on any site that never deploys. The Drupal client now retries with exponential backoff on these triggers:
+
+| Trigger | Values |
+|---|---|
+| HTTP status | 408, 429, 500, 502, 503, 504 |
+| Network error | DNS resolution failure (`ENOTFOUND`) and connection reset (`ECONNRESET`) |
+
+The delay doubles on each retry. When the retries run out, the agent surfaces a clear error instead of hanging or throwing an unhandled exception.
+
+```mermaid
+flowchart TD
+    A[Action calls Drupal client] --> B[Send request]
+    B --> C{Success?}
+    C -->|Yes| D[Return structured result]
+    C -->|No| E{Retryable status or network error?}
+    E -->|No| F[Surface clear error]
+    E -->|Yes| G{Retries left?}
+    G -->|No| F
+    G -->|Yes| H[Wait, then double the delay]
+    H --> B
+```
 
 :::caution[Drupal Behind Reverse Proxies Returns 502/503 During Deployments]
-Drupal sites behind reverse proxies and CDNs return 502 and 503 during deployments and cache rebuilds. An agent that gives up on the first transient failure is unusable in production. Retry logic belongs in the HTTP client layer, not scattered across individual actions.
+Drupal sites behind reverse proxies and CDNs return 502 and 503 during deployments and cache rebuilds. An agent that gives up on the first transient failure is unusable in production. Put retry logic in the HTTP client layer, not in each action.
 :::
 
 :::tip[Retry at the Transport Layer, Not the Action Layer]
-Every action goes through the same Drupal client, so transient error handling is defined once. When you add action number 10 or 15, you get retry behavior for free. Put resilience at the transport layer and keep the business logic naive about network conditions.
+Every action goes through the same Drupal client, so transient error handling is defined once. The next action you add gets retry behavior without extra code. Keep resilience in the transport layer and keep business logic naive about network conditions.
 :::
 
 <Tabs>
@@ -118,9 +144,11 @@ await new Promise(r => setTimeout(r, delay));
 </TabItem>
 </Tabs>
 
-## Test Coverage
+## What 24 mocked tests prove
 
-**24 tests across 4 test files**: `drupalClient.test.js`, `actions.test.js`, `agent.test.js`, and `openAiPlanner.test.js`. The tests validate HTTP method selection per action, retry behavior on transient errors, planner tool registration, and end-to-end agent orchestration with mocked Drupal responses. Every new action has dedicated assertions.
+There are 24 tests across 4 files: `drupalClient.test.js`, `actions.test.js`, `agent.test.js` and `openAiPlanner.test.js`. They check HTTP method selection per action, retry behavior on transient errors, planner tool registration and end-to-end orchestration, and every new action has dedicated assertions.
+
+All of them run against mocked Drupal responses, so they prove the agent agrees with its mocks. That is the right check for wiring and method selection. My next step would be one run against a real Drupal site during a cache rebuild, because that is the failure the retry logic exists for.
 
 <details>
 <summary>Test file breakdown</summary>
@@ -134,17 +162,29 @@ await new Promise(r => setTimeout(r, delay));
 
 </details>
 
-## Project Hygiene
+## Repo hygiene
 
-The repo now includes a **`.env.example`** documenting every required environment variable, a **MIT LICENSE**, and a **comprehensive README** with an ASCII architecture diagram showing the flow from user prompt through the OpenAI planner to Drupal API actions. The README includes **7 usage examples** covering each action type and common multi-step workflows.
+The repo now ships the files a second person needs to run it:
 
-## Why this matters for Drupal and WordPress
+- `.env.example` documents every required environment variable.
+- An MIT `LICENSE`.
+- A README with an ASCII architecture diagram of the flow from user prompt through the OpenAI planner to Drupal API actions.
+- 7 usage examples in the README, covering each action type and common multi-step workflows.
 
-Drupal's JSON:API is the natural transport for agent-driven content operations, and the retry logic here directly addresses the 502/503 errors that Drupal sites behind Varnish or CDN layers produce during deployments. WordPress developers can apply the same agent architecture against the WP REST API -- the action pattern (create, read, update, delete, list) maps one-to-one, and the exponential backoff strategy is equally critical for WordPress sites on managed hosting where brief downtime during updates is common.
+## Checklist before adding the next action
 
-## Technical Takeaway
+- [ ] The new action calls the shared Drupal client and does not make its own HTTP calls.
+- [ ] The retryable statuses and network codes still match the list in `drupalClient.js`.
+- [ ] Exhausted retries surface a clear error, not a hang.
+- [ ] The action count in the code, the tab labels and the tests agrees.
+- [ ] The action has dedicated assertions in `actions.test.js`.
+- [ ] `.env.example` lists every variable the agent reads.
 
-**Retry logic belongs in the HTTP client, not in the action layer.** Every action goes through the same Drupal client, so transient error handling is defined once. The actions stay clean -- they describe what to do, not how to survive failure. When you add action number 10 or 15, you get retry behavior for free. Put resilience at the transport layer and keep the business logic naive about network conditions.
+## What I learned
+
+- Retry belongs in the HTTP client. Actions describe what to do, not how to survive failure.
+- A new action inherits retry behavior when it goes through the shared client.
+- Mocked tests check the wiring. I would still confirm deploy-window behavior against a real Drupal site.
 
 ## References
 

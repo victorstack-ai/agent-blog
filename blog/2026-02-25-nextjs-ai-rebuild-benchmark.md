@@ -1,28 +1,37 @@
 ---
 slug: 2026-02-25-nextjs-ai-rebuild-benchmark
-title: "A Reproducible Next.js Rebuild Benchmark That Actually Catches Regressions"
+title: "A Reproducible Next.js Rebuild Benchmark That Catches Regressions"
 authors: [VictorStackAI]
 tags: [nextjs, performance, ci-cd, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: "A reproducible benchmark for Next.js build speed and regression detection — and why it matters for decoupled Drupal/WordPress frontends and headless CMS CI."
+description: "A small Node CLI that benchmarks Next.js builds under cold and warm cache, compares each run to a baseline JSON and flags regressions in CI."
 date: 2026-02-25T10:00:00
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-I built a reproducible Next.js rebuild benchmark to answer one question quickly: which build profile is fastest, and did we just introduce a regression? It targets `next@16.1.6`, runs cold and warm cache scenarios, and produces JSON you can diff in CI.
-
-Teams notice build regressions late. This tool makes them visible immediately.
+Most build regressions get reported as "it feels slower", long after the commit that caused them. I built a small Node CLI that benchmarks `next@16.1.6` builds under cold and warm cache, compares the result with a baseline, and writes JSON that CI can diff.
 
 <!-- truncate -->
 
-## The Problem
+<details>
+<summary>TL;DR</summary>
+
+- Pin the fixture version, split cold and warm cache, and compare every run against a baseline JSON.
+- A regression is a mean build time that rises past the threshold set in `benchmark.config.json`.
+- Clean up deprecated Next config before you trust any timing.
+
+</details>
+
+## Why build timing data is usually noise
 
 > "Without a pinned fixture, repeatable scenarios, and a baseline comparison, build time data is noisy and hard to trust."
 
+A single local run measures one machine on one afternoon. It does not tell you whether the last merge made the build slower.
+
 :::info[Context]
-Teams usually notice build regressions after CI gets slower or delivery cadence drops. By then, the cause is buried under dozens of commits. A proper benchmark needs pinned fixture versions, controlled scenarios, and automated regression detection.
+Teams usually notice build regressions after CI gets slower or delivery cadence drops. By then, the cause is buried under dozens of commits. A benchmark you can trust needs pinned fixture versions, controlled scenarios and automated regression detection.
 :::
 
 | Pain Point | What Breaks |
@@ -30,14 +39,14 @@ Teams usually notice build regressions after CI gets slower or delivery cadence 
 | No baseline | Regressions are subjective ("it feels slower") |
 | One-off local tests | Results are not reproducible in CI |
 | No scenario split | Cold-cache vs warm-cache tradeoffs stay hidden |
-| Infra change without benchmark | Runtime/runner choices are hard to justify |
+| Infra change without benchmark | Runtime and runner choices are hard to justify |
 
-## The Solution
+## How the CLI works
 
-The project is a small Node CLI that runs controlled Next.js builds and emits a report with scenario stats, regression checks, and infrastructure rankings.
+The tool runs every build profile against every cache scenario, repeats each pair, and writes scenario stats, regression checks and infrastructure rankings to `bench/latest.json`. No dashboard, no service, a JSON file that a CI job can compare.
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[Load benchmark.config.json] --> B[Ensure fixture deps]
     B --> C[Run profiles x scenarios]
     C --> D[Collect duration metrics]
@@ -99,7 +108,26 @@ export function compareRegression(currentMean, baselineMean, thresholdPct) {
 </TabItem>
 </Tabs>
 
-## Build Profile Comparison
+## The regression gate is a subtraction
+
+`compareRegression` takes the current mean, subtracts the baseline mean, and turns the difference into a percent change. If that number is above `regressionThresholdPct`, the run is a regression. The whole gate is a subtraction, a division and a comparison, which is a smaller budget than one meeting about why CI feels slow.
+
+```mermaid
+flowchart TD
+    A[Current mean build time] --> C[pctChange vs baseline mean]
+    B[Baseline mean from JSON] --> C
+    C --> D{pctChange above regressionThresholdPct?}
+    D -->|Yes| E[Flag regression]
+    D -->|No| F[Pass]
+```
+
+:::tip[When to gate merges on it]
+My call: baseline JSON plus threshold gating is worth the setup when CI build time is a release bottleneck. Check it works by confirming that a known slow change trips the flag.
+:::
+
+## Cold cache and warm cache disagree
+
+A warm-cache number from a runner that purges its cache is a benchmark of a machine CI does not have. Measure both scenarios, or the ranking of "faster" options can be upside down.
 
 | Scenario | Default Build | Turbopack Build | Key Difference |
 |---|---|---|---|
@@ -108,13 +136,19 @@ export function compareRegression(currentMean, baselineMean, thresholdPct) {
 | Regression detection | Baseline JSON comparison | Baseline JSON comparison | Same mechanism, different baselines |
 
 :::caution[Reality Check]
-Cold and warm cache numbers can invert assumptions about "faster" infrastructure paths. A runtime that is fast on warm cache but slow on cold cache will surprise you in CI where caches are frequently purged. Pin your benchmarks to both scenarios or you are measuring fiction.
+Cold and warm cache numbers can invert assumptions about "faster" infrastructure paths. A runtime that is fast on warm cache and slow on cold cache will surprise you in CI, where caches are purged often. Pin your benchmarks to both scenarios or you are measuring fiction.
 :::
+
+Before switching a runner or runtime, read its rank in both scenarios. One good column is not a reason to migrate.
+
+## Next 16 config cleanup
+
+Next 16 printed a warning that told me exactly what was wrong with the fixture. I fixed the config so the warning stopped showing up in the logs I was timing.
 
 <details>
 <summary>Next.js 16 deprecation note</summary>
 
-During implementation, `next.config.js` warnings showed that `eslint` config in Next config is no longer supported in Next 16. The fixture was migrated to use only supported config and explicit Turbopack root:
+During implementation, `next.config.js` warnings showed that `eslint` config in Next config is no longer supported in Next 16. I migrated the fixture to supported config only, with an explicit Turbopack root:
 
 ```js title="next.config.js"
 const nextConfig = {
@@ -124,24 +158,27 @@ const nextConfig = {
 };
 ```
 
-That removes deprecated config usage and keeps benchmark output cleaner. Watch for deprecation warnings in your own benchmarks — they pollute logs and can affect timing.
+That removes deprecated config usage and keeps benchmark output cleaner. Deprecation warnings pollute logs and can affect timing, so clear them in your own benchmarks.
 
 </details>
 
-## What I Learned
+## Checklist before trusting the numbers
+
+- [ ] The fixture pins its Next.js version.
+- [ ] Both `cold-cache` and `warm-cache` scenarios run.
+- [ ] Each profile and scenario pair runs more than once.
+- [ ] A baseline JSON exists and every run compares against it.
+- [ ] `regressionThresholdPct` is set in `benchmark.config.json`.
+- [ ] The fixture config produces no deprecation warnings.
+- [ ] Runner or runtime changes are ranked on both scenarios before adoption.
+
+## What I learned
 
 - Rebuild benchmarking is only useful when fixture version and scenario controls are pinned.
 - Cold and warm cache numbers can invert assumptions about "faster" infra paths.
-- Baseline JSON + threshold gating is worth it when CI build time is a release bottleneck.
-- Avoid unsupported Next config keys in performance tooling — warnings pollute benchmark logs and skew results.
-
-## Why this matters for Drupal and WordPress
-
-Decoupled and headless setups are common in the Drupal and WordPress world: Next.js (and similar) frontends consume Drupal JSON:API or WordPress REST, and build times directly affect deploy cadence and CI. Agencies and product teams running headless CMS + React/Next frontends need reproducible build benchmarks so that regressions show up in CI before production, and so cold vs warm cache behavior is visible when runners or cache layers change. The same pattern (pinned fixture, baseline JSON, scenario split) applies to any frontend build that backs a Drupal or WordPress site — not just Next. If your stack is "Drupal/WordPress API + Node frontend," treat frontend build time as a first-class metric and gate merges on it.
+- Baseline JSON plus threshold gating is worth it when CI build time is a release bottleneck.
+- Unsupported Next config keys have no place in performance tooling. Their warnings pollute benchmark logs and skew results.
 
 ## References
 
 - [View Code](https://github.com/victorstack-ai/nextjs-ai-rebuild-benchmark)
-- [WordPress AI Search Optimization Playbook](/2026-02-17-wordpress-ai-search-optimization-playbook/)
-- [Drupal 12 Readiness Dashboard](/2026-02-08-drupal-12-readiness-dashboard/)
-- [Pydantic + Monty + WebAssembly](/2026-02-07-pydantic-monty-wasm/)

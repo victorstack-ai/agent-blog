@@ -4,48 +4,66 @@ title: 'Skills Sentry: A Static Scanner for Agent Skill Bundles'
 authors: [VictorStackAI]
 tags: [agents, security]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: "A static scanner for agent skill bundles, and why teams that install skills from public marketplaces should run it before install."
+description: "A static scanner for agent skill bundles, and why anyone installing skills from a public marketplace should run it before install."
 date: 2026-02-06T12:00:00
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-If you install "skills" from a public marketplace, you are installing trust. I built a static scanner that scores a skill bundle before it touches my machine.
+A skill from a public marketplace arrives with code, setup instructions and a download count, and the download count is no evidence of safety. I built Skills Sentry, a static scanner that scores a skill bundle before it touches my machine.
 
 <!-- truncate -->
 
-## Why I Built It
+<details>
+<summary>TL;DR</summary>
 
-Two quotes were enough to justify a guardrail.
+- Installing a marketplace skill means installing trust in whoever wrote it.
+- Skills Sentry is a Python CLI with 10 regex rules. It reports risky behavior and gives a risk score from 0 to 100.
+- It runs locally or in CI and can fail the build on severity or on total score.
+- It is a heuristic. Pair it with isolation at runtime.
+
+</details>
+
+## Why a skill marketplace needs a gate
+
+Two posts were enough to justify a guardrail.
 
 > Daniel Lockyer: "malware found in the top downloaded skill on clawhub and so it begins."
 >
 > Elon Musk: "Here we go."
 
-That is the whole pattern: popularity becomes distribution, and distribution becomes the exploit.
+The malware sat in the top downloaded skill, so the ranking did its job and delivered it to the most people. Popularity becomes distribution, and distribution becomes the exploit.
 
-The scary part is not a single bad skill. It is the workflow. Skills often ship as a mix of code plus setup instructions. If that skill can convince you to run one command, it can bootstrap anything after that.
+The real risk is the workflow. Skills often ship as code plus setup instructions. A skill that convinces you to run one command can bootstrap anything after that.
 
-So I wanted a quick, local, boring gate: point it at a skill bundle and get a risk report.
+```mermaid
+flowchart TD
+    A[Marketplace ranking] --> B[Top downloaded skill]
+    B --> C[Code plus setup instructions]
+    C --> D[User runs one command]
+    D --> E[Command bootstraps anything]
+```
 
-## The Solution
+So I wanted a local, boring gate: point it at a skill bundle and get a risk report.
 
-Skills Sentry is a static scanner. It does not "detect malware." It detects risky behavior and risky intent.
+## What Skills Sentry checks
+
+Skills Sentry reports risky behavior and risky intent. It makes no claim to detect malware, and the warning below says so in writing.
 
 It looks for:
 
-- Remote script execution patterns (curl or wget to sh, powershell iwr, etc)
-- Obfuscation patterns (base64 decode, eval, long encoded blobs)
-- Sensitive file targeting (.ssh, env files, wallet keywords, tokens)
-- Suspicious install steps (chmod +x, hidden paths, cron, launch agents)
+- Remote script execution patterns (`curl` or `wget` piped to `sh`, PowerShell `iwr`, and similar)
+- Obfuscation patterns (base64 decode, `eval`, long encoded blobs)
+- Sensitive file targeting (`.ssh`, env files, wallet keywords, tokens)
+- Suspicious install steps (`chmod +x`, hidden paths, cron, launch agents)
 - Network endpoints declared in configs and code
 
 Then it outputs:
 
 - A risk score (0 to 100)
 - Findings grouped by severity
-- A JSON report you can stash in CI
+- A JSON report you can keep in CI
 
 ```mermaid
 flowchart TD
@@ -62,25 +80,27 @@ flowchart TD
 ```
 
 :::warning[Heuristic Scanner, Not Malware Detection]
-This is a heuristic scanner. It will miss novel obfuscation and it will generate false positives.
-Use it to block obvious footguns, not to declare something safe.
+This is a heuristic scanner. It will miss novel obfuscation and it will produce false positives.
+Use it to block obvious footguns. Never use a clean report to declare a skill safe.
 :::
 
-## Tech Stack
+## Tech stack
+
+Regex and zero dependencies are the boring default, and they fit here. The person deciding whether to trust a bundle has to be able to read the rules, and no model is required to spot `curl` piped into `bash`.
 
 | Component | Technology | Why |
 |---|---|---|
 | Language | Python 3.11+ | Zero dependencies, runs anywhere |
 | Detection | Regex pattern matching | Fast, auditable, no ML overhead |
-| Scoring | Weighted severity (`low=5, medium=15, high=30`) | Simple, predictable, tuneable |
-| Output | Console + JSON | Human readable + CI parseable |
-| Input | Folder or ZIP | Handles both local and distributed bundles |
+| Scoring | Weighted severity (`low=5, medium=15, high=30`) | Plain, predictable, tuneable |
+| Output | Console + JSON | Readable by humans, parseable by CI |
+| Input | Folder or ZIP | Handles local and distributed bundles |
 
-## The Code
+## The code
 
 [View Code](https://github.com/victorstack-ai/skills-sentry)
 
-*(Repo: skills-sentry -- CLI, sample fixtures, and optional GitHub Action for PR scanning.)*
+The repo, `skills-sentry`, has the CLI, sample fixtures and an optional GitHub Action for PR scanning.
 
 ### CLI usage
 
@@ -109,9 +129,9 @@ python skills_sentry.py scan ./bundle --fail-on high --max-score 60
 </TabItem>
 </Tabs>
 
-### Detection Rules
+### Detection rules
 
-The scanner ships with 10 built-in rules covering the most common supply-chain attack patterns:
+The scanner ships with 10 built-in rules that cover common supply-chain attack patterns.
 
 | Rule ID | Severity | What It Detects |
 |---|---|---|
@@ -384,6 +404,8 @@ if __name__ == "__main__":
 
 ### Example output
 
+In the sample below, the remote shell pipe sits in `install.md`, a markdown file. That is why the scanner reads docs as well as code: the install instructions are part of the attack surface.
+
 <details>
 <summary>Sample console report</summary>
 
@@ -400,6 +422,8 @@ Top findings:
 </details>
 
 ### CI example
+
+`--fail-on` blocks on the worst severity found, and `--max-score` blocks on the total. The CI gate uses both, so a single high finding fails the build even when the total stays under the threshold.
 
 <Tabs>
 <TabItem value="gha" label="GitHub Actions" default>
@@ -431,21 +455,35 @@ python skills_sentry.py scan ./bundle --fail-on medium --max-score 40
 </TabItem>
 </Tabs>
 
+## Two gates, because one is a heuristic
+
+A static scan catches what a skill says it will do. What it does at runtime needs a second gate, and that gate is isolation.
+
+| Gate | When | What it does | Limitation |
+|---|---|---|---|
+| Static scan | Before install | Blocks obvious patterns like shell pipes, secret access, persistence | Misses novel obfuscation, raises false positives |
+| Runtime isolation | While the agent runs | Separate OS user, container or VM, scoped credentials | Does not tell you what the skill intended |
+
 :::tip[Isolation Is the Best Security Feature]
-If you run agents locally, the best "security feature" is still isolation. Use a separate OS user, a container, or a VM for anything that can execute tools. Skills Sentry catches the obvious stuff -- isolation handles everything else.
+If you run agents locally, the best security feature is still isolation. Use a separate OS user, a container or a VM for anything that can execute tools, and give it scoped credentials so a compromised skill cannot reach production without passing your normal gates. Skills Sentry catches the obvious cases, and isolation handles the rest.
 :::
 
-## What I Learned
+## Checklist before installing a skill
 
-- "Top downloaded" is a threat signal, not a trust signal.
-- Static scanning is worth it when the install path includes copy-paste commands.
-- You need two gates: before install (static) and at runtime (permissioned, sandboxed).
+- [ ] Run `skills_sentry.py scan` on the bundle and write the JSON report.
+- [ ] Read every high finding by hand, including those in markdown install steps.
+- [ ] Check that the skill declares the secrets it needs and fails closed without them.
+- [ ] Run the agent under a separate OS user, in a container or in a VM.
+- [ ] Give it scoped credentials, never production access.
+- [ ] Add the scan to CI with `--fail-on` and `--max-score`.
+
+## What I learned
+
+- "Top downloaded" is a threat signal. It tells you how far a bad skill will travel.
+- Static scanning pays off when the install path includes copy-paste commands.
+- You need two gates: static before install, and permissioned, sandboxed execution at runtime.
 - Heuristics work best as a policy tool: block the obvious, review the rest.
-- If a skill needs secrets, it should declare them and fail closed without them. Silent fallbacks are where bad behavior hides.
-
-## Why this matters for Drupal and WordPress
-
-Drupal and WordPress teams that adopt agent skills (e.g. for backlog triage, code generation, or deployment) are installing code from skill marketplaces or shared repos. One malicious or poorly written skill can exfiltrate credentials, modify content, or abuse repo access. Run Skills Sentry (or an equivalent static gate) on any skill bundle before adding it to your agent stack. Combine that with scoped credentials and isolation so that even a compromised skill cannot touch production CMS or hosting without going through your normal gates.
+- A skill that needs secrets should declare them and fail closed without them. Silent fallbacks are where bad behavior hides.
 
 ## References
 
