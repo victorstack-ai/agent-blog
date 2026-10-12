@@ -141,6 +141,8 @@ const config: Config = {
           // Duplicate WP 7.0 Beta slug with date prefix → correct slug without date
           { from: '/2026-02-21-wordpress-7-0-beta-1-review', to: '/' },
           // Low-value posts deleted in the October 2026 rewrite
+          { from: '/2026-03-05-wordpress-7-0-developer-impact-interactivity-dataviews-breadcrumbs-overlays', to: '/' },
+          { from: '/2026-03-18-four-kitchens-cms-dashboard-patterns-drupal-wordpress-editorial-ux-review', to: '/' },
           { from: '/2026-02-05-flowdrop-agents-review', to: '/' },
           { from: '/2026-02-06-ai-in-drupal-cms-2-0-dayone-tools', to: '/' },
           { from: '/2026-02-06-ddev-podman-rootless-review', to: '/' },
@@ -167,7 +169,6 @@ const config: Config = {
           { from: '/2026-03-03-review-pantheon-content-publisher-quality-assistant', to: '/' },
           { from: '/2026-03-05-google-workspace-cli-is-real-agent-infrastructure-not-anothe', to: '/' },
           { from: '/drupal-sa-contrib-2026-011-019-triage', to: '/' },
-          { from: '/>-', to: '/' },
           { from: '/2026-03-07-clinejection-incident-analysis-release-pipeline-hardening', to: '/' },
           { from: '/2026-03-08-cloudflare-endpoint-to-prompt-guardrails-drupal-wordpress', to: '/' },
           { from: '/2026-03-08-cisa-kev-march-2026-sla-exposure-triage-drupal-wordpress', to: '/' },
@@ -185,7 +186,6 @@ const config: Config = {
           { from: '/2026-03-15-simon-willison-agentic-engineering-guardrails-drupal-wordpress', to: '/' },
           { from: '/2026-03-17-codex-security-no-sast-report-ci-needs-drupal-wordpress', to: '/' },
           { from: '/2026-03-18-gitguardian-secrets-sprawl-guardrails-drupal-wordpress', to: '/' },
-          { from: '/>-', to: '/' },
           { from: '/cloudflare-custom-regions-data-residency-drupal-wordpress', to: '/' },
           { from: '/2026-03-19-wordpress-7-0-connectors-api-plugin-headless-integrations', to: '/' },
           { from: '/build-drupal-claude-agent-sdk-runtime', to: '/' },
