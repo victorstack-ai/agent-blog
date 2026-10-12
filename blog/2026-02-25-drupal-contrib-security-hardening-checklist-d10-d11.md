@@ -99,9 +99,9 @@ rg "->query\(|db_query\(" --type php -l
 ## Related Resources
 
 For adjacent upgrade planning and change tracking:
-- [Drupal 11 Change Record Impact Map](/2026-02-17-drupal-11-change-record-impact-map-10-4x-teams/)
+- Drupal 11 Change Record Impact Map
 - Drupal 12 Readiness Dashboard
-- [Drupal Maintainer Shield](/drupal-maintainer-shield/)
+- Drupal Maintainer Shield
 
 ## Why this matters for Drupal and WordPress
 

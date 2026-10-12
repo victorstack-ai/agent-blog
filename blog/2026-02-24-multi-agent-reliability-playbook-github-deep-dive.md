@@ -163,7 +163,7 @@ stateDiagram-v2
 <summary>Related posts</summary>
 
 - Netomi enterprise lessons playbook
-- [Flowdrop agents review](/2026-02-05-flowdrop-agents-review/)
+- Flowdrop agents review
 - [Agentic AI without vibe coding](/agentic-ai-without-vibe-coding/)
 
 </details>

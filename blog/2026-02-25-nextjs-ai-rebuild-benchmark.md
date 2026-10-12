@@ -142,6 +142,6 @@ Decoupled and headless setups are common in the Drupal and WordPress world: Next
 ## References
 
 - [View Code](https://github.com/victorstack-ai/nextjs-ai-rebuild-benchmark)
-- [WordPress AI Search Optimization Playbook](/2026-02-17-wordpress-ai-search-optimization-playbook/)
+- WordPress AI Search Optimization Playbook
 - Drupal 12 Readiness Dashboard
 - Pydantic + Monty + WebAssembly

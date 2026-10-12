@@ -141,8 +141,8 @@ flowchart LR
 <details>
 <summary>Related reading</summary>
 
-- [DDEV v1.25 modular share architecture](/ddev-v1-25-modular-share-with-cloudflare/)
-- [DDEV Podman/rootless constraints](/2026-02-06-ddev-podman-rootless-review/)
+- DDEV v1.25 modular share architecture
+- DDEV Podman/rootless constraints
 - Composer path repo workflow for Drupal
 
 </details>

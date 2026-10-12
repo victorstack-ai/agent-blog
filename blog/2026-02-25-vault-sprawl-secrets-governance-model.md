@@ -137,7 +137,7 @@ OIDC plus short-lived credentials is the fastest risk reduction move in CI/CD. S
 <details>
 <summary>Related posts</summary>
 
-- [Unprotected AI Agents Report](/2026-02-19-unprotected-ai-agents-report/)
+- Unprotected AI Agents Report
 - [Multi-Agent Reliability Playbook](/2026-02-24-multi-agent-reliability-playbook-github-deep-dive/)
 - [Agentic AI without vibe coding](/agentic-ai-without-vibe-coding/)
 
