@@ -162,7 +162,6 @@ const config: Config = {
           { from: '/drupal-ai-searxng-privacy-first-search-playbook', to: '/' },
           { from: '/drupal-11-slick-carousel-jquery-gotcha', to: '/' },
           { from: '/2026-02-25-cloudflare-vinext-ai-refactor-patterns', to: '/' },
-          { from: '/2026-02-25-node-24-14-25-7-upgrade-risk-matrix', to: '/' },
           { from: '/2026-02-24-wordpress-7-0-iframed-editor-migration-playbook', to: '/' },
           { from: '/2026-02-26-gemini-api-key-policy-review-agent-workflows', to: '/' },
           { from: '/wordpress-weekly-vuln-patch-pipeline', to: '/' },
