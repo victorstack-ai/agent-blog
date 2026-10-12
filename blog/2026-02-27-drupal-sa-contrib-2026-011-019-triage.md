@@ -100,18 +100,6 @@ If `canvas_ai` is enabled and users have the `use Drupal Canvas AI` permission, 
 
 </details>
 
-## Individual Advisory Reviews
-
-For deep-dive analysis on each advisory, see the dedicated review posts:
-
-- [SA-CONTRIB-2026-011: Material Icons](/2026-02-26-material-icons-sa-contrib-2026-011-review)
-- [SA-CONTRIB-2026-012: Theme Rule](/drupal-theme-rule-sa-contrib-2026-012-review)
-- [SA-CONTRIB-2026-015: CAPTCHA](/2026-02-26-captcha-sa-contrib-2026-015-review)
-- [SA-CONTRIB-2026-016: Islandora](/2026-02-26-islandora-sa-contrib-2026-016-review)
-- [SA-CONTRIB-2026-017: Canvas](/2026-02-26-drupal-canvas-sa-contrib-2026-017-review)
-- [SA-CONTRIB-2026-018: SAML SSO](/2026-02-26-saml-sso-sa-contrib-2026-018-review)
-- [SA-CONTRIB-2026-019: Responsive Favicons](/2026-02-26-responsive-favicons-sa-contrib-2026-019-review)
-
 ## Why this matters for Drupal and WordPress
 
 Drupal agencies and site owners running contrib-heavy stacks need a repeatable triage workflow when advisory batches like this land. Modules like CAPTCHA, SAML SSO, and Islandora are common in enterprise Drupal builds, and missing even one patch can expose XSS or access-bypass vectors. WordPress teams maintaining parallel CMS portfolios should apply the same dependency-scanning discipline across both ecosystems since many hosting and CI pipelines serve both platforms.

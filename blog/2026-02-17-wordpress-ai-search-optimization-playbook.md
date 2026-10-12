@@ -80,7 +80,7 @@ Before writing custom code, use maintained WordPress plugins:
 | `llms.txt` generation | Website LLMs.txt | Higher active installs and frequent updates |
 | Avoid for production baseline | Older low-velocity llms plugins | Higher breakage risk during WordPress minor updates |
 
-Related reads: [WordPress 7.0 iframed editor impact](/2026-02-17-wordpress-7-iframed-editor/).
+Related reads: [WordPress 7.0 iframed editor migration playbook](/2026-02-24-wordpress-7-0-iframed-editor-migration-playbook/).
 
 ## Why this matters for Drupal and WordPress
 

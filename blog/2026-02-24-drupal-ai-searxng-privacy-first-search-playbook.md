@@ -130,9 +130,9 @@ For Drupal, the AI ecosystem is actively maintained, and this SearXNG direction 
 <details>
 <summary>Related implementation posts</summary>
 
-- [WordPress 7.0 iframed editor migration playbook](/wordpress-7-0-iframed-editor-migration-playbook/)
+- [WordPress 7.0 iframed editor migration playbook](/2026-02-24-wordpress-7-0-iframed-editor-migration-playbook/)
 - [Drupal Service Collectors Pattern](/drupal-service-collectors-pattern/)
-- [AI in Drupal CMS 2.0: Practical Tools You Can Use from Day One](/ai-in-drupal-cms-2-0-practical-tools-you-can-use-from-day-one/)
+- [AI in Drupal CMS 2.0: A Day-One Toolkit That Actually Ships](/2026-02-06-ai-in-drupal-cms-2-0-dayone-tools/)
 
 </details>
 
