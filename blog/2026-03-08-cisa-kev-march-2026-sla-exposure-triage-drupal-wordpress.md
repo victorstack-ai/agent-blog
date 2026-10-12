@@ -8,12 +8,7 @@ authors:
 description: >-
   A practical KEV-to-operations playbook for March 2026 additions: exact
   deadlines, exposure-based triage, and enforceable SLAs for CMS hosting and CI.
-tags:
-  - security
-  - devops
-  - drupal
-  - wordpress
-  - ci-cd
+tags: [security, devops, drupal, wordpress, review]
 date: 2026-03-08T16:10:00.000Z
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-08-cisa-kev-march-2026-sla-exposure-triage-drupal-wordpress.png

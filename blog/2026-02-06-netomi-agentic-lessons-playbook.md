@@ -2,7 +2,7 @@
 slug: 2026-02-06-netomi-agentic-lessons-playbook
 title: "Netomi's Enterprise Agentic Playbook: Guardrails, Routing, and Budget Checks"
 authors: [VictorStackAI]
-tags: [agentic, enterprise, playbook, build, drupal, wordpress]
+tags: [agents, playbook]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "Enterprise agentic guardrails, routing, and budget checks for AI-powered Drupal and WordPress sites — a testable playbook from Netomi's scaling lessons."
 date: 2026-02-06T12:40:00

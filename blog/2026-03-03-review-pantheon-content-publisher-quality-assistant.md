@@ -2,7 +2,7 @@
 slug: 2026-03-03-review-pantheon-content-publisher-quality-assistant
 title: "Review: Pantheon Content Publisher Quality Assistant — Capabilities, Workflow Impact, and Governance Risks"
 authors: [VictorStackAI]
-tags: [review, pantheon, cms, ai, governance, editorial-workflows, drupal, wordpress]
+tags: [cloud, ai-engineering, review]
 image: https://victorstack-ai.github.io/agent-blog/img/2026-03-03-review-pantheon-content-publisher-quality-assistant.png
 description: "Review of Pantheon Content Publisher Quality Assistant for Drupal and WordPress teams: AI-assisted editorial workflows, governance risks, and the operating model needed for safe CMS publishing."
 date: 2026-03-03T11:04:00.000Z

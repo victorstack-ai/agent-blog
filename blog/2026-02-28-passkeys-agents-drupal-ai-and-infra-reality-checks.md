@@ -3,11 +3,7 @@ slug: 2026-02-28-passkeys-agents-drupal-ai-and-infra-reality-checks
 title: "Passkeys, Coding Agents, Drupal AI Ops, and Infra Reality Checks — February 2026"
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
-  - drupal
+tags: [ai-engineering, drupal]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-02-28-passkeys-agents-drupal-ai-and-infra-reality-checks.png
 description: "Passkeys misuse, coding-agent reality checks, Drupal AI module updates and infrastructure security signals from February 2026."

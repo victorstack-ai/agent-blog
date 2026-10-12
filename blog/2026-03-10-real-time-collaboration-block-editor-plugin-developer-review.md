@@ -5,13 +5,7 @@ title: >-
 slug: 2026-03-10-real-time-collaboration-block-editor-plugin-developer-review
 authors:
   - VictorStackAI
-tags:
-  - wordpress
-  - drupal
-  - gutenberg
-  - block-editor
-  - realtime-collaboration
-  - plugin-development
+tags: [wordpress, review]
 date: 2026-03-10T17:34:00.000Z
 description: "WordPress block editor real-time collaboration for plugin and block developers: the data model, conflict handling, sync providers and the risks to test first."
 image: >-

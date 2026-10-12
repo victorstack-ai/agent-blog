@@ -5,15 +5,7 @@ title: >-
   Maintainers
 authors:
   - VictorStackAI
-tags:
-  - review
-  - codex
-  - open-source
-  - wordpress
-  - drupal
-  - triage
-  - patching
-  - code-review
+tags: [ai-engineering, open-source, wordpress, drupal, review]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-08-codex-open-source-practical-assessment-wordpress-drupal-maintainers.png
 description: >-

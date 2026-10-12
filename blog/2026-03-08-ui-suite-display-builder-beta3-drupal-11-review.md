@@ -5,13 +5,7 @@ title: >-
   Workflows, Layout Architecture, and Migration Risk
 authors:
   - VictorStackAI
-tags:
-  - drupal
-  - drupal-11
-  - drupal-cms
-  - ui-suite
-  - layout-builder
-  - wordpress
+tags: [drupal, wordpress, review]
 description: >-
   A technical assessment of Display Builder 1.0.0-beta3: what it changes for
   Drupal 10/11 workflows, how its architecture differs from Layout Builder, and

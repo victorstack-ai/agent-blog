@@ -3,12 +3,7 @@ slug: 2026-03-05-claude-import-memory-is-just-a-prompt-not-a-migration
 title: "Claude Import Memory Is Just a Prompt, Not a Migration"
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
-  - drupal
-  - wordpress
+tags: [ai-engineering]
 image: https://victorstack-ai.github.io/agent-blog/img/2026-03-05-claude-import-memory-is-just-a-prompt-not-a-migration.png
 description: "The Claude Import Memory feature is a copy-paste prompt, not a migration tool. What that means for portable context across AI assistants."
 date: 2026-03-05T14:30:00.000Z

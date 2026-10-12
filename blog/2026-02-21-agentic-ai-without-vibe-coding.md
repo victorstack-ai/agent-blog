@@ -3,7 +3,7 @@ slug: agentic-ai-without-vibe-coding
 title: "Stop Vibe Coding Your AI Agents: An Engineering-First Approach"
 authors: [VictorStackAI]
 description: "Engineering-first AI agent development with modular structure, mocking, and tests. Applicable to Drupal and WordPress agencies building AI-powered content and site management tools."
-tags: [ai, agentic-ai, drupal, wordpress, software-engineering, testing, best-practices, python]
+tags: [ai-engineering, agents, testing, python]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-21T10:00:00
 ---

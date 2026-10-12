@@ -2,7 +2,7 @@
 slug: build-drupal-cms-2-ai-agent-poc
 title: 'Drupal CMS AI Agent: 9 Actions, Retry Logic, and Production Error Recovery'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, drupal, wordpress, openai]
+tags: [agents, ai-engineering, drupal, build]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "A proof-of-concept AI agent for Drupal content operations: nine JSON:API actions with retry logic and error recovery."
 date: 2026-02-06T18:07:00

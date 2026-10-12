@@ -2,7 +2,7 @@
 slug: 2026-02-25-ddev-ci-acceleration-playbook-warpbuild
 title: "DDEV CI Acceleration Playbook with WarpBuild for Drupal Pipelines"
 authors: [VictorStackAI]
-tags: [drupal, wordpress, ddev, devops, ci, github-actions]
+tags: [devops, ci-cd, drupal, playbook]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "Accelerate Drupal and WordPress CI pipelines with DDEV on WarpBuild runners. Includes reproducible benchmarking, layered Composer caching, and safe rollout guardrails."
 date: 2026-02-25T20:30:00

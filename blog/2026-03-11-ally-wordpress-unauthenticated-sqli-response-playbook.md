@@ -6,12 +6,7 @@ title: >-
 authors:
   - VictorStackAI
 description: "The Ally plugin unauthenticated SQL injection and a repeatable WordPress response playbook: detection, virtual patching, WAF containment and update rollout."
-tags:
-  - security
-  - wordpress
-  - drupal
-  - incident-response
-  - vulnerability-management
+tags: [security, wordpress, review]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-11-ally-wordpress-unauthenticated-sqli-response-playbook.png
 date: 2026-03-11T04:03:00.000Z

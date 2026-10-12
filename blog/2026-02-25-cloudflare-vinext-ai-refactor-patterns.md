@@ -2,7 +2,7 @@
 slug: 2026-02-25-cloudflare-vinext-ai-refactor-patterns
 title: "Cloudflare viNext: Safe AI-Assisted Refactor Patterns for Workers Migration"
 authors: [VictorStackAI]
-tags: [cloudflare, nextjs, workers, ai, drupal, wordpress, migration, review]
+tags: [cloud, nextjs, ai-engineering, release-engineering, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "Safe AI-assisted migration patterns for Cloudflare viNext Workers. Relevant for headless Drupal and WordPress teams deploying Next.js frontends to the edge."
 date: 2026-02-25T10:00:00

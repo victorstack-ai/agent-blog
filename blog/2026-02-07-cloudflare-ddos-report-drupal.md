@@ -2,7 +2,7 @@
 slug: 2026-02-07-cloudflare-ddos-report-drupal
 title: "Cloudflare Q4 2025 DDoS Report: What 31.4 Tbps Means for Drupal Infrastructure"
 authors: [VictorStackAI]
-tags: [drupal, wordpress, security, cloudflare, ddos]
+tags: [security, cloud, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "What the Cloudflare 2025 Q4 DDoS report means for Drupal and WordPress site operators — 700% more hyper-volumetric attacks and application-level defenses that actually work."
 date: 2026-02-07T14:02:00

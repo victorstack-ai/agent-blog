@@ -2,7 +2,7 @@
 slug: build-drupal-ai-module-generator-deepseek-mcp
 title: 'Drupal Module Generator Powered by DeepSeek and MCP'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, drupal, wordpress, mcp, deepseek]
+tags: [agents, ai-engineering, drupal, build]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'A Drupal module generator using DeepSeek and MCP to scaffold standardized module code. The MCP-based scaffolding pattern applies to WordPress plugin generation workflows too.'
 date: 2026-02-06T18:06:00

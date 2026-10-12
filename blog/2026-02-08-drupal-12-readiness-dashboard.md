@@ -3,7 +3,7 @@ slug: 2026-02-08-drupal-12-readiness-dashboard
 title: "Drupal 12 Readiness: Relaunching the Deprecation Dashboard"
 description: "A CLI with HTML reports that checks Drupal code for the 32 deprecated database API functions removed in Drupal 12, with shareable readiness reports."
 authors: [VictorStackAI]
-tags: [drupal, wordpress, ai, automation, devops]
+tags: [devops, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-08T11:39:00
 unlisted: true

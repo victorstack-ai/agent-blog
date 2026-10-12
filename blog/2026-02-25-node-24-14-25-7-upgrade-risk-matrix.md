@@ -2,7 +2,7 @@
 slug: 2026-02-25-node-24-14-25-7-upgrade-risk-matrix
 title: "Node.js 24.14.0 LTS and 25.7.0: Upgrade-Risk Matrix for CI, Native Modules, and Frameworks"
 authors: [VictorStackAI]
-tags: [nodejs, devops, ci, compatibility, native-modules]
+tags: [javascript, devops, ci-cd, release-engineering]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "Node.js 24.14.0 and 25.7.0 upgrade-risk matrix for CI and runtimes — and why Drupal/WordPress frontends and tooling need it."
 date: 2026-02-25T22:05:00

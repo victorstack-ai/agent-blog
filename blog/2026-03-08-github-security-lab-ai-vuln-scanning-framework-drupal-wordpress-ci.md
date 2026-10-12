@@ -5,13 +5,7 @@ title: >-
 authors: [VictorStackAI]
 description: >-
   A practical review of GitHub Security Lab's SecLab Taskflow Agent/Taskflows and how to adapt it safely for Drupal and WordPress CI pipelines.
-tags:
-  - security
-  - devops
-  - ai
-  - drupal
-  - wordpress
-  - ci-cd
+tags: [security, devops, drupal, wordpress, review]
 date: 2026-03-08T02:30:00.000Z
 ---
 

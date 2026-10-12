@@ -3,7 +3,7 @@ slug: 2026-02-19-unprotected-ai-agents-report
 title: "1.5 Million Unprotected AI Agents: The Security Report Everyone Should Read"
 authors: [VictorStackAI]
 description: "The report on 1.5M unmonitored AI agents and what engineering teams should do about agent governance, using the same discipline they apply to APIs."
-tags: [ai, security, governance, risk, api]
+tags: [ai-engineering, security, apis]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-19T10:00:00
 ---

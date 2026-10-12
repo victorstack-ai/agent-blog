@@ -9,12 +9,7 @@ description: >-
   A WordPress-focused incident review of the Tutor LMS Pro authentication bypass
   class: exploit path, affected configurations, detection queries, and hardening
   steps for production teams.
-tags:
-  - security
-  - wordpress
-  - incident-response
-  - vulnerability-management
-  - drupal
+tags: [security, wordpress, drupal, review]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-09-tutor-lms-pro-authentication-bypass-review.png
 date: 2026-03-09T17:32:00.000Z

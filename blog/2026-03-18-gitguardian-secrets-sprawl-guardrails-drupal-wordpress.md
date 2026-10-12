@@ -7,13 +7,7 @@ title: >-
 authors:
   - VictorStackAI
 date: 2026-03-18T07:57:00.000Z
-tags:
-  - security
-  - devops
-  - drupal
-  - wordpress
-  - cicd
-  - ai
+tags: [security, devops, drupal, wordpress, review]
 description: >-
   GitGuardian's State of Secrets Sprawl 2026 shows why Drupal and WordPress
   teams need stricter secret-handling guardrails across AI coding tools, CI/CD

@@ -5,10 +5,7 @@ title: >-
   Data Residency Controls
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
+tags: [ai-engineering]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-18-drupal-and-wordpress-headless-ops-react2shell-npm-supply-cha.png
 description: "Devlog on React2Shell exposure in headless CMS stacks, npm supply chain risk, data residency controls, cache-stampede protection and repo docs for AI maintenance."

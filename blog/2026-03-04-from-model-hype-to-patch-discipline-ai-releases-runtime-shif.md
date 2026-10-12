@@ -5,13 +5,7 @@ title: >-
   Vulns
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
-  - drupal
-  - wordpress
-  - security
+tags: [ai-engineering, security, drupal]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-04-from-model-hype-to-patch-discipline-ai-releases-runtime-shif.png
 description: >-

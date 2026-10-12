@@ -5,10 +5,7 @@ title: >-
   1M-Context Code Review
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
+tags: [ai-engineering]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-14-drupal-and-wordpress-devlog-contrib-trust-browser-kevs-gpl-w.png
 description: "Devlog on contrib governance under AI spam, browser KEVs and CMS admin security, GPL license washing, and where 1M-context models help with code review."

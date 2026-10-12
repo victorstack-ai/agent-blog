@@ -5,12 +5,7 @@ title: >-
   Week
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
-  - drupal
-  - wordpress
+tags: [ai-engineering, drupal]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-06-from-patch-releases-to-attack-telemetry-what-actually-moved.png
 description: >-

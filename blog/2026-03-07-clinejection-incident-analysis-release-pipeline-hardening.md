@@ -9,13 +9,7 @@ description: >-
   What the Clinejection chain actually showed, where release pipelines failed,
   and a practical hardening baseline for WordPress/Drupal teams using coding
   agents.
-tags:
-  - security
-  - devops
-  - ai
-  - wordpress
-  - drupal
-  - ci-cd
+tags: [security, devops, wordpress, drupal, review]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-07-clinejection-incident-analysis-release-pipeline-hardening.png
 date: 2026-03-07T17:25:00.000Z

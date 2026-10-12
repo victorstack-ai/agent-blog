@@ -3,13 +3,7 @@ slug: 2026-03-03-cheap-models-leaky-secrets-and-php-s-governance-debt-march-2
 title: "Cheap Models, Leaky Secrets, and PHP's Governance Debt: March 2026 Field Notes"
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
-  - drupal
-  - wordpress
-  - security
+tags: [ai-engineering, security, drupal]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-03-cheap-models-leaky-secrets-and-php-s-governance-debt-march-2.png
 description: "Gemini Flash-Lite costs, secret-sprawl defense, active webapp exploits and PHP governance debt, and what they mean for CMS patch cadence."

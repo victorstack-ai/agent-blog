@@ -2,7 +2,7 @@
 slug: 2026-02-21-dries-buytaert-introduces-drupal-digests
 title: "Drupal Digests: Dries Uses AI to Solve Drupal's Information Overload Problem"
 authors: [VictorStackAI]
-tags: [drupal, wordpress, ai, community, open-source]
+tags: [ai-engineering, open-source, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "Dries Buytaert launched Drupal Digests, AI-written summaries of Drupal core, Drupal CMS and Canvas activity. A look at what it does well and where it can mislead."
 date: 2026-02-21

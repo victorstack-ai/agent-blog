@@ -9,13 +9,7 @@ description: >-
   Pantheon Site Metrics adds useful traffic and request visibility, but Drupal
   and WordPress teams only get value when they split billing, performance, and
   incident workflows cleanly.
-tags:
-  - review
-  - pantheon
-  - drupal
-  - wordpress
-  - performance
-  - infrastructure
+tags: [cloud, performance, drupal, wordpress, review]
 date: 2026-03-14T19:39:00.000Z
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-14-pantheon-site-metrics-drupal-wordpress-review.png

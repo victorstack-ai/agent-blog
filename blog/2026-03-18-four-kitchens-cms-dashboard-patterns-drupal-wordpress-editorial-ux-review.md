@@ -11,14 +11,7 @@ description: >-
   Review of Four Kitchens-style CMS dashboard design patterns, translated into
   practical admin UX improvements for Drupal 10/11, Drupal CMS, and WordPress
   editorial workflows.
-tags:
-  - drupal
-  - drupal-10
-  - drupal-11
-  - drupal-cms
-  - wordpress
-  - admin-ui
-  - editorial-workflow
+tags: [drupal, wordpress, review]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-18-four-kitchens-cms-dashboard-patterns-drupal-wordpress-editorial-ux-review.png
 ---

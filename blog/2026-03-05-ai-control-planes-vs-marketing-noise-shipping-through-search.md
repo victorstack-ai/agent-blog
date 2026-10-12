@@ -5,13 +5,7 @@ title: >-
   Framework Churn
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
-  - drupal
-  - wordpress
-  - security
+tags: [ai-engineering, security, drupal]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-05-ai-control-planes-vs-marketing-noise-shipping-through-search.png
 description: >-

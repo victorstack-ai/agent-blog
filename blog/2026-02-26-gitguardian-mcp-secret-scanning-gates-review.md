@@ -2,7 +2,7 @@
 slug: 2026-02-26-gitguardian-mcp-secret-scanning-gates-review
 title: "GitGuardian MCP: Secret Scanning as a Hard Merge Gate for AI-Generated Code"
 authors: [VictorStackAI]
-tags: [devops, security, mcp, github-actions, review]
+tags: [devops, security, agents, ci-cd, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "GitGuardian MCP and ggshield as a hard merge gate in CI — and why Drupal contrib and WordPress plugin teams should treat it as required."
 date: 2026-02-26T11:10:00

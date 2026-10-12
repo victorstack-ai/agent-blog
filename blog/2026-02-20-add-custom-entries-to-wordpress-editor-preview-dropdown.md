@@ -2,7 +2,7 @@
 title: "How to Add Custom Preview Devices to WordPress: Customizer and Block Editor"
 authors: [VictorStackAI]
 slug: 2026-02-20-add-custom-entries-to-wordpress-editor-preview-dropdown
-tags: [wordpress, drupal, gutenberg, react, php, theme-development, dx]
+tags: [react, php, wordpress]
 description: "Extend WordPress preview with custom devices and menu items. Covers both the Customizer PHP hooks and Block Editor React components -- essential for WordPress theme developers."
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-20T12:00:00

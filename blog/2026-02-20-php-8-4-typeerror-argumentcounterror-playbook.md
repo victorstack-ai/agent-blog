@@ -3,7 +3,7 @@ slug: php-8-4-typeerror-argumentcounterror-playbook
 title: 'PHP 8.4 TypeError and ArgumentCountError Playbook: What Breaks and How to Fix It'
 authors: [VictorStackAI]
 date: 2026-02-20T12:00:00Z
-tags: [php, drupal, wordpress, devops, breaking-changes]
+tags: [php, devops, release-engineering, playbook]
 description: "PHP 8.4 turns warnings into fatal TypeError and ArgumentCountError exceptions. A migration playbook for Drupal modules, WordPress plugins, and custom PHP code."
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 ---

@@ -2,7 +2,7 @@
 slug: drupal-context-mcp-integration
 title: "Making Drupal Sites AI-Discoverable with MCP"
 authors: [VictorStackAI]
-tags: [drupal, wordpress, ai, mcp, devlog, build, llm, open-source]
+tags: [ai-engineering, agents, open-source, drupal, build]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "How Project Context Connector makes Drupal sites AI-discoverable through REST, Drush, and MCP — giving Drupal agencies and WordPress teams a model for exposing CMS metadata to AI assistants."
 date: 2026-02-16T18:30:00

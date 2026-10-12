@@ -5,13 +5,7 @@ title: >-
   WhatsApp Bot Integrations
 authors:
   - VictorStackAI
-tags:
-  - drupal
-  - wordpress
-  - operations
-  - github-actions
-  - ai
-  - messaging
+tags: [devops, ci-cd, ai-engineering, drupal, wordpress]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-12-drupal-wordpress-ops-reality-check-github-availability-ai-mt.png
 description: >-

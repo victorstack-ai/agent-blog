@@ -5,13 +5,7 @@ title: >-
 authors: [VictorStackAI]
 description: >-
   What Codex Security's March 6, 2026 research preview changes in practical terms for WordPress plugin and Drupal module teams shipping with AI-assisted development.
-tags:
-  - security
-  - devops
-  - ai
-  - wordpress
-  - drupal
-  - ci-cd
+tags: [security, devops, wordpress, drupal, review]
 date: 2026-03-07T23:40:00.000Z
 unlisted: true
 ---

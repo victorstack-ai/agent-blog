@@ -5,10 +5,7 @@ title: >-
   Operations on Vercel
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
+tags: [ai-engineering]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-09-drupal-and-wordpress-devlog-cache-tags-redirect-scale-and-sa.png
 description: >-

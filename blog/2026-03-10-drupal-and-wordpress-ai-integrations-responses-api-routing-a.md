@@ -5,13 +5,7 @@ title: >-
   Failover with AI Gateway
 authors:
   - VictorStackAI
-tags:
-  - drupal
-  - wordpress
-  - ai
-  - cloudflare
-  - openai
-  - integration-architecture
+tags: [ai-engineering, cloud, integrations, drupal, wordpress]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-10-drupal-and-wordpress-ai-integrations-responses-api-routing-a.png
 description: >-

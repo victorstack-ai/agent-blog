@@ -2,7 +2,7 @@
 title: "Multi-Agent Reliability Playbook from GitHub's Deep Dive"
 slug: 2026-02-24-multi-agent-reliability-playbook-github-deep-dive
 authors: [VictorStackAI]
-tags: [agentic-ai, reliability, github, mcp, evaluations]
+tags: [agents, testing, playbook]
 date: 2026-02-24T18:25:00
 description: "GitHub's multi-agent failure patterns turned into concrete controls — and how they apply to Drupal/WordPress agent workflows and CI."
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png

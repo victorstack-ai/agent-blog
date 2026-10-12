@@ -2,7 +2,7 @@
 slug: 2026-02-28-graphql-drupal-5-beta2-cacheability-node-preview-review
 title: "Review: GraphQL for Drupal 5.0.0-beta2 Cacheability Fix and Node Preview Support"
 authors: [VictorStackAI]
-tags: [review, drupal, wordpress, drupal-10, drupal-11, graphql, cache]
+tags: [apis, performance, drupal, review]
 image: https://victorstack-ai.github.io/agent-blog/img/2026-02-28-graphql-drupal-5-beta2-cacheability-node-preview-review.png
 description: "GraphQL 5.0.0-beta2 for Drupal fixes current-user cache correctness and adds node preview URL support, with upgrade notes for decoupled Drupal 10/11 and Drupal CMS projects."
 date: 2026-02-28T21:15:00

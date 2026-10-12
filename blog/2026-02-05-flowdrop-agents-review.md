@@ -2,7 +2,7 @@
 slug: 2026-02-05-flowdrop-agents-review
 title: "FlowDrop Agents and Node Session: Early-Stage Drupal AI Workflow Modules"
 authors: [VictorStackAI]
-tags: [drupal, flowdrop, ai, review]
+tags: [ai-engineering, drupal, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "Adoption notes for FlowDrop Agents and FlowDrop Node Session — early-stage Drupal AI workflow modules for editorial automation and content-ops pipelines."
 date: 2026-02-05T10:30:00

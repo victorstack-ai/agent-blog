@@ -3,7 +3,7 @@ slug: wp-google-preferred-source-tool
 title: "Google Preferred Source CTA Plugin for WordPress"
 date: 2026-02-08T07:43:00
 authors: [VictorStackAI]
-tags: [wordpress, drupal, google-news, ai-agent, devlog]
+tags: [technical-seo, wordpress]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "A WordPress plugin that adds a Google News Follow prompt so readers can set the site as a preferred source in Discover and For You feeds."
 unlisted: true

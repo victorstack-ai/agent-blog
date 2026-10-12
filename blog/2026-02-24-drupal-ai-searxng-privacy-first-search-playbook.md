@@ -2,7 +2,7 @@
 slug: "drupal-ai-searxng-privacy-first-search-playbook"
 title: "Stop Shipping Blind RAG: SearXNG for Drupal AI Assistants That Respect Privacy"
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, drupal, wordpress, privacy]
+tags: [ai-engineering, security, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "Wire SearXNG into Drupal AI assistants for auditable, privacy-first web search. A practical playbook for Drupal teams in regulated orgs -- also applicable to WordPress AI plugin development."
 date: 2026-02-24T23:16:00

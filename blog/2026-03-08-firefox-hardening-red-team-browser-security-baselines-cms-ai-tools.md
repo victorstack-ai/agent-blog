@@ -9,12 +9,7 @@ description: >-
   A practical Firefox hardening baseline derived from common red-team browser
   attack paths, translated for Drupal and WordPress teams using admin panels, CI
   consoles, and AI coding tools.
-tags:
-  - security
-  - firefox
-  - drupal
-  - wordpress
-  - ai
+tags: [security, ai-engineering, drupal, wordpress, review]
 date: 2026-03-08T02:40:00.000Z
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-08-firefox-hardening-red-team-browser-security-baselines-cms-ai-tools.png

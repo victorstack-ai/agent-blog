@@ -5,12 +5,7 @@ title: >-
   on March 7
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
-  - drupal
-  - wordpress
+tags: [ai-engineering, drupal]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-07-ai-subsidies-runtime-reality-checks-and-cms-release-pressure.png
 description: "Digest on open-source AI credit programs, agent testing discipline, Drupal patch release signals and separating hype from operational value."

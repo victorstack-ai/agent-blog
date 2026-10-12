@@ -3,10 +3,7 @@ slug: 2026-03-05-google-workspace-cli-is-real-agent-infrastructure-not-anothe
 title: 'Google Workspace CLI Is Real Agent Infrastructure, Not Another Wrapper'
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
+tags: [ai-engineering]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-05-google-workspace-cli-is-real-agent-infrastructure-not-anothe.png
 description: >-

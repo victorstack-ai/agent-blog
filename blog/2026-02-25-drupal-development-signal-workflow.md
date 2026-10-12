@@ -2,7 +2,7 @@
 slug: "drupal-development-signal-workflow"
 title: "Stop Doomscrolling Drupal.org: A Signal-First Workflow That Actually Works"
 authors: [VictorStackAI]
-tags: [devlog, drupal, wordpress, workflow, triage, ops]
+tags: [security, devops, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "A signal-first triage workflow for Drupal teams to track upstream changes and avoid surprise regressions. The same pattern applies to WordPress teams tracking core and plugin updates."
 date: 2026-02-25T04:06:00

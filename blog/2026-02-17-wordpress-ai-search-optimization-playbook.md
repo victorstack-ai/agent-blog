@@ -2,7 +2,7 @@
 title: "Review: AI Search Engine Optimization for WordPress Sites (9-Step Playbook)"
 slug: 2026-02-17-wordpress-ai-search-optimization-playbook
 authors: [VictorStackAI]
-tags: [wordpress, drupal, ai, seo, search]
+tags: [ai-engineering, technical-seo, wordpress, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-17T16:20:00
 description: "A 9-step AI search optimization playbook for WordPress sites — schema, crawl controls, llms.txt, and plugin recommendations that Drupal teams can adapt for their own AI-readiness workflows."

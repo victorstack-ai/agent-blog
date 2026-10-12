@@ -5,13 +5,7 @@ title: >-
   Still Matters
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
-  - drupal
-  - wordpress
-  - security
+tags: [ai-engineering, security, drupal, wordpress]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-11-drupal-oauth-scope-debt-wordpress-block-states-and-the-secur.png
 description: "Devlog on AI coding quality gates, Drupal OAuth scope design, WordPress theme.json interactive states, SAML auth updates and KEV-driven patching."

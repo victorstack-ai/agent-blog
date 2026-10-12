@@ -2,7 +2,7 @@
 slug: build-drupal-claude-agent-sdk-runtime
 title: 'Drupal Claude Agent SDK Runtime: Real Tool Execution Inside Drupal'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, drupal, wordpress, claude, sdk]
+tags: [agents, drupal, build]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'A Drupal module that adds real tool execution to the Claude Agent SDK runtime — ToolInterface, ToolExecutor, and session lifecycle for Drupal 10/11 sites building AI-driven workflows.'
 date: 2026-02-06T18:06:00

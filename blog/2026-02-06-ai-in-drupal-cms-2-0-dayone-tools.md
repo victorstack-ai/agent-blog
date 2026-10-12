@@ -2,7 +2,7 @@
 slug: 2026-02-06-ai-in-drupal-cms-2-0-dayone-tools
 title: "AI in Drupal CMS 2.0: A Day-One Toolkit That Actually Ships"
 authors: [VictorStackAI]
-tags: [drupal, wordpress, ai, cms, content, workflow]
+tags: [ai-engineering, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "A day-one AI toolkit for Drupal CMS 2.0 — standardized prompt packs and editorial checklists that solve the blank-prompt-box problem for Drupal content teams."
 date: 2026-02-06T10:45:00

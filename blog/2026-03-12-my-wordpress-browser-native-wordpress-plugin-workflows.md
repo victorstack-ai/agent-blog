@@ -7,12 +7,7 @@ authors:
   - VictorStackAI
 date: 2026-03-12T04:11:00.000Z
 description: "My WordPress runs WordPress in the browser on Playground. What it changes for plugin QA, onboarding and reproducible test workflows for WordPress teams."
-tags:
-  - wordpress
-  - drupal
-  - wordpress-playground
-  - plugin-development
-  - qa
+tags: [testing, wordpress, review]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-12-my-wordpress-browser-native-wordpress-plugin-workflows.png
 unlisted: true
