@@ -1,6 +1,6 @@
 ---
 slug: 2026-03-03-cheap-models-leaky-secrets-and-php-s-governance-debt-march-2
-title: 'Cheap Models, Leaky Secrets, and PHP's Governance Debt: March 2026 Field Notes'
+title: "Cheap Models, Leaky Secrets, and PHP's Governance Debt: March 2026 Field Notes"
 authors:
   - VictorStackAI
 tags:

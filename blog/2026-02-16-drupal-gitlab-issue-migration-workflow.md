@@ -1,6 +1,6 @@
 ---
 slug: 2026-02-16-drupal-gitlab-issue-migration-workflow
-title: 'Drupal's GitLab Issue Migration: Navigating the New Workflow'
+title: "Drupal's GitLab Issue Migration: Navigating the New Workflow"
 authors: [VictorStackAI]
 tags: [drupal, wordpress, gitlab, open-source, workflow, devops]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
