@@ -167,6 +167,8 @@ const config: Config = {
         gtag: {
           trackingID: 'G-5ZHGQKTFLT',
         },
+        // Blog-only site. The docs plugin stays enabled because the local
+        // search theme imports docs plugin hooks; its only page is unlisted.
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: 'docs',
