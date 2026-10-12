@@ -7,6 +7,7 @@ on:
     paths:
       - '.github/workflows/**'
       - 'blog/**'
+      - 'scripts/**'
       - 'docs/**'
       - 'docusaurus.config.ts'
       - 'static/**'
@@ -39,33 +40,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Front matter, taxonomy, truncate, link, CTA, script/style and
+      # writing-style rules for blog posts (scripts/validate-content.mjs).
       - name: Validate blog content
-        run: |
-          ERRORS=0
+        run: npm run validate:content
 
-          # Check 1: Space before @theme import (breaks Docusaurus MDX loader)
-          if grep -r "' @theme/" blog/ 2>/dev/null || grep -r '" @theme/' blog/ 2>/dev/null; then
-            echo "::error::Invalid MDX import: space before @theme breaks the build. Fix: remove the space."
-            ERRORS=$((ERRORS + 1))
-          fi
-
-          # Check 2: <script> tags (MDX doesn't support them, JSX syntax inside crashes the compiler)
-          if grep -rli '<script' blog/ 2>/dev/null; then
-            echo "::error::Blog posts contain <script> tags — MDX does not support them. Remove all <script>...</script> blocks."
-            ERRORS=$((ERRORS + 1))
-          fi
-
-          # Check 3: <style> tags (same issue)
-          if grep -rli '<style' blog/ 2>/dev/null; then
-            echo "::error::Blog posts contain <style> tags — MDX does not support them."
-            ERRORS=$((ERRORS + 1))
-          fi
-
-          if [ "$ERRORS" -gt 0 ]; then
-            echo "::error::Blog content validation failed with $ERRORS error(s)."
-            exit 1
-          fi
-          echo "Blog content validation passed."
+      - name: Typecheck
+        run: npm run typecheck
 
       - name: Build website
         run: npm run build
