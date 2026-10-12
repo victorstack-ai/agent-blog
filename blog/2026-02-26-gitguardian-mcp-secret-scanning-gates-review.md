@@ -1,40 +1,44 @@
 ---
 slug: 2026-02-26-gitguardian-mcp-secret-scanning-gates-review
-title: "GitGuardian MCP: Secret Scanning as a Hard Merge Gate for AI-Generated Code"
+title: "GitGuardian MCP: Make Secret Scanning a Hard Merge Gate"
 authors: [VictorStackAI]
 tags: [devops, security, agents, ci-cd, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: "GitGuardian MCP and ggshield as a hard merge gate in CI — and why Drupal contrib and WordPress plugin teams should treat it as required."
+description: "Agent-written pull requests need ggshield as a required CI check, a pre-commit hook for speed, and a logged break-glass path for exceptions."
 date: 2026-02-26T11:10:00
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-If AI agents can open pull requests, secret scanning must become a hard merge gate, not a best-effort report. The practical baseline is: pre-commit scanning for fast feedback, CI blocking checks for enforceability, and policy-controlled break-glass paths with audit logs.
+If AI agents can open pull requests, secret scanning has to block the merge. A scanner that only reports will write accurate notes about a key that already reached the protected branch. My baseline is pre-commit scanning for fast feedback, required CI checks for enforcement, and a policy-controlled break-glass path with audit logs.
 
 I reviewed the GitGuardian MCP integration pattern and tested it against agent-generated PRs.
 
 <!-- truncate -->
 
-## What Breaks Without a Gate
+## What breaks without a gate
+
+Most setups I see have the scanner installed and switched to advisory mode. That combination looks like security and behaves like a log file.
 
 > "Teams adopting agent-generated code often add scanners but keep them non-blocking. That pattern fails."
 
 :::info[Context]
-The failure mode is simple: leaked credentials reach protected branches when scans run only locally, CI jobs are optional, or exceptions are handled in chat instead of policy. Agent-generated code is especially risky because it is produced at high volume and often reviewed with less scrutiny than human-written code.
+Leaked credentials reach protected branches when scans run only locally, when CI jobs are optional, or when exceptions are handled in chat instead of policy. Agent-generated code carries more risk because it arrives at high volume and often gets less review than human-written code.
 :::
 
 | Failure Mode | Why It Happens |
 |---|---|
-| Scans run only locally | Agent bypasses local hooks entirely |
-| CI jobs are optional | Status check not required for merge |
-| Exceptions in chat | No audit trail, no policy enforcement |
-| Scanner reports but does not block | Credential reaches protected branch anyway |
+| Scans run only locally | The agent skips local hooks entirely |
+| CI jobs are optional | The status check is not required for merge |
+| Exceptions in chat | No audit trail and no policy enforcement |
+| Scanner reports but does not block | The credential reaches the protected branch anyway |
 
-## Enforceable Integration Pattern
+An exception approved in a chat thread has the audit trail of a hallway conversation. The fix for every row is the same: make the scan a required status check, and move exceptions out of chat into a written, logged policy.
 
-Use GitGuardian capabilities in two layers:
+## The two layers in `ggshield`
+
+The CI gate is the control. The local hook is a convenience that makes the CI gate fail less often.
 
 <Tabs>
 <TabItem value="ci" label="CI Gate (GitHub Actions)">
@@ -59,7 +63,7 @@ env:
 GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
 ```
 
-Then enforce this workflow as a **required status check** in branch protection. If the check fails, merge is blocked.
+Then set this workflow as a required status check in branch protection. When the check fails, the merge is blocked. Without that setting, the workflow is decoration.
 
 </TabItem>
 <TabItem value="local" label="Local Pre-Commit">
@@ -73,12 +77,14 @@ pip install ggshield
 ggshield install --mode pre-commit
 ```
 
-This provides fast feedback to developers and agents before code reaches CI. But it is **not sufficient on its own** — agents can bypass local hooks.
+This gives developers and agents fast feedback before code reaches CI. It is not enough on its own, because agents can bypass local hooks. A pre-commit hook is a polite request to a process that never has to run it.
 
 </TabItem>
 </Tabs>
 
-## Agent-Safe Policy Contract
+## Agent-safe policy contract
+
+I treat every MCP-driven code contribution as untrusted until it passes every gate below. The flow is short on purpose.
 
 ```mermaid
 flowchart TD
@@ -92,26 +98,26 @@ flowchart TD
     G -->|Standard files| I[Merge allowed]
 ```
 
-Treat every MCP-driven code contribution as untrusted until it passes:
-
 | Gate | Purpose |
 |---|---|
-| Secret scanning gate | Prevent credential leakage |
-| Unit/integration tests | Prevent functional regressions |
-| Ownership review for security-sensitive files | Prevent unauthorized access changes |
+| Secret scanning gate | Stop credential leaks |
+| Unit/integration tests | Stop functional regressions |
+| Ownership review for security-sensitive files | Stop unauthorized access changes |
 
 :::caution[Reality Check]
-The key is not tool installation, it is enforceability. If the secret-scanning job is not a required gate, you do not have a control. A minimal policy rule: no direct pushes to protected branches, and no bypass of required checks except a documented, time-bound break-glass process.
+Installing the tool is the small part. If the secret-scanning job is not a required gate, you do not have a control. Minimal policy: no direct pushes to protected branches, and no bypass of required checks outside a documented, time-bound break-glass process.
 :::
 
-## Recommended Rollout
+## Rollout and break-glass
+
+Enforcement has a running cost, and it is paid in false positives. Plan for that cost before the first blocked release, when nobody has patience for governance.
 
 | Step | Action | Timeline |
 |---|---|---|
-| 1 | Add `ggshield` scan in CI and set as required | Week 1 |
+| 1 | Add the `ggshield` scan in CI and set it as required | Week 1 |
 | 2 | Add local/pre-commit scanning for faster fixes | Week 1 |
-| 3 | Track false positives and create explicit ignore governance | Week 2-3 |
-| 4 | Audit exception usage monthly; reduce to near zero | Ongoing |
+| 3 | Track false positives and write explicit ignore governance | Week 2-3 |
+| 4 | Audit exception usage monthly and push it toward zero | Ongoing |
 
 <details>
 <summary>Break-glass process template</summary>
@@ -129,15 +135,24 @@ Monthly audit: review all break-glass usage and reduce exceptions toward zero.
 
 </details>
 
-## Why this matters for Drupal and WordPress
+Apply the same pattern to any repo that feeds a build or deployment pipeline, including repos that receive AI-generated patches and automated dependency updates. Credentials that land in a repo get deployed with everything else.
 
-Drupal contrib and WordPress plugin development increasingly involves AI-generated patches, automated dependency updates, and agent-assisted code. Secret scanning as an optional check is not enough: credentials still land in repos and get deployed. For maintainers and agencies shipping Drupal modules or WordPress plugins (whether on drupal.org, WordPress.org, or private repos), a **required** GitGuardian (or equivalent) gate in CI ensures that no merge happens with leaked API keys, tokens, or credentials. Apply the same pattern to any repo that feeds into a Drupal/WordPress build or deployment pipeline. The break-glass process and false-positive governance matter when release pressure is high — so define them before the first incident.
+## Checklist
 
-## What I Learned
+- [ ] `ggshield` runs in CI on pull requests and pushes to `main`
+- [ ] The scan is a required status check in branch protection
+- [ ] Direct pushes to protected branches are disabled
+- [ ] `ggshield install --mode pre-commit` is part of local setup
+- [ ] Security-sensitive files require ownership review
+- [ ] Break-glass exceptions are time-bound, logged and revoked on expiry
+- [ ] False positives are tracked and ignore rules have an owner
+- [ ] Exception usage is audited monthly
 
-- This approach is worth adopting now for teams shipping AI-assisted code.
-- The key is not tool installation, it is enforceability: if the secret-scanning job is not a required gate, you do not have a control.
-- Agent-generated code needs the same (or stricter) scanning as human code.
+## What I learned
+
+- My call: teams shipping AI-assisted code should adopt this now.
+- A secret scan that is not a required gate is not a control.
+- Agent-generated code needs the same scanning as human code, or stricter.
 - False positive management is the operational cost of enforcement. Budget for it.
 
 ## References
