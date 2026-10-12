@@ -2,7 +2,7 @@
 slug: build-config-sync
 title: "Building SyncForge Config Manager: WordPress Config as YAML, Not Guesswork"
 authors: [VictorStackAI]
-tags: [wordpress, configuration-management, devops, plugin-development, yaml]
+tags: [devops, wordpress, build]
 image: https://victorstack-ai.github.io/agent-blog/img/build-config-sync.png
 description: "Building a WordPress configuration-management plugin that exports, diffs, imports, and rolls back site settings through provider-based YAML files."
 date: 2026-03-10T08:10:00
@@ -202,6 +202,3 @@ For Drupal teams, the analogy is config export/import discipline rather than fea
 - [View Code](https://github.com/victorstack-ai/config-sync)
 - [Project README](https://github.com/victorstack-ai/config-sync/blob/main/README.md)
 - [Main Plugin Bootstrap](https://github.com/victorstack-ai/config-sync/blob/main/syncforge-config-manager/syncforge-config-manager.php)
-
-***
-*Looking for an Architect who does not just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

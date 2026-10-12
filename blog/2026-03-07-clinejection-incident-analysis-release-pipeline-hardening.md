@@ -9,13 +9,7 @@ description: >-
   What the Clinejection chain actually showed, where release pipelines failed,
   and a practical hardening baseline for WordPress/Drupal teams using coding
   agents.
-tags:
-  - security
-  - devops
-  - ai
-  - wordpress
-  - drupal
-  - ci-cd
+tags: [security, devops, wordpress, drupal, review]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-07-clinejection-incident-analysis-release-pipeline-hardening.png
 date: 2026-03-07T17:25:00.000Z
@@ -144,7 +138,3 @@ WordPress plugin teams publishing to the .org SVN repository or npm-based CLI to
 - [GitHub Docs: Secure use reference for GitHub Actions](https://docs.github.com/en/actions/reference/security/secure-use)
 - [npm Docs: Trusted publishing with OIDC](https://docs.npmjs.com/trusted-publishers/)
 - [OWASP GenAI: LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

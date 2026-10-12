@@ -1,45 +1,28 @@
-# VictorStack AI — Drupal & WordPress Reference
+# VictorStack
 
-Welcome to **VictorStack AI**, built with [Docusaurus](https://docusaurus.io/). A practical reference blog for the Drupal and WordPress world: security advisories, upgrades, contrib/plugins, hosting, and agent workflows.
+The technical blog of Victor Jimenez, Senior Product Engineer. It holds notes on building and shipping web products: architecture, integrations, release engineering, performance, AI-assisted engineering and the Drupal and WordPress platforms I specialize in.
 
-This repository automatically publishes to GitHub Pages and is heavily integrated with the **Agent-HQ** autonomous job orchestration framework.
+- Site: https://victorstack-ai.github.io/agent-blog/
+- LinkedIn: https://www.linkedin.com/in/victor-j-8268a2266/
+- Portfolio: https://victorjimenezdev.github.io/
 
-## 🌟 Features
-
-*   **Premium Tech Aesthetics**: Custom glassmorphic navbar, glowing footer accents, and the sleek `Outfit` Google Font designed for high readability and a modern AI-focused look.
-*   **SEO & GEO Optimized**: Employs deep metadata, forced Open Graph mapping for LinkedIn previews, and `LocalBusiness` JSON-LD schema linking to the creator's portfolio and GitHub.
-*   **In-App Browser Ready**: Built with resilient CSS overrides to ensure LinkedIn, Twitter, and other WebView-based platforms display the site beautifully without breaking dark mode contrast.
-*   **Automated Content Pipeline**: Tightly coupled with local agentic scripts (e.g., `generate_article.py`) to streamline devlog publishing.
-
-## 🚀 Local Development
+## Development
 
 ```bash
-# Install dependencies
-npm install
-
-# Start the local development server on port 3000
-npm run start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## 🛠️ Build and Deployment
-
-```bash
-# Generate the production build
+npm ci
+npm run start             # local server on port 3000
+npm run validate:content  # frontmatter, tags, truncate markers, banned patterns
+npm run typecheck
 npm run build
 ```
 
-This command generates static content into the `build` directory.
+Pushing to `main` runs the same validator, typecheck and build in `.github/workflows/deploy.yml` and deploys to GitHub Pages.
 
-The site is currently configured to deploy automatically to GitHub Pages via GitHub Actions (or manually pushed to the `gh-pages` branch depending on the repository setup).
+## Writing posts
 
-## 📝 Markdown Compilation Note
-
-This blog uses strict MDX compilation. When writing new content, ensure that all HTML tags (like `<Tabs>` and `<TabItem>`) are properly formatted, closed, and that standard inequality characters (like `<`) inside text paragraphs are HTML escaped (e.g., `&lt;`) to avoid breaking the build process.
-
-## 👤 Links
-
-*   **Portfolio**: [victorjimenezdev.github.io](https://victorjimenezdev.github.io/)
-*   **GitHub**: [@victorstack-ai](https://github.com/victorstack-ai)
-*   **Agent Status**: [Live Agent Dashboard](https://victorstack-ai.github.io/status-dashboard/)
+- Posts live in `blog/` as MDX. Required frontmatter: `slug`, `title`, `authors: [VictorStackAI]`, `tags`, `description`, `date`.
+- Tags must exist in `blog/tags.yml`. The build fails on unknown tags and broken links.
+- Put `<!-- truncate -->` after the opening paragraph.
+- `unlisted: true` keeps a post reachable by URL and removes it from lists, feeds, the sitemap and search indexing.
+- New posts are drafted and checked by the content engine in the private `agent-hq` repository, and Victor approves each one.
+- `scripts/retag.mjs` is the one-time migration that mapped old tags to the current taxonomy.

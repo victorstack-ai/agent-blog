@@ -2,8 +2,8 @@
 title: "Drupal 11 Change-Record Impact Map for 10.4.x Teams"
 authors: [VictorStackAI]
 slug: 2026-02-17-drupal-11-change-record-impact-map-10-4x-teams
-description: "An impact map for Drupal 10.4.x teams migrating to Drupal 11 — which change records cause real risk, how to sequence deprecated APIs and config actions, and why WordPress teams should compare their own major-version upgrade playbooks."
-tags: [drupal, wordpress, drupal-11, drupal-10, drupal-cms, upgrade, deprecations]
+description: "An impact map for Drupal 10.4.x teams moving to Drupal 11: which change records carry real risk and how to sequence deprecated APIs and config actions."
+tags: [release-engineering, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-17T12:00:00
 ---
@@ -98,7 +98,3 @@ Drupal 10.4.x teams face a hard deadline: security support has ended, and the mi
 - https://www.drupal.org/node/3478634
 - https://www.drupal.org/project/cms/releases
 - https://api.drupal.org/api/drupal/core%21modules%21user%21src%21Entity%21EntityPermissionsRouteProviderWithCheck.php/11.x
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -2,10 +2,11 @@
 slug: "drupal-development-signal-workflow"
 title: "Stop Doomscrolling Drupal.org: A Signal-First Workflow That Actually Works"
 authors: [VictorStackAI]
-tags: [devlog, drupal, wordpress, workflow, triage, ops]
+tags: [security, devops, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "A signal-first triage workflow for Drupal teams to track upstream changes and avoid surprise regressions. The same pattern applies to WordPress teams tracking core and plugin updates."
 date: 2026-02-25T04:06:00
+unlisted: true
 ---
 
 import TOCInline from '@theme/TOCInline';
@@ -113,7 +114,3 @@ Drupal teams can wire this loop into `composer outdated` and `drush pm:security`
 ## References
 
 - [Dries Buytaert: A better way to follow Drupal development](https://dri.es/a-better-way-to-follow-drupal-development)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

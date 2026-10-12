@@ -2,9 +2,9 @@
 slug: 2026-02-08-htmx-in-drupal-core
 title: "HTMX in Drupal Core: The Ajax API Replacement That Is Long Overdue"
 authors: [VictorStackAI]
-tags: [drupal, wordpress, htmx, ajax, devlog]
+tags: [javascript, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: "How the HTMX initiative replaces Drupal Core's Ajax API with a lighter, standards-based approach — and what it means for Drupal module developers and WordPress teams watching HTML-over-the-wire trends."
+description: "How the HTMX initiative replaces the Drupal core Ajax API with a lighter, standards-based approach, and what it changes for Drupal module developers."
 date: 2026-02-08T12:00:00
 ---
 
@@ -164,7 +164,3 @@ For Drupal module developers, HTMX adoption in core means rewriting Ajax-heavy c
 ## References
 
 - [HTMX Now in Drupal Core — Ajax API replacement initiative](https://www.drupal.org/node/3539472)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -3,17 +3,12 @@ slug: 2026-02-28-passkeys-agents-drupal-ai-and-infra-reality-checks
 title: "Passkeys, Coding Agents, Drupal AI Ops, and Infra Reality Checks — February 2026"
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
-  - drupal
+tags: [ai-engineering, drupal]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-02-28-passkeys-agents-drupal-ai-and-infra-reality-checks.png
-description: >-
-  Passkeys misuse, coding-agent reality checks, Drupal AI module updates, and
-  infrastructure security signals relevant to Drupal and WordPress engineering teams.
+description: "Passkeys misuse, coding-agent reality checks, Drupal AI module updates and infrastructure security signals from February 2026."
 date: 2026-02-28T18:47:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -129,7 +124,3 @@ Better tools amplify whatever process you already have. If your review and contr
 :::tip[Single action to take this week]
 Add a release gate that blocks PRs touching `auth`, `secrets`, or `infra` unless security scan passes and a human reviewer signs off. This catches the highest-cost failures while keeping agent throughput high.
 :::
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

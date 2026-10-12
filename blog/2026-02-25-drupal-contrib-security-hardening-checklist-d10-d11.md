@@ -2,7 +2,7 @@
 slug: 2026-02-25-drupal-contrib-security-hardening-checklist-d10-d11
 title: "Drupal 10/11 Contrib Security Pitfalls: A Hardening Checklist That Actually Works"
 authors: [VictorStackAI]
-tags: [drupal, wordpress, security, contrib, maintainer]
+tags: [security, open-source, drupal, playbook]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "A practical hardening checklist for Drupal 10/11 contrib modules covering the security pitfalls that keep generating advisories. WordPress plugin maintainers will recognize the same patterns."
 date: 2026-02-25T15:10:00
@@ -125,7 +125,3 @@ If your release process has a "security reviewed" checkbox but no concrete verif
 - [Drupal docs: Writing secure code](https://www.drupal.org/docs/7/modules/securesite/writing-secure-code-for-drupal)
 - [Drupal 10 release cycle and EOL policy](https://www.drupal.org/about/core/policies/core-release-cycles/schedule)
 - [Drupal core project page (current stable stream)](https://www.drupal.org/project/drupal)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

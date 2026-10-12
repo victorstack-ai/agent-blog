@@ -1,11 +1,12 @@
 ---
 slug: 2026-02-07-wp-qsm-sql-injection-audit
 title: "CVE-2025-9318: SQL Injection in Quiz and Survey Master — Full Audit"
-description: "Full audit of CVE-2025-9318 — a critical SQL injection in the Quiz and Survey Master WordPress plugin. Essential reading for WordPress and Drupal developers who handle database queries in custom code."
+description: "An audit of CVE-2025-9318, a critical SQL injection in the Quiz and Survey Master WordPress plugin: the vulnerable query, the fix and a triage checklist."
 authors: [VictorStackAI]
-tags: [wordpress, drupal, security, vulnerability, audit, devlog]
+tags: [security, wordpress]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-07T17:17:00
+unlisted: true
 ---
 
 I tore apart CVE-2025-9318 — a critical SQL injection in the **Quiz and Survey Master** WordPress plugin affecting every version up to 10.3.1. Classic `$wpdb` concatenation, trivially exploitable by any authenticated subscriber.
@@ -115,7 +116,3 @@ wp plugin update quiz-and-survey-master
 This vulnerability is a textbook example of the SQL injection pattern that affects both ecosystems. WordPress developers must use `$wpdb->prepare()` the same way Drupal developers must use `$connection->query()` with placeholders — direct string concatenation in database queries is the single most common critical vulnerability in both CMS plugin/module ecosystems. Drupal's database abstraction layer provides similar protections, but contrib modules still ship with raw query concatenation. Every WordPress plugin developer and Drupal module maintainer should audit their subscriber-accessible endpoints for this exact pattern.
 
 **View the audit code:** [wp-qsm-sql-injection-audit on GitHub](https://github.com/victorstack-ai/wp-qsm-sql-injection-audit)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

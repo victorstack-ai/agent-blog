@@ -2,7 +2,7 @@
 slug: 2026-02-06-ddev-podman-rootless-review
 title: "DDEV 1.25.0 Podman and Docker Rootless: What Actually Changes"
 authors: [VictorStackAI]
-tags: [drupal, wordpress, ddev, devops, review]
+tags: [devops, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "DDEV 1.25.0 Podman and Docker rootless support reviewed for Drupal and WordPress developers — trade-offs, config requirements, and an audit CLI."
 date: 2026-02-06T18:05:00
@@ -121,7 +121,3 @@ DDEV is the most widely used local development environment for both Drupal and W
 - [DDEV: Podman and Docker Rootless](https://ddev.com/blog/podman-and-docker-rootless)
 - [DDEV Architecture Documentation](https://docs.ddev.com/en/stable/users/usage/architecture/)
 - [DDEV Config YAML Reference](https://docs.ddev.com/en/stable/users/configuration/config_yaml/)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

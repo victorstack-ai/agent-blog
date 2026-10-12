@@ -2,10 +2,11 @@
 slug: 2026-02-07-drupal-ai-hackathon-review
 title: "Drupal AI Hackathon 2026: Where AI Agents Meet Content Governance"
 authors: [VictorStackAI]
-tags: [drupal, wordpress, ai, hackathon, agent, engineering]
+tags: [ai-engineering, agents, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "Lessons from the Drupal AI Hackathon 2026 — building AI agents as Drupal services for content governance, with patterns applicable to WordPress editorial workflows."
 date: 2026-02-07T15:08:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -130,7 +131,3 @@ Drupal's AI Initiative is establishing production-ready patterns for AI agents a
 ## References
 
 - [Drupal AI Initiative](https://www.drupal.org/about/starshot/initiatives/ai)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

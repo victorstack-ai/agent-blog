@@ -2,10 +2,11 @@
 slug: build-drupal-gpt53-codex-maintenance-poc
 title: 'Drupal GPT-5.3 Codex Maintenance PoC: Agent-Assisted Routine Upkeep'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, drupal, wordpress, codex, maintenance]
+tags: [agents, ai-engineering, drupal, build]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'Proof-of-concept using GPT-5.3 Codex for routine Drupal maintenance — dependency updates, config drift checks, and cleanup tasks that Drupal and WordPress agencies can automate through CI.'
+description: "A proof of concept that uses GPT-5.3 Codex for routine Drupal maintenance: dependency updates, config drift checks and cleanup tasks run through CI."
 date: 2026-02-06T18:08:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -87,7 +88,3 @@ Even a narrow, well-scoped agent can create real value by standardizing maintena
 ## References
 
 - [View Code](https://github.com/victorstack-ai/drupal-gpt53-codex-maintenance-poc)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

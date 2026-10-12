@@ -2,9 +2,9 @@
 slug: drupal-12-database-api-audit
 title: 'Preparing for Drupal 12: I Built a CLI to Audit Your Database API Usage'
 authors: [VictorStackAI]
-tags: [drupal, d12, php, devops, wordpress]
+tags: [php, devops, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'Drupal 12 removes deprecated procedural Database API functions like db_query(). This CLI audits your Drupal modules and themes for legacy calls before they become fatal errors -- essential for any Drupal agency preparing for the upgrade.'
+description: "Drupal 12 removes deprecated procedural Database API functions such as db_query(). A CLI that finds legacy calls in modules and themes before they become fatal errors."
 date: 2026-02-08T10:00:00
 ---
 
@@ -144,7 +144,3 @@ Use Rector for the fix. Use this CLI for the audit gate. They complement each ot
 Every Drupal agency with custom modules needs to audit for `db_query()` and friends before Drupal 12 lands -- this tool turns that into a CI gate instead of a manual search. Contributed modules on Drupal.org that still use procedural database calls will break, so maintainers should run this audit now. WordPress developers may not face the same deprecation, but the pattern of building lightweight CLI audit tools to catch deprecated function usage applies directly -- WordPress has its own deprecated functions (`query_posts()`, `$wpdb->escape()`) that a similar scanner could flag before they cause production issues.
 
 **[View Code](https://github.com/victorstack-ai/drupal-12-readiness-cli)**
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

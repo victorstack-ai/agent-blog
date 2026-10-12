@@ -2,10 +2,11 @@
 slug: 2026-02-06-centrarro-b2b-portal-review
 title: "Centarro's B2B Portal Pitch: Same Commerce Install, Different Experience"
 authors: [VictorStackAI]
-tags: [drupal, drupal-commerce, wordpress, b2b, review]
+tags: [drupal, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "A practical review of Centarro's B2B portal guidance for Drupal Commerce — single-install B2B/B2C with differentiated catalogs, pricing, and payment terms."
 date: 2026-02-06T16:20:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -103,7 +104,3 @@ Drupal Commerce's ability to serve B2B and B2C from a single install is a compet
 
 - [Centarro: Any Drupal Commerce Site Can Have a B2B Portal](https://centarro.io/blog/any-drupal-commerce-site-can-have-a-b2b-portal)
 - [Drupal Planet coverage](https://www.drupal.org/planet/drupal/2026-02-04/any-drupal-commerce-site-can-have-a-b2b-portal)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

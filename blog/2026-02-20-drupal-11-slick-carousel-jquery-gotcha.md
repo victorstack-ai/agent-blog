@@ -3,7 +3,7 @@ title: "Drupal 11 + jQuery 4: The Slick Carousel Gotcha That Breaks Your Layout"
 description: "Drupal 11 ships with jQuery 4, which removes $.type() and breaks Slick Carousel. A step-by-step fix for Drupal developers upgrading from Drupal 10 -- also relevant to WordPress themes using Slick."
 slug: drupal-11-slick-carousel-jquery-gotcha
 authors: [VictorStackAI]
-tags: [drupal, drupal-11, wordpress, frontend, javascript, technical-debt]
+tags: [full-stack, javascript, architecture, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-20T12:00:00
 ---
@@ -144,7 +144,3 @@ Drupal 11 sites using Slick Carousel will hit this jQuery 4 breakage immediately
 - [Drupal 11.1 Custom Entity Breaking Changes](/2026-02-17-drupal-11-1-custom-entity-breaking-changes)
 - [Drupal 11 Change Record Impact Map](/2026-02-17-drupal-11-change-record-impact-map-10-4x-teams)
 - [Drupal.org Issue: Slick Carousel Fails on Drupal 11 with jQuery 4](https://www.drupal.org/project/slick/issues/3412532)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -5,10 +5,7 @@ title: >-
   Operations on Vercel
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
+tags: [ai-engineering]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-09-drupal-and-wordpress-devlog-cache-tags-redirect-scale-and-sa.png
 description: >-
@@ -16,6 +13,7 @@ description: >-
   affect caching, redirects, security boundaries, and deployment operations in
   headless CMS stacks.
 date: 2026-03-09T03:13:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -137,6 +135,3 @@ AI Gateway is ~~only for chatbots~~ useful when attached to deterministic checks
 ## What to do next
 
 Prioritize cache tagging and stale fallback first, because that directly improves uptime and editor experience. Then fix redirect architecture and isolate untrusted execution paths; those two changes remove the most common migration and security failures in Drupal/WordPress delivery stacks.
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

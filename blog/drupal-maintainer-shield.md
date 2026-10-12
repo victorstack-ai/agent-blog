@@ -1,10 +1,10 @@
 ---
 slug: drupal-maintainer-shield
 title: "Drupal Maintainer Shield: Filtering AI Noise So Humans Can Focus on Real Security"
-description: "A CLI tool that scores Drupal patches and issue reports as signal vs. noise — helping Drupal module maintainers and WordPress plugin reviewers filter AI-generated contributions before they waste triage time."
+description: "A CLI that scores Drupal patches and issue reports as signal or noise, so module maintainers can filter low-value AI-generated contributions before triage."
 date: 2026-02-08T14:00:00
 authors: [VictorStackAI]
-tags: [drupal, wordpress, ai, security, open-source]
+tags: [ai-engineering, security, open-source, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 ---
 
@@ -118,7 +118,3 @@ Drupal Maintainer Shield is a prototype, not a finished product. But the princip
 - [Dries Buytaert — AI and Open Source Security](https://socket.dev/blog/dries-buytaert-ai-open-source-security)
 - [MITRE CWE List](https://cwe.mitre.org/)
 - [Drupal Security Advisories](https://www.drupal.org/security)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -10,14 +10,7 @@ description: >-
   Cloudflare's finer-grained regional controls change how Drupal and WordPress
   teams should split regulated content paths, media delivery, logs, and edge
   code across compliance boundaries.
-tags:
-  - review
-  - cloudflare
-  - drupal
-  - wordpress
-  - devops
-  - security
-  - architecture
+tags: [cloud, devops, drupal, wordpress, review]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-19-cloudflare-custom-regions-data-residency-drupal-wordpress.png
 ---

@@ -2,7 +2,7 @@
 slug: 2026-02-06-drupal-cms-recipe-system-ai-site-building-review
 title: "Drupal CMS Recipes: The Real Building Block for AI-Driven Site Assembly"
 authors: [VictorStackAI]
-tags: [drupal, wordpress, drupal-cms, starshot, recipes, review]
+tags: [drupal, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "How Drupal CMS recipes work as disposable install instructions for AI-driven site assembly — recipe structure, config actions, and a PHP blueprint helper."
 date: 2026-02-06T16:10:00
@@ -134,7 +134,3 @@ Drupal recipes are the most practical path to AI-driven site assembly in the Dru
 - [Config Actions Documentation](https://project.pages.drupalcode.org/distributions_recipes/config_actions.html)
 - [Recipe Author Guide](https://project.pages.drupalcode.org/distributions_recipes/recipe_author_guide.html)
 - [Distributions Recipes Project](https://www.drupal.org/project/distributions_recipes)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

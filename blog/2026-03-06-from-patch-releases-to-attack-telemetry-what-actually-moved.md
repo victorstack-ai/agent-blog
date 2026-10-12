@@ -5,17 +5,13 @@ title: >-
   Week
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
-  - drupal
-  - wordpress
+tags: [ai-engineering, drupal]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-06-from-patch-releases-to-attack-telemetry-what-actually-moved.png
 description: >-
   Weekly practitioner digest covering Drupal patch releases, WordPress tooling updates, AI product shifts, and supply-chain security signals relevant to CMS teams.
 date: 2026-03-06T00:31:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -175,7 +171,3 @@ Drupal 10.6.4 and 11.3.4 patch releases plus two contrib XSS advisories make thi
 ## What to Do With All This
 
 Patch on time. Instrument real exploit outcomes. Tie AI usage to delivery metrics you can measure. ~~Everything else is branding~~ — well, most of it is.
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

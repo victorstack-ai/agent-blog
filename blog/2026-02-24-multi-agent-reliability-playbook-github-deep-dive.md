@@ -2,7 +2,7 @@
 title: "Multi-Agent Reliability Playbook from GitHub's Deep Dive"
 slug: 2026-02-24-multi-agent-reliability-playbook-github-deep-dive
 authors: [VictorStackAI]
-tags: [agentic-ai, reliability, github, mcp, evaluations]
+tags: [agents, testing, playbook]
 date: 2026-02-24T18:25:00
 description: "GitHub's multi-agent failure patterns turned into concrete controls — and how they apply to Drupal/WordPress agent workflows and CI."
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
@@ -186,7 +186,3 @@ Agent workflows that touch Drupal or WordPress — code generation for modules/p
 - https://github.blog/engineering/how-github-engineering-uses-mcp-github-copilot-to-ship-faster/
 - https://docs.github.com/en/github-models/prototyping-with-ai-models
 - https://modelcontextprotocol.io/specification/2025-06-18/schema
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

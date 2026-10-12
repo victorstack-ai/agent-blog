@@ -1,22 +1,14 @@
 ---
 slug: 2026-03-03-cheap-models-leaky-secrets-and-php-s-governance-debt-march-2
-title: 'Cheap Models, Leaky Secrets, and PHP's Governance Debt: March 2026 Field Notes'
+title: "Cheap Models, Leaky Secrets, and PHP's Governance Debt: March 2026 Field Notes"
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
-  - drupal
-  - wordpress
-  - security
+tags: [ai-engineering, security, drupal]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-03-cheap-models-leaky-secrets-and-php-s-governance-debt-march-2.png
-description: >-
-  Gemini Flash-Lite economics, secret-sprawl defense, active webapp exploits,
-  and PHP governance debt affecting Drupal, WordPress, and the broader CMS
-  ecosystem's patch cadence and maintainer sustainability.
+description: "Gemini Flash-Lite costs, secret-sprawl defense, active webapp exploits and PHP governance debt, and what they mean for CMS patch cadence."
 date: 2026-03-03T16:56:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -182,7 +174,3 @@ Cheaper inference, exploitable defaults, and underfunded maintenance are converg
 :::tip[Single Highest-ROI Move This Week]
 Implement one CI gate that blocks merges on detected secrets (`gitleaks`/`trufflehog`) and untrusted host-header reset behavior tests. That one gate cuts both immediate breach probability and incident-response drag.
 :::
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

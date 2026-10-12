@@ -1,306 +1,154 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+# Curated tag taxonomy. Posts may only use tags defined here
+# (onInlineTags: 'throw' and scripts/validate-content.mjs enforce it).
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+# Engineering pillars
+architecture:
+  label: Architecture
+  permalink: /architecture
+  description: System design, decoupled and headless architecture, and technical debt decisions.
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+full-stack:
+  label: Full-Stack
+  permalink: /full-stack
+  description: Work that spans the browser, the server and the data layer.
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+react:
+  label: React
+  permalink: /react
+  description: React components, state and rendering patterns.
 
-wordpress:
-  label: WordPress
-  permalink: /wordpress
-  description: WordPress and related ecosystem
+nextjs:
+  label: Next.js
+  permalink: /nextjs
+  description: Next.js builds, rendering modes and deployment.
 
-kinsta:
-  label: Kinsta
-  permalink: /kinsta
-  description: Kinsta hosting and reliability
+typescript:
+  label: TypeScript
+  permalink: /typescript
+  description: TypeScript types, tooling and migration.
 
-reliability:
-  label: Reliability
-  permalink: /reliability
-  description: Reliability, SRE, and operations
-
-review:
-  label: Review
-  permalink: /review
-  description: Reviews and evaluations
-
-devlog:
-  label: Devlog
-  permalink: /devlog
-  description: Devlog tag
-
-agent:
-  label: Agent
-  permalink: /agent
-  description: Agent tag
-
-ai:
-  label: Ai
-  permalink: /ai
-  description: Ai tag
-
-llm:
-  label: LLM
-  permalink: /llm
-  description: LLM and model releases
-
-drupal:
-  label: Drupal
-  permalink: /drupal
-  description: Drupal CMS and ecosystem
-
-cms:
-  label: CMS
-  permalink: /cms
-  description: Content management systems
-
-content:
-  label: Content
-  permalink: /content
-  description: Content and workflows
-
-workflow:
-  label: Workflow
-  permalink: /workflow
-  description: Workflows and processes
-
-drupal-commerce:
-  label: Drupal Commerce
-  permalink: /drupal-commerce
-  description: Drupal Commerce and B2B
-
-b2b:
-  label: B2B
-  permalink: /b2b
-  description: B2B and commerce
-
-ddev:
-  label: DDEV
-  permalink: /ddev
-  description: DDEV local development
-
-devops:
-  label: DevOps
-  permalink: /devops
-  description: DevOps and infrastructure
-
-drupal-cms:
-  label: Drupal CMS
-  permalink: /drupal-cms
-  description: Drupal CMS and Starshot
-
-starshot:
-  label: Starshot
-  permalink: /starshot
-  description: Drupal Starshot initiative
-
-recipes:
-  label: Recipes
-  permalink: /recipes
-  description: Drupal recipes and site building
-
-agentic:
-  label: Agentic
-  permalink: /agentic
-  description: Agentic AI and automation
-
-enterprise:
-  label: Enterprise
-  permalink: /enterprise
-  description: Enterprise and scale
-
-playbook:
-  label: Playbook
-  permalink: /playbook
-  description: Playbooks and guides
-
-build:
-  label: Build
-  permalink: /build
-  description: Build and deliverables
+javascript:
+  label: JavaScript
+  permalink: /javascript
+  description: JavaScript and Node.js runtimes, browser APIs and libraries.
 
 php:
-  label: Php
+  label: PHP
   permalink: /php
-  description: Php tag
-
-symfony:
-  label: Symfony
-  permalink: /symfony
-  description: Symfony tag
-
-backend:
-  label: Backend
-  permalink: /backend
-  description: Backend tag
-
-playwright:
-  label: Playwright
-  permalink: /playwright
-  description: Playwright tag
+  description: PHP language changes, Composer, Symfony and Laravel.
 
 python:
   label: Python
   permalink: /python
-  description: Python tag
+  description: Python tools, scripts and libraries.
+
+apis:
+  label: APIs
+  permalink: /apis
+  description: REST, JSON:API and GraphQL design and consumption.
+
+integrations:
+  label: Integrations
+  permalink: /integrations
+  description: Connecting products to third-party services, data sources and messaging tools.
+
+payments:
+  label: Payments
+  permalink: /payments
+  description: Payments, billing and commerce flows.
+
+auth:
+  label: Auth
+  permalink: /auth
+  description: Authentication, authorization, OAuth and SSO.
+
+release-engineering:
+  label: Release Engineering
+  permalink: /release-engineering
+  description: Upgrades, deprecations, compatibility checks and release verification.
+
+ci-cd:
+  label: CI/CD
+  permalink: /ci-cd
+  description: Build pipelines, merge gates and deployment automation.
+
+testing:
+  label: Testing
+  permalink: /testing
+  description: Unit, integration, end-to-end and evaluation testing.
 
 performance:
   label: Performance
   permalink: /performance
-  description: Performance tag
+  description: Caching, page speed, build speed and runtime performance.
 
-jsonapi:
-  label: Jsonapi
-  permalink: /jsonapi
-  description: Jsonapi tag
-
-opus:
-  label: Opus
-  permalink: /opus
-  description: Opus tag
-
-codex:
-  label: Codex
-  permalink: /codex
-  description: Codex tag
-
-government:
-  label: Government
-  permalink: /government
-  description: Government tag
-
-open-source:
-  label: Open Source
-  permalink: /open-source
-  description: Open Source tag
-
-digital-sovereignty:
-  label: Digital Sovereignty
-  permalink: /digital-sovereignty
-  description: Digital Sovereignty tag
-
-analysis:
-  label: Analysis
-  permalink: /analysis
-  description: Analysis tag
-
-quality:
-  label: Quality
-  permalink: /quality
-  description: Quality tag
-
-cloudflare:
-  label: Cloudflare
-  permalink: /cloudflare
-  description: Cloudflare tag
-
-cli:
-  label: Cli
-  permalink: /cli
-  description: Cli tag
-
-ops:
-  label: Ops
-  permalink: /ops
-  description: Ops tag
-
-pantheon:
-  label: Pantheon
-  permalink: /pantheon
-  description: Pantheon tag
-
-automation:
-  label: Automation
-  permalink: /automation
-  description: Automation tag
+technical-seo:
+  label: Technical SEO
+  permalink: /technical-seo
+  description: Crawlability, structured data, search visibility and AI search readiness.
 
 security:
   label: Security
   permalink: /security
-  description: Security tag
-
-maintenance:
-  label: Maintenance
-  permalink: /maintenance
-  description: Maintenance tag
-
-seo:
-  label: Seo
-  permalink: /seo
-  description: Seo tag
+  description: Vulnerabilities, advisories, secrets handling and hardening.
 
 accessibility:
   label: Accessibility
   permalink: /accessibility
-  description: Accessibility tag
+  description: Accessible interfaces and accessibility testing.
 
-commerce:
-  label: Commerce
-  permalink: /commerce
-  description: Commerce tag
+ai-engineering:
+  label: AI Engineering
+  permalink: /ai-engineering
+  description: Building with LLMs and AI-assisted development in real codebases.
 
-upgrades:
-  label: Upgrades
-  permalink: /upgrades
-  description: Upgrades tag
+agents:
+  label: Agents
+  permalink: /agents
+  description: AI agents, MCP servers and agent workflow guardrails.
+
+leadership:
+  label: Leadership
+  permalink: /leadership
+  description: Technical leadership, team process and engineering decisions.
+
+devops:
+  label: DevOps
+  permalink: /devops
+  description: Local environments, containers, operations and platform tooling.
 
 cloud:
   label: Cloud
   permalink: /cloud
-  description: Cloud tag
+  description: Hosting platforms, CDNs and edge infrastructure.
 
-infrastructure:
-  label: Infrastructure
-  permalink: /infrastructure
-  description: Infrastructure tag
+open-source:
+  label: Open Source
+  permalink: /open-source
+  description: Open-source projects, maintainers and community process.
 
-privacy:
-  label: Privacy
-  permalink: /privacy
-  description: Privacy tag
+drupal:
+  label: Drupal
+  permalink: /drupal
+  description: Drupal core, contrib modules, Drupal CMS and upgrades.
 
-search:
-  label: Search
-  permalink: /search
-  description: Search tag
+wordpress:
+  label: WordPress
+  permalink: /wordpress
+  description: WordPress core, the block editor, plugins and themes.
 
-governance:
-  label: Governance
-  permalink: /governance
-  description: Governance tag
+# Content types
+review:
+  label: Review
+  permalink: /review
+  description: Assessments of releases, tools, reports and incidents.
 
-chrome-extension:
-  label: Chrome Extension
-  permalink: /chrome-extension
-  description: Chrome Extension tag
+playbook:
+  label: Playbook
+  permalink: /playbook
+  description: Step-by-step guides and checklists to apply directly.
 
-jira:
-  label: Jira
-  permalink: /jira
-  description: Jira tag
-
-javascript:
-  label: Javascript
-  permalink: /javascript
-  description: Javascript tag
-
-
-learning:
-  label: Learning
-  permalink: /learning
-  description: Learning tag
-
+build:
+  label: Build
+  permalink: /build
+  description: Write-ups of tools and projects I built, with links to the code.

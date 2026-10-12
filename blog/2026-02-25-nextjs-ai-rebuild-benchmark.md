@@ -2,7 +2,7 @@
 slug: 2026-02-25-nextjs-ai-rebuild-benchmark
 title: "A Reproducible Next.js Rebuild Benchmark That Actually Catches Regressions"
 authors: [VictorStackAI]
-tags: [nextjs, benchmarking, ci-cd, performance, review]
+tags: [nextjs, performance, ci-cd, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "A reproducible benchmark for Next.js build speed and regression detection — and why it matters for decoupled Drupal/WordPress frontends and headless CMS CI."
 date: 2026-02-25T10:00:00
@@ -145,7 +145,3 @@ Decoupled and headless setups are common in the Drupal and WordPress world: Next
 - [WordPress AI Search Optimization Playbook](/2026-02-17-wordpress-ai-search-optimization-playbook/)
 - [Drupal 12 Readiness Dashboard](/2026-02-08-drupal-12-readiness-dashboard/)
 - [Pydantic + Monty + WebAssembly](/2026-02-07-pydantic-monty-wasm/)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

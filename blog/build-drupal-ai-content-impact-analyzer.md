@@ -2,9 +2,9 @@
 slug: build-drupal-ai-content-impact-analyzer
 title: 'Drupal AI Content Impact Analyzer: 6-Dimension Scoring That Tells Editors What to Fix'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, drupal, wordpress, content]
+tags: [ai-engineering, drupal, build]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'A Drupal module that scores content across six dimensions — word count, keywords, readability, media, internal linking, and freshness — giving editors actionable data. The scoring approach applies equally to WordPress content audit plugins.'
+description: "A Drupal module that scores content on word count, keywords, readability, media, internal linking and freshness, so editors know what to fix first."
 date: 2026-02-07T21:06:00
 ---
 
@@ -131,7 +131,3 @@ Score content on **multiple independent axes** and expose the breakdown. A singl
 ## References
 
 - [View Code](https://github.com/victorstack-ai/drupal-ai-content-impact-analyzer)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

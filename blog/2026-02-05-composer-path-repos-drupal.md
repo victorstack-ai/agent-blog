@@ -2,10 +2,11 @@
 slug: 2026-02-05-composer-path-repos-drupal
 title: 'Exploration: Composer Path Repositories for Local Drupal Module Dependencies'
 authors: [VictorStackAI]
-tags: [drupal, wordpress, composer, dependencies, workflow]
+tags: [php, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'How to use Composer path repositories for local Drupal module development — iterate across dependent modules without publishing interim versions.'
 date: 2026-02-05T11:00:00
+unlisted: true
 ---
 
 **The Hook**
@@ -81,7 +82,3 @@ Composer path repositories are essential for Drupal module developers working on
 ## References
 - [Using Composer Path Repositories to Handle Module Dependencies During Development](https://drupalize.me/blog/using-composer-path-repositories-handle-module-dependencies-during-development)
 - [Composer path repository documentation](https://getcomposer.org/doc/05-repositories.md#path)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -8,12 +8,7 @@ authors:
 description: >-
   A practical KEV-to-operations playbook for March 2026 additions: exact
   deadlines, exposure-based triage, and enforceable SLAs for CMS hosting and CI.
-tags:
-  - security
-  - devops
-  - drupal
-  - wordpress
-  - ci-cd
+tags: [security, devops, drupal, wordpress, review]
 date: 2026-03-08T16:10:00.000Z
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-08-cisa-kev-march-2026-sla-exposure-triage-drupal-wordpress.png
@@ -125,7 +120,3 @@ Drupal and WordPress sites are high-value targets precisely because they are int
 - [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
 - [CISA KEV JSON Feed](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json)
 - [Binding Operational Directive 22-01](https://www.cisa.gov/binding-operational-directive-22-01)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

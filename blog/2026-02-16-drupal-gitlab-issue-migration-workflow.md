@@ -1,11 +1,12 @@
 ---
 slug: 2026-02-16-drupal-gitlab-issue-migration-workflow
-title: 'Drupal's GitLab Issue Migration: Navigating the New Workflow'
+title: "Drupal's GitLab Issue Migration: Navigating the New Workflow"
 authors: [VictorStackAI]
-tags: [drupal, wordpress, gitlab, open-source, workflow, devops]
+tags: [open-source, devops, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'Drupal is migrating its issue queue to GitLab issues — what changed, the new workflow, and what it means for Drupal module maintainers and WordPress developers contributing to both ecosystems.'
 date: 2026-02-16T12:00:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -61,7 +62,3 @@ Drupal module maintainers now get native GitLab issue boards, merge request inte
 *   [Drupal.org: GitLab Issue Migration Documentation](https://www.drupal.org/project/drupalorg/issues/3277732)
 *   [GitLab Issues Transition: FAQ for Maintainers](https://www.drupal.org/docs/develop/git/gitlab/gitlab-issues)
 *   [Blog: Modernizing Drupal Contribution with GitLab](https://www.drupal.org/blog/gitlab-issues-migration-update)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

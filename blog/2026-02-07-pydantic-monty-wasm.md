@@ -2,10 +2,11 @@
 slug: 2026-02-07-pydantic-monty-wasm
 title: "Pydantic's Monty: A Sandboxed Python for AI Agents That Actually Makes Sense"
 authors: [VictorStackAI]
-tags: [python, rust, wasm, sandbox, pydantic, drupal, wordpress]
+tags: [python, security]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "Pydantic's Monty offers microsecond-latency sandboxed Python execution via WebAssembly — relevant for Drupal and WordPress developers exploring AI agent tooling and browser-side computation."
 date: 2026-02-07T13:53:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -122,7 +123,3 @@ Drupal and WordPress sites increasingly embed interactive elements — code play
 
 - [Simon Willison: Pydantic Monty Research](https://simonwillison.net/2026/Feb/6/pydantic-monty/)
 - [Pydantic Monty WASM Demo](https://github.com/victorstack-ai/pydantic-monty-wasm-demo)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

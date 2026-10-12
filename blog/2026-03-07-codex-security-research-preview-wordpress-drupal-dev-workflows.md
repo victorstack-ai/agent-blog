@@ -5,14 +5,9 @@ title: >-
 authors: [VictorStackAI]
 description: >-
   What Codex Security's March 6, 2026 research preview changes in practical terms for WordPress plugin and Drupal module teams shipping with AI-assisted development.
-tags:
-  - security
-  - devops
-  - ai
-  - wordpress
-  - drupal
-  - ci-cd
+tags: [security, devops, wordpress, drupal, review]
 date: 2026-03-07T23:40:00.000Z
+unlisted: true
 ---
 
 OpenAI announced Codex Security on **March 6, 2026** as a research preview focused on vulnerability discovery, validation, and patch proposals with lower triage noise.
@@ -116,7 +111,3 @@ Codex Security's threat-model and validated-finding workflow maps directly to th
 - [WordPress Developer Handbook: Escaping Data](https://developer.wordpress.org/apis/security/escaping/)
 - [Drupal.org: Writing secure code for Drupal](https://www.drupal.org/docs/administering-a-drupal-site/security-in-drupal/writing-secure-code-for-drupal)
 - [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

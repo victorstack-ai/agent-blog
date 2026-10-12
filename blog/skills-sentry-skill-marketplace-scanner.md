@@ -2,9 +2,9 @@
 slug: skills-sentry-skill-marketplace-scanner
 title: 'Skills Sentry: A Static Scanner for Agent Skill Bundles'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, security]
+tags: [agents, security]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'Static scanner for agent skill bundles — and why Drupal/WordPress teams using agent skills should run it before install.'
+description: "A static scanner for agent skill bundles, and why teams that install skills from public marketplaces should run it before install."
 date: 2026-02-06T12:00:00
 ---
 
@@ -451,7 +451,3 @@ Drupal and WordPress teams that adopt agent skills (e.g. for backlog triage, cod
 
 - [malware found in the top downloaded skill on clawhub and so it begins](https://x.com/DanielLockyer/status/2019422410018267328) (Daniel Lockyer)
 - [Here we go](https://x.com/elonmusk/status/2019823468968370633) (Elon Musk)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

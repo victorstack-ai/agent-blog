@@ -2,7 +2,7 @@
 slug: 2026-02-26-wordpress-assert-equal-html-migration-review
 title: "assertEqualHTML() in WordPress: Kill Your Brittle HTML Tests"
 authors: [VictorStackAI]
-tags: [wordpress, drupal, testing, phpunit, migration, review]
+tags: [testing, release-engineering, wordpress, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "How to migrate WordPress plugin tests to assertEqualHTML() for semantic HTML comparison. Drupal developers using PHPUnit for render tests face the same brittle-assertion problem."
 date: 2026-02-26T15:50:00
@@ -180,7 +180,3 @@ WordPress plugin and theme developers can immediately reduce flaky CI failures b
 
 - [WordPress 6.9 Developer Changes](https://make.wordpress.org/core/2025/04/16/miscellaneous-developer-changes-in-wordpress-6-9/)
 - [Core Changeset 60301](https://core.trac.wordpress.org/changeset/60301)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

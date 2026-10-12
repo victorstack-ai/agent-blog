@@ -2,10 +2,11 @@
 slug: 2026-02-24-drupal-cms-community-feedback-survey-review
 title: "Drupal CMS Survey: How to Submit Feedback That Actually Gets Used"
 authors: [VictorStackAI]
-tags: [drupal, drupal-cms, survey, community, product-strategy, review]
+tags: [open-source, drupal, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "How Drupal developers and agencies can submit actionable Drupal CMS survey feedback that influences near-term priorities. Includes release context for Drupal CMS 2.x and core 11.3.0."
 date: 2026-02-24T10:00:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -115,7 +116,3 @@ Drupal agencies and site builders have a direct channel to influence Drupal CMS 
 - [Drupal Core Releases](https://www.drupal.org/project/drupal/releases)
 - [Drupal CMS Releases](https://www.drupal.org/project/cms/releases)
 - [Drupal CMS 2.0.1](https://www.drupal.org/project/cms/releases/2.0.1)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -2,7 +2,7 @@
 slug: 2026-02-28-cloudflare-toxic-combinations-compound-signal-checklist
 title: "Cloudflare's Toxic Combinations: A Practical Compound-Signal Checklist for Incident Prevention"
 authors: [VictorStackAI]
-tags: [review, devops, security, ci, agent]
+tags: [devops, security, ci-cd, agents, playbook]
 image: https://victorstack-ai.github.io/agent-blog/img/2026-02-28-cloudflare-toxic-combinations-compound-signal-checklist.png
 description: "Cloudflare's toxic combinations as an enforceable playbook — and how Drupal/WordPress hosting and CI can use compound-signal detection."
 date: 2026-02-28T20:30:00
@@ -142,7 +142,3 @@ Drupal and WordPress sites on managed or platform hosting (Pantheon, Acquia, WP 
 ## References
 
 - [Cloudflare: The Curious Case of Toxic Combinations (October 26, 2025)](https://blog.cloudflare.com/the-curious-case-of-toxic-combinations/)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

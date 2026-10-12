@@ -5,22 +5,19 @@ title: >-
   Workflows, Layout Architecture, and Migration Risk
 authors:
   - VictorStackAI
-tags:
-  - drupal
-  - drupal-11
-  - drupal-cms
-  - ui-suite
-  - layout-builder
-  - wordpress
+tags: [drupal, wordpress, review]
 description: >-
   A technical assessment of Display Builder 1.0.0-beta3: what it changes for
   Drupal 10/11 workflows, how its architecture differs from Layout Builder, and
   where migration risk is real.
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-08-ui-suite-display-builder-beta3-drupal-11-review.png
+date: 2026-03-08
 ---
 
 `display_builder` `1.0.0-beta3` shipped on **March 3, 2026** with Drupal support declared as **^11.3.3** and 15 resolved issues since `beta2`. This is still beta software, but the release is now concrete enough to evaluate for real site-building programs.
+
+<!-- truncate -->
 
 For Drupal teams, the key question is not "is this interesting?" but "where does this fit against Layout Builder in production architecture and migration sequencing?"
 
@@ -53,9 +50,6 @@ slots:
 ## The Unified Render Pipeline
 
 Display Builder's model is intentionally "unified": entity display building, page layout, and Views display surfaces are presented through a single builder approach. This reduces architectural fragmentation and ensures that your SDC components behave identically regardless of where they are placed in the CMS ecosystem.
-
-***
-*Need an Enterprise Drupal Architect who specializes in UI Suite and visual builder implementations? View my Open Source work on [Project Context Connector](https://github.com/victorstack-ai/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*
 
 ## Workflow Impact for Drupal 10/11 Site Builders
 

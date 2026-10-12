@@ -2,10 +2,11 @@
 slug: 2026-02-17-wowrevenue-authz-guard
 title: "WowRevenue <= 2.1.3 Authz Risk: I Built a Scanner and Fix Path"
 authors: [VictorStackAI]
-tags: [wordpress, drupal, security, plugins, authorization]
+tags: [security, auth]
 description: "WowRevenue <= 2.1.3 has a high-risk WordPress authorization flaw in AJAX handlers. I built a scanner and documented the fix pattern that every WordPress and Drupal plugin developer should enforce."
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-17T12:00:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -154,7 +155,3 @@ Any `wp_ajax_*` handler that calls these without a capability check is a high-ri
 WordPress plugin developers must enforce `current_user_can()` capability checks at every AJAX handler entry point — nonces only prevent CSRF, not unauthorized access by low-privilege authenticated users. Drupal module developers face the same anti-pattern when custom route callbacks rely solely on CSRF tokens without explicit permission checks via `$account->hasPermission()`. The scanner pattern built here can be adapted for Drupal by searching for route callbacks that lack `_permission` requirements in routing YAML, catching the same class of authorization bypass that plagues WordPress plugins like WowRevenue.
 
 **[View Code](https://github.com/victorstack-ai/wp-wowrevenue-authz-guard)**
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

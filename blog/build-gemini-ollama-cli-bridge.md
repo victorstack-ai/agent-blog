@@ -2,7 +2,7 @@
 slug: build-gemini-ollama-cli-bridge
 title: 'Gemini Ollama CLI Bridge: Local-First Code Analysis with Optional Cloud Refinement'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, gemini, ollama, python]
+tags: [ai-engineering, python, build]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'Local Ollama + Gemini code analysis pipeline — and how Drupal/WordPress maintainers can use it for contrib and plugin review.'
 date: 2026-02-07T21:07:00
@@ -127,7 +127,3 @@ Drupal and WordPress maintainers and agencies often need to run code analysis on
 
 - [gemini-ollama-cli-bridge on GitHub](https://github.com/victorstack-ai/gemini-ollama-cli-bridge)
 - [google-generativeai Python SDK](https://pypi.org/project/google-generativeai/)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

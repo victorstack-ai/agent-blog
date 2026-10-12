@@ -2,10 +2,11 @@
 title: "WordPress 7.0 Beta 2 Compatibility Risks and Migration Test Checklist"
 slug: 2026-02-27-wordpress-7-0-beta-2-compatibility-risks-checklist
 authors: [VictorStackAI]
-tags: [wordpress, drupal, gutenberg, compatibility, migration, checklist]
+tags: [release-engineering, wordpress, playbook]
 date: 2026-02-27T08:40:00
 description: "WordPress 7.0 Beta 2 compatibility risks for custom plugins and themes, with a migration test checklist covering iframe editor changes, meta box debt, PHP floor bumps, and script API drift."
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -174,7 +175,3 @@ WordPress plugin and theme developers need to start compatibility testing now, n
 - https://developer.wordpress.org/block-editor/how-to-guides/metabox/
 - https://developer.wordpress.org/reference/functions/wp_register_script/
 - https://make.wordpress.org/core/2026/01/09/dropping-support-for-php-7-2-and-7-3/
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

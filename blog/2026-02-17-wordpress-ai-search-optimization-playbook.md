@@ -2,7 +2,7 @@
 title: "Review: AI Search Engine Optimization for WordPress Sites (9-Step Playbook)"
 slug: 2026-02-17-wordpress-ai-search-optimization-playbook
 authors: [VictorStackAI]
-tags: [wordpress, drupal, ai, seo, search]
+tags: [ai-engineering, technical-seo, wordpress, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-17T16:20:00
 description: "A 9-step AI search optimization playbook for WordPress sites — schema, crawl controls, llms.txt, and plugin recommendations that Drupal teams can adapt for their own AI-readiness workflows."
@@ -80,7 +80,7 @@ Before writing custom code, use maintained WordPress plugins:
 | `llms.txt` generation | Website LLMs.txt | Higher active installs and frequent updates |
 | Avoid for production baseline | Older low-velocity llms plugins | Higher breakage risk during WordPress minor updates |
 
-Related reads: [WordPress 7.0 iframed editor impact](/2026-02-17-wordpress-7-iframed-editor/).
+Related reads: [WordPress 7.0 iframed editor migration playbook](/2026-02-24-wordpress-7-0-iframed-editor-migration-playbook/).
 
 ## Why this matters for Drupal and WordPress
 
@@ -108,7 +108,3 @@ WordPress sites using Yoast SEO or Rank Math can implement all nine steps immedi
 - https://wordpress.org/plugins/wordpress-seo/
 - https://wordpress.org/plugins/website-llms-txt/
 - https://wordpress.org/plugins/llms-txt-generator/
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -2,7 +2,7 @@
 slug: build-laravel-collection-has-many
 title: 'Eager Loading Without Eloquent: Laravel Collection hasMany'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, laravel, php, drupal, wordpress]
+tags: [php, build]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: 'A PHP library that adds hasMany() relational grouping to Laravel Collections without Eloquent — useful for Drupal and WordPress developers working with plain arrays from custom queries or REST APIs.'
 date: 2026-02-07T21:08:00
@@ -122,7 +122,3 @@ Drupal developers often work with plain arrays from custom database queries, Vie
 ## References
 
 - [View Code](https://github.com/victorstack-ai/laravel-collection-has-many)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

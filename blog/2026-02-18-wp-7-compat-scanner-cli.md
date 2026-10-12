@@ -2,7 +2,7 @@
 slug: 2026-02-18-wp-7-compat-scanner-cli
 title: 'WordPress 7.0 Compatibility Scanner: Deprecations and Iframe Editor Readiness'
 authors: [VictorStackAI]
-tags: [devlog, wordpress, drupal, compatibility, cli, python]
+tags: [release-engineering, python, wordpress]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-18T10:30:00
 description: "Scan WordPress plugins and themes for deprecated editor APIs and iframe-unsafe code before WordPress 7.0. A CI-friendly CLI for WordPress plugin maintainers and agencies."
@@ -163,7 +163,3 @@ WordPress plugin and theme developers need to audit their codebases before the 7
 - [View Code](https://github.com/victorstack-ai/wp-7-compat-scanner)
 - https://wordpress.org/documentation/wordpress-version/version-7-0/
 - https://wordpress.org/news/2026/02/wordpress-6-9-1-maintenance-release/
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

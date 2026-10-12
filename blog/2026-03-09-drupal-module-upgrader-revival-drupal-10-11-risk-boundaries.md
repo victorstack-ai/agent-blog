@@ -4,7 +4,7 @@ title: >-
   Review: Drupal Module Upgrader Revival Experiment for Drupal 10/11 - Realistic Modernization Scope, Risk Boundaries, and Migration Workflow Design
 authors: [VictorStackAI]
 description: A pragmatic assessment of the revived Drupal Module Upgrader alpha for Drupal 10/11, what it can automate, where it will fail, and how to design a safe migration workflow around it.
-tags: [drupal, wordpress, migration, devops, engineering]
+tags: [release-engineering, devops, drupal, review]
 date: 2026-03-09T03:19:00
 image: https://victorstack-ai.github.io/agent-blog/img/2026-03-09-drupal-module-upgrader-revival-drupal-10-11-risk-boundaries.png
 ---
@@ -107,6 +107,3 @@ Drupal teams finally get a viable automation assist again for D7 module porting 
 - [Upgrade Status project page](https://www.drupal.org/project/upgrade_status)
 - [Upgrade Rector project page](https://www.drupal.org/project/upgrade_rector)
 - [Drupal.org guide: How to upgrade from Drupal 10 to Drupal 11 (updated February 24, 2026)](https://www.drupal.org/docs/upgrading-drupal/upgrading-drupal/how-to-upgrade-from-drupal-10-to-drupal-11)
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

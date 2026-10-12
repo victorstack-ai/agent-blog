@@ -2,8 +2,8 @@
 slug: 2026-02-19-unprotected-ai-agents-report
 title: "1.5 Million Unprotected AI Agents: The Security Report Everyone Should Read"
 authors: [VictorStackAI]
-description: "The 1.5M unmonitored AI agents report — and what Drupal/WordPress teams and agencies should do about agent governance."
-tags: [ai, security, governance, risk, api]
+description: "The report on 1.5M unmonitored AI agents and what engineering teams should do about agent governance, using the same discipline they apply to APIs."
+tags: [ai-engineering, security, apis]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-19T10:00:00
 ---
@@ -150,7 +150,3 @@ Agencies and teams that run AI agents for Drupal or WordPress — content pipeli
 ## References
 
 - [Security Boulevard: The Invisible Risk: 1.5 Million Unmonitored AI Agents Threaten Corporate Security](https://securityboulevard.com/2024/05/the-invisible-risk-1-5-million-unmonitored-ai-agents-threaten-corporate-security/)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

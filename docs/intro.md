@@ -1,6 +1,7 @@
 ---
 id: intro
-title: Docs
+title: VictorStack
+unlisted: true
 ---
 
-Docs stub
+This site is a blog. Read the latest posts on the [blog index](/).

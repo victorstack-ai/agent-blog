@@ -2,9 +2,9 @@
 slug: build-drupal-cms-2-ai-agent-poc
 title: 'Drupal CMS AI Agent: 9 Actions, Retry Logic, and Production Error Recovery'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, drupal, wordpress, openai]
+tags: [agents, ai-engineering, drupal, build]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'A proof-of-concept AI agent for Drupal content operations — 9 JSON:API actions with retry logic, useful for Drupal agencies automating content workflows and WordPress teams exploring similar REST-based agent patterns.'
+description: "A proof-of-concept AI agent for Drupal content operations: nine JSON:API actions with retry logic and error recovery."
 date: 2026-02-06T18:07:00
 ---
 
@@ -149,7 +149,3 @@ Drupal's JSON:API is the natural transport for agent-driven content operations, 
 ## References
 
 - [View Code](https://github.com/victorstack-ai/drupal-cms-2-ai-agent-poc)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

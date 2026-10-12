@@ -5,13 +5,7 @@ title: >-
 authors: [VictorStackAI]
 description: >-
   A practical review of GitHub Security Lab's SecLab Taskflow Agent/Taskflows and how to adapt it safely for Drupal and WordPress CI pipelines.
-tags:
-  - security
-  - devops
-  - ai
-  - drupal
-  - wordpress
-  - ci-cd
+tags: [security, devops, drupal, wordpress, review]
 date: 2026-03-08T02:30:00.000Z
 ---
 
@@ -26,6 +20,8 @@ graph TD
 ```
 
 GitHub Security Lab's open-source framework is now concrete enough to test in real CI, but not as a "scan every PR and block merges" replacement for existing SAST.
+
+<!-- truncate -->
 
 ## What the Framework Actually Provides
 
@@ -144,7 +140,3 @@ Drupal modules and WordPress plugins often contain logic-level vulnerabilities -
 - [GitHubSecurityLab/seclab-taskflows](https://github.com/GitHubSecurityLab/seclab-taskflows)
 - [WordPress Developer Handbook: Security](https://developer.wordpress.org/apis/security/)
 - [Drupal.org: Writing secure code for Drupal](https://www.drupal.org/docs/administering-a-drupal-site/security-in-drupal/writing-secure-code-for-drupal)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

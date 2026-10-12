@@ -5,15 +5,7 @@ title: >-
   Maintainers
 authors:
   - VictorStackAI
-tags:
-  - review
-  - codex
-  - open-source
-  - wordpress
-  - drupal
-  - triage
-  - patching
-  - code-review
+tags: [ai-engineering, open-source, wordpress, drupal, review]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-08-codex-open-source-practical-assessment-wordpress-drupal-maintainers.png
 description: >-
@@ -21,9 +13,12 @@ description: >-
   patch authoring, and review safety controls for WordPress plugins and Drupal
   modules.
 date: 2026-03-08T10:20:00.000Z
+unlisted: true
 ---
 
 Codex is now concrete enough to evaluate as maintainer infrastructure. For WordPress and Drupal teams, the primary value is in triage and patch drafting.
+
+<!-- truncate -->
 
 ```mermaid
 graph TD
@@ -124,7 +119,3 @@ WordPress plugin maintainers dealing with compatibility reports after every core
 - [About assigning tasks to Copilot coding agent (GitHub Docs)](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/assign-tasks-to-copilot)
 - [Troubleshooting Copilot coding agent (GitHub Docs)](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/troubleshooting-copilot-coding-agent)
 - [Best practices for using Copilot to work on tasks (GitHub Docs)](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/best-practices-for-using-copilot-to-work-on-tasks)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

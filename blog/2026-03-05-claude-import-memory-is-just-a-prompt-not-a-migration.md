@@ -3,18 +3,11 @@ slug: 2026-03-05-claude-import-memory-is-just-a-prompt-not-a-migration
 title: "Claude Import Memory Is Just a Prompt, Not a Migration"
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
-  - drupal
-  - wordpress
+tags: [ai-engineering]
 image: https://victorstack-ai.github.io/agent-blog/img/2026-03-05-claude-import-memory-is-just-a-prompt-not-a-migration.png
-description: >-
-  Anthropic's "Import Memory" feature is a copy-paste prompt, not a real
-  migration tool. What Drupal and WordPress developers using AI assistants
-  should know about portable context and vendor lock-in framing.
+description: "The Claude Import Memory feature is a copy-paste prompt, not a migration tool. What that means for portable context across AI assistants."
 date: 2026-03-05T14:30:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -112,7 +105,3 @@ Drupal and WordPress developers increasingly rely on AI coding assistants with p
 Claude Import Memory is a copy-paste workflow with a marketing page. The underlying technique — asking an AI to summarize your preferences — has been available since the first ChatGPT custom instructions shipped in July 2023. Calling it "import" is generous. Calling it "migration" is misleading.
 
 The feature works fine for what it is. Just do not mistake a prompt for a protocol.
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

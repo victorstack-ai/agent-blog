@@ -9,18 +9,15 @@ description: >-
   A WordPress-focused incident review of the Tutor LMS Pro authentication bypass
   class: exploit path, affected configurations, detection queries, and hardening
   steps for production teams.
-tags:
-  - security
-  - wordpress
-  - incident-response
-  - vulnerability-management
-  - drupal
+tags: [security, wordpress, drupal, review]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-09-tutor-lms-pro-authentication-bypass-review.png
 date: 2026-03-09T17:32:00.000Z
 ---
 
 Tutor LMS Pro has carried high-impact privilege-escalation/authentication-bypass-class issues affecting a large install base, including the 30k+ active-install footprint highlighted by Wordfence threat intelligence. For WordPress teams, this is a strong reminder that "authenticated low-privilege user" is still an internet-facing attack surface.
+
+<!-- truncate -->
 
 This review focuses on the exploit path pattern, where teams are exposed, and how to run practical detection and containment.
 

@@ -2,7 +2,7 @@
 title: "Vault Sprawl Risk Patterns and a Secrets Governance Model for Multi-Team CI/CD"
 slug: 2026-02-25-vault-sprawl-secrets-governance-model
 authors: [VictorStackAI]
-tags: [vault, devops, cicd, secrets-management, platform-engineering]
+tags: [security, devops, ci-cd]
 date: 2026-02-25T13:40:00
 description: "A practical governance model for Vault sprawl in multi-team CI/CD — and how it applies to Drupal/WordPress hosting pipelines and agency workflows."
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
@@ -162,7 +162,3 @@ Drupal and WordPress deployments often run on platform or agency CI: Pantheon, A
 - https://kubernetes.io/docs/concepts/security/secrets-good-practices
 - https://kubernetes.io/docs/concepts/configuration/secret/
 - https://developer.hashicorp.com/vault/docs/deploy/kubernetes/vso/csi
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

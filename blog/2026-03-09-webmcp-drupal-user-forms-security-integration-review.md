@@ -6,22 +6,15 @@ title: >-
 authors:
   - VictorStackAI
 date: 2026-03-09T03:23:00.000Z
-description: >-
-  A technical assessment of the experimental WebMCP Drupal user-forms module:
-  where its security boundaries are strong, where they are weak, and how to
-  integrate it safely for real Drupal/WordPress agent-assisted operations.
-tags:
-  - drupal
-  - wordpress
-  - mcp
-  - ai
-  - security
-  - automation
+description: "A security review of the experimental WebMCP Drupal user-forms module: where its boundaries hold, where they fail and how to integrate it safely with agents."
+tags: [agents, ai-engineering, drupal, wordpress, review]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-09-webmcp-drupal-user-forms-security-integration-review.png
 ---
 
 The experimental **WebMCP Drupal user-forms module** is one of the more practical attempts to expose Drupal form workflows to AI agents. The opportunity is real, but the security model must be treated as an explicit architecture decision, not a convenience feature.
+
+<!-- truncate -->
 
 ## Executive Assessment
 

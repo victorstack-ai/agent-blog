@@ -2,10 +2,11 @@
 slug: build-ddev-mcp-playwright-addon
 title: "DDEV Add-on for MCP Server Testing with Playwright"
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, ddev, mcp, playwright, testing, drupal, wordpress]
+tags: [agents, devops, testing, drupal, build]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "A DDEV add-on that runs Playwright checks against local MCP endpoints for Drupal and WordPress projects — one command for repeatable MCP smoke tests using internal DDEV DNS names."
 date: 2026-02-06T18:06:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -125,7 +126,3 @@ DDEV is the standard local development environment for Drupal projects and incre
 - [View Code](https://github.com/victorstack-ai/ddev-mcp-playwright-addon)
 - https://ddev.readthedocs.io/en/stable/users/extend/additional-services/
 - https://playwright.dev/docs/test-intro
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

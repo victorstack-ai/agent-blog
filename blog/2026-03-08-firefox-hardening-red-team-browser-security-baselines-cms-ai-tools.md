@@ -9,12 +9,7 @@ description: >-
   A practical Firefox hardening baseline derived from common red-team browser
   attack paths, translated for Drupal and WordPress teams using admin panels, CI
   consoles, and AI coding tools.
-tags:
-  - security
-  - firefox
-  - drupal
-  - wordpress
-  - ai
+tags: [security, ai-engineering, drupal, wordpress, review]
 date: 2026-03-08T02:40:00.000Z
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-08-firefox-hardening-red-team-browser-security-baselines-cms-ai-tools.png
@@ -119,9 +114,6 @@ user_pref("dom.event.clipboardevents.enabled", false);
 Many teams now run AI tools in the same browser used for CMS admin panels. That increases blast radius: prompt history can capture sensitive snippets, and browser extensions can scrape page content.
 
 Security baseline: run AI coding tools in a separate Firefox profile with its own cookie jar and extension set. Never keep production CMS admin tabs open while using AI tools.
-
-***
-*Need an Enterprise Security Architect who specializes in browser hardening and privileged access management? View my Open Source work on [Project Context Connector](https://github.com/victorstack-ai/project_context_connector) or connect with me on [LinkedIn](https://www.linkedin.com/in/victor-jimenez/).*
 
 ## Verification Checklist for Infra Leads
 

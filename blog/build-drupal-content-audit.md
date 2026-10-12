@@ -2,10 +2,11 @@
 slug: build-drupal-content-audit
 title: 'Drupal Content Audit: A Lightweight Content Inventory Tool'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, drupal, wordpress, content]
+tags: [drupal, build]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'A Drupal module for content inventory audits — essential for Drupal migrations, redesigns, and editorial planning. WordPress teams migrating to or from Drupal can use it to baseline content before the move.'
+description: "A Drupal module for content inventory audits before migrations, redesigns and editorial planning."
 date: 2026-02-06T18:07:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -92,7 +93,3 @@ Keep the audit output narrowly scoped and deterministic. When the report structu
 ## References
 
 - [View Code](https://github.com/victorstack-ai/drupal-content-audit)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

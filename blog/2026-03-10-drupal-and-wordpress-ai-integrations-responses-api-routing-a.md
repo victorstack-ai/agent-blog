@@ -5,13 +5,7 @@ title: >-
   Failover with AI Gateway
 authors:
   - VictorStackAI
-tags:
-  - drupal
-  - wordpress
-  - ai
-  - cloudflare
-  - openai
-  - integration-architecture
+tags: [ai-engineering, cloud, integrations, drupal, wordpress]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-10-drupal-and-wordpress-ai-integrations-responses-api-routing-a.png
 description: >-
@@ -19,6 +13,7 @@ description: >-
   Gateway Responses API routing and provider timeout failover without turning
   editor UX into a latency trap.
 date: 2026-03-10T01:34:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -134,6 +129,3 @@ The mistake is wiring provider calls straight into controllers, AJAX handlers, o
 ## What to do next in real Drupal/WordPress projects
 
 Migrate new AI features to Responses API paths and leave legacy Chat Completions wrappers only where refactor risk is high. Enable provider-level startup timeouts for user-facing inference endpoints, then verify fallback behavior under load before shipping plugin/module updates.
-
-***
-*Looking for an Architect who does not just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -5,18 +5,12 @@ title: >-
   1M-Context Code Review
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
+tags: [ai-engineering]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-14-drupal-and-wordpress-devlog-contrib-trust-browser-kevs-gpl-w.png
-description: >-
-  A technical devlog for Drupal and WordPress teams on four items that matter in
-  practice: contrib governance under AI spam, browser KEVs affecting CMS admin
-  security, GPL and AI license washing, and where 1M-context models help with
-  large codebase reviews.
+description: "Devlog on contrib governance under AI spam, browser KEVs and CMS admin security, GPL license washing, and where 1M-context models help with code review."
 date: 2026-03-14T19:29:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -183,6 +177,3 @@ It is not a reason to bolt chat onto every site. Most brochure sites and editori
 Drupal and WordPress teams should treat these four items as operational guidance, not trivia. Tighten contrib intake rules, use long-context models for audits instead of authority, patch admin browsers like they are part of CMS security, and push back on AI licensing fairy tales when buying code or services.
 
 The common thread is maintenance reality. Human review time is scarce, admin sessions are fragile, upgrade surfaces are large, and legal obligations do not vanish because someone added "AI" to the sales pitch.
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

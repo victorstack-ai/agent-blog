@@ -5,17 +5,12 @@ title: >-
   on March 7
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
-  - drupal
-  - wordpress
+tags: [ai-engineering, drupal]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-07-ai-subsidies-runtime-reality-checks-and-cms-release-pressure.png
-description: >-
-  Drupal and WordPress practitioner digest on OSS AI credit programs, agent testing discipline, CMS patch release signals, and separating hype from operational value.
+description: "Digest on open-source AI credit programs, agent testing discipline, Drupal patch release signals and separating hype from operational value."
 date: 2026-03-07T20:14:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -159,7 +154,3 @@ Most of the useful information here fits one rule: incentives change fast, relia
 :::tip[Single highest-ROI move]
 Create one `release-watch` checklist that combines model eval parity, runtime benchmark gates, and CMS security-window tracking. Run it on every release train and block deploys on red checks.
 :::
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

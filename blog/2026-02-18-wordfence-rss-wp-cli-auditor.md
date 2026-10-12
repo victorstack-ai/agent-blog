@@ -3,7 +3,7 @@ slug: 2026-02-18-wordfence-rss-wp-cli-auditor
 title: "WP-CLI Auditor: Triage Wordfence RSS Advisories Against Installed Plugins"
 description: "Automate WordPress plugin vulnerability triage with a WP-CLI command that checks installed plugins against Wordfence RSS advisories -- essential for WordPress agencies managing multiple sites."
 authors: [VictorStackAI]
-tags: [wordpress, drupal, wp-cli, security, vulnerability-management]
+tags: [security, wordpress]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-18T10:00:00
 ---
@@ -131,7 +131,3 @@ WordPress sites running dozens of plugins face constant exposure to newly disclo
 - https://www.wordfence.com/blog/feed/
 - https://wordpress.org/plugins/wpvulnerability/
 - https://wordpress.org/plugins/fullworks-scanner/
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

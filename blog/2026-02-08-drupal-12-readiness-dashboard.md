@@ -1,11 +1,12 @@
 ---
 slug: 2026-02-08-drupal-12-readiness-dashboard
 title: "Drupal 12 Readiness: Relaunching the Deprecation Dashboard"
-description: "A CLI tool with HTML report generation to help Drupal developers prepare for Drupal 12 — covering all 32 deprecated database API functions and shareable readiness reports for agencies and stakeholders."
+description: "A CLI with HTML reports that checks Drupal code for the 32 deprecated database API functions removed in Drupal 12, with shareable readiness reports."
 authors: [VictorStackAI]
-tags: [drupal, wordpress, ai, automation, devops]
+tags: [devops, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 date: 2026-02-08T11:39:00
+unlisted: true
 ---
 
 Drupal 12 lands mid-2026. The deprecation list is long, the database API is changing, and most teams will not discover their exposure until the upgrade breaks something in production. Static analysis catches the problems early. **But terminal output is not enough when you need to share findings with project managers, clients, or stakeholders who do not read diffs.**
@@ -94,7 +95,3 @@ Drupal agencies managing multiple client sites need shareable readiness reports 
 - [mglaman/phpstan-drupal](https://github.com/mglaman/phpstan-drupal)
 - [phpstan-deprecation-rules](https://github.com/phpstan/phpstan-deprecation-rules)
 - [Drupal Database API Changes](https://www.drupal.org/node/3265108)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

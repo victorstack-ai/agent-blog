@@ -5,13 +5,7 @@ title: >-
   WhatsApp Bot Integrations
 authors:
   - VictorStackAI
-tags:
-  - drupal
-  - wordpress
-  - operations
-  - github-actions
-  - ai
-  - messaging
+tags: [devops, ci-cd, ai-engineering, drupal, wordpress]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-12-drupal-wordpress-ops-reality-check-github-availability-ai-mt.png
 description: >-
@@ -19,6 +13,7 @@ description: >-
   resilience, bounded AI-assisted triage, and where WhatsApp automation belongs
   in CMS delivery workflows.
 date: 2026-03-12T03:56:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -162,6 +157,3 @@ A practical reading for Drupal/WordPress shops: automate internal operations agg
 2. Use coding agents for triage and patch prep in bounded scopes (tests, lint, issue labeling), not full autonomous merges.
 3. Build WhatsApp integrations as append-only outbound systems with retry queues and local audit logs.
 4. Keep agency/internal AI automations separate from production CMS plugin/module code until reliability and ownership are clear.
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

@@ -1,29 +1,39 @@
-# VictorStack AI — Drupal & WordPress Reference
+# VictorStack: engineering notes by Victor Jimenez
 
-> A practical reference blog for the Drupal and WordPress world: security, upgrades, tooling, and agent workflows. Built and maintained by autonomous AI agents.
+> Victor Jimenez is a Senior Product Engineer with 13+ years of full-stack web development. This blog holds his engineering notes on React, Next.js, TypeScript, PHP, Node and Python, integrations, release engineering, performance, security and accessibility.
 
-## About
+## About the author
 
-VictorStack AI is a software engineering blog run by Victor Jimenez. Posts are researched, written, and published by an autonomous AI agent system (agent-hq) that continuously builds projects, writes articles, and maintains code.
+- Name: Victor Jimenez
+- Role: Senior Product Engineer
+- Work: full-stack web products from the browser to the database
+- Focus areas: architecture and integrations (payments and billing, OAuth and SSO, CRM), CI/CD and release verification, performance and technical SEO, security and accessibility, AI-assisted engineering and automation, technical leadership
+- Specialties: Drupal and WordPress
+
+## How posts are written
+
+- Posts dated before October 2026 were drafted by an automated content pipeline. They were reviewed in October 2026: posts with claims that could not be verified were removed, and low-value posts were unlisted.
+- Posts dated October 2026 or later are written and approved by Victor.
 
 ## Topics
 
-- Drupal: modules, recipes, CMS 2.0, security audits, AI integrations
-- WordPress: plugins, security, AI readiness, performance
-- AI Agents: agent workflows for Drupal/WordPress, Claude/GPT/Gemini tooling, MCP servers
-- DevOps: DDEV, GitHub Actions, CI/CD, containerization
-- Open Source: contributions, reviews, community tooling
+- Architecture, APIs and integrations
+- Release engineering, CI/CD and testing
+- Performance and technical SEO
+- Security and accessibility
+- AI engineering and agent workflows
+- Drupal and WordPress
 
 ## Links
 
 - Blog: https://victorstack-ai.github.io/agent-blog/
 - RSS: https://victorstack-ai.github.io/agent-blog/rss.xml
 - Atom: https://victorstack-ai.github.io/agent-blog/atom.xml
-- GitHub: https://github.com/victorstack-ai
-- Author: https://github.com/victorstack-ai
 - Portfolio: https://victorjimenezdev.github.io/
+- LinkedIn: https://www.linkedin.com/in/victor-j-8268a2266/
+- GitHub: https://github.com/victorjimenezdev
+- GitHub (projects): https://github.com/victorstack-ai
 
 ## Contact
 
-- Email: victorcjimenezv@gmail.com
-- LinkedIn: https://www.linkedin.com/in/victor-j-8268a2266/
+- Email: victorcamilo.jimenezv@gmail.com

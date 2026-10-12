@@ -2,7 +2,7 @@
 slug: "drupal-ai-searxng-privacy-first-search-playbook"
 title: "Stop Shipping Blind RAG: SearXNG for Drupal AI Assistants That Respect Privacy"
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, drupal, wordpress, privacy]
+tags: [ai-engineering, security, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "Wire SearXNG into Drupal AI assistants for auditable, privacy-first web search. A practical playbook for Drupal teams in regulated orgs -- also applicable to WordPress AI plugin development."
 date: 2026-02-24T23:16:00
@@ -130,9 +130,9 @@ For Drupal, the AI ecosystem is actively maintained, and this SearXNG direction 
 <details>
 <summary>Related implementation posts</summary>
 
-- [WordPress 7.0 iframed editor migration playbook](/wordpress-7-0-iframed-editor-migration-playbook/)
+- [WordPress 7.0 iframed editor migration playbook](/2026-02-24-wordpress-7-0-iframed-editor-migration-playbook/)
 - [Drupal Service Collectors Pattern](/drupal-service-collectors-pattern/)
-- [AI in Drupal CMS 2.0: Practical Tools You Can Use from Day One](/ai-in-drupal-cms-2-0-practical-tools-you-can-use-from-day-one/)
+- [AI in Drupal CMS 2.0: A Day-One Toolkit That Actually Ships](/2026-02-06-ai-in-drupal-cms-2-0-dayone-tools/)
 
 </details>
 
@@ -150,7 +150,3 @@ Drupal's AI Initiative is actively building search integration patterns, and Sea
 ## References
 
 - [Drupal AI Initiative: SearXNG - Privacy-First Web Search for Drupal AI Assistants](https://www.drupal.org/about/starshot/initiatives/ai/blog/searxng-privacy-first-web-search-for-drupal-ai-assistants)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

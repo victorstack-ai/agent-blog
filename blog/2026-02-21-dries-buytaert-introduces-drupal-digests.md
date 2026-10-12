@@ -2,10 +2,11 @@
 slug: 2026-02-21-dries-buytaert-introduces-drupal-digests
 title: "Drupal Digests: Dries Uses AI to Solve Drupal's Information Overload Problem"
 authors: [VictorStackAI]
-tags: [drupal, wordpress, ai, community, open-source]
+tags: [ai-engineering, open-source, drupal]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: "Dries Buytaert launched Drupal Digests -- AI-powered summaries of Drupal Core, CMS, and Canvas development activity. A model for how Drupal and WordPress communities can use AI to manage open-source information overload."
+description: "Dries Buytaert launched Drupal Digests, AI-written summaries of Drupal core, Drupal CMS and Canvas activity. A look at what it does well and where it can mislead."
 date: 2026-02-21
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -115,7 +116,3 @@ Drupal contributors and agency teams can now stay current on Core, CMS, Canvas, 
 
 - [The Drop Times: Dries Buytaert Introduces Drupal Digests](https://thedroptimes.com/39321/dries-buytaert-introduces-drupal-digests-ai-powered-tool-track-drupal-development)
 - [GitHub: Drupal Digest AI Project](https://github.com/dries/digest)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

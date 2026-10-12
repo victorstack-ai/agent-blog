@@ -2,7 +2,7 @@
 slug: 2026-02-25-ddev-ci-acceleration-playbook-warpbuild
 title: "DDEV CI Acceleration Playbook with WarpBuild for Drupal Pipelines"
 authors: [VictorStackAI]
-tags: [drupal, wordpress, ddev, devops, ci, github-actions]
+tags: [devops, ci-cd, drupal, playbook]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 description: "Accelerate Drupal and WordPress CI pipelines with DDEV on WarpBuild runners. Includes reproducible benchmarking, layered Composer caching, and safe rollout guardrails."
 date: 2026-02-25T20:30:00
@@ -165,7 +165,3 @@ Drupal CI pipelines running PHPUnit, Nightwatch, or Cypress through DDEV are the
 - https://www.warpbuild.com/docs/ci/features
 - https://www.warpbuild.com/docs/ci/preinstalled-software
 - https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

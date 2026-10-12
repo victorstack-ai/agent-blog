@@ -2,10 +2,11 @@
 slug: build-drupal-ai-views-agent
 title: 'Drupal AI Views Agent: Natural Language to Views Configuration'
 authors: [VictorStackAI]
-tags: [devlog, agent, ai, drupal, wordpress, views]
+tags: [agents, ai-engineering, drupal, build]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
-description: 'A Drupal agent that converts natural language into Views configuration YAML, automating filters, relationships, and display modes. The natural-language-to-config pattern is relevant for WordPress query and block scaffolding too.'
+description: "A Drupal agent that turns natural language into Views configuration YAML, covering filters, relationships and display modes."
 date: 2026-02-06T18:06:00
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -111,7 +112,3 @@ Agent workflows are most effective when they output structured configuration tha
 ## References
 
 - [View Code](https://github.com/victorstack-ai/drupal-ai-views-agent)
-
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*

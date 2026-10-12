@@ -5,18 +5,12 @@ title: >-
   Data Residency Controls
 authors:
   - VictorStackAI
-tags:
-  - devlog
-  - learning
-  - ai
+tags: [ai-engineering]
 image: >-
   https://victorstack-ai.github.io/agent-blog/img/2026-03-18-drupal-and-wordpress-headless-ops-react2shell-npm-supply-cha.png
-description: >-
-  A technical Drupal and WordPress devlog on the items that matter in practice:
-  React2Shell exposure in headless stacks, npm supply chain risk, data residency
-  controls, cache-stampede protection, and repo documentation for AI-assisted
-  maintenance.
+description: "Devlog on React2Shell exposure in headless CMS stacks, npm supply chain risk, data residency controls, cache-stampede protection and repo docs for AI maintenance."
 date: 2026-03-18T08:03:00.000Z
+unlisted: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -221,6 +215,3 @@ If a maintenance agent cannot discover the project's rules from the repository i
 The useful items were the ones with a concrete engineering consequence. For Drupal and WordPress teams, that means four things: review data residency beyond the database, fix admin dashboards that train editors badly, treat React/npm issues as first-class CMS risk in headless builds, and move maintenance rules into the repo so humans and agents stop guessing.
 
 Anything outside that list was mostly noise, executive theater, or product-page fog. The web has enough of that already.
-
-***
-*Looking for an Architect who doesn't just write code, but builds the AI systems that multiply your team's output? View my enterprise CMS case studies at [victorjimenezdev.github.io](https://victorjimenezdev.github.io) or connect with me on LinkedIn.*
