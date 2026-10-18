@@ -4,7 +4,46 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+// Cover palette: navy ink, cream paper and orange highlight sampled from the
+// post cover illustrations. Keep in sync with the tokens in src/css/custom.css.
+const coverPalette = {
+  navyDeep: '#0d1a2d',
+  navyInk: '#1b304b',
+  surface: '#1b304b',
+  codeBg: '#0d1a2d',
+  cream: '#f6f2e7',
+  creamMuted: '#f6f2e7',
+  tan: '#f6f2e7',
+  orange: '#e87b28',
+  orangeLight: '#e87b28',
+  orangeLightest: '#e87b28',
+  steel: '#f6f2e7',
+  comment: '#f6f2e7',
+  red: '#e87b28',
+};
+
+const coverPrismDark: typeof prismThemes.dracula = {
+  plain: { color: coverPalette.cream, backgroundColor: coverPalette.codeBg },
+  styles: [
+    { types: ['comment', 'prolog', 'doctype', 'cdata'], style: { color: coverPalette.comment, fontStyle: 'italic' } },
+    { types: ['punctuation', 'operator'], style: { color: coverPalette.creamMuted } },
+    { types: ['keyword', 'selector', 'important', 'atrule', 'builtin'], style: { color: coverPalette.orangeLight } },
+    { types: ['string', 'char', 'attr-value', 'inserted', 'regex', 'url'], style: { color: coverPalette.tan } },
+    { types: ['function', 'class-name'], style: { color: coverPalette.orangeLightest } },
+    { types: ['number', 'boolean', 'constant', 'symbol'], style: { color: coverPalette.steel } },
+    { types: ['property', 'tag', 'attr-name'], style: { color: coverPalette.orangeLight } },
+    { types: ['variable', 'parameter'], style: { color: coverPalette.cream } },
+    { types: ['deleted'], style: { color: coverPalette.red } },
+    { types: ['italic'], style: { fontStyle: 'italic' } },
+    { types: ['bold', 'important'], style: { fontWeight: 'bold' } },
+  ],
+};
+
 const config: Config = {
+  headTags: [
+    { tagName: 'meta', attributes: { name: 'theme-color', content: coverPalette.cream } },
+    { tagName: 'meta', attributes: { name: 'apple-mobile-web-app-status-bar-style', content: 'default' } },
+  ],
   markdown: {
     mermaid: true,
     hooks: {
@@ -319,8 +358,48 @@ const config: Config = {
     // Diagrams render at natural size and scroll sideways on narrow screens instead of shrinking
     // their labels until nobody can read them. Strict security keeps diagrams from running code.
     mermaid: {
-      theme: { light: 'neutral', dark: 'dark' },
+      theme: { light: 'base', dark: 'base' },
       options: {
+        // themeVariables only apply to the 'base' theme (dark default).
+        themeVariables: {
+          darkMode: false,
+          background: coverPalette.cream,
+          fontFamily: "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+          primaryColor: coverPalette.navyInk,
+          primaryTextColor: coverPalette.cream,
+          primaryBorderColor: coverPalette.orange,
+          secondaryColor: coverPalette.surface,
+          secondaryTextColor: coverPalette.cream,
+          secondaryBorderColor: coverPalette.orangeLight,
+          tertiaryColor: coverPalette.surface,
+          tertiaryTextColor: coverPalette.cream,
+          tertiaryBorderColor: coverPalette.comment,
+          mainBkg: coverPalette.navyInk,
+          nodeBorder: coverPalette.orange,
+          nodeTextColor: coverPalette.cream,
+          textColor: coverPalette.navyDeep,
+          titleColor: coverPalette.navyDeep,
+          lineColor: coverPalette.navyInk,
+          clusterBkg: coverPalette.surface,
+          clusterBorder: coverPalette.comment,
+          edgeLabelBackground: coverPalette.cream,
+          actorBkg: coverPalette.navyInk,
+          actorBorder: coverPalette.orange,
+          actorTextColor: coverPalette.cream,
+          actorLineColor: coverPalette.navyInk,
+          signalColor: coverPalette.navyInk,
+          signalTextColor: coverPalette.navyDeep,
+          labelBoxBkgColor: coverPalette.navyInk,
+          labelBoxBorderColor: coverPalette.orange,
+          labelTextColor: coverPalette.cream,
+          loopTextColor: coverPalette.navyDeep,
+          noteBkgColor: coverPalette.cream,
+          noteTextColor: coverPalette.navyDeep,
+          noteBorderColor: coverPalette.orange,
+          activationBkgColor: coverPalette.surface,
+          activationBorderColor: coverPalette.orange,
+          sequenceNumberColor: coverPalette.navyDeep,
+        },
         securityLevel: 'strict',
         fontSize: 16,
         flowchart: { useMaxWidth: false, htmlLabels: false },
@@ -329,47 +408,6 @@ const config: Config = {
         timeline: { useMaxWidth: false },
       },
     },
-    // theme-color per scheme (iOS/Android status bar) + viewport-fit + safe-area
-    headTags: [
-      /* Fallback for Android WebView: many ignore media on theme-color, so set default first */
-      {
-        tagName: 'meta',
-        attributes: {
-          name: 'theme-color',
-          content: '#0f172a',
-        },
-      },
-      {
-        tagName: 'meta',
-        attributes: {
-          name: 'theme-color',
-          content: '#0f172a',
-          media: '(prefers-color-scheme: dark)',
-        },
-      },
-      {
-        tagName: 'meta',
-        attributes: {
-          name: 'theme-color',
-          content: '#ffffff',
-          media: '(prefers-color-scheme: light)',
-        },
-      },
-      {
-        tagName: 'meta',
-        attributes: {
-          name: 'apple-mobile-web-app-status-bar-style',
-          content: 'black-translucent',
-        },
-      },
-      {
-        tagName: 'meta',
-        attributes: {
-          name: 'viewport',
-          content: 'width=device-width, initial-scale=1, viewport-fit=cover',
-        },
-      },
-    ],
     metadata: [
       { name: 'description', content: 'Engineering notes by Victor Jimenez, Senior Product Engineer with 13+ years of full-stack web work: React, Next.js, TypeScript, PHP, Node and Python, integrations, release engineering, performance, security and accessibility.' },
       { name: 'keywords', content: 'Victor Jimenez, Senior Product Engineer, full-stack web development, React, Next.js, TypeScript, PHP, Node.js, Python, software architecture, API integrations, payments, OAuth, SSO, CI/CD, release engineering, web performance, technical SEO, web security, accessibility, AI-assisted engineering, Drupal, WordPress' },
@@ -384,14 +422,14 @@ const config: Config = {
       { name: 'geo.placename', content: 'Bogotá' },
       // Prevent in-app browsers (e.g. LinkedIn) from applying Force Dark or wrong
       // color inversions — we handle light/dark ourselves.
-      { name: 'color-scheme', content: 'dark light' },
+      { name: 'color-scheme', content: 'light' },
       /* Android: prevents WebView Force Dark from re-styling the page and breaking contrast */
       // Absolute URLs so LinkedIn/Twitter/Facebook in-app browsers get valid previews
     ],
     // Replace with your project's social card (fallback; og:image above is absolute)
     image: 'img/vs-social-card.png',
     colorMode: {
-      defaultMode: 'dark',
+      defaultMode: 'light',
       disableSwitch: true,
       respectPrefersColorScheme: false,
     },
@@ -449,8 +487,8 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Victor Jimenez. Built with Docusaurus.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: coverPrismDark,
+      darkTheme: coverPrismDark,
     },
   } satisfies Preset.ThemeConfig,
 };

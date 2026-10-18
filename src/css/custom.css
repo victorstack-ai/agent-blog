@@ -1,22 +1,102 @@
-/* Tell browsers/WebViews we handle light and dark — prevents LinkedIn/in-app
-   browsers (iOS + Android) from applying Force Dark or wrong inversions. */
+/* Cover palette: colors sampled from the post cover illustrations
+   (navy ink, cream paper, orange highlight). Semantic tokens first; Infima,
+   search, footer, code and Mermaid read from them. */
 :root {
-  color-scheme: light dark;
-  /* Android Chrome: tap highlight to match dark theme instead of default gray */
-  -webkit-tap-highlight-color: rgba(59, 130, 246, 0.25);
-  tap-highlight-color: rgba(59, 130, 246, 0.25);
-  --ifm-color-primary: #3b82f6;
-  --ifm-color-primary-dark: #2563eb;
-  --ifm-color-primary-darker: #1d4ed8;
-  --ifm-color-primary-light: #60a5fa;
-  --ifm-background-color: #0f172a;
-  /* Default inline code to dark so in-app browser first paint is consistent */
-  --ifm-code-background: #1e293b;
-  --ifm-code-color: #e2e8f0;
-  /* Body text: white so in-app browser (LinkedIn etc.) never shows gray-on-blue */
-  --ifm-font-color-base: #ffffff;
-  --ifm-font-color-secondary: #e2e8f0;
-  --ifm-heading-color: #ffffff;
+  /* Source colors (sampled from static/img cover JPGs) */
+  --vs-navy-ink: #1b304b;
+  --vs-navy-deep: #0d1a2d;
+  --vs-cream-paper: #f6f2e7;
+  --vs-orange: #e87b28;
+
+  /* Paper canvas, navy ink and orange accents use the sampled colors. */
+  --vs-bg: var(--vs-cream-paper);
+  --vs-bg-code: var(--vs-navy-deep);
+  --vs-surface: var(--vs-cream-paper);
+  --vs-surface-raised: var(--vs-cream-paper);
+  --vs-border: var(--vs-navy-ink);
+  --vs-border-soft: rgba(27, 48, 75, 0.2);
+  --vs-text: var(--vs-navy-deep);
+  --vs-text-muted: var(--vs-navy-ink);
+  --vs-text-subtle: var(--vs-navy-ink);
+  --vs-accent: var(--vs-navy-ink);
+  --vs-accent-hover: var(--vs-navy-deep);
+  --vs-accent-contrast: var(--vs-navy-deep);
+  --vs-focus-ring: var(--vs-navy-ink);
+
+  color-scheme: light;
+  -webkit-tap-highlight-color: rgba(232, 123, 40, 0.25);
+  tap-highlight-color: rgba(232, 123, 40, 0.25);
+
+  --ifm-color-primary: var(--vs-navy-ink);
+  --ifm-color-primary-dark: var(--vs-navy-deep);
+  --ifm-color-primary-darker: var(--vs-navy-deep);
+  --ifm-color-primary-darkest: var(--vs-navy-deep);
+  --ifm-color-primary-light: var(--vs-navy-ink);
+  --ifm-color-primary-lighter: var(--vs-navy-ink);
+  --ifm-color-primary-lightest: var(--vs-navy-ink);
+  --ifm-color-primary-contrast-foreground: var(--vs-accent-contrast);
+
+  --ifm-background-color: var(--vs-bg);
+  --ifm-background-surface-color: var(--vs-surface);
+  --ifm-font-color-base: var(--vs-text);
+  --ifm-font-color-secondary: var(--vs-text-muted);
+  --ifm-color-content: var(--vs-text);
+  --ifm-color-content-secondary: var(--vs-text-muted);
+  --ifm-toc-link-color: var(--vs-navy-ink);
+  --ifm-heading-color: var(--vs-text);
+  --ifm-link-color: var(--vs-accent);
+  --ifm-link-hover-color: var(--vs-accent-hover);
+  --ifm-code-background: var(--vs-surface);
+  --ifm-code-color: var(--vs-text);
+  --ifm-pre-background: var(--vs-bg-code);
+  --ifm-pre-color: var(--vs-cream-paper);
+  --ifm-blockquote-border-color: var(--vs-orange);
+  --ifm-blockquote-color: var(--vs-text-muted);
+  --ifm-table-border-color: var(--vs-border);
+  --ifm-table-head-background: var(--vs-surface-raised);
+  --ifm-table-head-color: var(--vs-text);
+  --ifm-table-stripe-background: rgba(27, 48, 75, 0.04);
+  --ifm-hr-background-color: var(--vs-border);
+  --ifm-toc-border-color: var(--vs-border);
+  --ifm-color-emphasis-300: var(--vs-border);
+  --ifm-color-emphasis-400: var(--vs-navy-ink);
+  --ifm-color-emphasis-500: var(--vs-navy-ink);
+  --ifm-color-emphasis-0: var(--vs-cream-paper);
+  --ifm-color-emphasis-100: var(--vs-cream-paper);
+  --ifm-color-emphasis-200: var(--vs-cream-paper);
+  --ifm-color-emphasis-600: var(--vs-navy-ink);
+  --ifm-color-emphasis-700: var(--vs-navy-ink);
+  --ifm-color-emphasis-800: var(--vs-navy-deep);
+  --ifm-color-emphasis-900: var(--vs-navy-deep);
+  --ifm-color-emphasis-1000: var(--vs-navy-deep);
+  --ifm-menu-color: var(--vs-text-muted);
+  --ifm-menu-color-active: var(--vs-accent);
+  --ifm-menu-color-background-active: rgba(232, 123, 40, 0.12);
+  --ifm-menu-color-background-hover: rgba(232, 123, 40, 0.12);
+  --ifm-navbar-background-color: var(--vs-bg);
+  --ifm-navbar-link-color: var(--vs-text);
+  --ifm-navbar-link-hover-color: var(--vs-accent-hover);
+  --ifm-navbar-link-active-color: var(--vs-accent);
+  --ifm-navbar-search-input-background-color: var(--vs-surface);
+  --ifm-navbar-search-input-color: var(--vs-text);
+  --ifm-navbar-search-input-placeholder-color: var(--vs-text-subtle);
+  --ifm-pagination-nav-color-hover: var(--vs-accent);
+  --ifm-footer-background-color: var(--vs-bg);
+  --ifm-footer-color: var(--vs-text-muted);
+  --ifm-footer-link-color: var(--vs-text-muted);
+  --ifm-footer-link-hover-color: var(--vs-accent-hover);
+  --ifm-footer-title-color: var(--vs-text);
+
+  /* @easyops-cn/docusaurus-search-local */
+  --search-local-modal-background: var(--vs-surface);
+  --search-local-modal-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+  --search-local-hit-background: var(--vs-surface-raised);
+  --search-local-hit-shadow: none;
+  --search-local-hit-color: var(--vs-text);
+  --search-local-hit-active-color: var(--vs-cream-paper);
+  --search-local-highlight-color: var(--vs-accent);
+  --search-local-muted-color: var(--vs-text-subtle);
+  --search-local-input-active-border-color: var(--vs-accent);
 }
 
 /* Explicit canvas for in-app WebViews so they never use default white background */
@@ -26,85 +106,112 @@ body {
   color: var(--ifm-font-color-base);
 }
 
-/* When not light theme (default + dark): white text so LinkedIn in-app never shows gray-on-blue */
-html:not([data-theme='light']) body,
-html:not([data-theme='light']) main,
-html:not([data-theme='light']) main p,
-html:not([data-theme='light']) main li,
-html:not([data-theme='light']) .markdown,
-html:not([data-theme='light']) .markdown p,
-html:not([data-theme='light']) .markdown li,
-html:not([data-theme='light']) article,
-html:not([data-theme='light']) article p,
-html:not([data-theme='light']) .theme-doc-markdown,
-html:not([data-theme='light']) .blog-post-content,
-html:not([data-theme='light']) [class*='markdown'] {
-  color: #ffffff;
-}
-
-html:not([data-theme='light']) h1,
-html:not([data-theme='light']) h2,
-html:not([data-theme='light']) h3,
-html:not([data-theme='light']) h4 {
-  color: #ffffff;
-}
-
-[data-theme='dark'] {
-  color-scheme: dark;
-  --ifm-background-color: #0b1120;
-  --ifm-navbar-background-color: #0f172a;
-  --ifm-font-color-base: #ffffff;
-  --ifm-font-color-secondary: #e2e8f0;
-  --ifm-heading-color: #ffffff;
-  /* Inline code: avoid light box in in-app browsers (e.g. ai_agents backticks) */
-  --ifm-code-background: #1e293b;
-  --ifm-code-color: #e2e8f0;
-}
-
-/* Force white text in dark theme so LinkedIn in-app browser can't override with gray */
-[data-theme='dark'] body,
-[data-theme='dark'] main,
-[data-theme='dark'] main p,
-[data-theme='dark'] main li,
-[data-theme='dark'] .markdown,
-[data-theme='dark'] .markdown p,
-[data-theme='dark'] .markdown li,
-[data-theme='dark'] article,
-[data-theme='dark'] article p,
-[data-theme='dark'] h1,
-[data-theme='dark'] h2,
-[data-theme='dark'] h3,
-[data-theme='dark'] .theme-doc-markdown {
-  color: #ffffff;
-}
-
-[data-theme='dark'] code {
-  background-color: #1e293b;
-  color: #e2e8f0;
-  border: 1px solid #334155;
-}
-
+/* Keep the paper palette for visitors with a previously saved dark preference. */
+[data-theme='dark'],
 [data-theme='light'] {
   color-scheme: light;
-  --ifm-background-color: #ffffff;
-  --ifm-font-color-base: #1e293b;
-  --ifm-font-color-secondary: #64748b;
-  --ifm-code-background: #f1f5f9;
-  --ifm-code-color: #0f172a;
 }
 
-[data-theme='light'] code {
-  background-color: #f1f5f9;
-  color: #0f172a;
+.markdown a:not(.hash-link) {
+  text-decoration: underline;
+  text-decoration-color: var(--vs-orange);
+  text-underline-offset: 0.18em;
+}
+
+a[aria-current='page'],
+article h2 a:not(.hash-link) {
+  text-decoration: underline;
+  text-decoration-color: var(--vs-orange);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+/* Inline code: tokenized surface so in-app browsers never show a light box */
+code {
+  background-color: var(--ifm-code-background);
+  color: var(--ifm-code-color);
+  border: 1px solid var(--vs-border);
+}
+
+pre code,
+.prism-code code {
+  background-color: transparent;
+  color: var(--vs-cream-paper);
   border: none;
 }
 
-.navbar {
-  border-bottom: 1px solid #1e293b;
+.hero--primary {
+  --ifm-hero-background-color: var(--vs-navy-ink);
+  --ifm-hero-text-color: var(--vs-cream-paper);
 }
 
-.footer {
-  border-top: 1px solid #1e293b;
+.hero--primary h1 {
+  color: var(--vs-cream-paper);
+}
+
+::selection {
+  background-color: var(--vs-accent);
+  color: var(--vs-accent-contrast);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--vs-focus-ring);
+  outline-offset: 2px;
+}
+
+blockquote {
+  background-color: var(--vs-surface);
+  border-radius: 0 8px 8px 0;
+}
+
+.theme-admonition {
+  --ifm-alert-background-color: var(--vs-cream-paper);
+  --ifm-alert-foreground-color: var(--vs-navy-deep);
+  --ifm-alert-border-color: var(--vs-orange);
+}
+
+/* Pagination, tags and footer read from tokens */
+.pagination-nav__sublabel {
+  color: var(--vs-text-subtle);
+}
+
+.footer--dark {
+  --ifm-footer-background-color: var(--vs-navy-ink);
+  --ifm-footer-color: var(--vs-cream-paper);
+  --ifm-footer-link-color: var(--vs-cream-paper);
+  --ifm-footer-link-hover-color: var(--vs-orange);
+  --ifm-footer-title-color: var(--vs-cream-paper);
+}
+
+.footer a:focus-visible {
+  outline-color: var(--vs-orange);
+}
+
+.navbar-sidebar,
+.navbar-sidebar__brand {
+  background-color: var(--vs-bg);
+}
+
+.navbar-sidebar__back {
+  background: var(--vs-navy-ink);
+  color: var(--vs-cream-paper);
+}
+
+/* Mermaid edge labels inherit the page canvas */
+.docusaurus-mermaid-container .edgeLabel,
+.docusaurus-mermaid-container .edgeLabel rect {
+  background-color: var(--vs-bg) !important;
+  fill: var(--vs-bg) !important;
+}
+
+.docusaurus-mermaid-container .edgeLabel text,
+.docusaurus-mermaid-container .edgeLabel span,
+.docusaurus-mermaid-container .edgeLabel p {
+  color: var(--vs-navy-deep) !important;
+  fill: var(--vs-navy-deep) !important;
 }
 
 /* Heading anchor links (#) — hidden by default, visible on hover.
@@ -171,26 +278,19 @@ body {
     'Segoe UI Symbol';
   --ifm-heading-font-family: var(--ifm-font-family-base);
 
-  /* Elevating brand colors */
-  --ifm-color-primary: #3b82f6;
-  --ifm-color-primary-dark: #2563eb;
-  --ifm-color-primary-darker: #1d4ed8;
-  --ifm-color-primary-light: #60a5fa;
-
   /* Premium Soft Backgrounds & Borders */
-  --premium-border-color: rgba(255, 255, 255, 0.1);
-  --premium-glass-bg: rgba(15, 23, 42, 0.75);
+  --premium-border-color: var(--vs-border-soft);
+  --premium-glass-bg: rgba(246, 242, 231, 0.95);
   --premium-glass-blur: blur(16px);
-  --premium-shadow-hover: 0 10px 40px -10px rgba(59, 130, 246, 0.5);
+  --premium-shadow-hover: 0 10px 40px -10px rgba(232, 123, 40, 0.35);
 
   /* Transition durations */
   --premium-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 [data-theme='light'] {
-  --premium-border-color: rgba(0, 0, 0, 0.1);
-  --premium-glass-bg: rgba(255, 255, 255, 0.85);
-  --premium-shadow-hover: 0 10px 40px -10px rgba(59, 130, 246, 0.3);
+  --premium-glass-bg: rgba(246, 242, 231, 0.88);
+  --premium-shadow-hover: 0 10px 40px -10px rgba(232, 123, 40, 0.25);
 }
 
 /* Glassmorphism Navbar */
@@ -231,8 +331,8 @@ body {
   transform: translateX(-50%);
   width: 80%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--ifm-color-primary), transparent);
-  box-shadow: 0 0 20px var(--ifm-color-primary);
+  background: linear-gradient(90deg, transparent, var(--vs-orange), transparent);
+  box-shadow: 0 0 20px var(--vs-orange);
   opacity: 0.5;
 }
 
@@ -261,9 +361,10 @@ article {
 
 /* Elevate Buttons */
 .button--primary {
-  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-darker));
+  background: var(--vs-orange);
   border: none;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  color: var(--vs-navy-deep);
+  box-shadow: 0 4px 15px rgba(232, 123, 40, 0.3);
   transition: var(--premium-transition);
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -271,27 +372,16 @@ article {
 
 .button--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
-  background: linear-gradient(135deg, var(--ifm-color-primary-light), var(--ifm-color-primary-dark));
+  color: var(--vs-cream-paper);
+  box-shadow: 0 6px 20px rgba(232, 123, 40, 0.45);
+  background: var(--vs-navy-ink);
 }
 
 /* Fancy Headings - Gradient Text */
 h1 {
   font-weight: 800;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--ifm-color-primary-dark), var(--ifm-color-primary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-}
-
-[data-theme='dark'] h1 {
-  background: linear-gradient(135deg, #fff, var(--ifm-color-primary-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+  color: var(--vs-navy-deep);
 }
 /* Mermaid: keep natural size, center it, and scroll sideways when wider than the column. */
 .docusaurus-mermaid-container {
