@@ -20,7 +20,7 @@
   --vs-text-subtle: var(--vs-navy-ink);
   --vs-accent: var(--vs-navy-ink);
   --vs-accent-hover: var(--vs-navy-deep);
-  --vs-accent-contrast: var(--vs-navy-deep);
+  --vs-accent-contrast: var(--vs-cream-paper);
   --vs-focus-ring: var(--vs-navy-ink);
 
   color-scheme: light;
