@@ -1,6 +1,7 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import { portfolioReferralUrl } from './src/data/links';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -441,7 +442,7 @@ const config: Config = {
       },
       items: [
         { to: '/', label: 'Blog', position: 'left' },
-        { to: 'https://victorjimenezdev.github.io/', label: 'Portfolio', position: 'right' },
+        { to: portfolioReferralUrl('navbar'), label: 'Portfolio', position: 'right' },
         { href: 'https://victorstack-ai.github.io/agent-blog/rss.xml', label: 'RSS', position: 'right' },
         { href: 'https://github.com/victorstack-ai', label: 'GitHub', position: 'right' },
       ],
@@ -454,7 +455,7 @@ const config: Config = {
           items: [
             {
               label: 'Portfolio',
-              href: 'https://victorjimenezdev.github.io/',
+              href: portfolioReferralUrl('footer'),
             },
             {
               label: 'LinkedIn',

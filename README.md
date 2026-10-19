@@ -26,3 +26,7 @@ Pushing to `main` runs the same validator, typecheck and build in `.github/workf
 - `unlisted: true` keeps a post reachable by URL and removes it from lists, feeds, the sitemap and search indexing.
 - New posts are drafted and checked by the content engine in the private `agent-hq` repository, and Victor approves each one.
 - `scripts/retag.mjs` is the one-time migration that mapped old tags to the current taxonomy.
+
+## Campaign links
+
+Links from the blog to the portfolio use `portfolioReferralUrl(placement)` in `src/data/links.ts`: `utm_source=agent-blog`, `utm_medium=referral`, `utm_campaign=cross-site` and `utm_content=<placement>`. Placements are lowercase slugs such as `navbar` and `footer`. Schema, canonical and feed URLs keep the plain `PORTFOLIO_URL`. The portfolio README lists the full convention.
