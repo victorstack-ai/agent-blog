@@ -9,35 +9,35 @@ tags:
   - process
   - testing
 image: https://victorstack-ai.github.io/agent-blog/img/how-i-combine-harness-loop-graph-engineering.jpg
-description: How runtime access, bounded repair loops and a delivery graph connect in my AI-assisted engineering setup, with flow and sequence diagrams.
+description: How I connect runtime access, a delivery graph and a bounded repair loop, with flow and sequence diagrams and the limits of the setup.
 date: 2026-10-18T20:53:06
 ---
 
-Rules state policy; tools, credentials and isolation enforce access. In part 4, I connect that runtime to a graph that orders the work and a loop that bounds repair. A written requirement still needs something that can refuse unfinished work.
+A rule file states policy, and it cannot refuse unfinished work. In part 4, I connect the runtime that supplies tools, credentials and isolation, a delivery graph that orders the work, and a loop that bounds repair.
 
 <!-- truncate -->
 
-## The rule file states policy
+## A rule file has the enforcement power of a README
 
-A rule file alone has the enforcement power of a README. Mine says mutable repository work must begin in an isolated linked git worktree. The rule is correct, and the file cannot make anything obey it.
+My rule file says mutable repository work must begin in an isolated linked git worktree. A `git worktree` is a second working directory attached to the same repository. The rule is correct, and the file cannot make anything obey it.
 
-Worktrees separate working files, not filesystem permissions.
-
-Atomic questions and trivial tasks retain their limited scope.
+Worktrees separate working files. They do not separate filesystem permissions, so a worktree is not a sandbox. Atomic questions and trivial tasks keep their limited scope.
 
 ## The runtime supplies access and evidence
 
-A rule asking for browser QA cannot open a browser. I use harness engineering to supply the tools and evidence. The browser bridge handles signed-in browsing, while separate browser-class tools perform testing.
+A rule that asks for browser QA cannot open a browser. I use harness engineering to supply the tools and the evidence. The browser bridge handles signed-in browsing, and separate browser-class tools perform the testing.
 
-Typed approval marks manual interaction and is not an unbreakable security boundary. A separate checked autonomous route exists.
+:::note[Typed approval is a marker]
+Typed approval marks manual interaction. It is not an unbreakable security boundary. A separate checked autonomous route exists.
+:::
 
-## A green check covers its check
+## The graph puts browser QA after accepted review
 
 A green check is evidence only for that check. It has no opinion about a page that nobody opened.
 
 I use a graph to make the order explicit. The delivery graph declares role nodes, dependencies, parallel groups, locks, invalidation scope and repair routing. It places browser QA after accepted review.
 
-Below is a simplified configured example for a nontrivial rendered change. Other tasks use applicable verification. On small screens, scroll wide diagrams sideways.
+Below is a simplified configured example for a nontrivial rendered change. Other tasks use the verification that applies to them. On small screens, scroll wide diagrams sideways.
 
 ```mermaid
 flowchart TD
@@ -55,11 +55,13 @@ flowchart TD
     X -->|budget exhausted| S[Stop and report]
 ```
 
-A nontrivial rendered change requires browser QA with screenshots before handoff. I would rather keep screenshots of reviewed code than of code that review is about to change.
+A nontrivial rendered change requires browser QA with screenshots before handoff. I would rather keep screenshots of reviewed code than screenshots of code that review is about to change.
 
 ## The loop decides when repair stops
 
 The runtime supplies the browser tools and their evidence. The loop routes their failures to a declared repair budget.
+
+Failed checks, unresolved review findings and failed QA reach the budget decision. Work returns to implementation while budget remains. When the budget is exhausted, the run stops and reports.
 
 ```mermaid
 sequenceDiagram
@@ -101,17 +103,17 @@ sequenceDiagram
 
 A role matrix selects the lead and the reviewer. Claude leads by default, and another CLI reads the underlying source.
 
-CLI names alone do not prove different providers or correct review. A different name on the reviewer is a fact about the name. Functional verification remains necessary, so nontrivial code work gets applicable source review and functional verification.
+CLI names alone do not prove different providers or correct review. A different name on the reviewer is a fact about the name. Nontrivial code work therefore gets applicable source review and functional verification.
 
-## Budgets that do not share a number
+## Each budget has its own number
 
 In each autonomous content preparation run, a candidate can be revised up to twice. If it still fails, that run rejects it and considers another. My content engine checks word rules, grounding, safe MDX and editorial quality.
 
 I do not reuse that number for code repair. Manual writing commands are separate, and code repair uses its own declared budgets.
 
-## Stopping on purpose
+## A planned stop writes the checkpoint first
 
-A planned stop saves changed paths, checks and the next action before stopping. The next session reads the checkpoint.
+A planned stop saves the changed paths, the checks and the next action before stopping. The next session reads that checkpoint and continues from the saved next action.
 
 ```mermaid
 sequenceDiagram
@@ -129,9 +131,9 @@ sequenceDiagram
 
 The order matters. A checkpoint written after the session ends is a note to nobody.
 
-## Publication without guessing
+## Publication records the attempt before the click
 
-A silent click is an economical confirmation: no evidence to store. Publication records an attempt before clicking, and an unconfirmed result stays unresolved. The engine blocks repeating that item until reconciliation.
+A silent click is an economical confirmation, since it leaves no evidence to store. My publisher records an attempt before clicking, and an unconfirmed result stays unresolved. The engine blocks any repeat of that item until reconciliation.
 
 ```mermaid
 sequenceDiagram
@@ -151,13 +153,15 @@ sequenceDiagram
     end
 ```
 
-Lookup can remain inconclusive, and then the item stays blocked. Waiting can delay publication; guessing can duplicate it. I accept the delay, and there is no exactly-once guarantee.
+The lookup can remain inconclusive, and then the item stays blocked. Waiting can delay publication; guessing can duplicate it. I accept the delay, and there is no exactly-once guarantee.
 
 ## The notation that saved nothing
 
-My compact instruction notation measured flat-to-negative token savings, so I replaced it. I would require a measured token saving before calling something an improvement.
+My compact instruction notation measured flat-to-negative token savings, so I replaced it. My call: no token-saving change counts as an improvement until it shows a measured saving.
 
-I now use filler removal checked against the tokenizer and a fidelity guard. The tokenizer measures savings and the guard checks defined protected content. They do not prove preservation of all meaning.
+I now use filler removal checked against the tokenizer, plus a fidelity guard. The tokenizer splits text into the units a model counts, so it measures the savings.
+
+The fidelity guard checks defined protected content. Neither the tokenizer nor that guard proves that all meaning was preserved.
 
 ## Limits
 
@@ -165,9 +169,11 @@ This setup needs maintenance. Rules, graph nodes, budgets and the role matrix de
 
 ## Check it on a disposable repo
 
+:::warning[Use throwaway targets]
 Use a disposable local repository and a local target. Take no irreversible action.
+:::
 
-To check the QA order and repair routing:
+To check the QA order and the repair routing:
 
 1. Make a small rendered change in the throwaway repository.
 2. Make browser QA fail on purpose.
@@ -181,7 +187,7 @@ To check recovery:
 3. Give a new session only the saved checkpoint.
 4. Compare its first action with the saved next action.
 
-In both cases the expected behavior should come from the declared route or the record.
+In both cases, take the expected behavior from the declared route or the record, not from memory.
 
 ## References
 

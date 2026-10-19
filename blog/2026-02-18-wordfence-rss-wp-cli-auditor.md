@@ -11,7 +11,7 @@ date: 2026-02-18T10:00:00
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Wordfence tells security teams which plugins are vulnerable each week, but not whether their own sites run them. I built a WordPress plugin that adds `wp wordfence-audit plugins` and answers that question from the current Wordfence blog RSS feed. It is a triage step for teams that already read the feed, and it does not replace a full vulnerability database.
+The Wordfence blog feed lists vulnerable plugins, but it cannot tell a team whether its own sites run them. I built a WordPress plugin that adds `wp wordfence-audit plugins` and answers that question from the current feed. It is a triage step for teams that already read the feed. A full vulnerability database still covers what the feed never publishes.
 
 <!-- truncate -->
 
@@ -27,20 +27,22 @@ Wordfence tells security teams which plugins are vulnerable each week, but not w
 
 ## Advisories arrive, spreadsheets follow
 
-Each advisory raises the same question: do we run this plugin, and is our installed version inside the affected range? Without CLI automation, the answer is manual spreadsheet work repeated across many sites.
+Every advisory raises two questions. Do we run this plugin, and is our installed version inside the affected range? Without CLI automation, the answer is manual spreadsheet work, repeated for every site.
 
-Comparing version strings by hand across a fleet is `version_compare()` with extra steps and more typos. My fix is to run the comparison on the site itself, where the installed versions already live, and print only the matches.
+Comparing version strings by hand across a fleet is `version_compare()` with extra steps and more typos. My fix runs the comparison on the site itself, where the installed versions already live, and prints only the matches.
 
-## What the command does
+## The command and its limits
 
-The command fetches RSS items, pulls plugin slugs from WordPress.org links, parses version constraints and compares them against installed plugin versions. Every step runs inside WP-CLI.
+The command fetches the RSS items and pulls plugin slugs from WordPress.org links. A slug is the short plugin name in the URL, such as `plugin-name` in `wordpress.org/plugins/plugin-name/`.
+
+The command then parses the version constraints, compares them against the installed plugin versions, and prints the matches. Every step runs inside WP-CLI.
 
 ```mermaid
 flowchart TD
     A[wp wordfence-audit plugins] --> B[Fetch Wordfence RSS feed]
     B --> C[Parse item HTML content]
     C --> D[Extract plugin slug from wordpress.org URLs]
-    D --> E[Parse version constraints\nup to, <=, less than]
+    D --> E[Parse max version constraints]
     E --> F[Load installed plugins via WP-CLI]
     F --> G[version_compare matching]
     G --> H[CLI output: table/json/csv]
@@ -48,39 +50,39 @@ flowchart TD
 
 ## Stack choices
 
-Every piece is something WordPress or PHP already ships, plus a feed that asks for no credentials. I picked these because the command has to run on any site with CLI access and no extra setup.
+Every piece is PHP, WordPress or WP-CLI, plus a feed that needs no credentials. The command has to run on any site with CLI access and no extra setup, so I chose these parts.
 
 | Component | Technology | Why |
 |---|---|---|
 | Platform | WordPress plugin + WP-CLI command | Runs on any WP site with CLI access |
 | Signal source | Wordfence blog RSS feed | Lightweight, no API key needed |
-| Slug extraction | Regex on `wordpress.org/plugins/<slug>/` | Canonical URLs make it reliable |
-| Version matching | PHP `version_compare()` | Built in, handles semver correctly |
-| Output | Table, JSON, CSV | Whatever downstream tools need |
+| Slug extraction | Regex on `wordpress.org/plugins/plugin-name/` | Canonical URLs make it reliable |
+| Version matching | PHP `version_compare()` | Built in, compares PHP-style version strings |
+| Output | Table, JSON, CSV | Matches what downstream tools need |
 
-The feed needs no authentication, no rate limits and no API keys, which is the right amount of setup for a tool that answers one question per advisory. The cost is coverage: the feed only knows what the blog published.
+The feed has no authentication, no rate limits and no API keys. That is the right amount of setup for a tool that answers one question per advisory. The cost is coverage, because the feed only knows what the blog published.
 
 :::tip[RSS as a lightweight signal source]
-Use RSS when API integration is not available yet. The Wordfence feed gives actionable signals without authentication, rate limits or API keys. For production-grade coverage, pair RSS triage with a full vulnerability database.
+Use the feed for triage when no vulnerability API is wired up yet.
 :::
 
 ## Version strings are where matching breaks
 
-The slug regex holds up because WordPress.org plugin URLs are canonical. Version strings are less tidy.
+The slug regex holds up because WordPress.org plugin URLs are canonical: each plugin has one fixed URL form. Version strings are less tidy. The parser's version capture accepts dots, so the period that ends an advisory sentence can land inside the captured version.
 
-`2.1.3.` and `2.1.3` are the same release to a human and a mismatch to `version_compare()`, which is how a vulnerable site ends up with a clean report. The `normalizeVersionToken` helper strips trailing dots and handles edge cases before any comparison runs.
+A human reads `2.1.3.` and `2.1.3` as the same release. `version_compare()` reads them as a mismatch, and that is how a vulnerable site gets a clean report. The `normalizeVersionToken` helper strips trailing dots and handles edge cases before any comparison runs.
 
 :::caution[Normalize versions before comparing]
-Version strings like `2.1.3.` vs `2.1.3` cause false mismatches with `version_compare()`. The `normalizeVersionToken` helper strips trailing dots and handles edge cases. Without it, real matches get missed.
+Normalize version tokens before any `version_compare()` call, or the report misses real matches.
 :::
 
-The constraint parser looks for these phrasings in the advisory text:
+The constraint parser looks for these phrasings in the advisory text. All three produce the same constraint type, `max_inclusive`, which means "this version and everything below it".
 
 | Advisory phrasing | Constraint type | Flagged when |
 |---|---|---|
 | "versions up to X" | `max_inclusive` | Installed version is at or below X |
 | "versions less than or equal to X" | `max_inclusive` | Installed version is at or below X |
-| "versions" followed by the less-than-or-equal symbol and X | `max_inclusive` | Installed version is at or below X |
+| "versions" followed by the two characters less-than and equals, then X | `max_inclusive` | Installed version is at or below X |
 
 <Tabs>
 <TabItem value="rss" label="RSS Client" default>
@@ -129,9 +131,11 @@ wp wordfence-audit plugins --format=csv > audit.csv
 </TabItem>
 </Tabs>
 
-## Architecture
+The regex above shows a limit of the parser. If an advisory phrases its affected range another way, the parser shown here extracts no `max_inclusive` constraint for it. It also misses the single-character less-than-or-equal symbol. That is one more reason to treat the output as triage.
 
-Three classes, one job each.
+## Three classes, one job each
+
+`WordfenceRssClient` fetches and parses, `SignalMatcher` compares, and `AuditCommand` prints.
 
 <details>
 <summary>Architecture breakdown</summary>
@@ -146,9 +150,9 @@ Three classes, one job each.
 
 ## Running it across many sites
 
-WordPress sites running dozens of plugins face constant exposure to newly disclosed vulnerabilities. The command replaces the weekly spreadsheet pass with one run per site.
+A WordPress site with dozens of plugins has to check every new advisory against its installed versions. The command replaces the spreadsheet pass after each advisory with one run per site.
 
-For multisite networks or managed hosting fleets, piping the `--format=json` output into a dashboard shows which sites need patching. CSV output covers teams that still want the spreadsheet, now filled in by the machine.
+For multisite networks or managed hosting fleets, pipe the `--format=json` output into a dashboard to see which sites need patching. CSV output serves teams that still want the spreadsheet. The difference is that the machine fills it in.
 
 Related reading:
 - WP Malware Sentinel Scanner
@@ -156,18 +160,16 @@ Related reading:
 
 ## Checklist
 
-- [ ] Confirm WP-CLI access on each site.
+- [ ] Confirm WP-CLI access on each site before the first run.
 - [ ] Run `wp wordfence-audit plugins` after each Wordfence advisory.
-- [ ] Use `--format=json` for scripts and dashboards, `--format=csv` for spreadsheets.
-- [ ] Check that version tokens are normalized before any `version_compare()` call.
-- [ ] Back the RSS triage with a full vulnerability database or API scanner.
+- [ ] Use `--format=json` for scripts and dashboards, and `--format=csv` for spreadsheets.
+- [ ] For each match, compare the affected version in the advisory with the installed version that `wp plugin list` shows for that slug.
 
-## What I learned
+## Reading an empty result
 
-- RSS works as a lightweight signal source when API integration is not available yet.
-- Slug extraction from canonical `wordpress.org/plugins/<slug>/` links is reliable for matching.
-- Version parsing needs normalization (`2.1.3.` vs `2.1.3`), or false mismatches hide real exposure.
-- For production-grade coverage, pair RSS triage with full database or API scanners.
+My call: an empty result from this command means "no match in the current feed". It does not mean "no known vulnerabilities".
+
+The feed only covers what the Wordfence blog published. For production-grade coverage, my recommendation is to pair RSS triage with a full vulnerability database or an API scanner.
 
 ## References
 

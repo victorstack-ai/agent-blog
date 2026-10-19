@@ -11,7 +11,7 @@ date: 2026-02-25T10:00:00
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Most build regressions get reported as "it feels slower", long after the commit that caused them. I built a small Node CLI that benchmarks `next@16.1.6` builds under cold and warm cache, compares the result with a baseline, and writes JSON that CI can diff.
+Most build regressions get reported as "it feels slower", long after the commit that caused them. I built a small Node CLI that benchmarks `next@16.1.6` builds under cold and warm cache, compares the result with a baseline, and writes JSON that CI can diff. A run is flagged when its mean build time rises past a threshold you set.
 
 <!-- truncate -->
 
@@ -24,26 +24,30 @@ Most build regressions get reported as "it feels slower", long after the commit 
 
 </details>
 
-## Why build timing data is usually noise
+## Build time without a baseline is noise
 
-> "Without a pinned fixture, repeatable scenarios, and a baseline comparison, build time data is noisy and hard to trust."
+A single local build measures one machine on one afternoon. It cannot tell you whether the last merge made the build slower.
 
-A single local run measures one machine on one afternoon. It does not tell you whether the last merge made the build slower.
+Three controls make build timing data trustworthy. The first is a pinned fixture, which is the sample Next.js app the tool builds, locked to one Next.js version. The second is a set of repeatable scenarios, and the third is a comparison against a baseline, which is the JSON result of an earlier run.
 
 :::info[Context]
 Teams usually notice build regressions after CI gets slower or delivery cadence drops. By then, the cause is buried under dozens of commits. A benchmark you can trust needs pinned fixture versions, controlled scenarios and automated regression detection.
 :::
 
-| Pain Point | What Breaks |
+| Missing control | What breaks |
 |---|---|
 | No baseline | Regressions are subjective ("it feels slower") |
 | One-off local tests | Results are not reproducible in CI |
 | No scenario split | Cold-cache vs warm-cache tradeoffs stay hidden |
 | Infra change without benchmark | Runtime and runner choices are hard to justify |
 
-## How the CLI works
+## The CLI writes one JSON file
 
-The tool runs every build profile against every cache scenario, repeats each pair, and writes scenario stats, regression checks and infrastructure rankings to `bench/latest.json`. No dashboard, no service, a JSON file that a CI job can compare.
+The tool runs every build profile against every cache scenario and repeats each pair. A profile is a build command, such as `npm run build` or `npm run build:turbopack`. The results go to `bench/latest.json`: scenario stats, regression checks and infrastructure rankings.
+
+There is no dashboard and no service. A CI job compares a file.
+
+Cold cache means the tool clears the Next.js cache before each run (`clearCacheBeforeRun: true`), so every build starts from nothing. Warm cache keeps the cache from the previous run (`clearCacheBeforeRun: false`).
 
 ```mermaid
 flowchart TD
@@ -112,6 +116,10 @@ export function compareRegression(currentMean, baselineMean, thresholdPct) {
 
 `compareRegression` takes the current mean, subtracts the baseline mean, and turns the difference into a percent change. If that number is above `regressionThresholdPct`, the run is a regression. The whole gate is a subtraction, a division and a comparison, which is a smaller budget than one meeting about why CI feels slow.
 
+The comparison is strictly greater than the threshold. A run whose mean change lands exactly on `regressionThresholdPct` passes, and anything above it is flagged.
+
+The `runs` setting repeats each pair a small number of times, and the gate compares means. My caveat: one noisy run can move a mean built from so few runs. Before you pick the threshold, I would check how much reruns of the same commit vary.
+
 ```mermaid
 flowchart TD
     A[Current mean build time] --> C[pctChange vs baseline mean]
@@ -122,33 +130,33 @@ flowchart TD
 ```
 
 :::tip[When to gate merges on it]
-My call: baseline JSON plus threshold gating is worth the setup when CI build time is a release bottleneck. Check it works by confirming that a known slow change trips the flag.
+My call: baseline JSON plus threshold gating is worth the setup when CI build time is a release bottleneck. To check that the gate works, confirm that a known slow change trips the flag.
 :::
 
 ## Cold cache and warm cache disagree
 
-A warm-cache number from a runner that purges its cache is a benchmark of a machine CI does not have. Measure both scenarios, or the ranking of "faster" options can be upside down.
+A warm-cache number from a runner that purges its cache is a benchmark of a machine CI does not have. Measure both scenarios. If you measure only one, the ranking of "faster" options can be upside down.
 
-| Scenario | Default Build | Turbopack Build | Key Difference |
+| Scenario | Default build | Turbopack build | Key difference |
 |---|---|---|---|
 | Cold cache | Slower (full rebuild) | Faster (parallel compilation) | Turbopack advantage shows here |
 | Warm cache | Fast (incremental) | Fast (incremental) | Difference is smaller |
 | Regression detection | Baseline JSON comparison | Baseline JSON comparison | Same mechanism, different baselines |
 
-:::caution[Reality Check]
+:::caution[Reality check]
 Cold and warm cache numbers can invert assumptions about "faster" infrastructure paths. A runtime that is fast on warm cache and slow on cold cache will surprise you in CI, where caches are purged often. Pin your benchmarks to both scenarios or you are measuring fiction.
 :::
 
-Before switching a runner or runtime, read its rank in both scenarios. One good column is not a reason to migrate.
+Before you switch a runner or runtime, read its rank in both scenarios. One good column is not a reason to migrate.
 
-## Next 16 config cleanup
+## Next 16 config cleanup before timing
 
-Next 16 printed a warning that told me exactly what was wrong with the fixture. I fixed the config so the warning stopped showing up in the logs I was timing.
+Next 16 printed a warning that told me exactly what was wrong with the fixture. I fixed the config so the warning no longer appeared in the logs I was timing.
 
 <details>
 <summary>Next.js 16 deprecation note</summary>
 
-During implementation, `next.config.js` warnings showed that `eslint` config in Next config is no longer supported in Next 16. I migrated the fixture to supported config only, with an explicit Turbopack root:
+During implementation, warnings from `next.config.js` showed that Next 16 no longer supports `eslint` config in the Next config. I migrated the fixture to supported config only, with an explicit Turbopack root:
 
 ```js title="next.config.js"
 const nextConfig = {
@@ -158,7 +166,7 @@ const nextConfig = {
 };
 ```
 
-That removes deprecated config usage and keeps benchmark output cleaner. Deprecation warnings pollute logs and can affect timing, so clear them in your own benchmarks.
+This removes the deprecated config and keeps benchmark output cleaner. Deprecation warnings pollute logs and can affect timing, so clear them in your own benchmarks.
 
 </details>
 
@@ -171,13 +179,7 @@ That removes deprecated config usage and keeps benchmark output cleaner. Depreca
 - [ ] `regressionThresholdPct` is set in `benchmark.config.json`.
 - [ ] The fixture config produces no deprecation warnings.
 - [ ] Runner or runtime changes are ranked on both scenarios before adoption.
-
-## What I learned
-
-- Rebuild benchmarking is only useful when fixture version and scenario controls are pinned.
-- Cold and warm cache numbers can invert assumptions about "faster" infra paths.
-- Baseline JSON plus threshold gating is worth it when CI build time is a release bottleneck.
-- Unsupported Next config keys have no place in performance tooling. Their warnings pollute benchmark logs and skew results.
+- [ ] A known slow change trips the regression flag.
 
 ## References
 

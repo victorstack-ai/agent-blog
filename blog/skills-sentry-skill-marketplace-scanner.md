@@ -11,7 +11,7 @@ date: 2026-02-06T12:00:00
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-A skill from a public marketplace arrives with code, setup instructions and a download count, and the download count is no evidence of safety. I built Skills Sentry, a static scanner that scores a skill bundle before it touches my machine.
+A skill from a public marketplace arrives with code, setup instructions and a download count. The download count is no evidence of safety. I built Skills Sentry, a static scanner that reads a skill bundle without running it and scores its risk before the bundle touches my machine.
 
 <!-- truncate -->
 
@@ -19,13 +19,13 @@ A skill from a public marketplace arrives with code, setup instructions and a do
 <summary>TL;DR</summary>
 
 - Installing a marketplace skill means installing trust in whoever wrote it.
-- Skills Sentry is a Python CLI with 10 regex rules. It reports risky behavior and gives a risk score from 0 to 100.
+- Skills Sentry is a Python CLI with 10 regex rules. It flags text patterns linked to risky behavior and gives a risk score from 0 to 100.
 - It runs locally or in CI and can fail the build on severity or on total score.
 - It is a heuristic. Pair it with isolation at runtime.
 
 </details>
 
-## Why a skill marketplace needs a gate
+## Malware in the top downloaded skill
 
 Two posts were enough to justify a guardrail.
 
@@ -33,9 +33,9 @@ Two posts were enough to justify a guardrail.
 >
 > Elon Musk: "Here we go."
 
-The malware sat in the top downloaded skill, so the ranking did its job and delivered it to the most people. Popularity becomes distribution, and distribution becomes the exploit.
+The malware sat in the top downloaded skill. The ranking worked as designed and delivered it to the most people. Popularity becomes distribution, and distribution becomes the exploit.
 
-The real risk is the workflow. Skills often ship as code plus setup instructions. A skill that convinces you to run one command can bootstrap anything after that.
+The real risk is the workflow. Skills often ship as code plus setup instructions. A skill that convinces you to run one command can use that command to download and run anything after it.
 
 ```mermaid
 flowchart TD
@@ -47,17 +47,16 @@ flowchart TD
 
 So I wanted a local, boring gate: point it at a skill bundle and get a risk report.
 
-## What Skills Sentry checks
+## Patterns the scanner flags
 
-Skills Sentry reports risky behavior and risky intent. It makes no claim to detect malware, and the warning below says so in writing.
+Skills Sentry reports text patterns that often come with risky behavior. It cannot read intent. It makes no claim to detect malware, and the warning below says so in writing.
 
 It looks for:
 
 - Remote script execution patterns (`curl` or `wget` piped to `sh`, PowerShell `iwr`, and similar)
-- Obfuscation patterns (base64 decode, `eval`, long encoded blobs)
-- Sensitive file targeting (`.ssh`, env files, wallet keywords, tokens)
-- Suspicious install steps (`chmod +x`, hidden paths, cron, launch agents)
-- Network endpoints declared in configs and code
+- Obfuscation patterns, meaning code written to hide what it does (base64 decode, `eval`, long encoded blobs)
+- Sensitive file targeting (`.ssh`, env files, wallet keywords)
+- Suspicious install steps (`chmod +x`, cron, launch agents)
 
 Then it outputs:
 
@@ -68,25 +67,34 @@ Then it outputs:
 ```mermaid
 flowchart TD
     A[Skill bundle folder or zip] --> B[Unpack and enumerate files]
-    B --> C[Text scan: regex rules per file]
-    B --> D[Config scan: network and permissions]
-    C --> E[Findings by severity]
-    D --> E
-    E --> F[Risk scoring\nlow=5, medium=15, high=30 per finding]
+    B --> C[Skip SKIP_DIRS and non-text files]
+    C --> D[One regex pass: every rule on every line]
+    D --> E[Findings by severity]
+    E --> F[Risk scoring\nlow=5, medium=15, high=30 per finding, max 100]
     F --> G[Report: console + JSON]
     G --> H{CI Gate}
-    H -->|Score > threshold| I[Exit 1: Block]
-    H -->|Score <= threshold| J[Exit 0: Pass]
+    H -->|Score > max-score, or a finding at or above fail-on| I[Exit 1: Block]
+    H -->|Neither condition| J[Exit 0: Pass]
 ```
 
+In `skills_sentry.py`, every text file goes through the same regex pass in `scan_text_file`, and the rules match one line at a time. Nothing parses configs, and nothing checks the network. The CI gate in `fail_decision` blocks on the score or on the severity set by `--fail-on`.
+
+The score adds a fixed weight per finding and stops at 100. It counts every matching line for every rule, so one high rule matched on a handful of lines reaches 100 by itself. It knows nothing about intent.
+
+Line-by-line matching has a cost. Suppose a skill splits a download-and-run command across two lines: that version does not match `REMOTE_SHELL_PIPE`.
+
+The scanner also skips folders such as `dist`, `build`, `node_modules` and `.venv`, so for example a payload placed in `dist/` is never read. Large files with an extension outside its text list are skipped as well. A clean report covers only the files the scanner opened.
+
+False positives come from the same simplicity. For example, a README that mentions "private key" in a security note triggers `WALLET_KEYWORDS` as a high finding.
+
 :::warning[Heuristic Scanner, Not Malware Detection]
-This is a heuristic scanner. It will miss novel obfuscation and it will produce false positives.
-Use it to block obvious footguns. Never use a clean report to declare a skill safe.
+This is a heuristic scanner. It will miss novel obfuscation, and it will produce false positives.
+Use it to block obvious risky patterns. Never treat a clean report as proof that a skill is safe.
 :::
 
-## Tech stack
+## Regex and zero dependencies
 
-Regex and zero dependencies are the boring default, and they fit here. The person deciding whether to trust a bundle has to be able to read the rules, and no model is required to spot `curl` piped into `bash`.
+Regex and zero dependencies are the boring default, and they fit here. The person who decides whether to trust a bundle has to be able to read the rules. No model is required to spot `curl` piped into `bash`.
 
 | Component | Technology | Why |
 |---|---|---|
@@ -96,11 +104,11 @@ Regex and zero dependencies are the boring default, and they fit here. The perso
 | Output | Console + JSON | Readable by humans, parseable by CI |
 | Input | Folder or ZIP | Handles local and distributed bundles |
 
-## The code
+## Source, CLI and rules
 
 [View Code](https://github.com/victorstack-ai/skills-sentry)
 
-The repo, `skills-sentry`, has the CLI, sample fixtures and an optional GitHub Action for PR scanning.
+The repo, `skills-sentry`, has the CLI, sample fixtures and an optional GitHub Action that scans pull requests.
 
 ### CLI usage
 
@@ -131,7 +139,7 @@ python skills_sentry.py scan ./bundle --fail-on high --max-score 60
 
 ### Detection rules
 
-The scanner ships with 10 built-in rules that cover common supply-chain attack patterns.
+The scanner ships with 10 built-in rules for common supply-chain attack patterns. A supply-chain attack hides malicious code in something you install, so you run it yourself.
 
 | Rule ID | Severity | What It Detects |
 |---|---|---|
@@ -139,9 +147,9 @@ The scanner ships with 10 built-in rules that cover common supply-chain attack p
 | `POWERSHELL_IWR_EXEC` | High | PowerShell download-and-exec |
 | `BASE64_DECODE_EXEC` | High | Base64 decode + execution |
 | `EVAL_USAGE` | Medium | `eval()` or `Function()` calls |
-| `CHMOD_EXEC` | Medium | `chmod +x` during install |
-| `CRON_PERSISTENCE` | High | Cron, launchctl, schtasks persistence |
-| `SSH_KEY_TOUCH` | High | Access to `.ssh/`, `id_rsa`, `known_hosts` |
+| `CHMOD_EXEC` | Medium | `chmod +x` in a scanned line |
+| `CRON_PERSISTENCE` | High | Mentions of cron, launchctl, LaunchAgents or schtasks |
+| `SSH_KEY_TOUCH` | High | Mentions of `.ssh/`, `id_rsa`, `known_hosts` or `ssh_config` |
 | `ENV_SECRETS` | High | `.env`, `dotenv`, `process.env`, `os.environ` |
 | `WALLET_KEYWORDS` | High | Crypto wallet, seed phrase, mnemonic |
 | `OBFUSCATED_BLOB` | Medium | Large base64-encoded blobs (400+ chars) |
@@ -404,7 +412,7 @@ if __name__ == "__main__":
 
 ### Example output
 
-In the sample below, the remote shell pipe sits in `install.md`, a markdown file. That is why the scanner reads docs as well as code: the install instructions are part of the attack surface.
+In the sample below, the remote shell pipe sits in `install.md`, a markdown file. The install instructions are part of the attack surface, so the scanner reads docs as well as code. The total is plain arithmetic from the severity weights in the table above: the two high findings and the one medium finding add up to the score shown.
 
 <details>
 <summary>Sample console report</summary>
@@ -423,7 +431,9 @@ Top findings:
 
 ### CI example
 
-`--fail-on` blocks on the worst severity found, and `--max-score` blocks on the total. The CI gate uses both, so a single high finding fails the build even when the total stays under the threshold.
+`--fail-on` blocks when any finding reaches the chosen severity, and `--max-score` blocks when the total exceeds the number. The CI gate uses both, so a single high finding fails the build even when the total stays under the threshold.
+
+The workflow scans `./bundle`, not the repository root. The root holds `skills_sentry.py`, and the scanner's own rule text matches its rules. A scan of `.` flags `skills_sentry.py` itself and fails every run.
 
 <Tabs>
 <TabItem value="gha" label="GitHub Actions" default>
@@ -433,15 +443,15 @@ name: Skill bundle scan
 on:
   pull_request:
   push:
-branches: [main]
+    branches: [main]
 jobs:
   scan:
-runs-on: ubuntu-latest
-steps:
-- uses: actions/checkout@v4
-- name: Run Skills Sentry
-# highlight-next-line
-run: python skills_sentry.py scan . --fail-on high --max-score 60 --json out/report.json
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Skills Sentry
+        # highlight-next-line
+        run: python skills_sentry.py scan ./bundle --fail-on high --max-score 60 --json out/report.json
 ```
 
 </TabItem>
@@ -457,7 +467,7 @@ python skills_sentry.py scan ./bundle --fail-on medium --max-score 40
 
 ## Two gates, because one is a heuristic
 
-A static scan catches what a skill says it will do. What it does at runtime needs a second gate, and that gate is isolation.
+A static scan catches what a skill's files say it will do. What the skill does at runtime needs a second gate, and that gate is isolation.
 
 | Gate | When | What it does | Limitation |
 |---|---|---|---|
@@ -465,7 +475,7 @@ A static scan catches what a skill says it will do. What it does at runtime need
 | Runtime isolation | While the agent runs | Separate OS user, container or VM, scoped credentials | Does not tell you what the skill intended |
 
 :::tip[Isolation Is the Best Security Feature]
-If you run agents locally, the best security feature is still isolation. Use a separate OS user, a container or a VM for anything that can execute tools, and give it scoped credentials so a compromised skill cannot reach production without passing your normal gates. Skills Sentry catches the obvious cases, and isolation handles the rest.
+If you run agents locally, the best security feature is still isolation. Use a separate OS user, a container or a VM for anything that can execute tools. Give it scoped credentials, so a compromised skill cannot reach production without passing your normal gates. Skills Sentry catches the obvious cases. Isolation limits the damage from the cases it misses, but it does not fix them.
 :::
 
 ## Checklist before installing a skill
@@ -476,14 +486,6 @@ If you run agents locally, the best security feature is still isolation. Use a s
 - [ ] Run the agent under a separate OS user, in a container or in a VM.
 - [ ] Give it scoped credentials, never production access.
 - [ ] Add the scan to CI with `--fail-on` and `--max-score`.
-
-## What I learned
-
-- "Top downloaded" is a threat signal. It tells you how far a bad skill will travel.
-- Static scanning pays off when the install path includes copy-paste commands.
-- You need two gates: static before install, and permissioned, sandboxed execution at runtime.
-- Heuristics work best as a policy tool: block the obvious, review the rest.
-- A skill that needs secrets should declare them and fail closed without them. Silent fallbacks are where bad behavior hides.
 
 ## References
 

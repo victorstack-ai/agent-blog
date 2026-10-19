@@ -8,25 +8,27 @@ tags: [release-engineering, wordpress, review]
 image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 ---
 
-WordPress 7.0 ships five block-editor changes that look small in a changelog and can still break custom patterns, mislead teams about hidden content, and let editors inject CSS into blocks that were never built for it. The dev notes landed on March 15, 2026, and they cover content-only pattern editing, viewport-based block visibility, per-block custom CSS, expanded dimensions support and native text indent. The good news is that several of them let plugin and theme teams delete custom UI and CSS they have been carrying for years.
+WordPress 7.0 ships five block-editor changes that look small in a changelog and can still break custom patterns, mislead teams about hidden content, and let editors inject CSS into blocks that were never built for it. The dev notes landed on March 15, 2026, and cover content-only pattern editing, viewport-based block visibility, per-block custom CSS, expanded dimensions support and native text indent. Retest patterns and wrapper blocks before you upgrade, and treat the rest as permission to delete custom UI and CSS that plugin and theme teams have carried for years.
 
 <!-- truncate -->
 
 ## The five changes at a glance
 
-None of these is a platform shift like the Interactivity API or the collaboration work. They change what editors can do without custom code, and what block authors need to opt into or out of.
+None of these is a platform shift like the Interactivity API or the collaboration work. They change what editors can do without custom code, and what block authors must opt into or out of. The risk column is where upgrades go wrong.
 
 | Change | What core added | Main developer risk |
 |---|---|---|
-| Pattern editing | Unsynced patterns and template parts default more often to content-only editing | Custom blocks and editor extensions that assume full inner-block editing can break or confuse users |
-| Block visibility | Viewport-based show and hide rules for desktop, tablet and mobile | Teams treat presentation rules as access control, or skip testing the hidden state |
-| Per-block custom CSS | Instance-level CSS in the block inspector, gated by `edit_css` | Wrapper blocks expose unsafe or misleading styling surfaces unless they opt out |
-| Dimensions support | Width, height and dimension size presets | Drift in `theme.json` tokens and inconsistent block support configuration |
+| Pattern editing | Unsynced patterns and template parts default to content-only editing more often | Custom blocks and editor extensions that assume full inner-block editing can break or confuse editors |
+| Block visibility | Show and hide rules per viewport: desktop, tablet and mobile | Teams treat a presentation rule as access control, or never test the hidden state |
+| Per-block custom CSS | CSS for a single block instance in the block inspector, gated by `edit_css` | Wrapper blocks expose unsafe or misleading styling surfaces unless they opt out |
+| Dimensions support | Width, height and dimension size presets | `theme.json` tokens drift and block support configuration becomes inconsistent |
 | Text indent | Native `textIndent` typography support | Legacy CSS overrides conflict with the new block support |
 
 ## Pattern editing: content-only is the new default
 
-The pattern-editing dev note says unsynced patterns and template parts inserted into the editor now default to content-only editing more broadly. If your block expects editors to reach inner blocks, reorder children or use block-level controls inside a pattern, retest those flows. Core names toolbar controls, sidebar panels, List View visibility and entity navigation as areas that behave differently without full block access.
+Content-only editing means editors can change the content inside a pattern without full access to the blocks that build it. The pattern-editing dev note says unsynced patterns and template parts inserted into the editor now get this mode by default in more cases. Core names the areas that behave differently without full block access: toolbar controls, sidebar panels, List View visibility and entity navigation.
+
+If your block expects editors to reach inner blocks, reorder children or use block-level controls inside a pattern, those flows need a retest. For example, if a custom container block puts its main setting in a toolbar button, an editor working inside a content-only pattern may not see that button where they expect it.
 
 ```mermaid
 flowchart TD
@@ -49,24 +51,26 @@ add_filter( 'block_editor_settings_all', function( $settings ) {
 ```
 
 :::tip[Treat the filter as temporary]
-The filter makes the old flows work again, which proves that the filter works and tells you nothing about the pattern. My call: if a pattern only works when editors can reach every inner block, it carries too much structure. Move that structure out, then remove the filter.
+The filter makes the old flows work again. That proves the filter works and tells you nothing about the pattern. My call: if a pattern only works when editors can reach every inner block, it carries too much structure. Move that structure out, then remove the filter.
 :::
+
+The check is to open each custom pattern without the filter and edit it the way an editor would. Whatever stops working is the list of structure to move.
 
 ## Block visibility: presentation, not authorization
 
-WordPress 7.0 lets blocks be shown or hidden per device class, and the dev note documents `mobile`, `tablet` and `desktop` visibility state in block metadata. Editorial teams need fewer one-off responsive utility classes and duplicate pattern variants. Plugin authors can ship curated patterns that carry visibility metadata out of the box.
+WordPress 7.0 lets a block be shown or hidden per device class. The dev note documents `mobile`, `tablet` and `desktop` visibility state stored in block metadata, the data saved with the block. Editorial teams need fewer one-off responsive utility classes and duplicate pattern variants, and plugin authors can ship curated patterns that carry visibility metadata out of the box.
 
 | Question | What the dev note describes |
 |---|---|
 | Where the rule lives | Block metadata with `mobile`, `tablet` and `desktop` state |
-| How it works | CSS-driven viewport behavior |
+| How it works | Viewport behavior driven by CSS |
 | What it protects | It is not described as a permission or data-protection boundary |
 
 :::warning[Hidden is not protected]
 A block hidden on mobile stays away from mobile readers, as long as none of them opens the page source. This is my reading of the dev note, which describes metadata and CSS behavior and says nothing about permissions. Sensitive content still needs server-side or capability-based protection.
 :::
 
-The migration risk is mostly about meaning:
+The migration risk is mostly about meaning, so the audit looks at what your code already promises:
 
 - Audit any custom block inspector UI that already offers responsive hide and show.
 - Check whether your patterns or reusable blocks duplicate visibility logic that core now provides.
@@ -74,7 +78,7 @@ The migration risk is mostly about meaning:
 
 ## Per-block custom CSS: decide block by block
 
-Editors can now add CSS to individual block instances in the block inspector. The CSS is stored in `style.css`, needs no selector, is gated by the `edit_css` capability, applies live in the editor, and can override both defaults and Global Styles block-type CSS. That removes a lot of theme and agency workaround code, and it gives every block author a new question: should this block expose instance-level CSS at all?
+Editors can now add CSS to a single block instance in the block inspector. The dev note says this CSS is stored in `style.css`, needs no selector, is gated by the `edit_css` capability, applies live in the editor, and can override both defaults and Global Styles block-type CSS. It removes a lot of theme and agency workaround code, and it hands every block author a new question: should this block expose instance-level CSS at all?
 
 ```mermaid
 flowchart TD
@@ -84,7 +88,7 @@ flowchart TD
     D --> E[Retest root classes and markup with injected CSS]
 ```
 
-If the answer is no, core provides the opt-out:
+If the answer is no, core provides the opt-out in the block's `supports`:
 
 ```json
 {
@@ -98,7 +102,7 @@ I would disable it on blocks that wrap opaque markup, render fragile structures 
 
 ## Dimensions: one size palette in theme.json
 
-The dimensions dev note matters more to theme authors than its changelog line suggests. Blocks can opt into width and height controls, and `theme.json` gets `settings.dimensions.dimensionSizes` presets, so a theme defines a controlled size palette once and blocks consume it consistently.
+The dimensions dev note matters more to theme authors than its changelog line suggests. Blocks can opt into width and height controls, and `theme.json` gets `settings.dimensions.dimensionSizes` presets. A theme defines a controlled size palette once, and blocks consume it consistently.
 
 ```json
 {
@@ -111,11 +115,11 @@ The dimensions dev note matters more to theme authors than its changelog line su
 }
 ```
 
-The hard part is governance, not syntax. If sizing tokens already live in block styles, editor CSS and bespoke controls, that is three sources of truth for a width, and 7.0 adds a fourth unless the first three move. My call: consolidate them into `theme.json` presets now instead of extending them further.
+The hard part is governance, not syntax. If sizing tokens already live in block styles, editor CSS and bespoke controls, a width has three sources of truth, and 7.0 adds a fourth unless the first three move. My call: consolidate them into `theme.json` presets now instead of extending them further.
 
 ## Text indent: delete the workarounds
 
-WordPress 7.0 adds native `textIndent` block support, and the Paragraph block is the first core adopter. Core calls it a long-requested typography capability and positions it as native support that avoids custom CSS. The value for maintainers is what they get to delete:
+WordPress 7.0 adds native `textIndent` block support, and the Paragraph block is the first core block to use it. Core calls it a long-requested typography capability and positions it as native support that avoids custom CSS. For maintainers, the value is the list of things they get to delete:
 
 - custom editor styles that exist only for first-line indentation
 - frontend-only CSS that does not round-trip through the editor

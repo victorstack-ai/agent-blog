@@ -11,13 +11,15 @@ image: https://victorstack-ai.github.io/agent-blog/img/vs-social-card.png
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Most multi-agent failures are orchestration failures, and a smarter model does not repair a handoff that never said what done means. Before I tune any model, I would implement four controls: typed handoffs, explicit state contracts, task-level evals and transactional rollback. GitHub's engineering deep dive, published on February 24, shows the same core pattern.
+Most multi-agent failures are orchestration failures, and a smarter model does not repair a handoff that never said what done means. Before I tune any model, I would implement four controls: typed handoffs, explicit state contracts, step-level evals and transactional rollback. GitHub's engineering deep dive, published on February 24, shows the same core pattern.
 
 <!-- truncate -->
 
-## Where multi-agent workflows break
+## Four failure patterns in multi-agent workflows
 
-The deep dive covers what happens when a single coding assistant becomes several specialized agents. The pain points are practical, and none of them is about model intelligence:
+The deep dive covers what happens when a single coding assistant becomes several specialized agents. In this post I use three roles as examples: a planner, an implementer and a verifier. A handoff is the moment one agent passes its work to the next.
+
+The pain points the deep dive lists are practical, and none of them is about model intelligence:
 
 1. Handoffs are ambiguous, so downstream agents infer missing context.
 2. Shared state mutates without schema discipline, causing drift and duplication.
@@ -30,9 +32,9 @@ The last one is the most expensive. "Start over" has the precision of turning th
 One weak handoff can trigger a cascade of retries across the planner, implementer and verifier roles. That failure costs both tokens and time.
 :::
 
-## Controls mapped to failure patterns
+## One control per failure pattern
 
-Reliability comes from workflow design before model tuning. Each failure pattern gets one control and one rollback trigger.
+I put workflow design before model tuning. The table maps five failure patterns: the four pain points above, plus retry storms, which is the cascade of retries from the warning above. Each pattern gets one control and one rollback trigger, which is the condition that sends the run back to its last good checkpoint.
 
 | Failure pattern from GitHub deep dive | Reliability control | Implementation detail | Rollback trigger |
 |---|---|---|---|
@@ -42,9 +44,11 @@ Reliability comes from workflow design before model tuning. Each failure pattern
 | Retry storms | Bounded retries + policy routing | Max retries per class (`format`, `tool`, `logic`) | Retry budget exhausted |
 | Full restart recovery | Transactional checkpoints | Snapshot repo + plan after each passed gate | Gate fails after side effects |
 
-## The handoff envelope
+## The typed handoff envelope
 
-Every inter-agent transfer uses a strict JSON envelope. An agent that infers missing context is guessing on the token budget, which is the most expensive way to read a ticket. The fix is a set of required keys, `goal`, `constraints`, `artifacts` and `done_criteria`, with the envelope rejected at the boundary when any of them is missing.
+The envelope is a strict JSON object that every agent emits when it passes work to the next one. An agent that infers missing context is guessing on the token budget, which is the most expensive way to read a ticket. For example, if the planner sends a goal with no `done_criteria`, the implementer has to decide on its own when the fix is finished.
+
+The fix is a set of required keys, `goal`, `constraints`, `artifacts` and `done_criteria`, with the envelope rejected at the boundary when any of them is missing.
 
 ```json title="handoff-envelope.json" showLineNumbers
 {
@@ -61,11 +65,15 @@ Every inter-agent transfer uses a strict JSON envelope. An agent that infers mis
 }
 ```
 
-> This mirrors GitHub's emphasis on explicit structure in tool inputs and outputs, and it keeps downstream behavior deterministic.
+This mirrors GitHub's emphasis on explicit structure in tool inputs and outputs, and it means the downstream agent no longer has to guess the goal, constraints or finish line. The `state_version` field ties each handoff to a numbered state, so the receiving agent knows which version of shared state it is working on.
 
 ## The state and eval loop
 
-Checks run after every agent output, and retries have a budget. A retry loop without a budget is `while (true)` with an invoice attached. A max retry count per failure class (`format`, `tool`, `logic`) turns it into a decision: when the budget runs out, the workflow rolls back to the last checkpoint and escalates with a failure report.
+An eval is a check that runs on an agent's output and returns pass or fail. Here the checks run after every agent output, and retries have a budget. A retry loop without a budget is `while (true)` with an invoice attached.
+
+A max retry count per failure class (`format`, `tool`, `logic`) turns the loop into a decision. On a pass, the workflow commits a checkpoint and increments `state_version`. When the budget runs out, the workflow rolls back to the last checkpoint and escalates with a failure report.
+
+The immutable event log per step is there so a failed run can be replayed and traced to the step that broke it.
 
 ```mermaid
 flowchart TD
@@ -125,7 +133,7 @@ Each step gets checked before the next agent sees its output. The format, tool a
 </TabItem>
 </Tabs>
 
-The policy eval adds constraint checks such as `no-depr-api` and `no-secret` on top of the others.
+A fourth type, the policy eval, adds constraint checks such as `no-depr-api` and `no-secret` on top of the others.
 
 | Eval type | Example check | Why it matters |
 |---|---|---|
@@ -134,7 +142,7 @@ The policy eval adds constraint checks such as `no-depr-api` and `no-secret` on 
 | Task eval | Unit target passed for scoped files | Catches regressions before the next handoff |
 | Policy eval | Constraints respected (`no-depr-api`, `no-secret`) | Keeps compliance and security intact |
 
-A deprecation warning lets a bad step pass with a note attached. My call is to make it a hard stop.
+A deprecation warning lets a bad step pass with a note attached, and the next agent builds on it anyway. My call is to make it a hard stop.
 
 :::tip[Deprecation is a failure]
 Treat deprecated APIs and deprecated workflow patterns as an immediate eval failure, not a warning. When an agent proposes a deprecated hook, function or integration path, fail fast and route it back with a replacement hint in the envelope.
@@ -142,7 +150,7 @@ Treat deprecated APIs and deprecated workflow patterns as an immediate eval fail
 
 ## Agent lifecycle states
 
-Every run ends either checkpointed and back to idle, or rolled back and escalated with a report. No state leads to "start again from scratch".
+Every run ends in one of two ways: checkpointed and back to idle, or rolled back and escalated with a report. No state leads to "start again from scratch".
 
 ```mermaid
 stateDiagram-v2
@@ -169,13 +177,9 @@ stateDiagram-v2
 - [ ] Add deprecation check to policy eval
 - [x] Wire eval results into monitoring/alerting
 
-## What I learned
+To check that the controls work, I would test the failure paths, not the happy path. Send an envelope without `done_criteria` and confirm the boundary rejects it. Then exhaust a retry budget and confirm the run ends in `RolledBack` and `Escalated` with a failure report, not in a full restart.
 
-- Multi-agent reliability is mostly an interface design problem: handoff contracts beat prompt tweaks.
-- State versioning plus event logs makes incident replay and root cause analysis much faster.
-- Step-level evals reduce blast radius and token waste because bad branches are cut early.
-- Rollback has to be first-class. Without it, every failure becomes a full restart.
-- A deprecation gate is cheap insurance against subtle breakage during upgrades.
+The controls have limits. The envelope check proves the keys exist, not that `done_criteria` is correct, so the task eval still has to catch a wrong goal. A snapshot of repo and plan after every passed gate also adds a cost to each step, which I accept because a full restart pays the whole token bill again.
 
 <details>
 <summary>Related posts</summary>

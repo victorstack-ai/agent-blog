@@ -1,6 +1,6 @@
 ---
 slug: 2026-02-28-cloudflare-toxic-combinations-compound-signal-checklist
-title: "Cloudflare's Toxic Combinations as a Compound-Signal Checklist"
+title: "Cloudflare's toxic combinations as a compound-signal checklist"
 authors: [VictorStackAI]
 tags: [devops, security, ci-cd, agents, playbook]
 image: https://victorstack-ai.github.io/agent-blog/img/2026-02-28-cloudflare-toxic-combinations-compound-signal-checklist.png
@@ -11,7 +11,7 @@ date: 2026-02-28T20:30:00
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Two valid changes to the same service inside fifteen minutes at 2 a.m. is where the outage lives, and single-metric dashboards stay green the whole time. Cloudflare wrote a postmortem about this blind spot: stacked low-signal anomalies that every alert checks alone and nobody checks together. I turned it into an enforceable playbook so the next on-call does not have to learn it during an incident.
+Two valid changes to the same service inside fifteen minutes at 2 a.m. is where the outage lives, and single-metric dashboards stay green the whole time. Cloudflare wrote a postmortem about this blind spot: stacked low-signal anomalies that every alert checks alone and nobody checks together. I turned it into an enforceable playbook, so the next on-call learns the pattern from a document and not from an incident.
 
 <!-- truncate -->
 
@@ -24,19 +24,21 @@ Two valid changes to the same service inside fifteen minutes at 2 a.m. is where 
 
 </details>
 
-## How toxic combinations work
+## Toxic combinations defined
 
 > "Incidents often come from individually normal events that become dangerous only when correlated in a short time window."
 >
 > Cloudflare, [The Curious Case of Toxic Combinations](https://blog.cloudflare.com/the-curious-case-of-toxic-combinations/)
 
+A toxic combination needs two kinds of signal. A control-plane signal is a change to how the system is configured: a deploy, a config change, a policy update. A data-plane signal is a symptom on the request path that users hit: latency, errors, timeouts.
+
 :::info[Context]
-Single-metric alerting fails here. Each signal below is normal on its own and would not trigger an alert. The danger is the combination. The fix is a playbook that defines which low signals to pair, a correlation window for each pair, and escalation thresholds tied to blast radius.
+Single-metric alerting fails here. Each signal in the playbook below is normal on its own and would not trigger an alert; the danger is the pair. The fix is a playbook that names which low signals to pair, gives each pair a correlation window, and ties escalation thresholds to blast radius, meaning how much of the system and its users a failure can reach.
 :::
 
-## Why per-signal alerting misses them
+## The gap that per-signal alerting leaves
 
-Every control in this chain does its job correctly. The outage happens in the gap between them, and no control is responsible for the gap.
+Every control in this chain passes its own test. The outage happens in the gap between them, and no control owns the gap.
 
 1. A change is valid in isolation.
 2. Another change is also valid in isolation.
@@ -44,11 +46,13 @@ Every control in this chain does its job correctly. The outage happens in the ga
 4. No control evaluates the combination in real time.
 5. A low-probability overlap becomes a high-impact outage.
 
-My call: write the pairs down before adding any new tooling. Step 4 is the missing piece, and the playbook below is that list of pairs with windows and thresholds.
+Take TC-02 from the playbook below. A WAF managed-rule update is a routine change, and a 1.5x rise in 403 responses on authenticated paths does not page anyone by itself. Two quiet signals, one loud problem.
+
+My call: write the pairs down before adding any new tooling. Step 4 is the missing piece, and the playbook below is that list of pairs, with windows and thresholds.
 
 ## Alert-correlation playbook
 
-Each row pairs one change with one symptom, gives the pair a window, and names the condition that is worth waking someone for.
+Each row pairs one change with one symptom, gives the pair a window, and names the condition worth waking someone for. The second tab maps triggers to severity tiers, from SEV-3 (lowest) to SEV-1 Critical.
 
 <Tabs>
 <TabItem value="combos" label="Toxic Combinations">
@@ -79,7 +83,7 @@ Each row pairs one change with one symptom, gives the pair a window, and names t
 
 ## Correlation rules to implement first
 
-Start with deterministic rules before ML anomaly scoring. My call: at 2 a.m., a rule the on-call can read is worth more than a score they have to trust.
+Start with deterministic rules, meaning fixed if-then conditions a person can read, before ML anomaly scoring. My call: at 2 a.m., a rule the on-call can read is worth more than a score they have to trust.
 
 ```mermaid
 flowchart TD
@@ -103,6 +107,8 @@ flowchart TD
 4. Attach runbook links by combo ID (`TC-01` to `TC-08`) in the page payload.
 5. Promote to the next severity tier if the condition persists for 2 windows.
 
+The limitation is plain: a deterministic rule catches only the pairs someone wrote down. The weekly review in the CI section exists to keep that list current.
+
 ## Pre-deploy checklist for agent workflows
 
 Agent-driven deployments tend to evaluate each change alone. An agent that approves two safe changes separately has done two correct reviews and zero useful ones.
@@ -121,7 +127,7 @@ Agent-driven deployments tend to evaluate each change alone. An agent that appro
 | 10 | Ownership clarity: single incident commander for this combined risk surface? | Advisory |
 
 :::caution[Reality Check]
-If any answer is "no" for items 4, 5, 8 or 9, block autonomous merge and deploy, and require human approval. Most agent-driven deployments break here because they never consider compound risk. Two safe changes can still produce one unsafe deployment.
+If any answer is "no" for items 4, 5, 8 or 9, block autonomous merge and deploy, and require human approval. An agent that reviews each change alone has no step that asks whether two changes fail together, so these four items are where the gate has to live. Two safe changes can still produce one unsafe deployment.
 :::
 
 <details>
@@ -137,7 +143,7 @@ If any answer is "no" for items 4, 5, 8 or 9, block autonomous merge and deploy,
 
 ## Agent and CI implementation
 
-The same logic belongs in the pipeline, so the check runs before the change ships and not only after users feel it.
+The toxic combinations pattern maps onto agent and CI workflows, where several automated changes can land in the same window without checking each other. So the same logic belongs in the pipeline, where it runs before the change ships and not only after users feel it.
 
 | Step | Action |
 |---|---|
@@ -147,7 +153,7 @@ The same logic belongs in the pipeline, so the check runs before the change ship
 | 4 | Require two-key approval for any deploy touching control-plane + auth/routing paths |
 | 5 | Emit `toxic_combination_candidate` events and review them weekly, including near misses |
 
-Step 5 keeps the pair list current. Near misses are the labeled data that ML scoring needs later.
+Step 5 keeps the pair list current. Near misses from production are also the labeled data that ML scoring needs later, which is why ML goes on top of the rules and not in place of them.
 
 ## Checklist to run before the next deploy
 
@@ -157,13 +163,6 @@ Step 5 keeps the pair list current. Near misses are the labeled data that ML sco
 - [ ] Checklist items 4, 5, 8 and 9 block autonomous merge and deploy.
 - [ ] Every component rolls back independently in under 5 minutes.
 - [ ] The kill-switch for the new interaction path is verified.
-
-## Takeaways
-
-- Cloudflare's toxic combinations pattern maps onto agent and CI workflows where several automated changes land in the same window without checking each other.
-- Per-signal alerting will keep missing these incidents. Compound-signal detection catches the overlaps.
-- The pre-deploy checklist turns postmortem hindsight into gates that run before code ships.
-- Deterministic correlation rules first. ML anomaly scoring goes on top once there is labeled data from production near misses.
 
 ## References
 

@@ -11,7 +11,7 @@ date: 2026-02-06T18:08:00
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-A scanner that only reports broken entity references hands you a well-formatted list of manual work. The first version of `drupal-entity-reference-integrity` did that. This upgrade adds an auto-fix mode, batch processing and the tests needed to trust both in production.
+A scanner that only reports broken entity references hands you a well-formatted list of manual work. The first version of `drupal-entity-reference-integrity` did exactly that. This upgrade adds an opt-in auto-fix mode, batch processing for large sites and the tests needed to trust both in production.
 
 <!-- truncate -->
 
@@ -20,26 +20,28 @@ A scanner that only reports broken entity references hands you a well-formatted 
 
 - `drush entity-reference-integrity:scan` reports broken references as table, CSV or JSON.
 - `--fix` removes them and saves the entities. It is opt-in, so the default run writes nothing.
-- `--batch-size` (default 50) keeps large sites clear of memory exhaustion and timeouts.
+- `--batch-size` (default 50) loads and processes entities in fixed-size cycles on large sites.
 - 9 PHPUnit tests run on mocked entity storage, with no database.
 
 </details>
 
-## What the upgrade changes
+## Changes in the upgrade
 
-The original module scanned entity reference fields and printed a report. It was useful for audits and useless for remediation, because every broken reference still had to be fixed by hand.
+An entity reference field stores a pointer to another entity, such as a media item, a taxonomy term or a node. When the target is deleted and the field is not cleaned, the pointer stays and points at nothing. That is a broken reference.
+
+The original module scanned these fields and printed a report. It was useful for audits and useless for remediation, because every broken reference still had to be fixed by hand.
 
 | | First version | Upgraded module |
 |---|---|---|
 | Broken references | Reported | Reported, or removed with `--fix` |
-| Fixing them | Manual editing, or exporting config and grepping YAML | Field cleaned and entity saved by the command |
+| Fixing them | Manual editing, or exporting config and grepping YAML | The command cleans the field and saves the entity |
 | Large sites | Not addressed | Processed in batches, 50 entities by default |
 | Output | Table, CSV, JSON | Table, CSV, JSON |
 
-The two new capabilities:
+The upgrade adds two capabilities:
 
 - **Auto-fix mode.** Pass `--fix` to the Drush command and the module removes broken references from entity fields and saves the entities.
-- **Batch processing.** `--batch-size` (default 50) sets how many entities are loaded and processed per cycle. The scanner processes one batch, flushes, and moves to the next, so sites with tens of thousands of nodes no longer risk memory exhaustion or a timeout.
+- **Batch processing.** `--batch-size` (default 50) sets how many entities are loaded and processed per cycle. The scanner processes one batch, flushes and moves to the next, so a site with tens of thousands of nodes does not load every entity at once and no longer risks memory exhaustion or a timeout.
 
 ```mermaid
 flowchart TD
@@ -64,7 +66,7 @@ Both modes share the same batch loop. The only difference is whether a finding g
 
 ## Commands: scan first, then fix
 
-A command that deletes data by default would be fast in the worst way. Here the default is a non-destructive scan, and writes only happen when you ask for them.
+A command that deletes data by default would be fast in the worst way. Here the default is a non-destructive scan, and writes happen only when you ask for them.
 
 :::tip[Dry Scan First, Then Fix]
 `--fix` is opt-in on purpose. Run a dry scan, review the report, then re-run with `--fix`. On large sites this is how you confirm the scope of the changes before any entity gets saved.
@@ -96,7 +98,7 @@ The JSON and CSV reports are the review artifact. Keep the one from the dry scan
 
 ## Batch size on large sites
 
-The default of 50 is conservative. My call is to start there and tune only when a run tells you to.
+The default of 50 is conservative. My call is to start there and tune only when a run gives you a reason.
 
 :::caution[Batch Size Matters on Large Sites]
 On sites with tens of thousands of nodes, raise `--batch-size` for speed or lower it if memory is tight. Watch PHP's `memory_limit` and the Drush timeout settings while you tune it.
@@ -116,7 +118,7 @@ On sites with tens of thousands of nodes, raise `--batch-size` for speed or lowe
 
 9 PHPUnit tests cover the scanner, the auto-fix logic, the batch boundaries and the output formatting. Entity storage, field definitions and entity references are all mocked, and every code path that touches entity data is covered.
 
-Mocked tests prove the logic and say nothing about your data, which has never read the mocks. That is the dry scan's job: the tests show the command removes the right things, and the report shows what the right things are on your site.
+That is the limitation. Mocked tests prove the logic and say nothing about your data, which has never read the mocks. The tests show the command removes the right things; the dry scan report shows what the right things are on your site.
 
 <details>
 <summary>Test coverage areas</summary>
@@ -131,9 +133,9 @@ Mocked tests prove the logic and say nothing about your data, which has never re
 
 </details>
 
-## Where broken references come from
+## Common sources of broken references
 
-Broken entity references are one of the most common data integrity problems on Drupal sites with complex content models. Agencies usually clean them up by hand with database queries, a process whose audit trail is whatever someone remembered to paste into a ticket.
+Broken entity references are one of the most common data integrity problems on Drupal sites with complex content models. Agencies usually clean them up by hand with database queries, and the audit trail is whatever someone remembered to paste into a ticket.
 
 - Paragraphs referencing deleted media.
 - Taxonomy terms pointing to removed vocabularies.
@@ -143,7 +145,7 @@ The module replaces the hand-written queries with one command and a saved report
 
 ## Detection without remediation
 
-A report with no fix path tends to sit in someone's inbox while the data stays broken. Auto-fix changes the workflow to scan, review, apply, and batch processing makes that workflow run on sites where entity counts are in the tens of thousands.
+A report with no fix path tends to sit in someone's inbox while the data stays broken. Auto-fix turns the workflow into scan, review, apply, and batch processing lets that workflow run on sites where entity counts are in the tens of thousands.
 
 ```mermaid
 stateDiagram-v2
@@ -163,13 +165,6 @@ Because `--fix` is opt-in, the module can be added to an existing site without r
 - [ ] Start with the default `--batch-size` of 50 and adjust only when memory or speed requires it.
 - [ ] Re-run with `--fix`.
 - [ ] Run the dry scan again and confirm the report is clean.
-
-## What I learned
-
-- Detection alone moves the problem to someone's inbox. A fix path is what closes it.
-- Destructive flags belong behind an explicit opt-in, with the safe run as the default.
-- Batching with a flush between cycles is what lets one command run on a large site.
-- Mocked tests check the logic. The dry scan checks the data.
 
 ## References
 

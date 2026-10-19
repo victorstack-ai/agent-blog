@@ -7,11 +7,10 @@ image: https://victorstack-ai.github.io/agent-blog/img/build-config-sync.png
 description: "A WordPress plugin that exports, diffs, imports and rolls back site settings as provider-based YAML, with one workflow across admin, REST and WP-CLI."
 date: 2026-03-10T08:10:00
 ---
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-WordPress configuration usually lives in `wp-admin` as tribal memory. I built **SyncForge Config Manager** to export it to YAML, diff it, import it with guardrails and roll it back when a release goes sideways. The YAML is the boring part. The value is one deterministic workflow across admin UI, REST and WP-CLI instead of three behaviors that are almost the same.
+WordPress site configuration usually lives in `wp-admin` and in the memory of whoever changed it last. I built **SyncForge Config Manager** to export that configuration to YAML, diff it, import it with guardrails and roll it back when a release goes wrong. The YAML is the boring part; the value is one deterministic workflow across the admin UI, REST and WP-CLI, instead of three interfaces that behave almost the same.
 
 <!-- truncate -->
 
@@ -25,22 +24,24 @@ WordPress configuration usually lives in `wp-admin` as tribal memory. I built **
 
 </details>
 
-## The problem: configuration drift
+## Configuration drift and the database dump
 
-A database dump is not config management. It is mostly a panic button.
+Configuration drift means two environments that should match no longer do, and nothing in the release process recorded the change. A database dump is not config management. It is mostly a panic button.
 
-What breaks teams is drift that normal release pipelines do not track:
+The drift that hurts teams is the kind normal release pipelines do not track:
 
 - options changed in `wp-admin`
 - theme mods changed in one environment only
 - widget trees drifting without anyone noticing
 - rewrite config that differs after one plugin update
 
+For example, suppose a theme mod changes on staging only. Production keeps the old value, the deploy goes green, and the difference shows up later as a page that looks wrong in one place.
+
 > "Export, import, and sync WordPress site configuration as YAML files across environments."
 >
 > - SyncForge Config Manager README, [GitHub](https://github.com/victorstack-ai/config-sync/blob/main/README.md)
 
-## Why I built a plugin instead of installing one
+## Building a plugin instead of installing one
 
 The first question was whether a maintained WordPress plugin already did this. I did not find one that combined the pieces that matter in delivery work.
 
@@ -53,9 +54,9 @@ The first question was whether a maintained WordPress plugin already did this. I
 
 That gap is the only reason the plugin exists. If a maintained plugin had covered those boundaries, writing another one would have been waste.
 
-## How it works: one path for three interfaces
+## One path for three interfaces
 
-The plugin boots a container, registers providers, then hands every operation to `ConfigManager`. Providers define how each config domain maps between database state and YAML files.
+The plugin boots a container, registers providers, then hands every operation to `ConfigManager`. A provider owns one config domain, such as menus or roles, and defines how that domain maps between database state and YAML files.
 
 ```mermaid
 flowchart TD
@@ -73,7 +74,7 @@ flowchart TD
   M[Admin UI Tools > SyncForge] --> L
 ```
 
-The admin UI goes through REST, and REST and WP-CLI both land on `ConfigManager`. A bug fixed there is fixed in all three places.
+The admin UI goes through REST, and REST and WP-CLI both land on `ConfigManager`. A bug fixed there is fixed in all three places, which is the whole argument for the design.
 
 <Tabs>
 
@@ -107,7 +108,7 @@ wp syncforge discover --track-all
 
 ## The import pipeline in ConfigManager
 
-`ConfigManager` does the work in a fixed order. Nothing reaches a provider without passing validation and sanitization first.
+`ConfigManager` runs imports in a fixed order, and nothing reaches a provider without passing validation and sanitization first. A dry-run is the same pipeline with a different last step: the provider reports the result through `dry_run()`, and `import()` is never called.
 
 ```mermaid
 flowchart TD
@@ -122,7 +123,7 @@ flowchart TD
   G -->|no| I[provider import]
 ```
 
-The per-provider step looks like this:
+The per-provider step is below. The two highlighted lines are the ones that matter: environment overrides are applied before validation, so an override cannot slip past the schema, and sanitization runs before the provider sees the data.
 
 ```php title="syncforge-config-manager/src/ConfigManager.php" showLineNumbers
 private function do_import_provider( Provider\ProviderInterface $provider, bool $dry_run ): array {
@@ -154,9 +155,11 @@ private function do_import_provider( Provider\ProviderInterface $provider, bool 
 }
 ```
 
+If the config fails validation after overrides are applied, `ConfigManager` throws a `RuntimeException` that names the provider and the validation error, and that provider's data never reaches `import()`. This method handles one provider and contains no rollback of its own; how the caller handles a failure is outside this excerpt. Before relying on a multi-provider import, confirm whether a failed provider leaves earlier providers written, and confirm a snapshot exists so the rollback route has a target.
+
 ## Option discovery without a hardcoded plugin list
 
-A hardcoded list of plugin options is out of date the day after the next plugin install. Discovery classifies keys by pattern instead, then groups them by plugin slug, or `misc` when ownership is ambiguous.
+A hardcoded list of plugin options is out of date the day after the next plugin install. Discovery classifies option keys by pattern instead, then groups them by plugin slug, or under `misc` when ownership is ambiguous.
 
 ```php title="syncforge-config-manager/src/Admin/OptionDiscovery.php" showLineNumbers
 private const RUNTIME_KEYWORDS = array(
@@ -185,9 +188,11 @@ private const RUNTIME_SUFFIXES = array(
 
 These patterns keep runtime state such as nonces, sessions, counters and version markers out of the YAML. WordPress hides a lot of mutable state in options, so this filter decides whether the export is config or noise.
 
+Suppose a key containing `_last_run` changes each time its job runs. If that key were committed, every export after a job run would show a new diff line. In my judgment, a diff that is always noisy is a diff people stop reading.
+
 ## Providers and their dependencies
 
-Each provider declares what it depends on, which is what makes the topological sort possible. Menus, widgets, theme mods and rewrite rules all wait for `options`.
+Each provider declares what it depends on, which lets `ConfigManager` run a topological sort: an ordering where every provider runs after the providers it depends on. Menus, widgets, theme mods and rewrite rules all wait for `options`.
 
 | Provider ID | Dependency | File strategy |
 |---|---|---|
@@ -227,17 +232,17 @@ The project moved from generic `config-sync` branding to `syncforge-config-manag
 
 ## Known gaps
 
-Two things are not finished, and both are drift of the kind the plugin exists to catch. The code defaults to `wp-content/syncforge-config-manager`, while the docs still mention `wp-content/config-sync/`, which is a fair live demonstration of the problem.
+Two things are not finished, and both are drift of the kind the plugin exists to catch. The code defaults to `wp-content/syncforge-config-manager`, while the docs still mention `wp-content/config-sync/`. A config drift tool with drift between its code and its docs is a fair live demonstration of the problem.
 
-:::caution[Capability Model Is Split]
+:::caution[Capability model is split]
 REST checks `manage_config_sync`, while parts of admin and ZIP handling check `manage_options`. If you run this with delegated ops roles, unify the capability checks before someone finds an action that works in one interface and is blocked in another.
 :::
 
-## Use dry-run as a release gate
+## Dry-run as a release gate
 
 The tooling is there. What is missing is the habit of running it before production, and no plugin ships that.
 
-:::tip[Use Dry-Run as a Release Gate]
+:::tip[Use dry-run as a release gate]
 Make `wp syncforge diff` and `wp syncforge import --dry-run` mandatory in staging before any production import. If the diff is not reviewed, the import does not run.
 :::
 
@@ -251,13 +256,11 @@ Make `wp syncforge diff` and `wp syncforge import --dry-run` mandatory in stagin
 - [ ] Check that the user running the import has both `manage_config_sync` and `manage_options`.
 - [ ] Run `wp syncforge import --yes` in production.
 
-## What I learned
+## Lessons from the build
 
 - Provider contracts beat one giant "sync everything" routine. Dependencies are explicit and sortable.
 - The lock model (`config_sync_lock` in `wp_options`) is plain and good enough for admin and CLI concurrency.
-- One orchestration layer serving REST, CLI and admin reduces behavior drift between interfaces.
-- Default paths matter more than people admit. Mine already disagree with my docs.
-- WordPress keeps more mutable state in runtime options than it looks, so classification, sanitization and rollback have to be strict for this to work outside demos.
+- WordPress stores mutable state in runtime options, so classification, sanitization and rollback have to be strict for this to work outside demos.
 
 ## References
 
