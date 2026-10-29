@@ -1,0 +1,605 @@
+{
+  "timestamp": "2026-10-18T23:06:33.225212+00:00",
+  "source_hashes": {
+    "src/css/custom.css": "d85f7e545f578a28e47aa6ebd286563dc0b5fe1ddcf10cb3ae6313c1e2789692",
+    "docusaurus.config.ts": "d9501e855c2b90b410927d85bb49a403f0038e379cb93c83ec8f4c2c267c148d"
+  },
+  "build_hashes": {
+    "build/assets/css/styles.64170a73.css": "28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d"
+  },
+  "browser_versions": {
+    "chromium": "151.0.7922.34",
+    "webkit": "26.5",
+    "firefox": "153.0"
+  },
+  "console_errors": [],
+  "network_errors": [
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-5ZHGQKTFLT&gtm=45je6ae1h1v9243824798za208zd9243824798xf1&_p=1792364793430&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1236986585.1792364794&frm=0&ngs=1&pscdl=noapi&rcb=6&sr=1440x900&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=27.0.1&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938465~115938469~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034&sid=1792364793&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fagent-blog%2F&dt=Blog%20%7C%20Victor%20Jimenez%20%7C%20VictorStack&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=407",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-5ZHGQKTFLT&gtm=45je6ae1h1v9243824798za208zd9243824798xf1&_p=1792364795491&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1236986585.1792364794&frm=0&ngs=1&pscdl=noapi&rcb=5&sr=1440x900&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=27.0.1&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385423~120420415~120469145~120469153~121246026~121246034&sid=1792364793&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fagent-blog%2F2026-03-11-ally-wordpress-unauthenticated-sqli-response-playbook%2F&dt=Ally%20WordPress%20Plugin%20SQLi%3A%20A%20Repeatable%20Response%20Playbook%20%7C%20Victor%20Jimenez%20%7C%20VictorStack&en=page_view&_ee=1&tfd=22",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-5ZHGQKTFLT&gtm=45je6ae1h1v9243824798za208zd9243824798xf1&_p=1792364796979&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1236986585.1792364794&frm=0&ngs=1&pscdl=noapi&rcb=13&sr=1440x900&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=27.0.1&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938469~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034&sid=1792364793&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fagent-blog%2Fhow-i-combine-harness-loop-graph-engineering%2F&dt=How%20I%20combine%20harness%20engineering%2C%20the%20loop%20and%20the%20graph%20%7C%20Victor%20Jimenez%20%7C%20VictorStack&en=page_view&_ee=1&tfd=17",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-5ZHGQKTFLT&gtm=45je6ae1h1v9243824798za208zd9243824798xf1&_p=1792364798445&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1236986585.1792364794&frm=0&ngs=1&pscdl=noapi&rcb=13&sr=1440x900&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=27.0.1&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120213116~120385423~120469145~120469153~121246026~121246034&sid=1792364793&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fagent-blog%2Ftags%2F&dt=Tags%20%7C%20Victor%20Jimenez%20%7C%20VictorStack&en=page_view&_ee=1&tfd=15",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-5ZHGQKTFLT&gtm=45je6ae1h1v9243824798za208zd9243824798xf1&_p=1792364799748&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1236986585.1792364794&frm=0&ngs=1&pscdl=noapi&rcb=17&sr=1440x900&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=27.0.1&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938469~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034&sid=1792364793&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fagent-blog%2Farchive%2F&dt=Archive%20%7C%20Victor%20Jimenez%20%7C%20VictorStack&en=page_view&_ee=1&tfd=15",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-5ZHGQKTFLT&gtm=45je6ae1h1v9243824798za208zd9243824798xf1&_p=1792364801019&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1236986585.1792364794&frm=0&ngs=1&pscdl=noapi&rcb=8&sr=1440x900&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=27.0.1&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034&sid=1792364793&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fagent-blog%2F&dt=Blog%20%7C%20Victor%20Jimenez%20%7C%20VictorStack&en=page_view&_ee=1&tfd=13",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-5ZHGQKTFLT&gtm=45je6ae1h1v9243824798za208zd9243824798xf1&_p=1792364814065&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1236986585.1792364794&frm=0&ngs=1&pscdl=noapi&rcb=9&sr=1024x1200&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=27.0.1&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938468~118897920~118897930~120213116~120385423~120469145~120469153~121246026~121246034&sid=1792364793&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fagent-blog%2F&dt=Blog%20%7C%20Victor%20Jimenez%20%7C%20VictorStack&en=page_view&_ee=1&tfd=5048",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-5ZHGQKTFLT&gtm=45je6ae1h1v9243824798za208zd9243824798xf1&_p=1792364830294&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=1236986585.1792364794&frm=0&ngs=1&pscdl=noapi&rcb=6&sr=1440x900&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=27.0.1&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938469~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034&sid=1792364793&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fagent-blog%2Fhow-i-combine-harness-loop-graph-engineering%2F&dt=How%20I%20combine%20harness%20engineering%2C%20the%20loop%20and%20the%20graph%20%7C%20Victor%20Jimenez%20%7C%20VictorStack&en=page_view&_ee=1&tfd=640",
+      "failure": "net::ERR_ABORTED"
+    }
+  ],
+  "axe_scans": {
+    "home": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "description": "Ensure image alternative is not repeated as text",
+        "help": "Alternative text of images should not be repeated as text",
+        "nodes": [
+          [
+            ".themedComponent_mlkZ"
+          ]
+        ]
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+        "help": "Page should contain a level-one heading",
+        "nodes": [
+          [
+            "html"
+          ]
+        ]
+      }
+    ],
+    "post_code": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "description": "Ensure image alternative is not repeated as text",
+        "help": "Alternative text of images should not be repeated as text",
+        "nodes": [
+          [
+            ".themedComponent_mlkZ"
+          ]
+        ]
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "description": "Ensure every form element has a label",
+        "help": "Form elements must have labels",
+        "nodes": [
+          [
+            ".task-list-item:nth-child(1) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(2) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(3) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(4) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(5) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(6) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(7) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(8) > input[type=\"checkbox\"]"
+          ]
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "description": "Ensure all page content is contained by landmarks",
+        "help": "All page content should be contained by landmarks",
+        "nodes": [
+          [
+            ".col--2"
+          ]
+        ]
+      }
+    ],
+    "post_diagrams": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "description": "Ensure image alternative is not repeated as text",
+        "help": "Alternative text of images should not be repeated as text",
+        "nodes": [
+          [
+            ".themedComponent_mlkZ"
+          ]
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "description": "Ensure all page content is contained by landmarks",
+        "help": "All page content should be contained by landmarks",
+        "nodes": [
+          [
+            ".col--2"
+          ]
+        ]
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "description": "Ensure elements that have scrollable content are accessible by keyboard",
+        "help": "Scrollable region must have keyboard access",
+        "nodes": [
+          [
+            ".docusaurus-mermaid-container.container_lyt7:nth-child(17)"
+          ],
+          [
+            ".docusaurus-mermaid-container.container_lyt7:nth-child(26)"
+          ]
+        ]
+      }
+    ],
+    "tags": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "description": "Ensure image alternative is not repeated as text",
+        "help": "Alternative text of images should not be repeated as text",
+        "nodes": [
+          [
+            "img"
+          ]
+        ]
+      }
+    ],
+    "archive": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          [
+            "h1"
+          ]
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "description": "Ensure the order of headings is semantically correct",
+        "help": "Heading levels should only increase by one",
+        "nodes": [
+          [
+            "#\\32 026"
+          ]
+        ]
+      },
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "description": "Ensure image alternative is not repeated as text",
+        "help": "Alternative text of images should not be repeated as text",
+        "nodes": [
+          [
+            "img"
+          ]
+        ]
+      }
+    ]
+  },
+  "computed_styles": {
+    "home": {
+      "body": {
+        "bg": "rgb(246, 242, 231)",
+        "color": "rgb(13, 26, 45)",
+        "border": "rgb(13, 26, 45)",
+        "textDecorationColor": "rgb(13, 26, 45)"
+      },
+      "navbar": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(13, 26, 45)",
+        "border": "rgb(13, 26, 45)",
+        "textDecorationColor": "rgb(13, 26, 45)"
+      },
+      "navbarBrand": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(13, 26, 45)",
+        "border": "rgb(13, 26, 45)",
+        "textDecorationColor": "rgb(13, 26, 45)"
+      },
+      "footer": {
+        "bg": "rgb(27, 48, 75)",
+        "color": "rgb(246, 242, 231)",
+        "border": "rgba(27, 48, 75, 0.2) rgb(246, 242, 231) rgb(246, 242, 231)",
+        "textDecorationColor": "rgb(246, 242, 231)"
+      },
+      "footerLink": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(246, 242, 231)",
+        "border": "rgb(246, 242, 231)",
+        "textDecorationColor": "rgb(246, 242, 231)"
+      },
+      "h1": null,
+      "h2": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(27, 48, 75)",
+        "border": "rgb(27, 48, 75)",
+        "textDecorationColor": "rgb(232, 123, 40)"
+      },
+      "p": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(13, 26, 45)",
+        "border": "rgb(13, 26, 45)",
+        "textDecorationColor": "rgb(13, 26, 45)"
+      },
+      "btnPrimary": {
+        "bg": "rgb(232, 123, 40)",
+        "color": "rgb(13, 26, 45)",
+        "border": "rgb(13, 26, 45)",
+        "textDecorationColor": "rgb(13, 26, 45)"
+      },
+      "activeLink": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(13, 26, 45)",
+        "border": "rgb(13, 26, 45)",
+        "textDecorationColor": "rgb(232, 123, 40)"
+      },
+      "themeMeta": "#f6f2e7"
+    },
+    "code_route": {
+      "pre": {
+        "bg": "rgb(13, 26, 45)",
+        "color": "rgb(246, 242, 231)",
+        "border": "rgb(246, 242, 231)"
+      },
+      "code": {
+        "bg": "rgb(246, 242, 231)",
+        "color": "rgb(13, 26, 45)",
+        "border": "rgb(13, 26, 45)"
+      },
+      "inlineCode": null
+    }
+  },
+  "contrast_ratios": {
+    "text_on_body": {
+      "foreground": "rgb(13, 26, 45)",
+      "background": "rgb(246, 242, 231)",
+      "ratio": 15.61
+    },
+    "heading_on_body": {
+      "foreground": "rgb(27, 48, 75)",
+      "background": "rgb(246, 242, 231)",
+      "ratio": 11.95
+    },
+    "footer_text_on_footer_bg": {
+      "foreground": "rgb(246, 242, 231)",
+      "background": "rgb(27, 48, 75)",
+      "ratio": 11.95
+    },
+    "footer_link_on_footer_bg": {
+      "foreground": "rgb(246, 242, 231)",
+      "background": "rgb(27, 48, 75)",
+      "ratio": 11.95
+    },
+    "code_text_on_code_bg": {
+      "foreground": "rgb(13, 26, 45)",
+      "background": "rgb(13, 26, 45)",
+      "ratio": 1.0
+    },
+    "btn_text_on_btn_bg": {
+      "foreground": "rgb(13, 26, 45)",
+      "background": "rgb(232, 123, 40)",
+      "ratio": 6.07
+    }
+  },
+  "responsive_screenshots": [
+    {
+      "width": 320,
+      "height": 900,
+      "engine": "chromium",
+      "file": "chromium-w320.png"
+    },
+    {
+      "width": 375,
+      "height": 900,
+      "engine": "chromium",
+      "file": "chromium-w375.png"
+    },
+    {
+      "width": 430,
+      "height": 900,
+      "engine": "chromium",
+      "file": "chromium-w430.png"
+    },
+    {
+      "width": 600,
+      "height": 900,
+      "engine": "chromium",
+      "file": "chromium-w600.png"
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "engine": "chromium",
+      "file": "chromium-w768.png"
+    },
+    {
+      "width": 995,
+      "height": 900,
+      "engine": "chromium",
+      "file": "chromium-w995.png"
+    },
+    {
+      "width": 996,
+      "height": 900,
+      "engine": "chromium",
+      "file": "chromium-w996.png"
+    },
+    {
+      "width": 997,
+      "height": 900,
+      "engine": "chromium",
+      "file": "chromium-w997.png"
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "engine": "chromium",
+      "file": "chromium-w1024.png"
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "engine": "chromium",
+      "file": "chromium-w1440.png"
+    },
+    {
+      "width": 2560,
+      "height": 900,
+      "engine": "chromium",
+      "file": "chromium-w2560.png"
+    },
+    {
+      "width": 1024,
+      "height": 500,
+      "engine": "chromium",
+      "file": "chromium-short-1024x500.png"
+    },
+    {
+      "width": 1024,
+      "height": 1200,
+      "engine": "chromium",
+      "file": "chromium-tall-1024x1200.png"
+    },
+    {
+      "width": 320,
+      "scale": 2.0,
+      "engine": "chromium",
+      "file": "chromium-zoom200-w320.png"
+    },
+    {
+      "reduced_motion": "reduce",
+      "engine": "chromium",
+      "file": "chromium-reduced-motion.png"
+    },
+    {
+      "width": 375,
+      "height": 812,
+      "engine": "webkit",
+      "file": "webkit-375.png"
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "engine": "webkit",
+      "file": "webkit-1024-diagrams.png"
+    },
+    {
+      "width": 375,
+      "height": 812,
+      "engine": "firefox",
+      "file": "firefox-375.png"
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "engine": "firefox",
+      "file": "firefox-1024-diagrams.png"
+    }
+  ],
+  "interaction_tests": {
+    "keyboard_tabs": [
+      {
+        "tag": "A",
+        "text": "Skip to main content",
+        "outline": "rgb(27, 48, 75) solid 2px",
+        "outlineColor": "rgb(27, 48, 75)",
+        "outlineWidth": "2px",
+        "boxShadow": "rgba(0, 0, 0, 0.2) 0px 5px 40px 0px"
+      },
+      {
+        "tag": "A",
+        "text": "VictorStack",
+        "outline": "rgb(27, 48, 75) solid 2px",
+        "outlineColor": "rgb(27, 48, 75)",
+        "outlineWidth": "2px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "A",
+        "text": "Blog",
+        "outline": "rgb(27, 48, 75) solid 2px",
+        "outlineColor": "rgb(27, 48, 75)",
+        "outlineWidth": "2px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "A",
+        "text": "Portfolio",
+        "outline": "rgb(27, 48, 75) solid 2px",
+        "outlineColor": "rgb(27, 48, 75)",
+        "outlineWidth": "2px",
+        "boxShadow": "none"
+      },
+      {
+        "tag": "A",
+        "text": "RSS",
+        "outline": "rgb(27, 48, 75) solid 2px",
+        "outlineColor": "rgb(27, 48, 75)",
+        "outlineWidth": "2px",
+        "boxShadow": "none"
+      }
+    ],
+    "hover_link": {
+      "color": "rgb(13, 26, 45)",
+      "textDecoration": "underline 2px rgb(232, 123, 40)",
+      "textDecorationColor": "rgb(232, 123, 40)"
+    },
+    "pagination_present": true,
+    "toc_navigation": {
+      "target_href": "#the-rule-file-states-policy",
+      "final_url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/#the-rule-file-states-policy",
+      "navigated": true
+    }
+  },
+  "mermaid_checks": {
+    "count": 4,
+    "labels": [
+      {
+        "text": "",
+        "labelBg": "rgb(246, 242, 231)",
+        "textFill": "rgb(13, 26, 45)",
+        "textColor": "rgb(13, 26, 45)"
+      },
+      {
+        "text": "",
+        "labelBg": "rgb(246, 242, 231)",
+        "textFill": "rgb(13, 26, 45)",
+        "textColor": "rgb(13, 26, 45)"
+      },
+      {
+        "text": "",
+        "labelBg": "rgb(246, 242, 231)",
+        "textFill": "rgb(13, 26, 45)",
+        "textColor": "rgb(13, 26, 45)"
+      },
+      {
+        "text": "",
+        "labelBg": "rgb(246, 242, 231)",
+        "textFill": "rgb(13, 26, 45)",
+        "textColor": "rgb(13, 26, 45)"
+      },
+      {
+        "text": "pass",
+        "labelBg": "rgb(246, 242, 231)",
+        "textFill": "rgb(13, 26, 45)",
+        "textColor": "rgb(13, 26, 45)"
+      },
+      {
+        "text": "accepted",
+        "labelBg": "rgb(246, 242, 231)",
+        "textFill": "rgb(13, 26, 45)",
+        "textColor": "rgb(13, 26, 45)"
+      },
+      {
+        "text": "pass",
+        "labelBg": "rgb(246, 242, 231)",
+        "textFill": "rgb(13, 26, 45)",
+        "textColor": "rgb(13, 26, 45)"
+      },
+      {
+        "text": "fail",
+        "labelBg": "rgb(246, 242, 231)",
+        "textFill": "rgb(13, 26, 45)",
+        "textColor": "rgb(13, 26, 45)"
+      },
+      {
+        "text": "unresolved findings",
+        "labelBg": "rgb(246, 242, 231)",
+        "textFill": "rgb(13, 26, 45)",
+        "textColor": "rgb(13, 26, 45)"
+      },
+      {
+        "text": "fail",
+        "labelBg": "rgb(246, 242, 231)",
+        "textFill": "rgb(13, 26, 45)",
+        "textColor": "rgb(13, 26, 45)"
+      },
+      {
+        "text": "budget remains",
+        "labelBg": "rgb(246, 242, 231)",
+        "textFill": "rgb(13, 26, 45)",
+        "textColor": "rgb(13, 26, 45)"
+      },
+      {
+        "text": "budget exhausted",
+        "labelBg": "rgb(246, 242, 231)",
+        "textFill": "rgb(13, 26, 45)",
+        "textColor": "rgb(13, 26, 45)"
+      }
+    ]
+  },
+  "search_tests": {
+    "success": {
+      "query": "harness",
+      "items_count": 9,
+      "screenshot": "search-success.png"
+    },
+    "no_results": {
+      "query": "xyznonexistentquery999",
+      "message": "No results",
+      "screenshot": "search-no-results.png"
+    }
+  },
+  "mobile_sidebar_test": {
+    "opened": true,
+    "bg": "rgb(246, 242, 231)",
+    "closed": true,
+    "open_screenshot": "mobile-sidebar-open.png",
+    "closed_screenshot": "mobile-sidebar-closed.png"
+  },
+  "preference_tests": {
+    "dark": {
+      "requested_pref": "dark",
+      "data_theme_attr": "light",
+      "body_bg": "rgb(246, 242, 231)",
+      "body_color": "rgb(13, 26, 45)",
+      "screenshot": "chromium-pref-dark.png"
+    },
+    "light": {
+      "requested_pref": "light",
+      "data_theme_attr": "light",
+      "body_bg": "rgb(246, 242, 231)",
+      "body_color": "rgb(13, 26, 45)",
+      "screenshot": "chromium-pref-light.png"
+    }
+  }
+}

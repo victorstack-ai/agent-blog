@@ -1,0 +1,42 @@
+{
+  "artifacts": {
+    "browser": {
+      "path": "task/palette/local-release/browser.json",
+      "sha256": "f2e06bfb87d9470907d9a11127f08938eaa23e9a8dde2f39f798ec47c232d53b"
+    },
+    "build_state": {
+      "path": "task/palette/contract-final/build-state.json",
+      "sha256": "d29c0f6b80ea9d038cd98e5b8e56e85758149d984066a3620ee424e72cf490c2"
+    },
+    "content_state": {
+      "path": "task/palette/content-state.json",
+      "sha256": "b54085178accb5a93ad950f3de0e44bada2736397d4d2516543594e1c79006f2"
+    },
+    "network": {
+      "path": "task/palette/local-release/network.json",
+      "sha256": "20647cc7e50dbe6d164c0a46da6a37d81890c697d89d3725d3e91eb82e32b5c0"
+    },
+    "screenshots": {
+      "path": "task/palette/local-release/screenshots.json",
+      "sha256": "819e7999579b3bf61a02faa528d52bf26a5f0b071880888d1d5dd6fbe7cf8ef0"
+    },
+    "server_log": {
+      "path": "task/palette/local-release/server-log.json",
+      "sha256": "48f0872275f7aa477c8a767bfa007e81042a36113ac0fb7e1e126f5fb334c019"
+    }
+  },
+  "build_id": "css-sha256:8677debb92346ac03c603d706c119fcee6828c5d8362104032ebb9fb4015a1bf",
+  "content_state_id": "b54085178accb5a93ad950f3de0e44bada2736397d4d2516543594e1c79006f2",
+  "results": {
+    "body_diagnostic_matches": 0,
+    "console_errors": 0,
+    "console_warnings": 0,
+    "network_failures": 0,
+    "server_warnings": 0
+  },
+  "schema_version": 1,
+  "ticket": "BLOG-PALETTE-20261018",
+  "urls": [
+    "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/"
+  ]
+}

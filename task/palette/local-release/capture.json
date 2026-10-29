@@ -1,0 +1,175 @@
+{
+  "artifacts": {
+    "browser": {
+      "path": "task/palette/local-release/browser.json",
+      "sha256": "f2e06bfb87d9470907d9a11127f08938eaa23e9a8dde2f39f798ec47c232d53b"
+    },
+    "network": {
+      "path": "task/palette/local-release/network.json",
+      "sha256": "20647cc7e50dbe6d164c0a46da6a37d81890c697d89d3725d3e91eb82e32b5c0"
+    }
+  },
+  "browser_version": "151.0.7922.34",
+  "completed": true,
+  "completed_at": "2026-10-18T23:14:52.649011+00:00",
+  "preflight_sha256": "b8e5f2399111c59ebe06b92aabb088908268026271a4d75ded256ff1fc8cf3de",
+  "producer": "shared-playwright",
+  "schema_version": 1,
+  "screenshots": [
+    {
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "capture_id": "paper-320",
+      "captured_at": "2026-10-18T23:14:46.222381+00:00",
+      "evidence_class": "ui",
+      "path": "task/palette/local-release/qa-paper-320-css-sha256-8-b8e5f23991.png",
+      "sha256": "4c1e9ad7caf8776254d97fce553ab4b4c1d456ddac2873143c76637e09391816",
+      "started_at": "2026-10-18T23:14:46.205441+00:00",
+      "status": 200,
+      "target": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/"
+    },
+    {
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "capture_id": "paper-375",
+      "captured_at": "2026-10-18T23:14:47.015229+00:00",
+      "evidence_class": "ui",
+      "path": "task/palette/local-release/qa-paper-375-css-sha256-8-b8e5f23991.png",
+      "sha256": "ff7fe5dbb0c7a42eb571f5254d83142a037e2507607c80e31f08b9fa679b35fe",
+      "started_at": "2026-10-18T23:14:46.997734+00:00",
+      "status": 200,
+      "target": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/"
+    },
+    {
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "capture_id": "paper-430",
+      "captured_at": "2026-10-18T23:14:47.783496+00:00",
+      "evidence_class": "ui",
+      "path": "task/palette/local-release/qa-paper-430-css-sha256-8-b8e5f23991.png",
+      "sha256": "51d23c1e3dcfdb7eccc750dc2a5067d2d722b95d79ba9dcb3bcc8f63905f9394",
+      "started_at": "2026-10-18T23:14:47.766127+00:00",
+      "status": 200,
+      "target": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/"
+    },
+    {
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "capture_id": "paper-600",
+      "captured_at": "2026-10-18T23:14:48.563772+00:00",
+      "evidence_class": "ui",
+      "path": "task/palette/local-release/qa-paper-600-css-sha256-8-b8e5f23991.png",
+      "sha256": "9aad0d534324052e1197917b408d45999a16a55c151a4b61e5759ba26e623e57",
+      "started_at": "2026-10-18T23:14:48.541228+00:00",
+      "status": 200,
+      "target": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/"
+    },
+    {
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "capture_id": "paper-768",
+      "captured_at": "2026-10-18T23:14:49.348549+00:00",
+      "evidence_class": "ui",
+      "path": "task/palette/local-release/qa-paper-768-css-sha256-8-b8e5f23991.png",
+      "sha256": "3ab34225ebfde9657d2ee3ba722dfa6552c0d2ea786e0773035df963cc95979e",
+      "started_at": "2026-10-18T23:14:49.325017+00:00",
+      "status": 200,
+      "target": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/"
+    },
+    {
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "capture_id": "paper-1024",
+      "captured_at": "2026-10-18T23:14:50.133515+00:00",
+      "evidence_class": "ui",
+      "path": "task/palette/local-release/qa-paper-1024-css-sha256-8-b8e5f23991.png",
+      "sha256": "4f7e093d597d4289c288493f8afc8fe461099c7d701b7d1b084329ae947473ba",
+      "started_at": "2026-10-18T23:14:50.095874+00:00",
+      "status": 200,
+      "target": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/"
+    },
+    {
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5",
+        "AC-4"
+      ],
+      "assertion": "The production build serves the cream article canvas with navy text; the successful check logs are separate bound evidence.",
+      "capture_id": "paper-1440",
+      "captured_at": "2026-10-18T23:14:51.005112+00:00",
+      "evidence_class": "ui",
+      "path": "task/palette/local-release/qa-paper-1440-css-sha256-8-b8e5f23991.png",
+      "sha256": "a61fb23613de29810d54c9cab96dbdb391a02be21888ef4205ed7093b6de35c4",
+      "started_at": "2026-10-18T23:14:50.966611+00:00",
+      "status": 200,
+      "target": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/"
+    },
+    {
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "capture_id": "paper-1672",
+      "captured_at": "2026-10-18T23:14:51.789922+00:00",
+      "evidence_class": "ui",
+      "path": "task/palette/local-release/qa-paper-1672-css-sha256-8-b8e5f23991.png",
+      "sha256": "b3556ec52ce4f5cd71d0d3ef081cd92b24c00fdba7547608d503bc7303f3d028",
+      "started_at": "2026-10-18T23:14:51.749461+00:00",
+      "status": 200,
+      "target": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/"
+    },
+    {
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "capture_id": "paper-2560",
+      "captured_at": "2026-10-18T23:14:52.614573+00:00",
+      "evidence_class": "ui",
+      "path": "task/palette/local-release/qa-paper-2560-css-sha256-8-b8e5f23991.png",
+      "sha256": "4268b8192adc048ed0f6a4e7cc29643e9ba3bd04a709477aabf61efcd8a5323b",
+      "started_at": "2026-10-18T23:14:52.566471+00:00",
+      "status": 200,
+      "target": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/"
+    }
+  ],
+  "started_at": "2026-10-18T23:14:45.249677+00:00"
+}

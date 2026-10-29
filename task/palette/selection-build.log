@@ -1,0 +1,22 @@
+
+> website@0.0.0 build
+> docusaurus build
+
+
+ ------------------------------------------------------------------------------                                                                                                         Update available 3.9.2 → 3.10.2                                                                                                                 To upgrade Docusaurus packages with the latest version, run the                                       following command:                                                        `npm i @docusaurus/core@latest                                            @docusaurus/plugin-client-redirects@latest                        @docusaurus/plugin-ideal-image@latest @docusaurus/preset-classic@latest         @docusaurus/theme-mermaid@latest @docusaurus/module-type-aliases@latest                  @docusaurus/tsconfig@latest @docusaurus/types@latest`                                                                                               ------------------------------------------------------------------------------ 
+
+[INFO] [en] Creating an optimized production build...
+Browserslist: browsers data (caniuse-lite) is 9 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[webpackbar] ℹ Compiling Client
+[webpackbar] ℹ Compiling Server
+[webpackbar] ✔ Server: Compiled successfully in 877.15ms
+Browserslist: browsers data (caniuse-lite) is 9 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[webpackbar] ✔ Client: Compiled successfully in 1.53s
+(node:60136) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[SUCCESS] Generated static files in "build".
+[INFO] Use `npm run serve` command to test your build locally.

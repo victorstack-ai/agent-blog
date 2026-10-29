@@ -1,0 +1,94 @@
+{
+  "at": "2026-10-18T23:11:04.889404+00:00",
+  "build": "68a0f9182dacda88e2d116bf586c5bff5c8cdc6d",
+  "routes": {
+    "2026-03-11-ally-wordpress-unauthenticated-sqli-response-playbook/": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": [
+          [
+            ".themedComponent_mlkZ"
+          ]
+        ]
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": [
+          [
+            ".task-list-item:nth-child(1) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(2) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(3) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(4) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(5) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(6) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(7) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(8) > input[type=\"checkbox\"]"
+          ]
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": [
+          [
+            ".col--2"
+          ]
+        ]
+      }
+    ],
+    "how-i-combine-harness-loop-graph-engineering/": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": [
+          [
+            ".themedComponent_mlkZ"
+          ]
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": [
+          [
+            ".col--2"
+          ]
+        ]
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": [
+          [
+            ".docusaurus-mermaid-container.container_lyt7:nth-child(13)"
+          ],
+          [
+            ".docusaurus-mermaid-container.container_lyt7:nth-child(17)"
+          ],
+          [
+            ".docusaurus-mermaid-container.container_lyt7:nth-child(26)"
+          ],
+          [
+            ".docusaurus-mermaid-container.container_lyt7:nth-child(30)"
+          ]
+        ]
+      }
+    ]
+  }
+}

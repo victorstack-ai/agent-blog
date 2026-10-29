@@ -1,0 +1,1058 @@
+{
+  "started_at": "2026-10-18T23:22:50.333609+00:00",
+  "cases": {
+    "initial-load": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:22:52.290789+00:00"
+    },
+    "fidelity-320": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 320,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:22:53.379011+00:00"
+    },
+    "fidelity-375": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 375,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:22:54.473432+00:00"
+    },
+    "fidelity-430": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 430,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:22:55.557742+00:00"
+    },
+    "fidelity-600": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 600,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:22:56.668523+00:00"
+    },
+    "fidelity-768": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 768,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:22:57.788598+00:00"
+    },
+    "fidelity-1024": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1024,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:22:58.888312+00:00"
+    },
+    "fidelity-1440": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:22:59.966138+00:00"
+    },
+    "fidelity-1672": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1672,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:01.047550+00:00"
+    },
+    "fidelity-2560": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 2560,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:02.176677+00:00"
+    },
+    "resize": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 997,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:03.273518+00:00"
+    },
+    "scroll-entry": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:04.366880+00:00"
+    },
+    "state-restore": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:06.088730+00:00"
+    },
+    "content-empty": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:07.378842+00:00"
+    },
+    "content-minimal": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:08.500056+00:00"
+    },
+    "content-long": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:09.631579+00:00"
+    },
+    "content-localized": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:10.760532+00:00"
+    },
+    "content-repeated": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:11.885664+00:00"
+    },
+    "zoom-200": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 640,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:12.976659+00:00"
+    },
+    "reflow-320": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 320,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:14.052590+00:00"
+    },
+    "height-short": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 375,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:15.294303+00:00"
+    },
+    "height-tall": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 375,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:16.383798+00:00"
+    },
+    "portrait": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 375,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:17.470826+00:00"
+    },
+    "landscape": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 900,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:18.591113+00:00"
+    },
+    "reduced-motion": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:19.671683+00:00"
+    },
+    "normal-motion": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:20.809194+00:00"
+    },
+    "keyboard": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "focusVisible": true,
+      "captured_at": "2026-10-18T23:23:21.939871+00:00"
+    },
+    "validation": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "searchEmpty": true,
+      "captured_at": "2026-10-18T23:23:23.888091+00:00"
+    },
+    "success-error": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "searchEmpty": true,
+      "searchSuccess": true,
+      "captured_at": "2026-10-18T23:23:25.818952+00:00"
+    },
+    "attach-detach-reattach": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:27.067511+00:00"
+    },
+    "no-js": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:27.906640+00:00"
+    },
+    "browser-firefox": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:29.246307+00:00"
+    },
+    "browser-webkit": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:30.733658+00:00"
+    },
+    "browser-chromium": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "width": 1440,
+      "fontsLoaded": true,
+      "assetsLoaded": true,
+      "captured_at": "2026-10-18T23:23:31.835181+00:00"
+    }
+  },
+  "browser_version": "151.0.7922.34",
+  "palette_comparison": {
+    "expected": {
+      "cream": [
+        246,
+        242,
+        231
+      ],
+      "navy": [
+        27,
+        48,
+        75
+      ],
+      "deep": [
+        13,
+        26,
+        45
+      ],
+      "orange": [
+        232,
+        123,
+        40
+      ]
+    },
+    "actual": {
+      "cream": [
+        246,
+        242,
+        231
+      ],
+      "deep": [
+        13,
+        26,
+        45
+      ],
+      "navy": [
+        27,
+        48,
+        75
+      ],
+      "orange": [
+        232,
+        123,
+        40
+      ]
+    },
+    "scope": "Palette only, not cover composition or page geometry."
+  },
+  "repairs": {
+    "archive/": {
+      "heroBackground": "rgb(27, 48, 75)",
+      "heading": "rgb(246, 242, 231)",
+      "codeColor": null,
+      "codeBackground": null
+    },
+    "2026-03-11-ally-wordpress-unauthenticated-sqli-response-playbook/": {
+      "heroBackground": null,
+      "heading": null,
+      "codeColor": "rgb(246, 242, 231)",
+      "codeBackground": "rgb(13, 26, 45)"
+    }
+  },
+  "ended_at": "2026-10-18T23:23:36.398930+00:00"
+}

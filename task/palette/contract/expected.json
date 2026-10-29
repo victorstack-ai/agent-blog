@@ -1,0 +1,28 @@
+{
+  "overflow": false,
+  "focusVisible": true,
+  "searchSuccess": true,
+  "searchEmpty": true,
+  "palette": {
+    "cream": [
+      246,
+      242,
+      231
+    ],
+    "navy": [
+      27,
+      48,
+      75
+    ],
+    "deep": [
+      13,
+      26,
+      45
+    ],
+    "orange": [
+      232,
+      123,
+      40
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "capture_sha256": "e10917896b63ea7f1061a7859f56682ba2724db9ed35a1f514b33ca153ab7f1d",
+  "collected_at": "2026-10-18T23:24:12.407423+00:00",
+  "complete": true,
+  "raw_logs": [
+    {
+      "path": "task/palette/local-selection/server.log",
+      "sha256": "926e63b48695d45f760056943d836917ca35105974fb5c1f007da497bf2eb19f"
+    }
+  ],
+  "source_tool": "timestamped-docusaurus-serve"
+}

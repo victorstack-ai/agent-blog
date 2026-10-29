@@ -1,0 +1,74 @@
+[
+  {
+    "event": "requestfailed",
+    "failure": "net::ERR_ABORTED",
+    "navigation": false,
+    "resource_type": "fetch",
+    "scheme": "https",
+    "url": "https://www.google-analytics.com/g/collect"
+  },
+  {
+    "event": "requestfailed",
+    "failure": "net::ERR_ABORTED",
+    "navigation": false,
+    "resource_type": "fetch",
+    "scheme": "https",
+    "url": "https://www.google-analytics.com/g/collect"
+  },
+  {
+    "event": "requestfailed",
+    "failure": "net::ERR_ABORTED",
+    "navigation": false,
+    "resource_type": "fetch",
+    "scheme": "https",
+    "url": "https://www.google-analytics.com/g/collect"
+  },
+  {
+    "event": "requestfailed",
+    "failure": "net::ERR_ABORTED",
+    "navigation": false,
+    "resource_type": "fetch",
+    "scheme": "https",
+    "url": "https://www.google-analytics.com/g/collect"
+  },
+  {
+    "event": "requestfailed",
+    "failure": "net::ERR_ABORTED",
+    "navigation": false,
+    "resource_type": "fetch",
+    "scheme": "https",
+    "url": "https://www.google-analytics.com/g/collect"
+  },
+  {
+    "event": "requestfailed",
+    "failure": "net::ERR_ABORTED",
+    "navigation": false,
+    "resource_type": "fetch",
+    "scheme": "https",
+    "url": "https://www.google-analytics.com/g/collect"
+  },
+  {
+    "event": "requestfailed",
+    "failure": "net::ERR_ABORTED",
+    "navigation": false,
+    "resource_type": "fetch",
+    "scheme": "https",
+    "url": "https://www.google-analytics.com/g/collect"
+  },
+  {
+    "event": "requestfailed",
+    "failure": "net::ERR_ABORTED",
+    "navigation": false,
+    "resource_type": "fetch",
+    "scheme": "https",
+    "url": "https://www.google-analytics.com/g/collect"
+  },
+  {
+    "event": "requestfailed",
+    "failure": "net::ERR_ABORTED",
+    "navigation": false,
+    "resource_type": "fetch",
+    "scheme": "https",
+    "url": "https://www.google-analytics.com/g/collect"
+  }
+]

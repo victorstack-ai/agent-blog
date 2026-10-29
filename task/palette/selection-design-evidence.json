@@ -1,0 +1,242 @@
+{
+  "schema_version": 2,
+  "workspace": "cover-palette-20261018",
+  "ticket": "BLOG-PALETTE-20261018",
+  "stage": "local",
+  "design_source": {
+    "type": "image",
+    "reference": "Four published engineering cover illustrations; palette only",
+    "native_widths": [
+      1672
+    ],
+    "mobile_reference_available": false,
+    "mobile_inference_evidence": "task/palette/coverage.md"
+  },
+  "coverage": {
+    "manifest": "task/palette/coverage.md",
+    "total": 13,
+    "passed_count": 13,
+    "passed": true
+  },
+  "viewports": [
+    {
+      "width": 320,
+      "screenshot": "task/palette/local-selection/qa-paper-320-css-sha256-e-316d337ec8.png",
+      "reviewed": true
+    },
+    {
+      "width": 375,
+      "screenshot": "task/palette/local-selection/qa-paper-375-css-sha256-e-316d337ec8.png",
+      "reviewed": true
+    },
+    {
+      "width": 430,
+      "screenshot": "task/palette/local-selection/qa-paper-430-css-sha256-e-316d337ec8.png",
+      "reviewed": true
+    },
+    {
+      "width": 600,
+      "screenshot": "task/palette/local-selection/qa-paper-600-css-sha256-e-316d337ec8.png",
+      "reviewed": true
+    },
+    {
+      "width": 768,
+      "screenshot": "task/palette/local-selection/qa-paper-768-css-sha256-e-316d337ec8.png",
+      "reviewed": true
+    },
+    {
+      "width": 1024,
+      "screenshot": "task/palette/local-selection/qa-paper-1024-css-sha256-e-316d337ec8.png",
+      "reviewed": true
+    },
+    {
+      "width": 1440,
+      "screenshot": "task/palette/local-selection/qa-paper-1440-css-sha256-e-316d337ec8.png",
+      "reviewed": true
+    },
+    {
+      "width": 1672,
+      "screenshot": "task/palette/local-selection/qa-paper-1672-css-sha256-e-316d337ec8.png",
+      "reviewed": true
+    },
+    {
+      "width": 2560,
+      "screenshot": "task/palette/local-selection/qa-paper-2560-css-sha256-e-316d337ec8.png",
+      "reviewed": true
+    }
+  ],
+  "comparisons": [
+    {
+      "viewport": 1672,
+      "source": "task/palette/contract-selection/source.png",
+      "implementation": "task/palette/contract-selection/implementation.png",
+      "overlay": "task/palette/contract-selection/compare/overlay.png",
+      "report": "task/palette/contract-selection/comparison.json",
+      "reviewed": true,
+      "open_deviations": 0,
+      "accepted_divergences": []
+    }
+  ],
+  "interactions": {
+    "applicable": true,
+    "inventory": "task/palette/coverage.md",
+    "evidence": "task/palette/contract-selection/raw.json",
+    "passed": true
+  },
+  "motion": {
+    "applicable": false
+  },
+  "human_review": {
+    "evidence": "task/palette/selection-review.md",
+    "passed": true,
+    "kind": "primary",
+    "reviewer": "Codex",
+    "session_id": "01a15059-c1ae-7d32-828b-8504141e394d",
+    "started_at": "2026-10-18T23:24:49.815901+00:00",
+    "completed_at": "2026-10-18T23:24:49.815901+00:00",
+    "open_findings": [],
+    "inspected_sha256": {
+      "task/palette/coverage.md": "5f3b2a7671d49bb95e1ca7bfa10031b6505205924bb5ef8ff6031cca861e9279",
+      "task/palette/primary-review.md": "0b54ebf6dc39ed52ce208e95f79aca71ef67a4814a74173b8883cc1ce27bfb14",
+      "task/palette/selection-fixed.png": "efcf35d9bffc7c7ee19dda21acef1d138bb3f6c05a6c7bb0253e96aa4b36a5cd",
+      "task/palette/selection-fixed.json": "d05274d5a56f1de76469ee98f3be4377e50ff5518125df6dad573dd0861733a0",
+      "task/palette/source-samples.json": "3444074904cd715bd8b1a37e49479241c6af74841b2efdb7c28c9e0d4de708e3",
+      "task/palette/contrast-recheck.json": "bd31367ed26cddeea775e2060235aacb3ce9c5b35105bba039c1951c74f45248",
+      "task/palette/base-accessibility.json": "07ebfc8869433116ee7439be19cd6c515187d173593e6409d4b9cc9925cfc521",
+      "task/palette/independent/results.json": "7331c33fde5967e547b7f329f9b70ff9fafac0942aa580b6270fb90150c22705",
+      "task/palette/local-selection/browser.json": "bbea229afb14bcf70330806730cadadc6ccac033230d8c27be176a1de52221ab",
+      "src/css/custom.css": "b4522cb5ee495dd8c1ec51edff2656a7823a674f8e74b56660b2eb740777390d",
+      "docusaurus.config.ts": "d9501e855c2b90b410927d85bb49a403f0038e379cb93c83ec8f4c2c267c148d",
+      "node_modules/infima/dist/css/default/default.css": "aa113696173d7bf7669454493f6fe404c65c00547c63dfa78a07c8765c2fcb61",
+      "task/palette/contract-selection/responsive-996.json": "0268f0d622da33396ad727742a1bd588d2c23f1055918f42e1c3c778a386dfff",
+      "task/palette/contract-selection/code.png": "4240ef8a00037657d4004db034ace345cf6f33bfc6a8221e84e1e0a6e1d42f89",
+      "task/palette/contract-selection/archive.png": "c7ba8ae0e6f6e7a04309616be5131393b50eccbb9c3a491c54e20b661379692c",
+      "task/palette/contract-selection/expected.json": "11234846e8340d823f4862dfb0b6d3754b1fcb3f6935b9d9e757757d9f53acbd",
+      "task/palette/contract-selection/responsive-997.json": "f084bbe9ce5623627358bf4a0a97d35523cfb8468e44b97f23e891343ef43399",
+      "task/palette/contract-selection/raw.json": "5a64f652e1e1fee3099a4c20af90830c07e3b30a4464f35623ced0d97c206229",
+      "task/palette/contract-selection/build-state.json": "a8b5f5a675d1adfa92f315ba5e77d1c631671cb66725b0b9cfacedf2e9d58eb6",
+      "task/palette/contract-selection/comparison.json": "c7211a7381b596ac3123798c1dbe8c9e94e09c8261f6a3e0d34dc4f3a93c1a00",
+      "task/palette/contract-selection/case-records.json": "517b47bccb40ab01780149a3914b10c70d11cafc2a9f3714bafd2f9cd64d4c64",
+      "task/palette/contract-selection/selection.json": "f847a16d73124cb76dcce9e5d4b96d0468f9fd9a6c720e2577b1196cee88c157",
+      "task/palette/contract-selection/implementation.png": "f067effd38bae30e74131836f2e2bf6c01767374c116dfcff5891c546260cf0d",
+      "task/palette/contract-selection/verification.json": "23bebee9a99c088b17dad4526a7dad10d7bc042f82a8f4ee8aa438c44d786dfd",
+      "task/palette/contract-selection/source.png": "f067effd38bae30e74131836f2e2bf6c01767374c116dfcff5891c546260cf0d",
+      "task/palette/contract-selection/responsive-995.json": "bf55c14732c96d8e93c2eeed38e236f4b94d4501f9ec1ad56f3a2e84a2bc1cef",
+      "task/palette/contract-selection/comparison-captures.json": "592016dc0c08e312158f96a053cce0b588252588aca8c2488bc928713468535d",
+      "task/palette/contract-selection/compare/report.json": "3ae63847b4495e2c0f7f82501ec4a982e7b14cc3b1cb128aed6b536e8150daf2",
+      "task/palette/contract-selection/compare/diff-heatmap.png": "35f302c3c463843565846037d34f9668004e0cbfb5cf475888967e945d0ea0c2",
+      "task/palette/contract-selection/compare/overlay.png": "606df8b71832a29e3f27a42ae8591aad77645d2f52e2e14c0af03ca62ad4a1bd",
+      "task/palette/local-selection/qa-paper-320-css-sha256-e-316d337ec8.png": "4c1e9ad7caf8776254d97fce553ab4b4c1d456ddac2873143c76637e09391816",
+      "task/palette/local-selection/qa-paper-375-css-sha256-e-316d337ec8.png": "ff7fe5dbb0c7a42eb571f5254d83142a037e2507607c80e31f08b9fa679b35fe",
+      "task/palette/local-selection/qa-paper-430-css-sha256-e-316d337ec8.png": "51d23c1e3dcfdb7eccc750dc2a5067d2d722b95d79ba9dcb3bcc8f63905f9394",
+      "task/palette/local-selection/qa-paper-600-css-sha256-e-316d337ec8.png": "9aad0d534324052e1197917b408d45999a16a55c151a4b61e5759ba26e623e57",
+      "task/palette/local-selection/qa-paper-768-css-sha256-e-316d337ec8.png": "3ab34225ebfde9657d2ee3ba722dfa6552c0d2ea786e0773035df963cc95979e",
+      "task/palette/local-selection/qa-paper-1024-css-sha256-e-316d337ec8.png": "4f7e093d597d4289c288493f8afc8fe461099c7d701b7d1b084329ae947473ba",
+      "task/palette/local-selection/qa-paper-1440-css-sha256-e-316d337ec8.png": "a61fb23613de29810d54c9cab96dbdb391a02be21888ef4205ed7093b6de35c4",
+      "task/palette/local-selection/qa-paper-1672-css-sha256-e-316d337ec8.png": "b3556ec52ce4f5cd71d0d3ef081cd92b24c00fdba7547608d503bc7303f3d028",
+      "task/palette/local-selection/qa-paper-2560-css-sha256-e-316d337ec8.png": "4268b8192adc048ed0f6a4e7cc29643e9ba3bd04a709477aabf61efcd8a5323b",
+      "static/img/harness-engineering.jpg": "41d710e383e1dd9bfd43e8267ec3f93bc28f18f2523fdd06fb39e730dd2952a6",
+      "static/img/loop-engineering.jpg": "53be0df344e5c3ab5497b6482e62a6f0199b853eb319d1579db75166bea5ac3c",
+      "static/img/graph-engineering.jpg": "aba6e9c14a90c6356ea55131c8dac79ab4979f7a517b9fe29131c0433dedad23",
+      "static/img/how-i-combine-harness-loop-graph-engineering.jpg": "da60cdba5bb3e0c6e2db5000505bd0bf6db4d82beee76a8e4581e3849405b173"
+    }
+  },
+  "accessibility": {
+    "evidence": "task/palette/contrast-recheck.json",
+    "passed": true
+  },
+  "console_network": {
+    "evidence": "task/palette/local-selection/browser.json",
+    "passed": true
+  },
+  "functional": {
+    "evidence": "task/palette/contract-selection/raw.json",
+    "passed": true
+  },
+  "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+  "build_id": "css-sha256:e39d9cb570cd76583865b3ac7b4bda572071f2ed8b0d42d9c5b538b947baebc9",
+  "verification": "task/palette/contract-selection/verification.json",
+  "artifact_sha256": {
+    "task/palette/coverage.md": "5f3b2a7671d49bb95e1ca7bfa10031b6505205924bb5ef8ff6031cca861e9279",
+    "task/palette/primary-review.md": "0b54ebf6dc39ed52ce208e95f79aca71ef67a4814a74173b8883cc1ce27bfb14",
+    "task/palette/selection-review.md": "6cbb9f384bbe58cc263e0672ef70d72bd0904d59d905f51aa4a5f9746860443b",
+    "task/palette/selection-fixed.png": "efcf35d9bffc7c7ee19dda21acef1d138bb3f6c05a6c7bb0253e96aa4b36a5cd",
+    "task/palette/selection-fixed.json": "d05274d5a56f1de76469ee98f3be4377e50ff5518125df6dad573dd0861733a0",
+    "task/palette/source-samples.json": "3444074904cd715bd8b1a37e49479241c6af74841b2efdb7c28c9e0d4de708e3",
+    "task/palette/contrast-recheck.json": "bd31367ed26cddeea775e2060235aacb3ce9c5b35105bba039c1951c74f45248",
+    "task/palette/base-accessibility.json": "07ebfc8869433116ee7439be19cd6c515187d173593e6409d4b9cc9925cfc521",
+    "task/palette/independent/results.json": "7331c33fde5967e547b7f329f9b70ff9fafac0942aa580b6270fb90150c22705",
+    "task/palette/local-selection/browser.json": "bbea229afb14bcf70330806730cadadc6ccac033230d8c27be176a1de52221ab",
+    "src/css/custom.css": "b4522cb5ee495dd8c1ec51edff2656a7823a674f8e74b56660b2eb740777390d",
+    "docusaurus.config.ts": "d9501e855c2b90b410927d85bb49a403f0038e379cb93c83ec8f4c2c267c148d",
+    "node_modules/infima/dist/css/default/default.css": "aa113696173d7bf7669454493f6fe404c65c00547c63dfa78a07c8765c2fcb61",
+    "task/palette/contract-selection/responsive-996.json": "0268f0d622da33396ad727742a1bd588d2c23f1055918f42e1c3c778a386dfff",
+    "task/palette/contract-selection/code.png": "4240ef8a00037657d4004db034ace345cf6f33bfc6a8221e84e1e0a6e1d42f89",
+    "task/palette/contract-selection/archive.png": "c7ba8ae0e6f6e7a04309616be5131393b50eccbb9c3a491c54e20b661379692c",
+    "task/palette/contract-selection/expected.json": "11234846e8340d823f4862dfb0b6d3754b1fcb3f6935b9d9e757757d9f53acbd",
+    "task/palette/contract-selection/responsive-997.json": "f084bbe9ce5623627358bf4a0a97d35523cfb8468e44b97f23e891343ef43399",
+    "task/palette/contract-selection/raw.json": "5a64f652e1e1fee3099a4c20af90830c07e3b30a4464f35623ced0d97c206229",
+    "task/palette/contract-selection/build-state.json": "a8b5f5a675d1adfa92f315ba5e77d1c631671cb66725b0b9cfacedf2e9d58eb6",
+    "task/palette/contract-selection/comparison.json": "c7211a7381b596ac3123798c1dbe8c9e94e09c8261f6a3e0d34dc4f3a93c1a00",
+    "task/palette/contract-selection/case-records.json": "517b47bccb40ab01780149a3914b10c70d11cafc2a9f3714bafd2f9cd64d4c64",
+    "task/palette/contract-selection/selection.json": "f847a16d73124cb76dcce9e5d4b96d0468f9fd9a6c720e2577b1196cee88c157",
+    "task/palette/contract-selection/implementation.png": "f067effd38bae30e74131836f2e2bf6c01767374c116dfcff5891c546260cf0d",
+    "task/palette/contract-selection/verification.json": "23bebee9a99c088b17dad4526a7dad10d7bc042f82a8f4ee8aa438c44d786dfd",
+    "task/palette/contract-selection/source.png": "f067effd38bae30e74131836f2e2bf6c01767374c116dfcff5891c546260cf0d",
+    "task/palette/contract-selection/responsive-995.json": "bf55c14732c96d8e93c2eeed38e236f4b94d4501f9ec1ad56f3a2e84a2bc1cef",
+    "task/palette/contract-selection/comparison-captures.json": "592016dc0c08e312158f96a053cce0b588252588aca8c2488bc928713468535d",
+    "task/palette/contract-selection/compare/report.json": "3ae63847b4495e2c0f7f82501ec4a982e7b14cc3b1cb128aed6b536e8150daf2",
+    "task/palette/contract-selection/compare/diff-heatmap.png": "35f302c3c463843565846037d34f9668004e0cbfb5cf475888967e945d0ea0c2",
+    "task/palette/contract-selection/compare/overlay.png": "606df8b71832a29e3f27a42ae8591aad77645d2f52e2e14c0af03ca62ad4a1bd",
+    "task/palette/local-selection/qa-paper-320-css-sha256-e-316d337ec8.png": "4c1e9ad7caf8776254d97fce553ab4b4c1d456ddac2873143c76637e09391816",
+    "task/palette/local-selection/qa-paper-375-css-sha256-e-316d337ec8.png": "ff7fe5dbb0c7a42eb571f5254d83142a037e2507607c80e31f08b9fa679b35fe",
+    "task/palette/local-selection/qa-paper-430-css-sha256-e-316d337ec8.png": "51d23c1e3dcfdb7eccc750dc2a5067d2d722b95d79ba9dcb3bcc8f63905f9394",
+    "task/palette/local-selection/qa-paper-600-css-sha256-e-316d337ec8.png": "9aad0d534324052e1197917b408d45999a16a55c151a4b61e5759ba26e623e57",
+    "task/palette/local-selection/qa-paper-768-css-sha256-e-316d337ec8.png": "3ab34225ebfde9657d2ee3ba722dfa6552c0d2ea786e0773035df963cc95979e",
+    "task/palette/local-selection/qa-paper-1024-css-sha256-e-316d337ec8.png": "4f7e093d597d4289c288493f8afc8fe461099c7d701b7d1b084329ae947473ba",
+    "task/palette/local-selection/qa-paper-1440-css-sha256-e-316d337ec8.png": "a61fb23613de29810d54c9cab96dbdb391a02be21888ef4205ed7093b6de35c4",
+    "task/palette/local-selection/qa-paper-1672-css-sha256-e-316d337ec8.png": "b3556ec52ce4f5cd71d0d3ef081cd92b24c00fdba7547608d503bc7303f3d028",
+    "task/palette/local-selection/qa-paper-2560-css-sha256-e-316d337ec8.png": "4268b8192adc048ed0f6a4e7cc29643e9ba3bd04a709477aabf61efcd8a5323b",
+    "static/img/harness-engineering.jpg": "41d710e383e1dd9bfd43e8267ec3f93bc28f18f2523fdd06fb39e730dd2952a6",
+    "static/img/loop-engineering.jpg": "53be0df344e5c3ab5497b6482e62a6f0199b853eb319d1579db75166bea5ac3c",
+    "static/img/graph-engineering.jpg": "aba6e9c14a90c6356ea55131c8dac79ab4979f7a517b9fe29131c0433dedad23",
+    "static/img/how-i-combine-harness-loop-graph-engineering.jpg": "da60cdba5bb3e0c6e2db5000505bd0bf6db4d82beee76a8e4581e3849405b173"
+  },
+  "responsive_profile": "eight-viewports-v1",
+  "responsive_checks": [
+    {
+      "width": 995,
+      "selectors": [
+        ".navbar",
+        "main",
+        "article",
+        ".footer"
+      ],
+      "report": "task/palette/contract-selection/responsive-995.json"
+    },
+    {
+      "width": 996,
+      "selectors": [
+        ".navbar",
+        "main",
+        "article",
+        ".footer"
+      ],
+      "report": "task/palette/contract-selection/responsive-996.json"
+    },
+    {
+      "width": 997,
+      "selectors": [
+        ".navbar",
+        "main",
+        "article",
+        ".footer"
+      ],
+      "report": "task/palette/contract-selection/responsive-997.json"
+    }
+  ],
+  "capture_window": {
+    "started_at": "2026-10-18T23:22:50.333609+00:00",
+    "ended_at": "2026-10-18T23:23:36.398930+00:00"
+  }
+}

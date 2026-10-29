@@ -1,0 +1,2803 @@
+{
+  "required_cases": [
+    {
+      "id": "initial-load",
+      "category": "initial-load",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fidelity-320",
+      "category": "fidelity",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ],
+      "width": 320
+    },
+    {
+      "id": "fidelity-375",
+      "category": "fidelity",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ],
+      "width": 375
+    },
+    {
+      "id": "fidelity-430",
+      "category": "fidelity",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ],
+      "width": 430
+    },
+    {
+      "id": "fidelity-600",
+      "category": "fidelity",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ],
+      "width": 600
+    },
+    {
+      "id": "fidelity-768",
+      "category": "fidelity",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ],
+      "width": 768
+    },
+    {
+      "id": "fidelity-1024",
+      "category": "fidelity",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "id": "fidelity-1440",
+      "category": "fidelity",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "id": "fidelity-1672",
+      "category": "fidelity",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ],
+      "width": 1672
+    },
+    {
+      "id": "fidelity-2560",
+      "category": "fidelity",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "source",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ],
+      "width": 2560
+    },
+    {
+      "id": "resize",
+      "category": "resize",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "scroll-entry",
+      "category": "scroll-entry",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "state-restore",
+      "category": "state-restore",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "content-empty",
+      "category": "content-empty",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "content-minimal",
+      "category": "content-minimal",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "content-long",
+      "category": "content-long",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "content-localized",
+      "category": "content-localized",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "content-repeated",
+      "category": "content-repeated",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "zoom-200",
+      "category": "zoom-200",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reflow-320",
+      "category": "reflow-320",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "height-short",
+      "category": "height-short",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "height-tall",
+      "category": "height-tall",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "portrait",
+      "category": "portrait",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "landscape",
+      "category": "landscape",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reduced-motion",
+      "category": "reduced-motion",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "normal-motion",
+      "category": "normal-motion",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "keyboard",
+      "category": "keyboard",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        },
+        {
+          "id": "focusVisible",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/focusVisible"
+          }
+        }
+      ]
+    },
+    {
+      "id": "validation",
+      "category": "validation",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        },
+        {
+          "id": "searchEmpty",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/searchEmpty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "success-error",
+      "category": "success-error",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        },
+        {
+          "id": "searchSuccess",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/searchSuccess"
+          }
+        },
+        {
+          "id": "searchEmpty",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/searchEmpty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "attach-detach-reattach",
+      "category": "attach-detach-reattach",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "no-js",
+      "category": "no-js",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "browser-firefox",
+      "category": "browser-firefox",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "browser-webkit",
+      "category": "browser-webkit",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        },
+        {
+          "id": "deep",
+          "element": "deep",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/deep/rgb"
+          }
+        },
+        {
+          "id": "navy",
+          "element": "navy",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/navy/rgb"
+          }
+        },
+        {
+          "id": "orange",
+          "element": "orange",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/orange/rgb"
+          }
+        },
+        {
+          "id": "overflow",
+          "element": "page",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/contract/expected.json",
+            "pointer": "/overflow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "browser-chromium",
+      "category": "browser-chromium",
+      "assertions": [
+        {
+          "id": "cream",
+          "element": "cream",
+          "provenance": "requirement",
+          "expected": {
+            "path": "task/palette/source-samples.json",
+            "pointer": "/samples/cream/rgb"
+          }
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "initial-load",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.026023+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/initial-load/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/initial-load/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/initial-load/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/initial-load/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/initial-load/overflow"
+        }
+      }
+    },
+    {
+      "id": "fidelity-320",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.046332+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-320/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-320/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-320/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-320/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-320/overflow"
+        }
+      }
+    },
+    {
+      "id": "fidelity-375",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.050262+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-375/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-375/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-375/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-375/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-375/overflow"
+        }
+      }
+    },
+    {
+      "id": "fidelity-430",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.053035+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-430/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-430/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-430/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-430/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-430/overflow"
+        }
+      }
+    },
+    {
+      "id": "fidelity-600",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.063840+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-600/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-600/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-600/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-600/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-600/overflow"
+        }
+      }
+    },
+    {
+      "id": "fidelity-768",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.066684+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-768/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-768/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-768/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-768/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-768/overflow"
+        }
+      }
+    },
+    {
+      "id": "fidelity-1024",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.081958+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1024/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1024/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1024/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1024/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1024/overflow"
+        }
+      }
+    },
+    {
+      "id": "fidelity-1440",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.090452+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1440/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1440/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1440/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1440/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1440/overflow"
+        }
+      }
+    },
+    {
+      "id": "fidelity-1672",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.093415+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1672/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1672/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1672/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1672/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-1672/overflow"
+        }
+      }
+    },
+    {
+      "id": "fidelity-2560",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.094762+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-2560/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-2560/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-2560/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-2560/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/fidelity-2560/overflow"
+        }
+      }
+    },
+    {
+      "id": "resize",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.129885+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/resize/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/resize/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/resize/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/resize/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/resize/overflow"
+        }
+      }
+    },
+    {
+      "id": "scroll-entry",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.130946+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/scroll-entry/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/scroll-entry/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/scroll-entry/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/scroll-entry/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/scroll-entry/overflow"
+        }
+      }
+    },
+    {
+      "id": "state-restore",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.728436+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/state-restore/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/state-restore/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/state-restore/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/state-restore/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/state-restore/overflow"
+        }
+      }
+    },
+    {
+      "id": "content-empty",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.751307+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-empty/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-empty/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-empty/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-empty/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-empty/overflow"
+        }
+      }
+    },
+    {
+      "id": "content-minimal",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:32.373415+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-minimal/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-minimal/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-minimal/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-minimal/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-minimal/overflow"
+        }
+      }
+    },
+    {
+      "id": "content-long",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:33.022382+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-long/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-long/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-long/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-long/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-long/overflow"
+        }
+      }
+    },
+    {
+      "id": "content-localized",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:33.632512+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-localized/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-localized/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-localized/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-localized/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-localized/overflow"
+        }
+      }
+    },
+    {
+      "id": "content-repeated",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:34.248984+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-repeated/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-repeated/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-repeated/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-repeated/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/content-repeated/overflow"
+        }
+      }
+    },
+    {
+      "id": "zoom-200",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:34.863536+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/zoom-200/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/zoom-200/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/zoom-200/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/zoom-200/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/zoom-200/overflow"
+        }
+      }
+    },
+    {
+      "id": "reflow-320",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:34.874765+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/reflow-320/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/reflow-320/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/reflow-320/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/reflow-320/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/reflow-320/overflow"
+        }
+      }
+    },
+    {
+      "id": "height-short",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:34.877482+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/height-short/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/height-short/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/height-short/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/height-short/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/height-short/overflow"
+        }
+      }
+    },
+    {
+      "id": "height-tall",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:34.879011+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/height-tall/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/height-tall/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/height-tall/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/height-tall/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/height-tall/overflow"
+        }
+      }
+    },
+    {
+      "id": "portrait",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:34.880446+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/portrait/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/portrait/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/portrait/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/portrait/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/portrait/overflow"
+        }
+      }
+    },
+    {
+      "id": "landscape",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:34.889260+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/landscape/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/landscape/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/landscape/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/landscape/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/landscape/overflow"
+        }
+      }
+    },
+    {
+      "id": "reduced-motion",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:34.896888+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/reduced-motion/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/reduced-motion/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/reduced-motion/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/reduced-motion/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/reduced-motion/overflow"
+        }
+      }
+    },
+    {
+      "id": "normal-motion",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:34.904005+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/normal-motion/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/normal-motion/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/normal-motion/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/normal-motion/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/normal-motion/overflow"
+        }
+      }
+    },
+    {
+      "id": "keyboard",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:35.511161+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/keyboard/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/keyboard/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/keyboard/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/keyboard/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/keyboard/overflow"
+        },
+        "focusVisible": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/keyboard/focusVisible"
+        }
+      }
+    },
+    {
+      "id": "validation",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:36.953369+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/validation/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/validation/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/validation/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/validation/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/validation/overflow"
+        },
+        "searchEmpty": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/validation/searchEmpty"
+        }
+      }
+    },
+    {
+      "id": "success-error",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:36.953923+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/success-error/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/success-error/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/success-error/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/success-error/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/success-error/overflow"
+        },
+        "searchSuccess": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/success-error/searchSuccess"
+        },
+        "searchEmpty": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/success-error/searchEmpty"
+        }
+      }
+    },
+    {
+      "id": "attach-detach-reattach",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:37.665947+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/attach-detach-reattach/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/attach-detach-reattach/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/attach-detach-reattach/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/attach-detach-reattach/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/attach-detach-reattach/overflow"
+        }
+      }
+    },
+    {
+      "id": "no-js",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:38.528246+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/no-js/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/no-js/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/no-js/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/no-js/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/no-js/overflow"
+        }
+      }
+    },
+    {
+      "id": "browser-firefox",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:41.085232+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/browser-firefox/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/browser-firefox/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/browser-firefox/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/browser-firefox/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/browser-firefox/overflow"
+        }
+      }
+    },
+    {
+      "id": "browser-webkit",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:42.589596+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/browser-webkit/palette/cream"
+        },
+        "deep": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/browser-webkit/palette/deep"
+        },
+        "navy": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/browser-webkit/palette/navy"
+        },
+        "orange": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/browser-webkit/palette/orange"
+        },
+        "overflow": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/browser-webkit/overflow"
+        }
+      }
+    },
+    {
+      "id": "browser-chromium",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "build_id": "css-sha256:28f5c9b4c4632933f7d909c0e3488a2d07538b392fa073177ce9c08335a7457d",
+      "captured_at": "2026-10-18T23:06:31.026023+00:00",
+      "evidence": [
+        "task/palette/contract/raw.json"
+      ],
+      "observations": {
+        "cream": {
+          "path": "task/palette/contract/raw.json",
+          "pointer": "/cases/browser-chromium/palette/cream"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "role": "code-review",
+  "cli": "claude",
+  "selected_model": "best",
+  "model_policy": "strongest",
+  "workspace": "/Users/vj/Documents/work/personal/projects/ai-agents/agent-blog-trees/cover-palette-20261018",
+  "brief_sha256": "20da658738702caa189373ecad52d2b58dbebe57b5e617a7f57f9dd5765842dc",
+  "started": 1792364040.1641011,
+  "timeout_seconds": 300,
+  "state": "failed",
+  "process_handle": "controller-child-pid:54470",
+  "error": "native invocation exceeded its deadline",
+  "finished": 1792364340.467707
+}

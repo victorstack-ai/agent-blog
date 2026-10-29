@@ -1,0 +1,12 @@
+{
+  "entries_in_window": 0,
+  "raw_logs": {
+    "server.log": "926e63b48695d45f760056943d836917ca35105974fb5c1f007da497bf2eb19f"
+  },
+  "timezone": "UTC",
+  "warnings_in_window": 0,
+  "window": {
+    "end": "2026-10-18T23:14:52.649011+00:00",
+    "start": "2026-10-18T23:14:45.249677+00:00"
+  }
+}

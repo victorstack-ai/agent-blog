@@ -1,0 +1,27 @@
+{
+  "captured_at": "2026-10-18T23:28:29.098569+00:00",
+  "deployment_commit": "12e28ad0858205a7ac5ee68a0be2a9dbcc9146a5",
+  "run": 39176445608,
+  "url": "https://victorstack-ai.github.io/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+  "http_status": 200,
+  "headers": {
+    "age": "0",
+    "cache-control": "max-age=600",
+    "etag": "W/\"6ad55606-9998\"",
+    "last-modified": "Sun, 18 Oct 2026 23:28:06 GMT"
+  },
+  "palette": {
+    "background": "rgb(246, 242, 231)",
+    "text": "rgb(13, 26, 45)",
+    "accent": "#e87b28",
+    "selection": "rgb(246, 242, 231)"
+  },
+  "styles": [
+    {
+      "url": "https://victorstack-ai.github.io/agent-blog/assets/css/styles.adda027f.css",
+      "status": 200,
+      "sha256": "e39d9cb570cd76583865b3ac7b4bda572071f2ed8b0d42d9c5b538b947baebc9"
+    }
+  ],
+  "build_id": "css-sha256:e39d9cb570cd76583865b3ac7b4bda572071f2ed8b0d42d9c5b538b947baebc9"
+}

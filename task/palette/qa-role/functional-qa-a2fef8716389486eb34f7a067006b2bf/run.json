@@ -1,0 +1,14 @@
+{
+  "role": "functional-qa",
+  "cli": "agy",
+  "selected_model": "gemini-3.8-flash-medium",
+  "model_policy": "task-fit",
+  "workspace": "/Users/vj/Documents/work/personal/projects/ai-agents/agent-blog-trees/cover-palette-20261018",
+  "brief_sha256": "132b6299c092e104bc01e92e5ac7c9b74583f4f69eb20c6d335ae4c3ed722a68",
+  "started": 1792364481.240233,
+  "timeout_seconds": 600,
+  "state": "failed",
+  "process_handle": "controller-child-pid:58115",
+  "error": "native invocation exceeded its deadline",
+  "finished": 1792365081.2566552
+}

@@ -1,0 +1,60 @@
+{
+  "image": "static/img/harness-engineering.jpg",
+  "sha256": "41d710e383e1dd9bfd43e8267ec3f93bc28f18f2523fdd06fb39e730dd2952a6",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "samples": {
+    "cream": {
+      "xy": [
+        7,
+        0
+      ],
+      "rgb": [
+        246,
+        242,
+        231
+      ]
+    },
+    "navy": {
+      "xy": [
+        1517,
+        262
+      ],
+      "rgb": [
+        27,
+        48,
+        75
+      ]
+    },
+    "deep": {
+      "xy": [
+        605,
+        206
+      ],
+      "rgb": [
+        13,
+        26,
+        45
+      ]
+    },
+    "orange": {
+      "xy": [
+        619,
+        436
+      ],
+      "rgb": [
+        232,
+        123,
+        40
+      ]
+    }
+  },
+  "other_covers": {
+    "harness-engineering": "41d710e383e1dd9bfd43e8267ec3f93bc28f18f2523fdd06fb39e730dd2952a6",
+    "loop-engineering": "53be0df344e5c3ab5497b6482e62a6f0199b853eb319d1579db75166bea5ac3c",
+    "graph-engineering": "aba6e9c14a90c6356ea55131c8dac79ab4979f7a517b9fe29131c0433dedad23",
+    "how-i-combine-harness-loop-graph-engineering": "da60cdba5bb3e0c6e2db5000505bd0bf6db4d82beee76a8e4581e3849405b173"
+  }
+}

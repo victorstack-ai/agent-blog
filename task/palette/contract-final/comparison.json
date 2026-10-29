@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "source": "task/palette/contract-final/source.png",
+  "implementation": "task/palette/contract-final/implementation.png",
+  "source_original_size": [
+    640,
+    80
+  ],
+  "implementation_original_size": [
+    640,
+    80
+  ],
+  "comparison_size": [
+    640,
+    80
+  ],
+  "normalization": {
+    "normalized": false,
+    "scale": 1
+  },
+  "mask": null,
+  "metrics": {
+    "mean_absolute_error_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rms_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "p95_channel_delta": 0.0,
+    "changed_pixel_threshold": 16,
+    "changed_pixel_ratio": 0.0,
+    "difference_bbox": null
+  },
+  "artifacts": {
+    "overlay": "task/palette/contract-final/compare/overlay.png",
+    "heatmap": "task/palette/contract-final/compare/diff-heatmap.png"
+  },
+  "review_required": true,
+  "note": "Metrics describe difference magnitude. A human visual disposition is still required.",
+  "complete_component": true,
+  "aligned_regions": true,
+  "static_media_synchronized": true,
+  "source_capture": {
+    "viewport_width": 1672,
+    "viewport_height": 900,
+    "dpr": 1,
+    "browser_engine": "chromium",
+    "browser_version": "151.0.7922.34",
+    "state": "palette-normalization",
+    "component_bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 640,
+      "height": 80
+    },
+    "capture_bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 640,
+      "height": 80
+    }
+  },
+  "implementation_capture": {
+    "viewport_width": 1672,
+    "viewport_height": 900,
+    "dpr": 1,
+    "browser_engine": "chromium",
+    "browser_version": "151.0.7922.34",
+    "state": "palette-normalization",
+    "component_bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 640,
+      "height": 80
+    },
+    "capture_bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 640,
+      "height": 80
+    }
+  },
+  "scope": "Only four sampled colors are compared. Page layout and typography are not inferred from illustration geometry."
+}

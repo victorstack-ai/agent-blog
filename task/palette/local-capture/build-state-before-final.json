@@ -1,0 +1,9 @@
+{
+  "build_id": "css-sha256:e7c9f63df0de679d54ad3f29bee52b3a5a78753d42199d34941b8f9daa194450",
+  "source": {
+    "src/css/custom.css": "9eb2d3178369f5a7006689699c1390d1fcb92635629cdaa5b0dcecfcb3dad63f",
+    "docusaurus.config.ts": "d9501e855c2b90b410927d85bb49a403f0038e379cb93c83ec8f4c2c267c148d"
+  },
+  "css": "build/assets/css/styles.7db93ef0.css",
+  "base": "68a0f9182dacda88e2d116bf586c5bff5c8cdc6d"
+}

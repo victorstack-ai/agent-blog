@@ -1,0 +1,236 @@
+{
+  "schema_version": 2,
+  "workspace": "cover-palette-20261018",
+  "ticket": "BLOG-PALETTE-20261018",
+  "stage": "local",
+  "design_source": {
+    "type": "image",
+    "reference": "Four published engineering cover illustrations; palette only",
+    "native_widths": [
+      1672
+    ],
+    "mobile_reference_available": false,
+    "mobile_inference_evidence": "task/palette/coverage.md"
+  },
+  "coverage": {
+    "manifest": "task/palette/coverage.md",
+    "total": 13,
+    "passed_count": 13,
+    "passed": true
+  },
+  "viewports": [
+    {
+      "width": 320,
+      "screenshot": "task/palette/local-release/qa-paper-320-css-sha256-8-b8e5f23991.png",
+      "reviewed": true
+    },
+    {
+      "width": 375,
+      "screenshot": "task/palette/local-release/qa-paper-375-css-sha256-8-b8e5f23991.png",
+      "reviewed": true
+    },
+    {
+      "width": 430,
+      "screenshot": "task/palette/local-release/qa-paper-430-css-sha256-8-b8e5f23991.png",
+      "reviewed": true
+    },
+    {
+      "width": 600,
+      "screenshot": "task/palette/local-release/qa-paper-600-css-sha256-8-b8e5f23991.png",
+      "reviewed": true
+    },
+    {
+      "width": 768,
+      "screenshot": "task/palette/local-release/qa-paper-768-css-sha256-8-b8e5f23991.png",
+      "reviewed": true
+    },
+    {
+      "width": 1024,
+      "screenshot": "task/palette/local-release/qa-paper-1024-css-sha256-8-b8e5f23991.png",
+      "reviewed": true
+    },
+    {
+      "width": 1440,
+      "screenshot": "task/palette/local-release/qa-paper-1440-css-sha256-8-b8e5f23991.png",
+      "reviewed": true
+    },
+    {
+      "width": 1672,
+      "screenshot": "task/palette/local-release/qa-paper-1672-css-sha256-8-b8e5f23991.png",
+      "reviewed": true
+    },
+    {
+      "width": 2560,
+      "screenshot": "task/palette/local-release/qa-paper-2560-css-sha256-8-b8e5f23991.png",
+      "reviewed": true
+    }
+  ],
+  "comparisons": [
+    {
+      "viewport": 1672,
+      "source": "task/palette/contract-final/source.png",
+      "implementation": "task/palette/contract-final/implementation.png",
+      "overlay": "task/palette/contract-final/compare/overlay.png",
+      "report": "task/palette/contract-final/comparison.json",
+      "reviewed": true,
+      "open_deviations": 0,
+      "accepted_divergences": []
+    }
+  ],
+  "interactions": {
+    "applicable": true,
+    "inventory": "task/palette/coverage.md",
+    "evidence": "task/palette/contract-final/raw.json",
+    "passed": true
+  },
+  "motion": {
+    "applicable": false
+  },
+  "human_review": {
+    "evidence": "task/palette/primary-review.md",
+    "passed": true,
+    "kind": "primary",
+    "reviewer": "Codex",
+    "session_id": "01a15059-c1ae-7d32-828b-8504141e394d",
+    "started_at": "2026-10-18T23:16:07.367470+00:00",
+    "completed_at": "2026-10-18T23:16:07.367470+00:00",
+    "open_findings": [],
+    "inspected_sha256": {
+      "task/palette/coverage.md": "5f3b2a7671d49bb95e1ca7bfa10031b6505205924bb5ef8ff6031cca861e9279",
+      "task/palette/source-samples.json": "3444074904cd715bd8b1a37e49479241c6af74841b2efdb7c28c9e0d4de708e3",
+      "task/palette/content-state.json": "b54085178accb5a93ad950f3de0e44bada2736397d4d2516543594e1c79006f2",
+      "task/palette/contrast-recheck.json": "bd31367ed26cddeea775e2060235aacb3ce9c5b35105bba039c1951c74f45248",
+      "task/palette/base-accessibility.json": "07ebfc8869433116ee7439be19cd6c515187d173593e6409d4b9cc9925cfc521",
+      "task/palette/independent/results.json": "7331c33fde5967e547b7f329f9b70ff9fafac0942aa580b6270fb90150c22705",
+      "src/css/custom.css": "2d44b2e21f772c916bdedada97ef12b791ab467cbe69f4919859372d5b93efe9",
+      "docusaurus.config.ts": "d9501e855c2b90b410927d85bb49a403f0038e379cb93c83ec8f4c2c267c148d",
+      "node_modules/infima/dist/css/default/default.css": "aa113696173d7bf7669454493f6fe404c65c00547c63dfa78a07c8765c2fcb61",
+      "task/palette/contract-final/responsive-996.json": "76afdddd1addc50a9e9fdc8db43b248132d208af2f2a144cc4f281cad9aea806",
+      "task/palette/contract-final/code.png": "4240ef8a00037657d4004db034ace345cf6f33bfc6a8221e84e1e0a6e1d42f89",
+      "task/palette/contract-final/archive.png": "c7ba8ae0e6f6e7a04309616be5131393b50eccbb9c3a491c54e20b661379692c",
+      "task/palette/contract-final/expected.json": "11234846e8340d823f4862dfb0b6d3754b1fcb3f6935b9d9e757757d9f53acbd",
+      "task/palette/contract-final/responsive-997.json": "d90ecad0a1414a4d5150f04f728b44ddd0fee56ddd7cb08999d7f6cc83213fd6",
+      "task/palette/contract-final/raw.json": "f3aabe295d5dc8c279415720a093374e17b001fb86e90382625885e17bd103bb",
+      "task/palette/contract-final/build-state.json": "d29c0f6b80ea9d038cd98e5b8e56e85758149d984066a3620ee424e72cf490c2",
+      "task/palette/contract-final/comparison.json": "f0e0555a1bf8d1928f5a0bc315148f9f108edc5e03dd9edd78a1d070bdb8d269",
+      "task/palette/contract-final/case-records.json": "42b6ff9f53cea3730294174b762d0adacb186c9a0cc68fd9587788cad87939db",
+      "task/palette/contract-final/implementation.png": "f067effd38bae30e74131836f2e2bf6c01767374c116dfcff5891c546260cf0d",
+      "task/palette/contract-final/verification.json": "d0cac63933a151888788fce20476a73448dd9703d928e13e2bbc1ca7ecd88448",
+      "task/palette/contract-final/source.png": "f067effd38bae30e74131836f2e2bf6c01767374c116dfcff5891c546260cf0d",
+      "task/palette/contract-final/responsive-995.json": "adc3fa5effd9cb6acb06a22100d455e8c1bc254af0ba4db60922548da0349357",
+      "task/palette/contract-final/comparison-captures.json": "592016dc0c08e312158f96a053cce0b588252588aca8c2488bc928713468535d",
+      "task/palette/contract-final/compare/report.json": "1471f5312b3ccee37eed8fc504559bf429222d49b40a7c57804e50e5b7ba964f",
+      "task/palette/contract-final/compare/diff-heatmap.png": "35f302c3c463843565846037d34f9668004e0cbfb5cf475888967e945d0ea0c2",
+      "task/palette/contract-final/compare/overlay.png": "606df8b71832a29e3f27a42ae8591aad77645d2f52e2e14c0af03ca62ad4a1bd",
+      "task/palette/local-release/qa-paper-320-css-sha256-8-b8e5f23991.png": "4c1e9ad7caf8776254d97fce553ab4b4c1d456ddac2873143c76637e09391816",
+      "task/palette/local-release/qa-paper-375-css-sha256-8-b8e5f23991.png": "ff7fe5dbb0c7a42eb571f5254d83142a037e2507607c80e31f08b9fa679b35fe",
+      "task/palette/local-release/qa-paper-430-css-sha256-8-b8e5f23991.png": "51d23c1e3dcfdb7eccc750dc2a5067d2d722b95d79ba9dcb3bcc8f63905f9394",
+      "task/palette/local-release/qa-paper-600-css-sha256-8-b8e5f23991.png": "9aad0d534324052e1197917b408d45999a16a55c151a4b61e5759ba26e623e57",
+      "task/palette/local-release/qa-paper-768-css-sha256-8-b8e5f23991.png": "3ab34225ebfde9657d2ee3ba722dfa6552c0d2ea786e0773035df963cc95979e",
+      "task/palette/local-release/qa-paper-1024-css-sha256-8-b8e5f23991.png": "4f7e093d597d4289c288493f8afc8fe461099c7d701b7d1b084329ae947473ba",
+      "task/palette/local-release/qa-paper-1440-css-sha256-8-b8e5f23991.png": "a61fb23613de29810d54c9cab96dbdb391a02be21888ef4205ed7093b6de35c4",
+      "task/palette/local-release/qa-paper-1672-css-sha256-8-b8e5f23991.png": "b3556ec52ce4f5cd71d0d3ef081cd92b24c00fdba7547608d503bc7303f3d028",
+      "task/palette/local-release/qa-paper-2560-css-sha256-8-b8e5f23991.png": "4268b8192adc048ed0f6a4e7cc29643e9ba3bd04a709477aabf61efcd8a5323b",
+      "static/img/harness-engineering.jpg": "41d710e383e1dd9bfd43e8267ec3f93bc28f18f2523fdd06fb39e730dd2952a6",
+      "static/img/loop-engineering.jpg": "53be0df344e5c3ab5497b6482e62a6f0199b853eb319d1579db75166bea5ac3c",
+      "static/img/graph-engineering.jpg": "aba6e9c14a90c6356ea55131c8dac79ab4979f7a517b9fe29131c0433dedad23",
+      "static/img/how-i-combine-harness-loop-graph-engineering.jpg": "da60cdba5bb3e0c6e2db5000505bd0bf6db4d82beee76a8e4581e3849405b173",
+      "task/palette/local-release/browser.json": "f2e06bfb87d9470907d9a11127f08938eaa23e9a8dde2f39f798ec47c232d53b"
+    }
+  },
+  "accessibility": {
+    "evidence": "task/palette/contrast-recheck.json",
+    "passed": true
+  },
+  "console_network": {
+    "evidence": "task/palette/local-release/browser.json",
+    "passed": true
+  },
+  "functional": {
+    "evidence": "task/palette/contract-final/raw.json",
+    "passed": true
+  },
+  "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+  "build_id": "css-sha256:8677debb92346ac03c603d706c119fcee6828c5d8362104032ebb9fb4015a1bf",
+  "verification": "task/palette/contract-final/verification.json",
+  "artifact_sha256": {
+    "task/palette/coverage.md": "5f3b2a7671d49bb95e1ca7bfa10031b6505205924bb5ef8ff6031cca861e9279",
+    "task/palette/primary-review.md": "0b54ebf6dc39ed52ce208e95f79aca71ef67a4814a74173b8883cc1ce27bfb14",
+    "task/palette/source-samples.json": "3444074904cd715bd8b1a37e49479241c6af74841b2efdb7c28c9e0d4de708e3",
+    "task/palette/content-state.json": "b54085178accb5a93ad950f3de0e44bada2736397d4d2516543594e1c79006f2",
+    "task/palette/contrast-recheck.json": "bd31367ed26cddeea775e2060235aacb3ce9c5b35105bba039c1951c74f45248",
+    "task/palette/base-accessibility.json": "07ebfc8869433116ee7439be19cd6c515187d173593e6409d4b9cc9925cfc521",
+    "task/palette/independent/results.json": "7331c33fde5967e547b7f329f9b70ff9fafac0942aa580b6270fb90150c22705",
+    "src/css/custom.css": "2d44b2e21f772c916bdedada97ef12b791ab467cbe69f4919859372d5b93efe9",
+    "docusaurus.config.ts": "d9501e855c2b90b410927d85bb49a403f0038e379cb93c83ec8f4c2c267c148d",
+    "node_modules/infima/dist/css/default/default.css": "aa113696173d7bf7669454493f6fe404c65c00547c63dfa78a07c8765c2fcb61",
+    "task/palette/contract-final/responsive-996.json": "76afdddd1addc50a9e9fdc8db43b248132d208af2f2a144cc4f281cad9aea806",
+    "task/palette/contract-final/code.png": "4240ef8a00037657d4004db034ace345cf6f33bfc6a8221e84e1e0a6e1d42f89",
+    "task/palette/contract-final/archive.png": "c7ba8ae0e6f6e7a04309616be5131393b50eccbb9c3a491c54e20b661379692c",
+    "task/palette/contract-final/expected.json": "11234846e8340d823f4862dfb0b6d3754b1fcb3f6935b9d9e757757d9f53acbd",
+    "task/palette/contract-final/responsive-997.json": "d90ecad0a1414a4d5150f04f728b44ddd0fee56ddd7cb08999d7f6cc83213fd6",
+    "task/palette/contract-final/raw.json": "f3aabe295d5dc8c279415720a093374e17b001fb86e90382625885e17bd103bb",
+    "task/palette/contract-final/build-state.json": "d29c0f6b80ea9d038cd98e5b8e56e85758149d984066a3620ee424e72cf490c2",
+    "task/palette/contract-final/comparison.json": "f0e0555a1bf8d1928f5a0bc315148f9f108edc5e03dd9edd78a1d070bdb8d269",
+    "task/palette/contract-final/case-records.json": "42b6ff9f53cea3730294174b762d0adacb186c9a0cc68fd9587788cad87939db",
+    "task/palette/contract-final/implementation.png": "f067effd38bae30e74131836f2e2bf6c01767374c116dfcff5891c546260cf0d",
+    "task/palette/contract-final/verification.json": "d0cac63933a151888788fce20476a73448dd9703d928e13e2bbc1ca7ecd88448",
+    "task/palette/contract-final/source.png": "f067effd38bae30e74131836f2e2bf6c01767374c116dfcff5891c546260cf0d",
+    "task/palette/contract-final/responsive-995.json": "adc3fa5effd9cb6acb06a22100d455e8c1bc254af0ba4db60922548da0349357",
+    "task/palette/contract-final/comparison-captures.json": "592016dc0c08e312158f96a053cce0b588252588aca8c2488bc928713468535d",
+    "task/palette/contract-final/compare/report.json": "1471f5312b3ccee37eed8fc504559bf429222d49b40a7c57804e50e5b7ba964f",
+    "task/palette/contract-final/compare/diff-heatmap.png": "35f302c3c463843565846037d34f9668004e0cbfb5cf475888967e945d0ea0c2",
+    "task/palette/contract-final/compare/overlay.png": "606df8b71832a29e3f27a42ae8591aad77645d2f52e2e14c0af03ca62ad4a1bd",
+    "task/palette/local-release/qa-paper-320-css-sha256-8-b8e5f23991.png": "4c1e9ad7caf8776254d97fce553ab4b4c1d456ddac2873143c76637e09391816",
+    "task/palette/local-release/qa-paper-375-css-sha256-8-b8e5f23991.png": "ff7fe5dbb0c7a42eb571f5254d83142a037e2507607c80e31f08b9fa679b35fe",
+    "task/palette/local-release/qa-paper-430-css-sha256-8-b8e5f23991.png": "51d23c1e3dcfdb7eccc750dc2a5067d2d722b95d79ba9dcb3bcc8f63905f9394",
+    "task/palette/local-release/qa-paper-600-css-sha256-8-b8e5f23991.png": "9aad0d534324052e1197917b408d45999a16a55c151a4b61e5759ba26e623e57",
+    "task/palette/local-release/qa-paper-768-css-sha256-8-b8e5f23991.png": "3ab34225ebfde9657d2ee3ba722dfa6552c0d2ea786e0773035df963cc95979e",
+    "task/palette/local-release/qa-paper-1024-css-sha256-8-b8e5f23991.png": "4f7e093d597d4289c288493f8afc8fe461099c7d701b7d1b084329ae947473ba",
+    "task/palette/local-release/qa-paper-1440-css-sha256-8-b8e5f23991.png": "a61fb23613de29810d54c9cab96dbdb391a02be21888ef4205ed7093b6de35c4",
+    "task/palette/local-release/qa-paper-1672-css-sha256-8-b8e5f23991.png": "b3556ec52ce4f5cd71d0d3ef081cd92b24c00fdba7547608d503bc7303f3d028",
+    "task/palette/local-release/qa-paper-2560-css-sha256-8-b8e5f23991.png": "4268b8192adc048ed0f6a4e7cc29643e9ba3bd04a709477aabf61efcd8a5323b",
+    "static/img/harness-engineering.jpg": "41d710e383e1dd9bfd43e8267ec3f93bc28f18f2523fdd06fb39e730dd2952a6",
+    "static/img/loop-engineering.jpg": "53be0df344e5c3ab5497b6482e62a6f0199b853eb319d1579db75166bea5ac3c",
+    "static/img/graph-engineering.jpg": "aba6e9c14a90c6356ea55131c8dac79ab4979f7a517b9fe29131c0433dedad23",
+    "static/img/how-i-combine-harness-loop-graph-engineering.jpg": "da60cdba5bb3e0c6e2db5000505bd0bf6db4d82beee76a8e4581e3849405b173",
+    "task/palette/local-release/browser.json": "f2e06bfb87d9470907d9a11127f08938eaa23e9a8dde2f39f798ec47c232d53b"
+  },
+  "responsive_profile": "eight-viewports-v1",
+  "responsive_checks": [
+    {
+      "width": 995,
+      "selectors": [
+        ".navbar",
+        "main",
+        "article",
+        ".footer"
+      ],
+      "report": "task/palette/contract-final/responsive-995.json"
+    },
+    {
+      "width": 996,
+      "selectors": [
+        ".navbar",
+        "main",
+        "article",
+        ".footer"
+      ],
+      "report": "task/palette/contract-final/responsive-996.json"
+    },
+    {
+      "width": 997,
+      "selectors": [
+        ".navbar",
+        "main",
+        "article",
+        ".footer"
+      ],
+      "report": "task/palette/contract-final/responsive-997.json"
+    }
+  ],
+  "capture_window": {
+    "started_at": "2026-10-18T23:12:44.980640+00:00",
+    "ended_at": "2026-10-18T23:14:52.649011+00:00"
+  }
+}

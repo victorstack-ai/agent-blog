@@ -1,0 +1,29 @@
+{
+  "capture": {
+    "path": "task/palette/local-selection/capture.json",
+    "sha256": "e10917896b63ea7f1061a7859f56682ba2724db9ed35a1f514b33ca153ab7f1d"
+  },
+  "inspections": {
+    "path": "task/palette/local-selection/inspections.json",
+    "sha256": "0a03fde8f11d1891ef35aa3efd236f5d8265b4cd1bc47e7b14b90e030e2408ab"
+  },
+  "logs": {
+    "path": "task/palette/local-selection/log-collection.json",
+    "sha256": "15f4dcc0a90c235fa31b07295ec825601ad5141a978435a0ed600f4ed74219a6"
+  },
+  "manifest": {
+    "path": "task/palette/local-selection/output-evidence.json",
+    "sha256": "7c57f0e9f42add6e6522b830c7af16079916fb9ecfefe8e99c8701cd31ca66e3"
+  },
+  "schema_version": 1,
+  "state": {
+    "build_id": "css-sha256:e39d9cb570cd76583865b3ac7b4bda572071f2ed8b0d42d9c5b538b947baebc9",
+    "content_state_id": "b54085178accb5a93ad950f3de0e44bada2736397d4d2516543594e1c79006f2",
+    "environment": "local",
+    "scope_sha256": "ec0dc597b24531150e2be68a325f4fafeda93d4cc9ea84c3903a3bcf8d828b0d",
+    "ticket": "BLOG-PALETTE-20261018",
+    "urls": [
+      "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/"
+    ]
+  }
+}

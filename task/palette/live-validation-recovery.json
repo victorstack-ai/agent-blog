@@ -1,0 +1,35 @@
+{
+  "started_at": "2026-10-18T23:34:13.675833+00:00",
+  "cause": "Previous probe used a300ms delay instead of awaiting the rendered no-results state. Product source is unchanged.",
+  "url": "https://victorstack-ai.github.io/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+  "cases": {
+    "validation": {
+      "palette": {
+        "cream": [
+          246,
+          242,
+          231
+        ],
+        "deep": [
+          13,
+          26,
+          45
+        ],
+        "navy": [
+          27,
+          48,
+          75
+        ],
+        "orange": [
+          232,
+          123,
+          40
+        ]
+      },
+      "overflow": false,
+      "searchEmpty": true,
+      "captured_at": "2026-10-18T23:34:16.897844+00:00"
+    }
+  },
+  "completed_at": "2026-10-18T23:34:16.957122+00:00"
+}

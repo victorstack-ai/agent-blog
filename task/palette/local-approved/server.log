@@ -1,0 +1,8 @@
+
+> website@0.0.0 serve
+> docusaurus serve --port 3917 --host 127.0.0.1
+
+
+ ------------------------------------------------------------------------------                                                                                                         Update available 3.9.2 → 3.10.2                                                                                                                 To upgrade Docusaurus packages with the latest version, run the                                       following command:                                                        `npm i @docusaurus/core@latest                                            @docusaurus/plugin-client-redirects@latest                        @docusaurus/plugin-ideal-image@latest @docusaurus/preset-classic@latest         @docusaurus/theme-mermaid@latest @docusaurus/module-type-aliases@latest                  @docusaurus/tsconfig@latest @docusaurus/types@latest`                                                                                               ------------------------------------------------------------------------------ 
+
+[SUCCESS] Serving "build" directory at: http://127.0.0.1:3917/agent-blog/

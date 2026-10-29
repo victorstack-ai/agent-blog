@@ -1,0 +1,370 @@
+{
+  "browserResults": [
+    {
+      "address_shown": false,
+      "animations_disabled": false,
+      "click_count": 0,
+      "device_scale_factor": 1,
+      "diagnosticMatches": [],
+      "entry_redirected": false,
+      "expanded_select_count": 0,
+      "expected_status": 200,
+      "focus_count": 0,
+      "full_page": false,
+      "hover_count": 0,
+      "navigation_timing": {
+        "elapsed_ms": 405,
+        "performance_navigation": {
+          "domContentLoadedEventEnd": 237.7999999821186,
+          "domInteractive": 210.69999998807907,
+          "duration": 403.59999999403954,
+          "loadEventEnd": 403.59999999403954,
+          "redirectCount": 0,
+          "responseEnd": 2.0999999940395355,
+          "responseStart": 1.899999976158142,
+          "startTime": 0
+        },
+        "slow_over_30000_ms": false,
+        "timeout_ms": 30000
+      },
+      "observed_until": "2026-10-18T23:13:01.146170+00:00",
+      "redirect_statuses": [],
+      "reduced_motion": "no-preference",
+      "revealed_selector_count": 0,
+      "select_count": 0,
+      "settle_ms": 300,
+      "status": 200,
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "viewport": {
+        "height": 900,
+        "width": 320
+      }
+    },
+    {
+      "address_shown": false,
+      "animations_disabled": false,
+      "click_count": 0,
+      "device_scale_factor": 1,
+      "diagnosticMatches": [],
+      "entry_redirected": false,
+      "expanded_select_count": 0,
+      "expected_status": 200,
+      "focus_count": 0,
+      "full_page": false,
+      "hover_count": 0,
+      "navigation_timing": {
+        "elapsed_ms": 2237,
+        "performance_navigation": {
+          "domContentLoadedEventEnd": 2118.699999988079,
+          "domInteractive": 2089.5999999940395,
+          "duration": 2236.399999976158,
+          "loadEventEnd": 2236.399999976158,
+          "redirectCount": 0,
+          "responseEnd": 1.699999988079071,
+          "responseStart": 1.399999976158142,
+          "startTime": 0
+        },
+        "slow_over_30000_ms": false,
+        "timeout_ms": 30000
+      },
+      "observed_until": "2026-10-18T23:13:03.750278+00:00",
+      "redirect_statuses": [],
+      "reduced_motion": "no-preference",
+      "revealed_selector_count": 0,
+      "select_count": 0,
+      "settle_ms": 300,
+      "status": 200,
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "viewport": {
+        "height": 900,
+        "width": 375
+      }
+    },
+    {
+      "address_shown": false,
+      "animations_disabled": false,
+      "click_count": 0,
+      "device_scale_factor": 1,
+      "diagnosticMatches": [],
+      "entry_redirected": false,
+      "expanded_select_count": 0,
+      "expected_status": 200,
+      "focus_count": 0,
+      "full_page": false,
+      "hover_count": 0,
+      "navigation_timing": {
+        "elapsed_ms": 541,
+        "performance_navigation": {
+          "domContentLoadedEventEnd": 257.60000002384186,
+          "domInteractive": 231.60000002384186,
+          "duration": 540.4000000059605,
+          "loadEventEnd": 540.4000000059605,
+          "redirectCount": 0,
+          "responseEnd": 1.300000011920929,
+          "responseStart": 1.100000023841858,
+          "startTime": 0
+        },
+        "slow_over_30000_ms": false,
+        "timeout_ms": 30000
+      },
+      "observed_until": "2026-10-18T23:13:04.659511+00:00",
+      "redirect_statuses": [],
+      "reduced_motion": "no-preference",
+      "revealed_selector_count": 0,
+      "select_count": 0,
+      "settle_ms": 300,
+      "status": 200,
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "viewport": {
+        "height": 900,
+        "width": 430
+      }
+    },
+    {
+      "address_shown": false,
+      "animations_disabled": false,
+      "click_count": 0,
+      "device_scale_factor": 1,
+      "diagnosticMatches": [],
+      "entry_redirected": false,
+      "expanded_select_count": 0,
+      "expected_status": 200,
+      "focus_count": 0,
+      "full_page": false,
+      "hover_count": 0,
+      "navigation_timing": {
+        "elapsed_ms": 396,
+        "performance_navigation": {
+          "domContentLoadedEventEnd": 250.2000000178814,
+          "domInteractive": 230,
+          "duration": 394.60000002384186,
+          "loadEventEnd": 394.60000002384186,
+          "redirectCount": 0,
+          "responseEnd": 1.100000023841858,
+          "responseStart": 0.9000000059604645,
+          "startTime": 0
+        },
+        "slow_over_30000_ms": false,
+        "timeout_ms": 30000
+      },
+      "observed_until": "2026-10-18T23:13:05.439320+00:00",
+      "redirect_statuses": [],
+      "reduced_motion": "no-preference",
+      "revealed_selector_count": 0,
+      "select_count": 0,
+      "settle_ms": 300,
+      "status": 200,
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "viewport": {
+        "height": 900,
+        "width": 600
+      }
+    },
+    {
+      "address_shown": false,
+      "animations_disabled": false,
+      "click_count": 0,
+      "device_scale_factor": 1,
+      "diagnosticMatches": [],
+      "entry_redirected": false,
+      "expanded_select_count": 0,
+      "expected_status": 200,
+      "focus_count": 0,
+      "full_page": false,
+      "hover_count": 0,
+      "navigation_timing": {
+        "elapsed_ms": 532,
+        "performance_navigation": {
+          "domContentLoadedEventEnd": 238.5,
+          "domInteractive": 206.09999999403954,
+          "duration": 530.5,
+          "loadEventEnd": 530.5,
+          "redirectCount": 0,
+          "responseEnd": 1.199999988079071,
+          "responseStart": 1,
+          "startTime": 0
+        },
+        "slow_over_30000_ms": false,
+        "timeout_ms": 30000
+      },
+      "observed_until": "2026-10-18T23:13:06.353417+00:00",
+      "redirect_statuses": [],
+      "reduced_motion": "no-preference",
+      "revealed_selector_count": 0,
+      "select_count": 0,
+      "settle_ms": 300,
+      "status": 200,
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      }
+    },
+    {
+      "address_shown": false,
+      "animations_disabled": false,
+      "click_count": 0,
+      "device_scale_factor": 1,
+      "diagnosticMatches": [],
+      "entry_redirected": false,
+      "expanded_select_count": 0,
+      "expected_status": 200,
+      "focus_count": 0,
+      "full_page": false,
+      "hover_count": 0,
+      "navigation_timing": {
+        "elapsed_ms": 375,
+        "performance_navigation": {
+          "domContentLoadedEventEnd": 238.09999999403954,
+          "domInteractive": 213.59999999403954,
+          "duration": 373.40000000596046,
+          "loadEventEnd": 373.40000000596046,
+          "redirectCount": 0,
+          "responseEnd": 1.4000000059604645,
+          "responseStart": 1.2000000178813934,
+          "startTime": 0
+        },
+        "slow_over_30000_ms": false,
+        "timeout_ms": 30000
+      },
+      "observed_until": "2026-10-18T23:13:07.124951+00:00",
+      "redirect_statuses": [],
+      "reduced_motion": "no-preference",
+      "revealed_selector_count": 0,
+      "select_count": 0,
+      "settle_ms": 300,
+      "status": 200,
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "viewport": {
+        "height": 900,
+        "width": 1024
+      }
+    },
+    {
+      "address_shown": false,
+      "animations_disabled": false,
+      "click_count": 0,
+      "device_scale_factor": 1,
+      "diagnosticMatches": [],
+      "entry_redirected": false,
+      "expanded_select_count": 0,
+      "expected_status": 200,
+      "focus_count": 0,
+      "full_page": false,
+      "hover_count": 0,
+      "navigation_timing": {
+        "elapsed_ms": 452,
+        "performance_navigation": {
+          "domContentLoadedEventEnd": 237.90000000596046,
+          "domInteractive": 211.7999999821186,
+          "duration": 450.5,
+          "loadEventEnd": 450.5,
+          "redirectCount": 0,
+          "responseEnd": 1.0999999940395355,
+          "responseStart": 1,
+          "startTime": 0
+        },
+        "slow_over_30000_ms": false,
+        "timeout_ms": 30000
+      },
+      "observed_until": "2026-10-18T23:13:07.987333+00:00",
+      "redirect_statuses": [],
+      "reduced_motion": "no-preference",
+      "revealed_selector_count": 0,
+      "select_count": 0,
+      "settle_ms": 300,
+      "status": 200,
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      }
+    },
+    {
+      "address_shown": false,
+      "animations_disabled": false,
+      "click_count": 0,
+      "device_scale_factor": 1,
+      "diagnosticMatches": [],
+      "entry_redirected": false,
+      "expanded_select_count": 0,
+      "expected_status": 200,
+      "focus_count": 0,
+      "full_page": false,
+      "hover_count": 0,
+      "navigation_timing": {
+        "elapsed_ms": 402,
+        "performance_navigation": {
+          "domContentLoadedEventEnd": 276.2000000178814,
+          "domInteractive": 256.30000001192093,
+          "duration": 401,
+          "loadEventEnd": 401,
+          "redirectCount": 0,
+          "responseEnd": 1.2000000178813934,
+          "responseStart": 1,
+          "startTime": 0
+        },
+        "slow_over_30000_ms": false,
+        "timeout_ms": 30000
+      },
+      "observed_until": "2026-10-18T23:13:08.819059+00:00",
+      "redirect_statuses": [],
+      "reduced_motion": "no-preference",
+      "revealed_selector_count": 0,
+      "select_count": 0,
+      "settle_ms": 300,
+      "status": 200,
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "viewport": {
+        "height": 900,
+        "width": 1672
+      }
+    },
+    {
+      "address_shown": false,
+      "animations_disabled": false,
+      "click_count": 0,
+      "device_scale_factor": 1,
+      "diagnosticMatches": [],
+      "entry_redirected": false,
+      "expanded_select_count": 0,
+      "expected_status": 200,
+      "focus_count": 0,
+      "full_page": false,
+      "hover_count": 0,
+      "navigation_timing": {
+        "elapsed_ms": 461,
+        "performance_navigation": {
+          "domContentLoadedEventEnd": 243.89999997615814,
+          "domInteractive": 222.5,
+          "duration": 459.19999998807907,
+          "loadEventEnd": 459.19999998807907,
+          "redirectCount": 0,
+          "responseEnd": 1.399999976158142,
+          "responseStart": 1.199999988079071,
+          "startTime": 0
+        },
+        "slow_over_30000_ms": false,
+        "timeout_ms": 30000
+      },
+      "observed_until": "2026-10-18T23:13:09.688885+00:00",
+      "redirect_statuses": [],
+      "reduced_motion": "no-preference",
+      "revealed_selector_count": 0,
+      "select_count": 0,
+      "settle_ms": 300,
+      "status": 200,
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "viewport": {
+        "height": 900,
+        "width": 2560
+      }
+    }
+  ],
+  "consoleMessages": [],
+  "secondPass": [],
+  "window": {
+    "end": "2026-10-18T23:13:09.708512+00:00",
+    "start": "2026-10-18T23:13:00.180212+00:00"
+  }
+}

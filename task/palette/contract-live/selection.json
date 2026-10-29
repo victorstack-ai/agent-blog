@@ -1,0 +1,177 @@
+{
+  "started_at": "2026-10-18T23:30:31.251585+00:00",
+  "axe": {
+    "archive/": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "nodes": [
+          [
+            "#\\32 026"
+          ]
+        ]
+      },
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": [
+          [
+            "img"
+          ]
+        ]
+      }
+    ],
+    "how-i-combine-harness-loop-graph-engineering/": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": [
+          [
+            ".themedComponent_mlkZ"
+          ]
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": [
+          [
+            ".col--2"
+          ]
+        ]
+      },
+      {
+        "id": "scrollable-region-focusable",
+        "impact": "serious",
+        "nodes": [
+          [
+            ".docusaurus-mermaid-container.container_lyt7:nth-child(17)"
+          ],
+          [
+            ".docusaurus-mermaid-container.container_lyt7:nth-child(26)"
+          ]
+        ]
+      }
+    ],
+    "2026-03-11-ally-wordpress-unauthenticated-sqli-response-playbook/": [
+      {
+        "id": "image-redundant-alt",
+        "impact": "minor",
+        "nodes": [
+          [
+            ".themedComponent_mlkZ"
+          ]
+        ]
+      },
+      {
+        "id": "label",
+        "impact": "critical",
+        "nodes": [
+          [
+            ".task-list-item:nth-child(1) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(2) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(3) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(4) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(5) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(6) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(7) > input[type=\"checkbox\"]"
+          ],
+          [
+            ".task-list-item:nth-child(8) > input[type=\"checkbox\"]"
+          ]
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "nodes": [
+          [
+            ".col--2"
+          ]
+        ]
+      }
+    ]
+  },
+  "selection": {
+    "foreground": "rgb(246, 242, 231)",
+    "background": "rgb(27, 48, 75)"
+  },
+  "edgeLabels": [
+    {
+      "text": "",
+      "fill": "rgb(13, 26, 45)"
+    },
+    {
+      "text": "",
+      "fill": "rgb(13, 26, 45)"
+    },
+    {
+      "text": "",
+      "fill": "rgb(13, 26, 45)"
+    },
+    {
+      "text": "",
+      "fill": "rgb(13, 26, 45)"
+    },
+    {
+      "text": "pass",
+      "fill": "rgb(13, 26, 45)"
+    },
+    {
+      "text": "accepted",
+      "fill": "rgb(13, 26, 45)"
+    },
+    {
+      "text": "pass",
+      "fill": "rgb(13, 26, 45)"
+    },
+    {
+      "text": "fail",
+      "fill": "rgb(13, 26, 45)"
+    },
+    {
+      "text": "unresolved findings",
+      "fill": "rgb(13, 26, 45)"
+    },
+    {
+      "text": "fail",
+      "fill": "rgb(13, 26, 45)"
+    },
+    {
+      "text": "budget remains",
+      "fill": "rgb(13, 26, 45)"
+    },
+    {
+      "text": "budget exhausted",
+      "fill": "rgb(13, 26, 45)"
+    }
+  ],
+  "menuClosed": true,
+  "searchResults": 9,
+  "metas": [
+    "#f6f2e7"
+  ],
+  "ended_at": "2026-10-18T23:30:37.620963+00:00",
+  "foregroundRgb": [
+    246,
+    242,
+    231
+  ],
+  "backgroundRgb": [
+    27,
+    48,
+    75
+  ]
+}

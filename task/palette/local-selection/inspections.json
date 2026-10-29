@@ -1,0 +1,77 @@
+{
+  "capture_sha256": "e10917896b63ea7f1061a7859f56682ba2724db9ed35a1f514b33ca153ab7f1d",
+  "screenshots": [
+    {
+      "path": "task/palette/local-selection/qa-paper-320-css-sha256-e-316d337ec8.png",
+      "sha256": "4c1e9ad7caf8776254d97fce553ab4b4c1d456ddac2873143c76637e09391816",
+      "inspector": "Codex01a15059-c1ae-7d32-828b-8504141e394d",
+      "inspected_at": "2026-10-18T23:24:12.407178+00:00",
+      "passed": true,
+      "assertion": "The captured page bytes match the inspected cream/navy page at this width. Title, text, navigation and sidebars fit the viewport. Selection is inspected separately."
+    },
+    {
+      "path": "task/palette/local-selection/qa-paper-375-css-sha256-e-316d337ec8.png",
+      "sha256": "ff7fe5dbb0c7a42eb571f5254d83142a037e2507607c80e31f08b9fa679b35fe",
+      "inspector": "Codex01a15059-c1ae-7d32-828b-8504141e394d",
+      "inspected_at": "2026-10-18T23:24:12.407286+00:00",
+      "passed": true,
+      "assertion": "The captured page bytes match the inspected cream/navy page at this width. Title, text, navigation and sidebars fit the viewport. Selection is inspected separately."
+    },
+    {
+      "path": "task/palette/local-selection/qa-paper-430-css-sha256-e-316d337ec8.png",
+      "sha256": "51d23c1e3dcfdb7eccc750dc2a5067d2d722b95d79ba9dcb3bcc8f63905f9394",
+      "inspector": "Codex01a15059-c1ae-7d32-828b-8504141e394d",
+      "inspected_at": "2026-10-18T23:24:12.407288+00:00",
+      "passed": true,
+      "assertion": "The captured page bytes match the inspected cream/navy page at this width. Title, text, navigation and sidebars fit the viewport. Selection is inspected separately."
+    },
+    {
+      "path": "task/palette/local-selection/qa-paper-600-css-sha256-e-316d337ec8.png",
+      "sha256": "9aad0d534324052e1197917b408d45999a16a55c151a4b61e5759ba26e623e57",
+      "inspector": "Codex01a15059-c1ae-7d32-828b-8504141e394d",
+      "inspected_at": "2026-10-18T23:24:12.407289+00:00",
+      "passed": true,
+      "assertion": "The captured page bytes match the inspected cream/navy page at this width. Title, text, navigation and sidebars fit the viewport. Selection is inspected separately."
+    },
+    {
+      "path": "task/palette/local-selection/qa-paper-768-css-sha256-e-316d337ec8.png",
+      "sha256": "3ab34225ebfde9657d2ee3ba722dfa6552c0d2ea786e0773035df963cc95979e",
+      "inspector": "Codex01a15059-c1ae-7d32-828b-8504141e394d",
+      "inspected_at": "2026-10-18T23:24:12.407290+00:00",
+      "passed": true,
+      "assertion": "The captured page bytes match the inspected cream/navy page at this width. Title, text, navigation and sidebars fit the viewport. Selection is inspected separately."
+    },
+    {
+      "path": "task/palette/local-selection/qa-paper-1024-css-sha256-e-316d337ec8.png",
+      "sha256": "4f7e093d597d4289c288493f8afc8fe461099c7d701b7d1b084329ae947473ba",
+      "inspector": "Codex01a15059-c1ae-7d32-828b-8504141e394d",
+      "inspected_at": "2026-10-18T23:24:12.407291+00:00",
+      "passed": true,
+      "assertion": "The captured page bytes match the inspected cream/navy page at this width. Title, text, navigation and sidebars fit the viewport. Selection is inspected separately."
+    },
+    {
+      "path": "task/palette/local-selection/qa-paper-1440-css-sha256-e-316d337ec8.png",
+      "sha256": "a61fb23613de29810d54c9cab96dbdb391a02be21888ef4205ed7093b6de35c4",
+      "inspector": "Codex01a15059-c1ae-7d32-828b-8504141e394d",
+      "inspected_at": "2026-10-18T23:24:12.407292+00:00",
+      "passed": true,
+      "assertion": "The captured page bytes match the inspected cream/navy page at this width. Title, text, navigation and sidebars fit the viewport. Selection is inspected separately."
+    },
+    {
+      "path": "task/palette/local-selection/qa-paper-1672-css-sha256-e-316d337ec8.png",
+      "sha256": "b3556ec52ce4f5cd71d0d3ef081cd92b24c00fdba7547608d503bc7303f3d028",
+      "inspector": "Codex01a15059-c1ae-7d32-828b-8504141e394d",
+      "inspected_at": "2026-10-18T23:24:12.407292+00:00",
+      "passed": true,
+      "assertion": "The captured page bytes match the inspected cream/navy page at this width. Title, text, navigation and sidebars fit the viewport. Selection is inspected separately."
+    },
+    {
+      "path": "task/palette/local-selection/qa-paper-2560-css-sha256-e-316d337ec8.png",
+      "sha256": "4268b8192adc048ed0f6a4e7cc29643e9ba3bd04a709477aabf61efcd8a5323b",
+      "inspector": "Codex01a15059-c1ae-7d32-828b-8504141e394d",
+      "inspected_at": "2026-10-18T23:24:12.407293+00:00",
+      "passed": true,
+      "assertion": "The captured page bytes match the inspected cream/navy page at this width. Title, text, navigation and sidebars fit the viewport. Selection is inspected separately."
+    }
+  ]
+}

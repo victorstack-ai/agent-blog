@@ -1,0 +1,94 @@
+{
+  "started": "2026-10-18T22:58:43.561071+00:00",
+  "menu": {
+    "background": "rgb(246, 242, 231)",
+    "width": 311.25
+  },
+  "menuClosed": true,
+  "searchResults": 9,
+  "emptySearch": [
+    "No results",
+    ""
+  ],
+  "code": {
+    "background": "rgb(13, 25, 45)",
+    "color": "rgb(246, 242, 231)"
+  },
+  "metas": [
+    "#f6f2e7"
+  ],
+  "viewportCount": 1,
+  "edgeLabels": [
+    {
+      "text": "",
+      "fill": "rgb(13, 25, 45)"
+    },
+    {
+      "text": "",
+      "fill": "rgb(13, 25, 45)"
+    },
+    {
+      "text": "",
+      "fill": "rgb(13, 25, 45)"
+    },
+    {
+      "text": "",
+      "fill": "rgb(13, 25, 45)"
+    },
+    {
+      "text": "pass",
+      "fill": "rgb(13, 25, 45)"
+    },
+    {
+      "text": "accepted",
+      "fill": "rgb(13, 25, 45)"
+    },
+    {
+      "text": "pass",
+      "fill": "rgb(13, 25, 45)"
+    },
+    {
+      "text": "fail",
+      "fill": "rgb(13, 25, 45)"
+    },
+    {
+      "text": "unresolved findings",
+      "fill": "rgb(13, 25, 45)"
+    },
+    {
+      "text": "fail",
+      "fill": "rgb(13, 25, 45)"
+    },
+    {
+      "text": "budget remains",
+      "fill": "rgb(13, 25, 45)"
+    },
+    {
+      "text": "budget exhausted",
+      "fill": "rgb(13, 25, 45)"
+    }
+  ],
+  "dark": {
+    "theme": "light",
+    "bg": "rgb(246, 242, 231)",
+    "text": "rgb(13, 25, 45)"
+  },
+  "light": {
+    "theme": "light",
+    "bg": "rgb(246, 242, 231)",
+    "text": "rgb(13, 25, 45)"
+  },
+  "errors": [],
+  "network": [],
+  "firefox": {
+    "width": 375,
+    "scroll": 375,
+    "bg": "rgb(246, 242, 231)"
+  },
+  "webkit": {
+    "width": 375,
+    "scroll": 375,
+    "bg": "rgb(246, 242, 231)"
+  },
+  "ended": "2026-10-18T22:58:53.404248+00:00"
+}

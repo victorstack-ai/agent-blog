@@ -1,0 +1,37 @@
+/Users/vj/llm-config/runtime/qa-handoff/bin/python - <<'PY'
+from pathlib import Path
+from playwright.sync_api import sync_playwright
+import json,datetime,hashlib,re,shutil
+R=Path('/Users/vj/Documents/work/personal/projects/ai-agents/agent-blog-trees/cover-palette-20261018');T=R/'task/palette/contract-live';T.mkdir(exist_ok=True);old=R/'task/palette/contract';sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();now=lambda:datetime.datetime.now(datetime.timezone.utc).isoformat();css=next((R/'build/assets/css').glob('styles.*.css'));build={'build_id':'css-sha256:'+sha(css),'source':{x:sha(R/x) for x in ['src/css/custom.css','docusaurus.config.ts']},'css':str(css.relative_to(R)),'base':'68a0f9182dacda88e2d116bf586c5bff5c8cdc6d'};(T/'build-state.json').write_text(json.dumps(build,indent=2));d=json.loads((old/'case-records.json').read_text());exp=json.loads((old/'expected.json').read_text());(T/'expected.json').write_text(json.dumps(exp,indent=2));raw={'started_at':now(),'cases':{}};url='https://victorstack-ai.github.io/agent-blog/how-i-combine-harness-loop-graph-engineering/'
+expr='''()=>{const rgb=s=>(s.match(/\\d+/g)||[]).slice(0,3).map(Number);let b=getComputedStyle(document.body),f=getComputedStyle(document.querySelector('.footer')),a=document.querySelector('.markdown a:not(.hash-link)');return {palette:{cream:rgb(b.backgroundColor),deep:rgb(b.color),navy:rgb(f.backgroundColor),orange:rgb(getComputedStyle(a).textDecorationColor)},overflow:document.documentElement.scrollWidth>document.documentElement.clientWidth,width:innerWidth,fontsLoaded:document.fonts.check('16px Outfit'),assetsLoaded:[...document.images].every(i=>i.complete&&i.naturalWidth>0)}}'''
+with sync_playwright() as p:
+ engines={name:getattr(p,name).launch() for name in ['chromium','firefox','webkit']};raw['browser_version']=engines['chromium'].version
+ for definition,result in zip(d['required_cases'],d['results']):
+  cat=definition['category'];name=cat.replace('browser-','') if cat.startswith('browser-') else 'chromium';dims={'width':definition.get('width',1440),'height':900};dims.update({'zoom-200':{'width':640,'height':450},'reflow-320':{'width':320,'height':900},'height-short':{'width':375,'height':400},'height-tall':{'width':375,'height':1200},'portrait':{'width':375,'height':900},'landscape':{'width':900,'height':375}}.get(cat,{}));ctx=engines[name].new_context(viewport=dims,java_script_enabled=cat!='no-js',device_scale_factor=2 if cat=='zoom-200' else 1);pg=ctx.new_page();pg.goto(url,wait_until='networkidle');extra={}
+  if cat=='resize':pg.set_viewport_size({'width':997,'height':900})
+  if cat=='scroll-entry':pg.evaluate('window.scrollTo(0,document.body.scrollHeight/2)')
+  if cat=='state-restore':pg.evaluate('localStorage.setItem("theme","dark")');pg.reload(wait_until='networkidle')
+  texts={'content-empty':'','content-minimal':'One paragraph.','content-long':'An ordinary long paragraph with words. '*500,'content-localized':'La página conserva texto legible y colores. '*30,'content-repeated':'Repeated paragraph. '*100}
+  if cat in texts:pg.locator('.markdown').evaluate('(e,t)=>{for(let n of [...e.children])if(n.tagName==="P")n.textContent=t}',texts[cat])
+  if cat in ['normal-motion','reduced-motion']:pg.emulate_media(reduced_motion='reduce' if cat=='reduced-motion' else 'no-preference')
+  if cat=='keyboard':pg.keyboard.press('Tab');extra['focusVisible']=pg.evaluate('document.activeElement.matches(":focus-visible")&&parseFloat(getComputedStyle(document.activeElement).outlineWidth)>0')
+  if cat in ['validation','success-error']:
+   q=pg.get_by_placeholder('Search',exact=True);q.fill('loop');pg.wait_for_timeout(500);success=pg.locator('[class*="suggestion"]').count()>0;q.fill('zzzznoresultzzzz');pg.wait_for_timeout(300);extra['searchEmpty']='No results' in ' '.join(pg.locator('[class*="noResults"]').all_text_contents())
+   if cat=='success-error':extra['searchSuccess']=success
+  if cat=='attach-detach-reattach':pg.locator('a.navbar__link').filter(has_text='Blog').first.click();pg.go_back(wait_until='networkidle')
+  v=pg.evaluate(expr);v.update(extra,captured_at=now());raw['cases'][definition['id']]=v;result.update(url=url,build_id=build['build_id'],captured_at=v['captured_at']);ctx.close()
+ # Fresh source/implementation palette normalization.
+ pg=engines['chromium'].new_page(viewport={'width':1672,'height':900});pg.goto(url,wait_until='networkidle');actual=pg.evaluate(expr)['palette'];raw['palette_comparison']={'expected':exp['palette'],'actual':actual,'scope':'Palette only, not cover composition or page geometry.'};caps={}
+ for side,values in [('source',exp['palette']),('implementation',actual)]:
+  q=engines['chromium'].new_page(viewport={'width':1672,'height':900});q.set_content('<style>html,body{margin:0}.palette{display:flex;width:640px;height:80px}.swatch{width:160px;height:80px}</style><div class="palette">'+''.join('<div class="swatch" style="background:rgb('+','.join(map(str,values[k]))+')"></div>' for k in ['cream','navy','deep','orange'])+'</div>');loc=q.locator('.palette');bounds=loc.bounding_box();loc.screenshot(path=str(T/(side+'.png')));caps[side]={'viewport_width':1672,'viewport_height':900,'dpr':1,'browser_engine':'chromium','browser_version':engines['chromium'].version,'state':'palette-normalization','component_bounds':bounds,'capture_bounds':bounds};q.close()
+ (T/'comparison-captures.json').write_text(json.dumps(caps,indent=2))
+ # Targeted contrast repairs, including plain text inherited inside code.
+ targets={}
+ for slug in ['archive/','2026-03-11-ally-wordpress-unauthenticated-sqli-response-playbook/']:
+  pg.goto('https://victorstack-ai.github.io/agent-blog/'+slug,wait_until='networkidle');selector='.hero' if slug=='archive/' else 'pre';pg.locator(selector).first.screenshot(path=str(T/('archive.png' if slug=='archive/' else 'code.png')));targets[slug]=pg.evaluate('''()=>{let h=document.querySelector('.hero'),t=h?.querySelector('h1'),c=document.querySelector('pre code'),pre=c?.closest('pre');return {heroBackground:h?getComputedStyle(h).backgroundColor:null,heading:t?getComputedStyle(t).color:null,codeColor:c?getComputedStyle(c).color:null,codeBackground:pre?getComputedStyle(pre).backgroundColor:null}}''')
+ raw['repairs']=targets
+ for w in [995,996,997]:
+  pg.goto(url,wait_until='networkidle');pg.set_viewport_size({'width':w,'height':900});v={'url':url,'build_id':build['build_id'],'content_state_sha256':sha(R/'task/palette/content-state.json'),'browser_engine':'chromium','browser_version':engines['chromium'].version,'captured_at':now(),'viewport_width':w,**pg.evaluate('()=>({client_width:document.documentElement.clientWidth,scroll_width:document.documentElement.scrollWidth,elements:[...document.querySelectorAll(".navbar,main,article,.footer")].map(e=>{let r=e.getBoundingClientRect();return {selector:e.matches(".navbar")?".navbar":e.matches("main")?"main":e.matches("article")?"article":".footer",left:r.left,right:r.right}})})')};(T/f'responsive-{w}.json').write_text(json.dumps(v,indent=2))
+ for b in engines.values():b.close()
+raw['ended_at']=now();(T/'raw.json').write_text(json.dumps(raw,indent=2));encoded=json.dumps(d).replace('task/palette/contract/','task/palette/contract-live/');(T/'case-records.json').write_text(encoded);print(json.dumps({'cases':len(d['required_cases']),'failures':[k for k,v in raw['cases'].items() if v['overflow'] or v['palette']!=exp['palette']],'repairs':targets,'build':build}))
+PY

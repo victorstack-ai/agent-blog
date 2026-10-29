@@ -1,0 +1,2479 @@
+{
+  "started": "2026-10-18T22:55:41.917092+00:00",
+  "routes": {
+    "": {
+      "320": {
+        "url": "http://127.0.0.1:3917/agent-blog/",
+        "width": 320,
+        "clientWidth": 320,
+        "scrollWidth": 320,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          }
+        ],
+        "h1": null
+      },
+      "375": {
+        "url": "http://127.0.0.1:3917/agent-blog/",
+        "width": 375,
+        "clientWidth": 375,
+        "scrollWidth": 375,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          }
+        ],
+        "h1": null
+      },
+      "430": {
+        "url": "http://127.0.0.1:3917/agent-blog/",
+        "width": 430,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          }
+        ],
+        "h1": null
+      },
+      "600": {
+        "url": "http://127.0.0.1:3917/agent-blog/",
+        "width": 600,
+        "clientWidth": 600,
+        "scrollWidth": 600,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          }
+        ],
+        "h1": null
+      },
+      "768": {
+        "url": "http://127.0.0.1:3917/agent-blog/",
+        "width": 768,
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          }
+        ],
+        "h1": null
+      },
+      "1024": {
+        "url": "http://127.0.0.1:3917/agent-blog/",
+        "width": 1024,
+        "clientWidth": 1024,
+        "scrollWidth": 1024,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          }
+        ],
+        "h1": null
+      },
+      "1440": {
+        "url": "http://127.0.0.1:3917/agent-blog/",
+        "width": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          }
+        ],
+        "h1": null
+      },
+      "2560": {
+        "url": "http://127.0.0.1:3917/agent-blog/",
+        "width": 2560,
+        "clientWidth": 2560,
+        "scrollWidth": 2560,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          }
+        ],
+        "h1": null
+      }
+    },
+    "how-i-combine-harness-loop-graph-engineering/": {
+      "320": {
+        "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+        "width": 320,
+        "clientWidth": 320,
+        "scrollWidth": 320,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "375": {
+        "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+        "width": 375,
+        "clientWidth": 375,
+        "scrollWidth": 375,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "430": {
+        "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+        "width": 430,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "600": {
+        "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+        "width": 600,
+        "clientWidth": 600,
+        "scrollWidth": 600,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "768": {
+        "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+        "width": 768,
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "1024": {
+        "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+        "width": 1024,
+        "clientWidth": 1024,
+        "scrollWidth": 1024,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "1440": {
+        "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+        "width": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "2560": {
+        "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+        "width": 2560,
+        "clientWidth": 2560,
+        "scrollWidth": 2560,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      }
+    },
+    "loop-engineering/": {
+      "320": {
+        "url": "http://127.0.0.1:3917/agent-blog/loop-engineering/",
+        "width": 320,
+        "clientWidth": 320,
+        "scrollWidth": 320,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "375": {
+        "url": "http://127.0.0.1:3917/agent-blog/loop-engineering/",
+        "width": 375,
+        "clientWidth": 375,
+        "scrollWidth": 375,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "430": {
+        "url": "http://127.0.0.1:3917/agent-blog/loop-engineering/",
+        "width": 430,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "600": {
+        "url": "http://127.0.0.1:3917/agent-blog/loop-engineering/",
+        "width": 600,
+        "clientWidth": 600,
+        "scrollWidth": 600,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "768": {
+        "url": "http://127.0.0.1:3917/agent-blog/loop-engineering/",
+        "width": 768,
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "1024": {
+        "url": "http://127.0.0.1:3917/agent-blog/loop-engineering/",
+        "width": 1024,
+        "clientWidth": 1024,
+        "scrollWidth": 1024,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "1440": {
+        "url": "http://127.0.0.1:3917/agent-blog/loop-engineering/",
+        "width": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "2560": {
+        "url": "http://127.0.0.1:3917/agent-blog/loop-engineering/",
+        "width": 2560,
+        "clientWidth": 2560,
+        "scrollWidth": 2560,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      }
+    },
+    "tags/": {
+      "320": {
+        "url": "http://127.0.0.1:3917/agent-blog/tags/",
+        "width": 320,
+        "clientWidth": 320,
+        "scrollWidth": 320,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "375": {
+        "url": "http://127.0.0.1:3917/agent-blog/tags/",
+        "width": 375,
+        "clientWidth": 375,
+        "scrollWidth": 375,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "430": {
+        "url": "http://127.0.0.1:3917/agent-blog/tags/",
+        "width": 430,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "600": {
+        "url": "http://127.0.0.1:3917/agent-blog/tags/",
+        "width": 600,
+        "clientWidth": 600,
+        "scrollWidth": 600,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "768": {
+        "url": "http://127.0.0.1:3917/agent-blog/tags/",
+        "width": 768,
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "1024": {
+        "url": "http://127.0.0.1:3917/agent-blog/tags/",
+        "width": 1024,
+        "clientWidth": 1024,
+        "scrollWidth": 1024,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "1440": {
+        "url": "http://127.0.0.1:3917/agent-blog/tags/",
+        "width": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "2560": {
+        "url": "http://127.0.0.1:3917/agent-blog/tags/",
+        "width": 2560,
+        "clientWidth": 2560,
+        "scrollWidth": 2560,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      }
+    },
+    "archive/": {
+      "320": {
+        "url": "http://127.0.0.1:3917/agent-blog/archive/",
+        "width": 320,
+        "clientWidth": 320,
+        "scrollWidth": 320,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "375": {
+        "url": "http://127.0.0.1:3917/agent-blog/archive/",
+        "width": 375,
+        "clientWidth": 375,
+        "scrollWidth": 375,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "430": {
+        "url": "http://127.0.0.1:3917/agent-blog/archive/",
+        "width": 430,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "600": {
+        "url": "http://127.0.0.1:3917/agent-blog/archive/",
+        "width": 600,
+        "clientWidth": 600,
+        "scrollWidth": 600,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "768": {
+        "url": "http://127.0.0.1:3917/agent-blog/archive/",
+        "width": 768,
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "1024": {
+        "url": "http://127.0.0.1:3917/agent-blog/archive/",
+        "width": 1024,
+        "clientWidth": 1024,
+        "scrollWidth": 1024,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "1440": {
+        "url": "http://127.0.0.1:3917/agent-blog/archive/",
+        "width": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      },
+      "2560": {
+        "url": "http://127.0.0.1:3917/agent-blog/archive/",
+        "width": 2560,
+        "clientWidth": 2560,
+        "scrollWidth": 2560,
+        "background": "rgb(246, 242, 231)",
+        "text": "rgb(13, 25, 45)",
+        "theme": "light",
+        "fonts": [
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "unloaded"
+          },
+          {
+            "family": "Outfit",
+            "status": "loaded"
+          }
+        ],
+        "h1": "rgb(13, 25, 45)"
+      }
+    }
+  },
+  "screenshots": [
+    "post-320.png",
+    "post-375.png",
+    "post-430.png",
+    "post-600.png",
+    "post-768.png",
+    "post-1024.png",
+    "post-1440.png",
+    "post-2560.png"
+  ],
+  "browser": "151.0.7922.34",
+  "axe": [
+    {
+      "id": "image-redundant-alt",
+      "impact": "minor",
+      "nodes": [
+        {
+          "target": [
+            ".themedComponent_mlkZ"
+          ],
+          "summary": "Fix all of the following:\n  Element contains <img> element with alt text that duplicates existing text"
+        }
+      ]
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "nodes": [
+        {
+          "target": [
+            ".col--2"
+          ],
+          "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ]
+    },
+    {
+      "id": "scrollable-region-focusable",
+      "impact": "serious",
+      "nodes": [
+        {
+          "target": [
+            ".docusaurus-mermaid-container.container_lyt7:nth-child(17)"
+          ],
+          "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+        },
+        {
+          "target": [
+            ".docusaurus-mermaid-container.container_lyt7:nth-child(26)"
+          ],
+          "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+        }
+      ]
+    }
+  ],
+  "diagrams": 4,
+  "keyboard": {
+    "tag": "A",
+    "text": "Skip to main content",
+    "outline": "rgb(27, 48, 75) solid 2px",
+    "focusVisible": true
+  },
+  "failure": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"button.navbar__toggle\")\n    - locator resolved to <button type=\"button\" aria-expanded=\"false\" class=\"navbar__toggle clean-btn\" aria-label=\"Toggle navigation bar\">\u2026</button>\n  - attempting click action\n    2 \u00d7 waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <a class=\"skipToContent_fXgn\" href=\"#__docusaurus_skipToContent_fallback\">Skip to main content</a> from <div role=\"region\" aria-label=\"Skip to main content\">\u2026</div> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    2 \u00d7 waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <a class=\"skipToContent_fXgn\" href=\"#__docusaurus_skipToContent_fallback\">Skip to main content</a> from <div role=\"region\" aria-label=\"Skip to main content\">\u2026</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    58 \u00d7 waiting for element to be visible, enabled and stable\n       - element is visible, enabled and stable\n       - scrolling into view if needed\n       - done scrolling\n       - <a class=\"skipToContent_fXgn\" href=\"#__docusaurus_skipToContent_fallback\">Skip to main content</a> from <div role=\"region\" aria-label=\"Skip to main content\">\u2026</div> subtree intercepts pointer events\n     - retrying click action\n       - waiting 500ms\n",
+  "ended": "2026-10-18T22:56:20.728436+00:00"
+}

@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "ticket": "BLOG-PALETTE-20261018",
+  "environment": "local",
+  "urls": [
+    "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/"
+  ],
+  "scope": "task/palette/user-steering.md",
+  "build_state": "task/palette/contract-final/build-state.json",
+  "content_state": "task/palette/content-state.json",
+  "acceptance_criteria": [
+    {
+      "id": "AC-1",
+      "text": "Match the cover image palette including cream page background.",
+      "origin": "user"
+    },
+    {
+      "id": "AC-2",
+      "text": "Apply palette to shared templates, code and diagrams.",
+      "origin": "user"
+    },
+    {
+      "id": "AC-3",
+      "text": "Preserve responsive layout, readable text and interactions.",
+      "origin": "user"
+    },
+    {
+      "id": "AC-4",
+      "text": "Pass content validation, typecheck and production build.",
+      "origin": "user"
+    },
+    {
+      "id": "AC-5",
+      "text": "Verify the changed theme on the running site.",
+      "origin": "user"
+    }
+  ],
+  "producers": {
+    "browser": "browser-v1",
+    "network": "network-v1",
+    "server_log": "server_log-v1"
+  },
+  "server_logs": [
+    "task/palette/local-release/server.log"
+  ],
+  "server_timezone": "UTC",
+  "captures": [
+    {
+      "id": "paper-320",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "width": 320,
+      "height": 900,
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "full_page": false,
+      "settle_ms": 300
+    },
+    {
+      "id": "paper-375",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "width": 375,
+      "height": 900,
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "full_page": false,
+      "settle_ms": 300
+    },
+    {
+      "id": "paper-430",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "width": 430,
+      "height": 900,
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "full_page": false,
+      "settle_ms": 300
+    },
+    {
+      "id": "paper-600",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "width": 600,
+      "height": 900,
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "full_page": false,
+      "settle_ms": 300
+    },
+    {
+      "id": "paper-768",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "width": 768,
+      "height": 900,
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "full_page": false,
+      "settle_ms": 300
+    },
+    {
+      "id": "paper-1024",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "width": 1024,
+      "height": 900,
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "full_page": false,
+      "settle_ms": 300
+    },
+    {
+      "id": "paper-1440",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "width": 1440,
+      "height": 900,
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5",
+        "AC-4"
+      ],
+      "assertion": "The production build serves the cream article canvas with navy text; the successful check logs are separate bound evidence.",
+      "full_page": false,
+      "settle_ms": 300
+    },
+    {
+      "id": "paper-1672",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "width": 1672,
+      "height": 900,
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "full_page": false,
+      "settle_ms": 300
+    },
+    {
+      "id": "paper-2560",
+      "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "width": 2560,
+      "height": 900,
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-5"
+      ],
+      "assertion": "Cream page background and navy article text render within the viewport.",
+      "full_page": false,
+      "settle_ms": 300
+    }
+  ]
+}

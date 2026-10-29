@@ -1,0 +1,33 @@
+{
+  "url": "http://127.0.0.1:3917/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+  "build_id": "css-sha256:8677debb92346ac03c603d706c119fcee6828c5d8362104032ebb9fb4015a1bf",
+  "content_state_sha256": "b54085178accb5a93ad950f3de0e44bada2736397d4d2516543594e1c79006f2",
+  "browser_engine": "chromium",
+  "browser_version": "151.0.7922.34",
+  "captured_at": "2026-10-18T23:13:31.065679+00:00",
+  "viewport_width": 997,
+  "client_width": 997,
+  "scroll_width": 997,
+  "elements": [
+    {
+      "selector": ".navbar",
+      "left": 0,
+      "right": 997
+    },
+    {
+      "selector": "main",
+      "left": 249.25,
+      "right": 830.828125
+    },
+    {
+      "selector": "article",
+      "left": 265.25,
+      "right": 814.828125
+    },
+    {
+      "selector": ".footer",
+      "left": 0,
+      "right": 997
+    }
+  ]
+}

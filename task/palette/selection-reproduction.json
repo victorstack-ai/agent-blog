@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-18T23:20:34.599919+00:00",
+  "selection": {
+    "foreground": "rgb(13, 26, 45)",
+    "background": "rgb(27, 48, 75)"
+  },
+  "backDefault": {
+    "color": "rgb(246, 242, 231)",
+    "background": "rgb(27, 48, 75)"
+  },
+  "backHover": {
+    "color": "rgb(246, 242, 231)",
+    "background": "rgb(27, 48, 75)"
+  }
+}

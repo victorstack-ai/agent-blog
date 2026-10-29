@@ -1,0 +1,42 @@
+{
+  "source": {
+    "viewport_width": 1672,
+    "viewport_height": 900,
+    "dpr": 1,
+    "browser_engine": "chromium",
+    "browser_version": "151.0.7922.34",
+    "state": "palette-normalization",
+    "component_bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 640,
+      "height": 80
+    },
+    "capture_bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 640,
+      "height": 80
+    }
+  },
+  "implementation": {
+    "viewport_width": 1672,
+    "viewport_height": 900,
+    "dpr": 1,
+    "browser_engine": "chromium",
+    "browser_version": "151.0.7922.34",
+    "state": "palette-normalization",
+    "component_bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 640,
+      "height": 80
+    },
+    "capture_bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 640,
+      "height": 80
+    }
+  }
+}
