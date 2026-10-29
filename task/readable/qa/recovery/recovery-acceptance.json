@@ -1,0 +1,327 @@
+{
+  "status": "PASS",
+  "timestamp": "2026-10-18T21:07:45-05:00",
+  "task": "COPY/PROFILE task local browser acceptance recovery",
+  "tool_model": "AGY Gemini 3.8 Flash (Medium)",
+  "target_url": "http://127.0.0.1:3918/agent-blog/",
+  "source_binding": {
+    "source_id": "ad61113d60e7f105ca85d1e66906776e137ed61df6565fec590f5eb5520c8ad7",
+    "frozen_source_path": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/frozen-source-final.json",
+    "original_base": "12e28ad0858205a7ac5ee68a0be2a9dbcc9146a5",
+    "hq_commit": "dcf12ec",
+    "reference_fix": "One verified 404 reference URL updated to official 200 GitGuardian docs; zero UI/CSS/component changes"
+  },
+  "metrics_62_cases_verification": {
+    "routes_source": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/qa-owner/routes.json",
+    "total_checks": 62,
+    "unique_routes": 31,
+    "viewports_tested": [
+      375,
+      1440
+    ],
+    "all_status_200": true,
+    "all_titles_match": true,
+    "all_no_horizontal_overflow": true,
+    "all_no_console_errors": true,
+    "all_no_bad_responses": true,
+    "mermaid_svgs_count_375": 47,
+    "mermaid_svgs_count_1440": 47,
+    "total_mermaid_svgs": 94,
+    "expected_mermaid_svgs": 94,
+    "og_image_findings_count": 24,
+    "og_image_disposition": "Known existing baseline behavior (serves global default vs per-article expectation on harness/Cloudflare/Sentry). Honest classification: non-blocking existing behavior."
+  },
+  "screenshots_audit": {
+    "count": 13,
+    "screenshots": [
+      {
+        "filename": "agentic-quadrant-chart.png",
+        "path": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/qa-local/screenshots/agentic-quadrant-chart.png",
+        "dimensions": "1440x900",
+        "size_bytes": 147141,
+        "sha256": "f07880eb0eea399080f2e91b16d50014f1093098a7fab8c14899e3fa1fd6a2ac"
+      },
+      {
+        "filename": "combined-flow-sequence-scroll.png",
+        "path": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/qa-local/screenshots/combined-flow-sequence-scroll.png",
+        "dimensions": "1440x900",
+        "size_bytes": 178158,
+        "sha256": "173e7fd51bacd02f848ff6e0592e316de6ab989cd6cc6129f38efa4941134e9b"
+      },
+      {
+        "filename": "combined-width-1024.png",
+        "path": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/qa-local/screenshots/combined-width-1024.png",
+        "dimensions": "1024x900",
+        "size_bytes": 219760,
+        "sha256": "14772b8250db7975195c8583b6cf8fb9cde301f6b6318998e4e8bd97bc62e10c"
+      },
+      {
+        "filename": "combined-width-1440.png",
+        "path": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/qa-local/screenshots/combined-width-1440.png",
+        "dimensions": "1440x900",
+        "size_bytes": 236105,
+        "sha256": "eccb0b7284d026a89ab64e8ce7f3851e38bc682acd63a1eeb744ab9b2c9d3b31"
+      },
+      {
+        "filename": "combined-width-2560.png",
+        "path": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/qa-local/screenshots/combined-width-2560.png",
+        "dimensions": "2560x900",
+        "size_bytes": 245780,
+        "sha256": "f33890054d892df8e5c72d5af815e487bcce1be2b2ceb33e04db3f931fc1d55f"
+      },
+      {
+        "filename": "combined-width-320.png",
+        "path": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/qa-local/screenshots/combined-width-320.png",
+        "dimensions": "320x900",
+        "size_bytes": 71969,
+        "sha256": "4ba9219beccb29cc0ffb388b92ffcbee8e52562fa280db8f40bf3f3cf09943ba"
+      },
+      {
+        "filename": "combined-width-375.png",
+        "path": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/qa-local/screenshots/combined-width-375.png",
+        "dimensions": "375x900",
+        "size_bytes": 78382,
+        "sha256": "7adf9d8b86deed313e6a8951e1208c8baace50c76c631ab7ac7dff010e9052d3"
+      },
+      {
+        "filename": "combined-width-430.png",
+        "path": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/qa-local/screenshots/combined-width-430.png",
+        "dimensions": "430x900",
+        "size_bytes": 100114,
+        "sha256": "82bb146b0ead3fadcbd1a206537de3881d599df81f2e9919808ca163a6fe239c"
+      },
+      {
+        "filename": "combined-width-600.png",
+        "path": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/qa-local/screenshots/combined-width-600.png",
+        "dimensions": "600x900",
+        "size_bytes": 108884,
+        "sha256": "5df23795bdefc8798ba45fe407436dbb187cbbcf2e23a5991995c9a10bea316c"
+      },
+      {
+        "filename": "combined-width-768.png",
+        "path": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/qa-local/screenshots/combined-width-768.png",
+        "dimensions": "768x900",
+        "size_bytes": 113047,
+        "sha256": "c515a4fbd574abd867d90307813e2000c6c6ba51d066a8fad6e030a92ddd60b3"
+      },
+      {
+        "filename": "jira-graph-quoted-edges.png",
+        "path": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/qa-local/screenshots/jira-graph-quoted-edges.png",
+        "dimensions": "1440x900",
+        "size_bytes": 208605,
+        "sha256": "333d5682aa9593ea0f0b1e27bacc44b45e05cefdc4c5a7eee4aa3b6295fd9832"
+      },
+      {
+        "filename": "scanner-details-code-tabs.png",
+        "path": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/qa-local/screenshots/scanner-details-code-tabs.png",
+        "dimensions": "1440x900",
+        "size_bytes": 233585,
+        "sha256": "a1f3ec9d5092eeeaf210c463a136767e4f8d9aa1ef935f3e2a9a56a37dc7f22f"
+      },
+      {
+        "filename": "combined-sequence.png",
+        "path": "/Users/vj/Documents/work/personal/task-records/blog-readable-20261018/qa-owner/combined-sequence.png",
+        "dimensions": "1440x900",
+        "size_bytes": 181756,
+        "sha256": "358c957339c780c5512e724f6db9719ececa881af94925bb29895517d86b2d7c"
+      }
+    ]
+  },
+  "interaction_verification": {
+    "details_keyboard_toggle": {
+      "status": "PASS",
+      "url": "http://127.0.0.1:3918/agent-blog/skills-sentry-skill-marketplace-scanner/",
+      "before_open": false,
+      "after_first_enter": true,
+      "after_second_enter": false,
+      "settle_wait_ms": 700,
+      "notes": "Transition settle wait of 700ms confirms summary Enter toggles open=True and second Enter toggles open=False cleanly."
+    },
+    "diagram_keyboard_scroll": {
+      "status": "PASS",
+      "url": "http://127.0.0.1:3918/agent-blog/how-i-combine-harness-loop-graph-engineering/",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "container_class": "docusaurus-mermaid-container container_lyt7",
+      "scroll_width": 622,
+      "client_width": 293,
+      "is_overflowing": true,
+      "scroll_left_before": 0,
+      "scroll_left_after_arrow_right": 190,
+      "notes": "Native scroll container receives focus and ArrowRight key presses scroll horizontally by 190px in Chromium."
+    },
+    "local_search": {
+      "status": "PASS",
+      "selector": "input[placeholder=\"Search\"]",
+      "typed_query": "harness",
+      "role_behavior": "Input receives focus, combobox opens; Escape key cleanly dismisses combobox/modal without stale textbox locator errors."
+    },
+    "visible_code_copy": {
+      "status": "PASS",
+      "clipboard_bytes": 71,
+      "clipboard_sample": "python skills_sentry.py scan ./some-skill-bundle --json out/report.json",
+      "notes": "Targeted visible tab code block copy button successfully writes code snippet to clipboard."
+    },
+    "tabs_selection": {
+      "status": "PASS",
+      "notes": "Tab switching functional and verified in qa-owner/interactions-axe.json."
+    },
+    "anchor_navigation": {
+      "status": "PASS",
+      "target": "#malware-in-the-top-downloaded-skill",
+      "notes": "Anchor jump functional and verified in qa-owner/interactions-axe.json."
+    }
+  },
+  "responsive_and_reflow_checks": {
+    "navbar_breakpoints": [
+      {
+        "width": 995,
+        "toggle_visible": true,
+        "items_visible": true,
+        "behavior": "mobile_nav (toggle visible)"
+      },
+      {
+        "width": 996,
+        "toggle_visible": true,
+        "items_visible": true,
+        "behavior": "mobile_nav (toggle visible)"
+      },
+      {
+        "width": 997,
+        "toggle_visible": false,
+        "items_visible": true,
+        "behavior": "desktop_nav (toggle hidden, desktop items visible)"
+      }
+    ],
+    "zoom_reflow_320px": {
+      "status": "PASS",
+      "viewport_width": 320,
+      "scroll_width": 320,
+      "inner_width": 320,
+      "has_horizontal_overflow": false
+    },
+    "reduced_motion": {
+      "status": "PASS",
+      "prefers_reduced_motion_matches": true
+    }
+  },
+  "accessibility_axe_comparison": {
+    "axe_version": "4.13.0",
+    "baseline_public_url": "https://victorstack-ai.github.io/agent-blog/",
+    "current_local_url": "http://127.0.0.1:3918/agent-blog/",
+    "routes_audited": [
+      "how-i-combine-harness-loop-graph-engineering/",
+      "skills-sentry-skill-marketplace-scanner/",
+      "2026-03-16-wordpress-7-0-block-editor-patterns-visibility-custom-css-dimensions-text-indent-review/"
+    ],
+    "comparisons": {
+      "combined_workflow": {
+        "url_path": "how-i-combine-harness-loop-graph-engineering/",
+        "baseline_violations_count": 3,
+        "current_violations_count": 3,
+        "introduced_violations_count": 0,
+        "details": [
+          {
+            "id": "image-redundant-alt",
+            "impact": "minor",
+            "baseline_nodes": 1,
+            "current_nodes": 1,
+            "net_new": 0
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "baseline_nodes": 1,
+            "current_nodes": 1,
+            "net_new": 0
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "baseline_nodes": 2,
+            "current_nodes": 2,
+            "net_new": 0
+          }
+        ]
+      },
+      "long_archive_skills_sentry": {
+        "url_path": "skills-sentry-skill-marketplace-scanner/",
+        "baseline_violations_count": 4,
+        "current_violations_count": 4,
+        "introduced_violations_count": 0,
+        "details": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "baseline_nodes": 1,
+            "current_nodes": 1,
+            "net_new": 0
+          },
+          {
+            "id": "image-redundant-alt",
+            "impact": "minor",
+            "baseline_nodes": 1,
+            "current_nodes": 1,
+            "net_new": 0
+          },
+          {
+            "id": "label",
+            "impact": "critical",
+            "baseline_nodes": 6,
+            "current_nodes": 6,
+            "net_new": 0
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "baseline_nodes": 1,
+            "current_nodes": 1,
+            "net_new": 0
+          }
+        ]
+      },
+      "long_archive_wordpress_7_0": {
+        "url_path": "2026-03-16-wordpress-7-0-block-editor-patterns-visibility-custom-css-dimensions-text-indent-review/",
+        "baseline_violations_count": 4,
+        "current_violations_count": 4,
+        "introduced_violations_count": 0,
+        "details": [
+          {
+            "id": "image-redundant-alt",
+            "impact": "minor",
+            "baseline_nodes": 1,
+            "current_nodes": 1,
+            "net_new": 0
+          },
+          {
+            "id": "label",
+            "impact": "critical",
+            "baseline_nodes": 9,
+            "current_nodes": 9,
+            "net_new": 0
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "baseline_nodes": 1,
+            "current_nodes": 1,
+            "net_new": 0
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "baseline_nodes": 1,
+            "current_nodes": 1,
+            "net_new": 0
+          }
+        ]
+      }
+    },
+    "introduced_findings_total": 0,
+    "disposition": "PASS - Zero introduced accessibility violations. All observed findings are bit-for-bit identical to the old public baseline (main 12e28ad0)."
+  },
+  "remaining_gaps": [],
+  "final_verdict": "PASS"
+}

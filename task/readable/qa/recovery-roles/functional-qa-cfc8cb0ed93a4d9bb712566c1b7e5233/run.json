@@ -1,0 +1,16 @@
+{
+  "role": "functional-qa",
+  "cli": "agy",
+  "selected_model": "gemini-3.8-flash-medium",
+  "model_policy": "task-fit",
+  "workspace": "/Users/vj/Documents/work/personal/projects/ai-agents/agent-blog-trees/blog-readable-20261018",
+  "brief_sha256": "ab90896473005ef95a3827c415b587a786db48dd1b2028c401af5aa1a79459c9",
+  "started": 1792375453.8270872,
+  "timeout_seconds": 600,
+  "state": "needs-owner-verification",
+  "process_handle": "controller-child-pid:24883",
+  "returncode": 0,
+  "finished": 1792375801.7758238,
+  "stdout": "/Users/vj/Documents/work/personal/projects/ai-agents/agent-blog-trees/blog-readable-20261018/task/readable/qa/recovery-roles/functional-qa-cfc8cb0ed93a4d9bb712566c1b7e5233/stdout.json",
+  "record": "/Users/vj/Documents/work/personal/projects/ai-agents/agent-blog-trees/blog-readable-20261018/task/readable/qa/recovery-roles/functional-qa-cfc8cb0ed93a4d9bb712566c1b7e5233/run.json"
+}

@@ -1,0 +1,14 @@
+{
+  "role": "functional-qa",
+  "cli": "agy",
+  "selected_model": "gemini-3.8-flash-medium",
+  "model_policy": "task-fit",
+  "workspace": "/Users/vj/Documents/work/personal/projects/ai-agents/agent-blog-trees/blog-readable-20261018",
+  "brief_sha256": "4ea995252743f88953d1e7d6c6c133994ca99a9ebffb5c09372902bb177a6e8d",
+  "started": 1792373687.814392,
+  "timeout_seconds": 600,
+  "state": "failed",
+  "process_handle": "controller-child-pid:23176",
+  "error": "native invocation exceeded its deadline",
+  "finished": 1792374287.8194728
+}
