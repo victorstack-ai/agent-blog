@@ -24,7 +24,7 @@ Pushing to `main` runs the same validator, typecheck and build in `.github/workf
 - Tags must exist in `blog/tags.yml`. The build fails on unknown tags and broken links.
 - Put `<!-- truncate -->` after the opening paragraph.
 - `unlisted: true` keeps a post reachable by URL and removes it from lists, feeds, the sitemap and search indexing.
-- New posts are drafted and checked by the content engine in the private `agent-hq` repository, and Victor approves each one.
+- Posts dated October 2026 or later come from the content engine in the private `agent-hq` repository. The `static/llms.txt` file in this agent-blog repository describes how the engine drafts, checks and publishes them.
 - `scripts/retag.mjs` is the one-time migration that mapped old tags to the current taxonomy.
 
 ## Campaign links

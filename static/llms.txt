@@ -13,7 +13,7 @@
 ## How posts are written
 
 - Posts dated before October 2026 were first drafted by an automated content pipeline. In October 2026 the blog was cut to its evergreen playbooks and tools, and each remaining post was rewritten to Victor's voice guide. The rewrite kept the original code, diagrams, numbers and links and added no new facts.
-- Posts dated October 2026 or later are written from Victor's own notes and approved by him before publishing.
+- The content engine in the private agent-hq repository writes posts dated October 2026 or later, from the author's notes or as commentary on a cited current article. Before it publishes a post, the engine checks the voice rules and grounds each claim in its sources and the author's profile. It also checks that the Markdown is safe and runs an editorial review. The author does not review each post by hand before it goes live.
 
 ## Topics
 
