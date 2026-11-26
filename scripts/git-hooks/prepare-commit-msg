@@ -1,0 +1,10 @@
+#!/bin/sh
+# Strip AI assistant co-author trailers so they never land in history.
+# Install: cp scripts/git-hooks/prepare-commit-msg .git/hooks/ && chmod +x .git/hooks/prepare-commit-msg
+# Or: git config core.hooksPath scripts/git-hooks
+COMMIT_MSG_FILE=$1
+if [ -f "$COMMIT_MSG_FILE" ]; then
+  grep -v -i -E '^Co-authored-by:.*(cursor|claude|anthropic|openai|codex|copilot|gemini)' "$COMMIT_MSG_FILE" \
+    | grep -v -i 'cursoragent@cursor.com' > "${COMMIT_MSG_FILE}.tmp" && mv "${COMMIT_MSG_FILE}.tmp" "$COMMIT_MSG_FILE"
+fi
+exit 0
