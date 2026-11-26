@@ -3,7 +3,12 @@ import clsx from 'clsx';
 import { ThemeClassNames } from '@docusaurus/theme-common';
 import type { Props } from '@theme/Footer/Layout';
 import { LINKEDIN_URL, PERSON_SCHEMA } from '@site/src/data/person';
+import { jsonLdText } from '@site/src/utils/postImage';
 
+/**
+ * Swizzled: adds the site description, the LinkedIn button and the Person JSON-LD. Text colors come from the
+ * footer tokens in src/css/custom.css (cream on navy in the dark footer), never from the page's secondary color.
+ */
 export default function FooterLayout({
   style,
   links,
@@ -19,7 +24,7 @@ export default function FooterLayout({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: jsonLdText({
             '@context': 'https://schema.org',
             ...PERSON_SCHEMA,
           }),
@@ -29,7 +34,7 @@ export default function FooterLayout({
         <div className="row">
           <div className="col col--4 margin-bottom--lg">
             <h3 className="footer__title">VictorStack</h3>
-            <p className="footer__description" style={{ color: 'var(--ifm-font-color-secondary)' }}>
+            <p className="footer__description">
               Engineering notes by Victor Jimenez, Senior Product Engineer. Full-stack web,
               integrations, release engineering, performance and security.
             </p>
@@ -49,12 +54,9 @@ export default function FooterLayout({
           </div>
         </div>
         {(logo || copyright) && (
-          <div className="footer__bottom text--center margin-top--xl" style={{ borderTop: '1px solid var(--premium-border-color)', paddingTop: '2rem' }}>
+          <div className="footer__bottom footer__bottom--ruled text--center margin-top--xl">
             {logo && <div className="margin-bottom--sm">{logo}</div>}
             {copyright}
-            <div className="margin-top--sm" style={{ fontSize: '0.85rem', color: 'var(--ifm-font-color-secondary)' }}>
-              Open to work and collaboration.
-            </div>
           </div>
         )}
       </div>

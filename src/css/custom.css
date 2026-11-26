@@ -184,6 +184,21 @@ blockquote {
   --ifm-footer-link-color: var(--vs-cream-paper);
   --ifm-footer-link-hover-color: var(--vs-orange);
   --ifm-footer-title-color: var(--vs-cream-paper);
+  /* Secondary text inside the navy footer must stay light; the page default is navy ink. */
+  --ifm-font-color-secondary: var(--vs-cream-paper);
+}
+
+.footer__description {
+  color: var(--ifm-footer-color);
+}
+
+.footer__bottom--ruled {
+  border-top: 1px solid var(--premium-border-color);
+  padding-top: 2rem;
+}
+
+.footer--dark .footer__bottom--ruled {
+  border-top-color: rgba(246, 242, 231, 0.2);
 }
 
 .footer a:focus-visible {
@@ -269,9 +284,8 @@ body {
 /* PREMIUM DESIGN SYSTEM UTILITIES AND OVERRIDES                              */
 /* -------------------------------------------------------------------------- */
 
-/* Import Outfit for a modern, sleek tech aesthetic */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
-
+/* Outfit loads from docusaurus.config.ts (stylesheets with preconnect headTags), because an @import placed
+   after other rules is ignored by browsers in unminified builds. */
 :root {
   --ifm-font-family-base: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
@@ -336,27 +350,37 @@ body {
   opacity: 0.5;
 }
 
-/* Micro-animations and Premium Cards */
+/* Micro-animations and cards. Only blog list cards are cards: in list views Docusaurus gives each post's
+   <article> the margin-bottom--xl class, and the single post page's <article> has none. Reading a post never
+   lifts or outlines the whole article, and no transform breaks position: sticky inside it. The generic
+   margin-bottom--xl spacing utility stays a plain margin everywhere else. */
 .card,
-.margin-bottom--xl,
-article,
+article.margin-bottom--xl,
 .pagination-nav__link {
   transition: var(--premium-transition);
   border: 1px solid var(--premium-border-color);
-  border-radius: 12px;
+  border-radius: 0.75rem;
 }
 
 .card:hover,
-article:hover,
+article.margin-bottom--xl:hover,
 .pagination-nav__link:hover {
   transform: translateY(-4px);
   box-shadow: var(--premium-shadow-hover);
   border-color: var(--ifm-color-primary);
 }
 
-article {
+article.margin-bottom--xl {
   padding: 1.5rem;
   background: var(--ifm-background-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover,
+  article.margin-bottom--xl:hover,
+  .pagination-nav__link:hover {
+    transform: none;
+  }
 }
 
 /* Elevate Buttons */
