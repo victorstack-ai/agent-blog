@@ -7,20 +7,22 @@ import { portfolioReferralUrl } from './src/data/links';
 
 // Cover palette: navy ink, cream paper and orange highlight sampled from the
 // post cover illustrations. Keep in sync with the tokens in src/css/custom.css.
+// Code tokens use tints of the same three colors so syntax stays distinguishable
+// on the navy code background (each tint is at least 6:1 against codeBg).
 const coverPalette = {
   navyDeep: '#0d1a2d',
   navyInk: '#1b304b',
   surface: '#1b304b',
   codeBg: '#0d1a2d',
   cream: '#f6f2e7',
-  creamMuted: '#f6f2e7',
-  tan: '#f6f2e7',
+  creamMuted: '#cfc8b6',
+  tan: '#e9d6ad',
   orange: '#e87b28',
-  orangeLight: '#e87b28',
-  orangeLightest: '#e87b28',
-  steel: '#f6f2e7',
-  comment: '#f6f2e7',
-  red: '#e87b28',
+  orangeLight: '#f0a061',
+  orangeLightest: '#f6c194',
+  steel: '#a9bad0',
+  comment: '#8d9bb0',
+  red: '#ff8a5c',
 };
 
 const coverPrismDark: typeof prismThemes.dracula = {
@@ -44,6 +46,12 @@ const config: Config = {
   headTags: [
     { tagName: 'meta', attributes: { name: 'theme-color', content: coverPalette.cream } },
     { tagName: 'meta', attributes: { name: 'apple-mobile-web-app-status-bar-style', content: 'default' } },
+    { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
+    { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' } },
+  ],
+  // Outfit is the base font (src/css/custom.css). Loading it here keeps it out of a late CSS @import.
+  stylesheets: [
+    { href: 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap', type: 'text/css' },
   ],
   markdown: {
     mermaid: true,
@@ -71,8 +79,17 @@ const config: Config = {
   favicon: 'img/vs-logo.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
+  // The v4 flags that existed in 3.9 stay on. The two added in 3.10 stay off: fasterByDefault needs the
+  // @docusaurus/faster bundler, and mdx1CompatDisabledByDefault rejects the `<!-- truncate -->` comments
+  // that every post (and agent-hq) uses.
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true,
+      useCssCascadeLayers: true,
+      siteStorageNamespacing: true,
+      fasterByDefault: false,
+      mdx1CompatDisabledByDefault: false,
+    },
   },
 
   // Set the production url of your site here
@@ -351,10 +368,6 @@ const config: Config = {
     ],
   ],
 
-  // clientModules allows us to inject global CSS or JS modules into the bundle
-  clientModules: [
-    require.resolve('./src/client/gtm-events.ts'),
-  ],
   themeConfig: {
     // Diagrams render at natural size and scroll sideways on narrow screens instead of shrinking
     // their labels until nobody can read them. Strict security keeps diagrams from running code.
@@ -442,7 +455,7 @@ const config: Config = {
       },
       items: [
         { to: '/', label: 'Blog', position: 'left' },
-        { to: portfolioReferralUrl('navbar'), label: 'Portfolio', position: 'right' },
+        { href: portfolioReferralUrl('navbar'), label: 'Portfolio', position: 'right' },
         { href: 'https://victorstack-ai.github.io/agent-blog/rss.xml', label: 'RSS', position: 'right' },
         { href: 'https://github.com/victorstack-ai', label: 'GitHub', position: 'right' },
       ],
